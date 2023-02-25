@@ -43,7 +43,7 @@ docs/zsdoc/data
 
 .zsh/antigen/
 .zsh/cache/
-.zsh/.zi/
+.zsh/.zi/**
 .zsh/zoxide/**
 .zsh/zsh_history.zsh
 .zsh/ecsc/
