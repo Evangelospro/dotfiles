@@ -1,0 +1,1107 @@
+I, [2023-01-29T11:23:35.271991 #68602]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-01-29T11:23:35.455442 #68602]  INFO -- : ---------------------------------------------
+I, [2023-01-29T11:23:35.456179 #68602]  INFO -- : Fusuma: 2.4.1
+I, [2023-01-29T11:23:35.457525 #68602]  INFO -- : libinput: 1.22.1
+I, [2023-01-29T11:23:35.457598 #68602]  INFO -- : ruby 3.0.5p211
+I, [2023-01-29T11:23:35.458902 #68602]  INFO -- : OS: Linux 6.1.7-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 18 Jan 2023 19:54:40 +0000
+I, [2023-01-29T11:23:35.460401 #68602]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-01-29T11:23:35.467863 #68602]  INFO -- : Desktop session: gnome x11
+I, [2023-01-29T11:23:35.467939 #68602]  INFO -- : ---------------------------------------------
+I, [2023-01-29T11:23:35.467978 #68602]  INFO -- : Enabled Plugins: 
+I, [2023-01-29T11:23:35.468167 #68602]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-01-29T11:23:35.468211 #68602]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-01-29T11:23:35.468239 #68602]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-01-29T11:23:35.468264 #68602]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-01-29T11:23:35.468288 #68602]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-01-29T11:23:35.468313 #68602]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-01-29T11:23:35.468471 #68602]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-01-29T11:23:35.468501 #68602]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-01-29T11:23:35.468526 #68602]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-01-29T11:23:35.468553 #68602]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-01-29T11:23:35.468578 #68602]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-01-29T11:23:35.468602 #68602]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-01-29T11:23:35.468625 #68602]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-01-29T11:23:35.468649 #68602]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-01-29T11:23:35.468672 #68602]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-01-29T11:23:35.468696 #68602]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-01-29T11:23:35.468721 #68602]  INFO -- : ---------------------------------------------
+I, [2023-01-29T11:23:44.900263 #68622]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>10.93, :move_y=>1.77, :unaccelerated_x=>10.84, :unaccelerated_y=>1.76, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T11:23:45.535518 #68622]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>20.54, :move_y=>0.0, :unaccelerated_x=>18.45, :unaccelerated_y=>0.0, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T11:23:46.057015 #68622]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-9.67, :move_y=>0.59, :unaccelerated_x=>-9.67, :unaccelerated_y=>0.59, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T11:23:46.875504 #68622]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-17.22, :move_y=>-4.05, :unaccelerated_x=>-14.94, :unaccelerated_y=>-3.51, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T11:23:47.436237 #68622]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-30.32, :move_y=>-4.27, :unaccelerated_x=>-20.8, :unaccelerated_y=>-2.93, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T11:23:47.989864 #68622]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>19.22, :move_y=>-9.28, :unaccelerated_x=>16.99, :unaccelerated_y=>-8.2, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T17:10:24.026477 #1538]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-01-29T17:10:24.377402 #1538]  INFO -- : ---------------------------------------------
+I, [2023-01-29T17:10:24.379018 #1538]  INFO -- : Fusuma: 2.4.1
+I, [2023-01-29T17:10:24.381563 #1538]  INFO -- : libinput: 1.22.1
+I, [2023-01-29T17:10:24.381757 #1538]  INFO -- : ruby 3.0.5p211
+I, [2023-01-29T17:10:24.384603 #1538]  INFO -- : OS: Linux 6.1.7-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 18 Jan 2023 19:54:40 +0000
+I, [2023-01-29T17:10:24.386979 #1538]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-01-29T17:10:24.396983 #1538]  INFO -- : Desktop session: gnome x11
+I, [2023-01-29T17:10:24.397200 #1538]  INFO -- : ---------------------------------------------
+I, [2023-01-29T17:10:24.397280 #1538]  INFO -- : Enabled Plugins: 
+I, [2023-01-29T17:10:24.397491 #1538]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-01-29T17:10:24.397543 #1538]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-01-29T17:10:24.397578 #1538]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-01-29T17:10:24.397610 #1538]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-01-29T17:10:24.397818 #1538]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-01-29T17:10:24.397856 #1538]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-01-29T17:10:24.397886 #1538]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-01-29T17:10:24.397915 #1538]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-01-29T17:10:24.397944 #1538]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-01-29T17:10:24.397978 #1538]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-01-29T17:10:24.398009 #1538]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-01-29T17:10:24.398040 #1538]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-01-29T17:10:24.398071 #1538]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-01-29T17:10:24.398135 #1538]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-01-29T17:10:24.398170 #1538]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-01-29T17:10:24.398201 #1538]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-01-29T17:10:24.398235 #1538]  INFO -- : ---------------------------------------------
+I, [2023-01-29T17:13:40.235872 #1768]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>24.41, :move_y=>-5.23, :unaccelerated_x=>20.5, :unaccelerated_y=>-4.39, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T17:13:41.567871 #1768]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>45.16, :move_y=>-11.43, :unaccelerated_x=>24.31, :unaccelerated_y=>-6.15, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T17:13:43.316606 #1768]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-13.65, :move_y=>0.0, :unaccelerated_x=>-13.18, :unaccelerated_y=>0.0, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T17:13:44.524193 #1768]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-13.86, :move_y=>1.81, :unaccelerated_x=>-13.47, :unaccelerated_y=>1.76, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T17:20:51.511557 #1768]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-0.3, :move_y=>12.24, :unaccelerated_x=>-0.29, :unaccelerated_y=>12.01, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T17:20:56.484675 #1768]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>4.5, :move_y=>-12.31, :unaccelerated_x=>4.39, :unaccelerated_y=>-12.01, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T18:26:24.559775 #1768]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-18.27, :move_y=>49.09, :unaccelerated_x=>-9.37, :unaccelerated_y=>25.19, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T18:35:00.610968 #1768]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>30.71, :move_y=>-18.07, :unaccelerated_x=>19.92, :unaccelerated_y=>-11.72, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T19:23:48.138069 #1768]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>147.6, :move_y=>-9.66, :unaccelerated_x=>49.21, :unaccelerated_y=>-3.22, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-29T19:23:50.925138 #1768]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-18.65, :move_y=>-1.58, :unaccelerated_x=>-17.28, :unaccelerated_y=>-1.46, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T07:19:40.695545 #1634]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-01-30T07:19:41.492270 #1634]  INFO -- : ---------------------------------------------
+I, [2023-01-30T07:19:41.495972 #1634]  INFO -- : Fusuma: 2.4.1
+I, [2023-01-30T07:19:41.501274 #1634]  INFO -- : libinput: 1.22.1
+I, [2023-01-30T07:19:41.501552 #1634]  INFO -- : ruby 3.0.5p211
+I, [2023-01-30T07:19:41.506798 #1634]  INFO -- : OS: Linux 6.1.7-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 18 Jan 2023 19:54:40 +0000
+I, [2023-01-30T07:19:41.512271 #1634]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-01-30T07:19:41.543196 #1634]  INFO -- : Desktop session: gnome x11
+I, [2023-01-30T07:19:41.543510 #1634]  INFO -- : ---------------------------------------------
+I, [2023-01-30T07:19:41.543659 #1634]  INFO -- : Enabled Plugins: 
+I, [2023-01-30T07:19:41.544721 #1634]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-01-30T07:19:41.544934 #1634]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-01-30T07:19:41.545068 #1634]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-01-30T07:19:41.545174 #1634]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-01-30T07:19:41.545276 #1634]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-01-30T07:19:41.545375 #1634]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-01-30T07:19:41.545473 #1634]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-01-30T07:19:41.545572 #1634]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-01-30T07:19:41.545671 #1634]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-01-30T07:19:41.545769 #1634]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-01-30T07:19:41.545897 #1634]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-01-30T07:19:41.546016 #1634]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-01-30T07:19:41.546117 #1634]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-01-30T07:19:41.546215 #1634]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-01-30T07:19:41.546314 #1634]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-01-30T07:19:41.546413 #1634]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-01-30T07:19:41.546520 #1634]  INFO -- : ---------------------------------------------
+I, [2023-01-30T07:38:00.401029 #1859]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-47.12, :move_y=>129.8, :unaccelerated_x=>-15.52, :unaccelerated_y=>42.76, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T07:59:29.807524 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>6.82, :move_y=>-22.61, :unaccelerated_x=>5.57, :unaccelerated_y=>-18.45, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T07:59:31.960209 #1859]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-18.38, :move_y=>42.72, :unaccelerated_x=>-10.84, :unaccelerated_y=>25.19, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T07:59:33.022905 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>7.14, :move_y=>-24.64, :unaccelerated_x=>5.86, :unaccelerated_y=>-20.21, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T07:59:42.658096 #1859]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-0.59, :move_y=>9.09, :unaccelerated_x=>-0.59, :unaccelerated_y=>9.08, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T07:59:58.685171 #1859]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-4.69, :move_y=>9.09, :unaccelerated_x=>-4.69, :unaccelerated_y=>9.08, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T07:59:59.387959 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>5.96, :move_y=>-23.49, :unaccelerated_x=>4.98, :unaccelerated_y=>-19.62, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T08:00:00.077847 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>0.66, :move_y=>-19.5, :unaccelerated_x=>0.59, :unaccelerated_y=>-17.28, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T08:19:47.886789 #1859]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-23.14, :move_y=>6.66, :unaccelerated_x=>-19.33, :unaccelerated_y=>5.57, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T08:19:48.489181 #1859]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-17.08, :move_y=>3.1, :unaccelerated_x=>-16.11, :unaccelerated_y=>2.93, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T10:08:28.047410 #1859]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-4.49, :move_y=>29.94, :unaccelerated_x=>-3.51, :unaccelerated_y=>23.43, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T10:41:10.453399 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>2.58, :move_y=>-20.01, :unaccelerated_x=>2.34, :unaccelerated_y=>-18.16, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T10:41:11.027809 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>0.0, :move_y=>-15.38, :unaccelerated_x=>0.0, :unaccelerated_y=>-14.64, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T10:41:11.753323 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>0.88, :move_y=>-9.98, :unaccelerated_x=>0.88, :unaccelerated_y=>-9.96, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T10:41:12.262943 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>-0.88, :move_y=>-4.98, :unaccelerated_x=>-0.88, :unaccelerated_y=>-4.98, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T10:41:12.708719 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>0.0, :move_y=>-10.26, :unaccelerated_x=>0.0, :unaccelerated_y=>-10.25, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T10:41:13.181742 #1859]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>0.62, :move_y=>-16.64, :unaccelerated_x=>0.59, :unaccelerated_y=>-15.82, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T13:25:39.404204 #1859]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-3.85, :move_y=>21.7, :unaccelerated_x=>-3.22, :unaccelerated_y=>18.16, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T13:37:47.677483 #1859]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>12.29, :move_y=>3.6, :unaccelerated_x=>12.01, :unaccelerated_y=>3.51, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T13:37:50.000496 #1859]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>101.0, :move_y=>-36.57, :unaccelerated_x=>33.98, :unaccelerated_y=>-12.3, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-30T16:25:10.337324 #1859]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-8.58, :move_y=>33.09, :unaccelerated_x=>-6.15, :unaccelerated_y=>23.72, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T09:15:18.948384 #1639]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-01-31T09:15:19.329641 #1639]  INFO -- : ---------------------------------------------
+I, [2023-01-31T09:15:19.330785 #1639]  INFO -- : Fusuma: 2.4.1
+I, [2023-01-31T09:15:19.333098 #1639]  INFO -- : libinput: 1.22.1
+I, [2023-01-31T09:15:19.333233 #1639]  INFO -- : ruby 3.0.5p211
+I, [2023-01-31T09:15:19.335812 #1639]  INFO -- : OS: Linux 6.1.8-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 24 Jan 2023 21:07:06 +0000
+I, [2023-01-31T09:15:19.338940 #1639]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-01-31T09:15:19.349289 #1639]  INFO -- : Desktop session: gnome x11
+I, [2023-01-31T09:15:19.349443 #1639]  INFO -- : ---------------------------------------------
+I, [2023-01-31T09:15:19.349502 #1639]  INFO -- : Enabled Plugins: 
+I, [2023-01-31T09:15:19.349768 #1639]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-01-31T09:15:19.349862 #1639]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-01-31T09:15:19.349916 #1639]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-01-31T09:15:19.349978 #1639]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-01-31T09:15:19.350033 #1639]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-01-31T09:15:19.350067 #1639]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-01-31T09:15:19.350096 #1639]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-01-31T09:15:19.350130 #1639]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-01-31T09:15:19.350225 #1639]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-01-31T09:15:19.350291 #1639]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-01-31T09:15:19.350351 #1639]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-01-31T09:15:19.350439 #1639]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-01-31T09:15:19.350472 #1639]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-01-31T09:15:19.350732 #1639]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-01-31T09:15:19.350803 #1639]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-01-31T09:15:19.350839 #1639]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-01-31T09:15:19.350874 #1639]  INFO -- : ---------------------------------------------
+I, [2023-01-31T07:16:41.275544 #1867]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-1.2, :move_y=>15.0, :unaccelerated_x=>-1.17, :unaccelerated_y=>14.64, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T16:18:48.234898 #1867]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>4.34, :move_y=>23.01, :unaccelerated_x=>3.81, :unaccelerated_y=>20.21, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T16:18:59.363141 #1867]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>2.46, :move_y=>-15.69, :unaccelerated_x=>2.34, :unaccelerated_y=>-14.94, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T16:19:29.829213 #1867]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>0.89, :move_y=>11.26, :unaccelerated_x=>0.88, :unaccelerated_y=>11.13, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T16:19:31.511318 #1867]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>25.77, :move_y=>-6.17, :unaccelerated_x=>20.8, :unaccelerated_y=>-4.98, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T16:23:26.546804 #1867]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-0.59, :move_y=>11.22, :unaccelerated_x=>-0.59, :unaccelerated_y=>11.13, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T16:23:37.618146 #1867]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>-1.05, :move_y=>-26.64, :unaccelerated_x=>-0.88, :unaccelerated_y=>-22.26, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T17:33:06.164617 #1867]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>0.98, :move_y=>18.28, :unaccelerated_x=>0.88, :unaccelerated_y=>16.4, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T20:10:33.302767 #1867]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>3.79, :move_y=>18.0, :unaccelerated_x=>3.51, :unaccelerated_y=>16.7, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-01-31T20:10:34.844993 #1867]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>1.7, :move_y=>21.4, :unaccelerated_x=>1.46, :unaccelerated_y=>18.45, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-01T07:15:20.759308 #1614]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-01T07:15:21.134575 #1614]  INFO -- : ---------------------------------------------
+I, [2023-02-01T07:15:21.136232 #1614]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-01T07:15:21.138988 #1614]  INFO -- : libinput: 1.22.1
+I, [2023-02-01T07:15:21.139278 #1614]  INFO -- : ruby 3.0.5p211
+I, [2023-02-01T07:15:21.141846 #1614]  INFO -- : OS: Linux 6.1.8-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 24 Jan 2023 21:07:06 +0000
+I, [2023-02-01T07:15:21.144360 #1614]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-01T07:15:21.154057 #1614]  INFO -- : Desktop session: gnome x11
+I, [2023-02-01T07:15:21.154203 #1614]  INFO -- : ---------------------------------------------
+I, [2023-02-01T07:15:21.154300 #1614]  INFO -- : Enabled Plugins: 
+I, [2023-02-01T07:15:21.154681 #1614]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-01T07:15:21.154784 #1614]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-01T07:15:21.154872 #1614]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-01T07:15:21.154953 #1614]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-01T07:15:21.155061 #1614]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-01T07:15:21.155118 #1614]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-01T07:15:21.155170 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-01T07:15:21.155221 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-01T07:15:21.155301 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-01T07:15:21.155359 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-01T07:15:21.155409 #1614]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-01T07:15:21.155462 #1614]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-01T07:15:21.155512 #1614]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-01T07:15:21.155561 #1614]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-01T07:15:21.155898 #1614]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-01T07:15:21.155981 #1614]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-01T07:15:21.156072 #1614]  INFO -- : ---------------------------------------------
+I, [2023-02-01T14:31:53.035098 #1849]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>77.94, :move_y=>-12.88, :unaccelerated_x=>33.68, :unaccelerated_y=>-5.57, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-01T14:48:20.648278 #1849]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>13.59, :move_y=>2.91, :unaccelerated_x=>12.3, :unaccelerated_y=>2.64, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-01T21:49:25.673472 #1634]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-01T21:49:26.005907 #1634]  INFO -- : ---------------------------------------------
+I, [2023-02-01T21:49:26.006940 #1634]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-01T21:49:26.009574 #1634]  INFO -- : libinput: 1.22.1
+I, [2023-02-01T21:49:26.009732 #1634]  INFO -- : ruby 3.0.5p211
+I, [2023-02-01T21:49:26.012260 #1634]  INFO -- : OS: Linux 6.1.8-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 24 Jan 2023 21:07:06 +0000
+I, [2023-02-01T21:49:26.015220 #1634]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-01T21:49:26.027807 #1634]  INFO -- : Desktop session: gnome x11
+I, [2023-02-01T21:49:26.028017 #1634]  INFO -- : ---------------------------------------------
+I, [2023-02-01T21:49:26.028094 #1634]  INFO -- : Enabled Plugins: 
+I, [2023-02-01T21:49:26.028434 #1634]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-01T21:49:26.028514 #1634]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-01T21:49:26.028569 #1634]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-01T21:49:26.028621 #1634]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-01T21:49:26.028672 #1634]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-01T21:49:26.028724 #1634]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-01T21:49:26.028775 #1634]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-01T21:49:26.028824 #1634]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-01T21:49:26.028874 #1634]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-01T21:49:26.028923 #1634]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-01T21:49:26.028973 #1634]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-01T21:49:26.029022 #1634]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-01T21:49:26.029072 #1634]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-01T21:49:26.029409 #1634]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-01T21:49:26.029462 #1634]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-01T21:49:26.029517 #1634]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-01T21:49:26.029569 #1634]  INFO -- : ---------------------------------------------
+I, [2023-02-02T07:00:35.999943 #1623]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-02T07:00:36.354393 #1623]  INFO -- : ---------------------------------------------
+I, [2023-02-02T07:00:36.356193 #1623]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-02T07:00:36.358997 #1623]  INFO -- : libinput: 1.22.1
+I, [2023-02-02T07:00:36.359157 #1623]  INFO -- : ruby 3.0.5p211
+I, [2023-02-02T07:00:36.361866 #1623]  INFO -- : OS: Linux 6.1.8-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 24 Jan 2023 21:07:06 +0000
+I, [2023-02-02T07:00:36.364586 #1623]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-02T07:00:36.376815 #1623]  INFO -- : Desktop session: gnome x11
+I, [2023-02-02T07:00:36.376946 #1623]  INFO -- : ---------------------------------------------
+I, [2023-02-02T07:00:36.376996 #1623]  INFO -- : Enabled Plugins: 
+I, [2023-02-02T07:00:36.377431 #1623]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-02T07:00:36.377497 #1623]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-02T07:00:36.377532 #1623]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-02T07:00:36.377561 #1623]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-02T07:00:36.377589 #1623]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-02T07:00:36.377617 #1623]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-02T07:00:36.377645 #1623]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-02T07:00:36.377673 #1623]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-02T07:00:36.377701 #1623]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-02T07:00:36.377728 #1623]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-02T07:00:36.377756 #1623]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-02T07:00:36.377783 #1623]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-02T07:00:36.377810 #1623]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-02T07:00:36.377837 #1623]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-02T07:00:36.377864 #1623]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-02T07:00:36.377892 #1623]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-02T07:00:36.377921 #1623]  INFO -- : ---------------------------------------------
+I, [2023-02-02T14:38:49.256903 #1641]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-02T14:38:49.599681 #1641]  INFO -- : ---------------------------------------------
+I, [2023-02-02T14:38:49.600881 #1641]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-02T14:38:49.603199 #1641]  INFO -- : libinput: 1.22.1
+I, [2023-02-02T14:38:49.603327 #1641]  INFO -- : ruby 3.0.5p211
+I, [2023-02-02T14:38:49.605643 #1641]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-02T14:38:49.607830 #1641]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-02T14:38:49.616959 #1641]  INFO -- : Desktop session: gnome x11
+I, [2023-02-02T14:38:49.617103 #1641]  INFO -- : ---------------------------------------------
+I, [2023-02-02T14:38:49.617155 #1641]  INFO -- : Enabled Plugins: 
+I, [2023-02-02T14:38:49.617357 #1641]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-02T14:38:49.617407 #1641]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-02T14:38:49.617442 #1641]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-02T14:38:49.617472 #1641]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-02T14:38:49.617502 #1641]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-02T14:38:49.617532 #1641]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-02T14:38:49.617562 #1641]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-02T14:38:49.617591 #1641]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-02T14:38:49.617620 #1641]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-02T14:38:49.617682 #1641]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-02T14:38:49.617718 #1641]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-02T14:38:49.617809 #1641]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-02T14:38:49.617844 #1641]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-02T14:38:49.618072 #1641]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-02T14:38:49.618138 #1641]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-02T14:38:49.618173 #1641]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-02T14:38:49.618207 #1641]  INFO -- : ---------------------------------------------
+I, [2023-02-02T15:30:19.313884 #1898]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>131.47, :move_y=>-26.02, :unaccelerated_x=>28.12, :unaccelerated_y=>-5.57, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-02T16:53:39.453637 #1898]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>18.88, :move_y=>-3.78, :unaccelerated_x=>16.11, :unaccelerated_y=>-3.22, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-02T16:53:40.619135 #1898]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>326.07, :move_y=>62.71, :unaccelerated_x=>68.54, :unaccelerated_y=>13.18, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-02T17:02:37.912898 #1898]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>20.24, :move_y=>-4.62, :unaccelerated_x=>16.7, :unaccelerated_y=>-3.81, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-02T17:02:41.166534 #1898]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>3.56, :move_y=>11.86, :unaccelerated_x=>3.51, :unaccelerated_y=>11.72, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-02T21:25:04.041017 #1622]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-02T21:25:04.404496 #1622]  INFO -- : ---------------------------------------------
+I, [2023-02-02T21:25:04.405758 #1622]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-02T21:25:04.408160 #1622]  INFO -- : libinput: 1.22.1
+I, [2023-02-02T21:25:04.408290 #1622]  INFO -- : ruby 3.0.5p211
+I, [2023-02-02T21:25:04.410569 #1622]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-02T21:25:04.412814 #1622]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-02T21:25:04.423723 #1622]  INFO -- : Desktop session: gnome x11
+I, [2023-02-02T21:25:04.423902 #1622]  INFO -- : ---------------------------------------------
+I, [2023-02-02T21:25:04.423979 #1622]  INFO -- : Enabled Plugins: 
+I, [2023-02-02T21:25:04.424535 #1622]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-02T21:25:04.424629 #1622]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-02T21:25:04.424689 #1622]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-02T21:25:04.424746 #1622]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-02T21:25:04.424802 #1622]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-02T21:25:04.424854 #1622]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-02T21:25:04.424904 #1622]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-02T21:25:04.424954 #1622]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-02T21:25:04.425004 #1622]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-02T21:25:04.425054 #1622]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-02T21:25:04.425101 #1622]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-02T21:25:04.425149 #1622]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-02T21:25:04.425198 #1622]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-02T21:25:04.425246 #1622]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-02T21:25:04.425292 #1622]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-02T21:25:04.425405 #1622]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-02T21:25:04.425481 #1622]  INFO -- : ---------------------------------------------
+I, [2023-02-02T22:15:13.989214 #1876]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>89.67, :move_y=>-21.2, :unaccelerated_x=>32.22, :unaccelerated_y=>-7.62, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-02T23:15:30.097251 #1876]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>10.08, :move_y=>5.04, :unaccelerated_x=>9.96, :unaccelerated_y=>4.98, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-03T07:17:40.727108 #1545]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-03T07:17:41.069225 #1545]  INFO -- : ---------------------------------------------
+I, [2023-02-03T07:17:41.070291 #1545]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-03T07:17:41.072954 #1545]  INFO -- : libinput: 1.22.1
+I, [2023-02-03T07:17:41.073123 #1545]  INFO -- : ruby 3.0.5p211
+I, [2023-02-03T07:17:41.075960 #1545]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-03T07:17:41.078759 #1545]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-03T07:17:41.093027 #1545]  INFO -- : Desktop session: gnome x11
+I, [2023-02-03T07:17:41.093217 #1545]  INFO -- : ---------------------------------------------
+I, [2023-02-03T07:17:41.093293 #1545]  INFO -- : Enabled Plugins: 
+I, [2023-02-03T07:17:41.093621 #1545]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-03T07:17:41.093698 #1545]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-03T07:17:41.093750 #1545]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-03T07:17:41.093801 #1545]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-03T07:17:41.093851 #1545]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-03T07:17:41.093900 #1545]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-03T07:17:41.093947 #1545]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-03T07:17:41.093998 #1545]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-03T07:17:41.094054 #1545]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-03T07:17:41.094102 #1545]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-03T07:17:41.094146 #1545]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-03T07:17:41.094191 #1545]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-03T07:17:41.094236 #1545]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-03T07:17:41.094281 #1545]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-03T07:17:41.094325 #1545]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-03T07:17:41.094677 #1545]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-03T07:17:41.094745 #1545]  INFO -- : ---------------------------------------------
+I, [2023-02-03T07:23:34.084852 #1780]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>4.85, :move_y=>-13.34, :unaccelerated_x=>4.69, :unaccelerated_y=>-12.89, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-03T07:23:35.730264 #1780]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-2.45, :move_y=>15.0, :unaccelerated_x=>-2.34, :unaccelerated_y=>14.35, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-03T17:15:17.656531 #1617]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-03T17:15:18.005465 #1617]  INFO -- : ---------------------------------------------
+I, [2023-02-03T17:15:18.006837 #1617]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-03T17:15:18.009484 #1617]  INFO -- : libinput: 1.22.1
+I, [2023-02-03T17:15:18.009680 #1617]  INFO -- : ruby 3.0.5p211
+I, [2023-02-03T17:15:18.011948 #1617]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-03T17:15:18.014010 #1617]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-03T17:15:18.026316 #1617]  INFO -- : Desktop session: gnome x11
+I, [2023-02-03T17:15:18.026478 #1617]  INFO -- : ---------------------------------------------
+I, [2023-02-03T17:15:18.026534 #1617]  INFO -- : Enabled Plugins: 
+I, [2023-02-03T17:15:18.026809 #1617]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-03T17:15:18.026875 #1617]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-03T17:15:18.026910 #1617]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-03T17:15:18.027092 #1617]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-03T17:15:18.027137 #1617]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-03T17:15:18.027169 #1617]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-03T17:15:18.027197 #1617]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-03T17:15:18.027225 #1617]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-03T17:15:18.027254 #1617]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-03T17:15:18.027282 #1617]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-03T17:15:18.027310 #1617]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-03T17:15:18.027338 #1617]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-03T17:15:18.027365 #1617]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-03T17:15:18.027393 #1617]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-03T17:15:18.027421 #1617]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-03T17:15:18.027448 #1617]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-03T17:15:18.027478 #1617]  INFO -- : ---------------------------------------------
+I, [2023-02-04T00:05:01.211712 #1833]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-7.0, :move_y=>26.15, :unaccelerated_x=>-5.57, :unaccelerated_y=>20.8, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-04T00:05:02.293540 #1833]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-9.45, :move_y=>68.66, :unaccelerated_x=>-4.39, :unaccelerated_y=>31.93, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-04T00:07:30.972171 #1833]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>3.17, :move_y=>-18.7, :unaccelerated_x=>2.93, :unaccelerated_y=>-17.28, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-04T00:07:31.502161 #1833]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>4.06, :move_y=>-17.48, :unaccelerated_x=>3.81, :unaccelerated_y=>-16.4, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-04T00:07:31.819186 #1833]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>9.97, :move_y=>-38.71, :unaccelerated_x=>4.98, :unaccelerated_y=>-19.33, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-04T00:07:32.119267 #1833]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>6.77, :move_y=>-27.98, :unaccelerated_x=>4.39, :unaccelerated_y=>-18.16, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-04T00:07:32.423319 #1833]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>18.05, :move_y=>-50.19, :unaccelerated_x=>9.37, :unaccelerated_y=>-26.07, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-04T00:07:32.758785 #1833]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>3.98, :move_y=>-15.62, :unaccelerated_x=>3.81, :unaccelerated_y=>-14.94, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-04T00:07:34.354165 #1833]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>2.16, :move_y=>-16.06, :unaccelerated_x=>2.05, :unaccelerated_y=>-15.23, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-04T16:23:24.298219 #1616]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-04T16:23:24.685512 #1616]  INFO -- : ---------------------------------------------
+I, [2023-02-04T16:23:24.687120 #1616]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-04T16:23:24.689597 #1616]  INFO -- : libinput: 1.22.1
+I, [2023-02-04T16:23:24.689731 #1616]  INFO -- : ruby 3.0.5p211
+I, [2023-02-04T16:23:24.692424 #1616]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-04T16:23:24.694875 #1616]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-04T16:23:24.708706 #1616]  INFO -- : Desktop session: gnome x11
+I, [2023-02-04T16:23:24.708870 #1616]  INFO -- : ---------------------------------------------
+I, [2023-02-04T16:23:24.708936 #1616]  INFO -- : Enabled Plugins: 
+I, [2023-02-04T16:23:24.709447 #1616]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-04T16:23:24.709534 #1616]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-04T16:23:24.709593 #1616]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-04T16:23:24.709647 #1616]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-04T16:23:24.709697 #1616]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-04T16:23:24.709744 #1616]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-04T16:23:24.709791 #1616]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-04T16:23:24.709837 #1616]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-04T16:23:24.709885 #1616]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-04T16:23:24.709934 #1616]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-04T16:23:24.709984 #1616]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-04T16:23:24.710034 #1616]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-04T16:23:24.710085 #1616]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-04T16:23:24.710137 #1616]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-04T16:23:24.710188 #1616]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-04T16:23:24.710239 #1616]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-04T16:23:24.710319 #1616]  INFO -- : ---------------------------------------------
+I, [2023-02-06T08:22:54.189662 #1651]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-06T08:22:54.577448 #1651]  INFO -- : ---------------------------------------------
+I, [2023-02-06T08:22:54.579153 #1651]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-06T08:22:54.582023 #1651]  INFO -- : libinput: 1.22.1
+I, [2023-02-06T08:22:54.582168 #1651]  INFO -- : ruby 3.0.5p211
+I, [2023-02-06T08:22:54.585083 #1651]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-06T08:22:54.587813 #1651]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-06T08:22:54.602673 #1651]  INFO -- : Desktop session: gnome x11
+I, [2023-02-06T08:22:54.602894 #1651]  INFO -- : ---------------------------------------------
+I, [2023-02-06T08:22:54.602978 #1651]  INFO -- : Enabled Plugins: 
+I, [2023-02-06T08:22:54.603503 #1651]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-06T08:22:54.603596 #1651]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-06T08:22:54.603658 #1651]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-06T08:22:54.603749 #1651]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-06T08:22:54.603811 #1651]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-06T08:22:54.603867 #1651]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-06T08:22:54.603925 #1651]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-06T08:22:54.603980 #1651]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-06T08:22:54.604029 #1651]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-06T08:22:54.604080 #1651]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-06T08:22:54.604130 #1651]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-06T08:22:54.604178 #1651]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-06T08:22:54.604228 #1651]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-06T08:22:54.604275 #1651]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-06T08:22:54.604365 #1651]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-06T08:22:54.604420 #1651]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-06T08:22:54.604474 #1651]  INFO -- : ---------------------------------------------
+I, [2023-02-06T08:28:42.574316 #1891]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-7.04, :move_y=>3.52, :unaccelerated_x=>-7.03, :unaccelerated_y=>3.51, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T12:14:24.512309 #1654]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-07T12:14:24.865873 #1654]  INFO -- : ---------------------------------------------
+I, [2023-02-07T12:14:24.867462 #1654]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-07T12:14:24.870059 #1654]  INFO -- : libinput: 1.22.1
+I, [2023-02-07T12:14:24.870192 #1654]  INFO -- : ruby 3.0.5p211
+I, [2023-02-07T12:14:24.873005 #1654]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-07T12:14:24.875208 #1654]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-07T12:14:24.884110 #1654]  INFO -- : Desktop session: gnome x11
+I, [2023-02-07T12:14:24.884260 #1654]  INFO -- : ---------------------------------------------
+I, [2023-02-07T12:14:24.884340 #1654]  INFO -- : Enabled Plugins: 
+I, [2023-02-07T12:14:24.884619 #1654]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-07T12:14:24.884702 #1654]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-07T12:14:24.884767 #1654]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-07T12:14:24.884818 #1654]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-07T12:14:24.884867 #1654]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-07T12:14:24.884922 #1654]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-07T12:14:24.885250 #1654]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-07T12:14:24.885316 #1654]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-07T12:14:24.885365 #1654]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-07T12:14:24.885413 #1654]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-07T12:14:24.885467 #1654]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-07T12:14:24.885517 #1654]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-07T12:14:24.885565 #1654]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-07T12:14:24.885612 #1654]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-07T12:14:24.885662 #1654]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-07T12:14:24.885711 #1654]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-07T12:14:24.885762 #1654]  INFO -- : ---------------------------------------------
+I, [2023-02-07T10:25:00.909822 #1881]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>14.94, :move_y=>-0.3, :unaccelerated_x=>14.35, :unaccelerated_y=>-0.29, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T10:27:36.796632 #1881]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>1.18, :move_y=>10.02, :unaccelerated_x=>1.17, :unaccelerated_y=>9.96, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T10:27:41.453568 #1881]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>-0.59, :move_y=>-10.55, :unaccelerated_x=>-0.59, :unaccelerated_y=>-10.54, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T10:27:42.419047 #1881]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>0.89, :move_y=>-33.86, :unaccelerated_x=>0.59, :unaccelerated_y=>-22.26, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T10:27:43.414060 #1881]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-10.18, :move_y=>20.7, :unaccelerated_x=>-8.79, :unaccelerated_y=>17.87, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T10:27:45.198314 #1881]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-3.81, :move_y=>9.97, :unaccelerated_x=>-3.81, :unaccelerated_y=>9.96, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T10:27:48.062228 #1881]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-5.07, :move_y=>11.03, :unaccelerated_x=>-4.98, :unaccelerated_y=>10.84, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T10:27:49.587173 #1881]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>0.67, :move_y=>-17.97, :unaccelerated_x=>0.59, :unaccelerated_y=>-15.82, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T10:27:50.009759 #1881]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>5.66, :move_y=>-10.42, :unaccelerated_x=>5.57, :unaccelerated_y=>-10.25, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-07T14:12:57.657123 #1642]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-07T14:12:58.029121 #1642]  INFO -- : ---------------------------------------------
+I, [2023-02-07T14:12:58.030557 #1642]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-07T14:12:58.033338 #1642]  INFO -- : libinput: 1.22.1
+I, [2023-02-07T14:12:58.033488 #1642]  INFO -- : ruby 3.0.5p211
+I, [2023-02-07T14:12:58.036351 #1642]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-07T14:12:58.039627 #1642]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-07T14:12:58.054708 #1642]  INFO -- : Desktop session: gnome x11
+I, [2023-02-07T14:12:58.054881 #1642]  INFO -- : ---------------------------------------------
+I, [2023-02-07T14:12:58.054968 #1642]  INFO -- : Enabled Plugins: 
+I, [2023-02-07T14:12:58.055303 #1642]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-07T14:12:58.055387 #1642]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-07T14:12:58.055451 #1642]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-07T14:12:58.055510 #1642]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-07T14:12:58.055814 #1642]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-07T14:12:58.055874 #1642]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-07T14:12:58.055929 #1642]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-07T14:12:58.055984 #1642]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-07T14:12:58.056040 #1642]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-07T14:12:58.056101 #1642]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-07T14:12:58.056155 #1642]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-07T14:12:58.056204 #1642]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-07T14:12:58.056293 #1642]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-07T14:12:58.056354 #1642]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-07T14:12:58.056407 #1642]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-07T14:12:58.056458 #1642]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-07T14:12:58.056513 #1642]  INFO -- : ---------------------------------------------
+I, [2023-02-08T09:59:55.892294 #1671]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-08T09:59:56.264862 #1671]  INFO -- : ---------------------------------------------
+I, [2023-02-08T09:59:56.266419 #1671]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-08T09:59:56.269031 #1671]  INFO -- : libinput: 1.22.1
+I, [2023-02-08T09:59:56.269194 #1671]  INFO -- : ruby 3.0.5p211
+I, [2023-02-08T09:59:56.271658 #1671]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-08T09:59:56.277104 #1671]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-08T09:59:56.287672 #1671]  INFO -- : Desktop session: gnome x11
+I, [2023-02-08T09:59:56.287833 #1671]  INFO -- : ---------------------------------------------
+I, [2023-02-08T09:59:56.287948 #1671]  INFO -- : Enabled Plugins: 
+I, [2023-02-08T09:59:56.288244 #1671]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-08T09:59:56.288367 #1671]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-08T09:59:56.288443 #1671]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-08T09:59:56.288504 #1671]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-08T09:59:56.288748 #1671]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-08T09:59:56.288789 #1671]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-08T09:59:56.288818 #1671]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-08T09:59:56.288884 #1671]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-08T09:59:56.288925 #1671]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-08T09:59:56.288959 #1671]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-08T09:59:56.288988 #1671]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-08T09:59:56.289017 #1671]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-08T09:59:56.289047 #1671]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-08T09:59:56.289075 #1671]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-08T09:59:56.289102 #1671]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-08T09:59:56.289130 #1671]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-08T09:59:56.289162 #1671]  INFO -- : ---------------------------------------------
+I, [2023-02-08T10:13:58.661335 #1917]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>6.18, :move_y=>-13.29, :unaccelerated_x=>5.86, :unaccelerated_y=>-12.59, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-08T10:14:06.534563 #1917]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>11.21, :move_y=>-1.47, :unaccelerated_x=>11.13, :unaccelerated_y=>-1.46, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-08T10:14:11.777946 #1917]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-6.74, :move_y=>1.76, :unaccelerated_x=>-6.74, :unaccelerated_y=>1.76, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-08T10:14:12.932432 #1917]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-0.93, :move_y=>17.94, :unaccelerated_x=>-0.88, :unaccelerated_y=>16.99, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-08T14:23:52.745059 #1629]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-08T14:23:53.100961 #1629]  INFO -- : ---------------------------------------------
+I, [2023-02-08T14:23:53.102233 #1629]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-08T14:23:53.105895 #1629]  INFO -- : libinput: 1.22.1
+I, [2023-02-08T14:23:53.106086 #1629]  INFO -- : ruby 3.0.5p211
+I, [2023-02-08T14:23:53.108909 #1629]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-08T14:23:53.111800 #1629]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-08T14:23:53.125572 #1629]  INFO -- : Desktop session: gnome x11
+I, [2023-02-08T14:23:53.125759 #1629]  INFO -- : ---------------------------------------------
+I, [2023-02-08T14:23:53.125836 #1629]  INFO -- : Enabled Plugins: 
+I, [2023-02-08T14:23:53.126052 #1629]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-08T14:23:53.126103 #1629]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-08T14:23:53.126136 #1629]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-08T14:23:53.126167 #1629]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-08T14:23:53.126196 #1629]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-08T14:23:53.126225 #1629]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-08T14:23:53.126252 #1629]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-08T14:23:53.126282 #1629]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-08T14:23:53.126310 #1629]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-08T14:23:53.126339 #1629]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-08T14:23:53.126404 #1629]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-08T14:23:53.126442 #1629]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-08T14:23:53.126472 #1629]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-08T14:23:53.126721 #1629]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-08T14:23:53.126762 #1629]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-08T14:23:53.126795 #1629]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-08T14:23:53.126851 #1629]  INFO -- : ---------------------------------------------
+I, [2023-02-09T23:47:40.530593 #1661]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-09T23:47:40.940459 #1661]  INFO -- : ---------------------------------------------
+I, [2023-02-09T23:47:40.942131 #1661]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-09T23:47:40.945072 #1661]  INFO -- : libinput: 1.22.1
+I, [2023-02-09T23:47:40.945258 #1661]  INFO -- : ruby 3.0.5p211
+I, [2023-02-09T23:47:40.948233 #1661]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-09T23:47:40.951096 #1661]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-09T23:47:40.965126 #1661]  INFO -- : Desktop session: gnome x11
+I, [2023-02-09T23:47:40.965383 #1661]  INFO -- : ---------------------------------------------
+I, [2023-02-09T23:47:40.965485 #1661]  INFO -- : Enabled Plugins: 
+I, [2023-02-09T23:47:40.965787 #1661]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-09T23:47:40.965879 #1661]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-09T23:47:40.965945 #1661]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-09T23:47:40.966000 #1661]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-09T23:47:40.966051 #1661]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-09T23:47:40.966105 #1661]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-09T23:47:40.966160 #1661]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-09T23:47:40.966518 #1661]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-09T23:47:40.966583 #1661]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-09T23:47:40.966634 #1661]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-09T23:47:40.966683 #1661]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-09T23:47:40.966735 #1661]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-09T23:47:40.966797 #1661]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-09T23:47:40.966852 #1661]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-09T23:47:40.966906 #1661]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-09T23:47:40.966960 #1661]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-09T23:47:40.967020 #1661]  INFO -- : ---------------------------------------------
+I, [2023-02-09T21:56:47.968816 #1913]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>8.5, :move_y=>0.3, :unaccelerated_x=>8.2, :unaccelerated_y=>0.29, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-10T12:53:22.757927 #1656]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-10T12:53:23.109719 #1656]  INFO -- : ---------------------------------------------
+I, [2023-02-10T12:53:23.111058 #1656]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-10T12:53:23.113099 #1656]  INFO -- : libinput: 1.22.1
+I, [2023-02-10T12:53:23.113201 #1656]  INFO -- : ruby 3.0.5p211
+I, [2023-02-10T12:53:23.115297 #1656]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-10T12:53:23.117565 #1656]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-10T12:53:23.131117 #1656]  INFO -- : Desktop session: gnome x11
+I, [2023-02-10T12:53:23.131288 #1656]  INFO -- : ---------------------------------------------
+I, [2023-02-10T12:53:23.131403 #1656]  INFO -- : Enabled Plugins: 
+I, [2023-02-10T12:53:23.131955 #1656]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-10T12:53:23.132050 #1656]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-10T12:53:23.132115 #1656]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-10T12:53:23.132169 #1656]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-10T12:53:23.132226 #1656]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-10T12:53:23.132283 #1656]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-10T12:53:23.132336 #1656]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-10T12:53:23.132389 #1656]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-10T12:53:23.132442 #1656]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-10T12:53:23.132494 #1656]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-10T12:53:23.132551 #1656]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-10T12:53:23.132606 #1656]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-10T12:53:23.132663 #1656]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-10T12:53:23.132723 #1656]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-10T12:53:23.132814 #1656]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-10T12:53:23.132870 #1656]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-10T12:53:23.132927 #1656]  INFO -- : ---------------------------------------------
+I, [2023-02-10T16:22:30.739509 #1905]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>14.53, :move_y=>7.26, :unaccelerated_x=>13.47, :unaccelerated_y=>6.74, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-10T16:41:56.333044 #1905]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>4.42, :move_y=>6.19, :unaccelerated_x=>4.39, :unaccelerated_y=>6.15, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-10T19:23:35.418286 #1621]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-10T19:23:35.843658 #1621]  INFO -- : ---------------------------------------------
+I, [2023-02-10T19:23:35.845376 #1621]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-10T19:23:35.848377 #1621]  INFO -- : libinput: 1.22.1
+I, [2023-02-10T19:23:35.848537 #1621]  INFO -- : ruby 3.0.5p211
+I, [2023-02-10T19:23:35.851538 #1621]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Wed, 01 Feb 2023 17:07:37 +0000
+I, [2023-02-10T19:23:35.855029 #1621]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-10T19:23:35.870584 #1621]  INFO -- : Desktop session: gnome x11
+I, [2023-02-10T19:23:35.870762 #1621]  INFO -- : ---------------------------------------------
+I, [2023-02-10T19:23:35.870843 #1621]  INFO -- : Enabled Plugins: 
+I, [2023-02-10T19:23:35.871133 #1621]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-10T19:23:35.871210 #1621]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-10T19:23:35.871264 #1621]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-10T19:23:35.871343 #1621]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-10T19:23:35.871654 #1621]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-10T19:23:35.871716 #1621]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-10T19:23:35.871769 #1621]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-10T19:23:35.871820 #1621]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-10T19:23:35.871871 #1621]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-10T19:23:35.871924 #1621]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-10T19:23:35.871976 #1621]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-10T19:23:35.872027 #1621]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-10T19:23:35.872080 #1621]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-10T19:23:35.872175 #1621]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-10T19:23:35.872232 #1621]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-10T19:23:35.872281 #1621]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-10T19:23:35.872363 #1621]  INFO -- : ---------------------------------------------
+I, [2023-02-10T22:37:08.139529 #1891]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>16.08, :move_y=>1.55, :unaccelerated_x=>15.23, :unaccelerated_y=>1.46, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-12T01:01:15.635258 #1597]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-12T01:01:16.066122 #1597]  INFO -- : ---------------------------------------------
+I, [2023-02-12T01:01:16.068111 #1597]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-12T01:01:16.081021 #1597]  INFO -- : libinput: 1.22.1
+I, [2023-02-12T01:01:16.081223 #1597]  INFO -- : ruby 3.0.5p211
+I, [2023-02-12T01:01:16.084451 #1597]  INFO -- : OS: Linux 6.1.10-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Mon, 06 Feb 2023 09:28:06 +0000
+I, [2023-02-12T01:01:16.089122 #1597]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-12T01:01:16.101639 #1597]  INFO -- : Desktop session: gnome x11
+I, [2023-02-12T01:01:16.101819 #1597]  INFO -- : ---------------------------------------------
+I, [2023-02-12T01:01:16.101893 #1597]  INFO -- : Enabled Plugins: 
+I, [2023-02-12T01:01:16.102194 #1597]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-12T01:01:16.102284 #1597]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-12T01:01:16.102413 #1597]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-12T01:01:16.102489 #1597]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-12T01:01:16.102543 #1597]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-12T01:01:16.102595 #1597]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-12T01:01:16.102645 #1597]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-12T01:01:16.102692 #1597]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-12T01:01:16.102739 #1597]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-12T01:01:16.102787 #1597]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-12T01:01:16.102835 #1597]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-12T01:01:16.102881 #1597]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-12T01:01:16.102928 #1597]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-12T01:01:16.102974 #1597]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-12T01:01:16.103022 #1597]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-12T01:01:16.103069 #1597]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-12T01:01:16.103123 #1597]  INFO -- : ---------------------------------------------
+I, [2023-02-13T04:34:07.913888 #1593]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-13T04:34:08.308127 #1593]  INFO -- : ---------------------------------------------
+I, [2023-02-13T04:34:08.309883 #1593]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-13T04:34:08.312748 #1593]  INFO -- : libinput: 1.22.1
+I, [2023-02-13T04:34:08.312925 #1593]  INFO -- : ruby 3.0.5p211
+I, [2023-02-13T04:34:08.315918 #1593]  INFO -- : OS: Linux 6.1.10-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Mon, 06 Feb 2023 09:28:06 +0000
+I, [2023-02-13T04:34:08.318760 #1593]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-13T04:34:08.332159 #1593]  INFO -- : Desktop session: gnome x11
+I, [2023-02-13T04:34:08.332331 #1593]  INFO -- : ---------------------------------------------
+I, [2023-02-13T04:34:08.332437 #1593]  INFO -- : Enabled Plugins: 
+I, [2023-02-13T04:34:08.332746 #1593]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-13T04:34:08.332823 #1593]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-13T04:34:08.332925 #1593]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-13T04:34:08.332989 #1593]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-13T04:34:08.333299 #1593]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-13T04:34:08.333362 #1593]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-13T04:34:08.333476 #1593]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-13T04:34:08.333541 #1593]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-13T04:34:08.333600 #1593]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-13T04:34:08.333655 #1593]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-13T04:34:08.333711 #1593]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-13T04:34:08.333774 #1593]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-13T04:34:08.333830 #1593]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-13T04:34:08.333886 #1593]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-13T04:34:08.333942 #1593]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-13T04:34:08.333999 #1593]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-13T04:34:08.334058 #1593]  INFO -- : ---------------------------------------------
+I, [2023-02-13T04:34:40.523233 #1838]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>13.2, :move_y=>-36.44, :unaccelerated_x=>7.32, :unaccelerated_y=>-20.21, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:43.052300 #1838]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>0.48, :move_y=>-46.97, :unaccelerated_x=>0.29, :unaccelerated_y=>-28.7, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:43.782592 #1838]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>-1.46, :move_y=>-26.6, :unaccelerated_x=>-1.17, :unaccelerated_y=>-21.38, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:44.528445 #1838]  INFO -- : {:command=>"xdotool key Super_L+s", :args=>{:move_x=>-1.7, :move_y=>-17.04, :unaccelerated_x=>-1.46, :unaccelerated_y=>-14.64, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:47.473254 #1838]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-2.79, :move_y=>43.76, :unaccelerated_x=>-1.76, :unaccelerated_y=>27.53, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:48.648918 #1838]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-1.17, :move_y=>7.33, :unaccelerated_x=>-1.17, :unaccelerated_y=>7.32, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:49.206677 #1838]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>-5.41, :move_y=>26.26, :unaccelerated_x=>-4.1, :unaccelerated_y=>19.92, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:50.991100 #1838]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>32.47, :move_y=>-4.58, :unaccelerated_x=>24.9, :unaccelerated_y=>-3.51, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:51.793154 #1838]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>28.0, :move_y=>1.09, :unaccelerated_x=>22.55, :unaccelerated_y=>0.88, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:52.367900 #1838]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-28.6, :move_y=>-7.8, :unaccelerated_x=>-22.55, :unaccelerated_y=>-6.15, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:52.816993 #1838]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-20.65, :move_y=>-0.33, :unaccelerated_x=>-18.45, :unaccelerated_y=>-0.29, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-13T04:34:53.297607 #1838]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-34.98, :move_y=>2.44, :unaccelerated_x=>-25.19, :unaccelerated_y=>1.76, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-14T22:36:04.885065 #1614]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-14T22:36:05.329547 #1614]  INFO -- : ---------------------------------------------
+I, [2023-02-14T22:36:05.330828 #1614]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-14T22:36:05.333161 #1614]  INFO -- : libinput: 1.22.1
+I, [2023-02-14T22:36:05.333358 #1614]  INFO -- : ruby 3.0.5p211
+I, [2023-02-14T22:36:05.336743 #1614]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Thu, 09 Feb 2023 20:06:11 +0000
+I, [2023-02-14T22:36:05.340179 #1614]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-14T22:36:05.349357 #1614]  INFO -- : Desktop session: gnome x11
+I, [2023-02-14T22:36:05.349484 #1614]  INFO -- : ---------------------------------------------
+I, [2023-02-14T22:36:05.349533 #1614]  INFO -- : Enabled Plugins: 
+I, [2023-02-14T22:36:05.349736 #1614]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-14T22:36:05.349784 #1614]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-14T22:36:05.349816 #1614]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-14T22:36:05.349847 #1614]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-14T22:36:05.349875 #1614]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-14T22:36:05.349902 #1614]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-14T22:36:05.349929 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-14T22:36:05.349957 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-14T22:36:05.349983 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-14T22:36:05.350180 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-14T22:36:05.350214 #1614]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-14T22:36:05.350242 #1614]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-14T22:36:05.350310 #1614]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-14T22:36:05.350343 #1614]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-14T22:36:05.350370 #1614]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-14T22:36:05.350397 #1614]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-14T22:36:05.350431 #1614]  INFO -- : ---------------------------------------------
+I, [2023-02-15T19:40:47.426576 #1633]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-15T19:40:47.821337 #1633]  INFO -- : ---------------------------------------------
+I, [2023-02-15T19:40:47.822834 #1633]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-15T19:40:47.825449 #1633]  INFO -- : libinput: 1.22.1
+I, [2023-02-15T19:40:47.825573 #1633]  INFO -- : ruby 3.0.5p211
+I, [2023-02-15T19:40:47.828444 #1633]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Thu, 09 Feb 2023 20:06:11 +0000
+I, [2023-02-15T19:40:47.830905 #1633]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-15T19:40:47.840800 #1633]  INFO -- : Desktop session: gnome x11
+I, [2023-02-15T19:40:47.840961 #1633]  INFO -- : ---------------------------------------------
+I, [2023-02-15T19:40:47.841038 #1633]  INFO -- : Enabled Plugins: 
+I, [2023-02-15T19:40:47.841321 #1633]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-15T19:40:47.841396 #1633]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-15T19:40:47.841454 #1633]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-15T19:40:47.841505 #1633]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-15T19:40:47.841553 #1633]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-15T19:40:47.841854 #1633]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-15T19:40:47.841937 #1633]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-15T19:40:47.841991 #1633]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-15T19:40:47.842040 #1633]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-15T19:40:47.842088 #1633]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-15T19:40:47.842137 #1633]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-15T19:40:47.842224 #1633]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-15T19:40:47.842281 #1633]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-15T19:40:47.842336 #1633]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-15T19:40:47.842385 #1633]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-15T19:40:47.842436 #1633]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-15T19:40:47.842488 #1633]  INFO -- : ---------------------------------------------
+I, [2023-02-16T20:56:33.769067 #1614]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-16T20:56:34.177135 #1614]  INFO -- : ---------------------------------------------
+I, [2023-02-16T20:56:34.178194 #1614]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-16T20:56:34.180854 #1614]  INFO -- : libinput: 1.22.1
+I, [2023-02-16T20:56:34.181028 #1614]  INFO -- : ruby 3.0.5p211
+I, [2023-02-16T20:56:34.184265 #1614]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Thu, 09 Feb 2023 20:06:11 +0000
+I, [2023-02-16T20:56:34.187388 #1614]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-16T20:56:34.201912 #1614]  INFO -- : Desktop session: gnome x11
+I, [2023-02-16T20:56:34.202081 #1614]  INFO -- : ---------------------------------------------
+I, [2023-02-16T20:56:34.202161 #1614]  INFO -- : Enabled Plugins: 
+I, [2023-02-16T20:56:34.202468 #1614]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-16T20:56:34.202553 #1614]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-16T20:56:34.202612 #1614]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-16T20:56:34.202666 #1614]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-16T20:56:34.202719 #1614]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-16T20:56:34.202772 #1614]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-16T20:56:34.202823 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-16T20:56:34.202871 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-16T20:56:34.202920 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-16T20:56:34.202969 #1614]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-16T20:56:34.203267 #1614]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-16T20:56:34.203323 #1614]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-16T20:56:34.203372 #1614]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-16T20:56:34.203424 #1614]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-16T20:56:34.203513 #1614]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-16T20:56:34.203568 #1614]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-16T20:56:34.203620 #1614]  INFO -- : ---------------------------------------------
+I, [2023-02-16T21:16:01.457930 #1862]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-16.51, :move_y=>13.64, :unaccelerated_x=>-13.47, :unaccelerated_y=>11.13, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-17T14:39:49.891321 #1862]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>63.08, :move_y=>9.43, :unaccelerated_x=>31.34, :unaccelerated_y=>4.69, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-17T14:57:11.681613 #1862]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>9.09, :move_y=>-5.57, :unaccelerated_x=>9.08, :unaccelerated_y=>-5.57, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-17T15:09:59.021551 #1862]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>67.47, :move_y=>-33.42, :unaccelerated_x=>31.34, :unaccelerated_y=>-15.52, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-17T15:36:13.779601 #1862]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-159.58, :move_y=>86.07, :unaccelerated_x=>-48.33, :unaccelerated_y=>26.07, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-17T22:01:57.753310 #1862]  INFO -- : {:command=>"xdotool key Super_L+w", :args=>{:move_x=>111.79, :move_y=>110.9, :unaccelerated_x=>36.61, :unaccelerated_y=>36.32, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-17T22:01:58.097309 #1862]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>105.48, :move_y=>63.13, :unaccelerated_x=>38.66, :unaccelerated_y=>23.14, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-18T11:32:57.509313 #1636]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-18T11:32:57.453848 #1636]  INFO -- : ---------------------------------------------
+I, [2023-02-18T11:32:57.455627 #1636]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-18T11:32:57.458945 #1636]  INFO -- : libinput: 1.22.1
+I, [2023-02-18T11:32:57.459115 #1636]  INFO -- : ruby 3.0.5p211
+I, [2023-02-18T11:32:57.469124 #1636]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Thu, 09 Feb 2023 20:06:11 +0000
+I, [2023-02-18T11:32:57.474064 #1636]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-18T11:32:57.492261 #1636]  INFO -- : Desktop session: gnome x11
+I, [2023-02-18T11:32:57.492458 #1636]  INFO -- : ---------------------------------------------
+I, [2023-02-18T11:32:57.492564 #1636]  INFO -- : Enabled Plugins: 
+I, [2023-02-18T11:32:57.492906 #1636]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-18T11:32:57.493060 #1636]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-18T11:32:57.493148 #1636]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-18T11:32:57.493222 #1636]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-18T11:32:57.493290 #1636]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-18T11:32:57.493642 #1636]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-18T11:32:57.493734 #1636]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-18T11:32:57.493806 #1636]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-18T11:32:57.493878 #1636]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-18T11:32:57.493947 #1636]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-18T11:32:57.494053 #1636]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-18T11:32:57.494125 #1636]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-18T11:32:57.494197 #1636]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-18T11:32:57.494268 #1636]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-18T11:32:57.494335 #1636]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-18T11:32:57.494402 #1636]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-18T11:32:57.494474 #1636]  INFO -- : ---------------------------------------------
+I, [2023-02-18T16:42:39.511037 #1617]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-18T16:42:39.909769 #1617]  INFO -- : ---------------------------------------------
+I, [2023-02-18T16:42:39.910882 #1617]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-18T16:42:39.913543 #1617]  INFO -- : libinput: 1.22.1
+I, [2023-02-18T16:42:39.913690 #1617]  INFO -- : ruby 3.0.5p211
+I, [2023-02-18T16:42:39.916316 #1617]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Thu, 09 Feb 2023 20:06:11 +0000
+I, [2023-02-18T16:42:39.918970 #1617]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-18T16:42:39.933430 #1617]  INFO -- : Desktop session: gnome x11
+I, [2023-02-18T16:42:39.933617 #1617]  INFO -- : ---------------------------------------------
+I, [2023-02-18T16:42:39.933696 #1617]  INFO -- : Enabled Plugins: 
+I, [2023-02-18T16:42:39.933988 #1617]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-18T16:42:39.934062 #1617]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-18T16:42:39.934121 #1617]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-18T16:42:39.934174 #1617]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-18T16:42:39.934230 #1617]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-18T16:42:39.934323 #1617]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-18T16:42:39.934385 #1617]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-18T16:42:39.934440 #1617]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-18T16:42:39.934527 #1617]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-18T16:42:39.934585 #1617]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-18T16:42:39.934645 #1617]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-18T16:42:39.934703 #1617]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-18T16:42:39.934754 #1617]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-18T16:42:39.934804 #1617]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-18T16:42:39.935105 #1617]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-18T16:42:39.935164 #1617]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-18T16:42:39.935220 #1617]  INFO -- : ---------------------------------------------
+I, [2023-02-18T17:53:10.849855 #1629]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-18T17:53:11.227857 #1629]  INFO -- : ---------------------------------------------
+I, [2023-02-18T17:53:11.228972 #1629]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-18T17:53:11.231199 #1629]  INFO -- : libinput: 1.22.1
+I, [2023-02-18T17:53:11.231353 #1629]  INFO -- : ruby 3.0.5p211
+I, [2023-02-18T17:53:11.233727 #1629]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Thu, 09 Feb 2023 20:06:11 +0000
+I, [2023-02-18T17:53:11.236221 #1629]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-18T17:53:11.245892 #1629]  INFO -- : Desktop session: gnome x11
+I, [2023-02-18T17:53:11.246026 #1629]  INFO -- : ---------------------------------------------
+I, [2023-02-18T17:53:11.246076 #1629]  INFO -- : Enabled Plugins: 
+I, [2023-02-18T17:53:11.246305 #1629]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-18T17:53:11.246377 #1629]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-18T17:53:11.246413 #1629]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-18T17:53:11.246445 #1629]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-18T17:53:11.246639 #1629]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-18T17:53:11.246675 #1629]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-18T17:53:11.246705 #1629]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-18T17:53:11.246733 #1629]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-18T17:53:11.246762 #1629]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-18T17:53:11.246791 #1629]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-18T17:53:11.246820 #1629]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-18T17:53:11.246853 #1629]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-18T17:53:11.246885 #1629]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-18T17:53:11.246916 #1629]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-18T17:53:11.246946 #1629]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-18T17:53:11.246976 #1629]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-18T17:53:11.247008 #1629]  INFO -- : ---------------------------------------------
+I, [2023-02-18T22:02:58.456850 #1909]  INFO -- : {:command=>"xdotool key Super_L+d", :args=>{:move_x=>-18.35, :move_y=>15.68, :unaccelerated_x=>-16.11, :unaccelerated_y=>13.77, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-18T22:21:42.510849 #1909]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>121.76, :move_y=>-2.77, :unaccelerated_x=>38.66, :unaccelerated_y=>-0.88, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-19T18:59:31.424124 #1638]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-19T18:59:31.839036 #1638]  INFO -- : ---------------------------------------------
+I, [2023-02-19T18:59:31.840654 #1638]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-19T18:59:31.843762 #1638]  INFO -- : libinput: 1.22.1
+I, [2023-02-19T18:59:31.843933 #1638]  INFO -- : ruby 3.0.5p211
+I, [2023-02-19T18:59:31.847126 #1638]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Thu, 09 Feb 2023 20:06:11 +0000
+I, [2023-02-19T18:59:31.850622 #1638]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-19T18:59:31.866489 #1638]  INFO -- : Desktop session: gnome x11
+I, [2023-02-19T18:59:31.866659 #1638]  INFO -- : ---------------------------------------------
+I, [2023-02-19T18:59:31.866739 #1638]  INFO -- : Enabled Plugins: 
+I, [2023-02-19T18:59:31.867055 #1638]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-19T18:59:31.867135 #1638]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-19T18:59:31.867193 #1638]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-19T18:59:31.867246 #1638]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-19T18:59:31.867557 #1638]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-19T18:59:31.867615 #1638]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-19T18:59:31.867665 #1638]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-19T18:59:31.867715 #1638]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-19T18:59:31.867764 #1638]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-19T18:59:31.867843 #1638]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-19T18:59:31.867903 #1638]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-19T18:59:31.867953 #1638]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-19T18:59:31.868004 #1638]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-19T18:59:31.868054 #1638]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-19T18:59:31.868103 #1638]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-19T18:59:31.868151 #1638]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-19T18:59:31.868205 #1638]  INFO -- : ---------------------------------------------
+I, [2023-02-20T10:06:27.498845 #1628]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-20T10:06:27.828700 #1628]  INFO -- : ---------------------------------------------
+I, [2023-02-20T10:06:27.831692 #1628]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-20T10:06:27.836746 #1628]  INFO -- : libinput: 1.22.1
+I, [2023-02-20T10:06:27.836906 #1628]  INFO -- : ruby 3.0.5p211
+I, [2023-02-20T10:06:27.840207 #1628]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Thu, 09 Feb 2023 20:06:11 +0000
+I, [2023-02-20T10:06:27.845456 #1628]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-20T10:06:27.862872 #1628]  INFO -- : Desktop session: gnome x11
+I, [2023-02-20T10:06:27.863068 #1628]  INFO -- : ---------------------------------------------
+I, [2023-02-20T10:06:27.863151 #1628]  INFO -- : Enabled Plugins: 
+I, [2023-02-20T10:06:27.863580 #1628]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-20T10:06:27.863670 #1628]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-20T10:06:27.863730 #1628]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-20T10:06:27.863785 #1628]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-20T10:06:27.863841 #1628]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-20T10:06:27.863892 #1628]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-20T10:06:27.864196 #1628]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-20T10:06:27.864278 #1628]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-20T10:06:27.864343 #1628]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-20T10:06:27.864395 #1628]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-20T10:06:27.864495 #1628]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-20T10:06:27.864557 #1628]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-20T10:06:27.864613 #1628]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-20T10:06:27.864666 #1628]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-20T10:06:27.864719 #1628]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-20T10:06:27.864775 #1628]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-20T10:06:27.864831 #1628]  INFO -- : ---------------------------------------------
+I, [2023-02-20T13:11:16.553224 #1888]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>62.03, :move_y=>-15.79, :unaccelerated_x=>32.22, :unaccelerated_y=>-8.2, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-21T12:33:05.297843 #1547]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-21T12:33:05.436229 #1547]  INFO -- : ---------------------------------------------
+I, [2023-02-21T12:33:05.436704 #1547]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-21T12:33:05.437446 #1547]  INFO -- : libinput: 1.22.1
+I, [2023-02-21T12:33:05.437490 #1547]  INFO -- : ruby 3.0.5p211
+I, [2023-02-21T12:33:05.438490 #1547]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Thu, 09 Feb 2023 20:06:11 +0000
+I, [2023-02-21T12:33:05.439266 #1547]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-21T12:33:05.441665 #1547]  INFO -- : Desktop session: gnome x11
+I, [2023-02-21T12:33:05.441722 #1547]  INFO -- : ---------------------------------------------
+I, [2023-02-21T12:33:05.441740 #1547]  INFO -- : Enabled Plugins: 
+I, [2023-02-21T12:33:05.441887 #1547]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-21T12:33:05.441905 #1547]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-21T12:33:05.441917 #1547]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-21T12:33:05.441927 #1547]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-21T12:33:05.441937 #1547]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-21T12:33:05.441949 #1547]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-21T12:33:05.441960 #1547]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-21T12:33:05.441970 #1547]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-21T12:33:05.441980 #1547]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-21T12:33:05.441990 #1547]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-21T12:33:05.442001 #1547]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-21T12:33:05.442011 #1547]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-21T12:33:05.442021 #1547]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-21T12:33:05.442031 #1547]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-21T12:33:05.442040 #1547]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-21T12:33:05.442051 #1547]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-21T12:33:05.442062 #1547]  INFO -- : ---------------------------------------------
+I, [2023-02-21T11:47:56.870428 #1872]  INFO -- : {:command=>"xdotool key Super_L+a", :args=>{:move_x=>13.92, :move_y=>5.75, :unaccelerated_x=>13.47, :unaccelerated_y=>5.57, :zoom=>0.0, :rotate=>0.0}}
+I, [2023-02-21T22:41:30.912789 #1586]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-21T22:41:31.022648 #1586]  INFO -- : ---------------------------------------------
+I, [2023-02-21T22:41:31.023158 #1586]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-21T22:41:31.024136 #1586]  INFO -- : libinput: 1.22.1
+I, [2023-02-21T22:41:31.024251 #1586]  INFO -- : ruby 3.0.5p211
+I, [2023-02-21T22:41:31.025598 #1586]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 14 Feb 2023 22:08:11 +0000
+I, [2023-02-21T22:41:31.026711 #1586]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-21T22:41:31.030299 #1586]  INFO -- : Desktop session: gnome x11
+I, [2023-02-21T22:41:31.030411 #1586]  INFO -- : ---------------------------------------------
+I, [2023-02-21T22:41:31.030443 #1586]  INFO -- : Enabled Plugins: 
+I, [2023-02-21T22:41:31.030681 #1586]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-21T22:41:31.030719 #1586]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-21T22:41:31.030737 #1586]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-21T22:41:31.030754 #1586]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-21T22:41:31.030927 #1586]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-21T22:41:31.030953 #1586]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-21T22:41:31.030971 #1586]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-21T22:41:31.030987 #1586]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-21T22:41:31.031004 #1586]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-21T22:41:31.031021 #1586]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-21T22:41:31.031041 #1586]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-21T22:41:31.031057 #1586]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-21T22:41:31.031076 #1586]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-21T22:41:31.031092 #1586]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-21T22:41:31.031160 #1586]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-21T22:41:31.031179 #1586]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-21T22:41:31.031198 #1586]  INFO -- : ---------------------------------------------
+I, [2023-02-23T05:24:00.239368 #1563]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-23T05:24:00.405703 #1563]  INFO -- : ---------------------------------------------
+I, [2023-02-23T05:24:00.406345 #1563]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-23T05:24:00.407374 #1563]  INFO -- : libinput: 1.22.1
+I, [2023-02-23T05:24:00.407431 #1563]  INFO -- : ruby 3.0.5p211
+I, [2023-02-23T05:24:00.410790 #1563]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 14 Feb 2023 22:08:11 +0000
+I, [2023-02-23T05:24:00.423065 #1563]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-23T05:24:00.436504 #1563]  INFO -- : Desktop session: gnome x11
+I, [2023-02-23T05:24:00.436597 #1563]  INFO -- : ---------------------------------------------
+I, [2023-02-23T05:24:00.436620 #1563]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T05:24:00.436737 #1563]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-23T05:24:00.436760 #1563]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-23T05:24:00.436776 #1563]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-23T05:24:00.436790 #1563]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-23T05:24:00.436804 #1563]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-23T05:24:00.436817 #1563]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-23T05:24:00.436831 #1563]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-23T05:24:00.436844 #1563]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-23T05:24:00.436858 #1563]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-23T05:24:00.436871 #1563]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-23T05:24:00.436982 #1563]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-23T05:24:00.436997 #1563]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-23T05:24:00.437027 #1563]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-23T05:24:00.437041 #1563]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-23T05:24:00.437073 #1563]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-23T05:24:00.437087 #1563]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-23T05:24:00.437101 #1563]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:02:55.565886 #1585]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-23T14:02:55.712225 #1585]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:02:55.712549 #1585]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-23T14:02:55.713314 #1585]  INFO -- : libinput: 1.22.1
+I, [2023-02-23T14:02:55.713356 #1585]  INFO -- : ruby 3.0.5p211
+I, [2023-02-23T14:02:55.714373 #1585]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 14 Feb 2023 22:08:11 +0000
+I, [2023-02-23T14:02:55.715244 #1585]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-23T14:02:55.718279 #1585]  INFO -- : Desktop session: gnome x11
+I, [2023-02-23T14:02:55.718438 #1585]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:02:55.718457 #1585]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T14:02:55.718551 #1585]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-23T14:02:55.718572 #1585]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-23T14:02:55.718582 #1585]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-23T14:02:55.718592 #1585]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-23T14:02:55.718601 #1585]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-23T14:02:55.718610 #1585]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-23T14:02:55.718620 #1585]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-23T14:02:55.718629 #1585]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-23T14:02:55.718638 #1585]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-23T14:02:55.718647 #1585]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-23T14:02:55.718656 #1585]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-23T14:02:55.718665 #1585]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-23T14:02:55.718674 #1585]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-23T14:02:55.718683 #1585]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-23T14:02:55.718830 #1585]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-23T14:02:55.718847 #1585]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-23T14:02:55.718859 #1585]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:25:25.919566 #19957]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-23T14:25:26.019608 #19957]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:25:26.020150 #19957]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-23T14:25:26.022883 #19957]  INFO -- : libinput: 1.22.1
+I, [2023-02-23T14:25:26.022974 #19957]  INFO -- : ruby 3.0.5p211
+I, [2023-02-23T14:25:26.023780 #19957]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 14 Feb 2023 22:08:11 +0000
+I, [2023-02-23T14:25:26.024558 #19957]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-23T14:25:26.028268 #19957]  INFO -- : Desktop session: gnome x11
+I, [2023-02-23T14:25:26.028367 #19957]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:25:26.028391 #19957]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T14:25:26.028496 #19957]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-23T14:25:26.028517 #19957]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-23T14:25:26.028675 #19957]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-23T14:25:26.028690 #19957]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-23T14:25:26.028705 #19957]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-23T14:25:26.028739 #19957]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-23T14:25:26.028891 #19957]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-23T14:25:26.028907 #19957]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-23T14:25:26.028921 #19957]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-23T14:25:26.028934 #19957]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-23T14:25:26.028948 #19957]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-23T14:25:26.028960 #19957]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-23T14:25:26.028972 #19957]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-23T14:25:26.028987 #19957]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-23T14:25:26.028999 #19957]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-23T14:25:26.029012 #19957]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-23T14:25:26.029026 #19957]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:31:09.420462 #3886]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-23T14:31:09.582458 #3886]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:31:09.582922 #3886]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-23T14:31:09.607586 #3886]  INFO -- : libinput: 1.22.1
+I, [2023-02-23T14:31:09.607973 #3886]  INFO -- : ruby 3.0.5p211
+I, [2023-02-23T14:31:09.609557 #3886]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 14 Feb 2023 22:08:11 +0000
+I, [2023-02-23T14:31:09.613060 #3886]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-23T14:31:09.618221 #3886]  INFO -- : Desktop session: gnome x11
+I, [2023-02-23T14:31:09.618319 #3886]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:31:09.618343 #3886]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T14:31:09.618531 #3886]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-23T14:31:09.618552 #3886]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-23T14:31:09.618566 #3886]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-23T14:31:09.618579 #3886]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-23T14:31:09.618592 #3886]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-23T14:31:09.618605 #3886]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-23T14:31:09.618617 #3886]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-23T14:31:09.618631 #3886]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-23T14:31:09.618643 #3886]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-23T14:31:09.618656 #3886]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-23T14:31:09.618669 #3886]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-23T14:31:09.618682 #3886]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-23T14:31:09.618695 #3886]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-23T14:31:09.618708 #3886]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-23T14:31:09.618720 #3886]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-23T14:31:09.618733 #3886]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-23T14:31:09.618747 #3886]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:39:25.908100 #10134]  INFO -- : reload config: /home/evangelospro/.config/fusuma/config.yml
+I, [2023-02-23T14:39:26.007341 #10134]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:39:26.007984 #10134]  INFO -- : Fusuma: 2.4.1
+I, [2023-02-23T14:39:26.009716 #10134]  INFO -- : libinput: 1.22.1
+I, [2023-02-23T14:39:26.009832 #10134]  INFO -- : ruby 3.0.5p211
+I, [2023-02-23T14:39:26.010482 #10134]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 ZEN SMP PREEMPT_DYNAMIC Tue, 14 Feb 2023 22:08:11 +0000
+I, [2023-02-23T14:39:26.011464 #10134]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
+I, [2023-02-23T14:39:26.016791 #10134]  INFO -- : Desktop session: gnome x11
+I, [2023-02-23T14:39:26.016884 #10134]  INFO -- : ---------------------------------------------
+I, [2023-02-23T14:39:26.016904 #10134]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T14:39:26.017000 #10134]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
+I, [2023-02-23T14:39:26.017018 #10134]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
+I, [2023-02-23T14:39:26.017031 #10134]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
+I, [2023-02-23T14:39:26.017044 #10134]  INFO -- :   Fusuma::Plugin::Detectors::PinchDetector
+I, [2023-02-23T14:39:26.017055 #10134]  INFO -- :   Fusuma::Plugin::Detectors::RotateDetector
+I, [2023-02-23T14:39:26.017067 #10134]  INFO -- :   Fusuma::Plugin::Detectors::SwipeDetector
+I, [2023-02-23T14:39:26.017079 #10134]  INFO -- :   Fusuma::Plugin::Events::Records::ContextRecord
+I, [2023-02-23T14:39:26.017091 #10134]  INFO -- :   Fusuma::Plugin::Events::Records::GestureRecord
+I, [2023-02-23T14:39:26.017103 #10134]  INFO -- :   Fusuma::Plugin::Events::Records::IndexRecord
+I, [2023-02-23T14:39:26.017114 #10134]  INFO -- :   Fusuma::Plugin::Events::Records::TextRecord
+I, [2023-02-23T14:39:26.017126 #10134]  INFO -- :   Fusuma::Plugin::Executors::CommandExecutor
+I, [2023-02-23T14:39:26.017138 #10134]  INFO -- :   Fusuma::Plugin::Executors::SendkeyExecutor
+I, [2023-02-23T14:39:26.017150 #10134]  INFO -- :   Fusuma::Plugin::Filters::LibinputDeviceFilter
+I, [2023-02-23T14:39:26.017161 #10134]  INFO -- :   Fusuma::Plugin::Inputs::LibinputCommandInput
+I, [2023-02-23T14:39:26.017173 #10134]  INFO -- :   Fusuma::Plugin::Inputs::TimerInput
+I, [2023-02-23T14:39:26.017185 #10134]  INFO -- :   Fusuma::Plugin::Parsers::LibinputGestureParser
+I, [2023-02-23T14:39:26.017197 #10134]  INFO -- : ---------------------------------------------

@@ -1,0 +1,10 @@
+zsh
+curlie
+figlet
+lolcat
+neofetch
+python-pip
+lsd
+figlet-fonts-extra
+python-virtualenvwrapper
+thefuck

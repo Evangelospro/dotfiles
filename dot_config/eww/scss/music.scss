@@ -1,0 +1,48 @@
+.music-control-box {
+    background-color: $bg_color;
+    color: $fg_color;
+    font-family: Iosevka Nerd Font;
+    .picture {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 10px;
+      border-radius: 10px;
+    }
+    .song-title-box {
+      margin: 30px 5px 0 0;
+      .content {
+        color: $yellow;
+      }
+    }
+    .song-buttons-box {
+      margin: 0px 0px 20px -10px;q
+      .previous-button {
+        background-color: $bg_color;
+        color: $green;
+        font-size: 18px;
+        border-radius: 10px;
+        &:hover { background-color: $hover_fg; }
+        &:active { background-color: $fg_color; }
+      }
+      .pause-button {
+        background-color: $bg_color;
+        font-size: 18px;
+        color: $fg_color;
+        border-radius: 10px;
+        padding-left: 4px;
+        &:hover { background-color: $hover_fg; }
+        &:active { background-color: $fg_color; }
+        &.paused { color: $yellow; }
+        &.playing { color: $blue; }
+      }
+      .next-button {
+        background-color: $bg_color;
+        color: $green;
+        font-size: 18px;
+        border-radius: 10px;
+        &:hover { background-color: $hover_fg; }
+        &:active { background-color: $fg_color; }
+      }
+    }
+  }

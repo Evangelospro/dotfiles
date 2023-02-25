@@ -1,0 +1,1 @@
+zsh curl figlet lolcat neofetch python3-pip libcairo2-dev libgirepository1.0-dev python-is-python3

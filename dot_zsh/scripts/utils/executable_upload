@@ -1,0 +1,3 @@
+#!/bin/bash
+full_path=$(realpath $1)
+curl -F"file=@$full_path" https://0x0.st

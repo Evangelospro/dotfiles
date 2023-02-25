@@ -1,0 +1,6 @@
+# check if paru is run with arguments
+if [[ -n "$1" ]]; then
+    paru --limit 30 "$@"
+else
+    paru
+fi
