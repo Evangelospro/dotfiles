@@ -5,14 +5,6 @@
     :geometry (geometry :width "100%"
                         :height "1%"
                         :anchor "top center")(bar))
-
-(defwindow osd0
-    :monitor 0
-    :stacking "fg"
-    :geometry (geometry :width "1%"
-                        :height "1%"
-                        :anchor "center right")(osd))
-
 (defwindow powermenu0
     :monitor 0
     :stacking "fg"
@@ -26,16 +18,6 @@
     :geometry (geometry :width  "100%"
                         :height "100%"
                         :anchor "top left")(datemenu))
-
-(defwindow music0
-  :monitor 0  
-  :stacking "fg"
-  :geometry (geometry :x "-13px"
-                      :y "27%"
-                      :width "250px"
-                      :height "125px"
-                      :anchor "top right")(music))
-
 
 (defwindow quicksettings0
     :monitor 0
@@ -55,30 +37,12 @@
     :geometry (geometry :width "100%"
                         :height "1%"
                         :anchor "top center")(bar))
-
-(defwindow osd1
-    :monitor 1
-    :stacking "fg"
-    :geometry (geometry :width "1%"
-                        :height "1%"
-                        :anchor "center right")(osd))
-
 (defwindow powermenu1
     :monitor 1
     :stacking "fg"
     :geometry (geometry :width  "100%"
                         :height "120%"
                         :anchor "center center")(powermenu))
-
-(defwindow music1
-  :monitor 1  
-  :stacking "fg"
-  :geometry (geometry :x "-13px"
-                      :y "27%"
-                      :width "250px"
-                      :height "125px"
-                      :anchor "top right")(music))
-
 (defwindow calendar1
     :monitor 1
     :stacking "fg"

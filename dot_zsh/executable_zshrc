@@ -42,6 +42,9 @@ zi snippet $ZSH/scripts/utils/web-search.zsh
 zi ice wait
 zi light MichaelAquilina/zsh-you-should-use
 
+zi ice wait
+zi light hlissner/zsh-autopair
+
 # check that you are not in docker or a server avoid in headless installs
 if [ -z "$DISPLAY" ] && [ -z "$SSH_CLIENT" ]; then
   echo "Not in a gui server"

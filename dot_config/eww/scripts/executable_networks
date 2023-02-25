@@ -2,9 +2,6 @@
 # Connect to WIFI
 # Modified from https://github.com/zbaylin/rofi-wifi-menu/blob/master/rofi-wifi-menu.sh
 
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US:en"
 # Starts a scan of available broadcasting SSIDs
 # nmcli dev wifi rescan
 

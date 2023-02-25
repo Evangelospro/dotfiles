@@ -15,18 +15,5 @@ function icon {
     if [[ $STATE == 'Performance' ]]; then echo '󰓅'; fi
 }
 
-function toggle {
-    STATE=$(state)
-    if [[ $STATE == 'off' ]]; then
-        asusctl profile --profile-set Performance
-    else
-        asusctl profile --profile-set Quiet
-    fi
-
-    eww update power_icon=$(icon)
-    eww update power_state=$(state)
-}
-
 if [[ $1 == 'icon' ]]; then icon; fi
 if [[ $1 == 'state' ]]; then state; fi
-if [[ $1 == 'toggle' ]]; then toggle; fi

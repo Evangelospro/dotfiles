@@ -7,7 +7,6 @@
 (include "./yuck/vars.yuck")
 (include "./yuck/dock.yuck")
 (include "./yuck/panel.yuck")
-(include "./yuck/osd.yuck")
 (include "./yuck/powermenu.yuck")
 (include "./yuck/datemenu.yuck")
 (include "./yuck/quicksettings.yuck")

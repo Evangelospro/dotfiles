@@ -23,18 +23,4 @@ function exportPrimary(){
     export PRIMARY_MONITOR_ID=$primary_monitor_id
 }
 
-# sets the BACKGROUND_IMAGE environment variable
-function exportBackground(){
-    if ! test -f "$temp_folder/background"; then
-        touch $temp_folder/background
-    fi
-    # load the background variables
-    background_image=$(head -1 $temp_folder/background)
-
-    [ -z $background_image ] && background_image="~/.config/hypr/themes/apatheia/wallpapers/Planet.png"
-
-    export BACKGROUND_IMAGE=$background_image
-}
-
 exportPrimary
-exportBackground

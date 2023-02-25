@@ -27,19 +27,8 @@
 (defpoll    song_title :interval "2s" "scripts/getSongTitle")
 (defpoll    full_song_title :interval "2s" "scripts/getSongTitle full")
 
-(defpoll    theme_state         :interval "3s" `scripts/theme state`)
-(defpoll    theme_icon          :interval "3s" `scripts/theme icon`)
-
 (defpoll    power_state         :interval "3s" `scripts/power state`)
 (defpoll    power_icon          :interval "3s" `scripts/power icon`)
-
-(defpoll    night_light_state   :interval "3s" `scripts/night_light state`)
-(defpoll    night_light_icon    :interval "3s" `scripts/night_light icon`)
-
-(defpoll    kbd_icon            :interval "3s" `scripts/brightness kbd_icon`)
-(defpoll    kbd_level           :interval "3s" :initial "100" `scripts/brightness kbd_level`)
-(defpoll    screen_icon         :interval "3s" `scripts/brightness screen_icon`)
-(defpoll    screen_level        :interval "3s" :initial "99" `scripts/brightness screen_level`)
 
 (defpoll    bluetooth_state     :interval "3s" `scripts/bluetooth state`)
 (defpoll    bluetooth_icon      :interval "3s" `scripts/bluetooth icon`)
@@ -55,9 +44,6 @@
 (defpoll    date                :interval "5s" `date "+%b. %d. %A"`)
 (defpoll    uptime              :interval "60s" "uptime | awk '{print $3}' | tr ',' ' '")
 
-(defpoll    events              :interval "3s" :initial "[]" `scripts/todo --eww`)
 (defpoll    weather             :interval "3m"  :initial "[]"  `scripts/weather`)
 
 (deflisten  active_ws_empty     :initial "true" `scripts/workspaces monitor-empty`)
-; (deflisten  dock_reveal         :initial "true" `scripts/workspaces monitor-empty`)
-(defvar  dock_reveal  "true" )

@@ -54,5 +54,4 @@ get_weather() {
 
 echo "[
     $(get_weather $PEST),
-    $(get_weather $SZFVAR)
 ]"
