@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# use hyprland to close rofi if it isn't focused or in focus and escape is pressed
+
+# check if rofi is running
+if [[ $(pgrep rofi) ]]; then
+    # check if rofi is focused
+    activeWindow=$(hyprctl activewindow)
+    echo $activeWindow
+    class=$(echo $activeWindow | cut -d' ' -f2)
+    echo $class
+    if [[ $(echo $class | grep "rofi") ]]; then
+        echo "rofi is focused"
+    else
+        echo "rofi is not focused"
+        # check if rofi is running
+        pkill rofi
+    fi
+fi

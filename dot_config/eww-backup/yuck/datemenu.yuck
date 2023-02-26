@@ -1,0 +1,64 @@
+(defwidget datemenu_weather [place] (box
+    :class "weather"
+    :space-evenly false
+    (box
+        :class "info module"
+        :orientation "h"
+        :hexpand true
+        :space-evenly false
+        (box
+            :orientation "v"
+            (label :text {place.city} :halign "START" )
+            (label :text "feels like ${place.feels}°" :halign "START")
+        )
+        (box
+            :orientation "v"
+            :hexpand true
+            :halign "END"
+            (label :text "${place.temp}°" :halign "END")
+            (label :text {place.desc} :halign "END")
+        )
+    )
+    (label 
+        :class "icon module ${place.class}"
+        :text {place.icon} 
+        :halign "center"
+    )
+))
+
+(defwidget datemenu [] (eventbox 
+    :onclick "${EWW_CONFIG_DIR}/scripts/launcher toggle_menu calendar"
+    (box
+        :valign "START"
+        :halign "START"
+        :orientation "v"
+        :class "datemenu"
+        :space-evenly false
+        (box
+            :halign "center"
+            :space-evenly false
+            :class "clock"
+            (label :text hour)
+            (label :text ":")
+            (label :text minutes)
+        )
+        (label  
+            :class "uptime" 
+            :text "uptime: ${uptime}"
+            :valign "start"
+        )
+        (box
+            :class "calendar-bin module"
+            (calendar)
+        )
+        (datemenu_events)
+        (box 
+            :class "weather-box"
+            :orientation "v"
+        (for place in weather
+            (datemenu_weather :place place)
+        )
+        )
+        (box :class "wallpaper module")
+    )
+))

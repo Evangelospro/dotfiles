@@ -1,0 +1,5 @@
+#! /bin/bash
+
+sway-audio-idle-inhibit & 
+swayidle -w \
+    timeout 1800 "hyprctl dispatch dpms off;" resume "hyprctl dispatch dpms on"

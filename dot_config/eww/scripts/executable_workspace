@@ -1,0 +1,41 @@
+#! /bin/bash
+
+#define icons for workspaces 1-9
+
+# read the current workspace layout from the last script run if it exists else set to empty
+[[ -f /tmp/hypr_workspace_icons ]] && ic=($(cat /tmp/hypr_workspace_icons)) || ic=("" "" "" "" "" "" "" "" "")
+buttons=""
+
+updateIcons() {
+# for the currently active app in lowercase, set the icon to the active app
+activewindow=$(hyprctl activewindow)
+workspace=$(hyprctl activewindow | grep "workspace" | awk '{print $2} ')
+class=$(hyprctl activewindow | grep "class" | awk '{print $2} ' | tr '[:upper:]' '[:lower:]' )
+if [[ $class != "" ]]; then
+  ic[$workspace]=$(geticons "$class" -s 24 -c 1 | head -n 1)
+fi
+}
+
+main() {
+buttons=""
+updateIcons
+#output eww widget
+for num in {1..9}; do
+  if [[ ${ic[$num]} == "" ]]; then
+    ic[$num]=$(geticons "appgrid" -s 24 -c 1 | head -n 1)
+  fi
+  buttons+="(button :onclick \"hyprctl dispatch exec \'~/.config/hypr/scripts/workspace $num\'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"0$o$num$f$num\ $num\" (image :path \"${ic[$num]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\"))"
+done
+result="(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
+          (box	:class \"works\"	:orientation \"h\" :spacing 5 :space-evenly \"false\" :valign \"center\"	\
+              $buttons \
+          ) \
+        )"
+echo "$result"
+# save the current workspace layout until the next script run
+# write to file without echooing to stdout
+printf "%s " "${ic[@]}" > /tmp/hypr_workspace_icons
+printf "%s " "$result" > /tmp/hypr_workspace
+}
+
+main

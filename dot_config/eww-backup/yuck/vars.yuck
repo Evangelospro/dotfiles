@@ -1,0 +1,45 @@
+(deflisten  active_workspace    :initial  "1"  `scripts/workspaces active`)
+(deflisten  workspaces          :initial  "[]" `scripts/workspaces get`)
+(deflisten  window              :initial  "-"  `scripts/window class`)
+
+(deflisten  media_pos           :initial  "[]" `scripts/media_pos`)
+(deflisten  media               :initial  "[]" `scripts/media`)
+
+(deflisten  battery             :initial  "{}" `scripts/battery`)
+
+(defpoll    network_icon        :interval "5s" `scripts/network icon`)
+(defpoll    network_status      :interval "5s" `scripts/network status`)
+(defpoll    network_state       :interval "5s" `scripts/network state`)
+(defpoll    wifi_ssid           :interval "5s" `scripts/network ssid`)
+(defpoll    wifi_strength       :interval "5s" `scripts/network strength`)
+(defpoll    wifi_icon           :interval "5s" `scripts/network wifi_icon`)
+
+(defpoll    mute_icon           :interval "3s" `scripts/volume mute_icon`)
+(defpoll    mute_state          :interval "3s" `scripts/volume mute_state`)
+
+(defpoll    music_status :interval "1s" "playerctl -p spotify status")
+(defpoll    art :interval "2s" "scripts/echoSongArt")
+(defpoll    song_art :interval "2s" "scripts/getSongArt")
+(defpoll    song_title :interval "2s" "scripts/getSongTitle")
+(defpoll    full_song_title :interval "2s" "scripts/getSongTitle full")
+
+(defpoll    power_state         :interval "3s" `scripts/power state`)
+(defpoll    power_icon          :interval "3s" `scripts/power icon`)
+
+(defpoll    bluetooth_state     :interval "3s" `scripts/bluetooth state`)
+(defpoll    bluetooth_icon      :interval "3s" `scripts/bluetooth icon`)
+(defpoll    bluetooth_connected :interval "3s" `scripts/bluetooth connected`)
+
+(defpoll    notification_count  :interval "3s" `scripts/notifications count`)
+(defpoll    dnd_icon            :interval "3s" `scripts/notifications icon`)
+(defpoll    dnd_state           :interval "3s" `scripts/notifications state`)
+
+(defpoll    panel_clock         :interval "5s" `date "+%H:%M  |  %b. %d. %A"`)
+(defpoll    hour                :interval "5s" `date "+%H"`)
+(defpoll    minutes             :interval "5s" `date "+%M"`)
+(defpoll    date                :interval "5s" `date "+%b. %d. %A"`)
+(defpoll    uptime              :interval "60s" "uptime | awk '{print $3}' | tr ',' ' '")
+
+(defpoll    weather             :interval "3m"  :initial "[]"  `scripts/weather`)
+
+(deflisten  active_ws_empty     :initial "true" `scripts/workspaces monitor-empty`)
