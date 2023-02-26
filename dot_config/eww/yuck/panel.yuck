@@ -74,42 +74,6 @@
   )
 )
     
-(defvar    panel_sliders      false)
-(defwidget panel_sliders [] (box :class "button-bin" (eventbox
-    :onhover "${EWW_CMD} update panel_sliders=true"
-    :onhoverlost "${EWW_CMD} update panel_sliders=false"
-    (box :space-evenly false
-        (revealer
-            :transition "slideright"
-            :duration "300ms"
-            :reveal panel_sliders (box 
-            :class "sliders-bin"
-            :space-evenly false
-            (eventbox 
-                :class "slider"
-                :hexpand true
-                (overlay
-                    (scale  :value screen_level
-                            :onchange "${EWW_CONFIG_DIR}/scripts/brightness set_screen {}")
-                    (label  :valign "center"
-                            :class "icon" 
-                            :halign "START"
-                            :text "󰃠")))
-            (box :class "separator" :valign "center" )
-            (eventbox 
-                :class "slider"
-                :hexpand true
-                (overlay
-                    (scale  :value volume_level
-                            :onchange "${EWW_CONFIG_DIR}/scripts/volume set {}")
-                    (label  :valign "center"
-                            :class "icon" 
-                            :halign "START"
-                            :text speaker_type_icon)))
-        ))
-        (label :class "icon" :text "" :valign "center")
-))))
-
 (defwidget panel_colorpicker [] (box :class "button-bin"
     (button
         :class "button colorpicker"
@@ -125,13 +89,6 @@
         (box
             :space-evenly false
             :spacing 6
-            (label  :class "icon bt-headphones"
-                    :text speaker_type_icon
-                    :visible {speaker_type_icon != "󰓃"})
-            (eventbox   :onscroll "${EWW_CONFIG_DIR}/scripts/volume {}"
-                (label  :class "volume icon"
-                        :tooltip "Level: ${volume_level}%"
-                        :text volume_icon))
             (label  :class "bluetooth icon"
                     :text bluetooth_icon
                     :tooltip bluetooth_connected

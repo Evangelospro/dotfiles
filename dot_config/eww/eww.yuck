@@ -5,7 +5,6 @@
 (defvar profile_picture "assets/avatar.png")
 
 (include "./yuck/vars.yuck")
-(include "./yuck/dock.yuck")
 (include "./yuck/panel.yuck")
 (include "./yuck/powermenu.yuck")
 (include "./yuck/datemenu.yuck")

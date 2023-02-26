@@ -14,10 +14,6 @@
 (defpoll    wifi_strength       :interval "5s" `scripts/network strength`)
 (defpoll    wifi_icon           :interval "5s" `scripts/network wifi_icon`)
 
-(defpoll    volume_icon         :interval "3s" `scripts/volume icon`)
-(defpoll    volume_level        :interval "3s" :initial "99" `scripts/volume level`)
-(defpoll    speaker_type_icon   :interval "3s" :initial "󰓃" `scripts/volume type_icon`)
-
 (defpoll    mute_icon           :interval "3s" `scripts/volume mute_icon`)
 (defpoll    mute_state          :interval "3s" `scripts/volume mute_state`)
 
