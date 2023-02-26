@@ -1,4 +1,6 @@
 # root privileges
+alias config='chezmoi cd && code .'
+
 # alias s='/usr/bin/python ~/.zsh/scripts/utils/prevAsSudo.py'
 alias sudo='sudo '
 alias please='sudo $(fc -ln -1)'

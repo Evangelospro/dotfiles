@@ -1,4 +1,9 @@
-paru -S chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim cava slurp wl-clipboard socat swappy cliphist swaylock-effects-git wofi dunst jq eww-wayland swww-git zathura-pdf-mupdf zathura lf spotify-dev spotify-player neofetch kitty-git btop dictd moreutils pamixer wf-recorder unimatrix-git playerctl pistol-git 
+paru -S chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim polkit-gnome ffmpeg cava swaybg \
+rofi-git pavucontrol nautilus zsh wl-clipboard wf-recorder cliphist jq btop moreutils \
+swaybg grimblast-git ffmpegthumbnailer playerctl dictd \
+noise-suppression-for-voice zathura-pdf-mupdf zathura lf spotify-player \
+eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch \
+nwg-look-bin papirus-icon-theme-git swayosd-git swaync wezterm swayidle geticons
 
 ** NVIDIA ** !
 

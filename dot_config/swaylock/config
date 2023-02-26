@@ -4,7 +4,7 @@
 
 indicator-caps-lock
 # datestr=%A
-# image=$("cat ~/.config/hypr/scripts/variables/temp/background")
+image=~/background.png
 scaling=fill
 font=JetBrainsMono Nerd Font
 font-size=32
