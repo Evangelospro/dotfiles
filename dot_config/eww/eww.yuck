@@ -21,8 +21,8 @@
 (defvar br_reveal false)
 (defvar music_reveal false)
 (defvar control_reveal false)
-(defvar wifi_rev false)
-(defvar time_rev false)
+(defvar wifi_reveal false)
+(defvar time_reveal false)
 
 
 ;; widgets
@@ -42,34 +42,39 @@
 )
 
 (defwidget appnames []
-  (eventbox
-    :onhover "${EWW_CMD} update control_reveal=true"
-	  :onhoverlost "${EWW_CMD} update control_reveal=false"
-    (box
-	    :orientation "h"
-	    :space-evenly "false"
-	    :vexpand "false"
-	    :hexpand "false" 
-        (literal 
-            :content appname)
-	    (revealer
-	      :transition "slideright"
-		    :reveal control_reveal
-		    :duration "350ms"
+    (eventbox
+        :onhover "${EWW_CMD} update control_reveal=true"
+        :onhoverlost "${EWW_CMD} update control_reveal=false"
         (box
-            :vexpand "false"
-            :hexpand "false"
             :orientation "h"
             :space-evenly "false"
-            (button
-                :class "app-button"
-                :onclick "hyprctl dispatch togglefloating 1" "") 
-		  	    (button
-		  	        :class "app-button"
-		  	        :onclick "hyprctl dispatch fullscreen 1" "")
-		  	    (button
-		  	        :class "app-button"
-                :onclick "hyprctl dispatch killactive 1" ""))))))
+            :vexpand "false"
+            :hexpand "false" 
+            (literal 
+                :content appname)
+            (revealer
+            :transition "slideright"
+                :reveal control_reveal
+                :duration "350ms"
+            (box
+                :vexpand "false"
+                :hexpand "false"
+                :orientation "h"
+                :space-evenly "false"
+                (button
+                    :class "app-button"
+                    :onclick "hyprctl dispatch togglefloating 1" "") 
+                (button
+                    :class "app-button"
+                    :onclick "hyprctl dispatch fullscreen 1" "")
+                (button
+                    :class "app-button"
+                    :onclick "hyprctl dispatch killactive 1" "")
+                )
+            )
+        )
+    )
+)
 
 (defwidget bright []
   (eventbox
@@ -124,15 +129,15 @@
 
 (defwidget wifi [] 
   (eventbox 
-    :onhover "${EWW_CMD} update wifi_rev=true"
-	:onhoverlost "${EWW_CMD} update wifi_rev=false"
+    :onhover "${EWW_CMD} update wifi_reveal=true"
+	:onhoverlost "${EWW_CMD} update wifi_reveal=false"
 	(box
 	    :vexpand "false"
 	    :hexpand "false"
 	    :space-evenly "false"
 	    (revealer 
 	        :transition "slideright"
-		    :reveal wifi_rev
+		    :reveal wifi_reveal
 			:duration "350ms"
 	        (label
 	            :class "module_essid"
@@ -178,8 +183,8 @@
 
 (defwidget clock_module []
   (eventbox
-      :onhover "${EWW_CMD} update time_rev=true"
-  	:onhoverlost "${EWW_CMD} update time_rev=false"
+      :onhover "${EWW_CMD} update time_reveal=true"
+  	:onhoverlost "${EWW_CMD} update time_reveal=false"
       (box
           :class "module"
           :space-evenly "false"
@@ -189,7 +194,7 @@
               :text clock_time
               :class "clock_time_class" )
           (revealer :transition "slideleft"
-  		    :reveal time_rev
+  		    :reveal time_reveal
   		    :duration "350ms"
               (button 
                   :class "clock_date_class"

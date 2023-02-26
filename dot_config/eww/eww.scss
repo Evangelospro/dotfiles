@@ -463,6 +463,15 @@ color: #bfc9db;
 	color: $white;
 	font-size : 1.2em;
 }
+.player {
+  font-weight: bold;
+  color: $white;
+  margin-top: -5px;
+}
+.playlsit {
+  font-weight: italic;
+  color: $white;
+}
 .artist {
 	font-style: italic;
 	font-size: 1.1em;
@@ -472,6 +481,11 @@ color: #bfc9db;
 .btn_prev, .btn_play, .btn_next {
   color: $purple;
   font-size: 25px;
+}
+.lyrics {
+  font-size: 1.1em;
+  color: $white;
+  margin-top: 10px;
 }
 
 .metric-player  scale trough highlight {
