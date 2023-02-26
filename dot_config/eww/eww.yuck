@@ -8,13 +8,13 @@
 (defpoll clock_date :interval "10h" "date '+%b %d, %Y'")
 (defpoll calendar_day :interval "20h" "date '+%d'")
 (defpoll calendar_year :interval "20h" "date '+%Y'")
-(defpoll volume_percent :interval "1s"  "scripts/sbvol --get")
+(defpoll volume_percent :interval "1s"  "~/.config/eww/scripts/sbvol --get")
 (defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll brightness_percent :interval "5s" "~/.config/eww/scripts/brightness --get")
 (defpoll COL_WLAN :interval "1m" "~/.config/eww/scripts/wifi --COL")
 (defpoll ESSID_WLAN :interval "1m" "~/.config/eww/scripts/wifi --ESSID")
 (defpoll WLAN_ICON :interval "1m" "~/.config/eww/scripts/wifi --ICON")
-(deflisten workspace "~/.config/eww/scripts/workspace")
+(defpoll workspaces :interval "1s" "~/.config/eww/scripts/workspace")
 (deflisten appname "~/.config/eww/scripts/appname")
 
 (defvar vol_reveal false)
@@ -38,7 +38,8 @@
 
 (defwidget workspaces []
   (literal 
-    :content workspace))
+    :content workspaces)
+)
 
 (defwidget appnames []
   (eventbox
@@ -139,7 +140,7 @@
 			  ))
 		(button
 		    :class "module-wif"
-		    :onclick "scripts/wifi_menu &"
+		    :onclick "~/.config/eww/scripts/wifi_menu &"
 		    WLAN_ICON))))
 
 (defwidget bat []
@@ -273,7 +274,7 @@
         :width "98%"
         :height "30px"
         :anchor "top center")
-    :stacking "fg"dd
+    :stacking "fg"
     (bar_layout))
 
 (defwindow bar1
