@@ -8,11 +8,15 @@ workspaces() {
 if [[ ${1:0:14} == "activewindow>>" ]]; then #set focused workspace
     string=${1:14}
     class="${string/,*/}"
-    class=$(echo "$class" | tr '[:upper:]' '[:lower:]')
     export title=${string/,/ \| }
-    export class=${class,,}
     [[ $title == " | " ]] && unset title
-    export iconpath=$(geticons "$class" -s 24 -c 1 | head -n 1)
+    export iconpath=$(geticons "$class" -s 24 -c 1| head -n 1)
+    # if it isn't null try with lowercase
+    if [[ $iconpath == "" ]]; then
+        class=$(echo "$class" | tr '[:upper:]' '[:lower:]')
+        export iconpath=$(geticons "$class" -s 24 -c 1 | head -n 1)
+    fi
+    echo "$string\n$class\n$title\n$iconpath" > /tmp/iconpath
 fi
 }
 
