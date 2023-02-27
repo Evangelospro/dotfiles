@@ -1,3 +1,4 @@
+# pause all music when swayidle is active
 timeout 300 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
-timeout 305 'swaylock'
+timeout 305 'playerctl pause && swaylock'
 before-sleep 'swaylock'

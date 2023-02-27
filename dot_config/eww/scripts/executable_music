@@ -14,7 +14,7 @@
 # uncomment your music players below.
 # 
 
-Control="MPD"
+# Control="MPD"
 [ -n "$(pgrep spotify)" ] && Control="spotify"
 # [ -n "$(pgrep brave-bin)" ] && Control="brave-bin"
 # [ -n "$(pgrep rhythmbox)" ] && Control="rhythmbox"
@@ -70,6 +70,14 @@ time=$(playerctl --player=$Control position --format "{{ duration(position) }}")
 echo "$time"
 }
 
+########################## Time ##########################
+time_ms() {
+# return time in milliseconds
+postime=$(playerctl --player=$Control position)
+timems=$((echo "$postime * 1000" | bc))
+echo $timems
+}
+
 ########################## Length ##########################
 length() {
 length=$(playerctl --player=$Control metadata --format "{{ duration(mpris:length) }}")
@@ -80,7 +88,7 @@ echo "$length"
 ########################## trackNumber ##########################
 playlist() {
 playlist=$(playerctl --player=$Control metadata xesam:trackNumber)
-[ -z "$playlist" ] && playlist="0"
+[ -z "$playlist" ] && playlist='"No playlist"'
 echo "$playlist"
 }
 
@@ -101,12 +109,46 @@ echo "$icon"
 
 ########################## Lyrics ##########################
 lyrics() {
-Title=$(playerctl --player=$Control metadata --format {{title}})
-Artist=$(playerctl --player=$Control metadata --format {{artist}})
-URL="https://api.lyrics.ovh/v1/$Artist/$Title"
-lyrics=$(curl -s "$( echo "$URL" | sed s/" "/%20/g | sed s/"&"/%26/g | sed s/,/%2C/g | sed s/-/%2D/g)" | jq '.lyrics' )
-[ "$lyrics" = "null" ] && lyrics=$( curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$Artist" --data-urlencode "title=$Title")
-printf "$lyrics" | less
+TrackID=$(playerctl --player=$Control metadata --format {{mpris:trackid}} | sed -e 's/\/com\/spotify\/track\///g')
+# echo "$TrackID"
+lyrics=$( curl -s --get "https://spotify-lyric-api.herokuapp.com/?trackid=$TrackID" | jq -r '.lines[] | .startTimeMs, .words' )
+[ -z "$lyrics" ] && lyrics="No Lyrics"
+# ok so the output is json display the current lyric(and next 4) based on the time
+postime=$(playerctl --player=$Control position)
+timems=$(echo "$postime * 1000" | bc | sed -e 's/\..*$//g')
+# echo "$timems"
+# find the line number of the lyric with the time closest to the current time
+# first line is the time, second line is the lyric
+# break the loop when the time is greater than the current time
+# process the lyrics and make it into two arrays one for time and one for lyrics
+
+time=()
+lyr=()
+while IFS= read -r line; do
+    time+=("$line")
+    IFS= read -r line
+    lyr+=("$line")
+done < <(echo "$lyrics")
+
+# echo "${time[@]}"
+# echo "${lyr[@]}"
+
+# display the current lyric and the next 4
+for i in "${!time[@]}"; do
+    if [ "$timems" -lt "${time[$i]}" ]; then
+        # echo "${time[$i]} ${lyr[$i]}"
+        # echo "${time[$i+1]} ${lyr[$i+1]}"
+        # echo "${time[$i+2]} ${lyr[$i+2]}"
+        # echo "${time[$i+3]} ${lyr[$i+3]}"
+        # echo "${time[$i+4]} ${lyr[$i+4]}"
+		echo "${lyr[$i-1]}"
+        echo "${lyr[$i]}"
+		echo "${lyr[$i+1]}"
+		echo "${lyr[$i+2]}"
+		echo "${lyr[$i+3]}"
+        break
+    fi
+done
 }
 
 # ┌┬┐┌─┐┌┬┐  ┌─┐┌─┐┬─┐┬┌─┐┌┬┐┌─┐
@@ -260,10 +302,11 @@ case $Control in
 		album)		album					;;
 		status)		status					;;
 		statusicon)	statusicon				;;
-		player)		echo "$Control"				;;
+		player)		echo "$Control"			;;
 		coverloc)	cover					;;
-		showcover)	cover | xargs feh 			;;
-		time)		ctime 					;;
+		showcover)	cover | xargs feh 	 	;;
+		ctime)		ctime 					;;
+		time)		time_ms 				;;
 		length)		length 					;;
 		percent)	echo "0"				;;
 		playlist)	playlist				;;

@@ -1,11 +1,3 @@
-/** EWW.SCSS
-Created by saimoom **/
-*{
-	all: unset;
-	font-family: feather;
-	font-family: Inter Nerd Font;
-}
-
 $background: #282a36;
 $widget-background: #44475a;
 $shadow:    #44475a;
@@ -20,6 +12,27 @@ $purple:    #ff79c6;
 $teal:      #8be9fd;
 $white:     #f8f8f2;
 
+/** EWW.SCSS
+Created by saimoom **/
+*{
+	all: unset;
+	font-family: feather;
+	font-family: Inter Nerd Font;
+}
+
+// $background: rgba(00, 00, 00, 0.3);
+// $widget-background: rgba(30, 30, 30, 0.4);
+// $shadow:    rgba(00, 00, 00, 0.4);
+// $grey:      #606060;
+
+// $black:     #3D4C5F;
+// $red:       #EE4F84;
+// $green:     #53E2AE;
+// $orange:    #F1FA8C;
+// $blue:      #92B6F4;
+// $purple:    #985EFF;
+// $teal:      #24D1E7;
+// $white:     #E5E5E5;
 
 /** General **/
 .bar_class {
@@ -29,7 +42,6 @@ $white:     #f8f8f2;
     border-width: 2;
     border-color: $green;
 }
-
 .module {
     margin: 0px 0px 0px 0px;
     border-radius: 10px 10px 0px 10px;
@@ -463,29 +475,23 @@ color: #bfc9db;
 	color: $white;
 	font-size : 1.2em;
 }
-.player {
-  font-weight: bold;
-  color: $white;
-  margin-top: -5px;
-}
-.playlsit {
-  font-weight: italic;
-  color: $white;
-}
+
 .artist {
 	font-style: italic;
 	font-size: 1.1em;
 	color: $blue;
 	margin-top: -5px;
 }
+
+.lyrics {
+  color: $white;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
 .btn_prev, .btn_play, .btn_next {
   color: $purple;
   font-size: 25px;
-}
-.lyrics {
-  font-size: 1.1em;
-  color: $white;
-  margin-top: 10px;
 }
 
 .metric-player  scale trough highlight {
