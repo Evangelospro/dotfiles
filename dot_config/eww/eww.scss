@@ -40,7 +40,7 @@ Created by saimoom **/
     border-radius: 16px;
     border-style: solid;
     border-width: 2;
-    border-color: $green;
+    border-color: $purple;
 }
 .module {
     margin: 0px 0px 0px 0px;
@@ -136,23 +136,23 @@ tooltip label {
 .volume_icon {
     font-size: 22;
     color: $blue;
-  margin: 0px 10px 0px 0px;
+    margin: 0px 10px 0px 0px;
 }
 
 
 .module_essid {
     font-size: 18;
     color: $blue;
-  margin: 0px 10px 0px 0px;
+    margin: 0px 10px 0px 0px;
 }
 .module-wif {
     font-size: 22;
     color: $blue;
-  margin: 0px 10px 0px 5px;
+    margin: 0px 10px 0px 5px;
 }
 
 .iconlauncher {
-    color: $green;
+    color: $blue;
     font-size: 36px;
     margin: 0px 0px 0px 15px;
 }
@@ -614,29 +614,13 @@ scale trough {
   color: $black;
 }
 
-.poweroff {
-  background-color: $red;
-}
-.reboot {
-  background-color: $green;
-}
-.firmware {
-  background-color: $orange;
-}
-.exit {
-  background-color: $purple;
-}
-.restart {
-  background-color: $blue;
-}
-
 .fetch {
     margin-top: 35px;
     font-size: 15px;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 2;
-  border-color: $red;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2;
+    border-color: $red;
     background-color: $widget-background;
     padding: 30px 55px 30px 55px;
 }
@@ -714,8 +698,13 @@ scale trough {
     color: $blue;
     margin: 0px 50px 0px 0px;
 }
+
 .notification-action {
     font-size: 36px;
     color: $white;
     margin: 0px 0px 0px 20px;
+}
+
+.active-workspace {
+    background-color: $purple;
 }

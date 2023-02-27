@@ -96,12 +96,6 @@
 	)
 )
 
-(defpoll art		:interval "1s"  "~/.config/eww/scripts/music coverloc")
-(defpoll title		:interval "1s"  "~/.config/eww/scripts/music title")
-(defpoll artist		:interval "1s"  "~/.config/eww/scripts/music artist")
-(defpoll album		:interval "1s"  "~/.config/eww/scripts/music album")
-(defpoll playpause	:interval "1s"  "~/.config/eww/scripts/music statusicon")
-
 (defwidget music-lyrics [] 
 	(box 
 	    :class "music-lyrics" 
@@ -117,8 +111,6 @@
 		)
 	)
 )
-
-(defpoll lyrics		:interval "1s"  "~/.config/eww/scripts/music lyrics")
 
 ;; <-- System -->
 (defwidget system-side [] 
@@ -231,13 +223,6 @@
 	        :halign "center"  
 			:tooltip "edit Config" 
 	        :onclick " ~/.config/hypr/hyprland.conf &" "")))
-
-(defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
-(defpoll packages :interval "5m" `pacman -Q | wc -l`)
-(defpoll kernal :interval "5m" `uname -r`) 
-(defpoll name :interval "5m" `whoami`)  
-(defpoll host :interval "5m" `uname -n`) 
-(defpoll wm :interval "5m" `echo $XDG_CURRENT_DESKTOP`) 
 
 (defwidget fetch []
             (box 

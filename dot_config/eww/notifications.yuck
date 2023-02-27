@@ -58,5 +58,3 @@
             (literal
                 :content notifications)
 )))
-
-(defpoll notifications :interval "1s" "~/.config/eww/scripts/notifications")
