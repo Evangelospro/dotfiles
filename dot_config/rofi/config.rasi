@@ -3,10 +3,10 @@
 configuration {
 	/*---------- General setting ----------*/
 	modi: "drun,run,filebrowser,window,ssh";
-  display-drun: "";
-  display-window: "﩯 ";
-  display-combi: "  ";
-  case-sensitive: false;
+  	display-drun: "";
+  	display-window: "﩯 ";
+  	display-combi: "  ";
+  	case-sensitive: false;
 	cycle: true;
 	filter: "";
 	scroll-method: 0;

@@ -10,17 +10,17 @@ get_brightness() {
 
 # Increase brightness
 inc_brightness() {
-	brightnessctl set 5%+
+	lightctl up
 }
 
 # Decrease brightness
 dec_brightness() {
-	brightnessctl set 5%-
+	lightctl down
 }
 
 # Set brightness
 set_brightness() {
-    brightnessctl s "$2"
+    lightctl set "$2"
 }
 
 # Execute accordingly

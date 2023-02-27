@@ -8,7 +8,7 @@
 (defpoll clock_date :interval "10h" "date '+%b %d, %Y'")
 (defpoll calendar_day :interval "20h" "date '+%d'")
 (defpoll calendar_year :interval "20h" "date '+%Y'")
-(defpoll volume_percent :interval "1s"  "~/.config/eww/scripts/sbvol --get")
+(defpoll volume_percent :interval "1s"  "~/.config/eww/scripts/volume --get")
 (defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll brightness_percent :interval "5s" "~/.config/eww/scripts/brightness --get")
 (defpoll COL_WLAN :interval "1m" "~/.config/eww/scripts/wifi --COL")
@@ -95,7 +95,7 @@
 			    :tooltip "${brightness_percent}%"
 			    :max 100
 			    :min 0
-			    :onchange "brightnessctl s {}%" ))
+			    :onchange "lightctl set {}%" ))
         (label
             :text ""
             :class "bright_icon"
@@ -121,7 +121,7 @@
 			        :tooltip "${volume_percent}%"
 			        :max 100
 			        :min 0
-			        :onchange "amixer sset Master {}%" ))
+			        :onchange "volumectl set {}%" ))
 	        (button
 	            :onclick "${EWW_CMD} open --toggle audio_ctl"
 	            :class "volume_icon"
