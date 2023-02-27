@@ -1,4 +1,4 @@
-@theme "colors/dracula.rasi"
+@theme "themes/dracula.rasi"
 
 configuration {
 	/*---------- General setting ----------*/
