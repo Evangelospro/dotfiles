@@ -9,13 +9,13 @@
 (defpoll calendar_day :interval "20h" "date '+%d'")
 (defpoll calendar_year :interval "20h" "date '+%Y'")
 (defpoll volume_percent :interval "1s"  "~/.config/eww/scripts/volume --get")
-(defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
-(defpoll brightness_percent :interval "5s" "~/.config/eww/scripts/brightness --get")
+(defpoll mic_percent :interval "1s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll brightness_percent :interval "1s" "~/.config/eww/scripts/brightness --get")
 (defpoll COL_WLAN :interval "1m" "~/.config/eww/scripts/wifi --COL")
 (defpoll ESSID_WLAN :interval "1m" "~/.config/eww/scripts/wifi --ESSID")
 (defpoll WLAN_ICON :interval "1m" "~/.config/eww/scripts/wifi --ICON")
 (defpoll workspaces :interval "1s" "~/.config/eww/scripts/workspace")
-(deflisten appname "~/.config/eww/scripts/appname")
+(deflisten appname "~/.config/eww/scripts/appname 2>/dev/null") ; stdout error panicks go where they belong
 
 (defvar vol_reveal false)
 (defvar br_reveal false)
@@ -69,7 +69,7 @@
                     :onclick "hyprctl dispatch fullscreen 1" "")
                 (button
                     :class "app-button"
-                    :onclick "hyprctl dispatch killactive 1" "")
+                    :onclick "hyprctl dispatch killactive 1" "")
                 )
             )
         )
@@ -238,7 +238,7 @@
     :orientation "h"
     :hexpand "false"
     :visible "true"
-    :width "150"))
+    :width 150))
 
 
 ;;define widget groups
@@ -433,13 +433,13 @@
                 :limit-width 9
                 :show_truncated false
                 :wrap false)
-            ;(label 
-            ;    :text "${EWW_BATTERY.capacity}%"
-            ;    :halign "start"
-            ;    :class "sys_text_bat_sub"
-            ;    :limit-width 22
-            ;    :show_truncated false
-            ;    :wrap false)
+            (label 
+                :text "${EWW_BATTERY.capacity}%"
+                :halign "start"
+                :class "sys_text_bat_sub"
+                :limit-width 22
+                :show_truncated false
+                :wrap false)
             ; (label
             ;    :text "${EWW_BATTERY.status}"
             ;    :halign "start"
@@ -505,7 +505,7 @@
             :x "20" 
 			:y "7%" 
             :anchor "top right"
-			:width "290px" 
+			:width "290px"
 			:height "120px")
     (system))
 

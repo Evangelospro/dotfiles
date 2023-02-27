@@ -59,4 +59,4 @@
                 :content notifications)
 )))
 
-(deflisten notifications "~/.config/eww/scripts/notifications")
+(defpoll notifications :interval "1s" "~/.config/eww/scripts/notifications")

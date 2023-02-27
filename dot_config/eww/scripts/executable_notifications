@@ -1,8 +1,12 @@
 #! /bin/bash
 
-tmp=/tmp/dunst-history.json
+history=/tmp/dunst-history.json
+# create a temporary file to store the history
+if [ ! -f "$history" ]; then
+    touch "$history"
+fi
 
-notif() {
+notif_function() {
 export ids=($(dunstctl history | jq '.data[] | .[].id.data'))
 
 printf "\n (box \
@@ -12,7 +16,7 @@ printf "\n (box \
     :halign \"start\" "
 
 for id in "${ids[@]}"; do
-    mapfile -t notif < <(jq -r ".data[] | .[] | select(.id.data == $id) | .appname.data, .icon_path.data, .summary.data, .body.data" "$tmp" | sed -r '/^\s*$/d' | sed -e 's/\%/ percent/g')
+    mapfile -t notif < <(jq -r ".data[] | .[] | select(.id.data == $id) | .appname.data, .icon_path.data, .summary.data, .body.data" "$history" | sed -r '/^\s*$/d' | sed -e 's/\%/ percent/g')
     printf "(eventbox :onclick \"dunstctl history-pop $id && dunstctl action 0 && dunstctl close\" \
     (box	\
     :class \"notification\"	\
@@ -27,7 +31,7 @@ for id in "${ids[@]}"; do
     (box \
         :orientation \"v\" \
         :space-evenly \"false\" \
-        :valign \"left\" \
+        :valign \"end\" \
         :width 300 \
         :spacing 10 \
         (label \
@@ -49,7 +53,7 @@ done
 printf ") \n"
 }
 
-notif
-tail --follow $tmp 2> /dev/null | grep --line-buffered "aa{sv}" | while read -r; do
-notif
+notif_function
+tail --follow $history 2> /dev/null | grep --line-buffered "aa{sv}" | while read -r; do
+notif_function
 done

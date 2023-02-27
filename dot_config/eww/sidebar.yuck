@@ -58,7 +58,6 @@
 		:halign "center"
 		:valign "start"
 		:hexpand "true"
-		:width ""
 	    (box 	
 	        :class "album_art" 
 			:style "background-image: url('${art}');"
@@ -111,8 +110,7 @@
 	    :spacing 10 
 	    :halign "center" 
 	    :valign "center" 
-	    :hexpand "true" 
-	    :width ""
+	    :hexpand "true"
 		(label 
 		    :class "lyrics" 
 		    :text lyrics
@@ -127,7 +125,7 @@
 	(box 
 	    :class "stats-box" 
 	    :space-evenly "false" 
-	    :width "300px"
+	    :width 300
 	    :orientation "v" 
 	    :valign "start" 
 	    :halign "center" 

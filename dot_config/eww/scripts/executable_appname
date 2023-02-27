@@ -2,7 +2,7 @@
 
 #define icons for workspaces 1-9
 #icontheme=$(geticons -U)
-icontheme=$(grep "gtk-icon-theme-name" "$HOME"/.config/gtk-3.0/settings.ini | cut --delimiter="=" -f 2)
+# icontheme=$(grep "gtk-icon-theme-name" "$HOME"/.config/gtk-3.0/settings.ini | cut --delimiter="=" -f 2)
 
 workspaces() {
 if [[ ${1:0:14} == "activewindow>>" ]]; then #set focused workspace
@@ -16,7 +16,7 @@ if [[ ${1:0:14} == "activewindow>>" ]]; then #set focused workspace
         class=$(echo "$class" | tr '[:upper:]' '[:lower:]')
         export iconpath=$(geticons "$class" -s 24 -c 1 | head -n 1)
     fi
-    echo "$string\n$class\n$title\n$iconpath" > /tmp/iconpath
+    # echo "$string\n$class\n$title\n$iconpath"
 fi
 }
 
