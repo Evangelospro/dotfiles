@@ -208,7 +208,21 @@
     (button
 	    :onclick "if ${EWW_CMD} state | grep 'rightside: false' ; then ${EWW_CMD} update rightside=true ; else ${EWW_CMD} update rightside=false ; fi"
       (label
-      :text ""))))
+      :text "")
+    )
+))
+
+(defwidget powermenu []
+  (box
+    :class "powermenu"
+    :space-evenly "false"
+    :orientation "h"
+    (button
+        :onclick "wlogout"
+      (label
+      :text "")
+    )
+))
   
 (defwidget sep []
   (box 
@@ -258,6 +272,7 @@
     (sep)
     (clock_module)
     (notif_button)
+    (powermenu)
 ))
 
 ;;Define bar
