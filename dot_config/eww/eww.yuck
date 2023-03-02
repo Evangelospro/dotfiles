@@ -124,9 +124,17 @@
 			    :text ESSID_WLAN
 			  ))
 		(button
-		    :class "module-wif"
+		    :class "module-wifi"
 		    :onclick "~/.config/eww/scripts/wifi_menu &"
 		    WLAN_ICON))))
+
+(defwidget network-speeds []
+    (label 
+        :text network_speeds
+        :class "network_speeds_class"
+        :wrap "false"
+        :tooltip "network speeds")
+)
 
 (defwidget bat []
 		(box
@@ -141,7 +149,7 @@
                     :class "iconbat"
                     :limit-width 2
                     :tooltip "battery on ${battery}%"
-                    :show_truncated false
+                    ; :show_truncated false
                     :onclick "${EWW_CMD} open --toggle system"
                     :wrap false
                     ""))))
@@ -157,7 +165,7 @@
                 :limit-width 2
                 :tooltip "using ${EWW_RAM.used_mem_perc}% ram"
                 :onclick "${EWW_CMD} open --toggle system"
-                :show_truncated false
+                ; :show_truncated false
                 :wrap false
                 ""))))
 
@@ -247,6 +255,7 @@
     (bright)
     (volume)
     (wifi)
+    (network-speeds)
     (sep)
     (bat)
     (mem)
@@ -393,13 +402,13 @@
         :orientation "h"
         :space-evenly "false"
         (circular-progress
-            :value {EWW_BATTERY.capacity}
+            :value {battery}
             :class "sys_bat"
             :thickness 9
             (label :text ""
                 :class "sys_icon_bat"
                 :limit-width 2
-                :show_truncated false
+                ; :show_truncated false
                 :wrap false))
         (box 
             :orientation "v" 
@@ -412,22 +421,22 @@
                 :halign "start"
                 :class "sys_text_bat"
                 :limit-width 9
-                :show_truncated false
+                ; :show_truncated false
                 :wrap false)
             (label 
-                :text "${EWW_BATTERY.capacity}%"
+                :text "${battery}%"
                 :halign "start"
                 :class "sys_text_bat_sub"
                 :limit-width 22
-                :show_truncated false
+                ; :show_truncated false
                 :wrap false)
-            ; (label
-            ;    :text "${EWW_BATTERY.status}"
-            ;    :halign "start"
-            ;    :class "sys_text_bat_sub"
-            ;    :limit-width 22
-            ;    :show_truncated false
-            ;    :wrap false)
+            (label
+               :text "${battery_status}"
+               :halign "start"
+               :class "sys_text_bat_sub"
+               :limit-width 22
+               ; :show_truncated false
+               :wrap false)
         )
         )
     (label
@@ -447,7 +456,7 @@
                 :text ""
                 :class "sys_icon_mem"
                 :limit-width 2
-                :show_truncated false
+                ; :show_truncated false
                 :wrap false
                 :angle 0.0))
         (box
@@ -461,14 +470,14 @@
                 :halign "start"
                 :class "sys_text_mem"
                 :limit-width 9
-                :show_truncated false
+                ; :show_truncated false
                 :wrap false)
             (label
                 :text "${round((EWW_RAM.available_mem / 1024), 0)} | ${round((EWW_RAM.total_mem / 1024), 0)}mb "
                 :halign "start"
                 :class "sys_text_mem_sub"
                 :limit-width 22
-                :show_truncated false
+                ; :show_truncated false
                 :wrap false)
             (label 
                 :text "${round((EWW_RAM.used_mem / 1024), 0)}mb free"

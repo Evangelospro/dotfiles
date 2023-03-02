@@ -3,17 +3,16 @@ $widget-background: #44475a;
 $shadow:    #44475a;
 $grey:      #6272a4;
 
-$black:     #3D4C5F;
-$red:       #ff5555;
+$cyan:      #8be9fd;
 $green:     #50fa7b;
 $orange:    #ffb86c;
-$blue:      #bd93f9;
-$purple:    #ff79c6;
-$teal:      #8be9fd;
+$black:     #3D4C5F;
+$pink:      #ff79c6;
+$purple:    #bd93f9;
+$red:       #ff5555;
+$yellow:    #f1fa8c;
 $white:     #f8f8f2;
 
-/** EWW.SCSS
-Created by saimoom **/
 *{
 	all: unset;
 	font-family: feather;
@@ -29,7 +28,7 @@ Created by saimoom **/
 // $red:       #EE4F84;
 // $green:     #53E2AE;
 // $orange:    #F1FA8C;
-// $blue:      #92B6F4;
+// $cyan:      #92B6F4;
 // $purple:    #985EFF;
 // $teal:      #24D1E7;
 // $white:     #E5E5E5;
@@ -135,24 +134,24 @@ tooltip label {
 }
 .volume_icon {
     font-size: 22;
-    color: $blue;
+    color: $cyan;
     margin: 0px 10px 0px 0px;
 }
 
 
 .module_essid {
     font-size: 18;
-    color: $blue;
+    color: $cyan;
     margin: 0px 10px 0px 0px;
 }
-.module-wif {
+.module-wifi {
     font-size: 22;
-    color: $blue;
+    color: $cyan;
     margin: 0px 10px 0px 5px;
 }
 
 .iconlauncher {
-    color: $blue;
+    color: $cyan;
     font-size: 36px;
     margin: 0px 0px 0px 15px;
 }
@@ -242,14 +241,14 @@ color: $grey;
 }
 
 .song {
-	color: $blue;
+	color: $cyan;
 	font-size : 18px;
 	font-weight : bold;
 	margin : 3px 5px 0px 0px;
 }
 
 .song_btn_play {
-	color: $blue;
+	color: $cyan;
 	font-size : 28px;
 	margin : 3px 0px 0px 5px;
 
@@ -257,7 +256,7 @@ color: $grey;
 
 
 .song_btn_prev, .song_btn_next {
-	color: $blue;
+	color: $cyan;
 	font-size : 24px;
 	margin : 3px 0px 0px 5px;
 
@@ -289,11 +288,11 @@ calender {
     color: #bfc9db;
 }
 calendar:selected {
-  color: $blue;
+  color: $cyan;
 }
 
 calendar.header {
-color: $blue;
+color: $cyan;
 font-weight: bold;
 }
 
@@ -302,7 +301,7 @@ color: $green;
 }
 
 calendar.highlight {
-color: $blue;
+color: $cyan;
 font-weight: bold;
 }
 
@@ -374,7 +373,7 @@ color: #bfc9db;
 }
 
 .app-button {
-	color: $blue;
+	color: $cyan;
 	font-size : 24px;
 	font-weight : bold;
 	margin : 0px 15px 0px 15px;
@@ -395,7 +394,7 @@ color: #bfc9db;
 }
 
 .speaker_text {
-	color: $blue;
+	color: $cyan;
 	font-size : 26px;
 	font-weight : bold;
 	margin: 20px 0px 0px 0px;
@@ -430,7 +429,7 @@ color: #bfc9db;
 }
 
 .mic_text {
-	color: $blue;
+	color: $cyan;
 	font-size : 26px;
 	font-weight : bold;
 	margin: 0px 0px 0px 0px;
@@ -485,7 +484,7 @@ color: #bfc9db;
 .artist {
 	font-style: italic;
 	font-size: 1.1em;
-	color: $blue;
+	color: $cyan;
 	margin-top: -5px;
 }
 
@@ -503,7 +502,7 @@ color: #bfc9db;
 .metric-player  scale trough highlight {
 	all: unset;
 	border-radius: 10px;
-	background-color: $blue;
+	background-color: $cyan;
 }
 
 // weather
@@ -524,7 +523,7 @@ color: #bfc9db;
 }
 
 .label_temp {
-	color : $blue;
+	color : $cyan;
 	font-size : 35px;
 	font-weight : bold;
 	margin : 0px 0px 0px 0px;
@@ -533,13 +532,13 @@ color: #bfc9db;
 }
 
 .label_stat {
-	color : $blue;
+	color : $cyan;
 	font-size : 38px;
 	font-weight : bold;
 }
 
 .label_quote {
-	color : $blue;
+	color : $cyan;
 	font-size : 18px;
   padding-bottom: 10px;
 	font-weight : normal;
@@ -553,7 +552,7 @@ color: #bfc9db;
   border-style: solid;
   border-width: 2;
   border-color: $red;
-    color: $blue;
+    color: $cyan;
 	font-size : 18px;
 	font-style : italic;
 	font-family: Cartograph CF;
@@ -571,7 +570,7 @@ color: #bfc9db;
 
 .stats-icon {
     font-size: 23px;
-    color: $blue;
+    color: $cyan;
 }
 
 
@@ -642,7 +641,7 @@ scale trough {
 
 .packages {
   font-weight: bold;
-  color: $blue;
+  color: $cyan;
 }
 
 .kernal {
@@ -695,7 +694,7 @@ scale trough {
 
 .notification-label {
     font-size: 30px;
-    color: $blue;
+    color: $cyan;
     margin: 0px 50px 0px 0px;
 }
 

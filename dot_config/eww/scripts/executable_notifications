@@ -1,59 +1,15 @@
 #! /bin/bash
 
-history=/tmp/dunst-history.json
+history_file=/tmp/dunst-history.json
 # create a temporary file to store the history
-if [ ! -f "$history" ]; then
-    touch "$history"
+if [ ! -f "$history_file" ]; then
+    touch "$history_file"
 fi
 
-notif_function() {
-export ids=($(dunstctl history | jq '.data[] | .[].id.data'))
-
-printf "\n (box \
-    :orientation \"v\" \
-    :space-evenly \"false\" \
-    :spacing \"20\" \
-    :halign \"start\" "
-
-for id in "${ids[@]}"; do
-    mapfile -t notif < <(jq -r ".data[] | .[] | select(.id.data == $id) | .appname.data, .icon_path.data, .summary.data, .body.data" "$history" | sed -r '/^\s*$/d' | sed -e 's/\%/ percent/g')
-    printf "(eventbox :onclick \"dunstctl history-pop $id && dunstctl action 0 && dunstctl close\" \
-    (box	\
-    :class \"notification\"	\
-    :orientation \"h\" \
-    :width 300 \
-    :space-evenly \"false\" \
-    (image \
-        :class \"notification-icon\" \
-        :path \"${notif[1]}\" \
-        :image-height 50 \
-        :image-width 100) \
-    (box \
-        :orientation \"v\" \
-        :space-evenly \"false\" \
-        :valign \"end\" \
-        :width 300 \
-        :spacing 10 \
-        (label \
-            :xalign 0 \
-            :wrap "true" \
-            :class \"notification-appname\" \
-            :text \"${notif[0]}\") \
-        (label \
-            :xalign 0 \
-            :wrap "true" \
-            :class \"notification-summary\" \
-            :text \"${notif[2]}\") \
-        (label \
-            :xalign 0 \
-            :wrap "true" \
-            :class \"notification-body\" \
-            :text \"${notif[3]}\"))))"
-done
-printf ") \n"
+collect_history() {
+    history=$(dunstctl history)
+    echo "$history" > "$history_file"
+    echo $(jq -r ".data[]" "$history_file")
 }
 
-notif_function
-tail --follow $history 2> /dev/null | grep --line-buffered "aa{sv}" | while read -r; do
-notif_function
-done
+collect_history

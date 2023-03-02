@@ -55,6 +55,49 @@
             :hscroll "false"
             :height 840
             :width 200
-            (literal
-                :content notifications)
-)))
+            (box 
+                :orientation "v"
+                :space-evenly "false"
+                :spacing "20"
+                :halign "start"
+                (for notification in notifications_json
+                    (eventbox :onclick "dunstctl history-pop ${notification.id.data} && dunstctl action 0 && dunstctl close"
+                        (box
+                            :class "notification"
+                            :orientation "h"
+                            :width 300
+                            :space-evenly "false"
+                            (image
+                                :class "notification-icon"
+                                :path "${notification.icon_path.data}"
+                                :image-height 50
+                                :image-width 100)
+                            (box
+                                :orientation "v"
+                                :space-evenly "false"
+                                :valign "end"
+                                :width 300
+                                :spacing 10
+                                (label
+                                    :xalign 0
+                                    :wrap "true"
+                                    :class "notification-appname"
+                                    :text "${notification.appname.data}")
+                                (label
+                                    :xalign 0
+                                    :wrap "true"
+                                    :class "notification-summary"
+                                    :text "${notification.summary.data}")
+                                (label
+                                    :xalign 0
+                                    :wrap "true"
+                                    :class "notification-body"
+                                    :text "${notification.body.data}")
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
