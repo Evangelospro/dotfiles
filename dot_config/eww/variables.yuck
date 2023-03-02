@@ -1,0 +1,47 @@
+; top bar
+(defpoll monitors :interval "1m" "hyprctl monitors -j | jq -rc '[ .[].id ] | sort_by( . )'")
+(defpoll clock_time :interval "5s" "date '+\%l\%M \%p'")
+(defpoll clock_date :interval "10h" "date '+%b %d, %Y'")
+(defpoll calendar_day :interval "20h" "date '+%d'")
+(defpoll calendar_year :interval "20h" "date '+%Y'")
+(defpoll volume_percent :interval "1s"  "~/.config/eww/scripts/volume --get")
+(defpoll mic_percent :interval "1s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll brightness_percent :interval "1s" "~/.config/eww/scripts/brightness --get")
+(defpoll COL_WLAN :interval "1m" "~/.config/eww/scripts/wifi --COL")
+(defpoll ESSID_WLAN :interval "1m" "~/.config/eww/scripts/wifi --ESSID")
+(defpoll WLAN_ICON :interval "1m" "~/.config/eww/scripts/wifi --ICON")
+(defpoll network_speeds :interval "1s" "~/.config/eww/scripts/networks --speeds")
+(defpoll workspaces :interval "1s" "~/.config/eww/scripts/workspace")
+(deflisten appname "~/.config/eww/scripts/appname 2>/dev/null") ; stdout error panicks go where they belong
+
+; reveal bars
+(defvar volume_reveal false)
+(defvar brightness_reveal false)
+(defvar music_reveal false)
+(defvar control_reveal false)
+(defvar wifi_reveal false)
+(defvar time_reveal false)
+
+; Sidebar music
+(defpoll art		:interval "1s"  "~/.config/eww/scripts/music coverloc")
+(defpoll title		:interval "1s"  "~/.config/eww/scripts/music title")
+(defpoll artist		:interval "1s"  "~/.config/eww/scripts/music artist")
+(defpoll album		:interval "1s"  "~/.config/eww/scripts/music album")
+(defpoll playpause	:interval "1s"  "~/.config/eww/scripts/music statusicon")
+(defpoll lyrics		:interval "1s"  "~/.config/eww/scripts/music lyrics")
+
+; sidebar system data
+(defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
+(defpoll packages :interval "5m" `pacman -Q | wc -l`)
+(defpoll kernal :interval "5m" `uname -r`) 
+(defpoll name :interval "5m" `whoami`)  
+(defpoll host :interval "5m" `uname -n`) 
+(defpoll wm :interval "5m" `echo $XDG_CURRENT_DESKTOP`) 
+
+; notifications
+; (defpoll notifications :interval "1s" "~/.config/eww/scripts/notifications")
+(defpoll notifications_json :interval "1s" "~/.config/eww/scripts/notifications")
+
+;system
+(defpoll battery :interval "1s" "~/.config/eww/scripts/battery --bat")
+(defpoll battery_status :interval "1s" "~/.config/eww/scripts/battery --stat")

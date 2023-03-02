@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# all in Mb/s
+upload_wifi=$(cat /sys/class/net/wlan0/statistics/tx_bytes | awk '{print int($1/1024/1024)}')
+download_wifi=$(cat /sys/class/net/wlan0/statistics/rx_bytes | awk '{print int($1/1024/1024)}')
+upload_eth=$(cat /sys/class/net/enp1s0/statistics/tx_bytes | awk '{print int($1/1024/1024)}')
+download_eth=$(cat /sys/class/net/enp1s0/statistics/rx_bytes | awk '{print int($1/1024/1024)}')
+
+# if the first argument is --speeds, then print the speeds
+if [ "$1" = "--speeds" ]; then
+    echo -n " "
+    if [ $download_wifi -gt 0 ]; then
+        echo -n "直"
+        echo -n " ${download_wifi}"
+    fi
+    if [ $upload_wifi -gt 0 ]; then
+        echo -n " ${upload_wifi} "
+    fi
+    if [ $download_eth -gt 0 ]; then
+        echo -n ""
+        echo -n " ${download_eth}"
+    fi
+    if [ $upload_eth -gt 0 ]; then
+        echo -n " ${upload_eth} "
+    fi
+elif [ "$1" = "--upload" ]; then
+    echo -n "  直 ${upload_wifi}  ${upload_eth}"
+elif [ "$1" = "--download" ]; then
+    echo -n "  直 ${download_wifi}   ${download_eth}"
+fi
