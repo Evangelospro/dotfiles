@@ -1,9 +1,9 @@
 paru -S chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim polkit-gnome ffmpeg cava swaybg \
-rofi-git pavucontrol nautilus zsh wl-clipboard wf-recorder cliphist jq btop moreutils \
+rofi-git pavucontrol nautilus zsh wl-clipboard wf-recorder kwallet-pam cliphist jq btop moreutils \
 swaybg grimblast-git ffmpegthumbnailer playerctl dictd flameshot-git \
 noise-suppression-for-voice zathura-pdf-mupdf zathura lf spotify-player \
 eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git
-nwg-look-bin papirus-icon-theme-git swayosd-git swaync wezterm swayidle geticons udiskie
+nwg-look-bin papirus-icon-theme-git swayosd-git swaync caffeinated wezterm swayidle geticons udiskie
 
 cargo install hyprsome
 
