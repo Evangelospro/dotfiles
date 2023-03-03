@@ -1,46 +1,61 @@
 #!/bin/bash
+# Get current received and transmitted bytes for enp1s0 and wlan0 interfaces
+enp1s0_rx=$(ifconfig enp1s0 | awk '/RX bytes/{print $2}' | cut -d ":" -f 2)
+enp1s0_tx=$(ifconfig enp1s0 | awk '/TX bytes/{print $6}' | cut -d ":" -f 2)
+wlan0_rx=$(ifconfig wlan0 | awk '/RX bytes/{print $2}' | cut -d ":" -f 2)
+wlan0_tx=$(ifconfig wlan0 | awk '/TX bytes/{print $6}' | cut -d ":" -f 2)
 
-# all in Mb/s
-IF="wlan0"
-if [ -z "$IF" ]; then
-        IF=`ls -1 /sys/class/net/ | head -1`
-fi
-RXPREV=-1
-TXPREV=-1
-echo "Listening $IF..."
-while 
-        RX=`cat /sys/class/net/${IF}/statistics/rx_bytes`
-        TX=`cat /sys/class/net/${IF}/statistics/tx_bytes`
-        if [ $RXPREV -ne -1 ] ; then
-                let BWRX=$RX-$RXPREV
-                let BWTX=$TX-$TXPREV
-                echo "Received: $BWRX B/s    Sent: $BWTX B/s"
-        fi
-        RXPREV=$RX
-        TXPREV=$TX
-        sleep 1
-done
+# Sleep for 1 second to calculate the difference in bytes
+sleep 1
+
+# Get new received and transmitted bytes for enp1s0 and wlan0 interfaces
+enp1s0_rx_new=$(ifconfig enp1s0 | awk '/RX bytes/{print $2}' | cut -d ":" -f 2)
+enp1s0_tx_new=$(ifconfig enp1s0 | awk '/TX bytes/{print $6}' | cut -d ":" -f 2)
+wlan0_rx_new=$(ifconfig wlan0 | awk '/RX bytes/{print $2}' | cut -d ":" -f 2)
+wlan0_tx_new=$(ifconfig wlan0 | awk '/TX bytes/{print $6}' | cut -d ":" -f 2)
+
+# Calculate the difference in bytes and convert to MB for enp1s0 interface
+enp1s0_rx_bytes=$((enp1s0_rx_new - enp1s0_rx))
+enp1s0_tx_bytes=$((enp1s0_tx_new - enp1s0_tx))
+enp1s0_rx_mb=$(bc -l <<< "scale=2; $enp1s0_rx_bytes / 1024 / 1024")
+enp1s0_tx_mb=$(bc -l <<< "scale=2; $enp1s0_tx_bytes / 1024 / 1024")
+
+# Calculate the difference in bytes and convert to MB for wlan0 interface
+wlan0_rx_bytes=$((wlan0_rx_new - wlan0_rx))
+wlan0_tx_bytes=$((wlan0_tx_new - wlan0_tx))
+wlan0_rx_mb=$(bc -l <<< "scale=2; $wlan0_rx_bytes / 1024 / 1024")
+wlan0_tx_mb=$(bc -l <<< "scale=2; $wlan0_tx_bytes / 1024 / 1024")
+
+# Print results for both interfaces
+echo "enp1s0 RX: $enp1s0_rx_mb MB/s"
+echo "enp1s0 TX: $enp1s0_tx_mb MB/s"
+echo "wlan0 RX: $wlan0_rx_mb MB/s"
+echo "wlan0 TX: $wlan0_tx_mb MB/s"
+
+
+
+
 
 
 # if the first argument is --speeds, then print the speeds
-if [ "$1" = "--speeds" ]; then
-    echo -n " "
-    if [ $download_wifi -gt 0 ]; then
-        echo -n "直"
-        echo -n " ${download_wifi}"
-    fi
-    if [ $upload_wifi -gt 0 ]; then
-        echo -n " ${upload_wifi} "
-    fi
-    if [ $download_eth -gt 0 ]; then
-        echo -n ""
-        echo -n " ${download_eth}"
-    fi
-    if [ $upload_eth -gt 0 ]; then
-        echo -n " ${upload_eth} "
-    fi
-elif [ "$1" = "--upload" ]; then
-    echo -n "  直 ${upload_wifi}  ${upload_eth}"
-elif [ "$1" = "--download" ]; then
-    echo -n "  直 ${download_wifi}   ${download_eth}"
-fi
+# if [ "$1" = "--speeds" ]; then
+#     echo -n " "
+#     if [ $download_wifi -gt 0 ]; then
+#         echo -n "直"
+#         echo -n " ${download_wifi}"
+#     fi
+#     if [ $upload_wifi -gt 0 ]; then
+#         echo -n " ${upload_wifi} "
+#     fi
+#     if [ $download_eth -gt 0 ]; then
+#         echo -n ""
+#         echo -n " ${download_eth}"
+#     fi
+#     if [ $upload_eth -gt 0 ]; then
+#         echo -n " ${upload_eth} "
+#     fi
+# elif [ "$1" = "--upload" ]; then
+#     echo -n "  直 ${upload_wifi}  ${upload_eth}"
+# elif [ "$1" = "--download" ]; then
+#     echo -n "  直 ${download_wifi}   ${download_eth}"
+# fi

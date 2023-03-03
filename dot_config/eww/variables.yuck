@@ -14,6 +14,8 @@
 (defpoll workspaces :interval "1s" "~/.config/eww/scripts/workspace")
 (deflisten appname "~/.config/eww/scripts/appname 2>/dev/null") ; stdout error panicks go where they belong
 
+(defpoll interfaceId :interval "60s" "nmcli c s --active | awk '/wifi|ethernet/ {print $6}' | head -n 1")
+
 ; reveal bars
 (defvar volume_reveal false)
 (defvar brightness_reveal false)
