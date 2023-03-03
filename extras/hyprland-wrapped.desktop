@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Hyprland (Wrapped)
+Comment=An intelligent dynamic tiling Wayland compositor
+Exec=/home/evangelospro/.config/hypr/hyprland-start1
+Type=Afpplication
