@@ -1,4 +1,0 @@
-#!/bin/sh
-
-input="$(rofi -n -k "/dev/null" --show dmenu)"
-dict $input | rofi -n --show dmenu --width 1000 --heigh 500

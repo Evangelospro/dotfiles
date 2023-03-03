@@ -1,1 +1,1 @@
-rofi -show drun -theme ~/.config/rofi/launchers/type-1/style-14.rasi
+rofi -normal-window-mode -show drun -theme ~/.config/rofi/launchers/type-1/style-14.rasi
