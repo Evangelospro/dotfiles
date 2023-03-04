@@ -1,4 +1,5 @@
 $background: #282a36;
+$transparent: rgba(00, 00, 00, 0.0);
 $widget-background: #44475a;
 $shadow:    #44475a;
 $grey:      #6272a4;
@@ -35,46 +36,74 @@ $white:     #f8f8f2;
 
 /** General **/
 .bar_class {
-    background-color: rgba(00, 00, 00, 0.55);
+    background-color: $background; 
     border-radius: 16px;
     border-style: solid;
     border-width: 2;
     border-color: $purple;
 }
+
 .module {
-    margin: 0px 0px 0px 0px;
-    border-radius: 10px 10px 0px 10px;
-}
-
-.rightside{
-    background-color: $background;
-    border-radius: 16px;
-    border-style: solid;
-    border-width: 2;
-    border-color: $green;
-    padding: 0px 30px 0px 30px;
-}
-
-.leftside{
-    background-color: $background;
-    border-radius: 16px;
-    border-style: solid;
-    border-width: 2;
-    border-color: $green;
-    padding: 0px 30px 0px 30px;
+  margin: 0px 0px 0px 0px;
+  // background-color: $background;
+  // border-radius: 10px 10px 0px 10px;
+  // border-style: solid;
+  // border-width: 2;
+  // border-color: $purple;
 }
 
 .center_modules {
-    margin: 0px 0px 0px 0px;
-    border-radius: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  // background-color: $background;
+  // border-radius: 10px 10px 0px 10px;
+  // border-style: solid;
+  // border-width: 2;
+  // border-color: $purple;
+}
+
+.left_modules {
+  margin: 0px 0px 0px 0px;
+  // background-color: $background;
+  // border-radius: 10px 10px 0px 10px;
+  // border-style: solid;
+  // border-width: 2;
+  // border-color: $purple;
+}
+
+.right_modules {
+  margin: 0px 0px 0px 0px;
+  // background-color: $background;
+  // border-radius: 10px 10px 0px 10px;
+  // border-style: solid;
+  // border-width: 2;
+  // border-color: $purple;
+}
+
+
+.rightside{
+  background-color: $background;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 2;
+  border-color: $green;
+  padding: 0px 30px 0px 30px;
+}
+
+.leftside{
+  background-color: $background;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 2;
+  border-color: $green;
+  padding: 0px 30px 0px 30px;
 }
 
 /** tooltip!! **/
 tooltip.background {
-    background-color: rgba(00, 00, 00, 0.0);
-    font-size: 18;
-    border-radius: 10px;
-    color: $background;
+  background-color: rgba(00, 00, 00, 0.0);
+  font-size: 18;
+  border-radius: 10px;
+  color: $background;
 }
 
 tooltip label {
@@ -179,18 +208,18 @@ tooltip label {
   }
 
 .launcher_module {
-    background-color: rgba(00, 00, 00, 0.0);
-  }
+  background-color: rgba(00, 00, 00, 0.0);
+}
 .mem_module {
-    background-color: rgba(00, 00, 00, 0.0);
+  background-color: rgba(00, 00, 00, 0.0);
 	border-radius: 16px;
   margin: 0px 10px 0px 3px;
-  }
+}
 .bat_module {
-    background-color: rgba(00, 00, 00, 0.0);
+  background-color: rgba(00, 00, 00, 0.0);
 	border-radius: 16px;
   margin: 0px 10px 0px 10px;
-  }
+}
 
 
 scale trough {
@@ -204,10 +233,10 @@ scale trough {
 }
 
 .works {
-font-size: 27px;
-font-weight: normal;
-margin: 5px 0px 0px 10px;
-background-color: rgba(00, 00, 00, 0.0);
+  font-size: 27px;
+  font-weight: normal;
+  margin: 5px 0px 0px 10px;
+  background-color: rgba(00, 00, 00, 0.0);
 }
 
 .0 , .01, .02, .03, .04, .05, .06,
@@ -292,21 +321,21 @@ calendar:selected {
 }
 
 calendar.header {
-color: $cyan;
-font-weight: bold;
+  color: $cyan;
+  font-weight: bold;
 }
 
 calendar.button {
-color: $green;
+  color: $green;
 }
 
 calendar.highlight {
-color: $cyan;
-font-weight: bold;
+  color: $cyan;
+  font-weight: bold;
 }
 
 calendar:indeterminate {
-color: #bfc9db;
+  color: #bfc9db;
 }
 
 
@@ -414,9 +443,6 @@ color: #bfc9db;
 	min-width: 120px;
 	margin : 0px 0px 5px 0px;
 }
-
-
-
 
 .mic_icon {
 	background-size: cover;
@@ -559,9 +585,9 @@ color: #bfc9db;
 }
 
 .stats-box {
-    all: unset;
-    background-color: $widget-background;
-    padding: 20px 25px 20px 25px;
+  all: unset;
+  background-color: $widget-background;
+  padding: 20px 25px 20px 25px;
   border-radius: 16px;
   border-style: solid;
   border-width: 2;
@@ -585,24 +611,19 @@ scale trough {
 }
 
 .scale highlight {
-    background-image: linear-gradient(to right, #afcee0 30%, #92B6F4 50%, #77a5bf 100% *50);
-    border-radius: 15px;
-}
-
-.foo {
-    font-size: 40px;
-    padding-top: 10px;
+  background-image: linear-gradient(to right, #afcee0 30%, #92B6F4 50%, #77a5bf 100% *50);
+  border-radius: 15px;
 }
 
 .buttons {
-    opacity: 1;
-    background-color: $widget-background;
+  opacity: 1;
+  background-color: $widget-background;
   border-radius: 16px;
   border-style: solid;
   border-width: 2;
   border-color: $red;
-    padding: 15px 0px 15px 0px;
-    margin-bottom: 30px;
+  padding: 15px 0px 15px 0px;
+  margin-bottom: 30px;
 }
 
 .poweroff, .reboot, .firmware, .exit, .restart {
@@ -651,59 +672,60 @@ scale trough {
 
 .notification {
 	all: unset;
-    background-color: $widget-background;
+  background-color: $widget-background;
 	padding: 20px 25px 20px 17px;
-    margin: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
 	border-radius: 12px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: $red;}
+  border-width: 2px;
+  border-style: solid;
+  border-color: $red;}
 
 .notification-header {
 	all: unset;
-    background-color: $widget-background;
+  background-color: $widget-background;
 	padding: 20px 25px 20px 17px;
-    margin: 20px 0px 10px 0px;
+  margin: 20px 0px 10px 0px;
 	border-radius: 12px;
-    border-width: 2px;
-    border-style: solid;
-    border-color: $green;}
+  border-width: 2px;
+  border-style: solid;
+  border-color: $green;
+}
 
 .notification-icon {
-    color: $white;
-    font-size: 36px;
-    margin: 0px 20px 0px 10px;
+  color: $white;
+  font-size: 36px;
+  margin: 0px 20px 0px 10px;
 }
 
 .notification-appname {
-    font-size: 14px;
-    font-weight: bold;
-    color: $orange;
+  font-size: 14px;
+  font-weight: bold;
+  color: $orange;
 }
 
 .notification-summary {
-    font-size: 18px;
-    font-weight: bold;
-    color: $white;
+  font-size: 18px;
+  font-weight: bold;
+  color: $white;
 }
 
 .notification-body {
-    font-size: 14px;
-    color: $white;
+  font-size: 14px;
+  color: $white;
 }
 
 .notification-label {
-    font-size: 30px;
-    color: $cyan;
-    margin: 0px 50px 0px 0px;
+  font-size: 30px;
+  color: $cyan;
+  margin: 0px 50px 0px 0px;
 }
 
 .notification-action {
-    font-size: 36px;
-    color: $white;
-    margin: 0px 0px 0px 20px;
+  font-size: 36px;
+  color: $white;
+  margin: 0px 0px 0px 20px;
 }
 
 .active-workspace {
-    background-color: $purple;
+  background-color: $purple;
 }
