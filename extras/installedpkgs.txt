@@ -1,5 +1,5 @@
 paru -S chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim polkit-gnome ffmpeg cava swaybg \
-rofi-git pavucontrol nautilus zsh wl-clipboard wf-recorder kwallet-pam cliphist jq btop moreutils \
+rofi-git pavucontrol qt5ct zsh wl-clipboard wf-recorder kwallet-pam cliphist jq btop moreutils \
 swaybg grimblast-git ffmpegthumbnailer playerctl dictd flameshot-git \
 noise-suppression-for-voice zathura-pdf-mupdf zathura lf spotify-player \
 eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git

@@ -10,11 +10,10 @@
 (defpoll COL_WLAN :interval "1m" "~/.config/eww/scripts/wifi --COL")
 (defpoll ESSID_WLAN :interval "1m" "~/.config/eww/scripts/wifi --ESSID")
 (defpoll WLAN_ICON :interval "1m" "~/.config/eww/scripts/wifi --ICON")
-(defpoll network_speeds :interval "1s" "~/.config/eww/scripts/networks --speeds")
 (defpoll workspaces :interval "1s" "~/.config/eww/scripts/workspace")
 (deflisten appname "~/.config/eww/scripts/appname 2>/dev/null") ; stdout error panicks go where they belong
 
-(defpoll interfaceId :interval "60s" "nmcli c s --active | awk '/wifi|ethernet/ {print $6}' | head -n 1")
+(defpoll interfaceId :interval "60s" "nmcli c s --active | awk '/wifi|ethernet/ {print $4}' | head -n 1")
 
 ; reveal bars
 (defvar volume_reveal false)
