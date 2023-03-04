@@ -1,4 +1,4 @@
 # dotfiles 
-### use chezmoi to apply the
+### use chezmoi to apply them
 
 ![Hyprland](/hyprland.png)
