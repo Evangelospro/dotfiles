@@ -1,4 +1,0 @@
-#!/bin/bash
-# run a python script with ipython
-
-echo "%run $1" | ipython

@@ -236,6 +236,12 @@
     :width 150))
 
 
+(defwidget tray []
+    (system-tray :active-only false
+                 :pack-direction "ltr"
+    )
+)
+
 ;;define widget groups
 (defwidget left []
 	(box 
@@ -263,7 +269,7 @@
     (wifi)
     (network-speeds)
     (sep)
-    ; (system-tray)
+    ; (tray)
     (sep)
     (bat)
     (mem)
