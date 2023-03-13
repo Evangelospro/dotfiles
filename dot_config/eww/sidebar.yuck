@@ -1,13 +1,3 @@
-(defwindow sidebar
-    :geometry (geometry :x "0px"
-                        :y "10px"
-                        :width "1px"
-                        :height "93%"
-                        :anchor "bottom left")
-    :stacking "fg"
-    :monitor "0"
-(sidebar))
-
 (defwidget sidebar [] 
 	(eventbox 
 	    :halign "start" 
@@ -90,6 +80,7 @@
 			)
 			(label 
 				:class "album"
+				:limit-width 15
 				:text "playing ${album}"
 			)
 		)

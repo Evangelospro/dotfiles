@@ -4,14 +4,14 @@
 (defpoll clock_date :interval "10h" "date '+%b %d, %Y'")
 (defpoll calendar_day :interval "20h" "date '+%d'")
 (defpoll calendar_year :interval "20h" "date '+%Y'")
-(defpoll volume_percent :interval "1s"  "~/.config/eww/scripts/volume --get")
+(defpoll volume_percent :interval "1s"  "scripts/volume --get")
 (defpoll mic_percent :interval "1s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
-(defpoll brightness_percent :interval "1s" "~/.config/eww/scripts/brightness --get")
-(defpoll COL_WLAN :interval "1m" "~/.config/eww/scripts/wifi --COL")
-(defpoll ESSID_WLAN :interval "1m" "~/.config/eww/scripts/wifi --ESSID")
-(defpoll WLAN_ICON :interval "1m" "~/.config/eww/scripts/wifi --ICON")
-(defpoll workspaces :interval "1s" "~/.config/eww/scripts/workspace")
-(deflisten appname "~/.config/eww/scripts/appname 2>/dev/null") ; stdout error panicks go where they belong
+(defpoll brightness_percent :interval "1s" "scripts/brightness --get")
+(defpoll COL_WLAN :interval "1m" "scripts/wifi --COL")
+(defpoll ESSID_WLAN :interval "1m" "scripts/wifi --ESSID")
+(defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
+(defpoll workspaces :interval "1s" "scripts/workspaces")
+(deflisten appname "scripts/appname 2>/dev/null") ; stdout error panicks go where they belong
 
 (defpoll interfaceId :interval "60s" "nmcli c s --active | awk '/wifi|ethernet/ {print $4}' | head -n 1")
 
@@ -24,12 +24,12 @@
 (defvar time_reveal false)
 
 ; Sidebar music
-(defpoll art		:interval "1s"  "~/.config/eww/scripts/music coverloc")
-(defpoll title		:interval "1s"  "~/.config/eww/scripts/music title")
-(defpoll artist		:interval "1s"  "~/.config/eww/scripts/music artist")
-(defpoll album		:interval "1s"  "~/.config/eww/scripts/music album")
-(defpoll playpause	:interval "1s"  "~/.config/eww/scripts/music statusicon")
-(defpoll lyrics		:interval "1s"  "~/.config/eww/scripts/music lyrics")
+(defpoll art		:interval "1s"  "scripts/music coverloc")
+(defpoll title		:interval "1s"  "scripts/music title")
+(defpoll artist		:interval "1s"  "scripts/music artist")
+(defpoll album		:interval "1s"  "scripts/music album")
+(defpoll playpause	:interval "1s"  "scripts/music statusicon")
+(defpoll lyrics		:interval "1s"  "scripts/music lyrics")
 
 ; sidebar system data
 (defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
@@ -39,10 +39,11 @@
 (defpoll host :interval "5m" `uname -n`) 
 (defpoll wm :interval "5m" `echo $XDG_CURRENT_DESKTOP`) 
 
-; notifications
-; (defpoll notifications :interval "1s" "~/.config/eww/scripts/notifications")
-(defpoll notifications_json :interval "1s" "~/.config/eww/scripts/notifications")
+;;Notification variables
+(deflisten notificationsCards "scripts/logger subscribe")
+(defpoll notificationsCrits :interval "1s" "scripts/logger crits")
+(defpoll notificationNum :interval "1s" "scripts/logger tot")
 
 ;system
-(defpoll battery :interval "1s" "~/.config/eww/scripts/battery --bat")
-(defpoll battery_status :interval "1s" "~/.config/eww/scripts/battery --stat")
+(defpoll battery :interval "1s" "scripts/battery --bat")
+(defpoll battery_status :interval "1s" "scripts/battery --stat")

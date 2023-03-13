@@ -1,103 +1,47 @@
-(defwindow notifications
-    :geometry (geometry :x "0px"
-                        :y "10px"
-                        :width "1px"
-                        :height "93%"
-                        :anchor "bottom right")
-    :stacking "fg"
-    :monitor "0"
-(notif-panel))
+(defwidget notification-button[]
+  (button :class "notification-button" :tooltip "${notificationNum} Notifications" :onclick "scripts/popup --notifs" " ")
+)
 
-(defwidget notif-panel [] 
-	(eventbox 
-	    :halign "start" 
-	    :onhoverlost "${EWW_CMD} update rightside=false"
-		(revealer 
-		    :transition "slideleft"
-		    :reveal rightside 
-		    :duration "550ms"
-		(rightside))))
-(defvar rightside false)
+(defwidget notification-card [?class summary body image ?SL ?M ?L ?R application]
+  (eventbox :onmiddleclick M :onclick L :onrightclick R :class "notification-card-eventbox"
+    (box :space-evenly "false" :orientation "v"
+      (box :space-evenly "true" :orientation "h" :class "notification-card-header-box"
+        (label :class "notification-app-name" :text "${application}" :halign "start")
+        (button :onclick "scripts/logger.zsh rm_id ${SL}" :class "notification-card-notify-close" :halign "end"
+          (label :text "" :tooltip "Remove this notification.")))
+      (box :space-evenly "false" :orientation "h" :class "notification-card-box"
+        (image :image-width "75" :image-height "75" :class "notification-image" :path "${image}")
+        (box :orientation "vertical" :class class :space-evenly false :hexpand true :class "notification-card-body"
+          (box :space-evenly false
+            (label :limit-width 25 :wrap true :text summary :class "notification-summary" :halign "start" :hexpand true))
+          (label :limit-width 30 :wrap true :text body :halign "start" :class "notification-body"))))))
 
-(defwidget rightside [] 
+(defwidget notifs-box[]
+  (box :orientation "v" :space-evenly "false" :class "notification-layout-box"
+    (box :space-evenly "true" :class "notification-headers"
+      (label :text "Notifications" :class "notification-headers-label")
+    )
     (box
-        :class "rightside" 
-        :orientation "v" 
-        :space-evenly "false" 
-        :spacing "10"
-        :halign "center"
-        (box
-            :class "notification-header"
-            :orientation "h" 
-            :space-evenly "false" 
-            (label
-                :class "notification-label"
-                :halign "start"
-                :text "Notifications")
-            (box
-                :orientation "h" 
-                :space-evenly "false" 
-                :halign "end"
-                (button
-                    :class "notification-action"
-                    :tooltip "Refresh"
-                    :onclick "dunstctl history > /tmp/dunst-history.json" "")
-                (button
-                    :class "notification-action"
-                    :tooltip "Pause/Resume Notifications"
-                    :onclick "dunstctl set-paused toggle" "")
-                (button
-                    :class "notification-action"
-                    :tooltip "Dismiss All"
-                    :onclick "pkill dunst && hyprctl dispatch exec dunst && dunstctl history > /tmp/dunst-history.json" "")))
-        (scroll
-            :vscroll "true"
-            :hscroll "false"
-            :height 840
-            :width 200
-            (box 
-                :orientation "v"
-                :space-evenly "false"
-                :spacing "20"
-                :halign "start"
-                (for notification in notifications_json
-                    (eventbox :onclick "dunstctl history-pop ${notification.id.data} && dunstctl action 0 && dunstctl close"
-                        (box
-                            :class "notification"
-                            :orientation "h"
-                            :width 300
-                            :space-evenly "false"
-                            (image
-                                :class "notification-icon"
-                                :path "${notification.icon_path.data}"
-                                :image-height 50
-                                :image-width 100)
-                            (box
-                                :orientation "v"
-                                :space-evenly "false"
-                                :valign "end"
-                                :width 300
-                                :spacing 10
-                                (label
-                                    :xalign 0
-                                    :wrap "true"
-                                    :class "notification-appname"
-                                    :text "${notification.appname.data}")
-                                (label
-                                    :xalign 0
-                                    :wrap "true"
-                                    :class "notification-summary"
-                                    :text "${notification.summary.data}")
-                                (label
-                                    :xalign 0
-                                    :wrap "true"
-                                    :class "notification-body"
-                                    :text "${notification.body.data}")
-                            )
-                        )
-                    )
-                )
-            )
-        )
+    :orientation "h" 
+    :space-evenly "true" 
+    :halign "center"
+    (button
+        :class "notification-action"
+        :tooltip "Refresh"
+        :onclick "~/.config/hypr/scripts/logger.zsh subscribe" ""
+    )
+    (button
+        :class "notification-action"
+        :tooltip "Pause/Resume Notifications"
+        :onclick "dunstctl set-paused toggle" ""
+    )
+    (button
+        :class "notification-action"
+        :tooltip "Dismiss All"
+        :onclick "~/.config/hypr/scripts/logger.zsh " "")
+    )
+    (literal :content notificationsCards :class "notification-literal")
+    (button :onclick "scripts/logger.zsh clear" :class "notification-headers-clear" "Clear All "
+    )
     )
 )

@@ -1,7 +1,5 @@
-;; Variables
-
+(include "windows.yuck")
 (include "variables.yuck")
-
 (include "sidebar.yuck")
 (include "notifications.yuck")
 
@@ -40,7 +38,7 @@
                 :vexpand "false"
                 :hexpand "false"
                 :orientation "h"
-                :space-evenly "false"
+                :space-evzenly "false"
                 (button
                     :class "app-button"
                     :onclick "hyprctl dispatch togglefloating 1" "") 
@@ -49,7 +47,7 @@
                     :onclick "hyprctl dispatch fullscreen 1" "")
                 (button
                     :class "app-button"
-                    :onclick "hyprctl dispatch killactive 1" "")
+                    :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');" "")
                 )
             )
         )
@@ -194,18 +192,6 @@
                   :class "clock_date_class"
                   :onclick "${EWW_CMD} open --toggle calendar" clock_date)))))
 
-(defwidget notif_button []
-  (box
-    :class "notif_button"
-    :space-evenly "false"
-    :orientation "h"
-    (button
-	    :onclick "if ${EWW_CMD} state | grep 'rightside: false' ; then ${EWW_CMD} update rightside=true ; else ${EWW_CMD} update rightside=false ; fi"
-      (label
-      :text "")
-    )
-))
-
 (defwidget powermenu []
   (box
     :class "powermenu"
@@ -275,7 +261,7 @@
     (mem)
     (sep)
     (clock_module)
-    (notif_button)
+    (notification-button)
     (powermenu)
 ))
 
@@ -288,30 +274,6 @@
     (center)
     (right)
 ))
-
-(defwindow bar0
-    :exclusive true
-    :monitor 0
-    :geometry (geometry 
-        :x "15px"
-        :y "9px"
-        :width "98%"
-        :height "30px"
-        :anchor "top center")
-    :stacking "fg"
-    (bar_layout))
-
-(defwindow bar1
-    :exclusive true
-    :monitor 1
-    :geometry (geometry 
-        :x "15px"
-        :y "9px"
-        :width "98%"
-        :height "30px"
-        :anchor "top center")
-    :stacking "bg"
-    (bar_layout))
 
 (defwidget audio []
 	(box 
@@ -388,18 +350,6 @@
 			                :onchange "amixer -D pulse sset Capture {}%" 
 			                :max 100
 			                :min 0))))))
-(defwindow audio_ctl
-    :stacking "fg"
-    :focusable "false"
-    :screen 1
-    :monitor 0
-	:geometry (geometry 
-        :x "20" 
-		:y "7%" 
-        :anchor "top right"
-		:width "280px" 
-		:height "60px")
-    (audio))
 
 
 ;;Define System widget  
@@ -500,18 +450,6 @@
                 :limit-width 22
                 :wrap false)
             ))))
-(defwindow system
-    :stacking "fg"
-    :focusable "false"
-    :screen 1
-    :monitor 0
-	:geometry (geometry
-            :x "20" 
-			:y "7%" 
-            :anchor "top right"
-			:width "290px"
-			:height "120px")
-    (system))
 
 
 
@@ -525,15 +463,4 @@
 	        (calendar
 			  :day calendar_day 
 			  :year calendar_year))))
-(defwindow calendar
-    :stacking "fg"
-    :focusable "false"
-    :screen 1
-    :monitor 0
-	:geometry (geometry
-        :x "20" 
-	    :y "7%" 
-        :anchor "top right"
-	    :width "270px" 
-	    :height "60px")
-(cal))
+

@@ -13,5 +13,5 @@ fi
 NB_MONITORS=($(hyprctl monitors -j | jq -r '.[] | .id'))
 for i in "${!NB_MONITORS[@]}"; do
     ${EWW} open bar$i
-    [[ $i == 0 ]] && ${EWW} open-many sidebar notifications
+    [[ $i == 0 ]] && ${EWW} open-many sidebar
 done

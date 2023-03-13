@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # ╔╦╗ ╦ ╦ ╔═╗ ╦ ╔═╗
 # ║║║ ║ ║ ╚═╗ ║ ║  
@@ -110,51 +110,60 @@ echo "$icon"
 ########################## Lyrics ##########################
 lyrics() {
 TrackID=$(playerctl --player=$Control metadata --format {{mpris:trackid}} | sed -e 's/\/com\/spotify\/track\///g')
-# echo "$TrackID"
-if [ -z "$TrackID" ]; then
-	lyrics="No Lyrics"
-else
-	lyrics=$( curl -s --get "https://spotify-lyric-api.herokuapp.com/?trackid=$TrackID" | jq -r '.lines[] | .startTimeMs, .words' )
-	if [ -z "$lyrics" ]; then
-		# ok so the output is json display the current lyric(and next 4) based on the time
-		postime=$(playerctl --player=$Control position)
-		timems=$(echo "$postime * 1000" | bc | sed -e 's/\..*$//g')
-		# echo "$timems"
-		# find the line number of the lyric with the time closest to the current time
-		# first line is the time, second line is the lyric
-		# break the loop when the time is greater than the current time
-		# process the lyrics and make it into two arrays one for time and one for lyrics
+if [ -n "$TrackID" ]; then
+	# echo "$TrackID"
+	data=$( curl -s --get "https://spotify-lyric-api.herokuapp.com/?trackid=$TrackID")
+	# check if it DOES NOT contain an "error" key
+	if [ "$(echo $data | jq -r '.error')" != "true" ]; then
+		# echo "No errors"
+		lyrics=$( echo $data | jq -r '.lines[] | .startTimeMs, .words' )
+		if [ -n "$lyrics" ]; then
+			# echo "$lyrics"
+			# ok so the output is json display the current lyric(and next 4) based on the time
+			postime=$(playerctl --player=$Control position)
+			timems=$(echo "$postime * 1000" | bc | sed -e 's/\..*$//g')
+			# echo "$timems"
+			# find the line number of the lyric with the time closest to the current time
+			# first line is the time, second line is the lyric
+			# break the loop when the time is greater than the current time
+			# process the lyrics and make it into two arrays one for time and one for lyrics
 
-		time=()
-		lyr=()
-		while IFS= read -r line; do
-			time+=("$line")
-			IFS= read -r line
-			lyr+=("$line")
-		done < <(echo "$lyrics")
+			lyrTime=()
+			lyrLines=()
+			while IFS= read -r line; do
+				lyrTime+=("$line")
+				IFS= read -r line
+				lyrLines+=("$line")
+			done < <(echo "$lyrics")
 
-		# echo "${time[@]}"
-		# echo "${lyr[@]}"
+			# echo "${time[@]}"
+			# echo "${lyr[@]}"
 
-		# display the current lyric and the next 4
-		for i in "${!time[@]}"; do
-			if [ "$timems" -lt "${time[$i]}" ]; then
-				# echo "${time[$i]} ${lyr[$i]}"
-				# echo "${time[$i+1]} ${lyr[$i+1]}"
-				# echo "${time[$i+2]} ${lyr[$i+2]}"
-				# echo "${time[$i+3]} ${lyr[$i+3]}"
-				# echo "${time[$i+4]} ${lyr[$i+4]}"
-				echo "${lyr[$i-1]}"
-				echo "${lyr[$i]}"
-				echo "${lyr[$i+1]}"
-				echo "${lyr[$i+2]}"
-				echo "${lyr[$i+3]}"
-				break
-			fi
-		done
+			# display the current lyric and the next 4
+			result=""
+			delay=100
+			for (( i = 0; i < ${#lyrTime[@]}; i++ )); do
+				# echo "${lyrTime[$i]}"
+				if [ "${lyrTime[$i]}" -gt "$timems" ]; then
+					# echo "Found"
+					# echo "${lyr[$i]}"
+					# echo "${lyr[$i+1]}"
+					# echo "${lyr[$i+2]}"
+					# echo "${lyr[$i+3]}"
+					# echo "${lyr[$i+4]}"
+					result="${lyrLines[$i-1]}\n${lyrLines[$i]}\n${lyrLines[$i+1]}\n${lyrLines[$i+1]}\n${lyrLines[$i+3]}"
+					break
+				fi
+			done
+			echo "$result"
+		else
+			echo "LYRICS: No Lyrics"
+		fi
 	else
-		lyrics="No Lyrics"
+		echo "LYRICS: API errors"
 	fi
+else
+	echo "LYRICS: No TrackID"
 fi
 }
 
