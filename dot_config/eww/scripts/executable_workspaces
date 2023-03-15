@@ -24,23 +24,26 @@ main () {
   elif [[ "${1:0:11}" = "workspace>>" ]] && [[ $currMonitor == $targetMonitor ]]; then
     #set focused workspace
     currWorkspace=$(echo "$1" | cut -d'>' -f 3)
-    # if [[ $currIconPath != "" ]]; then
-    #   ic[$currWorkspace]=$currIconPath
-    # fi
-  elif [[ "${1:0:14}" = "activewindow>>" ]] && [[ $currMonitor = $targetMonitor ]]; then #set focused workspace
-    temp=$(echo "$1" | cut -d'>' -f 3)
-    currClass=$(echo "$temp" | cut -d',' -f 1)
-    if [[ $currClass != "" ]]; then
-      currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
-    fi
-    # if it isn't null try with lowercase
-    if [[ $currIconPath == "" ]]; then
-      currClass=$(echo "$currClass" | tr '[:upper:]' '[:lower:]')
-      currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1 | head -n 1)
-    fi
+    activeWindow=$(hyprctl activewindow)
+    currClass=$(echo "$activeWindow" | grep "class: " | awk '{print $2}')
+    currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
     if [[ $currIconPath != "" ]]; then
       ic[$currWorkspace]=$currIconPath
     fi
+  # elif [[ "${1:0:14}" = "activewindow>>" ]] && [[ $currMonitor = $targetMonitor ]]; then #set focused workspace
+  #   temp=$(echo "$1" | cut -d'>' -f 3)
+  #   currClass=$(echo "$temp" | cut -d',' -f 1)
+  #   if [[ $currClass != "" ]]; then
+  #     currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
+  #   fi
+  #   # if it isn't null try with lowercase
+  #   if [[ $currIconPath == "" ]]; then
+  #     currClass=$(echo "$currClass" | tr '[:upper:]' '[:lower:]')
+  #     currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1 | head -n 1)
+  #   fi
+  #   if [[ $currIconPath != "" ]]; then
+  #     ic[$currWorkspace]=$currIconPath
+  #   fi
   fi
   if [[ $debug == "debug" ]]; then
     echo "focusedmon>>$currMonitor"
@@ -51,7 +54,6 @@ main () {
 
 buttons=""
 # output eww widget
-# echo "icons: ${ic[@]}"
 for num in {1..9}; do
   # echo "num: $num icon: ${ic[$num]}"
   if [[ ${ic[$num]} == "" ]]; then
