@@ -235,7 +235,7 @@
     :space-evenly "false"
     :orientation "h"
     (button
-        :onclick "wlogout"
+        :onclick "pidof wlogout || wlogout &"
       (label
       :text "")
     )
