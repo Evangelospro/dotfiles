@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# import all other scripts in order to run them all under 1 socat connection/process
+
+
+
+handler() {
+
+}
+
+socat - UNIX-CONNECT:/tmp/hypr/$(echo $HYPRLAND_INSTANCE_SIGNATURE)/.socket2.sock | while read line; do
+handler $line
+done

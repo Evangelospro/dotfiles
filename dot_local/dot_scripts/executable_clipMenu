@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pkill -9 rofi || cliphist list | rofi -dmenu | cliphist decode | wl-copy

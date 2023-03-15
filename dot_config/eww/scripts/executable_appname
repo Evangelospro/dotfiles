@@ -1,7 +1,9 @@
 #! /bin/bash
 
 #define icons for workspaces 1-9
-currMonitor="eDP-1" # or "HDMI-A-1"
+firstMonitor="eDP-1"
+secondMonitor="HDMI-A-1"
+currMonitor=$firstMonitor
 targetMonitor=$1
 currClass=""
 currIconPath=""

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Define the options for the Rofi menu
+options=("Extend Monitors
+Duplicate Monitors")
+choice=$(printf '%s
+
+' "${options[@]}" | rofi -dmenu -i -p "Monitor configuration")
+
+# Run the appropriate script
+case $choice in
+    "Extend Monitors")
+        cp ~/.config/hypr/monitors_extend.conf ~/.config/hypr/monitors.conf
+        ;;
+    "Duplicate Monitors")
+        cp ~/.config/hypr/monitors_duplicate.conf ~/.config/hypr/monitors.conf
+        ;;
+esac
+hyprctl reload

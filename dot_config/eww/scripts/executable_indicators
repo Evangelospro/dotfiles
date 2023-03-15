@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+getCapsLockIcon() {
+    xset q | grep -q 'Caps Lock:   on' && echo -n '🔒 ' || echo -n ' '
+}
+
+getNumLockIcon() {
+    xset q | grep -q 'Num Lock:    on' && echo -n ' ' || echo -n ' '
+}
+
+getShortName() {
+    if [[ $1 =~ English.* ]]; then
+        echo -n 'EN '
+    elif [[ $1 =~ Greek.* ]]; then
+        echo -n 'GR '
+    else
+        echo -n '?? '
+    fi
+}
+
+# initial value to display
+layoutLine=$(hyprctl devices | grep keymap | tail --lines 1)
+getShortName ${layoutLine#*:}
+getCapsLockIcon
+getNumLockIcon

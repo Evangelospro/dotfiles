@@ -1,0 +1,88 @@
+(defwindow bar0
+    :exclusive true
+    :monitor 0
+    :geometry (geometry 
+        :x "15px"
+        :y "9px"
+        :width "98%"
+        :height "30px"
+        :anchor "top center")
+    :stacking "fg"
+    (bar_layout0))
+
+(defwindow bar1
+    :exclusive true
+    :monitor 1
+    :geometry (geometry 
+        :x "15px"
+        :y "9px"
+        :width "98%"
+        :height "30px"
+        :anchor "top center")
+    :stacking "bg"
+    (bar_layout1))
+
+(defwindow audio_ctl
+    :stacking "fg"
+    :focusable "false"
+    :screen 1
+    :monitor 0
+	:geometry (geometry 
+        :x "20" 
+		:y "7%" 
+        :anchor "top right"
+		:width "280px" 
+		:height "60px")
+    (audio))
+
+(defwindow calendar
+    :stacking "fg"
+    :focusable "false"
+    :screen 1
+    :monitor 0
+	:geometry (geometry
+        :x "20" 
+	    :y "7%" 
+        :anchor "top right"
+	    :width "270px" 
+	    :height "60px")
+(cal))
+
+(defwindow notification 
+    :monitor 0 
+    :wm-ignore true 
+    :stacking "fg"
+    :focusable "false" 
+    :hexpand "false" 
+    :vexpand "false"
+    :geometry (geometry
+        :x "7" 
+        :y "0" 
+        :height "800" 
+        :width "500" 
+        :anchor "top right")
+  (notifs-box)
+)
+
+(defwindow system
+    :stacking "fg"
+    :focusable "false"
+    :screen 1
+    :monitor 0
+	:geometry (geometry
+            :x "20" 
+			:y "7%" 
+            :anchor "top right"
+			:width "290px"
+			:height "120px")
+    (system))
+
+(defwindow sidebar
+    :geometry (geometry :x "0px"
+                        :y "10px"
+                        :width "1px"
+                        :height "93%"
+                        :anchor "bottom left")
+    :stacking "fg"
+    :monitor "0"
+(sidebar))

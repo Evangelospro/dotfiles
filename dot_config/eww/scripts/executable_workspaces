@@ -3,7 +3,9 @@
 #define icons for workspaces 1-9
 
 targetMonitor=$1
-currMonitor="eDP-1" # or "HDMI-A-1"
+firstMonitor="eDP-1"
+secondMonitor="HDMI-A-1"
+currMonitor=$firstMonitor
 currWorkspace="1"
 currClass=""
 currIconPath=""
@@ -17,13 +19,17 @@ main () {
     currMonitor=$(echo "$temp" | cut -d',' -f 1)
     if [[ $currMonitor == $targetMonitor ]]; then
         currWorkspace=$(echo "$temp" | cut -d',' -f 2)
-      if [[ $currMonitor == "HDMI-A-1" ]]; then
+      if [[ $currMonitor == $secondMonitor ]]; then
+        echo "working on monitor HDMI-A-1"
         currWorkspace=$(($currWorkspace % 10))
       fi
     fi
   elif [[ "${1:0:11}" = "workspace>>" ]] && [[ $currMonitor == $targetMonitor ]]; then
     #set focused workspace
     currWorkspace=$(echo "$1" | cut -d'>' -f 3)
+    if [[ $currMonitor == $secondMonitor ]]; then
+      currWorkspace=$(($currWorkspace % 10))
+    fi
     activeWindow=$(hyprctl activewindow)
     currClass=$(echo "$activeWindow" | grep "class: " | awk '{print $2}')
     currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
