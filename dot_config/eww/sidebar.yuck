@@ -81,6 +81,7 @@
 			(label 
 				:class "album"
 				:limit-width 15
+				:show_truncated "true"
 				:text "playing ${album}"
 			)
 		)

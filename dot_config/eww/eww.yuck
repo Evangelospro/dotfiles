@@ -14,12 +14,17 @@
         :class "iconlauncher" "")
    ))
 
-(defwidget workspaces []
+(defwidget workspaces0 []
   (literal 
-    :content workspaces)
+    :content workspaces0_literal)
 )
 
-(defwidget appnames []
+(defwidget workspaces1 []
+  (literal 
+    :content workspaces1_literal)
+)
+
+(defwidget appnames0 []
     (eventbox
         :onhover "${EWW_CMD} update control_reveal=true"
         :onhoverlost "${EWW_CMD} update control_reveal=false"
@@ -29,7 +34,7 @@
             :vexpand "false"
             :hexpand "false" 
             (literal 
-                :content appname)
+                :content appname0_literal)
             (revealer
             :transition "slideright"
                 :reveal control_reveal
@@ -38,7 +43,42 @@
                 :vexpand "false"
                 :hexpand "false"
                 :orientation "h"
-                :space-evzenly "false"
+                :space-evenly "false"
+                (button
+                    :class "app-button"
+                    :onclick "hyprctl dispatch togglefloating 1" "") 
+                (button
+                    :class "app-button"
+                    :onclick "hyprctl dispatch fullscreen 1" "")
+                (button
+                    :class "app-button"
+                    :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');" "")
+                )
+            )
+        )
+    )
+)
+
+(defwidget appnames1 []
+    (eventbox
+        :onhover "${EWW_CMD} update control_reveal=true"
+        :onhoverlost "${EWW_CMD} update control_reveal=false"
+        (box
+            :orientation "h"
+            :space-evenly "false"
+            :vexpand "false"
+            :hexpand "false" 
+            (literal 
+                :content appname1_literal)
+            (revealer
+            :transition "slideright"
+                :reveal control_reveal
+                :duration "350ms"
+            (box
+                :vexpand "false"
+                :hexpand "false"
+                :orientation "h"
+                :space-evenly "false"
                 (button
                     :class "app-button"
                     :onclick "hyprctl dispatch togglefloating 1" "") 
@@ -138,9 +178,6 @@
 )
 )
 
-
-
-
 (defwidget bat []
 		(box
 		    :class "bat_module"
@@ -198,8 +235,7 @@
     :space-evenly "false"
     :orientation "h"
     (button
-        ; launch wlogout if it isn't running already
-        :onclick "if ! pgrep -x wlogout > /dev/null; then wlogout & else ${EWW_CMD} open --toggle powermenu ; fi"
+        :onclick "wlogout"
       (label
       :text "")
     )
@@ -229,7 +265,7 @@
 )
 
 ;;define widget groups
-(defwidget left []
+(defwidget left0 []
 	(box 
 	    :orientation "h" 
 		:space-evenly false  
@@ -237,14 +273,37 @@
 		:class "left_modules"
     (launcher)
     (sep)
-    (workspaces)))
-(defwidget center []
+    (workspaces0))
+)
+
+(defwidget left1 []
+	(box 
+	    :orientation "h" 
+		:space-evenly false  
+        :halign "start"
+		:class "left_modules"
+    (launcher)
+    (sep)
+    (workspaces1))
+)
+
+(defwidget center0 []
 	(box :orientation "h" 
 		 :space-evenly false  
          :halign "center"
 		 :class "center_modules"
-    (appnames)))
-(defwidget right []
+    (appnames0))
+)
+
+(defwidget center1 []
+	(box :orientation "h" 
+		 :space-evenly false  
+         :halign "center"
+		 :class "center_modules"
+    (appnames1))
+)
+
+(defwidget right0 []
 	(box
 	    :orientation "h" 
 		:space-evenly false  
@@ -256,6 +315,7 @@
     (network-speeds)
     (sep)
     ; (tray)
+    (indicators)
     (sep)
     (bat)
     (mem)
@@ -265,15 +325,50 @@
     (powermenu)
 ))
 
-;;Define bar
-(defwidget bar_layout []
+(defwidget right1 []
+	(box
+	    :orientation "h" 
+		:space-evenly false  
+        :halign "end"
+		:class "right_modules"
+    (bright)
+    (volume)
+    (wifi)
+    (network-speeds)
+    (sep)
+    ; (tray)
+    (indicators)
+    (sep)
+    (bat)
+    (mem)
+    (sep)
+    (clock_module)
+    (notification-button)
+    (powermenu)
+))
+
+;;Define bars
+(defwidget bar_layout0 []
   (centerbox 
     :class "bar_class"
     :orientation "h"
-    (left)
-    (center)
-    (right)
+    (left0)
+    (center0)
+    (right0)
 ))
+
+(defwidget bar_layout1 []
+  (centerbox 
+    :class "bar_class"
+    :orientation "h"
+    (left1)
+    (center1)
+    (right1)
+))
+
+(defwidget indicators []
+    (label :text "${indicators_text}")
+)
 
 (defwidget audio []
 	(box 

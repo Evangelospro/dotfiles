@@ -1,19 +1,24 @@
+; monitor connections
+(deflisten monitors_connected "scripts/monitor_watchdog")
+
 ; top bar
+(defpoll indicators_text :interval "1s" "scripts/indicators")
 (defpoll monitors :interval "1m" "hyprctl monitors -j | jq -rc '[ .[].id ] | sort_by( . )'")
 (defpoll clock_time :interval "5s" "date '+\%l\%M \%p'")
 (defpoll clock_date :interval "10h" "date '+%b %d, %Y'")
 (defpoll calendar_day :interval "20h" "date '+%d'")
 (defpoll calendar_year :interval "20h" "date '+%Y'")
-(defpoll volume_percent :interval "1s"  "scripts/volume --get")
+(defpoll volume_percent :interval "5s"  "scripts/volume --get")
 (defpoll mic_percent :interval "1s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
-(defpoll brightness_percent :interval "1s" "scripts/brightness --get")
+(defpoll brightness_percent :interval "5s" "scripts/brightness --get")
 (defpoll COL_WLAN :interval "1m" "scripts/wifi --COL")
 (defpoll ESSID_WLAN :interval "1m" "scripts/wifi --ESSID")
 (defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
-(defpoll workspaces :interval "1s" "scripts/workspaces")
-(deflisten appname "scripts/appname 2>/dev/null") ; stdout error panicks go where they belong
-
-(defpoll interfaceId :interval "60s" "nmcli c s --active | awk '/wifi|ethernet/ {print $4}' | head -n 1")
+(deflisten workspaces0_literal "scripts/workspaces eDP-1")
+(deflisten workspaces1_literal "scripts/workspaces HDMI-A-1")
+(deflisten appname0_literal "scripts/appname eDP-1") ; stdout error panicks go where they belong
+(deflisten appname1_literal "scripts/appname HDMI-A-1") ; stdout error panicks go where they belong
+(defpoll interfaceId :interval "1m" "nmcli c s --active | awk '/wifi|ethernet/ {print $4}' | head -n 1")
 
 ; reveal bars
 (defvar volume_reveal false)

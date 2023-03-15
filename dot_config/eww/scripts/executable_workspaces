@@ -2,37 +2,65 @@
 
 #define icons for workspaces 1-9
 
-# read the current workspace layout from the last script run if it exists else set to empty
-[[ -f /tmp/hypr_workspace_icons ]] && ic=($(cat /tmp/hypr_workspace_icons)) || ic=("" "" "" "" "" "" "" "" "")
+targetMonitor=$1
+currMonitor="eDP-1" # or "HDMI-A-1"
+currWorkspace="1"
+currClass=""
+currIconPath=""
+ic=("" "" "" "" "" "" "" "" "")
 
-updateIcons () {
-# for the currently active app in lowercase, set the icon to the active app
-activewindow=$(hyprctl activewindow)
-workspace=$(echo "$activewindow" | grep "workspace: " | awk '{print $2}')
-class=$(echo "$activewindow" | grep "class" | awk '{print $2} ' | tr '[:upper:]' '[:lower:]' )
-iconpath=$(geticons "$class" -s 24 -c 1| head -n 1)
-# if it isn't null try with lowercase
-if [[ $iconpath == "" ]]; then
-  class=$(echo "$class" | tr '[:upper:]' '[:lower:]')
-  iconpath=$(geticons "$class" -s 24 -c 1 | head -n 1)
-fi
-if [[ $class != "" ]]; then
-  ic[$workspace]=$iconpath
-fi
-}
+debug=$2
 
 main () {
-buttons=""
-updateIcons
-#output eww widget
-for num in {1..9}; do
-  if [[ ${ic[$num]} == "" ]]; then
-    ic[$num]=$(geticons "appgrid" -s 24 -c 1 | head -n 1)
+  if [[ ${1:0:12} == "focusedmon>>" ]]; then #set focused monitor
+    temp=$(echo "$1" | cut -d'>' -f 3)
+    currMonitor=$(echo "$temp" | cut -d',' -f 1)
+    if [[ $currMonitor == $targetMonitor ]]; then
+        currWorkspace=$(echo "$temp" | cut -d',' -f 2)
+      if [[ $currMonitor == "HDMI-A-1" ]]; then
+        currWorkspace=$(($currWorkspace % 10))
+      fi
+    fi
+  elif [[ "${1:0:11}" = "workspace>>" ]] && [[ $currMonitor == $targetMonitor ]]; then
+    #set focused workspace
+    currWorkspace=$(echo "$1" | cut -d'>' -f 3)
+    # if [[ $currIconPath != "" ]]; then
+    #   ic[$currWorkspace]=$currIconPath
+    # fi
+  elif [[ "${1:0:14}" = "activewindow>>" ]] && [[ $currMonitor = $targetMonitor ]]; then #set focused workspace
+    temp=$(echo "$1" | cut -d'>' -f 3)
+    currClass=$(echo "$temp" | cut -d',' -f 1)
+    if [[ $currClass != "" ]]; then
+      currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
+    fi
+    # if it isn't null try with lowercase
+    if [[ $currIconPath == "" ]]; then
+      currClass=$(echo "$currClass" | tr '[:upper:]' '[:lower:]')
+      currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1 | head -n 1)
+    fi
+    if [[ $currIconPath != "" ]]; then
+      ic[$currWorkspace]=$currIconPath
+    fi
   fi
-  if [[ $num == $workspace ]]; then
-    buttons+="(button :onclick \"hyprctl dispatch exec \'~/.config/hypr/scripts/workspace $num\'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"0$o$num$f$num active-workspace\" (image :path \"${ic[$num]}\" :image-width \"36\" :image-height \"36\" :tooltip \"Workspace $num\"))"
+  if [[ $debug == "debug" ]]; then
+    echo "focusedmon>>$currMonitor"
+    echo "workspace>>$currWorkspace"
+    echo "activewindow>>$currClass"
+    echo "icon>>$currIconPath"
+  fi
+
+buttons=""
+# output eww widget
+# echo "icons: ${ic[@]}"
+for num in {1..9}; do
+  # echo "num: $num icon: ${ic[$num]}"
+  if [[ ${ic[$num]} == "" ]]; then
+    ic[$num]=$(geticons --no-fallbacks "appgrid" -s 24 -c 1 | head -n 1)
+  fi
+  if [[ $num == $currWorkspace ]]; then
+    buttons+="(button :onclick \"hyprctl dispatch exec \'~/.config/hypr/scripts/workspace $num\'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"active-workspace\" (image :path \"${ic[$num]}\" :image-width \"36\" :image-height \"36\" :tooltip \"Workspace $num\"))"
   else
-    buttons+="(button :onclick \"hyprctl dispatch exec \'~/.config/hypr/scripts/workspace $num\'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"0$o$num$f$num\" (image :path \"${ic[$num]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\"))"
+    buttons+="(button :onclick \"hyprctl dispatch exec \'~/.config/hypr/scripts/workspace $num\'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" (image :path \"${ic[$num]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\"))"
   fi
 done
 result="(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
@@ -40,11 +68,11 @@ result="(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xa
               $buttons \
           ) \
         )"
-echo "$result"
-# save the current workspace layout until the next script run
-# write to file without echooing to stdout
-printf "%s " "${ic[@]}" > /tmp/hypr_workspace_icons
-printf "%s " "$result" > /tmp/hypr_workspace
+if [[ $debug != "debug" ]]; then
+  echo "$result"
+fi
 }
 
-main
+socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r event; do 
+  main "$event"
+done

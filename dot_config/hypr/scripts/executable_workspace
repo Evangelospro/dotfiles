@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 monitors=/tmp/hypr/monitors_temp
 hyprctl monitors > $monitors
@@ -15,11 +15,14 @@ passivemonitor=$(grep  -B 3 "($workspace)" "$monitors" | awk 'NR==1 {print $2}')
 #activews=$(grep -A 2 "$activemonitor" "$monitors" | awk 'NR==3 {print $1}' RS='(' FS=')')
 passivews=$(grep -A 2 "$passivemonitor" "$monitors" | awk 'NR==4 {print $1}' RS='(' FS=')')
 
+echo $activemonitor $passivemonitor
+
 if [[ $workspace -eq $passivews ]] && [[ $activemonitor != "$passivemonitor" ]]; then
-  hyprctl dispatch swapactiveworkspaces "$activemonitor" "$passivemonitor"
-  echo $activemonitor $passivemonitor
+#   hyprctl dispatch swapactiveworkspaces "$activemonitor" "$passivemonitor"
+    hyprsome workspace "$workspace"
 else
-  hyprctl dispatch moveworkspacetomonitor "$workspace $activemonitor" && hyprctl dispatch workspace "$workspace"
+    # hyprctl dispatch moveworkspacetomonitor "$workspace $activemonitor" && hyprctl dispatch workspace "$workspace"
+    hyprsome workspace "$workspace"
 fi
 
 exit 0

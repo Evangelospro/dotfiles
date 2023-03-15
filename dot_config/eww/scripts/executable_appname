@@ -1,43 +1,53 @@
 #! /bin/bash
 
 #define icons for workspaces 1-9
-#icontheme=$(geticons -U)
-# icontheme=$(grep "gtk-icon-theme-name" "$HOME"/.config/gtk-3.0/settings.ini | cut --delimiter="=" -f 2)
+currMonitor="eDP-1" # or "HDMI-A-1"
+targetMonitor=$1
+currClass=""
+currIconPath=""
+currTitle=""
+debug=$2
 
-workspaces() {
+appnames() {
 if [[ ${1:0:14} == "activewindow>>" ]]; then #set focused workspace
-    string=${1:14}
-    class="${string/,*/}"
-    export title=${string/,/ \| }
-    [[ $title == " | " ]] && unset title
-    export iconpath=$(geticons "$class" -s 24 -c 1| head -n 1)
-    # if it isn't null try with lowercase
-    if [[ $iconpath == "" ]]; then
-        class=$(echo "$class" | tr '[:upper:]' '[:lower:]')
-        export iconpath=$(geticons "$class" -s 24 -c 1 | head -n 1)
+    if [[ $currMonitor == $targetMonitor ]]; then
+        string=${1:14}
+        currClass="${string/,*/}"
+        currTitle=${string/,/ \| }
+        [[ $currTitle == " | " ]] && currTitle=""
+        currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
+        # if it isn't null try with lowercase
+        if [[ $currIconPath == "" ]]; then
+            currClass=$(echo "$currClass" | tr '[:upper:]' '[:lower:]')
+            currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1 | head -n 1)
+        fi
     fi
-    # echo "$string\n$class\n$title\n$iconpath"
+elif [[ ${1:0:12} == "focusedmon>>" ]]; then #set focused monitor
+    string=${1:12}
+    currMonitor="${string/,*/}"
 fi
-}
-
-module() {
-#output eww widget
-echo 	"(box \
+if [[ $debug == "debug" ]]; then
+    echo "focusedmon>>$currMonitor"
+    echo "activewindow>>$currClass"
+    echo "icon>>$currIconPath"
+else
+    # echo "$string\n$class\n$title\n$iconpath"
+    echo 	"(box \
                 :orientation \"h\" \
                 :halign \"start\" \
                 :space-evenly false \
                 (image \
                     :class \"app-icon\" \
-                    :path \"$iconpath\" \
+                    :path \"$currIconPath\" \
                     :image-width \"36\") \
                 (label \
                     :class \"app-name\" \
                     :limit-width \"35\" \
-                    :text \"$title\" ) \
+                    :text \"$currTitle\" ) \
         )"
+fi
 }
 
 socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r event; do 
-workspaces "$event"
-module
+appnames "$event"
 done
