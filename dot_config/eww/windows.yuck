@@ -36,31 +36,30 @@
     (audio))
 
 (defwindow calendar
+    :monitor 0
     :stacking "fg"
     :focusable "false"
     :screen 1
-    :monitor 0
 	:geometry (geometry
         :x "20" 
 	    :y "7%" 
         :anchor "top right"
 	    :width "270px" 
 	    :height "60px")
-(cal))
+(cal)
+)
 
 (defwindow notification 
     :monitor 0 
-    :wm-ignore true 
     :stacking "fg"
-    :focusable "false" 
-    :hexpand "false" 
-    :vexpand "false"
+    :focusable "true"
+    :screen 1
     :geometry (geometry
         :x "7" 
         :y "0" 
+        :anchor "top right"
         :height "800" 
-        :width "500" 
-        :anchor "top right")
+        :width "500")
   (notifs-box)
 )
 

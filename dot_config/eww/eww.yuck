@@ -235,7 +235,7 @@
     :space-evenly "false"
     :orientation "h"
     (button
-        :onclick "pidof wlogout || wlogout &"
+        :onclick "pidof wlogout || wlogout -p layer-shell &"
       (label
       :text "")
     )
@@ -314,8 +314,8 @@
     (wifi)
     (network-speeds)
     (sep)
-    ; (tray)
     (indicators)
+    (tray)
     (sep)
     (bat)
     (mem)
@@ -336,8 +336,8 @@
     (wifi)
     (network-speeds)
     (sep)
-    ; (tray)
     (indicators)
+    (tray)
     (sep)
     (bat)
     (mem)

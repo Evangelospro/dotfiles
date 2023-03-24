@@ -3,15 +3,12 @@ $ZSH/scripts/utils/banner.sh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of $ZSHrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh' ]]; then
+  source '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh'
 fi
 
 # To customize prompt, run `p10k configure` or edit $ZSH/p10k.zsh.
 [[ ! -f $ZSH/p10k.zsh ]] || source $ZSH/p10k.zsh
-
-# Initialize Zinit
-source "$ZSH/.zi/bin/zi.zsh"
 
 # evaluting some useful commands
 eval $(thefuck --alias)
@@ -40,10 +37,30 @@ zi ice wait
 zi snippet $ZSH/scripts/utils/web-search.zsh
 
 zi ice wait
-zi light MichaelAquilina/zsh-you-should-use
+zi light hlissner/zsh-autopair
+
+# bitwarden auto export session
+zi ice wait
+zi light Game4Move78/zsh-bitwarden
+
+zi ice wait 
+zi light tom-auger/cmdtime
 
 zi ice wait
-zi light hlissner/zsh-autopair
+zi light jgogstad/passwordless-history
+
+zi ice wait
+zi light o1001100/ssh-connect
+
+# zi ice wait
+# zi light MichaelAquilina/zsh-you-should-use
+
+# replaces zsh-you-should-use
+zi ice wait
+zi light djui/alias-tips
+
+export ZSH_PLUGINS_ALIAS_TIPS_EXPAND=0
+
 
 # check that you are not in docker or a server avoid in headless installs
 if [ -z "$DISPLAY" ] && [ -z "$SSH_CLIENT" ]; then
@@ -65,15 +82,16 @@ zi light marlonrichert/zsh-autocomplete
 
 # autocompletion additions + fast-syntax-highlighting + zsh-autosuggestions
 zi wait lucid for \
-  atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-    z-shell/F-Sy-H \
+  atinit'ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay' \
+    zsh-users/zsh-syntax-highlighting \
   blockf \
     zsh-users/zsh-completions \
   atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
 
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
+# loaf after syntax highlighting to prevent "= is not a valid identifier" error
+zi ice wait
+zi light arzzen/calc.plugin.zsh
 
 case ${TERM} in
   xterm*|rxvt*|Eterm*|aterm|kterm|terminator|gnome*|alacritty|st|konsole*)
@@ -114,12 +132,16 @@ bindkey '^[[3~' delete-char
 
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/evangelospro/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
-autoload -Uz compinit
 
 source $ZSH/functions.zsh
 
 fpath+=$ZSH/.zfunc
 
-compinit -i
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
+
+# autoload -Uz compinit
+
+# compinit -i

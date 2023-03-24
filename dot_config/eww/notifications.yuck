@@ -28,7 +28,7 @@
     (button
         :class "notification-action"
         :tooltip "Refresh"
-        :onclick "~/.config/hypr/scripts/logger.zsh subscribe" ""
+        :onclick "scripts/logger subscribe" ""
     )
     (button
         :class "notification-action"
@@ -38,10 +38,10 @@
     (button
         :class "notification-action"
         :tooltip "Dismiss All"
-        :onclick "~/.config/hypr/scripts/logger.zsh " "")
+        :onclick "scripts/logger " "")
     )
     (literal :content notificationsCards :class "notification-literal")
-    (button :onclick "scripts/logger.zsh clear" :class "notification-headers-clear" "Clear All "
+    (button :onclick "scripts/logger clear" :class "notification-headers-clear" "Clear All "
     )
     )
 )

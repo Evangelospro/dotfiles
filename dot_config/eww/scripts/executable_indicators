@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
 getCapsLockIcon() {
-    xset q | grep -q 'Caps Lock:   on' && echo -n '🔒 ' || echo -n ' '
+    # use material design icons
+    locked_icon="C"
+    unlocked_icon="c"
+    xset q | grep -q 'Caps Lock:   on' && echo -n $lock_icon || echo -n $unlocked_icon
 }
 
 getNumLockIcon() {
-    xset q | grep -q 'Num Lock:    on' && echo -n ' ' || echo -n ' '
+    # use material design icons
+    locked_icon="N"
+    unlocked_icon="n"
+    xset q | grep -q 'Num Lock:    on' && echo -n $lock_icon || echo -n $unlocked_icon
 }
 
 getShortName() {
