@@ -52,14 +52,16 @@ zi light jgogstad/passwordless-history
 zi ice wait
 zi light o1001100/ssh-connect
 
-# zi ice wait
-# zi light MichaelAquilina/zsh-you-should-use
+zi ice wait
+zi light MichaelAquilina/zsh-you-should-use
+
+export YSU_IGNORED_ALIASES=("ls" "ll" "cd")
+export YSU_HARDCORE=1
 
 # replaces zsh-you-should-use
-zi ice wait
-zi light djui/alias-tips
-
-export ZSH_PLUGINS_ALIAS_TIPS_EXPAND=0
+# zi ice wait
+# zi light djui/alias-tips
+# export ZSH_PLUGINS_ALIAS_TIPS_EXPAND=0
 
 
 # check that you are not in docker or a server avoid in headless installs
