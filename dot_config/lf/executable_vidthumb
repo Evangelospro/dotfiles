@@ -11,7 +11,7 @@ movie="$(realpath "$1")"
 mkdir -p "$cache"
 
 if [ -f "$index" ]; then
-	thumbnail="$(jq -r ". \"$movie\"" <"$index")"
+	thumbnail="$(jaq -r ". \"$movie\"" <"$index")"
 	if [[ "$thumbnail" != "null" ]]; then
 		if [[ ! -f "$cache/$thumbnail" ]]; then
 			exit 1
@@ -30,7 +30,7 @@ fi
 if [[ ! -f "$index" ]]; then
 	echo "{\"$movie\": \"$thumbnail\"}" >"$index"
 fi
-json="$(jq -r --arg "$movie" "$thumbnail" ". + {\"$movie\": \"$thumbnail\"}" <"$index")"
+json="$(jaq -r --arg "$movie" "$thumbnail" ". + {\"$movie\": \"$thumbnail\"}" <"$index")"
 echo "$json" >"$index"
 
 echo "$cache/$thumbnail"

@@ -1,79 +1,88 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-#define icons for workspaces 1-9
+debug="$1"
 
-targetMonitor=$1
-firstMonitor="eDP-1"
-secondMonitor="HDMI-A-1"
-currMonitor=$firstMonitor
-currWorkspace="1"
-currClass=""
-currIconPath=""
-latestEvent=""
-ic=("" "" "" "" "" "" "" "" "")
+# get initial focused workspace
+focusedws=$(hyprctl -j monitors | jq -r '.[] | select(.focused == true) | .activeWorkspace.id')
 
-debug=$2
+declare -A o=([1]=0 [2]=0 [3]=0 [4]=0 [5]=0 [6]=0 [7]=0 [8]=0 [9]=0 [10]=0)
+declare -A monitormap
+declare -A workspaces
 
-main () {
-  if [[ ${1:0:12} == "focusedmon>>" ]]; then #set focused monitor
-    temp=$(echo "$1" | cut -d'>' -f 3)
-    currMonitor=$(echo "$temp" | cut -d',' -f 1)
-    if [[ $currMonitor == $targetMonitor ]]; then
-        currWorkspace=$(echo "$temp" | cut -d',' -f 2)
-      if [[ $currMonitor == $secondMonitor ]]; then
-        echo "working on monitor HDMI-A-1"
-        currWorkspace=$(($currWorkspace % 10))
-      fi
-      latestEvent="focusedmon"
+# handle workspace create/destroy
+workspace_event() {
+  o[$1]=$2
+  while read -r k v; do workspaces[$k]="$v"; done < <(hyprctl -j workspaces | jq -r '.[]|"\(.id) \(.monitor)"')
+}
+# handle monitor (dis)connects
+monitor_event() {
+  while read -r k v; do monitormap["$k"]=$v; done < <(hyprctl -j monitors | jq -r '.[]|"\(.name) \(.id) "')
+}
+
+applistClass() {
+  ws="$1"
+  # return a list of classes
+  command="hyprctl -j clients | jq -jr '.[] | select(.workspace.id == "
+  command+=$ws
+  command+=") | .class + \"\n\"'"
+  echo "$command" >> /tmp/test.log
+  classes=$(eval $command)
+  readarray -t classes <<< "$classes"
+  echo "${classes[@]}"
+}
+
+getIcon() {
+  class="$1"
+  echo "Class: $class"
+  icon=$(geticons --no-fallbacks "$class" -s 24 -c 1| head -n 1)
+  if [[ $icon == "" ]]; then
+    lowerClass=$(echo "$class" | tr '[:upper:]' '[:lower:]')
+    icon=$(geticons --no-fallbacks "$lowerClass" -s 24 -c 1 | head -n 1)
+    if [[ $icon == "" ]]; then
+      # echo "Couldn't find icon for $class"
+      icon=$(geticons --no-fallbacks "appgrid" -s 24 -c 1 | head -n 1)
     fi
-  elif [[ "${1:0:11}" = "workspace>>" ]] && [[ $currMonitor == $targetMonitor ]]; then
-    #set focused workspace
-    currWorkspace=$(echo "$1" | cut -d'>' -f 3)
-    if [[ $currMonitor == $secondMonitor ]]; then
-      currWorkspace=$(($currWorkspace % 10))
-    fi
-    # activeWindow=$(hyprctl activewindow)
-    # currClass=$(echo "$activeWindow" | grep "class: " | awk '{print $2}')
-    # currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
-    # if [[ $currIconPath != "" ]]; then
-    #   ic[$currWorkspace]=$currIconPath
-    # fi
-    latestEvent="workspace"
-  elif [[ "${1:0:14}" = "activewindow>>" ]] && [[ $currMonitor = $targetMonitor ]]; then #set focused workspace
-    temp=$(echo "$1" | cut -d'>' -f 3)
-    currClass=$(echo "$temp" | cut -d',' -f 1)
-    if [[ $currClass != "" ]]; then
-      currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
-    fi
-    # if it isn't null try with lowercase
-    if [[ $currIconPath == "" ]]; then
-      currClass=$(echo "$currClass" | tr '[:upper:]' '[:lower:]')
-      currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1 | head -n 1)
-    fi
-    if [[ $currIconPath != "" ]]; then
-      ic[$currWorkspace]=$currIconPath
-    fi
-    latestEvent="activewindow"
   fi
-  
-  if [[ $debug == "debug" ]]; then
-    echo "focusedmon>>$currMonitor"
-    echo "workspace>>$currWorkspace"
-    echo "activewindow>>$currClass"
-    echo "icon>>$currIconPath"
-  fi
+  echo "$icon"
+}
 
+appicons(){
+  ws="$1"
+  appicons=("" "" "" "")
+  applistClass=$(applistClass "$ws")
+  for i in {0..3}; do
+    class=${applistClass[$i]}
+    icon=$(getIcon "$class")
+    echo "Appending $icon"
+    appicons[$i]="$icon"
+  done
+  echo "${appicons[@]}"
+}
+
+# generate the json for eww
+generate() {
 buttons=""
 # output eww widget
-for num in {1..9}; do
-  # echo "num: $num icon: ${ic[$num]}"
-  if [[ ${ic[$num]} == "" ]]; then
-    ic[$num]=$(geticons --no-fallbacks "appgrid" -s 24 -c 1 | head -n 1)
-  fi
-  if [[ $num == $currWorkspace ]]; then
-    buttons+="(button :onclick \"hyprctl dispatch exec \'~/.config/hypr/scripts/workspace $num\'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"active-workspace\" (image :path \"${ic[$num]}\" :image-width \"36\" :image-height \"36\" :tooltip \"Workspace $num\"))"
+for num in {1..2}; do
+  appicons=$(appicons "$num")
+  echo "Appicons: $appicons"
+  grid="(box :valign \"center\" :halign \"center\" "
+  for index in {0..3}; do
+    if [[ $(($index % 2)) == 0 ]]; then
+      grid+="(box :valign \"center\" :halign \"center\" "
+    fi
+    # echo "index: $index"
+    icon=${appicons[$index]}
+    grid+="(image :path \"$icon\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\")"
+    if [[ $(($index % 2)) != 0 ]]; then
+      grid+=")"
+    fi
+  done
+  grid+=")"
+  if [[ $num == $focusedws ]]; then
+    buttons+="(button :onclick \"hyprctl dispatch exec '~/.config/hypr/scripts/workspace $num'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"active-workspace\" $grid)"
   else
-    buttons+="(button :onclick \"hyprctl dispatch exec \'~/.config/hypr/scripts/workspace $num\'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" (image :path \"${ic[$num]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\"))"
+    buttons+="(button :onclick \"hyprctl dispatch exec '~/.config/hypr/scripts/workspace $num'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"inactive-workspace\" $grid)"
   fi
 done
 result="(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
@@ -86,6 +95,39 @@ if [[ $debug != "debug" ]]; then
 fi
 }
 
-socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r event; do 
-  main "$event"
+# setup
+
+# add monitors
+monitor_event
+
+# add workspaces
+while read -r k v; do workspaces[$k]="$v"; done < <(hyprctl -j workspaces | jq -r '.[]|"\(.id) \(.monitor)"')
+
+# check occupied workspaces
+for num in "${!workspaces[@]}"; do
+  o[$num]=1
+done
+# generate initial widget
+generate
+
+# main loop
+socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | rg --line-buffered "workspace|mon(itor)?" | while read -r line; do
+  case ${line%>>*} in
+    "workspace")
+      focusedws=${line#*>>}
+      ;;
+    "focusedmon")
+      focusedws=${line#*,}
+      ;;
+    "createworkspace")
+      workspace_event "${line#*>>}" 1
+      ;;
+    "destroyworkspace")
+      workspace_event "${line#*>>}" 0
+      ;;
+    "monitor"*)
+      monitor_event
+      ;;
+  esac
+  generate
 done

@@ -55,7 +55,7 @@ zi light o1001100/ssh-connect
 zi ice wait
 zi light MichaelAquilina/zsh-you-should-use
 
-export YSU_IGNORED_ALIASES=("ls" "ll" "cd")
+export YSU_IGNORED_ALIASES=("ls" "ll" "cd.." "pdw")
 export YSU_HARDCORE=1
 
 # replaces zsh-you-should-use
@@ -123,6 +123,8 @@ setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt share_history          # share command history data
+
+setopt INTERACTIVE_COMMENTS
 
 # Sourcing zsh themes
 # source $ZSH/themes/dracula.zsh

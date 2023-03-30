@@ -114,9 +114,9 @@ if [ -n "$TrackID" ]; then
 	# echo "$TrackID"
 	data=$( curl -s --get "https://spotify-lyric-api.herokuapp.com/?trackid=$TrackID")
 	# check if it DOES NOT contain an "error" key
-	if [ "$(echo $data | jq -r '.error')" != "true" ]; then
+	if [ "$(echo $data | jaq -r '.error')" != "true" ]; then
 		# echo "No errors"
-		lyrics=$( echo $data | jq -r '.lines[] | .startTimeMs, .words' )
+		lyrics=$( echo $data | jaq -r '.lines[] | .startTimeMs, .words' )
 		if [ -n "$lyrics" ]; then
 			# echo "$lyrics"
 			# ok so the output is json display the current lyric(and next 4) based on the time

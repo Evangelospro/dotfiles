@@ -3,7 +3,7 @@
 
 ; top bar
 (defpoll indicators_text :interval "1s" "scripts/indicators")
-(defpoll monitors :interval "1m" "hyprctl monitors -j | jq -rc '[ .[].id ] | sort_by( . )'")
+(defpoll monitors :interval "1m" "hyprctl monitors -j | jaq -rc '[ .[].id ] | sort_by( . )'")
 (defpoll clock_time :interval "5s" "date '+\%l\%M \%p'")
 (defpoll clock_date :interval "10h" "date '+%b %d, %Y'")
 (defpoll calendar_day :interval "20h" "date '+%d'")
