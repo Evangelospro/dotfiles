@@ -1,23 +1,23 @@
 $background: #282a36;
-$transparent: rgba(00, 00, 00, 0.0);
+$transparent: rgba(00, 00, 00, 0);
 $widget-background: #44475a;
-$shadow:    #44475a;
-$grey:      #6272a4;
+$shadow: #44475a;
+$grey: #6272a4;
 
-$cyan:      #8be9fd;
-$green:     #50fa7b;
-$orange:    #ffb86c;
-$black:     #3D4C5F;
-$pink:      #ff79c6;
-$purple:    #bd93f9;
-$red:       #ff5555;
-$yellow:    #f1fa8c;
-$white:     #f8f8f2;
+$cyan: #8be9fd;
+$green: #50fa7b;
+$orange: #ffb86c;
+$black: #3d4c5f;
+$pink: #ff79c6;
+$purple: #bd93f9;
+$red: #ff5555;
+$yellow: #f1fa8c;
+$white: #f8f8f2;
 
-*{
-	all: unset;
-	font-family: feather;
-	font-family: Inter Nerd Font;
+* {
+  all: unset;
+  font-family: feather;
+  font-family: Inter Nerd Font;
 }
 
 // $background: rgba(00, 00, 00, 0.3);
@@ -36,11 +36,11 @@ $white:     #f8f8f2;
 
 /** General **/
 .bar_class {
-    background-color: $background; 
-    border-radius: 16px;
-    border-style: solid;
-    border-width: 2;
-    border-color: $purple;
+  background-color: $background;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 2;
+  border-color: $purple;
 }
 
 .module {
@@ -79,8 +79,7 @@ $white:     #f8f8f2;
   // border-color: $purple;
 }
 
-
-.rightside{
+.rightside {
   background-color: $background;
   border-radius: 16px;
   border-style: solid;
@@ -89,7 +88,7 @@ $white:     #f8f8f2;
   padding: 0px 30px 0px 30px;
 }
 
-.leftside{
+.leftside {
   background-color: $background;
   border-radius: 16px;
   border-style: solid;
@@ -100,127 +99,134 @@ $white:     #f8f8f2;
 
 /** tooltip!! **/
 tooltip.background {
-  background-color: rgba(00, 00, 00, 0.0);
+  background-color: rgba(00, 00, 00, 0);
   font-size: 18;
   border-radius: 10px;
   color: $background;
 }
 
 tooltip label {
-    margin: 6px;
+  margin: 6px;
 }
-
 
 /** Widgets **/
 
 .clock_date_class {
-    font-size: 24;
-    margin: 0px 20px 0px -1px;
-    color: $red;
+  font-size: 24;
+  margin: 0px 20px 0px -1px;
+  color: $red;
 }
 
 .clock_time_class {
-    color: $white;
-    font-size: 28;
-    font-weight: bold;
-    margin: 0px 20px 0px 5px;
+  color: $white;
+  font-size: 28;
+  font-weight: bold;
+  margin: 0px 20px 0px 5px;
 }
 
 .notif_button {
-    font-size: 28;
-    margin: 0px 20px 0px 0px;
-    color: $white;
+  font-size: 28;
+  margin: 0px 20px 0px 0px;
+  color: $white;
 }
 
 .powermenu {
-    font-size: 28;
-    margin: 0px 20px 0px 0px;
-    color: $white;
+  font-size: 28;
+  margin: 0px 20px 0px 0px;
+  color: $white;
 }
 
 .membar {
   color: $orange;
-    background-color: $grey;
+  background-color: $grey;
   border-radius: 10px;
 }
 .batbar {
   color: $green;
-    background-color: $grey;
+  background-color: $grey;
   border-radius: 10px;
 }
 .bright_icon {
-    font-size: 22;
-    color: $orange;
+  font-size: 22;
+  color: $orange;
   margin: 0px 10px 0px 0px;
 }
 .brightbar trough highlight {
-  background-image: linear-gradient(to right, $orange 30%, #f2cdcd 50%, $orange 100% *50);
+  background-image: linear-gradient(
+    to right,
+    $orange 30%,
+    #f2cdcd 50%,
+    $orange 100% * 50
+  );
   border-radius: 10px;
 }
 .volbar trough highlight {
-  background-image: linear-gradient(to right, #afcee0 30%, #92B6F4 50%, #77a5bf 100% *50);
+  background-image: linear-gradient(
+    to right,
+    #afcee0 30%,
+    #92b6f4 50%,
+    #77a5bf 100% * 50
+  );
   border-radius: 10px;
 }
 .volume_icon {
-    font-size: 22;
-    color: $cyan;
-    margin: 0px 10px 0px 0px;
+  font-size: 22;
+  color: $cyan;
+  margin: 0px 10px 0px 0px;
 }
-
 
 .module_essid {
-    font-size: 18;
-    color: $cyan;
-    margin: 0px 10px 0px 0px;
+  font-size: 18;
+  color: $cyan;
+  margin: 0px 10px 0px 0px;
 }
 .module-wifi {
-    font-size: 22;
-    color: $cyan;
-    margin: 0px 10px 0px 5px;
+  font-size: 22;
+  color: $cyan;
+  margin: 0px 10px 0px 5px;
 }
 
 .iconlauncher {
-    color: $cyan;
-    font-size: 36px;
-    margin: 0px 0px 0px 15px;
+  color: $cyan;
+  font-size: 36px;
+  margin: 0px 0px 0px 15px;
 }
 .iconsearch {
-    color: $white;
-    font-size: 24px;
+  color: $white;
+  font-size: 24px;
 }
 .iconmem {
-    color: $orange;
+  color: $orange;
 }
 .iconbat {
-    color: $green;
+  color: $green;
 }
-.iconbat, .iconmem {
-    font-size: 15;
-    margin: 10px;
+.iconbat,
+.iconmem {
+  font-size: 15;
+  margin: 10px;
 }
-
 
 .separ {
-    color: $grey;
-    font-weight: bold;
-    font-size: 22px;
-    margin: 0px 8px 0px 8px;
-  }
+  color: $grey;
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0px 8px 0px 8px;
+}
 
 .launcher_module {
-  background-color: rgba(00, 00, 00, 0.0);
+  background-color: rgba(00, 00, 00, 0);
 }
 .mem_module {
-  background-color: rgba(00, 00, 00, 0.0);
-	border-radius: 16px;
+  background-color: rgba(00, 00, 00, 0);
+  border-radius: 16px;
   margin: 0px 10px 0px 3px;
 }
 .bat_module {
-  background-color: rgba(00, 00, 00, 0.0);
-	border-radius: 16px;
+  background-color: rgba(00, 00, 00, 0);
+  border-radius: 16px;
   margin: 0px 10px 0px 10px;
 }
-
 
 scale trough {
   all: unset;
@@ -232,64 +238,43 @@ scale trough {
   margin: 0px 10px 0px 0px;
 }
 
-.works {
+.workspaces {
   font-size: 27px;
   font-weight: normal;
-  margin: 5px 0px 0px 10px;
-  background-color: rgba(00, 00, 00, 0.0);
+  margin-top: 12px;
+  margin-left: 3px;
+  background-color: rgba(00, 00, 00, 0);
 }
-
-.0 , .01, .02, .03, .04, .05, .06,
-.011, .022, .033, .044, .055, .066{
-  margin: 0px 10px 0px 0px;
-}
-
-/* Unoccupied */
-.0 {
-color: $grey;
-}
-
-/* Occupied */
-.01, .02, .03, .04, .05, .06, .07, .08, .09 {
-  color: $white;
-}
-
-/* Focused */
-.011, .022, .033, .044, .055, .066, .077, .088, .099{
-  color: $green;
-}
-
 
 .song_cover_art {
-	background-size: cover;	
-	background-position: center;
-	min-height: 24px;
-	min-width: 24px;
-	margin: 10px;
-	border-radius: 100px;
+  background-size: cover;
+  background-position: center;
+  min-height: 24px;
+  min-width: 24px;
+  margin: 10px;
+  border-radius: 100px;
 }
 
 .song {
-	color: $cyan;
-	font-size : 18px;
-	font-weight : bold;
-	margin : 3px 5px 0px 0px;
+  color: $cyan;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 3px 5px 0px 0px;
 }
 
 .song_btn_play {
-	color: $cyan;
-	font-size : 28px;
-	margin : 3px 0px 0px 5px;
-
+  color: $cyan;
+  font-size: 28px;
+  margin: 3px 0px 0px 5px;
 }
 
-
-.song_btn_prev, .song_btn_next {
-	color: $cyan;
-	font-size : 24px;
-	margin : 3px 0px 0px 5px;
-
+.song_btn_prev,
+.song_btn_next {
+  color: $cyan;
+  font-size: 24px;
+  margin: 3px 0px 0px 5px;
 }
+
 // Calendar
 .cal {
   background-color: rgba(00, 00, 00, 0.6);
@@ -298,13 +283,13 @@ color: $grey;
   font-size: 18px;
   font-weight: normal;
 
-.cal-in {
+  .cal-in {
     padding: 10px 20px 10px 20px;
     color: #bfc9db;
 
-.cal {
-     &.highlight {
-          padding: 20px;
+    .cal {
+      &.highlight {
+        padding: 20px;
       }
 
       padding: 5px 5px 5px 5px;
@@ -314,7 +299,7 @@ color: $grey;
 }
 
 calender {
-    color: #bfc9db;
+  color: #bfc9db;
 }
 calendar:selected {
   color: $cyan;
@@ -338,156 +323,166 @@ calendar:indeterminate {
   color: #bfc9db;
 }
 
-
-
 .sys_sep {
-    color: $grey;
-    font-size: 18;
-    margin: 0px 10px 0px 10px;
+  color: $grey;
+  font-size: 18;
+  margin: 0px 10px 0px 10px;
 }
-.sys_text_bat_sub, .sys_text_mem_sub {
-    font-size: 16;
-    color: #bbc5d7;
-    margin: 5px 0px 0px 25px;
+.sys_text_bat_sub,
+.sys_text_mem_sub {
+  font-size: 16;
+  color: #bbc5d7;
+  margin: 5px 0px 0px 25px;
 }
-.sys_text_bat, .sys_text_mem {
-    font-size: 21;
-    font-weight: bold;
-    margin: 14px 0px 0px 25px;
+.sys_text_bat,
+.sys_text_mem {
+  font-size: 21;
+  font-weight: bold;
+  margin: 14px 0px 0px 25px;
 }
-.sys_icon_bat, .sys_icon_mem {
-    font-size: 30;
-    margin: 30px;
+.sys_icon_bat,
+.sys_icon_mem {
+  font-size: 30;
+  margin: 30px;
 }
 .sys_win {
-    background-color: rgba(00, 00, 00, 0.6);
-    border-radius: 16px;
+  background-color: rgba(00, 00, 00, 0.6);
+  border-radius: 16px;
 }
 .sys_bat {
   color: $green;
-    background-color: $grey;
+  background-color: $grey;
   border-radius: 10px;
 }
 .sys_mem {
-  color: #F1FA8C;
-    background-color: $grey;
+  color: #f1fa8c;
+  background-color: $grey;
   border-radius: 10px;
 }
-.sys_icon_bat, .sys_text_bat {
-    color: $green;
+.sys_icon_bat,
+.sys_text_bat {
+  color: $green;
 }
-.sys_icon_mem, .sys_text_mem {
-    color: $orange;
+.sys_icon_mem,
+.sys_text_mem {
+  color: $orange;
 }
 .sys_bat_box {
-	border-radius: 16px;
-    margin: 15px 10px 10px 20px;
-  }
+  border-radius: 16px;
+  margin: 15px 10px 10px 20px;
+}
 .sys_mem_box {
-	border-radius: 16px;
-    margin: 15px 10px 15px 20px;
-  }
-
-
+  border-radius: 16px;
+  margin: 15px 10px 15px 20px;
+}
 
 .app-name {
-	color: $white;
-	font-size : 20px;
+  color: $white;
+  font-size: 20px;
   font-weight: bold;
-	margin : 3px 0px 0px 0px;
+  margin: 3px 0px 0px 0px;
 }
 
 .app-icon {
-	margin : 3px 10px 0px 0px;
+  margin: 3px 10px 0px 0px;
 }
 
 .app-button {
-	color: $cyan;
-	font-size : 24px;
-	font-weight : bold;
-	margin : 0px 15px 0px 15px;
+  color: $cyan;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0px 15px 0px 15px;
 }
 
 .audio-box {
-    background-color: rgba(00, 00, 00, 0.6);
-	border-radius: 16px;
+  background-color: rgba(00, 00, 00, 0.6);
+  border-radius: 16px;
 }
 .speaker_icon {
-	background-size: cover;
-    background-image: url('images/speaker.png');
-	background-position: center;
-	min-height: 70px;
-	min-width: 75px;
-	margin: 10px 20px 5px 20px;
-	border-radius: 12px;
+  background-size: cover;
+  background-image: url('images/speaker.png');
+  background-position: center;
+  min-height: 70px;
+  min-width: 75px;
+  margin: 10px 20px 5px 20px;
+  border-radius: 12px;
 }
 
 .speaker_text {
-	color: $cyan;
-	font-size : 26px;
-	font-weight : bold;
-	margin: 20px 0px 0px 0px;
+  color: $cyan;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 20px 0px 0px 0px;
 }
 
 .speaker_bar scale trough highlight {
-	all: unset;
-    background-image: linear-gradient(to right, #afcee0 30%, #92B6F4 50%, #77a5bf 100% *50);
-	border-radius: 24px;
+  all: unset;
+  background-image: linear-gradient(
+    to right,
+    #afcee0 30%,
+    #92b6f4 50%,
+    #77a5bf 100% * 50
+  );
+  border-radius: 24px;
 }
 .speaker_bar scale trough {
-	all: unset;
-	background-color: #232232;
-    box-shadow: 0 6px 5px 2px #06060b;
-	border-radius: 24px;
-	min-height: 13px;
-	min-width: 120px;
-	margin : 0px 0px 5px 0px;
+  all: unset;
+  background-color: #232232;
+  box-shadow: 0 6px 5px 2px #06060b;
+  border-radius: 24px;
+  min-height: 13px;
+  min-width: 120px;
+  margin: 0px 0px 5px 0px;
 }
 
 .mic_icon {
-	background-size: cover;
-    background-image: url('images/mic.png');
-	background-position: center;
-	min-height: 70px;
-	min-width: 75px;
-	margin: 20px 20px 20px 20px;
-	border-radius: 12px;
+  background-size: cover;
+  background-image: url('images/mic.png');
+  background-position: center;
+  min-height: 70px;
+  min-width: 75px;
+  margin: 20px 20px 20px 20px;
+  border-radius: 12px;
 }
 
 .mic_text {
-	color: $cyan;
-	font-size : 26px;
-	font-weight : bold;
-	margin: 0px 0px 0px 0px;
+  color: $cyan;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0px 0px 0px 0px;
 }
 
 .mic_bar scale trough highlight {
-	all: unset;
-    background-image: linear-gradient(to right, #afcee0 30%, #92B6F4 50%, #77a5bf 100% *50);
-	border-radius: 24px;
+  all: unset;
+  background-image: linear-gradient(
+    to right,
+    #afcee0 30%,
+    #92b6f4 50%,
+    #77a5bf 100% * 50
+  );
+  border-radius: 24px;
 }
 .mic_bar scale trough {
-	all: unset;
-    box-shadow: 0 6px 5px 2px #06060b;
-	background-color: #232232;
-	border-radius: 24px;
-	min-height: 13px;
-	min-width: 120px;
-	margin : 0px 0px 20px 0px;
+  all: unset;
+  box-shadow: 0 6px 5px 2px #06060b;
+  background-color: #232232;
+  border-radius: 24px;
+  min-height: 13px;
+  min-width: 120px;
+  margin: 0px 0px 20px 0px;
 }
 
 .audio_sep {
-    color: #38384d;
-    font-size: 18;
-	margin : 0px 0px 0px 0px;
+  color: #38384d;
+  font-size: 18;
+  margin: 0px 0px 0px 0px;
 }
-
 
 // Music
 .music-player {
-	all: unset;
+  all: unset;
   background-color: $widget-background;
-	padding: 0px 25px 0px 17px;
+  padding: 0px 25px 0px 17px;
   border-radius: 16px;
   border-style: solid;
   border-width: 2;
@@ -495,23 +490,24 @@ calendar:indeterminate {
 }
 
 .album_art {
-	background-size: cover;
-	background-position: center;
-	border-radius: 12px;
-	margin: 2rem 1rem 1.5rem 1rem;
-	padding: 4rem;}
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  margin: 2rem 1rem 1.5rem 1rem;
+  padding: 4rem;
+}
 
 .song {
-	font-weight: bold;
-	color: $white;
-	font-size : 1.2em;
+  font-weight: bold;
+  color: $white;
+  font-size: 1.2em;
 }
 
 .artist {
-	font-style: italic;
-	font-size: 1.1em;
-	color: $cyan;
-	margin-top: -5px;
+  font-style: italic;
+  font-size: 1.1em;
+  color: $cyan;
+  margin-top: -5px;
 }
 
 .lyrics {
@@ -520,15 +516,17 @@ calendar:indeterminate {
   margin-top: 10px;
 }
 
-.btn_prev, .btn_play, .btn_next {
+.btn_prev,
+.btn_play,
+.btn_next {
   color: $purple;
   font-size: 25px;
 }
 
-.metric-player  scale trough highlight {
-	all: unset;
-	border-radius: 10px;
-	background-color: $cyan;
+.metric-player scale trough highlight {
+  all: unset;
+  border-radius: 10px;
+  background-color: $cyan;
 }
 
 // weather
@@ -543,45 +541,44 @@ calendar:indeterminate {
 }
 
 .iconweather {
-	font-size : 44px;
-	font-weight : normal;
-	margin : 0px -5px  0px 20px;
+  font-size: 44px;
+  font-weight: normal;
+  margin: 0px -5px 0px 20px;
 }
 
 .label_temp {
-	color : $cyan;
-	font-size : 35px;
-	font-weight : bold;
-	margin : 0px 0px 0px 0px;
+  color: $cyan;
+  font-size: 35px;
+  font-weight: bold;
+  margin: 0px 0px 0px 0px;
   font-family: Furamono Nerd Font;
-
 }
 
 .label_stat {
-	color : $cyan;
-	font-size : 38px;
-	font-weight : bold;
+  color: $cyan;
+  font-size: 38px;
+  font-weight: bold;
 }
 
 .label_quote {
-	color : $cyan;
-	font-size : 18px;
+  color: $cyan;
+  font-size: 18px;
   padding-bottom: 10px;
-	font-weight : normal;
+  font-weight: normal;
 }
 
 .date {
-    all: unset;
-    background-color: $widget-background;
-    padding: 33px 27px 27px 27px;
+  all: unset;
+  background-color: $widget-background;
+  padding: 33px 27px 27px 27px;
   border-radius: 16px;
   border-style: solid;
   border-width: 2;
   border-color: $red;
-    color: $cyan;
-	font-size : 18px;
-	font-style : italic;
-	font-family: Cartograph CF;
+  color: $cyan;
+  font-size: 18px;
+  font-style: italic;
+  font-family: Cartograph CF;
 }
 
 .stats-box {
@@ -595,10 +592,9 @@ calendar:indeterminate {
 }
 
 .stats-icon {
-    font-size: 23px;
-    color: $cyan;
+  font-size: 23px;
+  color: $cyan;
 }
-
 
 scale trough {
   all: unset;
@@ -611,7 +607,12 @@ scale trough {
 }
 
 .scale highlight {
-  background-image: linear-gradient(to right, #afcee0 30%, #92B6F4 50%, #77a5bf 100% *50);
+  background-image: linear-gradient(
+    to right,
+    #afcee0 30%,
+    #92b6f4 50%,
+    #77a5bf 100% * 50
+  );
   border-radius: 15px;
 }
 
@@ -626,7 +627,11 @@ scale trough {
   margin-bottom: 30px;
 }
 
-.poweroff, .reboot, .firmware, .exit, .restart {
+.poweroff,
+.reboot,
+.firmware,
+.exit,
+.restart {
   margin: 0px 16px 0px 16px;
   padding: 2px 15px 2px 9px;
   border-radius: 25px;
@@ -635,14 +640,14 @@ scale trough {
 }
 
 .fetch {
-    margin-top: 35px;
-    font-size: 15px;
-    border-radius: 16px;
-    border-style: solid;
-    border-width: 2;
-    border-color: $red;
-    background-color: $widget-background;
-    padding: 30px 55px 30px 55px;
+  margin-top: 35px;
+  font-size: 15px;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 2;
+  border-color: $red;
+  background-color: $widget-background;
+  padding: 30px 55px 30px 55px;
 }
 
 .wm {
@@ -665,7 +670,7 @@ scale trough {
   color: $cyan;
 }
 
-.kernal {
+.kernel {
   font-weight: bold;
   color: $green;
 }
@@ -711,7 +716,7 @@ scale trough {
   padding: 10px;
 }
 
-.notification-app-name{
+.notification-app-name {
   font-family: Iosevka Nerd Font;
   font-size: 20px;
   color: $white;
@@ -762,11 +767,11 @@ scale trough {
 }
 
 .notification-header {
-	all: unset;
+  all: unset;
   background-color: $widget-background;
-	padding: 20px 25px 20px 17px;
+  padding: 20px 25px 20px 17px;
   margin: 20px 0px 10px 0px;
-	border-radius: 12px;
+  border-radius: 12px;
   border-width: 2px;
   border-style: solid;
   border-color: $green;

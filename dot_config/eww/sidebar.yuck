@@ -241,8 +241,8 @@
                     :halign "start"
                     :text " : ${packages}")
                 (label 
-                    :class "kernal" 
+                    :class "kernel" 
                     :halign "start"
-                    :text " : ${kernal}")
+                    :text " : ${kernel}")
             )
     )

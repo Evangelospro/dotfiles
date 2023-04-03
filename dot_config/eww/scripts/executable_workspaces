@@ -7,12 +7,21 @@ focusedws=$(hyprctl -j monitors | jq -r '.[] | select(.focused == true) | .activ
 
 declare -A o=([1]=0 [2]=0 [3]=0 [4]=0 [5]=0 [6]=0 [7]=0 [8]=0 [9]=0 [10]=0)
 declare -A monitormap
-declare -A workspaces
+declare -A workspaceNames
+appgridIcon=$(geticons --no-fallbacks "appgrid" -s 24 -c 1 | head -n 1)
+declare -A allAppIcons
+# initialize allAppIcons to be an array with 10x4 elements
+for i in {1..9}; do
+  for j in {0..3}; do
+    allAppIcons[$i,$j]="$appgridIcon"
+  done
+done
+declare -A grids
 
 # handle workspace create/destroy
 workspace_event() {
   o[$1]=$2
-  while read -r k v; do workspaces[$k]="$v"; done < <(hyprctl -j workspaces | jq -r '.[]|"\(.id) \(.monitor)"')
+  while read -r k v; do workspaceNames[$k]="$v"; done < <(hyprctl -j workspaceNames | jq -r '.[]|"\(.id) \(.monitor)"')
 }
 # handle monitor (dis)connects
 monitor_event() {
@@ -25,15 +34,14 @@ applistClass() {
   command="hyprctl -j clients | jq -jr '.[] | select(.workspace.id == "
   command+=$ws
   command+=") | .class + \"\n\"'"
-  echo "$command" >> /tmp/test.log
   classes=$(eval $command)
   readarray -t classes <<< "$classes"
-  echo "${classes[@]}"
+  echo "${classes[*]}"
 }
 
 getIcon() {
   class="$1"
-  echo "Class: $class"
+  # echo "Class: $class"
   icon=$(geticons --no-fallbacks "$class" -s 24 -c 1| head -n 1)
   if [[ $icon == "" ]]; then
     lowerClass=$(echo "$class" | tr '[:upper:]' '[:lower:]')
@@ -49,62 +57,85 @@ getIcon() {
 appicons(){
   ws="$1"
   appicons=("" "" "" "")
-  applistClass=$(applistClass "$ws")
+  # keep the applistClass as an array
+  applistClass=($(applistClass "$ws"))
   for i in {0..3}; do
     class=${applistClass[$i]}
     icon=$(getIcon "$class")
-    echo "Appending $icon"
     appicons[$i]="$icon"
   done
-  echo "${appicons[@]}"
+  echo "${appicons[*]}"
 }
 
 # generate the json for eww
 generate() {
-buttons=""
 # output eww widget
-for num in {1..2}; do
-  appicons=$(appicons "$num")
-  echo "Appicons: $appicons"
-  grid="(box :valign \"center\" :halign \"center\" "
-  for index in {0..3}; do
-    if [[ $(($index % 2)) == 0 ]]; then
-      grid+="(box :valign \"center\" :halign \"center\" "
-    fi
-    # echo "index: $index"
-    icon=${appicons[$index]}
-    grid+="(image :path \"$icon\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\")"
-    if [[ $(($index % 2)) != 0 ]]; then
-      grid+=")"
-    fi
-  done
-  grid+=")"
+
+# REFRESH ONLY FOCUSED WORKSPACE BUT STILL SHOW ALL WORKSPACES (UPDATE THE APPICONS ARRAY)
+for num in {1..9}; do
+  # if the workspace number is the focused workspace
   if [[ $num == $focusedws ]]; then
-    buttons+="(button :onclick \"hyprctl dispatch exec '~/.config/hypr/scripts/workspace $num'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"active-workspace\" $grid)"
+    status="active-workspace"
+    appicons=($(appicons "$num"))
+    for index in {0..3}; do
+      icon=${appicons[$index]}
+      allAppIcons[$num,$index]="$icon"
+    done
   else
-    buttons+="(button :onclick \"hyprctl dispatch exec '~/.config/hypr/scripts/workspace $num'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"inactive-workspace\" $grid)"
+    status="inactive-workspace"
+  fi
+  grids[$num]="(button :onclick \"hyprctl dispatch exec '~/.config/hypr/scripts/workspace $num'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"$status\" :tooltip \"Workspace $num\" \
+  (box :valign \"center\" :halign \"center\" :hexpand \"true\" :vexpand \"true\" \
+    (image :path \"${allAppIcons[$num,0]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
+    (image :path \"${allAppIcons[$num,1]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
+    (image :path \"${allAppIcons[$num,2]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
+    (image :path \"${allAppIcons[$num,3]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
+  ) \
+  )"
+done
+
+gridString=""
+for num in {1..9}; do
+  if [[ ${o[$num]} == 1 ]]; then
+    gridString+="${grids[$num]} "
   fi
 done
-result="(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
-          (box	:class \"works\"	:orientation \"h\" :spacing 5 :space-evenly \"false\" :valign \"center\"	\
-              $buttons \
+
+widget="(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
+          (box	:class \"workspaces\"	:orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\"	\
+              $gridString \
           ) \
         )"
-if [[ $debug != "debug" ]]; then
-  echo "$result"
+
+if [[ $debug == "debug" ]]; then
+  echo "DEBUG INFO"
+  echo "Focused workspace: $focusedws"
+  echo "WorkspaceNames: ${workspaceNames[@]}"
+  echo "Monitormap: ${monitormap[@]}"
+  echo "Occupied workspaces: ${!o[@]}"
+  echo "--------------------------------"
+  echo "allAppIcons: "
+  for i in {1..9}; do
+    for j in {0..3}; do
+      echo "Workspace $i, app $j: ${allAppIcons[$i,$j]}"
+    done
+  done
+  echo  "--------------------------------"
+else
+  echo "$widget"
 fi
 }
 
-# setup
+# SETUP
 
 # add monitors
 monitor_event
 
-# add workspaces
-while read -r k v; do workspaces[$k]="$v"; done < <(hyprctl -j workspaces | jq -r '.[]|"\(.id) \(.monitor)"')
+# add workspaceNames
+while read -r k v; do workspaceNames[$k]="$v"; done < <(hyprctl -j workspaces | jq -r '.[]|"\(.id) \(.monitor)"')
 
-# check occupied workspaces
-for num in "${!workspaces[@]}"; do
+# check occupied workspaceNames
+for num in "${!workspaceNames[@]}"; do
   o[$num]=1
 done
 # generate initial widget
