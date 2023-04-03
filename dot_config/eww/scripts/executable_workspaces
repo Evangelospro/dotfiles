@@ -85,11 +85,23 @@ for num in {1..9}; do
     status="inactive-workspace"
   fi
   grids[$num]="(button :onclick \"hyprctl dispatch exec '~/.config/hypr/scripts/workspace $num'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"$status\" :tooltip \"Workspace $num\" \
-  (box :valign \"center\" :halign \"center\" :hexpand \"true\" :vexpand \"true\" \
-    (image :path \"${allAppIcons[$num,0]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
-    (image :path \"${allAppIcons[$num,1]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
-    (image :path \"${allAppIcons[$num,2]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
-    (image :path \"${allAppIcons[$num,3]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
+  (box :orientation \"v\" \
+    (box \
+      (box \
+        (image :path \"${allAppIcons[$num,0]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
+      ) \
+      (box \
+        (image :path \"${allAppIcons[$num,1]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
+      ) \
+    ) \
+    (box \
+      (box \
+        (image :path \"${allAppIcons[$num,2]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
+      ) \
+      (box \
+        (image :path \"${allAppIcons[$num,3]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
+      ) \
+    ) \
   ) \
   )"
 done
