@@ -19,8 +19,6 @@ cargo build --release --no-default-features --features=wayland
 ln -s ~/.local/bin/eww-git/target/release/eww ~/.local/bin
 ```
 
-### In order to implement the org.freedesktop.secrets interface on kde you need to have the `~/.local/share/dbus-1/services/org.freedesktop.secrets.kde.service` file with the content provided in the repo or else you will get an error when trying to use vscode sign ins e.g github copilot.
-
 ** NVIDIA ** !
 
 
