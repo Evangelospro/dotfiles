@@ -13,7 +13,7 @@ declare -A allAppIcons
 # initialize allAppIcons to be an array with 10x4 elements
 for i in {1..9}; do
   for j in {0..3}; do
-    allAppIcons[$i,$j]="$appgridIcon"
+    allAppIcons[$i,$j]=""
   done
 done
 declare -A grids
@@ -36,10 +36,10 @@ applistClass() {
   command+=") | .class + \"\n\"'"
   classes=$(eval $command)
   readarray -t classes <<< "$classes"
-  echo "${classes[*]}"
+  printf '%s\n' "${classes[@]}"
 }
 
-getIcon() {
+getIconFallBack() {
   class="$1"
   # echo "Class: $class"
   icon=$(geticons --no-fallbacks "$class" -s 24 -c 1| head -n 1)
@@ -50,6 +50,17 @@ getIcon() {
       # echo "Couldn't find icon for $class"
       icon=$(geticons --no-fallbacks "appgrid" -s 24 -c 1 | head -n 1)
     fi
+  fi
+  echo "$icon"
+}
+
+getIcon() {
+  class="$1"
+  # echo "Class: $class"
+  icon=$(geticons --no-fallbacks "$class" -s 24 -c 1| head -n 1)
+  if [[ $icon == "" ]]; then
+    lowerClass=$(echo "$class" | tr '[:upper:]' '[:lower:]')
+    icon=$(geticons --no-fallbacks "$lowerClass" -s 24 -c 1 | head -n 1)
   fi
   echo "$icon"
 }
@@ -85,25 +96,48 @@ for num in {1..9}; do
     status="inactive-workspace"
   fi
   grids[$num]="(button :onclick \"hyprctl dispatch exec '~/.config/hypr/scripts/workspace $num'\" :onrightclick \"hyprctl dispatch workspace $num && $HOME/.config/hypr/scripts/default_app\" :class \"$status\" :tooltip \"Workspace $num\" \
-  (box :orientation \"v\" \
-    (box \
-      (box \
-        (image :path \"${allAppIcons[$num,0]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
-      ) \
-      (box \
-        (image :path \"${allAppIcons[$num,1]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
-      ) \
-    ) \
-    (box \
-      (box \
-        (image :path \"${allAppIcons[$num,2]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
-      ) \
-      (box \
-        (image :path \"${allAppIcons[$num,3]}\" :image-width \"24\" :image-height \"24\" :tooltip \"Workspace $num\") \
-      ) \
-    ) \
-  ) \
-  )"
+  (box "
+  # the end result should be something like this:
+  # box vertical
+  # -box
+  #   -box
+  #     -image
+  #   -box
+  #     -image
+  # -box
+  #   -box
+  #     -image
+  #   -box
+  #     -image
+
+  # only create the inner boxe if allAppIcons is not empty at that index
+  # check in pairs of 2
+  # so the result is a 2x2 grid of boxes, though only create the boxes if there is an icon
+  foundEmpty=false
+  for i in {0..3}; do
+    icon=${allAppIcons[$num,$i]}
+    image="(image :path \"$icon\")"
+    if [[ $icon != "" ]]; then
+      if (( i % 2 == 0)); then
+        grids[$num]+=" (box :orientation \"v\" :spacing 3 :space-evenly \"false\" :valign \"center\""
+      fi
+      grids[$num]+=" $image"
+      # if the next element is empty or if i is not divisible by 2
+      if (( i % 2 == 1)); then
+        grids[$num]+=")"
+      fi
+    else
+      if [[ $foundEmpty == false ]]; then
+        # check if i is notd divisible by 2 and not 0
+        if (( i % 2 == 1 && i != 0)); then
+          grids[$num]+=")"
+        fi
+        foundEmpty=true
+      fi
+    fi
+  done
+
+  grids[$num]+=") )" # close the button and box
 done
 
 gridString=""
