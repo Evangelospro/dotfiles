@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# sidebar system data (poll only when hovered)
+# (defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
+# (defpoll packages :interval "5m" `pacman -Q | wc -l`)
+# (defpoll kernel :interval "5m" `uname -r`) 
+# (defpoll name :interval "5m" `whoami`)  
+# (defpoll host :interval "5m" `uname -n`) 
+# (defpoll wm :interval "5m" `echo $XDG_CURRENT_DESKTOP`) 
+
+update() {
+	# update system data
+	uptime=$(uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/')
+	packages=$(pacman -Q | wc -l)
+	kernel=$(uname -r)
+	name=$(whoami)
+	host=$(uname -n)
+	wm=$(echo $XDG_CURRENT_DESKTOP)
+	eww update uptime=$uptime packages=$packages kernel=$kernel name=$name host=$host wm=$wm
+}
+
+case $1 in
+	--update) update;;
+	*) echo "Usage: $0 --update";;
+esac

@@ -1,0 +1,53 @@
+#!/bin/bash
+
+battery(){
+	BAT=$(ls /sys/class/power_supply | grep BAT | head -n 1)
+	percent=$(cat /sys/class/power_supply/${BAT}/capacity)
+	status=$(cat /sys/class/power_supply/${BAT}/status)
+
+	case $1 in
+		--percent) echo $percent;;
+		--status) echo $status;;
+	esac
+}
+
+# Wifi function
+wifi() {
+    status=$(nmcli g | grep -oE "disconnected")
+
+    if [ $status ] ; then
+        icon="睊"
+        text=""
+        col="#575268"
+    else
+        essid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
+        icon=""
+        text="${essid}"
+        col="#a1bdce"
+    fi
+
+    case $1 in
+        --col) echo $col;;
+        --essid) echo $text;;
+        --icon) echo $icon;;
+    esac
+}
+
+memory() {
+	total="$(free -m | grep Mem: | awk '{ print $2 }')"
+    used="$(free -m | grep Mem: | awk '{ print $3 }')"
+    free=$(expr $total - $used)
+
+    case $1 in
+        total) echo $total;;
+        used) echo $used;;
+        free) echo $free;;
+    esac
+}
+
+# Check command-line arguments and call the appropriate function
+case $1 in
+    --bat) battery $2;;
+	--mem) memory $2;;
+	--wifi) wifi $2;;
+esac
