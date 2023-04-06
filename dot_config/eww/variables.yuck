@@ -1,6 +1,3 @@
-; monitor connections
-(deflisten monitors_connected "scripts/monitor_watchdog")
-
 ; top bar
 (defpoll indicators_text :interval "1s" "scripts/indicators")
 (defpoll monitors :interval "1m" "hyprctl monitors -j | jaq -rc '[ .[].id ] | sort_by( . )'")
@@ -11,13 +8,13 @@
 (defpoll volume_percent :interval "5s"  "scripts/volume --get")
 (defpoll mic_percent :interval "1s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll brightness_percent :interval "5s" "scripts/brightness --get")
-(defpoll COL_WLAN :interval "1m" "scripts/wifi --COL")
-(defpoll ESSID_WLAN :interval "1m" "scripts/wifi --ESSID")
-(defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
-(deflisten workspaces0_literal "scripts/workspaces eDP-1")
-(deflisten workspaces1_literal "scripts/workspaces HDMI-A-1")
-(deflisten appname0_literal "scripts/appname eDP-1") ; stdout error panicks go where they belong
-(deflisten appname1_literal "scripts/appname HDMI-A-1") ; stdout error panicks go where they belong
+(defpoll COL_WLAN :interval "1m" "scripts/stats --wifi --col")
+(defpoll ESSID_WLAN :interval "1m" "scripts/stats --wifi --essid")
+(defpoll WLAN_ICON :interval "1m" "scripts/stats --wifi --icon")
+(deflisten workspaces0_literal "scripts/workspaces 1")
+(deflisten workspaces1_literal "scripts/workspaces 2")
+(deflisten appname0_literal "scripts/appname 1")
+(deflisten appname1_literal "scripts/appname 2")
 (defpoll interfaceId :interval "1m" "nmcli c s --active | awk '/wifi|ethernet/ {print $4}' | head -n 1")
 
 ; reveal bars
@@ -36,19 +33,26 @@
 (defpoll playpause	:interval "1s"  "scripts/music statusicon")
 (defpoll lyrics		:interval "1s"  "scripts/music lyrics")
 
-; sidebar system data
-(defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
-(defpoll packages :interval "5m" `pacman -Q | wc -l`)
-(defpoll kernel :interval "5m" `uname -r`) 
-(defpoll name :interval "5m" `whoami`)  
-(defpoll host :interval "5m" `uname -n`) 
-(defpoll wm :interval "5m" `echo $XDG_CURRENT_DESKTOP`) 
+; sidebar system data (poll only when hovered)
+(defvar uptime "unknown uptime")
+(defvar packages "unknown packages count")
+(defvar kernel "unknown kernel version")
+(defvar name "unknown user name")
+(defvar host "unknown host name")
+(defvar wm "unknown window manager")
 
-;;Notification variables
+; (defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
+; (defpoll packages :interval "5m" `pacman -Q | wc -l`)
+; (defpoll kernel :interval "5m" `uname -r`) 
+; (defpoll name :interval "5m" `whoami`)  
+; (defpoll host :interval "5m" `uname -n`) 
+; (defpoll wm :interval "5m" `echo $XDG_CURRENT_DESKTOP`)
+
+; Notification variables
 (deflisten notificationsCards "scripts/logger subscribe")
 (defpoll notificationsCrits :interval "1s" "scripts/logger crits")
 (defpoll notificationNum :interval "1s" "scripts/logger tot")
 
 ;system
-(defpoll battery :interval "1s" "scripts/battery --bat")
-(defpoll battery_status :interval "1s" "scripts/battery --stat")
+(defpoll battery :interval "1s" "scripts/stats --bat --percent")
+(defpoll battery_status :interval "1s" "scripts/stats --bat --status")

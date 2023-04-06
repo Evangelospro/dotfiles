@@ -5,9 +5,24 @@ firstMonitor="eDP-1"
 secondMonitor="HDMI-A-1"
 currMonitor=$firstMonitor
 targetMonitor=$1
+# check if target monitor is a number if it is not output usage
+if [[ $targetMonitor =~ ^[0-9]+$ ]]; then
+    if [[ $targetMonitor == 1 ]]; then
+        targetMonitor=$firstMonitor
+    elif [[ $targetMonitor == 2 ]]; then
+        targetMonitor=$secondMonitor
+    else
+        echo "Usage: $0 [1|2]"
+        exit 1
+    fi
+else
+    echo "Usage: $0 [1|2]"
+    exit 1
+fi
 currClass=""
 currIconPath=""
 currTitle=""
+fullTitle=""
 debug=$2
 
 appnames() {
@@ -15,14 +30,16 @@ if [[ ${1:0:14} == "activewindow>>" ]]; then #set focused workspace
     if [[ $currMonitor == $targetMonitor ]]; then
         string=${1:14}
         currClass="${string/,*/}"
-        currTitle=${string/,/ \| }
-        [[ $currTitle == " | " ]] && currTitle=""
+        # give the current title with backslashes and quotes escaped two times
+        currTitle=$(echo "${string/*,/}" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g')
+        [[ $currTitle == "" ]] && currTitle="No title"
         currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
         # if it isn't null try with lowercase
         if [[ $currIconPath == "" ]]; then
             currClass=$(echo "$currClass" | tr '[:upper:]' '[:lower:]')
             currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1 | head -n 1)
         fi
+        fullTitle="$currClass | $currTitle"
     fi
 elif [[ ${1:0:12} == "focusedmon>>" ]]; then #set focused monitor
     string=${1:12}
@@ -32,8 +49,9 @@ if [[ $debug == "debug" ]]; then
     echo "focusedmon>>$currMonitor"
     echo "activewindow>>$currClass"
     echo "icon>>$currIconPath"
+    echo "title>>$currTitle"
+    echo "fulltitle>>$fullTitle"
 else
-    # echo "$string\n$class\n$title\n$iconpath"
     echo 	"(box \
                 :orientation \"h\" \
                 :halign \"start\" \
@@ -45,8 +63,10 @@ else
                 (label \
                     :class \"app-name\" \
                     :limit-width \"35\" \
-                    :text \"$currTitle\" ) \
-        )"
+                    :show-truncated true \
+                    :text \"$fullTitle\" \
+                ) \
+        )g"
 fi
 }
 

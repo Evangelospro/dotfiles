@@ -1,7 +1,7 @@
 (defwidget sidebar [] 
 	(eventbox 
 	    :halign "start" 
-	    :onhover "${EWW_CMD} update side=true"
+	    :onhover "${EWW_CMD} update side=true && scripts/sidebar --update"
 	    :onhoverlost "${EWW_CMD} update side=false"
 		(revealer 
 		    :transition "slideright"
@@ -181,32 +181,32 @@
 			)))
 
 (defwidget fetch []
-            (box 
-                :class "fetch"  
-                :orientation "v" 
-                :space-evenly "false" 
-                :halign "center"  
-                :valign "start" 
-                :spacing "10"
-                (label 
-                    :class "host" 
-                    :halign "start"
-                    :text " : ${name}@${host}")
-                (label 
-                    :class "wm" 
-                    :halign "start"
-                    :text " : ${wm}")
-                (label 
-                    :class "uptime" 
-                    :halign "start"
-                    :text " : ${uptime}")
-                (label 
-                    :class "packages" 
-                    :halign "start"
-                    :text " : ${packages}")
-                (label 
-                    :class "kernel" 
-                    :halign "start"
-                    :text " : ${kernel}")
-            )
-    )
+	(box 
+		:class "fetch"  
+		:orientation "v" 
+		:space-evenly "false" 
+		:halign "center"  
+		:valign "start" 
+		:spacing "10"
+		(label 
+			:class "host" 
+			:halign "start"
+			:text " : ${name}@${host}")
+		(label 
+			:class "wm" 
+			:halign "start"
+			:text " : ${wm}")
+		(label 
+			:class "uptime" 
+			:halign "start"
+			:text " : ${uptime}")
+		(label 
+			:class "packages" 
+			:halign "start"
+			:text " : ${packages}")
+		(label 
+			:class "kernel" 
+			:halign "start"
+			:text " : ${kernel}")
+	)
+)

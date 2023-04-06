@@ -1,6 +1,23 @@
 #!/usr/bin/env bash
 
-debug="$1"
+firstMonitor="eDP-1"
+secondMonitor="HDMI-A-1"
+targetMonitor=$1
+# check if target monitor is a number if it is not output usage
+if [[ $targetMonitor =~ ^[0-9]+$ ]]; then
+    if [[ $targetMonitor == 1 ]]; then
+        targetMonitor=$firstMonitor
+    elif [[ $targetMonitor == 2 ]]; then
+        targetMonitor=$secondMonitor
+    else
+        echo "Usage: $0 [1|2]"
+        exit 1
+    fi
+else
+    echo "Usage: $0 [1|2]"
+    exit 1
+fi
+debug="$2"
 
 # get initial focused workspace
 focusedws=$(hyprctl -j monitors | jq -r '.[] | select(.focused == true) | .activeWorkspace.id')

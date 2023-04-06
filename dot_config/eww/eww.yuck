@@ -373,7 +373,7 @@
 	    :vexpand "false"
 	    :hexpand "false"
 	    (box 
-	        :halign "v"
+	        :halign "center"
 	        :space-evenly "false"
 	        :hexpand "false"
 	        :vexpand "false"
@@ -389,7 +389,7 @@
                     :class "speaker_text"
                     :text "speaker"
                     :valign "center"
-                    :halign "left" 
+                    :halign "start" 
                 )
 	            (box
 	                :class "speaker_bar"
@@ -409,7 +409,7 @@
             :class "audio_sep"
             :halign "center")
 	    (box 
-	        :halign "v"
+	        :halign "center"
 	        :space-evenly "false"
 	        :hexpand "false"
 	        :vexpand "false"
@@ -434,7 +434,6 @@
 	                    :hexpand "false"
 	                    (scale
 	                        :value mic_percent
-                            :space-evenly "false"
 			                :orientation "h"
                             :tooltip "mic on ${mic_percent}%"
 			                :onchange "amixer -D pulse sset Capture {}%" 
