@@ -95,10 +95,8 @@ appicons(){
   echo "${appicons[*]}"
 }
 
-# generate the json for eww
+# generate eww widget
 generate() {
-# output eww widget
-
 # REFRESH ONLY FOCUSED WORKSPACE BUT STILL SHOW ALL WORKSPACES (UPDATE THE APPICONS ARRAY)
 for num in {1..9}; do
   # if the workspace number is the focused workspace
@@ -153,7 +151,6 @@ for num in {1..9}; do
       fi
     fi
   done
-
   grids[$num]+=") )" # close the button and box
 done
 
