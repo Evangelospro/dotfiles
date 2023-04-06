@@ -230,16 +230,11 @@
                   :onclick "${EWW_CMD} open --toggle calendar" clock_date)))))
 
 (defwidget powermenu []
-  (box
-    :class "powermenu"
-    :space-evenly "false"
-    :orientation "h"
     (button
+        :class "powermenu_icon"
         :onclick "pidof wlogout || wlogout -p layer-shell &"
-      (label
-      :text "")
     )
-))
+)
   
 (defwidget sep []
   (box 

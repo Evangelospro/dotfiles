@@ -4,7 +4,7 @@
     :geometry (geometry 
         :x "15px"
         :y "9px"
-        :width "98%"
+        :width "99%"
         :height "30px"
         :anchor "top center")
     :stacking "fg"
@@ -80,7 +80,7 @@
     :geometry (geometry :x "0px"
                         :y "10px"
                         :width "1px"
-                        :height "93%"
+                        :height "92%"
                         :anchor "bottom left")
     :stacking "fg"
     :monitor "0"

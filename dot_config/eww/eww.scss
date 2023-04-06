@@ -84,7 +84,7 @@ $white: #f8f8f2;
   border-radius: 16px;
   border-style: solid;
   border-width: 2;
-  border-color: $green;
+  border-color: $purple;
   padding: 0px 30px 0px 30px;
 }
 
@@ -93,13 +93,13 @@ $white: #f8f8f2;
   border-radius: 16px;
   border-style: solid;
   border-width: 2;
-  border-color: $green;
+  border-color: $purple;
   padding: 0px 30px 0px 30px;
 }
 
 /** tooltip!! **/
 tooltip.background {
-  background-color: rgba(00, 00, 00, 0);
+  background-color: $transparent;
   font-size: 18;
   border-radius: 10px;
   color: $background;
@@ -130,10 +130,20 @@ tooltip label {
   color: $white;
 }
 
-.powermenu {
-  font-size: 28;
-  margin: 0px 20px 0px 0px;
-  color: $white;
+.powermenu_icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('images/powermenu.png');
+    background-position: center;
+    min-height: 15px;
+    min-width: 25px;
+    margin-right: 5px;
+}
+
+.batbar {
+  color: $green;
+  background-color: $grey;
+  border-radius: 10px;
 }
 
 .membar {
@@ -141,16 +151,13 @@ tooltip label {
   background-color: $grey;
   border-radius: 10px;
 }
-.batbar {
-  color: $green;
-  background-color: $grey;
-  border-radius: 10px;
-}
+
 .bright_icon {
   font-size: 22;
   color: $orange;
   margin: 0px 10px 0px 0px;
 }
+
 .brightbar trough highlight {
   background-image: linear-gradient(
     to right,
@@ -160,6 +167,7 @@ tooltip label {
   );
   border-radius: 10px;
 }
+
 .volbar trough highlight {
   background-image: linear-gradient(
     to right,
@@ -169,6 +177,7 @@ tooltip label {
   );
   border-radius: 10px;
 }
+
 .volume_icon {
   font-size: 22;
   color: $cyan;
@@ -195,12 +204,15 @@ tooltip label {
   color: $white;
   font-size: 24px;
 }
+
 .iconmem {
   color: $orange;
 }
+
 .iconbat {
   color: $green;
 }
+
 .iconbat,
 .iconmem {
   font-size: 15;
@@ -215,20 +227,22 @@ tooltip label {
 }
 
 .launcher_module {
-  background-color: rgba(00, 00, 00, 0);
+  background-color: $transparent;
 }
+
 .mem_module {
-  background-color: rgba(00, 00, 00, 0);
+  background-color: $transparent;
   border-radius: 16px;
   margin: 0px 10px 0px 3px;
 }
+
 .bat_module {
-  background-color: rgba(00, 00, 00, 0);
+  background-color: $transparent;
   border-radius: 16px;
   margin: 0px 10px 0px 10px;
 }
 
-scale trough {
+.scale trough {
   all: unset;
   background-color: #22242b;
   box-shadow: 0 2px 3px 2px #06060b;
@@ -242,7 +256,7 @@ scale trough {
   font-size: 27px;
   font-weight: normal;
   margin: 4px 4px 4px 4px;
-  background-color: rgba(00, 00, 00, 0);
+  background-color: $transparent;
 }
 
 .song_cover_art {
@@ -274,7 +288,7 @@ scale trough {
   margin: 3px 0px 0px 5px;
 }
 
-// Calendar
+// cal
 .cal {
   background-color: rgba(00, 00, 00, 0.6);
   border-radius: 16px;
@@ -297,28 +311,29 @@ scale trough {
   }
 }
 
-calender {
+.cal {
   color: #bfc9db;
 }
-calendar:selected {
+
+.cal:selected {
   color: $cyan;
 }
 
-calendar.header {
+.cal.header {
   color: $cyan;
   font-weight: bold;
 }
 
-calendar.button {
+.cal.button {
   color: $green;
 }
 
-calendar.highlight {
+.cal.highlight {
   color: $cyan;
   font-weight: bold;
 }
 
-calendar:indeterminate {
+.cal:indeterminate {
   color: #bfc9db;
 }
 
@@ -397,6 +412,7 @@ calendar:indeterminate {
   background-color: rgba(00, 00, 00, 0.6);
   border-radius: 16px;
 }
+
 .speaker_icon {
   background-size: cover;
   background-image: url('images/speaker.png');
@@ -592,10 +608,10 @@ calendar:indeterminate {
 
 .stats-icon {
   font-size: 23px;
-  color: $cyan;
+  color: $purple;
 }
 
-scale trough {
+.scale trough {
   all: unset;
   background-color: $widget-background;
   box-shadow: 0 2px 3px 2px $shadow;
@@ -608,9 +624,9 @@ scale trough {
 .scale highlight {
   background-image: linear-gradient(
     to right,
-    #afcee0 30%,
-    #92b6f4 50%,
-    #77a5bf 100% * 50
+    $purple 30%,
+    $pink 50%,
+    $red 100% * 50
   );
   border-radius: 15px;
 }
@@ -624,18 +640,6 @@ scale trough {
   border-color: $red;
   padding: 15px 0px 15px 0px;
   margin-bottom: 30px;
-}
-
-.poweroff,
-.reboot,
-.firmware,
-.exit,
-.restart {
-  margin: 0px 16px 0px 16px;
-  padding: 2px 15px 2px 9px;
-  border-radius: 25px;
-  font-size: 24px;
-  color: $black;
 }
 
 .fetch {

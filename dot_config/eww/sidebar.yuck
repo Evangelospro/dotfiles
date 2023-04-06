@@ -23,7 +23,6 @@
             (music-side)
 			(music-lyrics)
             (system-side)
-            ; (tray)
 		)
 )
 
@@ -180,41 +179,6 @@
 			    :width 280 
 			    :onchange "amixer sset Master {}%")
 			)))
-
-
-(defwidget tray []
-	(box 
-	    :class "buttons" 
-	    :orientation "h" 
-	    :space-evenly "false" 
-	    :halign "center"  
-	    :valign "start" 
-	    :spacing "2"
-	    (button 
-	        :class "poweroff" 
-	        :halign "center"  
-			:tooltip "Shut Down" 
-	        :onclick "systemctl poweroff &" "⏻")
-	    (button 
-	        :class "reboot" 
-	        :halign "center"  
-			:tooltip "Reboot" 
-	        :onclick "systemctl reboot &" "")
-	    (button 
-	        :class "firmware" 
-	        :halign "center"  
-			:tooltip "Reboot to EFI" 
-	        :onclick "systemctl reboot --firmware &" "拉")
-	    (button 
-	        :class "exit" 
-	        :halign "center"  
-			:tooltip "Quit Hyprland" 
-	        :onclick "hyprctl dispatch exit exit" "")
-	    (button 
-	        :class "restart" 
-	        :halign "center"  
-			:tooltip "edit Config" 
-	        :onclick " ~/.config/hypr/hyprland.conf &" "")))
 
 (defwidget fetch []
             (box 

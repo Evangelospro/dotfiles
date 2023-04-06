@@ -1,9 +1,5 @@
 #!/bin/sh
 
-powermenu(){
-    sh $HOME/.config/eww/popups/powermenu.sh
-}
-
 notification()
 {
     LOCK_FILE="$HOME/.cache/bar-notification.lock"
@@ -25,11 +21,8 @@ notification()
     fi
 }
 
-if [[ "$1" = "--powermenu" ]]; then
-    powermenu
-elif [ "$1" = "--notifs" ]; then
+if [ "$1" = "--notifs" ]; then
     notification
 else
-    echo "Usage: $0 --powermenu"
     echo "Usage: $0 --notifs"
 fi
