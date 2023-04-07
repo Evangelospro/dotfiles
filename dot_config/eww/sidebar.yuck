@@ -1,7 +1,7 @@
 (defwidget sidebar [] 
 	(eventbox 
 	    :halign "start" 
-	    :onhover "${EWW_CMD} update side=true && scripts/sidebar --update"
+	    :onhover "${EWW_CMD} update side=true"
 	    :onhoverlost "${EWW_CMD} update side=false"
 		(revealer 
 		    :transition "slideright"
