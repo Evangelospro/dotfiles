@@ -19,7 +19,7 @@
 
 ; reveal bars
 (defvar volume_reveal false)
-(defvar brightness_reveal false)
+(defvar brightness_reveal true)
 (defvar control_reveal false)
 (defvar wifi_reveal false)
 (defvar time_reveal false)

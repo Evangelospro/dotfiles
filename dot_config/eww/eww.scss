@@ -242,7 +242,7 @@ tooltip label {
   margin: 0px 10px 0px 10px;
 }
 
-.scale trough {
+scale trough {
   all: unset;
   background-color: #22242b;
   box-shadow: 0 2px 3px 2px #06060b;
@@ -611,7 +611,7 @@ tooltip label {
   color: $purple;
 }
 
-.scale trough {
+scale trough {
   all: unset;
   background-color: $widget-background;
   box-shadow: 0 2px 3px 2px $shadow;
@@ -621,7 +621,7 @@ tooltip label {
   margin: 0px 5px 0px 10px;
 }
 
-.scale highlight {
+scale highlight {
   background-image: linear-gradient(
     to right,
     $purple 30%,

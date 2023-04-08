@@ -125,23 +125,25 @@
     (box
         :space-evenly "false"
         :orientation "h"
-        :spacing "3" 
-	        (revealer 
-	            :transition "slideright"
-			    :reveal volume_reveal
-			    :duration "350ms"
-	            (scale  
-	                :class "volbar"
-			        :value volume_percent
-			        :orientation "h"
-			        :tooltip "${volume_percent}%"
-			        :max 100
-			        :min 0
-			        :onchange "volumectl set {}%" ))
-	        (button
-	            :onclick "${EWW_CMD} open --toggle audio_ctl"
-	            :class "volume_icon"
-	            "墳"))))
+        :spacing "3"
+        :vexpand "false"
+	    :hexpand "false"
+        (revealer 
+            :transition "slideright"
+            :reveal volume_reveal
+            :duration "350ms"
+            (scale  
+                :class "volbar"
+                :value volume_percent
+                :orientation "h"
+                :tooltip "${volume_percent}%"
+                :max 100
+                :min 0
+                :onchange "volumectl set {}%" ))
+        (button
+            :onclick "${EWW_CMD} open --toggle audio_ctl"
+            :class "volume_icon"
+            "墳"))))
 
 (defwidget wifi [] 
   (eventbox 
@@ -165,17 +167,17 @@
 		    WLAN_ICON))))
 
 (defwidget network-speeds []
-(box :orientation "h" :space-evenly false (label :text "${interfaceId}: ${round(EWW_NET[interfaceId].NET_UP / 1000000, 2)}")
-    (label :class {round(EWW_NET[interfaceId].NET_UP / 1000000, 2) > 0.1 ?
-    round(EWW_NET[interfaceId].NET_UP / 1000000, 2) > 5 ?
-    "veryuplink" : "uplink" : "noactive"} :text "  "
+    (box :orientation "h" :space-evenly false (label :text "${interfaceId}: ${round(EWW_NET[interfaceId].NET_UP / 1000000, 2)}")
+        (label :class {round(EWW_NET[interfaceId].NET_UP / 1000000, 2) > 0.1 ?
+        round(EWW_NET[interfaceId].NET_UP / 1000000, 2) > 5 ?
+        "veryuplink" : "uplink" : "noactive"} :text "  "
+        )
+        (label :text "${round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2)}")
+        (label :class {round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2) > 0.1 ?
+        round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2) > 10 ?
+        "verydownlink" : "downlink" : "noactive"} :text "  "
+        )
     )
-    (label :text "${round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2)}")
-    (label :class {round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2) > 0.1 ?
-    round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2) > 10 ?
-    "verydownlink" : "downlink" : "noactive"} :text "  "
-    )
-)
 )
 
 (defwidget bat []
