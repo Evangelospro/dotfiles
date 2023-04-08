@@ -1,6 +1,7 @@
 $background: #282a36;
+$background: rgba(40, 42, 54, 0.8);
 $transparent: rgba(00, 00, 00, 0);
-$widget-background: #44475a;
+$widget-background: rgba(68, 71, 90, 1);
 $shadow: #44475a;
 $grey: #6272a4;
 
@@ -20,26 +21,12 @@ $white: #f8f8f2;
   font-family: Inter Nerd Font;
 }
 
-// $background: rgba(00, 00, 00, 0.3);
-// $widget-background: rgba(30, 30, 30, 0.4);
-// $shadow:    rgba(00, 00, 00, 0.4);
-// $grey:      #606060;
-
-// $black:     #3D4C5F;
-// $red:       #EE4F84;
-// $green:     #53E2AE;
-// $orange:    #F1FA8C;
-// $cyan:      #92B6F4;
-// $purple:    #985EFF;
-// $teal:      #24D1E7;
-// $white:     #E5E5E5;
-
 /** General **/
 .bar_class {
   background-color: $background;
   border-radius: 16px;
   border-style: solid;
-  border-width: 2;
+  border-width: 3;
   border-color: $purple;
 }
 
@@ -245,7 +232,7 @@ tooltip label {
 scale trough {
   all: unset;
   background-color: #22242b;
-  box-shadow: 0 2px 3px 2px #06060b;
+  box-shadow: 0 2px 3px 2px $shadow;
   border-radius: 16px;
   min-height: 10px;
   min-width: 70px;
@@ -443,7 +430,7 @@ scale trough {
 .speaker_bar scale trough {
   all: unset;
   background-color: #232232;
-  box-shadow: 0 6px 5px 2px #06060b;
+  box-shadow: 0 2px 3px 2px $shadow;
   border-radius: 24px;
   min-height: 13px;
   min-width: 120px;
@@ -479,7 +466,7 @@ scale trough {
 }
 .mic_bar scale trough {
   all: unset;
-  box-shadow: 0 6px 5px 2px #06060b;
+  box-shadow: 0 2px 3px 2px $shadow;
   background-color: #232232;
   border-radius: 24px;
   min-height: 13px;
