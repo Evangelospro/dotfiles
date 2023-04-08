@@ -76,6 +76,7 @@ alias cat='/usr/bin/bat --theme=Dracula'
 alias df='df -h'
 alias diff='diff --color'
 alias free='free -m'
+alias lg='lazygit'
 alias g=git
 alias ga='git add'
 alias gcam='git commit -a -m'

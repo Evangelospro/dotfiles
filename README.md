@@ -8,7 +8,7 @@ rofi-git pavucontrol qt5ct zsh wev wl-clipboard wf-recorder kwallet-pam cliphist
 swaybg grimblast-git ffmpegthumbnailer playerctl dictd qtkeychain-qt6 flameshot-git batify-git \
 noise-suppression-for-voice zathura-pdf-mupdf zathura lf spotify-player libdisplay-info spotifywm-git \
 eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git gtkcord4-libadwaita-git \
-nwg-look-bin papirus-icon-theme-git swayosd-git swaync caffeinated wezterm swayidle geticons udiskie python-pywal
+nwg-look-bin papirus-icon-theme-git swayosd-git swaync caffeinated wezterm swayidle geticons udiskie python-pywal lazygit
 
 cargo install hyprsome
 
