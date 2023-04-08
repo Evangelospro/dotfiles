@@ -1,9 +1,15 @@
 #!/bin/sh
 
-notification()
+EWW_BIN="/usr/bin/eww -c $HOME/.config/eww"
+LOCK_DIR="$HOME/.cache/"
+
+closeAll() {
+    ${EWW_BIN} close system audio_ctl calendar
+}
+
+notifications()
 {
-    LOCK_FILE="$HOME/.cache/bar-notification.lock"
-    EWW_BIN=`which eww`
+    LOCK_FILE="$LOCK_DIR/eww-notification.lock"
 
     # Run eww daemon if not running
     if [[ ! `pidof eww` ]]; then
@@ -14,15 +20,17 @@ notification()
     # Open widgets
     if [[ ! -f "$LOCK_FILE" ]]; then
         touch "$LOCK_FILE"
-        ${EWW_BIN} -c $HOME/.config/eww/ open notification
+        ${EWW_BIN} open notification
     else
-        ${EWW_BIN} -c $HOME/.config/eww/ close notification
+        ${EWW_BIN} close notification
         \rm "$LOCK_FILE"
     fi
 }
 
+
+
 if [ "$1" = "--notifs" ]; then
-    notification
+    notifications
 else
     echo "Usage: $0 --notifs"
 fi

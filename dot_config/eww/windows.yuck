@@ -29,7 +29,7 @@
     :monitor 0
 	:geometry (geometry 
         :x "20" 
-		:y "7%" 
+		:y "0" 
         :anchor "top right"
 		:width "280px" 
 		:height "60px")
@@ -42,7 +42,7 @@
     :screen 1
 	:geometry (geometry
         :x "20" 
-	    :y "7%" 
+	    :y "0" 
         :anchor "top right"
 	    :width "270px" 
 	    :height "60px")
@@ -52,7 +52,7 @@
 (defwindow notification 
     :monitor 0 
     :stacking "fg"
-    :focusable "true"
+    :focusable "false"
     :screen 1
     :geometry (geometry
         :x "7" 
@@ -70,7 +70,7 @@
     :monitor 0
 	:geometry (geometry
             :x "20" 
-			:y "7%" 
+			:y "0" 
             :anchor "top right"
 			:width "290px"
 			:height "120px")

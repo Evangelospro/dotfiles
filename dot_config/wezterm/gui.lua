@@ -4,7 +4,8 @@ local module = {}
 local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
-local scheme = wezterm.color.get_builtin_schemes()['Dracula (Official)']
+module.color_scheme = 'Dracula (base16)'
+module.colors = wezterm.color.get_builtin_schemes()[module.color_scheme]
 
 module.hide_tab_bar_if_only_one_tab = false
 module.window_close_confirmation = 'NeverPrompt'
@@ -19,6 +20,52 @@ module.enable_tab_bar = true
 module.use_fancy_tab_bar = false
 module.enable_kitty_graphics = true
 
+module.colors = {
+
+    background = "#282936",
+
+    tab_bar = {
+        background = "#282a36",
+        inactive_tab = {
+            bg_color = "#282a36",
+            fg_color = "#6272a4"
+        },
+        active_tab = {
+            bg_color = "#282a36",
+            fg_color = "#f8f8f2"
+        },
+        new_tab = {
+            bg_color = "#282a36",
+            fg_color = "#f8f8f2"
+        },
+        new_tab_hover = {
+            bg_color = "#282a36",
+            fg_color = "#f8f8f2"
+        }
+    },
+
+    ansi = {
+        "#282936",
+        "#ea51b2",
+        "#00f769",
+        "#ebff87",
+        "#62d6e8",
+        "#b45bcf",
+        "#a1efe4",
+        "#e9e9f4"
+    },
+
+    brights = {
+        "#4d4f68",
+        "#ea51b2",
+        "#00f769",
+        "#ebff87",
+        "#62d6e8",
+        "#b45bcf",
+        "#a1efe4",
+        "#f7f7fb"
+    },
+}
 --- powerline start
 wezterm.on('update-right-status', function(window, pane)
     -- Each element holds the text for a cell in a "powerline" style << fade
@@ -54,11 +101,11 @@ wezterm.on('update-right-status', function(window, pane)
     table.insert(cells, date);
 
     -- Color palette for the backgrounds of each cell
-    local pink = wezterm.color.parse(scheme.brights[6])
+    local pink = wezterm.color.parse(module.colors.brights[6])
     local colors = {pink:darken(0.1), pink:darken(0.2), pink:darken(0.3), pink:darken(0.4), pink:darken(0.5)};
 
     -- Foreground color for the text across the fade
-    local text_fg = scheme.background
+    local text_fg = module.colors.background
 
     -- The elements to be formatted
     local elements = {{
@@ -109,90 +156,36 @@ wezterm.on('update-right-status', function(window, pane)
     window:set_right_status(wezterm.format(elements));
 end);
 
--- wezterm.on('format-tab-title', function(tab, tabs, hover)
--- local background = scheme.tab_bar.inactive_tab.bg_color
--- local foreground = scheme.tab_bar.inactive_tab.fg_color
-
--- -- wezterm.log_info(tostring(tabs))
-
--- local is_first = tab.tab_id == tabs[1].tab_id
--- local is_last = tab.tab_id == tabs[#tabs].tab_id
-
--- if tab.is_active then
---     background = scheme.tab_bar.active_tab.bg_color
---     foreground = scheme.tab_bar.active_tab.fg_color
--- elseif hover then
---     background = scheme.tab_bar.new_tab_hover.bg_color
---     foreground = scheme.tab_bar.new_tab_hover.fg_color
--- end
-
--- local leading_fg = scheme.tab_bar.inactive_tab.fg_color
--- local leading_bg = background
-
--- local trailing_fg = background
--- local trailing_bg = scheme.tab_bar.inactive_tab.bg_color
-
--- if is_first then
---     leading_fg = background
---     leading_bg = background
--- else
---     leading_fg = scheme.tab_bar.inactive_tab.bg_color
--- end
-
--- if is_last then
---     trailing_bg = scheme.tab_bar.background
--- else
---     trailing_bg = scheme.tab_bar.inactive_tab.bg_color
--- end
-
--- local title = tab.active_pane.title
--- -- broken?
--- -- local title = " " .. wezterm.truncate_to_width(tab.active_pane.title, 30) .. " "
-
--- return {
---     { Attribute = { Italic = false } },
---     { Attribute = { Intensity = hover and "Bold" or "Normal" } },
---     { Background = { Color = leading_bg } }, { Foreground = { Color = leading_fg } },
---     { Text = SOLID_RIGHT_ARROW },
---     { Background = { Color = background } }, { Foreground = { Color = foreground } },
---     { Text = " " .. title .. " " },
---     { Background = { Color = trailing_bg } }, { Foreground = { Color = trailing_fg } },
---     { Text = SOLID_RIGHT_ARROW },
--- }
--- end)
-
--- powerline end
-
 module.tab_bar_style = {
     new_tab = wezterm.format {
-    { Background = {Color = scheme.tab_bar.new_tab.bg_color} },
-    { Foreground = {Color = scheme.tab_bar.background} },
+    { Background = {Color = module.colors.tab_bar.new_tab.bg_color} },
+    { Foreground = {Color = module.colors.tab_bar.background} },
     { Text = SOLID_RIGHT_ARROW },
-    { Background = { Color = scheme.tab_bar.new_tab.bg_color } },
-    { Foreground = { Color = scheme.tab_bar.new_tab.fg_color } },
+    { Background = { Color = module.colors.tab_bar.new_tab.bg_color } },
+    { Foreground = { Color = module.colors.tab_bar.new_tab.fg_color } },
     { Text = " + " },
-    { Background = { Color = scheme.tab_bar.background } },
-    { Foreground = { Color = scheme.tab_bar.new_tab.bg_color } },
+    { Background = { Color = module.colors.tab_bar.background } },
+    { Foreground = { Color = module.colors.tab_bar.new_tab.bg_color } },
     { Text = SOLID_RIGHT_ARROW }
     },
 
     new_tab_hover = wezterm.format {
     { Attribute = { Italic = false } },
     { Attribute = { Intensity = "Bold" } },
-    { Background = { Color = scheme.tab_bar.inactive_tab.bg_color } },
-    { Foreground = { Color = scheme.tab_bar.background } },
+    { Background = { Color = module.colors.tab_bar.inactive_tab.bg_color } },
+    { Foreground = { Color = module.colors.tab_bar.background } },
     { Text = SOLID_RIGHT_ARROW },
-    { Background = { Color = scheme.tab_bar.inactive_tab.bg_color } },
-    { Foreground = { Color = scheme.tab_bar.inactive_tab.fg_color } },
+    { Background = { Color = module.colors.tab_bar.inactive_tab.bg_color } },
+    { Foreground = { Color = module.colors.tab_bar.inactive_tab.fg_color } },
     { Text = " + " },
-    { Background = { Color = scheme.tab_bar.background } },
-    { Foreground = { Color = scheme.tab_bar.inactive_tab.bg_color } },
+    { Background = { Color = module.colors.tab_bar.background } },
+    { Foreground = { Color = module.colors.tab_bar.inactive_tab.bg_color } },
     { Text = SOLID_RIGHT_ARROW }
     }
 }
 
 module.color_schemes = {
-    ['Dracula custom'] = scheme
+    ['Dracula custom'] = module.colors
 }
 
 module.color_scheme = 'Dracula custom'

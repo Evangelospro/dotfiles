@@ -1,5 +1,7 @@
 [colors]
 
+background = '#282a36'
+
 ansi = [
     '#21222c',
     '#ff5555',
@@ -10,7 +12,6 @@ ansi = [
     '#8be9fd',
     '#f8f8f2',
 ]
-background = '#282a36'
 
 brights = [
     '#6272a4',

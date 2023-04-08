@@ -1,19 +1,18 @@
-$background: #282a36;
-$background: rgba(40, 42, 54, 0.8);
+$background: rgba(40, 41, 54, 0.8);
 $transparent: rgba(00, 00, 00, 0);
 $widget-background: rgba(68, 71, 90, 1);
-$shadow: #44475a;
-$grey: #6272a4;
+$shadow: rgba(61, 76, 95, 1);
+$grey: rgba(77, 79, 104, 1);
 
-$cyan: #8be9fd;
-$green: #50fa7b;
-$orange: #ffb86c;
-$black: #3d4c5f;
-$pink: #ff79c6;
-$purple: #bd93f9;
-$red: #ff5555;
-$yellow: #f1fa8c;
-$white: #f8f8f2;
+$cyan: rgba(98, 214, 232, 1);
+$green: rgba(0, 247, 105, 1);
+$orange: rgba(255, 184, 108, 1);
+$black: rgba(61, 76, 95, 1);
+$pink: rgba(234, 81, 178, 1);
+$purple: rgba(180, 91, 207, 1);
+$red: rgba(255, 85, 85, 1);
+$yellow: rgba(235, 255, 135, 1);
+$white: rgba(233, 233, 244, 1);
 
 * {
   all: unset;
@@ -277,7 +276,7 @@ scale trough {
 
 // cal
 .cal {
-  background-color: rgba(00, 00, 00, 0.6);
+  background-color: $background;
   border-radius: 16px;
   font-family: Inter Nerd Font;
   font-size: 18px;
@@ -285,7 +284,7 @@ scale trough {
 
   .cal-in {
     padding: 10px 20px 10px 20px;
-    color: #bfc9db;
+    color: $white;
 
     .cal {
       &.highlight {
@@ -296,10 +295,6 @@ scale trough {
       margin-left: 10px;
     }
   }
-}
-
-.cal {
-  color: #bfc9db;
 }
 
 .cal:selected {
@@ -347,7 +342,7 @@ scale trough {
   margin: 30px;
 }
 .sys_win {
-  background-color: rgba(00, 00, 00, 0.6);
+  background-color: $background;
   border-radius: 16px;
 }
 .sys_bat {
@@ -396,7 +391,7 @@ scale trough {
 }
 
 .audio-box {
-  background-color: rgba(00, 00, 00, 0.6);
+  background-color: $background;
   border-radius: 16px;
 }
 
