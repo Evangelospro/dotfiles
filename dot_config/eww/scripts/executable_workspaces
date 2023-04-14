@@ -157,7 +157,7 @@ done
 gridString=""
 for num in {1..9}; do
   if [[ ${o[$num]} == 1 ]]; then
-    gridString+="${grids[$num]} "
+    gridString+="${grids[$num]} (sep)"
   fi
 done
 
