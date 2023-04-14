@@ -131,7 +131,6 @@ alias disable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=1'
 # Package managment / cleanup
 alias clean-docker='docker system prune -f'
 alias clean-packages='sudo pacman -Rns $(pacman -Qtdq)'
-alias paru="$ZSH/scripts/utils/paru"
 
 # typos
 alias cd..='cd ..'

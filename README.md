@@ -23,3 +23,6 @@ ln -s ~/.local/bin/eww-git/target/release/eww ~/.local/bin
 
 
 nvidia-dkms nvidia-vaapi-driver-git
+
+
+### Anything in the confs folder is a config file for a program (usually in etc), replace the file with the one in the confs folder at your own risk
