@@ -7,11 +7,11 @@
 		    :transition "slideright"
 		    :reveal side_reveal 
 		    :duration "550ms"
-		(side_reveal)))
+		(side)))
 )
 
-;; background
-(defwidget side_reveal [] 
+;; Background
+(defwidget side [] 
         (box 
             :class "rightside" 
             :orientation "v" 
@@ -19,14 +19,14 @@
             :spacing "30"
             :halign "start"
             (fetch)
-            (music-side_reveal)
+            (music-side)
 			(music-lyrics)
-            (system-side_reveal)
+            (system-side)
 		)
 )
 
 ; Music Widgets
-(defwidget music-side_reveal [] 
+(defwidget music-side [] 
 	(box 	
 	    :class "music-player"
 		:orientation "h" 
@@ -91,8 +91,8 @@
 	)
 )
 
-;; <-- System -->
-(defwidget system-side_reveal [] 
+;; System
+(defwidget system-side [] 
 	(box 
 	    :class "stats-box" 
 	    :space-evenly "false" 
@@ -168,6 +168,7 @@
 			    :onchange "amixer sset Master {}%")
 			)))
 
+;; Fetch
 (defwidget fetch []
 	(box 
 		:class "fetch"  

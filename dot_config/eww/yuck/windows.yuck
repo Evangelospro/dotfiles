@@ -49,20 +49,6 @@
 (cal)
 )
 
-(defwindow notification 
-    :monitor 0 
-    :stacking "fg"
-    :focusable "false"
-    :screen 1
-    :geometry (geometry
-        :x "7" 
-        :y "0" 
-        :anchor "top right"
-        :height "800" 
-        :width "500")
-  (notifs-box)
-)
-
 (defwindow system
     :stacking "fg"
     :focusable "false"
@@ -77,11 +63,23 @@
     (system))
 
 (defwindow sidebar
+    :stacking "fg"
+    :monitor "0"
     :geometry (geometry :x "0px"
                         :y "10px"
                         :width "1px"
                         :height "92%"
                         :anchor "bottom left")
+    (sidebar)
+)
+
+(defwindow notifications 
     :stacking "fg"
-    :monitor "0"
-(sidebar))
+    :monitor 0 
+    :geometry (geometry :x "0px"
+                    :y "1910px"
+                    :width "1px"
+                    :height "92%"
+                    :anchor "bottom right")
+    (notifs-box)
+)

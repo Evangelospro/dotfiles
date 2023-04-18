@@ -1,6 +1,6 @@
 #!/bin/sh
 
-EWW_BIN="/usr/bin/eww -c $HOME/.config/eww"
+EWW_BIN="eww -c $HOME/.config/eww"
 LOCK_DIR="$HOME/.cache/"
 
 closeAll() {

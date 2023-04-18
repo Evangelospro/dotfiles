@@ -1,5 +1,13 @@
-(defwidget notification-button[]
-  (button :class "notification-button" :tooltip "${notificationNum} Notifications" :onclick "scripts/popup --notifs" " ")
+(defwidget notifications []
+  	(eventbox 
+	    :halign "start" 
+	    :onhover "${EWW_CMD} update notifications_reveal=true"
+	    :onhoverlost "${EWW_CMD} update notifications_reveal=false"
+      (revealer 
+          :transition "slideleft"
+          :reveal notifications_reveal 
+          :duration "550ms"
+      (notifs-box)))
 )
 
 (defwidget notification-card [?class summary body image ?SL ?M ?L ?R application]
@@ -14,7 +22,8 @@
         (box :orientation "vertical" :class class :space-evenly false :hexpand true :class "notification-card-body"
           (box :space-evenly false
             (label :limit-width 25 :wrap true :text summary :class "notification-summary" :halign "start" :hexpand true))
-          (label :limit-width 30 :wrap true :text body :halign "start" :class "notification-body"))))))
+          (label :limit-width 30 :wrap true :text body :halign "start" :class "notification-body")))))
+)
 
 (defwidget notifs-box[]
   (box :orientation "v" :space-evenly "false" :class "notification-layout-box"
@@ -25,23 +34,22 @@
     :orientation "h" 
     :space-evenly "true" 
     :halign "center"
-    (button
-        :class "notification-action"
-        :tooltip "Refresh"
-        :onclick "scripts/logger subscribe" ""
-    )
-    (button
-        :class "notification-action"
-        :tooltip "Pause/Resume Notifications"
-        :onclick "dunstctl set-paused toggle" ""
-    )
-    (button
-        :class "notification-action"
-        :tooltip "Dismiss All"
-        :onclick "scripts/logger " "")
-    )
-    (literal :content notificationsCards :class "notification-literal")
-    (button :onclick "scripts/logger clear" :class "notification-headers-clear" "Clear All "
-    )
+      (button
+          :class "notification-action"
+          :tooltip "Refresh"
+          :onclick "scripts/logger subscribe" ""
+      )
+      (button
+          :class "notification-action"
+          :tooltip "Pause/Resume Notifications"
+          :onclick "dunstctl set-paused toggle" ""
+      )
+      (button
+          :class "notification-action"
+          :tooltip "Dismiss All"
+          :onclick "scripts/logger " "")
+      )
+      (literal :content notificationsCards :class "notification-literal")
+      (button :onclick "scripts/logger clear" :class "notification-headers-clear" "Clear All ")
     )
 )

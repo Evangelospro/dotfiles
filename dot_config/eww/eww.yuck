@@ -314,7 +314,6 @@
     (mem)
     (sep)
     (clock_module)
-    (notification-button)
     (powermenu)
 ))
 
@@ -336,7 +335,6 @@
     (mem)
     (sep)
     (clock_module)
-    (notification-button)
     (powermenu)
 ))
 
