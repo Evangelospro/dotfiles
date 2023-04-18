@@ -1,17 +1,17 @@
 (defwidget sidebar [] 
 	(eventbox 
 	    :halign "start" 
-	    :onhover "${EWW_CMD} update side=true"
-	    :onhoverlost "${EWW_CMD} update side=false"
+	    :onhover "${EWW_CMD} update side_reveal=true"
+	    :onhoverlost "${EWW_CMD} update side_reveal=false"
 		(revealer 
 		    :transition "slideright"
-		    :reveal side 
+		    :reveal side_reveal 
 		    :duration "550ms"
-		(side))))
-(defvar side false)
+		(side_reveal)))
+)
 
 ;; background
-(defwidget side [] 
+(defwidget side_reveal [] 
         (box 
             :class "rightside" 
             :orientation "v" 
@@ -19,14 +19,14 @@
             :spacing "30"
             :halign "start"
             (fetch)
-            (music-side)
+            (music-side_reveal)
 			(music-lyrics)
-            (system-side)
+            (system-side_reveal)
 		)
 )
 
 ; Music Widgets
-(defwidget music-side [] 
+(defwidget music-side_reveal [] 
 	(box 	
 	    :class "music-player"
 		:orientation "h" 
@@ -92,7 +92,7 @@
 )
 
 ;; <-- System -->
-(defwidget system-side [] 
+(defwidget system-side_reveal [] 
 	(box 
 	    :class "stats-box" 
 	    :space-evenly "false" 

@@ -1,125 +1,114 @@
-$background: rgba(40, 41, 54, 0.8);
-$transparent: rgba(00, 00, 00, 0);
-$widget-background: rgba(68, 71, 90, 1);
-$shadow: rgba(61, 76, 95, 1);
-$grey: rgba(77, 79, 104, 1);
-
-$cyan: rgba(98, 214, 232, 1);
-$green: rgba(0, 247, 105, 1);
-$orange: rgba(255, 184, 108, 1);
-$black: rgba(61, 76, 95, 1);
-$pink: rgba(234, 81, 178, 1);
-$purple: rgba(180, 91, 207, 1);
-$red: rgba(255, 85, 85, 1);
-$yellow: rgba(235, 255, 135, 1);
-$white: rgba(233, 233, 244, 1);
+@import "scss/variables.scss";
+@import "scss/music.scss";
+@import "scss/notifications.scss";
+@import "scss/sidebar.scss";
 
 * {
-  all: unset;
-  font-family: feather;
-  font-family: Inter Nerd Font;
+    all: unset;
+    font-family: feather;
+    font-family: Inter Nerd Font;
 }
 
 /** General **/
 .bar_class {
-  background-color: $background;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 3;
-  border-color: $purple;
+    background-color: $background;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 3;
+    border-color: $purple;
 }
 
 .module {
-  margin: 0px 0px 0px 0px;
-  // background-color: $background;
-  // border-radius: 10px 10px 0px 10px;
-  // border-style: solid;
-  // border-width: 2;
-  // border-color: $purple;
+    margin: 0px 0px 0px 0px;
+    // background-color: $background;
+    // border-radius: 10px 10px 0px 10px;
+    // border-style: solid;
+    // border-width: 2;
+    // border-color: $purple;
 }
 
 .center_modules {
-  margin: 0px 0px 0px 0px;
-  // background-color: $background;
-  // border-radius: 10px 10px 0px 10px;
-  // border-style: solid;
-  // border-width: 2;
-  // border-color: $purple;
+    margin: 0px 0px 0px 0px;
+    // background-color: $background;
+    // border-radius: 10px 10px 0px 10px;
+    // border-style: solid;
+    // border-width: 2;
+    // border-color: $purple;
 }
 
 .left_modules {
-  margin: 0px 0px 0px 0px;
-  // background-color: $background;
-  // border-radius: 10px 10px 0px 10px;
-  // border-style: solid;
-  // border-width: 2;
-  // border-color: $purple;
+    margin: 0px 0px 0px 0px;
+    // background-color: $background;
+    // border-radius: 10px 10px 0px 10px;
+    // border-style: solid;
+    // border-width: 2;
+    // border-color: $purple;
 }
 
 .right_modules {
-  margin: 0px 0px 0px 0px;
-  // background-color: $background;
-  // border-radius: 10px 10px 0px 10px;
-  // border-style: solid;
-  // border-width: 2;
-  // border-color: $purple;
+    margin: 0px 0px 0px 0px;
+    // background-color: $background;
+    // border-radius: 10px 10px 0px 10px;
+    // border-style: solid;
+    // border-width: 2;
+    // border-color: $purple;
 }
 
 .rightside {
-  background-color: $background;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 2;
-  border-color: $purple;
-  padding: 0px 30px 0px 30px;
+    background-color: $background;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $purple;
+    padding: 0px 30px 0px 30px;
 }
 
 .leftside {
-  background-color: $background;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 2;
-  border-color: $purple;
-  padding: 0px 30px 0px 30px;
+    background-color: $background;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2;
+    border-color: $purple;
+    padding: 0px 30px 0px 30px;
 }
 
 /** tooltip!! **/
 tooltip.background {
-  background-color: $transparent;
-  font-size: 18;
-  border-radius: 10px;
-  color: $background;
+    background-color: $transparent;
+    font-size: 18;
+    border-radius: 10px;
+    color: $background;
 }
 
 tooltip label {
-  margin: 6px;
+    margin: 6px;
 }
 
 /** Widgets **/
 
 .clock_date_class {
-  font-size: 24;
-  margin: 0px 20px 0px -1px;
-  color: $red;
+    font-size: 24;
+    margin: 0px 20px 0px -1px;
+    color: $red;
 }
 
 .clock_time_class {
-  color: $white;
-  font-size: 28;
-  font-weight: bold;
-  margin: 0px 20px 0px 5px;
+    color: $white;
+    font-size: 28;
+    font-weight: bold;
+    margin: 0px 20px 0px 5px;
 }
 
 .notif_button {
-  font-size: 28;
-  margin: 0px 20px 0px 0px;
-  color: $white;
+    font-size: 28;
+    margin: 0px 20px 0px 0px;
+    color: $white;
 }
 
 .powermenu_icon {
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('images/powermenu.png');
+    background-image: url("images/powermenu.png");
     background-position: center;
     min-height: 10px;
     min-width: 20px;
@@ -127,649 +116,346 @@ tooltip label {
 }
 
 .batbar {
-  color: $green;
-  background-color: $grey;
-  border-radius: 10px;
+    color: $green;
+    background-color: $grey;
+    border-radius: 10px;
 }
 
 .membar {
-  color: $orange;
-  background-color: $grey;
-  border-radius: 10px;
+    color: $orange;
+    background-color: $grey;
+    border-radius: 10px;
 }
 
 .bright_icon {
-  font-size: 22;
-  color: $orange;
-  margin: 0px 10px 0px 0px;
+    font-size: 22;
+    color: $orange;
+    margin: 0px 10px 0px 0px;
 }
 
 .brightbar trough highlight {
-  background-image: linear-gradient(
-    to right,
-    $orange 30%,
-    #f2cdcd 50%,
-    $orange 100% * 50
-  );
-  border-radius: 10px;
+    background-image: linear-gradient(
+        to right,
+        $orange 30%,
+        #f2cdcd 50%,
+        $orange 100% * 50
+    );
+    border-radius: 10px;
 }
 
 .volbar trough highlight {
-  background-image: linear-gradient(
-    to right,
-    #afcee0 30%,
-    #92b6f4 50%,
-    #77a5bf 100% * 50
-  );
-  border-radius: 10px;
+    background-image: linear-gradient(
+        to right,
+        #afcee0 30%,
+        #92b6f4 50%,
+        #77a5bf 100% * 50
+    );
+    border-radius: 10px;
 }
 
 .volume_icon {
-  font-size: 22;
-  color: $cyan;
-  margin: 0px 10px 0px 0px;
+    font-size: 22px;
+    color: $cyan;
+    margin: 0px 10px 0px 0px;
 }
 
 .module_essid {
-  font-size: 18;
-  color: $cyan;
-  margin: 0px 10px 0px 0px;
+    font-size: 18px;
+    color: $cyan;
+    margin: 0px 10px 0px 0px;
 }
 .module-wifi {
-  font-size: 22;
-  color: $cyan;
-  margin: 0px 10px 0px 5px;
+    font-size: 22px;
+    color: $cyan;
+    margin: 0px 10px 0px 5px;
 }
 
 .iconlauncher {
-  color: $cyan;
-  font-size: 36px;
-  margin: 0px 0px 0px 15px;
+    color: $cyan;
+    font-size: 36px;
+    margin: 0px 0px 0px 15px;
 }
 .iconsearch {
-  color: $white;
-  font-size: 24px;
+    color: $white;
+    font-size: 24px;
 }
 
 .iconmem {
-  color: $orange;
+    color: $orange;
 }
 
 .iconbat {
-  color: $green;
+    color: $green;
 }
 
 .iconbat,
 .iconmem {
-  font-size: 15;
-  margin: 10px;
+    font-size: 15px;
+    margin: 10px;
 }
 
 .separ {
-  color: $grey;
-  font-weight: bold;
-  font-size: 22px;
-  margin: 0px 8px 0px 8px;
+    color: $grey;
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0px 8px 0px 8px;
 }
 
 .launcher_module {
-  background-color: $transparent;
+    background-color: $transparent;
 }
 
 .mem_module {
-  background-color: $transparent;
-  border-radius: 16px;
-  margin: 0px 10px 0px 3px;
+    background-color: $transparent;
+    border-radius: 16px;
+    margin: 0px 10px 0px 3px;
 }
 
 .bat_module {
-  background-color: $transparent;
-  border-radius: 16px;
-  margin: 0px 10px 0px 10px;
+    background-color: $transparent;
+    border-radius: 16px;
+    margin: 0px 10px 0px 10px;
 }
 
 scale trough {
-  all: unset;
-  background-color: #22242b;
-  box-shadow: 0 2px 3px 2px $shadow;
-  border-radius: 16px;
-  min-height: 10px;
-  min-width: 70px;
-  margin: 0px 10px 0px 0px;
+    all: unset;
+    background-color: #22242b;
+    box-shadow: 0 2px 3px 2px $shadow;
+    border-radius: 16px;
+    min-height: 10px;
+    min-width: 70px;
+    margin: 0px 10px 0px 0px;
 }
 
 .workspaces {
-  font-size: 27px;
-  font-weight: normal;
-  margin: 4px 4px 4px 4px;
-  background-color: $transparent;
-}
-
-.song_cover_art {
-  background-size: cover;
-  background-position: center;
-  min-height: 24px;
-  min-width: 24px;
-  margin: 10px;
-  border-radius: 100px;
-}
-
-.song {
-  color: $cyan;
-  font-size: 18px;
-  font-weight: bold;
-  margin: 3px 5px 0px 0px;
-}
-
-.song_btn_play {
-  color: $cyan;
-  font-size: 28px;
-  margin: 3px 0px 0px 5px;
-}
-
-.song_btn_prev,
-.song_btn_next {
-  color: $cyan;
-  font-size: 24px;
-  margin: 3px 0px 0px 5px;
-}
-
-// cal
-.cal {
-  background-color: $background;
-  border-radius: 16px;
-  font-family: Inter Nerd Font;
-  font-size: 18px;
-  font-weight: normal;
-
-  .cal-in {
-    padding: 10px 20px 10px 20px;
-    color: $white;
-
-    .cal {
-      &.highlight {
-        padding: 20px;
-      }
-
-      padding: 5px 5px 5px 5px;
-      margin-left: 10px;
-    }
-  }
-}
-
-.cal:selected {
-  color: $cyan;
-}
-
-.cal.header {
-  color: $cyan;
-  font-weight: bold;
-}
-
-.cal.button {
-  color: $green;
-}
-
-.cal.highlight {
-  color: $cyan;
-  font-weight: bold;
-}
-
-.cal:indeterminate {
-  color: #bfc9db;
-}
-
-.sys_sep {
-  color: $grey;
-  font-size: 18;
-  margin: 0px 10px 0px 10px;
-}
-.sys_text_bat_sub,
-.sys_text_mem_sub {
-  font-size: 16;
-  color: #bbc5d7;
-  margin: 5px 0px 0px 25px;
-}
-.sys_text_bat,
-.sys_text_mem {
-  font-size: 21;
-  font-weight: bold;
-  margin: 14px 0px 0px 25px;
-}
-.sys_icon_bat,
-.sys_icon_mem {
-  font-size: 30;
-  margin: 30px;
-}
-.sys_win {
-  background-color: $background;
-  border-radius: 16px;
-}
-.sys_bat {
-  color: $green;
-  background-color: $grey;
-  border-radius: 10px;
-}
-.sys_mem {
-  color: #f1fa8c;
-  background-color: $grey;
-  border-radius: 10px;
-}
-.sys_icon_bat,
-.sys_text_bat {
-  color: $green;
-}
-.sys_icon_mem,
-.sys_text_mem {
-  color: $orange;
-}
-.sys_bat_box {
-  border-radius: 16px;
-  margin: 15px 10px 10px 20px;
-}
-.sys_mem_box {
-  border-radius: 16px;
-  margin: 15px 10px 15px 20px;
-}
-
-.app-name {
-  color: $white;
-  font-size: 20px;
-  font-weight: bold;
-  margin: 3px 0px 0px 0px;
-}
-
-.app-icon {
-  margin: 3px 10px 0px 0px;
-}
-
-.app-button {
-  color: $cyan;
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0px 15px 0px 15px;
-}
-
-.audio-box {
-  background-color: $background;
-  border-radius: 16px;
-}
-
-.speaker_icon {
-  background-size: cover;
-  background-image: url('images/speaker.png');
-  background-position: center;
-  min-height: 70px;
-  min-width: 75px;
-  margin: 10px 20px 5px 20px;
-  border-radius: 12px;
-}
-
-.speaker_text {
-  color: $cyan;
-  font-size: 26px;
-  font-weight: bold;
-  margin: 20px 0px 0px 0px;
-}
-
-.speaker_bar scale trough highlight {
-  all: unset;
-  background-image: linear-gradient(
-    to right,
-    #afcee0 30%,
-    #92b6f4 50%,
-    #77a5bf 100% * 50
-  );
-  border-radius: 24px;
-}
-.speaker_bar scale trough {
-  all: unset;
-  background-color: #232232;
-  box-shadow: 0 2px 3px 2px $shadow;
-  border-radius: 24px;
-  min-height: 13px;
-  min-width: 120px;
-  margin: 0px 0px 5px 0px;
-}
-
-.mic_icon {
-  background-size: cover;
-  background-image: url('images/mic.png');
-  background-position: center;
-  min-height: 70px;
-  min-width: 75px;
-  margin: 20px 20px 20px 20px;
-  border-radius: 12px;
-}
-
-.mic_text {
-  color: $cyan;
-  font-size: 26px;
-  font-weight: bold;
-  margin: 0px 0px 0px 0px;
-}
-
-.mic_bar scale trough highlight {
-  all: unset;
-  background-image: linear-gradient(
-    to right,
-    #afcee0 30%,
-    #92b6f4 50%,
-    #77a5bf 100% * 50
-  );
-  border-radius: 24px;
-}
-.mic_bar scale trough {
-  all: unset;
-  box-shadow: 0 2px 3px 2px $shadow;
-  background-color: #232232;
-  border-radius: 24px;
-  min-height: 13px;
-  min-width: 120px;
-  margin: 0px 0px 20px 0px;
-}
-
-.audio_sep {
-  color: #38384d;
-  font-size: 18;
-  margin: 0px 0px 0px 0px;
-}
-
-// Music
-.music-player {
-  all: unset;
-  background-color: $widget-background;
-  padding: 0px 25px 0px 17px;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 2;
-  border-color: $red;
-}
-
-.album_art {
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-  margin: 2rem 1rem 1.5rem 1rem;
-  padding: 4rem;
-}
-
-.song {
-  font-weight: bold;
-  color: $white;
-  font-size: 1.2em;
-}
-
-.artist {
-  font-style: italic;
-  font-size: 1.1em;
-  color: $cyan;
-  margin-top: -5px;
-}
-
-.lyrics {
-  color: $white;
-  font-size: 1.2em;
-  margin-top: 10px;
-}
-
-.btn_prev,
-.btn_play,
-.btn_next {
-  color: $purple;
-  font-size: 25px;
-}
-
-.metric-player scale trough highlight {
-  all: unset;
-  border-radius: 10px;
-  background-color: $cyan;
-}
-
-// weather
-.weather {
-  all: unset;
-  background-color: $widget-background;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 2;
-  border-color: $red;
-  padding: 23px 37px 20px 37px;
-}
-
-.iconweather {
-  font-size: 44px;
-  font-weight: normal;
-  margin: 0px -5px 0px 20px;
-}
-
-.label_temp {
-  color: $cyan;
-  font-size: 35px;
-  font-weight: bold;
-  margin: 0px 0px 0px 0px;
-  font-family: Furamono Nerd Font;
-}
-
-.label_stat {
-  color: $cyan;
-  font-size: 38px;
-  font-weight: bold;
-}
-
-.label_quote {
-  color: $cyan;
-  font-size: 18px;
-  padding-bottom: 10px;
-  font-weight: normal;
-}
-
-.date {
-  all: unset;
-  background-color: $widget-background;
-  padding: 33px 27px 27px 27px;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 2;
-  border-color: $red;
-  color: $cyan;
-  font-size: 18px;
-  font-style: italic;
-  font-family: Cartograph CF;
-}
-
-.stats-box {
-  all: unset;
-  background-color: $widget-background;
-  padding: 20px 25px 20px 25px;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 2;
-  border-color: $red;
-}
-
-.stats-icon {
-  font-size: 23px;
-  color: $purple;
-}
-
-scale trough {
-  all: unset;
-  background-color: $widget-background;
-  box-shadow: 0 2px 3px 2px $shadow;
-  border-radius: 16px;
-  min-height: 10px;
-  min-width: 70px;
-  margin: 0px 5px 0px 10px;
-}
-
-scale highlight {
-  background-image: linear-gradient(
-    to right,
-    $purple 30%,
-    $pink 50%,
-    $red 100% * 50
-  );
-  border-radius: 15px;
-}
-
-.buttons {
-  opacity: 1;
-  background-color: $widget-background;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 2;
-  border-color: $red;
-  padding: 15px 0px 15px 0px;
-  margin-bottom: 30px;
-}
-
-.fetch {
-  margin-top: 35px;
-  font-size: 15px;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 2;
-  border-color: $red;
-  background-color: $widget-background;
-  padding: 30px 55px 30px 55px;
-}
-
-.wm {
-  font-weight: bold;
-  color: $red;
-}
-
-.host {
-  font-weight: bold;
-  color: $purple;
-}
-
-.uptime {
-  font-weight: bold;
-  color: $orange;
-}
-
-.packages {
-  font-weight: bold;
-  color: $cyan;
-}
-
-.kernel {
-  font-weight: bold;
-  color: $green;
+    font-size: 27px;
+    font-weight: normal;
+    margin: 4px 4px 4px 4px;
+    background-color: $transparent;
 }
 
 .active-workspace {
   background-color: $purple;
 }
 
-//Notification Center
-.notification-button {
-  font-family: Material\-Design\-Iconic\-Font;
-  font-size: 28px;
-  color: $white;
-  border-radius: 6px;
-  margin: 10px 0px;
+
+// cal
+.cal {
+    background-color: $background;
+    border-radius: 16px;
+    font-family: Inter Nerd Font;
+    font-size: 18px;
+    font-weight: normal;
+
+    .cal-in {
+        padding: 10px 20px 10px 20px;
+        color: $white;
+
+        .cal {
+            &.highlight {
+                padding: 20px;
+            }
+
+            padding: 5px 5px 5px 5px;
+            margin-left: 10px;
+        }
+    }
 }
 
-.notification-layout-box {
-  background-color: $background;
+.cal:selected {
+    color: $cyan;
 }
 
-.notification-headers-label {
-  color: $white;
-  border-radius: 6px;
-  margin: 10px;
-  font-size: 20px;
+.cal.header {
+    color: $cyan;
+    font-weight: bold;
 }
 
-.notification-headers-clear {
-  color: $white;
-  border-radius: 6px;
-  margin: 10px;
-  font-size: 20px;
+.cal.button {
+    color: $green;
 }
 
-.notification-card-header-box {
-  background-color: $widget_background;
-  border-radius: 10px 10px 0px 0px;
-  margin-top: 10px;
-  margin-bottom: 2px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 10px;
+.cal.highlight {
+    color: $cyan;
+    font-weight: bold;
 }
 
-.notification-app-name {
-  font-family: Iosevka Nerd Font;
-  font-size: 20px;
-  color: $white;
-  font-size: 20px;
+.cal:indeterminate {
+    color: #bfc9db;
 }
 
-.notification-card-notify-close {
-  font-family: Material\-Design\-Iconic\-Font;
-  font-size: 20px;
-  color: $white;
+.sys_sep {
+    color: $grey;
+    font-size: 18px;
+    margin: 0px 10px 0px 10px;
+}
+.sys_text_bat_sub,
+.sys_text_mem_sub {
+    font-size: 16px;
+    color: #bbc5d7;
+    margin: 5px 0px 0px 25px;
+}
+.sys_text_bat,
+.sys_text_mem {
+    font-size: 21px;
+    font-weight: bold;
+    margin: 14px 0px 0px 25px;
+}
+.sys_icon_bat,
+.sys_icon_mem {
+    font-size: 30px;
+    margin: 30px;
+}
+.sys_win {
+    background-color: $background;
+    border-radius: 16px;
+}
+.sys_bat {
+    color: $green;
+    background-color: $grey;
+    border-radius: 10px;
+}
+.sys_mem {
+    color: #f1fa8c;
+    background-color: $grey;
+    border-radius: 10px;
+}
+.sys_icon_bat,
+.sys_text_bat {
+    color: $green;
+}
+.sys_icon_mem,
+.sys_text_mem {
+    color: $orange;
+}
+.sys_bat_box {
+    border-radius: 16px;
+    margin: 15px 10px 10px 20px;
+}
+.sys_mem_box {
+    border-radius: 16px;
+    margin: 15px 10px 15px 20px;
 }
 
-.notification-card-box {
-  background-color: $widget_background;
-  color: $white;
-  border-radius: 0px 0px 10px 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 10px;
-  font-size: 16px;
+.app-name {
+    color: $white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 3px 0px 0px 0px;
 }
 
-.notification-summary {
-  font-family: Iosevka Nerd Font;
-  font-size: 20px;
-  color: $white;
+.app-icon {
+    margin: 3px 10px 0px 0px;
 }
 
-.notification-body {
-  font-family: Iosevka Nerd Font;
-  font-size: 16px;
-  color: $white;
+.app-button {
+    color: $cyan;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0px 15px 0px 15px;
 }
 
-.notifications-empty-label {
-  font-family: Iosevka Nerd Font;
-  font-size: 16px;
-  color: $white;
+.audio-box {
+    background-color: $background;
+    border-radius: 16px;
 }
 
-.notification-image {
-  margin-right: 10px;
+.speaker_icon {
+    background-size: cover;
+    background-image: url("images/speaker.png");
+    background-position: center;
+    min-height: 70px;
+    min-width: 75px;
+    margin: 10px 20px 5px 20px;
+    border-radius: 12px;
 }
 
-.notification-card-body {
-  margin-left: 10px;
+.speaker_text {
+    color: $cyan;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 20px 0px 0px 0px;
 }
 
-.notification-header {
-  all: unset;
-  background-color: $widget-background;
-  padding: 20px 25px 20px 17px;
-  margin: 20px 0px 10px 0px;
-  border-radius: 12px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: $green;
+.speaker_bar scale trough highlight {
+    all: unset;
+    background-image: linear-gradient(
+        to right,
+        #afcee0 30%,
+        #92b6f4 50%,
+        #77a5bf 100% * 50
+    );
+    border-radius: 24px;
+}
+.speaker_bar scale trough {
+    all: unset;
+    background-color: #232232;
+    box-shadow: 0 2px 3px 2px $shadow;
+    border-radius: 24px;
+    min-height: 13px;
+    min-width: 120px;
+    margin: 0px 0px 5px 0px;
 }
 
-.notification-action {
-  font-size: 36px;
-  color: $white;
-  margin: 0px 0px 0px 20px;
+.mic_icon {
+    background-size: cover;
+    background-image: url("images/mic.png");
+    background-position: center;
+    min-height: 70px;
+    min-width: 75px;
+    margin: 20px 20px 20px 20px;
+    border-radius: 12px;
+}
+
+.mic_text {
+    color: $cyan;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0px 0px 0px 0px;
+}
+
+.mic_bar scale trough highlight {
+    all: unset;
+    background-image: linear-gradient(
+        to right,
+        #afcee0 30%,
+        #92b6f4 50%,
+        #77a5bf 100% * 50
+    );
+    border-radius: 24px;
+}
+.mic_bar scale trough {
+    all: unset;
+    box-shadow: 0 2px 3px 2px $shadow;
+    background-color: #232232;
+    border-radius: 24px;
+    min-height: 13px;
+    min-width: 120px;
+    margin: 0px 0px 20px 0px;
+}
+
+.audio_sep {
+    color: #38384d;
+    font-size: 18px;
+    margin: 0px 0px 0px 0px;
+}
+
+.date {
+    all: unset;
+    background-color: $widget-background;
+    padding: 33px 27px 27px 27px;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2;
+    border-color: $red;
+    color: $cyan;
+    font-size: 18px;
+    font-style: italic;
+    font-family: Cartograph CF;
 }
 
 .indicators {
-  font-family: 'Material Symbols Outlined';
-  font-size: 20px;
-  color: $white;
+    font-family: "Material Symbols Outlined";
+    font-size: 20px;
+    color: $white;
 }

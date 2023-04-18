@@ -1,0 +1,81 @@
+.stats-box {
+    all: unset;
+    background-color: $widget-background;
+    padding: 20px 25px 20px 25px;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2;
+    border-color: $red;
+}
+
+.stats-icon {
+    font-size: 23px;
+    color: $purple;
+}
+
+scale trough {
+    all: unset;
+    background-color: $widget-background;
+    box-shadow: 0 2px 3px 2px $shadow;
+    border-radius: 16px;
+    min-height: 10px;
+    min-width: 70px;
+    margin: 0px 5px 0px 10px;
+}
+
+scale highlight {
+    background-image: linear-gradient(
+        to right,
+        $purple 30%,
+        $pink 50%,
+        $red 100% * 50
+    );
+    border-radius: 15px;
+}
+
+.buttons {
+    opacity: 1;
+    background-color: $widget-background;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2;
+    border-color: $red;
+    padding: 15px 0px 15px 0px;
+    margin-bottom: 30px;
+}
+
+.fetch {
+    margin-top: 35px;
+    font-size: 15px;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2;
+    border-color: $red;
+    background-color: $widget-background;
+    padding: 30px 55px 30px 55px;
+}
+
+.wm {
+    font-weight: bold;
+    color: $red;
+}
+
+.host {
+    font-weight: bold;
+    color: $purple;
+}
+
+.uptime {
+    font-weight: bold;
+    color: $orange;
+}
+
+.packages {
+    font-weight: bold;
+    color: $cyan;
+}
+
+.kernel {
+    font-weight: bold;
+    color: $green;
+}

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+EWW
+
 # Get Volume
 get_volume() {
 	status=`amixer get Master | tail -n1 | grep -wo 'on'`

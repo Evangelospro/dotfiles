@@ -114,7 +114,6 @@ alias dolphin='dolphin . &'
 alias perms="stat --format '%a'"
 # check if headless
 if [[ -z $DISPLAY ]]; then
-    alias kdeconnect-cli="~/.local/share/gnome-shell/extensions/gsconnect@andyholmes.github.io/service/daemon.js"
     alias send-text="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-text $@"
     alias send-file="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-file $@"
     alias send-link="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-link $@"

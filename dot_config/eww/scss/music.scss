@@ -1,0 +1,50 @@
+// Music
+.music-player {
+    all: unset;
+    background-color: $widget-background;
+    padding: 0px 25px 0px 17px;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2;
+    border-color: $red;
+}
+
+.album_art {
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin: 2rem 1rem 1.5rem 1rem;
+    padding: 4rem;
+}
+
+.song {
+    font-weight: bold;
+    color: $white;
+    font-size: 1.2em;
+}
+
+.artist {
+    font-style: italic;
+    font-size: 1.1em;
+    color: $cyan;
+    margin-top: -5px;
+}
+
+.lyrics {
+    color: $white;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.btn_prev,
+.btn_play,
+.btn_next {
+    color: $purple;
+    font-size: 25px;
+}
+
+.metric-player scale trough highlight {
+    all: unset;
+    border-radius: 10px;
+    background-color: $cyan;
+}

@@ -1,0 +1,103 @@
+//Notification Center
+.notification-button {
+    font-family: Material\-Design\-Iconic\-Font;
+    font-size: 28px;
+    color: $white;
+    border-radius: 6px;
+    margin: 10px 0px;
+}
+
+.notification-layout-box {
+    background-color: $background;
+}
+
+.notification-headers-label {
+    color: $white;
+    border-radius: 6px;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.notification-headers-clear {
+    color: $white;
+    border-radius: 6px;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.notification-card-header-box {
+    background-color: $widget_background;
+    border-radius: 10px 10px 0px 0px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+.notification-app-name {
+    font-family: Iosevka Nerd Font;
+    font-size: 20px;
+    color: $white;
+    font-size: 20px;
+}
+
+.notification-card-notify-close {
+    font-family: Material\-Design\-Iconic\-Font;
+    font-size: 20px;
+    color: $white;
+}
+
+.notification-card-box {
+    background-color: $widget_background;
+    color: $white;
+    border-radius: 0px 0px 10px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.notification-summary {
+    font-family: Iosevka Nerd Font;
+    font-size: 20px;
+    color: $white;
+}
+
+.notification-body {
+    font-family: Iosevka Nerd Font;
+    font-size: 16px;
+    color: $white;
+}
+
+.notifications-empty-label {
+    font-family: Iosevka Nerd Font;
+    font-size: 16px;
+    color: $white;
+}
+
+.notification-image {
+    margin-right: 10px;
+}
+
+.notification-card-body {
+    margin-left: 10px;
+}
+
+.notification-header {
+    all: unset;
+    background-color: $widget-background;
+    padding: 20px 25px 20px 17px;
+    margin: 20px 0px 10px 0px;
+    border-radius: 12px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $green;
+}
+
+.notification-action {
+    font-size: 36px;
+    color: $white;
+    margin: 0px 0px 0px 20px;
+}

@@ -1,7 +1,7 @@
-(include "windows.yuck")
-(include "variables.yuck")
-(include "sidebar.yuck")
-(include "notifications.yuck")
+(include "yuck/windows.yuck")
+(include "yuck/variables.yuck")
+(include "yuck/sidebar.yuck")
+(include "yuck/notifications.yuck")
 
 ;; widgets
 
