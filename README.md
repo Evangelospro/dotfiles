@@ -3,6 +3,8 @@
 
 ![Hyprland](/hyprland.png)
 
+### Packages needed
+```
 paru -S rustup chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim polkit-gnome ffmpeg cava swaybg ttf-font-awesome \
 rofi-git pavucontrol qt5ct zsh wev wl-clipboard wf-recorder kwallet-pam cliphist jaq ripgrep btop moreutils \
 swaybg grimblast-git ffmpegthumbnailer playerctl dictd qtkeychain-qt6 flameshot-git batify-git \
@@ -12,17 +14,15 @@ nwg-look-bin papirus-icon-theme-git swayosd-git dunst wezterm swayidle geticons 
 
 cargo install hyprsome
 
+** NVIDIA ** !
+nvidia-dkms nvidia-vaapi-driver-git
+```
+
 ```
 git clone https://github.com/elkowar/eww ~/.local/bin/eww-git
 cd ~/.local/bin/eww-git
 cargo build --release --no-default-features --features=wayland
 ln -s ~/.local/bin/eww-git/target/release/eww ~/.local/bin
 ```
-
-** NVIDIA ** !
-
-
-nvidia-dkms nvidia-vaapi-driver-git
-
 
 ### Anything in the confs folder is a config file for a program (usually in etc), replace the file with the one in the confs folder at your own risk
