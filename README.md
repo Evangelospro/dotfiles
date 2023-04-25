@@ -8,10 +8,17 @@ rofi-git pavucontrol qt5ct zsh wev wl-clipboard wf-recorder kwallet-pam cliphist
 swaybg grimblast-git ffmpegthumbnailer playerctl dictd qtkeychain-qt6 flameshot-git batify-git \
 noise-suppression-for-voice lf spotify-player libdisplay-info spotifywm-git \
 eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git gtkcord4-libadwaita-git \
-nwg-look-bin papirus-icon-theme-git swayosd-git dunst wezterm swayidle geticons udiskie python-pywal lazygit
+nwg-look-bin papirus-icon-theme-git swayosd-git dunst wezterm swayidle geticons udiskie python-pywal cpupower-git
 
-cargo install hyprsome
+#### depreaceated 
+```cargo install hyprsome```
 
+### USE
+
+##### hyprload (plugin manager)
+```curl -sSL https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh | bash```
+
+#### Manual eww build for system tray
 ```
 git clone https://github.com/elkowar/eww ~/.local/bin/eww-git
 cd ~/.local/bin/eww-git
@@ -19,10 +26,7 @@ cargo build --release --no-default-features --features=wayland
 ln -s ~/.local/bin/eww-git/target/release/eww ~/.local/bin
 ```
 
-** NVIDIA ** !
-
-
+#### Nvidia drivers
 nvidia-dkms nvidia-vaapi-driver-git
-
 
 ### Anything in the confs folder is a config file for a program (usually in etc), replace the file with the one in the confs folder at your own risk

@@ -308,7 +308,7 @@
     (network-speeds)
     (sep)
     (indicators)
-    (tray)
+    ; (tray)
     (sep)
     (bat)
     (mem)
