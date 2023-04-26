@@ -64,11 +64,12 @@ set_border_color() {
     hyprctl keyword general:col.inactive_border "0x88${1:1}"
 }
 
-# Loop through the colors in the gradient
-while true; do
-    for color in "${gradient[@]}"; do
-        hex_color=$(color_to_hex $color)
-        set_border_color $hex_color
-        sleep 0.35
+if [[ $(cat /sys/class/power_supply/BAT1/status) == "Charging" ]]; then
+    while true; do   
+        for color in "${gradient[@]}"; do
+            hex_color=$(color_to_hex $color)
+            set_border_color $hex_color
+            sleep 0.35
+        done
     done
-done
+fi
