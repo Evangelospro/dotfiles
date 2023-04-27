@@ -9,12 +9,13 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,run,filebrowser,window";
+	modi:                       "drun,filebrowser,window,ssh";
     show-icons:                 true;
     display-drun:               " Apps";
-    display-run:                " Run";
+    combi-modes:                "drun,run";
     display-filebrowser:        " Files";
     display-window:             " Windows";
+    display-ssh:                " SSH";
 	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
 	window-format:              "{w} · {c} · {t}";
 }
@@ -55,17 +56,6 @@ configuration {
     element-padding:             15px;
     element-radius:              8px;
     element-spacing:             15px;
-
-    /* For Screens with 1366x768 resolution */
-    /*
-    screen-margin:               120px 225px;
-    box-spacing:                 20px;
-    list-padding:                4px;
-    element-padding:             10px;
-    element-radius:              6px;
-    element-spacing:             10px;
-    */
-    /* Use this as reference and create for your screen resolution */
 }
 
 /*****----- Main Window -----*****/

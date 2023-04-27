@@ -33,4 +33,4 @@ _navi_widget() {
 }
 
 zle -N _navi_widget
-# bindkey '^N' _navi_widget
+bindkey 'N' _navi_widget

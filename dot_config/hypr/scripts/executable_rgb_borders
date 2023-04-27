@@ -64,7 +64,7 @@ set_border_color() {
     hyprctl keyword general:col.inactive_border "0x88${1:1}"
 }
 
-if [[ $(cat /sys/class/power_supply/BAT1/status) == "Charging" ]]; then
+if [[ $(cat /sys/class/power_supply/BAT1/status) == "Charging" || $(cat /sys/class/power_supply/BAT1/status) == "Full" ]]; then
     while true; do   
         for color in "${gradient[@]}"; do
             hex_color=$(color_to_hex $color)

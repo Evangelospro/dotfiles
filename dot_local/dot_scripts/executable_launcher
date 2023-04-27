@@ -1,1 +1,1 @@
-pkill rofi || rofi -normal-window-mode -show drun -theme ~/.config/rofi/launchers/type-1/style-14.rasi
+pkill -9 rofi || rofi -normal-window-mode -show drun -theme ~/.config/rofi/launchers/type-1/style-14.rasi
