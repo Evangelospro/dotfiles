@@ -7,5 +7,5 @@ if echo "$file_loc" | grep -q "SeaDrive"; then
     mv "$file_loc" ~/.local/share/Trash/files
     exit 0
 else
-    trash-put --trash-dir=/home/evangelospro/.local/share/Trash "$file_loc"
+    trash-put --trash-dir=$HOME/.local/share/Trash "$file_loc"
 fi

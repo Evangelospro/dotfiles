@@ -49,4 +49,4 @@ matches:
           inject args: true
           args:
             - python3
-            - "/home/evangelospro/HACKING/ctfAutomation/reverse_shells_generator.py"
+            - "~/HACKING/ctfAutomation/reverse_shells_generator.py"

@@ -113,7 +113,7 @@ for num in $workspace_list; do
   else
     status="inactive-workspace"
   fi
-  grids[$num]="(button :onclick \"hyprctl dispatch split-workspace $num'\" :class \"$status\" :tooltip \"workspace $num\" \
+  grids[$num]="(button :onclick \"hyprctl dispatch split-workspace $num\" :class \"$status\" :tooltip \"workspace $num\" \
   (box "
   # the end result should be something like this:
   # box vertical
