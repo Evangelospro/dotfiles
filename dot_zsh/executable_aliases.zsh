@@ -2,13 +2,10 @@
 alias config='chezmoi cd && code .'
 alias zshconfig="code $ZSH"
 
-# alias s='/usr/bin/python ~/.zsh/scripts/utils/prevAsSudo.py'
 alias sudo='sudo '
 alias please='sudo $(fc -ln -1)'
 
-# Hacking platforms 
-alias thm="~/.local/bin/thm/thm"
-alias htb="~/.local/bin/htb/htb"
+# VPNs
 
 # HACKING TOOLS
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
@@ -25,7 +22,6 @@ alias penelope="/usr/bin/python3 /usr/bin/penelope/penelope.py"
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
 alias ctfinit="python3 ~/Desktop/HACKING/CTF\ Automation/ctfinit.py"
 alias mobsf="~/SCRIPTS/r ~/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
-alias curl="curlie"
 alias burl="curl -x localhost:8080 -k "
 alias frm="/usr/bin/rm -rf"
 alias rm="$ZSH/scripts/utils/rm"
@@ -37,7 +33,6 @@ alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
 alias navi-update="$ZSH/scripts/updaters/navi-updater.sh"
 alias feroxbuster="feroxbuster -e"
 alias wpscan='wpscan --plugins-detection aggressive'
-alias upload="$ZSH/scripts/utils/upload"
 
 # venvs for each venv in ~/.virtualenvs
 source $ZSH/scripts/venvs/venvs.zsh
@@ -69,19 +64,23 @@ alias portainer='ssh -i ~/.ssh/portainer evangelospro@192.168.10.4'
 alias scripter='ssh -i ~/.ssh/scripter evangelospro@192.168.10.5'
 alias eraspberry1='ssh -i ~/.ssh/eraspberry1 evangelospro@192.168.10.6'
 
+# Command replacemnts
+alias cat='/usr/bin/bat --theme=Dracula'
+alias pip='noglob pip3'
+alias top='btop'
+alias dolphin='dolphin . &'
+
+
 # Command minimization
 alias reload='exec zsh -l'
 alias mvd='mv ~/Downloads/"$(/usr/bin/ls -t ~/Downloads | head -n 1)" .'
-alias cat='/usr/bin/bat --theme=Dracula'
 alias df='df -h'
 alias diff='diff --color'
 alias free='free -m'
-alias lg='lazygit'
 alias g=git
 alias ga='git add'
 alias gcam='git commit -a -m'
 alias jctl='journalctl -p 3 -xb'
-alias pip='noglob pip3'
 alias pipir='pip3 install -r requirements.txt'
 alias pipreq='pip3 freeze > requirements.txt'
 alias pipua='pip3 list | cut -d " " -f1 | tail +3 | xargs pip3 install -U'
@@ -109,8 +108,7 @@ alias utc='env TZ=UTC date'
 alias md='mdv'
 alias git-update="find . -name .git -type d -print -prune -exec git --git-dir '{}' fetch --all ';'"
 alias wget="wget -c"
-alias timezoneUpdate='sudo tzupdate'
-alias dolphin='dolphin . &'
+alias timezone-update='sudo tzupdate'
 alias perms="stat --format '%a'"
 # check if headless
 if [[ -z $DISPLAY ]]; then
@@ -119,7 +117,11 @@ if [[ -z $DISPLAY ]]; then
     alias send-link="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-link $@"
 fi
 
-# get fastest mirrors in your neighborhood
+# Custom
+alias upload="$ZSH/scripts/utils/upload"
+
+
+# get fastest mirrors
 alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu'
 
 # Networking

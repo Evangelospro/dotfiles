@@ -7,10 +7,10 @@ targetMonitor=$1
 if [[ $targetMonitor =~ ^[0-9]+$ ]]; then
     if [[ $targetMonitor == 1 ]]; then
         targetMonitor=$firstMonitor
-        workspace_list=$(seq 1 10)
+        workspaceList=$(seq 1 10)
     elif [[ $targetMonitor == 2 ]]; then
         targetMonitor=$secondMonitor
-        workspace_list=$(seq 11 20)
+        workspaceList=$(seq 11 20)
     else
         echo "Usage: $0 [1|2]"
         exit 1
@@ -24,13 +24,14 @@ debug="$2"
 # get initial focused workspace
 focusedws=$(hyprctl -j monitors | jq -r '.[] | select(.focused == true) | .activeWorkspace.id')
 
-declare -A o=([1]=0 [2]=0 [3]=0 [4]=0 [5]=0 [6]=0 [7]=0 [8]=0 [9]=0 [10]=0)
+declare -A occupiedWorkspaces=([1]=0 [2]=0 [3]=0 [4]=0 [5]=0 [6]=0 [7]=0 [8]=0 [9]=0 [10]=0)
+declare -A highestOccupiedWorkspace=1
 declare -A monitormap
 declare -A workspaceNames
 appgridIcon=$(geticons --no-fallbacks "appgrid" -s 24 -c 1 | head -n 1)
 declare -A allAppIcons
 # initialize allAppIcons to be an array with 10x4 elements
-for i in $workspace_list; do
+for i in $workspaceList; do
   for j in {0..3}; do
     allAppIcons[$i,$j]=""
   done
@@ -39,7 +40,7 @@ declare -A grids
 
 # handle workspace create/destroy
 workspace_event() {
-  o[$1]=$2
+  occupiedWorkspaces[$1]=$2
   while read -r k v; do workspaceNames[$k]="$v"; done < <(hyprctl -j workspaceNames | jq -r '.[]|"\(.id) \(.monitor)"')
 }
 
@@ -101,7 +102,7 @@ appicons(){
 # generate eww widget
 generate() {
 # REFRESH ONLY FOCUSED WORKSPACE BUT STILL SHOW ALL WORKSPACES (UPDATE THE APPICONS ARRAY)
-for num in $workspace_list; do
+for num in $workspaceList; do
   # if the workspace number is the focused workspace
   if [[ $num == $focusedws ]]; then
     status="active-workspace"
@@ -113,7 +114,10 @@ for num in $workspace_list; do
   else
     status="inactive-workspace"
   fi
-  grids[$num]="(button :onclick \"hyprctl dispatch split-workspace $num\" :class \"$status\" :tooltip \"workspace $num\" \
+  displayNum=$((num > 10 ? num-10 : num))
+  grids[$num]="(button :onclick \"hyprctl dispatch split-workspace $num\" :class \"$status\" :tooltip \"workspace $displayNum\" \
+  (box :orientation \"v\" :spacing 3 :space-evenly \"false\" :valign \"center\" \
+  (label :text \"$displayNum\" :class \"workspace-num\" :tooltip \"Workspace $displayNum\") \
   (box "
   # the end result should be something like this:
   # box vertical
@@ -146,7 +150,7 @@ for num in $workspace_list; do
       fi
     else
       if [[ $foundEmpty == false ]]; then
-        # check if i is notd divisible by 2 and not 0
+        # check if i is not divisible by 2 and not 0
         if (( i % 2 == 1 && i != 0)); then
           grids[$num]+=")"
         fi
@@ -154,14 +158,13 @@ for num in $workspace_list; do
       fi
     fi
   done
-  grids[$num]+=") )" # close the button and box
+  grids[$num]+=") ) ) (sep)" # close the button and box
 done
 
 gridString=""
-for num in $workspace_list; do
-  if [[ ${o[$num]} == 1 ]]; then
-    gridString+="${grids[$num]} (sep)"
-  fi
+# combine all the grids into a string
+for i in $workspaceList; do
+  gridString+="${grids[$i]}"
 done
 
 widget="(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
@@ -175,10 +178,10 @@ if [[ $debug == "debug" ]]; then
   echo "Focused workspace: $focusedws"
   echo "WorkspaceNames: ${workspaceNames[@]}"
   echo "Monitormap: ${monitormap[@]}"
-  echo "Occupied workspaces: ${!o[@]}"
+  echo "Occupied workspaces: ${!occupiedWorkspaces[@]}"
   echo "--------------------------------"
   echo "allAppIcons: "
-  for i in $workspace_list; do
+  for i in $workspaceList; do
     for j in {0..3}; do
       echo "Workspace $i, app $j: ${allAppIcons[$i,$j]}"
     done
@@ -199,13 +202,13 @@ while read -r k v; do workspaceNames[$k]="$v"; done < <(hyprctl -j workspaces | 
 
 # check occupied workspaceNames
 for num in "${!workspaceNames[@]}"; do
-  o[$num]=1
+  occupiedWorkspaces[$num]=1
 done
 # generate initial widget
 generate
 
-# main loop
-socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | rg --line-buffered "workspace|mon(itor)?" | while read -r line; do
+# main loop                                                                                          window (may be too often???)
+socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | rg --line-buffered "window|workspace|mon(itor)?" | while read -r line; do
   case ${line%>>*} in
     "workspace")
       focusedws=${line#*>>}
