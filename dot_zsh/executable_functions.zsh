@@ -2,6 +2,24 @@ ataka_completion() {
     eval $(env _TYPER_COMPLETE_ARGS="${words[1,$CURRENT]}" _PYTHON _M ATAKA_COMPLETE=complete_zsh python -m ataka)
 }
 
+# clipboard
+# X11 / Wayland
+function copy() {
+    if [[ -z $WAYLAND_DISPLAY ]]; then
+        xclip -selection clipboard
+    else
+        wl-copy
+    fi
+}
+
+function paste() {
+    if [[ -z $WAYLAND_DISPLAY ]]; then
+        xclip -selection clipboard -o
+    else
+        wl-paste
+    fi
+}
+
 function checkContainerRunning() {
     docker container ls -q -f name="$1"
 }
@@ -51,30 +69,6 @@ else
           return 1
       fi
     done
-fi
-}
-
-function r {
-if [ -z "$1" ]; then
-    echo "Usage: r <path/file_name>"
-else
-    # run each file with its supported program
-    for n in "$@"
-        do
-            shebang=$(head -n 1 "$n")
-            case "$shebang" in
-                "#!"*)
-                    # get the interpreter from the shebang by replacing the shebang characters
-                    interpreter=$(echo "$shebang" | sed 's/^#!//')
-                    # run the file with the interpreter
-                    "$interpreter" "$n"
-                    ;;
-                *)
-                    # run the file with the default program
-                    xdg-open "$n"
-                    ;;
-            esac
-        done
 fi
 }
 

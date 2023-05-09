@@ -14,6 +14,7 @@ export GEM_HOME=~/.ruby/
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 export ZSH=~/.zsh
+export GITSTATUS_CACHE_DIR="$ZSH/utils/gitstatus"
 
 # Adding to the PATH
 export PATH=$PATH:~/.cargo/bin/
@@ -31,6 +32,7 @@ export zi_home="$ZSH/.zi"
 
 export VISUAL=code;
 export EDITOR=code;
+export EDITOR_DIR="/opt/visual-studio-code"
 
 export HACKING_TOOLS="~/HACKING/Tools"
 export HackingSetupScripts="~/HACKING/Tools/Setup-Scripts"

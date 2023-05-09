@@ -9,8 +9,8 @@ paru -S rustup chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim polkit-
 rofi-git pavucontrol qt5ct zsh wev wl-clipboard wf-recorder kwallet-pam cliphist jaq ripgrep btop moreutils \
 swaybg grimblast-git ffmpegthumbnailer playerctl dictd qtkeychain-qt6 flameshot-git batify2-git \
 noise-suppression-for-voice lf spotify-player libdisplay-info spotifywm-git \
-eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git webcord \
-papirus-icon-theme-git swayosd-git dunst wezterm swayidle geticons udiskie python-pywal cpupower-git
+eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git webcord  plymouth\
+papirus-icon-theme-git swayosd-git dunst wezterm swayidle geticons udiskie python-pywal cpupower-git sddm-theme-astronaut
 
 ### depreaceated 
 ```cargo install hyprsome```
@@ -26,11 +26,27 @@ papirus-icon-theme-git swayosd-git dunst wezterm swayidle geticons udiskie pytho
 nvidia-dkms nvidia-vaapi-driver-git
 ```
 
+##### plymouth theme based on https://github.com/PROxZIMA/proxzima-plymouth
 ```
-git clone https://github.com/elkowar/eww ~/.local/bin/eww-git
-cd ~/.local/bin/eww-git
-cargo build --release --no-default-features --features=wayland
-ln -s ~/.local/bin/eww-git/target/release/eww ~/.local/bin
+sudo cp -r confs/proxzima-plymouth/proxzima /usr/share/plymouth/themes
+sudo plymouth-set-default-theme -R proxzima
+```
+
+#### Vscode
+```
+resPrefix=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
+sudo cp -r ~/.icons/vscode $resPrefix
+sudo cp ~/confs/vscode.css $resPrefix/vsc.css
+```
+##### needs to be performed on every vscode update hence aliased the first in .zsh
+```
+sed -i 's;</head>;<link rel="stylesheet" href="vsc.css"></head>;g' $resPrefix/workbench.html
+Fix Checksums: Apply inside vscode run
+```
+
+#### SDDM
+```
+sudo cp confs/sddm.conf /etc/sddm.conf
 ```
 
 #### Nvidia drivers

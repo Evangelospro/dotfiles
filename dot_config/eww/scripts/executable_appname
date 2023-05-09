@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 #define icons for workspaces 1-9
 firstMonitor="eDP-1"
@@ -25,20 +25,28 @@ currTitle=""
 fullTitle=""
 debug=$2
 
+getIcon() {
+  class="$1"
+  # echo "Class: $class"
+  icon=$(geticons --no-fallbacks "$class" -s 24 -c 1| head -n 1)
+  if [[ $icon == "" ]]; then
+    lowerClass=$(echo "$class" | tr '[:upper:]' '[:lower:]')
+    icon=$(geticons --no-fallbacks "$lowerClass" -s 24 -c 1 | head -n 1)
+  fi
+  echo "$icon"
+}
+
 appnames() {
 if [[ ${1:0:14} == "activewindow>>" ]]; then #set focused workspace
     if [[ $currMonitor == $targetMonitor ]]; then
         string=${1:14}
         currClass="${string/,*/}"
+        candidateClass=$(jq -r --arg class "$currClass" '.[$class]' ~/.config/eww/scripts/windowNames.json)
+        [[ $candidateClass != "null" ]] && currClass=$candidateClass
         # give the current title with backslashes and quotes escaped two times
         currTitle=$(echo "${string/*,/}" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g')
         [[ $currTitle == "" ]] && currTitle="No title"
-        currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1| head -n 1)
-        # if it isn't null try with lowercase
-        if [[ $currIconPath == "" ]]; then
-            currClass=$(echo "$currClass" | tr '[:upper:]' '[:lower:]')
-            currIconPath=$(geticons --no-fallbacks "$currClass" -s 24 -c 1 | head -n 1)
-        fi
+        currIconPath=$(getIcon "$currClass")
         fullTitle="$currClass | $currTitle"
     fi
 elif [[ ${1:0:12} == "focusedmon>>" ]]; then #set focused monitor

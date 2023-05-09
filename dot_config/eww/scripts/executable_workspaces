@@ -60,21 +60,6 @@ applistClass() {
   printf '%s\n' "${classes[@]}"
 }
 
-getIconFallBack() {
-  class="$1"
-  # echo "Class: $class"
-  icon=$(geticons --no-fallbacks "$class" -s 24 -c 1| head -n 1)
-  if [[ $icon == "" ]]; then
-    lowerClass=$(echo "$class" | tr '[:upper:]' '[:lower:]')
-    icon=$(geticons --no-fallbacks "$lowerClass" -s 24 -c 1 | head -n 1)
-    if [[ $icon == "" ]]; then
-      # echo "Couldn't find icon for $class"
-      icon=$(geticons --no-fallbacks "appgrid" -s 24 -c 1 | head -n 1)
-    fi
-  fi
-  echo "$icon"
-}
-
 getIcon() {
   class="$1"
   # echo "Class: $class"
@@ -93,6 +78,8 @@ appicons(){
   applistClass=($(applistClass "$ws"))
   for i in {0..3}; do
     class=${applistClass[$i]}
+    candidateClass=$(jq -r --arg class "$class" '.[$class]' ~/.config/eww/scripts/windowNames.json)
+    [[ $candidateClass != "null" ]] && class=$candidateClass
     icon=$(getIcon "$class")
     appicons[$i]="$icon"
   done

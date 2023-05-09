@@ -1,6 +1,9 @@
+# Editor
+alias e="sed -i 's;</head>;<link rel=\"stylesheet\" href=\"vsc.css\"></head>;g' $EDITOR_DIR/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html && code"
+
 # Dotfiles
-alias config='chezmoi cd && code .'
-alias zshconfig="code $ZSH"
+alias config='chezmoi cd && e .'
+alias zshconfig="e $ZSH"
 
 alias sudo='sudo '
 alias please='sudo $(fc -ln -1)'
@@ -33,6 +36,7 @@ alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
 alias navi-update="$ZSH/scripts/updaters/navi-updater.sh"
 alias feroxbuster="feroxbuster -e"
 alias wpscan='wpscan --plugins-detection aggressive'
+alias frida-init="adb connect 127.0.0.1:5555 && sleep && adb -s 127.0.0.1:5555 root && adb -s 127.0.0.1:5555 push $HACKING_TOOLS/Mobile/frida/frida-server /data/local/tmp/ && adb -s 127.0.0.1:5555 shell 'chmod 755 /data/local/tmp/frida-server' && adb -s 127.0.0.1:5555 shell '/data/local/tmp/frida-server &' "
 
 # venvs for each venv in ~/.virtualenvs
 source $ZSH/scripts/venvs/venvs.zsh
@@ -42,14 +46,8 @@ alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 # GNOME
 alias restart-gnome="killall -3 gnome-shell"
+alias restart-kde="killall -3 plasmashell"
 
-# clipboard
-# X11
-# alias copy='xclip -selection clipboard'
-# alias paste='xclip -selection clipboard -o'
-# Wayland
-alias copy='wl-copy'
-alias paste='wl-paste'
 alias copydir='pwd | tr -d '\n' |copy|paste'
 
 # exa/lsd ignore on --tree
@@ -97,7 +95,6 @@ alias wmonitor-off='sudo airmon-ng stop wlp4s0f3u3'
 alias wmonitor-on='sudo airmon-ng start wlp4s0f3u3'
 alias p='python3'
 alias fd='fd --hidden --follow'
-alias e="code"
 alias q='exit'
 alias hexdump='od -A x -t x1z -v'
 alias ip='ip -color -brief'
@@ -110,12 +107,12 @@ alias git-update="find . -name .git -type d -print -prune -exec git --git-dir '{
 alias wget="wget -c"
 alias timezone-update='sudo tzupdate'
 alias perms="stat --format '%a'"
-# check if headless
-if [[ -z $DISPLAY ]]; then
-    alias send-text="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-text $@"
-    alias send-file="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-file $@"
-    alias send-link="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-link $@"
-fi
+
+# kdeconnect
+# alias send-text="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-text $@"
+# alias send-file="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-file $@"
+# alias send-link="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-link $@"
+
 
 # Custom
 alias upload="$ZSH/scripts/utils/upload"
