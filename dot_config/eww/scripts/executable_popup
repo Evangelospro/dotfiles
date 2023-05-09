@@ -20,9 +20,9 @@ notifications()
     # Open widgets
     if [[ ! -f "$LOCK_FILE" ]]; then
         touch "$LOCK_FILE"
-        ${EWW_BIN} open notification
+        ${EWW_BIN} open notifications
     else
-        ${EWW_BIN} close notification
+        ${EWW_BIN} close notifications
         \rm "$LOCK_FILE"
     fi
 }

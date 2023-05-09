@@ -1,201 +1,201 @@
-(defwidget sidebar [] 
-	(eventbox 
-	    :halign "start" 
-	    :onhover "${EWW_CMD} update side_reveal=true"
-	    :onhoverlost "${EWW_CMD} update side_reveal=false"
-		(revealer 
-		    :transition "slideright"
-		    :reveal side_reveal 
-		    :duration "550ms"
-		(side)))
+(defwidget sidebar []
+  (eventbox
+    :halign "start"
+    :onhover "${EWW_CMD} update side_reveal=true"
+    :onhoverlost "${EWW_CMD} update side_reveal=false"
+    (revealer
+      :transition "slideright"
+      :reveal side_reveal
+      :duration "550ms"
+      (side)))
 )
 
 ;; Background
-(defwidget side [] 
-        (box 
-            :class "rightside" 
-            :orientation "v" 
-            :space-evenly "false" 
-            :spacing "30"
-            :halign "start"
-            (fetch)
-            (music-side)
-			(music-lyrics)
-            (system-side)
-		)
+(defwidget side []
+  (box
+    :class "rightside"
+    :orientation "v"
+    :space-evenly "false"
+    :spacing "30"
+    :halign "start"
+    (fetch)
+    (music-side)
+    (music-lyrics)
+    (system-side)
+  )
 )
 
 ; Music Widgets
-(defwidget music-side [] 
-	(box 	
-	    :class "music-player"
-		:orientation "h" 
-		:space-evenly "false"
-		:spacing 15   
-		:halign "center"
-		:valign "start"
-		:hexpand "true"
-	    (box 	
-	        :class "album_art" 
-			:style "background-image: url('${art}');"
-		)
-		(box 	
-			:orientation "v" 
-			:space-evenly "false"
-			:valign "center"
-			:halign "center"
-			:spacing 10 
-			(label  
-				:class "song"
-				:limit-width 15
-				:text title
-			)
-			(label  
-				:class "artist"
-				:limit-width 15
-				:text artist
-			) 
-			(box
-				:orientation "h"  
-				:space-evenly "false"
-				:valign "center"
-				:halign "center"
-				:spacing 25
-				(button :class "btn_prev" :onclick "~/.config/eww/scripts/music previous" "玲")
-				(button :class "btn_play" :onclick "~/.config/eww/scripts/music toggle" playpause)
-				(button :class "btn_next" :onclick "~/.config/eww/scripts/music next" "怜")
-			)
-			(label 
-				:class "album"
-				:limit-width 15
-				:show_truncated "true"
-				:text "playing ${album}"
-			)
-		)
-	)
+(defwidget music-side []
+  (box
+    :class "music-player"
+    :orientation "h"
+    :space-evenly "false"
+    :spacing 15
+    :halign "center"
+    :valign "start"
+    :hexpand "true"
+    (box
+      :class "album_art"
+      :style "background-image: url('${art}');"
+    )
+    (box
+      :orientation "v"
+      :space-evenly "false"
+      :valign "center"
+      :halign "center"
+      :spacing 10
+      (label
+        :class "song"
+        :limit-width 15
+        :text title
+      )
+      (label
+        :class "artist"
+        :limit-width 15
+        :text artist
+      )
+      (box
+        :orientation "h"
+        :space-evenly "false"
+        :valign "center"
+        :halign "center"
+        :spacing 25
+        (button :class "btn_prev" :onclick "~/.config/eww/scripts/music previous" "玲")
+        (button :class "btn_play" :onclick "~/.config/eww/scripts/music toggle" playpause)
+        (button :class "btn_next" :onclick "~/.config/eww/scripts/music next" "怜")
+      )
+      (label
+        :class "album"
+        :limit-width 15
+        :show_truncated "true"
+        :text "playing ${album}"
+      )
+    )
+  )
 )
 
-(defwidget music-lyrics [] 
-	(box 
-	    :class "music-lyrics" 
-	    :orientation "v" 
-	    :space-evenly "false" 
-	    :spacing 10 
-	    :halign "center" 
-	    :valign "center" 
-	    :hexpand "true"
-		(label 
-		    :class "lyrics" 
-		    :text lyrics
-		)
-	)
+(defwidget music-lyrics []
+  (box
+    :class "music-lyrics"
+    :orientation "v"
+    :space-evenly "false"
+    :spacing 10
+    :halign "center"
+    :valign "center"
+    :hexpand "true"
+    (label
+      :class "lyrics"
+      :text lyrics
+    )
+  )
 )
 
 ;; System
-(defwidget system-side [] 
-	(box 
-	    :class "stats-box" 
-	    :space-evenly "false" 
-	    :width 300
-	    :orientation "v" 
-	    :valign "start" 
-	    :halign "center" 
-	    :spacing 12
-		(box 
-		    :class "stats" 
-		    :hexpand "false" 
-		    :vexpand "false" 
-		    :space-evenly "false"
-			(label 
-			    :tooltip "CPU Usage: ${round(EWW_CPU.avg, 0)}%" 
-			    :class "stats-icon" :text "")
-			(scale 
-			    :min 0 
-			    :max 101 
-			    :active false 
-			    :value {EWW_CPU.avg} 
-			    :class "scale" 
-			    :width 280))
-		(box 
-		    :class "stats" 
-		    :hexpand "false" 
-		    :vexpand "false" 
-		    :space-evenly "false"
-			(label 
-			    :tooltip "Memory Used: ${round(EWW_RAM.used_mem_perc, 0)}%" 
-			    :class "stats-icon" 
-			    :text "﬙")
-			(scale 
-			    :min 0 
-			    :max 101 
-			    :active false 
-			    :value {EWW_RAM.used_mem_perc} 
-			    :class "scale" 
-			    :width 280))
-		(box 
-		    :class "stats" 
-		    :hexpand "false" 
-		    :vexpand "false" 
-		    :space-evenly "false"
-			(label 
-			    :tooltip "Root Drive: ${round(EWW_DISK["/"].used_perc, 0)}% Full" 
-			    :class "stats-icon" 
-			    :text "")
-			(scale 
-			    :min 0 
-			    :max 101 
-			    :active false 
-			    :value {(EWW_DISK["/"].used / EWW_DISK["/"].total) * 100} 
-			    :class "scale" 
-			    :width 280))
-		(box 
-		    :class "stats" 
-		    :hexpand "false" 
-		    :vexpand "false" 
-		    :space-evenly "false"
-			(button 
-			    :tooltip "Volume: ${volume_percent}%" 
-			    :onclick "amixer set Master toggle" 
-			    :onrightclick "alsamixer &" 
-			    :class "stats-icon" "墳")
-			(scale 
-			    :min 0 
-			    :max 101 
-			    :active true 
-			    :value volume_percent
-			    :class "scale" 
-			    :width 280 
-			    :onchange "amixer sset Master {}%")
-			)))
+(defwidget system-side []
+  (box
+    :class "stats-box"
+    :space-evenly "false"
+    :width 300
+    :orientation "v"
+    :valign "start"
+    :halign "center"
+    :spacing 12
+    (box
+      :class "stats"
+      :hexpand "false"
+      :vexpand "false"
+      :space-evenly "false"
+      (label
+        :tooltip "CPU Usage: ${round(EWW_CPU.avg, 0)}%"
+      :class "stats-icon" :text "")
+      (scale
+        :min 0
+        :max 101
+        :active false
+        :value {EWW_CPU.avg}
+        :class "scale"
+      :width 280))
+    (box
+      :class "stats"
+      :hexpand "false"
+      :vexpand "false"
+      :space-evenly "false"
+      (label
+        :tooltip "Memory Used: ${round(EWW_RAM.used_mem_perc, 0)}%"
+        :class "stats-icon"
+      :text "﬙")
+      (scale
+        :min 0
+        :max 101
+        :active false
+        :value {EWW_RAM.used_mem_perc}
+        :class "scale"
+      :width 280))
+    (box
+      :class "stats"
+      :hexpand "false"
+      :vexpand "false"
+      :space-evenly "false"
+      (label
+        :tooltip "Root Drive: ${round(EWW_DISK["/"].used_perc, 0)}% Full"
+        :class "stats-icon"
+      :text "")
+      (scale
+        :min 0
+        :max 101
+        :active false
+        :value {(EWW_DISK["/"].used / EWW_DISK["/"].total) * 100}
+        :class "scale"
+      :width 280))
+    (box
+      :class "stats"
+      :hexpand "false"
+      :vexpand "false"
+      :space-evenly "false"
+      (button
+        :tooltip "Volume: ${volume_percent}%"
+        :onclick "amixer set Master toggle"
+        :onrightclick "alsamixer &"
+      :class "stats-icon" "墳")
+      (scale
+        :min 0
+        :max 101
+        :active true
+        :value volume_percent
+        :class "scale"
+        :width 280
+      :onchange "amixer sset Master {}%")
+    )))
 
 ;; Fetch
 (defwidget fetch []
-	(box 
-		:class "fetch"  
-		:orientation "v" 
-		:space-evenly "false" 
-		:halign "center"  
-		:valign "start" 
-		:spacing "10"
-		(label 
-			:class "host" 
-			:halign "start"
-			:text " : ${name}@${host}")
-		(label 
-			:class "wm" 
-			:halign "start"
-			:text " : ${wm}")
-		(label 
-			:class "uptime" 
-			:halign "start"
-			:text " : ${uptime}")
-		(label 
-			:class "packages" 
-			:halign "start"
-			:text " : ${packages}")
-		(label 
-			:class "kernel" 
-			:halign "start"
-			:text " : ${kernel}")
-	)
+  (box
+    :class "fetch"
+    :orientation "v"
+    :space-evenly "false"
+    :halign "center"
+    :valign "start"
+    :spacing "10"
+    (label
+      :class "host"
+      :halign "start"
+    :text " : ${name}@${host}")
+    (label
+      :class "wm"
+      :halign "start"
+    :text " : ${wm}")
+    (label
+      :class "uptime"
+      :halign "start"
+    :text " : ${uptime}")
+    (label
+      :class "packages"
+      :halign "start"
+    :text " : ${packages}")
+    (label
+      :class "kernel"
+      :halign "start"
+    :text " : ${kernel}")
+  )
 )

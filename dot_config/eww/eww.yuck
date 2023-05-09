@@ -6,546 +6,579 @@
 ;; widgets
 
 (defwidget launcher []
-  (box 
+  (box
     :class "launcher_module"
     :orientation "h"
     (button
-        :onclick "launcher &"
-        :class "iconlauncher" "")
-   ))
+      :onclick "launcher &"
+      :class "iconlauncher"
+    "")
+  ))
 
 (defwidget workspaces0 []
-  (literal 
-    :content workspaces0_literal)
+  (literal :content workspaces0_literal)
 )
 
 (defwidget workspaces1 []
-  (literal 
-    :content workspaces1_literal)
+  (literal :content workspaces1_literal)
 )
 
 (defwidget appnames0 []
+  (box
+    :class "appnames"
     (eventbox
-        :onhover "${EWW_CMD} update control_reveal=true"
-        :onhoverlost "${EWW_CMD} update control_reveal=false"
-        (box
+      :onhover "${EWW_CMD} update control_reveal=true"
+      :onhoverlost "${EWW_CMD} update control_reveal=false"
+      (box
+        :orientation "h"
+        :space-evenly "false"
+        :vexpand "false"
+        :hexpand "false"
+        (literal :content appname0_literal)
+        (revealer
+          :transition "slideright"
+          :reveal control_reveal
+          :duration "350ms"
+          (box
+            :vexpand "false"
+            :hexpand "false"
             :orientation "h"
             :space-evenly "false"
-            :vexpand "false"
-            :hexpand "false" 
-            (literal 
-                :content appname0_literal)
-            (revealer
-            :transition "slideright"
-                :reveal control_reveal
-                :duration "350ms"
-            (box
-                :vexpand "false"
-                :hexpand "false"
-                :orientation "h"
-                :space-evenly "false"
-                (button
-                    :class "app-button"
-                    :onclick "hyprctl dispatch togglefloating 1" "") 
-                (button
-                    :class "app-button"
-                    :onclick "hyprctl dispatch fullscreen 1" "")
-                (button
-                    :class "app-button"
-                    :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');" "")
-                )
-            )
+            (button
+              :class "app-controls"
+              :onclick "hyprctl dispatch togglefloating 1"
+              :tooltip "toggle floating"
+            "")
+            (button
+              :class "app-controls"
+              :onclick "hyprctl dispatch fullscreen 1"
+              :tooltip "toggle fullscreen"
+            "")
+            (button
+              :class "app-controls"
+              :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');"
+              :tooltip "kill app"
+            "")
+          )
         )
+      )
     )
+  )
 )
 
 (defwidget appnames1 []
+  (box
+    :class "appnames"
     (eventbox
-        :onhover "${EWW_CMD} update control_reveal=true"
-        :onhoverlost "${EWW_CMD} update control_reveal=false"
-        (box
+      :onhover "${EWW_CMD} update control_reveal=true"
+      :onhoverlost "${EWW_CMD} update control_reveal=false"
+      (box
+        :orientation "h"
+        :space-evenly "false"
+        :vexpand "false"
+        :hexpand "false"
+        (literal :content appname0_literal)
+        (revealer
+          :transition "slideright"
+          :reveal control_reveal
+          :duration "350ms"
+          (box
+            :vexpand "false"
+            :hexpand "false"
             :orientation "h"
             :space-evenly "false"
-            :vexpand "false"
-            :hexpand "false" 
-            (literal 
-                :content appname1_literal)
-            (revealer
-            :transition "slideright"
-                :reveal control_reveal
-                :duration "350ms"
-            (box
-                :vexpand "false"
-                :hexpand "false"
-                :orientation "h"
-                :space-evenly "false"
-                (button
-                    :class "app-button"
-                    :onclick "hyprctl dispatch togglefloating 1" "") 
-                (button
-                    :class "app-button"
-                    :onclick "hyprctl dispatch fullscreen 1" "")
-                (button
-                    :class "app-button"
-                    :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');" "")
-                )
-            )
+            (button
+              :class "app-controls"
+              :onclick "hyprctl dispatch togglefloating 1"
+              :tooltip "toggle floating"
+            "")
+            (button
+              :class "app-controls"
+              :onclick "hyprctl dispatch fullscreen 1"
+              :tooltip "toggle fullscreen"
+            "")
+            (button
+              :class "app-controls"
+              :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');"
+              :tooltip "kill app"
+            "")
+          )
         )
+      )
     )
+  )
 )
 
 (defwidget bright []
   (eventbox
-    :onhover "${EWW_CMD} update brightness_reveal=true" 
+    :onhover "${EWW_CMD} update brightness_reveal=true"
     :onhoverlost "${EWW_CMD} update brightness_reveal=false"
-    (box 
-        :space-evenly "false" 
-        :orientation "h" 
-        :spacing "3" 
-	    (revealer 
-	        :transition "slideright"
-		    :reveal brightness_reveal
-			:duration "350ms"
-	        (scale    :class "brightbar"
-			    :value brightness_percent
-			    :orientation "h"
-			    :tooltip "${brightness_percent}%"
-			    :max 100
-			    :min 0
-			    :onchange "lightctl set {}%" ))
-        (label
-            :text ""
-            :class "bright_icon"
-            :tooltip "brightness"))))
+    (box
+      :space-evenly "false"
+      :orientation "h"
+      :spacing "3"
+      (revealer
+        :transition "slideright"
+        :reveal brightness_reveal
+        :duration "350ms"
+        (scale    :class "brightbar"
+          :value brightness_percent
+          :orientation "h"
+          :tooltip "${brightness_percent}%"
+          :max 100
+          :min 0
+        :onchange "lightctl set {}%" ))
+      (label
+        :text ""
+        :class "bright_icon"
+      :tooltip "brightness"))))
 
 (defwidget volume []
-  (eventbox 
+  (eventbox
     :onhover "${EWW_CMD} update volume_reveal=true"
-	:onhoverlost "${EWW_CMD} update volume_reveal=false"
+    :onhoverlost "${EWW_CMD} update volume_reveal=false"
     (box
-        :space-evenly "false"
-        :orientation "h"
-        :spacing "3"
-        (revealer 
-            :transition "slideright"
-            :reveal volume_reveal
-            :duration "350ms"
-            (scale  
-                :class "volbar"
-                :value volume_percent
-                :orientation "h"
-                :tooltip "${volume_percent}%"
-                :max 100
-                :min 0
-                :onchange "volumectl set {}%" ))
-        (button
-            :onclick "${EWW_CMD} open --toggle audio_ctl"
-            :class "volume_icon"
-            "墳"))))
+      :space-evenly "false"
+      :orientation "h"
+      :spacing "3"
+      (revealer
+        :transition "slideright"
+        :reveal volume_reveal
+        :duration "350ms"
+        (scale
+          :class "volbar"
+          :value volume_percent
+          :orientation "h"
+          :tooltip "${volume_percent}%"
+          :max 100
+          :min 0
+        :onchange "volumectl set {}%" ))
+      (button
+        :onclick "${EWW_CMD} open --toggle audio_ctl"
+        :class "volume_icon"
+      "墳"))))
 
-(defwidget wifi [] 
-  (eventbox 
+(defwidget wifi []
+  (eventbox
     :onhover "${EWW_CMD} update wifi_reveal=true"
-	:onhoverlost "${EWW_CMD} update wifi_reveal=false"
-	(box
-	    :space-evenly "false"
-	    (revealer 
-	        :transition "slideright"
-		    :reveal wifi_reveal
-			:duration "350ms"
-	        (label
-	            :class "module_essid"
-			    :text ESSID_WLAN
-			  ))
-		(button
-		    :class "module-wifi"
-		    :onclick "~/.config/eww/scripts/wifi_menu &"
-		    WLAN_ICON))))
+    :onhoverlost "${EWW_CMD} update wifi_reveal=false"
+    (box
+      :space-evenly "false"
+      (revealer
+        :transition "slideright"
+        :reveal wifi_reveal
+        :duration "350ms"
+        (label
+          :class "module_essid"
+          :text ESSID_WLAN
+        ))
+      (button
+        :class "module-wifi"
+        :onclick "~/.config/eww/scripts/wifi_menu &"
+      WLAN_ICON))))
 
 (defwidget network-speeds []
-    (box :orientation "h" :space-evenly false (label :text "${interfaceId}: ${round(EWW_NET[interfaceId].NET_UP / 1000000, 2)}")
-        (label :class {round(EWW_NET[interfaceId].NET_UP / 1000000, 2) > 0.1 ?
-        round(EWW_NET[interfaceId].NET_UP / 1000000, 2) > 5 ?
-        "veryuplink" : "uplink" : "noactive"} :text "  "
-        )
-        (label :text "${round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2)}")
-        (label :class {round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2) > 0.1 ?
-        round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2) > 10 ?
-        "verydownlink" : "downlink" : "noactive"} :text "  "
-        )
+  (box :orientation "h" :space-evenly false (label :text "${interfaceId}: ${round(EWW_NET[interfaceId].NET_UP / 1000000, 2)}")
+    (label :class {round(EWW_NET[interfaceId].NET_UP / 1000000, 2) > 0.1 ?
+      round(EWW_NET[interfaceId].NET_UP / 1000000, 2) > 5 ?
+      "veryuplink" : "uplink" : "noactive"} :text "  "
     )
+    (label :text "${round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2)}")
+    (label :class {round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2) > 0.1 ?
+      round(EWW_NET[interfaceId].NET_DOWN / 1000000, 2) > 10 ?
+      "verydownlink" : "downlink" : "noactive"} :text "  "
+    )
+  )
 )
 
 (defwidget bat []
-		(box
-		    :class "bat_module"
-		    :vexpand "false"
-		    :hexpand "false" 
-            (circular-progress
-                :value {battery}
-                :class "batbar"
-                :thickness 4
-                (button 
-                    :class "iconbat"
-                    :limit-width 2
-                    :tooltip "battery on ${battery}%"
-                    ; :show_truncated false
-                    :onclick "${EWW_CMD} open --toggle system"
-                    :wrap false
-                    ""))))
+  (box
+    :class "bat_module"
+    :vexpand "false"
+    :hexpand "false"
+    (circular-progress
+      :value {battery}
+      :class "batbar"
+      :thickness 4
+      (button
+        :class "iconbat"
+        :limit-width 2
+        :tooltip "battery on ${battery}%"
+        ; :show_truncated false
+        :onclick "${EWW_CMD} open --toggle system"
+        :wrap false
+      ""))))
 
 (defwidget mem []
-		(box :class "mem_module" :vexpand "false" :hexpand "false" 
-            (circular-progress 
-                :value {EWW_RAM.used_mem_perc}
-                :class "membar"
-                :thickness 4
-            (button 
-                :class "iconmem"
-                :limit-width 2
-                :tooltip "using ${EWW_RAM.used_mem_perc}% ram"
-                :onclick "${EWW_CMD} open --toggle system"
-                ; :show_truncated false
-                :wrap false
-                ""))))
+  (box :class "mem_module" :vexpand "false" :hexpand "false"
+    (circular-progress
+      :value {EWW_RAM.used_mem_perc}
+      :class "membar"
+      :thickness 4
+      (button
+        :class "iconmem"
+        :limit-width 2
+        :tooltip "using ${EWW_RAM.used_mem_perc}% ram"
+        :onclick "${EWW_CMD} open --toggle system"
+        ; :show_truncated false
+        :wrap false
+      ""))))
 
 (defwidget clock_module []
   (eventbox
-      :onhover "${EWW_CMD} update time_reveal=true"
-  	:onhoverlost "${EWW_CMD} update time_reveal=false"
-      (box
-          :space-evenly "false"
-          :orientation "h"
-          :spacing "0" 
-          (label
-              :text clock_time
-              :class "clock_time_class" )
-          (revealer :transition "slideleft"
-  		    :reveal time_reveal
-  		    :duration "350ms"
-              (button 
-                  :class "clock_date_class"
-                  :onclick "${EWW_CMD} open --toggle calendar" clock_date)))))
+    :onhover "${EWW_CMD} update time_reveal=true"
+    :onhoverlost "${EWW_CMD} update time_reveal=false"
+    (box
+      :space-evenly "false"
+      :orientation "h"
+      :spacing "0"
+      (label
+        :text clock_time
+      :class "clock_time_class" )
+      (revealer :transition "slideleft"
+        :reveal time_reveal
+        :duration "350ms"
+        (button
+          :class "clock_date_class"
+        :onclick "${EWW_CMD} open --toggle calendar" clock_date)))))
 
 (defwidget powermenu []
-    (button
-        :class "powermenu_icon"
-        :onclick "pidof wlogout || wlogout -p layer-shell &"
-    )
+  (button
+    :class "powermenu_icon"
+    :onclick "pidof wlogout || wlogout -p layer-shell &"
+  )
 )
-  
+
 (defwidget sep []
-  (box 
+  (box
     :class "module-2"
     :vexpand "false"
     :hexpand "false"
     (label
-        :class "separ"
-        :text "|")))
+      :class "separ"
+    :text "|")))
 
 (defwidget gap []
-  (box 
+  (box
     :orientation "h"
     :hexpand "false"
     :visible "true"
-    :width 150))
+  :width 150))
 
 
 (defwidget tray []
-    (system-tray :active-only false
-                 :pack-direction "ltr"
-    )
+  (system-tray :active-only false
+    :pack-direction "ltr"
+  )
 )
+
+(defwidget caffeine []
+  (button
+    :class "caffeine"
+    :onclick "scripts/caffeine toggle"
+    :tooltip "Enable/Disable Caffeine"
+    (literal
+      :content caffeine_icon
+    )
+  ))
 
 ;;define widget groups
 (defwidget left0 []
-	(box 
-	    :orientation "h" 
-		:space-evenly false  
-        :halign "start"
-		:class "left_modules"
+  (box
+    :orientation "h"
+    :space-evenly false
+    :halign "start"
+    :class "left_modules"
     (launcher)
     (sep)
     (workspaces0))
 )
 
 (defwidget left1 []
-	(box 
-	    :orientation "h" 
-		:space-evenly false  
-        :halign "start"
-		:class "left_modules"
+  (box
+    :orientation "h"
+    :space-evenly false
+    :halign "start"
+    :class "left_modules"
     (launcher)
     (sep)
     (workspaces1))
 )
 
 (defwidget center0 []
-	(box :orientation "h" 
-		 :space-evenly false  
-         :halign "center"
-		 :class "center_modules"
+  (box :orientation "h"
+    :space-evenly false
+    :halign "center"
+    :class "center_modules"
     (appnames0))
 )
 
 (defwidget center1 []
-	(box :orientation "h" 
-		 :space-evenly false  
-         :halign "center"
-		 :class "center_modules"
+  (box :orientation "h"
+    :space-evenly false
+    :halign "center"
+    :class "center_modules"
     (appnames1))
 )
 
 (defwidget right0 []
-	(box
-	    :orientation "h" 
-		:space-evenly false  
-        :halign "end"
-		:class "right_modules"
+  (box
+    :orientation "h"
+    :space-evenly false
+    :halign "end"
+    :class "right_modules"
     (bright)
     (volume)
     (wifi)
     (network-speeds)
     (sep)
     (indicators)
+    (sep)
+    (caffeine)
+    (sep)
     ; (tray)
     (sep)
     (bat)
     (mem)
     (sep)
     (clock_module)
+    (notification-button)
     (powermenu)
-))
+  ))
 
 (defwidget right1 []
-	(box
-	    :orientation "h" 
-		:space-evenly false  
-        :halign "end"
-		:class "right_modules"
+  (box
+    :orientation "h"
+    :space-evenly false
+    :halign "end"
+    :class "right_modules"
     (bright)
     (volume)
     (wifi)
     (network-speeds)
     (sep)
     (indicators)
+    (sep)
+    (caffeine)
+    (sep)
     ; (tray)
     (sep)
     (bat)
     (mem)
     (sep)
     (clock_module)
+    (notification-button)
     (powermenu)
-))
+  ))
 
 ;;Define bars
 (defwidget bar_layout0 []
-  (centerbox 
+  (centerbox
     :class "bar_class"
     :orientation "h"
     (left0)
     (center0)
     (right0)
-))
+  ))
 
 (defwidget bar_layout1 []
-  (centerbox 
+  (centerbox
     :class "bar_class"
     :orientation "h"
     (left1)
     (center1)
     (right1)
-))
+  ))
 
 (defwidget indicators []
-    (label :text "${indicators_text}")
+  (label :text "${indicators_text}")
 )
 
 (defwidget audio []
-	(box 
-	    :class "audio-box"
-	    :orientation "v"
-	    :space-evenly "false"
-	    :vexpand "false"
-	    :hexpand "false"
-	    (box 
-	        :halign "center"
-	        :space-evenly "false"
-	        :hexpand "false"
-	        :vexpand "false"
-	        (box 
-	            :class "speaker_icon"
-	            :orientation "v")
-	        (box 
-	            :orientation "v"
-	            :halign "center"
-	            :vexpand "false"
-	            :hexpand "false"
-                (label
-                    :class "speaker_text"
-                    :text "speaker"
-                    :valign "center"
-                    :halign "start" 
-                )
-	            (box
-	                :class "speaker_bar"
-	                :halign "center"
-	                :vexpand "false"
-	                :hexpand "false"
-	                (scale
-	                    :value volume_percent
-                        :space-evenly "false"
-			            :orientation "h"
-			            :onchange "amixer -D pulse sset Master {}%" 
-                        :tooltip "volume on ${volume_percent}%"
-			            :max 100
-			            :min 0))))
+  (box
+    :class "audio-box"
+    :orientation "v"
+    :space-evenly "false"
+    :vexpand "false"
+    :hexpand "false"
+    (box
+      :halign "center"
+      :space-evenly "false"
+      :hexpand "false"
+      :vexpand "false"
+      (box
+        :class "speaker_icon"
+      :orientation "v")
+      (box
+        :orientation "v"
+        :halign "center"
+        :vexpand "false"
+        :hexpand "false"
         (label
-            :text "_____________________________________"
-            :class "audio_sep"
-            :halign "center")
-	    (box 
-	        :halign "center"
-	        :space-evenly "false"
-	        :hexpand "false"
-	        :vexpand "false"
-	        (box 
-	            :class "mic_icon"
-	            :orientation "v")
-	            (box 
-	                :orientation "v"
-	                :halign "center"
-	                :vexpand "false"
-	                :hexpand "false"
-                    (label
-                        :class "mic_text"
-                        :text "mic"
-                        :valign "center"
-                        :halign "left" 
-                    )
-	                (box 
-	                    :class "mic_bar"
-	                    :halign "center"
-	                    :vexpand "false"
-	                    :hexpand "false"
-	                    (scale
-	                        :value mic_percent
-			                :orientation "h"
-                            :tooltip "mic on ${mic_percent}%"
-			                :onchange "amixer -D pulse sset Capture {}%" 
-			                :max 100
-			                :min 0))))))
+          :class "speaker_text"
+          :text "speaker"
+          :valign "center"
+          :halign "start"
+        )
+        (box
+          :class "speaker_bar"
+          :halign "center"
+          :vexpand "false"
+          :hexpand "false"
+          (scale
+            :value volume_percent
+            :space-evenly "false"
+            :orientation "h"
+            :onchange "amixer -D pulse sset Master {}%"
+            :tooltip "volume on ${volume_percent}%"
+            :max 100
+          :min 0))))
+    (label
+      :text "_____________________________________"
+      :class "audio_sep"
+    :halign "center")
+    (box
+      :halign "center"
+      :space-evenly "false"
+      :hexpand "false"
+      :vexpand "false"
+      (box
+        :class "mic_icon"
+      :orientation "v")
+      (box
+        :orientation "v"
+        :halign "center"
+        :vexpand "false"
+        :hexpand "false"
+        (label
+          :class "mic_text"
+          :text "mic"
+          :valign "center"
+          :halign "left"
+        )
+        (box
+          :class "mic_bar"
+          :halign "center"
+          :vexpand "false"
+          :hexpand "false"
+          (scale
+            :value mic_percent
+            :orientation "h"
+            :tooltip "mic on ${mic_percent}%"
+            :onchange "amixer -D pulse sset Capture {}%"
+            :max 100
+          :min 0))))))
 
 
-;;Define System widget  
+;;Define System widget
 (defwidget system []
-  (box 
+  (box
     :class "sys_win"
     :orientation "v"
     :space-evenly "false"
     :hexpand "false"
     :vexpand "false"
     :spacing 0
-    (box 
-        :class "sys_bat_box"
-        :orientation "h"
+    (box
+      :class "sys_bat_box"
+      :orientation "h"
+      :space-evenly "false"
+      (circular-progress
+        :value {battery}
+        :class "sys_bat"
+        :thickness 9
+        (label :text ""
+          :class "sys_icon_bat"
+          :limit-width 2
+          ; :show_truncated false
+        :wrap false))
+      (box
+        :orientation "v"
         :space-evenly "false"
-        (circular-progress
-            :value {battery}
-            :class "sys_bat"
-            :thickness 9
-            (label :text ""
-                :class "sys_icon_bat"
-                :limit-width 2
-                ; :show_truncated false
-                :wrap false))
-        (box 
-            :orientation "v" 
-            :space-evenly "false" 
-            :spacing 0 
-            :hexpand "false"
-            :vexpand "false"
-            (label
-                :text "battery"
-                :halign "start"
-                :class "sys_text_bat"
-                :limit-width 9
-                ; :show_truncated false
-                :wrap false)
-            (label 
-                :text "${battery}%"
-                :halign "start"
-                :class "sys_text_bat_sub"
-                :limit-width 22
-                ; :show_truncated false
-                :wrap false)
-            (label
-               :text "${battery_status}"
-               :halign "start"
-               :class "sys_text_bat_sub"
-               :limit-width 22
-               ; :show_truncated false
-               :wrap false)
-        )
-        )
+        :spacing 0
+        :hexpand "false"
+        :vexpand "false"
+        (label
+          :text "battery"
+          :halign "start"
+          :class "sys_text_bat"
+          :limit-width 9
+          ; :show_truncated false
+        :wrap false)
+        (label
+          :text "${battery}%"
+          :halign "start"
+          :class "sys_text_bat_sub"
+          :limit-width 22
+          ; :show_truncated false
+        :wrap false)
+        (label
+          :text "${battery_status}"
+          :halign "start"
+          :class "sys_text_bat_sub"
+          :limit-width 22
+          ; :show_truncated false
+        :wrap false)
+      )
+    )
     (label
-        :text "____________________________________"
-        :class "sys_sep"
-        :halign "center")
-    (box 
-        :class "sys_mem_box"
-        :orientation "h"
+      :text "____________________________________"
+      :class "sys_sep"
+    :halign "center")
+    (box
+      :class "sys_mem_box"
+      :orientation "h"
+      :space-evenly "false"
+      :halign "start"
+      (circular-progress
+        :value {EWW_RAM.used_mem_perc}
+        :class "sys_mem"
+        :thickness 9
+        (label
+          :text ""
+          :class "sys_icon_mem"
+          :limit-width 2
+          ; :show_truncated false
+          :wrap false
+        :angle 0.0))
+      (box
+        :orientation "v"
         :space-evenly "false"
-        :halign "start"
-        (circular-progress
-            :value {EWW_RAM.used_mem_perc}
-            :class "sys_mem"
-            :thickness 9
-            (label
-                :text ""
-                :class "sys_icon_mem"
-                :limit-width 2
-                ; :show_truncated false
-                :wrap false
-                :angle 0.0))
-        (box
-            :orientation "v"
-            :space-evenly "false"
-            :spacing 0
-            :hexpand "false"
-            :vexpand "false"
-            (label
-                :text "memory"
-                :halign "start"
-                :class "sys_text_mem"
-                :limit-width 9
-                ; :show_truncated false
-                :wrap false)
-            (label
-                :text "${round((EWW_RAM.available_mem / 1024), 0)} | ${round((EWW_RAM.total_mem / 1024), 0)}mb "
-                :halign "start"
-                :class "sys_text_mem_sub"
-                :limit-width 22
-                ; :show_truncated false
-                :wrap false)
-            (label 
-                :text "${round((EWW_RAM.used_mem / 1024), 0)}mb free"
-                :halign "start"
-                :class "sys_text_mem_sub"
-                :limit-width 22
-                :wrap false)
-            ))))
+        :spacing 0
+        :hexpand "false"
+        :vexpand "false"
+        (label
+          :text "memory"
+          :halign "start"
+          :class "sys_text_mem"
+          :limit-width 9
+          ; :show_truncated false
+        :wrap false)
+        (label
+          :text "${round((EWW_RAM.available_mem / 1024), 0)} | ${round((EWW_RAM.total_mem / 1024), 0)}mb "
+          :halign "start"
+          :class "sys_text_mem_sub"
+          :limit-width 22
+          ; :show_truncated false
+        :wrap false)
+        (label
+          :text "${round((EWW_RAM.used_mem / 1024), 0)}mb free"
+          :halign "start"
+          :class "sys_text_mem_sub"
+          :limit-width 22
+        :wrap false)
+      ))))
 
 
 
 ;;Calendar Widget
 (defwidget cal []
-	(box 
-	    :class "cal"
-	    :orientation "v"
-	    (box
-	        :class "cal-in"
-	        (calendar
-			  :day calendar_day 
-			  :year calendar_year))))
+  (box
+    :class "cal"
+    :orientation "v"
+    (box
+      :class "cal-in"
+      (calendar
+        :day calendar_day
+      :year calendar_year))))
 

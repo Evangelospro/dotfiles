@@ -28,7 +28,8 @@
 }
 
 .center_modules {
-	margin: 0px 0px 0px 0px;
+	// margin-top: 20px;
+	// margin-right: 55px;
 	// background-color: $background;
 	// border-radius: 10px 10px 0px 10px;
 	// border-style: solid;
@@ -350,6 +351,11 @@ scale trough {
 	margin: 15px 10px 15px 20px;
 }
 
+.appnames {
+	margin-top: 20px;
+	margin-right: 55px;
+}
+
 .app-name {
 	color: $white;
 	font-size: 20px;
@@ -361,11 +367,11 @@ scale trough {
 	margin: 3px 10px 0px 0px;
 }
 
-.app-button {
+.app-controls {
 	color: $cyan;
 	font-size: 24px;
 	font-weight: bold;
-	margin: 0px 15px 0px 15px;
+	margin: 0px 15px 10px 15px;
 }
 
 .audio-box {
@@ -471,4 +477,8 @@ scale trough {
 	font-family: "Material Symbols Outlined";
 	font-size: 20px;
 	color: $white;
+}
+
+.caffeine {
+	margin-top: 27px;
 }

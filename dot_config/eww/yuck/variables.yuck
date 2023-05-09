@@ -1,6 +1,6 @@
 ; top bar
 (defpoll indicators_text :interval "1s" "scripts/indicators")
-(defpoll monitors :interval "1m" "hyprctl monitors -j | jaq -rc '[ .[].id ] | sort_by( . )'")
+(defpoll caffeine_icon :interval "1s" "scripts/caffeine")
 
 ; Clock / Calendar
 (defpoll clock_time :interval "5s" "date '+\%l\%M \%p'")
