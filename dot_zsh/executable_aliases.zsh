@@ -56,11 +56,13 @@ alias l='lsd -hAFlt --group-dirs first --color=always'
 alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
 
 # Servers
-alias server='ssh -i ~/.ssh/server evangelospro@evangelospro.com'
-alias proxmox='ssh -i ~/.ssh/proxmox root@192.168.10.3'
-alias portainer='ssh -i ~/.ssh/portainer evangelospro@192.168.10.4'
-alias scripter='ssh -i ~/.ssh/scripter evangelospro@192.168.10.5'
-alias eraspberry1='ssh -i ~/.ssh/eraspberry1 evangelospro@192.168.10.6'
+alias server='ssh evangelospro@evangelospro.com'
+alias kasm='ssh ubuntu@kasm'
+alias xsshunter='ssh ubuntu@xsshunter'
+alias proxmox='sshm root@proxmox'
+alias portainer='ssh evangelospro@portainer'
+alias scripter='ssh evangelospro@scripter'
+alias eraspberry1='ssh evangelospro@eraspberry1'
 
 # Command replacemnts
 alias cat='/usr/bin/bat --theme=Dracula'

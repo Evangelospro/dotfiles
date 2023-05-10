@@ -5,7 +5,7 @@
     :x "15px"
     :y "9px"
     :width "99%"
-    :height "30px"
+    :height "100px"
   :anchor "top center")
   :stacking "fg"
   (bar_layout0))
@@ -16,8 +16,8 @@
   :geometry (geometry
     :x "15px"
     :y "9px"
-    :width "98%"
-    :height "30px"
+    :width "99%"
+    :height "100px"
   :anchor "top center")
   :stacking "bg"
   (bar_layout1))

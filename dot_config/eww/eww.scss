@@ -28,6 +28,7 @@
 }
 
 .center_modules {
+	margin: 0px 0px 0px 0px;
 	// margin-top: 20px;
 	// margin-right: 55px;
 	// background-color: $background;
@@ -55,20 +56,11 @@
 	// border-color: $purple;
 }
 
-.rightside {
+.rightside, .leftside {
 	background-color: $background;
 	border-radius: 16px;
 	border-style: solid;
 	border-width: 2px;
-	border-color: $purple;
-	padding: 0px 30px 0px 30px;
-}
-
-.leftside {
-	background-color: $background;
-	border-radius: 16px;
-	border-style: solid;
-	border-width: 2;
 	border-color: $purple;
 	padding: 0px 30px 0px 30px;
 }
@@ -232,7 +224,7 @@ scale trough {
 .workspaces {
 	font-size: 27px;
 	font-weight: normal;
-	margin: 4px 4px 4px 4px;
+	margin: 10px 4px 10px 4px;
 	background-color: $transparent;
 }
 
@@ -253,7 +245,6 @@ scale trough {
 	// margin: -5px 0px 0px 0px;
 }
 
-// cal
 .cal {
 	background-color: $background;
 	border-radius: 16px;
@@ -352,15 +343,15 @@ scale trough {
 }
 
 .appnames {
-	margin-top: 20px;
-	margin-right: 55px;
+	// stay always horizontally centered
+	margin: 25px 100px 0px 0px;
 }
 
 .app-name {
 	color: $white;
 	font-size: 20px;
 	font-weight: bold;
-	margin: 3px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
 .app-icon {
@@ -371,7 +362,7 @@ scale trough {
 	color: $cyan;
 	font-size: 24px;
 	font-weight: bold;
-	margin: 0px 15px 10px 15px;
+	margin: 0px 10px 25px 10px;
 }
 
 .audio-box {
@@ -480,5 +471,5 @@ scale trough {
 }
 
 .caffeine {
-	margin-top: 27px;
+	margin: 33px 0px 0px 0px;
 }
