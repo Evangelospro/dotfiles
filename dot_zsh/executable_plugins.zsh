@@ -42,9 +42,6 @@ zi snippet OMZP::dirhistory
 zi ice wait
 zi snippet $ZSH/scripts/utils/web-search.zsh
 
-zi ice wait
-zi light hlissner/zsh-autopair
-
 # bitwarden auto export session
 zi ice wait
 zi light Game4Move78/zsh-bitwarden
@@ -87,21 +84,6 @@ zi load z-shell/zsh-diff-so-fancy
 # Using normal load works
 zi depth=1 lucid nocd for \
     romkatv/powerlevel10k
-
-# zi ice wait
-# zi light tom-doerr/zsh_codex
-
-# zi ice wait
-# zi light RobSis/zsh-completion-generator
-
-# # autocompletion additions + fast-syntax-highlighting + zsh-autosuggestions
-# zi wait lucid for \
-#   atinit'ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay' \
-#     zsh-users/zsh-syntax-highlighting \
-#   blockf \
-#     zsh-users/zsh-completions \
-#   atload"!_zsh_autosuggest_start" \
-#     zsh-users/zsh-autosuggestions
 
 # Syntax highlight must be the last one
 zi wait lucid for id-as="fast-highlight" \

@@ -140,3 +140,9 @@ LC_ALL=C awk -- '
         print urlencode(ARGV[i])
     }' "$@"
 }
+
+# Time Zshell loading time
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do time $shell -i -c exit; done
+}
