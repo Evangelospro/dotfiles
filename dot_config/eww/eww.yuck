@@ -77,7 +77,7 @@
         :space-evenly "false"
         :vexpand "false"
         :hexpand "false"
-        (literal :content appname0_literal)
+        (literal :content appname1_literal)
         (revealer
           :transition "slideright"
           :reveal control_reveal

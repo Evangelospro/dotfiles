@@ -14,7 +14,7 @@ export GEM_HOME=~/.ruby/
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 export ZSH=~/.zsh
-export GITSTATUS_CACHE_DIR="$ZSH/utils/gitstatus"
+export GITSTATUS_CACHE_DIR="$ZSH/scripts/utils/gitstatus"
 
 # Adding to the PATH
 export PATH=$PATH:~/.cargo/bin/

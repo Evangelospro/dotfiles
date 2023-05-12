@@ -3,7 +3,7 @@
 GRUB_DEFAULT="saved"
 GRUB_TIMEOUT="3"
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=2de84d35-e30b-45f1-be89-9a18eb8f2a2c loglevel=3 nowatchdog nvme_load=YES quiet splash"
+GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=2de84d35-e30b-45f1-be89-9a18eb8f2a2c vt.global_cursor_default=0 loglevel=3 udev.log-priority=3 nowatchdog nvme_load=YES"
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
@@ -59,5 +59,5 @@ GRUB_DISABLE_SUBMENU="y"
 # documentation on GRUB_DISABLE_OS_PROBER, if still want to enable this
 # functionality install os-prober and uncomment to detect and include other
 # operating systems.
-#GRUB_DISABLE_OS_PROBER="false"
+GRUB_DISABLE_OS_PROBER="false"
 GRUB_THEME="/boot/grub/themes/CyberRe/theme.txt"

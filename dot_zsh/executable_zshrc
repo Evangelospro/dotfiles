@@ -10,6 +10,9 @@ fi
 # To customize prompt, run `p10k configure` or edit $ZSH/p10k.zsh.
 [[ ! -f $ZSH/p10k.zsh ]] || source $ZSH/p10k.zsh
 
+# Uncomment the following line to enable auto-installation
+# eval "$($ZSH/install.sh)"
+
 # evaluting some useful commands
 eval $(thefuck --alias)
 eval "$(zoxide init zsh --no-aliases --hook pwd)"
@@ -19,14 +22,6 @@ eval "$($ZSH/scripts/venvs/venv_finder.sh)"
 source $ZSH/navi-loader.zsh
 
 ENABLE_CORRECTION="true"
-
-# Loading ZI
-source "${zi_home}/bin/zi.zsh"
-
-# eval "$($ZSH/install.sh)"
-
-# Plugins
-source "$ZSH/plugins.zsh"
 
 case ${TERM} in
   xterm*|rxvt*|Eterm*|aterm|kterm|terminator|gnome*|alacritty|st|konsole*)
@@ -55,9 +50,11 @@ setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt inc_append_history     # add commands to HISTFILE in order of execution
-setopt share_history          # share command history data
 
 setopt INTERACTIVE_COMMENTS
+
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 
 # Sourcing zsh themes
 # source $ZSH/themes/dracula.zsh
@@ -67,7 +64,6 @@ bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
 
-
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 
@@ -76,9 +72,9 @@ source $ZSH/functions.zsh
 
 fpath+=$ZSH/.zfunc
 
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
+autoload -Uz compinit
 
-# autoload -Uz compinit
+compinit -i
 
-# compinit -i
+# Plugins (at the end of the file)
+source "$ZSH/plugins.zsh"
