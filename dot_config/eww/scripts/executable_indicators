@@ -34,7 +34,7 @@ task = loop.create_task(background_task(com))
 while True:
 	command = "hyprctl devices | grep keymap | tail --lines 1"
 	keyboard_layout = check_output(command, shell=True).decode("utf-8").split("(")[1].replace(")", "").replace("\n", "")
-	widget="(box :orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\" "    
+	widget="(box :orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\" :class \"indicators\" "   
 	widget+=(f"(label :text \"{keyboard_layout}\")")
 	if com['CAPS_LOCK'] == 1:
 		widget+="(image :path \"/home/evangelospro/.config/eww/images/capslock-enabled.svg\")"
@@ -47,4 +47,4 @@ while True:
 	widget+=")"
 	print(widget)
 	# Run other tasks and yield control to the event loop
-	loop.run_until_complete(asyncio.sleep(0.1))
+	loop.run_until_complete(asyncio.sleep(0.01))
