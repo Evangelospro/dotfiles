@@ -1,7 +1,8 @@
 {
-	"IS_MAXIMIZED": true,
-	"IS_MINIMIZED": false,
-	"OPEN_ON_STARTUP": false,
-	"MINIMIZE_TO_TRAY": false,
-	"SKIP_HOST_UPDATE": true
+  "IS_MAXIMIZED": true,
+  "IS_MINIMIZED": false,
+  "OPEN_ON_STARTUP": false,
+  "MINIMIZE_TO_TRAY": false,
+  "SKIP_HOST_UPDATE": true,
+  "DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING": true
 }

@@ -2,8 +2,14 @@
 	"all": {
 		"changeLogs": {
 			"BDFDB": "3.2.8",
+			"ImageUtilities": "5.2.4",
 			"PluginRepo": "2.5.0",
 			"ReadAllNotificationsButton": "1.7.4",
+			"ServerHider": "6.2.6",
+			"ShowHiddenChannels": "9.9.9",
+			"SplitLargeMessages": "1.8.0",
+			"SpotifyControls": "1.3.4",
+			"ThemeRepo": "2.5.0",
 			"Translator": "2.5.5"
 		},
 		"choices": {

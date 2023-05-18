@@ -327,8 +327,8 @@
     :space-evenly false
     :halign "end"
     :class "right_modules"
-    (bright)
-    (volume)
+    ; (bright)
+    ; (volume)
     (wifi)
     (network-speeds)
     (sep)
@@ -336,7 +336,7 @@
     (sep)
     (caffeine)
     (sep)
-    ; (tray)
+    (tray)
     (sep)
     (bat)
     (mem)
@@ -352,8 +352,8 @@
     :space-evenly false
     :halign "end"
     :class "right_modules"
-    (bright)
-    (volume)
+    ; (bright)
+    ; (volume)
     (wifi)
     (network-speeds)
     (sep)
@@ -361,7 +361,7 @@
     (sep)
     (caffeine)
     (sep)
-    ; (tray)
+    (tray)
     (sep)
     (bat)
     (mem)
@@ -391,7 +391,7 @@
   ))
 
 (defwidget indicators []
-  (label :text "${indicators_text}")
+    (literal :content indicators_literal)
 )
 
 (defwidget audio []

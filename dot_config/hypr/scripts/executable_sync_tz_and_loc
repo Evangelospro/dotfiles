@@ -1,0 +1,40 @@
+#!/bin/bash
+
+force=false
+
+while getopts ":f" opt; do case $opt in
+  f) force=true;;
+esac done
+
+set_timezone() {
+  # Get the current timezone from the system
+  current_tz=$(timedatectl | grep "Time zone" | awk '{print $3}')
+
+  # Get the timezone of the current location based on the IP address
+  location_tz=$(curl -s http://ip-api.com/line/?fields=timezone)
+
+  # Check if the current timezone and location timezone are the same
+  if [ "$current_tz" != "$location_tz" ]; then
+    # If they're different, set the system timezone to the location timezone
+    sudo timedatectl set-timezone "$location_tz"
+    say "System timezone set to $location_tz"
+    return 0
+  else
+    [[ $force ]] && return 0 || return 1
+  fi
+}
+
+set_coordinates() {
+  coordinates=$(curl -s https://ipinfo.io/loc)
+  if [ ! -z $coordinates ]; then
+    say "Coordinates data updated"
+    echo $coordinates > $XDG_CACHE_HOME/last_known_coordinates.txt
+    return 0
+  else
+    say "Fetching new coordinates failed, using old ones"
+    return 1
+  fi
+}
+
+~/.config/hypr/scripts/waitwifi && set_timezone && set_coordinates && rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
+exit 0

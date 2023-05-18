@@ -1,5 +1,5 @@
 ; top bar
-(defpoll indicators_text :interval "1s" "scripts/indicators")
+(deflisten indicators_literal "/usr/bin/python3 scripts/indicators")
 (defpoll caffeine_icon :interval "1s" "scripts/caffeine")
 
 ; Clock / Calendar
@@ -8,11 +8,11 @@
 (defpoll calendar_day :interval "20h" "date '+%d'")
 (defpoll calendar_year :interval "20h" "date '+%Y'")
 
-; Sound
-(defpoll volume_percent :interval "5s"  :run_while volume_reveal "scripts/volume --get")
+; Sound Disabled just use the buttons on the keyboard
+(defpoll volume_percent :interval "1s"  :run_while volume_reveal "scripts/volume --get")
 (defpoll mic_percent :interval "1s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 
-; Brightness
+; Brightness Disabled just use the buttons on the keyboard
 (defpoll brightness_percent :interval "1s" :run_while brightness_reveal "scripts/brightness --get")
 
 ; Wifi
@@ -53,8 +53,8 @@
 (defpoll wm :run-while side_reveal :interval "5m" `echo $XDG_CURRENT_DESKTOP`)
 
 ; Notification variables
-(deflisten notificationsCards "scripts/logger subscribe")
-(defpoll notificationsCrits :interval "1s" :run_while notifications_reveal "scripts/logger crits")
+; (deflisten notificationsCards "scripts/logger subscribe")
+; (defpoll notificationsCrits :interval "1s" :run_while notifications_reveal "scripts/logger crits")
 (defpoll notificationNum :interval "1s" :run_while notifications_reveal "scripts/logger tot")
 
 ;system

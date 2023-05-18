@@ -20,6 +20,7 @@ else
     exit 1
 fi
 debug="$2"
+# set -ex # DEBUG BY DEFAULT WITH EWW LOGS
 
 # get initial focused workspace
 focusedws=$(hyprctl -j monitors | jq -r '.[] | select(.focused == true) | .activeWorkspace.id')

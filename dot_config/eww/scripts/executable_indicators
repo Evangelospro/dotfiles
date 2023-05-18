@@ -1,31 +1,50 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
+import asyncio
+from queue import Queue
+from subprocess import call, check_output, Popen, PIPE
+from evdev import InputDevice, categorize, ecodes
 
-getCapsLockIcon() {
-    # use material design icons
-    locked_icon="C"
-    unlocked_icon="c"
-    xset q | grep -q 'Caps Lock:   on' && echo -n $lock_icon || echo -n $unlocked_icon
-}
+KEYBOARD = "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+# CAPS_EVENT_ON: "type 17 (EV_LED), code 1 (LED_CAPSL), value 1"
+# CAPS_EVENT_OFF: "type 17 (EV_LED), code 1 (LED_CAPSL), value 0"
 
-getNumLockIcon() {
-    # use material design icons
-    locked_icon="N"
-    unlocked_icon="n"
-    xset q | grep -q 'Num Lock:    on' && echo -n $lock_icon || echo -n $unlocked_icon
-}
+keyboard = InputDevice(KEYBOARD)
 
-getShortName() {
-    if [[ $1 =~ English.* ]]; then
-        echo -n 'EN '
-    elif [[ $1 =~ Greek.* ]]; then
-        echo -n 'GR '
-    else
-        echo -n '?? '
-    fi
-}
+# Function to read keyboard events and update the queue
+async def helper(dev, com):
+	async for ev in dev.async_read_loop():
+		if ev.type == ecodes.EV_LED:
+			if ev.code == ecodes.LED_CAPSL:
+				com['CAPS_LOCK'] = ev.value
+			if ev.code == ecodes.LED_NUML:
+				com['NUM_LOCK'] = ev.value
 
-# initial value to display
-layoutLine=$(hyprctl devices | grep keymap | tail --lines 1)
-getShortName ${layoutLine#*:}
-getCapsLockIcon
-getNumLockIcon
+# Create a task to run the helper function in the background
+async def background_task(com):
+	await helper(keyboard, com)
+
+com = dict()
+com['CAPS_LOCK'] = 0
+com['NUM_LOCK'] = 0
+
+# Create an event loop
+loop = asyncio.get_event_loop()
+task = loop.create_task(background_task(com))
+
+while True:
+	command = "hyprctl devices | grep keymap | tail --lines 1"
+	keyboard_layout = check_output(command, shell=True).decode("utf-8").split("(")[1].replace(")", "").replace("\n", "")
+	widget="(box :orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\" "    
+	widget+=(f"(label :text \"{keyboard_layout}\")")
+	if com['CAPS_LOCK'] == 1:
+		widget+="(image :path \"/home/evangelospro/.config/eww/images/capslock-enabled.svg\")"
+	elif com['CAPS_LOCK'] == 0:
+		widget+="(image :path \"/home/evangelospro/.config/eww/images/capslock-disabled.svg\")"
+	if com['NUM_LOCK'] == 1:
+		widget+="(image :path \"/home/evangelospro/.config/eww/images/numlock-enabled.svg\")"
+	elif com['NUM_LOCK'] == 0:
+		widget+="(image :path \"/home/evangelospro/.config/eww/images/numlock-disabled.svg\")"
+	widget+=")"
+	print(widget)
+	# Run other tasks and yield control to the event loop
+	loop.run_until_complete(asyncio.sleep(0.1))
