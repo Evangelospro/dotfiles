@@ -12,7 +12,7 @@ configuration {
 	modi:                       "drun,filebrowser,window,ssh";
     show-icons:                 true;
     display-drun:               " Apps";
-    combi-modes:                "drun,run";
+    combi-modes:                "drun,run,window";
     display-filebrowser:        " Files";
     display-window:             " Windows";
     display-ssh:                " SSH";

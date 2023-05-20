@@ -38,9 +38,6 @@ alias feroxbuster="feroxbuster -e"
 alias wpscan='wpscan --plugins-detection aggressive'
 alias frida-init="adb connect 127.0.0.1:5555 && sleep && adb -s 127.0.0.1:5555 root && adb -s 127.0.0.1:5555 push $HACKING_TOOLS/Mobile/frida/frida-server /data/local/tmp/ && adb -s 127.0.0.1:5555 shell 'chmod 755 /data/local/tmp/frida-server' && adb -s 127.0.0.1:5555 shell '/data/local/tmp/frida-server &' "
 
-# venvs for each venv in ~/.virtualenvs
-source $ZSH/scripts/venvs/venvs.zsh
-
 # Grub
 alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
@@ -50,7 +47,8 @@ alias restart-kde="killall -3 plasmashell"
 
 alias copydir='pwd | tr -d '\n' |copy|paste'
 
-# exa/lsd ignore on --tree
+# Listing
+alias tree='tree -a -I .git --dirsfirst'
 alias ls='lsd -hAFlt --group-dirs first --color=always'
 alias l='lsd -hAFlt --group-dirs first --color=always'
 alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
@@ -66,46 +64,49 @@ alias eraspberry1='ssh evangelospro@eraspberry1'
 
 # Command replacemnts
 alias cat='/usr/bin/bat --theme=Dracula'
-alias pip='noglob pip3'
 alias top='btop'
-alias dolphin='dolphin . &'
 
 
 # Command minimization
+
+# GIT
+alias g=git
+alias ga='git add'
+alias gcam='git commit -a -m'
+alias git-update="find . -name .git -type d -print -prune -exec git --git-dir '{}' fetch --all ';'"
+
+# ZSH
 alias reload='exec zsh -l'
+alias tobash='sudo chsh evangelospro -s /bin/bash && echo '\''Now log out.'\'
+alias tozsh='sudo chsh evangelospro -s /bin/zsh && echo '\''Now log out.'\'
+
 alias mvd='mv ~/Downloads/"$(/usr/bin/ls -t ~/Downloads | head -n 1)" .'
 alias df='df -h'
 alias diff='diff --color'
 alias free='free -m'
-alias g=git
-alias ga='git add'
-alias gcam='git commit -a -m'
-alias jctl='journalctl -p 3 -xb'
+
+# python / pip
+alias p='python3'
+alias pip='noglob pip3'
+alias pipi='pip3 install'
 alias pipir='pip3 install -r requirements.txt'
 alias pipreq='pip3 freeze > requirements.txt'
 alias pipua='pip3 list | cut -d " " -f1 | tail +3 | xargs pip3 install -U'
+
+# PS
 alias psa='ps auxf'
 alias pscpu='ps auxf | sort -nr -k 3'
 alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
 alias psmem='ps auxf | sort -nr -k 4'
+
 alias termbin='nc termbin.com 9999|copy'
-alias tobash='sudo chsh evangelospro -s /bin/bash && echo '\''Now log out.'\'
-alias tozsh='sudo chsh evangelospro -s /bin/zsh && echo '\''Now log out.'\'
 alias which-command=whence
-alias clear-font-cache="fc-cache -f -v"
-alias wmonitor-off='sudo airmon-ng stop wlp4s0f3u3'
-alias wmonitor-on='sudo airmon-ng start wlp4s0f3u3'
-alias p='python3'
 alias fd='fd --hidden --follow'
 alias q='exit'
 alias hexdump='od -A x -t x1z -v'
-alias ip='ip -color -brief'
 alias o='xdg-open'
-alias tree='tree -a -I .git --dirsfirst'
-alias utc='env TZ=UTC date'
 # alias clear="$ZSH/scripts/utils/clear.sh"
 alias md='mdv'
-alias git-update="find . -name .git -type d -print -prune -exec git --git-dir '{}' fetch --all ';'"
 alias wget="wget -c"
 alias timezone-update='sudo tzupdate'
 alias perms="stat --format '%a'"
@@ -124,13 +125,17 @@ alias upload="$ZSH/scripts/utils/upload"
 alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu'
 
 # Networking
+alias ip='ip -color -brief'
+alias wmonitor-off='sudo airmon-ng stop wlp4s0f3u3'
+alias wmonitor-on='sudo airmon-ng start wlp4s0f3u3'
 alias flush-cache='sudo killall -USR1 systemd-resolved'
 alias enable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=0'
 alias disable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=1'
 
 # Package managment / cleanup
 alias clean-docker='docker system prune -f'
-alias clean-packages='sudo pacman -Rns $(pacman -Qtdq)'
+alias clean-packages='sudo pacman -Rns $(pacman -Qtdq) && sudo \rm -rf /var/cache/pacman/pkg/*'
+alias clear-font-cache="fc-cache -f -v"
 
 # typos
 alias cd..='cd ..'

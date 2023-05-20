@@ -64,7 +64,7 @@
 
 (defwindow sidebar
   :stacking "fg"
-  :monitor "0"
+  :monitor 0
   :geometry (geometry :x "0px"
     :y "10px"
     :width "1px"

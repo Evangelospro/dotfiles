@@ -16,7 +16,7 @@ fi
 # evaluting some useful commands
 eval $(thefuck --alias)
 eval "$(zoxide init zsh --no-aliases --hook pwd)"
-eval "$($ZSH/scripts/venvs/venv_finder.sh)"
+# eval "$($ZSH/scripts/venvs/venv_finder.sh)"
 
 # changed keyboard shortcut in navi
 source $ZSH/navi-loader.zsh

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import asyncio
-from queue import Queue
-from subprocess import call, check_output, Popen, PIPE
+import subprocess
 from evdev import InputDevice, categorize, ecodes
 
 KEYBOARD = "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
@@ -10,7 +9,6 @@ KEYBOARD = "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
 
 keyboard = InputDevice(KEYBOARD)
 
-# Function to read keyboard events and update the queue
 async def helper(dev, com):
 	async for ev in dev.async_read_loop():
 		if ev.type == ecodes.EV_LED:
@@ -33,7 +31,7 @@ task = loop.create_task(background_task(com))
 
 while True:
 	command = "hyprctl devices | grep keymap | tail --lines 1"
-	keyboard_layout = check_output(command, shell=True).decode("utf-8").split("(")[1].replace(")", "").replace("\n", "")
+	keyboard_layout = subprocess.check_output(command, shell=True).decode("utf-8").split("(")[1].replace(")", "").replace("\n", "")
 	widget="(box :orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\" :class \"indicators\" "   
 	widget+=(f"(label :text \"{keyboard_layout}\")")
 	if com['CAPS_LOCK'] == 1:
@@ -44,6 +42,15 @@ while True:
 		widget+="(image :path \"/home/evangelospro/.config/eww/images/numlock-enabled.svg\")"
 	elif com['NUM_LOCK'] == 0:
 		widget+="(image :path \"/home/evangelospro/.config/eww/images/numlock-disabled.svg\")"
+	SWAYIDLE_STATE = 1
+	try:
+		subprocess.check_output("pgrep swayidle", shell=True)
+	except subprocess.CalledProcessError:
+		SWAYIDLE_STATE = 0
+	if SWAYIDLE_STATE == 0:
+		widget+="(button :onclick \"swayidle &\" (image :path \"/home/evangelospro/.config/eww/images/caffeine-active.svg\") )"
+	else:
+		widget+="(button :onclick \"pkill -9 swayidle\" (image :path \"/home/evangelospro/.config/eww/images/caffeine-inactive.svg\") )"
 	widget+=")"
 	print(widget)
 	# Run other tasks and yield control to the event loop

@@ -14,4 +14,5 @@ NB_MONITORS=($(hyprctl monitors -j | jaq -r '.[] | .id'))
 for i in "${!NB_MONITORS[@]}"; do
     ${EWW} open bar$i
     [[ $i == 0 ]] && ${EWW} open-many sidebar
+    sleep 2 # allow some time in order to avoid double bars on monitors
 done

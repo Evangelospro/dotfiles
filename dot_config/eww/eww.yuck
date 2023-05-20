@@ -272,16 +272,6 @@
   )
 )
 
-(defwidget caffeine []
-  (button
-    :class "caffeine"
-    :onclick "scripts/caffeine toggle"
-    :tooltip "Enable/Disable Caffeine"
-    (literal
-      :content caffeine_icon
-    )
-  ))
-
 ;;define widget groups
 (defwidget left0 []
   (box
@@ -333,7 +323,6 @@
     (network-speeds)
     (sep)
     (indicators)
-    (caffeine)
     (sep)
     (tray)
     (sep)
@@ -357,7 +346,6 @@
     (network-speeds)
     (sep)
     (indicators)
-    (caffeine)
     (sep)
     (tray)
     (sep)
