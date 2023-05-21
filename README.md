@@ -12,7 +12,8 @@ noise-suppression-for-voice lf spotify-player libdisplay-info spotifywm-git \
 eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git discord betterdiscordctl-git dplymouth\
 papirus-icon-theme-git swayosd-git swaync swaync-client wezterm swayidle geticons udiskie python-pywal cpupower-git sddm-theme-astronaut
 
-pip install evdev
+pip install -r requirements.txt
+```
 
 ### depreaceated 
 ```cargo install hyprsome```

@@ -53,7 +53,8 @@ alias ls='lsd -hAFlt --group-dirs first --color=always'
 alias l='lsd -hAFlt --group-dirs first --color=always'
 alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
 
-# Servers
+# Servers /  SSH
+alias ssh='wezterm ssh'
 alias server='ssh evangelospro@evangelospro.com'
 alias kasm='ssh ubuntu@kasm'
 alias xsshunter='ssh ubuntu@xsshunter'
@@ -143,4 +144,5 @@ alias pdw="pwd"
 alias sl='ls'
 
 # image utils
+alias icat="wezterm imgcat"
 alias rotate='jpegtran -perfect -rotate'
