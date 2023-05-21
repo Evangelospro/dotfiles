@@ -21,13 +21,10 @@ pip install -r requirements.txt
 #### USE
 
 ##### hyprload (plugin manager)
-```curl -sSL https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh | bash```
-
-#### Manual eww build for system tray
-=======
-** NVIDIA ** !
-nvidia-dkms nvidia-vaapi-driver-git
+```curl -sSL https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh | bash
 ```
+
+
 
 ##### plymouth theme based on https://github.com/PROxZIMA/proxzima-plymouth
 ```
@@ -53,6 +50,8 @@ sudo cp confs/sddm.conf /etc/sddm.conf
 ```
 
 #### Nvidia drivers
-nvidia-dkms nvidia-vaapi-driver-git
+```
+sudo pacman -Sy nvidia-dkms nvidia-vaapi-driver-git
+```
 
-### Anything in the confs folder is a config file for a program (usually in etc), replace the file with the one in the confs folder at your own risk
+## Anything in the confs folder is a config file for a program (usually in etc), replace the file with the one in the confs folder at your own risk!
