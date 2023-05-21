@@ -21,7 +21,8 @@ pip install -r requirements.txt
 #### USE
 
 ##### hyprload (plugin manager)
-```curl -sSL https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh | bash
+```
+curl -sSL https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh | bash
 ```
 
 
