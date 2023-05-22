@@ -1,9 +1,8 @@
 (include "yuck/windows.yuck")
 (include "yuck/variables.yuck")
 (include "yuck/sidebar.yuck")
-(include "yuck/notifications.yuck")
 
-;; widgets
+;; WIDGETS
 
 (defwidget launcher []
   (box
@@ -378,6 +377,10 @@
 
 (defwidget indicators []
     (literal :content indicators_literal)
+)
+
+(defwidget notification-button[]
+  (button :class "notification-button" :tooltip "${notificationNum} Notifications" :onclick "swaync-client -t -sw" " ")
 )
 
 (defwidget audio []

@@ -81,7 +81,7 @@ tooltip label {
 
 .clock_date_class {
 	font-size: 24;
-	margin: 0px 20px 0px -1px;
+	margin: 0px 20px 0px 0px;
 	color: $red;
 }
 
@@ -192,7 +192,7 @@ tooltip label {
 	color: $grey;
 	font-weight: bold;
 	font-size: 22px;
-	margin: 0px 8px 0px 8px;
+	margin: 0px 5px 0px 5px;
 }
 
 .launcher_module {
@@ -224,7 +224,7 @@ scale trough {
 .workspaces {
 	font-size: 27px;
 	font-weight: normal;
-	margin: 10px 4px 10px 4px;
+	margin: 10px 4px 0px 4px;
 	background-color: $transparent;
 }
 
@@ -335,11 +335,11 @@ scale trough {
 }
 .sys_bat_box {
 	border-radius: 16px;
-	margin: 15px 10px 10px 20px;
+	margin: 15px 10px 0px 20px;
 }
 .sys_mem_box {
 	border-radius: 16px;
-	margin: 15px 10px 15px 20px;
+	margin: 15px 10px 0px 20px;
 }
 
 .appnames {
@@ -362,7 +362,7 @@ scale trough {
 	color: $cyan;
 	font-size: 24px;
 	font-weight: bold;
-	margin: 0px 10px 25px 10px;
+	margin: 0px 10px 23px 10px;
 }
 
 .audio-box {
@@ -376,7 +376,7 @@ scale trough {
 	background-position: center;
 	min-height: 70px;
 	min-width: 75px;
-	margin: 10px 20px 5px 20px;
+	margin: 10px 20px 0px 20px;
 	border-radius: 12px;
 }
 
@@ -413,7 +413,7 @@ scale trough {
 	background-position: center;
 	min-height: 70px;
 	min-width: 75px;
-	margin: 20px 20px 20px 20px;
+	margin: 20px 20px 0px 20px;
 	border-radius: 12px;
 }
 
@@ -468,8 +468,4 @@ scale trough {
 	font-size: 20px;
 	color: $white;
 	margin: 33px 0px 0px 0px;
-}
-
-.caffeine {
-	margin: 33px 0px 0px 6px;
 }

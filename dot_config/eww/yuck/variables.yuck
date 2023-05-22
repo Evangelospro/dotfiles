@@ -1,6 +1,5 @@
 ; top bar
 (deflisten indicators_literal "/usr/bin/python3 scripts/indicators")
-(defpoll caffeine_icon :interval "1s" "scripts/caffeine")
 
 ; Clock / Calendar
 (defpoll clock_time :interval "5s" "date '+\%l\%M \%p'")
@@ -46,11 +45,11 @@
 
 ; sidebar system data (poll only when hovered)
 (defpoll uptime :run-while side_reveal :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
-(defpoll packages :run-while side_reveal :interval "5m" `pacman -Q | wc -l`)
-(defpoll kernel :run-while side_reveal :interval "5m" `uname -r`)
-(defpoll name :run-while side_reveal :interval "5m" `whoami`)
-(defpoll host :run-while side_reveal :interval "5m" `uname -n`)
-(defpoll wm :run-while side_reveal :interval "5m" `echo $XDG_CURRENT_DESKTOP`)
+(defpoll packages :run-while side_reveal :interval "5m" "pacman -Q | wc -l")
+(defpoll kernel :run-while side_reveal :interval "5m" "uname -r")
+(defpoll name :run-while side_reveal :interval "5m" "whoami")
+(defpoll host :run-while side_reveal :interval "5m" "uname -n")
+(defpoll wm :run-while side_reveal :interval "5m" "echo $XDG_CURRENT_DESKTOP")
 
 ; Notification variables
 ; (deflisten notificationsCards "scripts/logger subscribe")

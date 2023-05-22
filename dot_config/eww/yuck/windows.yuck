@@ -1,5 +1,6 @@
 (defwindow bar0
   :exclusive true
+  :stacking "bg"
   :monitor 0
   :geometry (geometry
     :x "15px"
@@ -7,11 +8,11 @@
     :width "99%"
     :height "100px"
   :anchor "top center")
-  :stacking "fg"
   (bar_layout0))
 
 (defwindow bar1
   :exclusive true
+  :stacking "bg"
   :monitor 1
   :geometry (geometry
     :x "15px"
@@ -19,7 +20,6 @@
     :width "99%"
     :height "100px"
   :anchor "top center")
-  :stacking "bg"
   (bar_layout1))
 
 (defwindow audio_ctl
@@ -64,6 +64,7 @@
 
 (defwindow sidebar
   :stacking "fg"
+  :screen 1
   :monitor 0
   :geometry (geometry :x "0px"
     :y "10px"
@@ -71,17 +72,4 @@
     :height "92%"
   :anchor "bottom left")
   (sidebar)
-)
-
-(defwindow notifications
-  :stacking "fg"
-  :focusable "false"
-  :screen 1
-  :monitor 0
-  :geometry (geometry :x "0px"
-    :y "10px"
-    :width "100px"
-    :height "92%"
-  :anchor "top right")
-  (notifs-box)
 )

@@ -1,3 +1,0 @@
-(defwidget notification-button[]
-  (button :class "notification-button" :tooltip "${notificationNum} Notifications" :onclick "swaync-client -t -sw" " ")
-)

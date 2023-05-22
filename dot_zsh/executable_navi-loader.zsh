@@ -6,6 +6,7 @@ _navi_call() {
 }
 
 _navi_widget() {
+   # echo "starting navi widget"
    local -r input="${LBUFFER}"
    local -r last_command="$(echo "${input}" | navi fn widget::last_command)"
    local replacement="$last_command"
@@ -33,4 +34,4 @@ _navi_widget() {
 }
 
 zle -N _navi_widget
-bindkey 'N' _navi_widget
+# bindkey 'N' _navi_widget
