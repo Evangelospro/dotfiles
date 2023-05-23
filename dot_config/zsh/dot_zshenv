@@ -1,0 +1,74 @@
+# Autonotify when a long command has been completed
+export AUTO_NOTIFY_THRESHOLD=450
+export AUTO_NOTIFY_TITLE="Boss! the command: %command has just finished"
+export AUTO_NOTIFY_BODY="Time taken: %elapsed seconds exit code: %exit_code, have a look"
+export AUTO_NOTIFY_IGNORE=("htb", "thm", "ipython", "docker" "man","nano","vim","ssh","less","e","openvpn","ping","nc","penelope", 'code', 'crontab', 'watch')
+export AUTO_NOTIFY_EXPIRE_TIME=4
+
+# Adding to the PATH
+export PATH=$PATH:~/.cargo/bin/
+export PATH=$PATH:~/.local/bin/
+export PATH=$PATH:~/.local/.scripts/
+export PATH=$PATH:~/bin/
+export PATH=$PATH:~/.ruby/bin/
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$GOPATH/bin"
+
+# XDG Base Directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# Programming languages
+# Java
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk/"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+# Ruby
+export GEM_HOME=~/$XDG_DATA_HOME/ruby/
+# Python
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export WORKON_HOME="~/$XDG_DATA_HOME/virtualenvs"
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+# Rust
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+# Go
+export GOPATH="$XDG_DATA_HOME/go"
+# Js
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+
+# Sqlite
+export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
+
+# Sage
+export DOT_SAGE="$XDG_CONFIG_HOME/sage"
+
+# Android studio
+export ANDROID_HOME="$XDG_DATA_HOME/android"
+
+# gnupg
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+
+# ZSH
+export ZSH="$XDG_CONFIG_HOME/zsh"
+export GITSTATUS_CACHE_DIR="$ZSH/scripts/utils/gitstatus"
+skip_global_compinit=1
+typeset -A ZI
+ZI[HOME_DIR]="$ZSH/.zi"
+ZI[BIN_DIR]="$ZSH/.zi/bin"
+ZI[CACHE_DIR]="$ZSH/.zi/cache"
+ZI[ZCOMPDUMP_PATH]="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+
+
+export ZINIT_HOME="$ZSH/zinit/zinit.git"
+
+# Hacking tools
+export HACKING_TOOLS="~/HACKING/Tools"
+export HackingSetupScripts="~/HACKING/Tools/Setup-Scripts"
+
+# Editor
+export VISUAL=code;
+export EDITOR=code;
+export EDITOR_DIR="/opt/visual-studio-code"

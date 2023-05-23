@@ -30,6 +30,7 @@ alias frm="/usr/bin/rm -rf"
 alias rm="$ZSH/scripts/utils/rm"
 alias rmz="/usr/bin/rm *.zip"
 alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
+alias gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init"
 alias pwndbg='gdb -q -ex init-pwndbg "$@"'
 alias hosts='sudo ~/SCRIPTS/hosts.sh'
 alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
@@ -108,10 +109,12 @@ alias q='exit'
 alias hexdump='od -A x -t x1z -v'
 alias o='xdg-open'
 # alias clear="$ZSH/scripts/utils/clear.sh"
-alias md='mdv'
-alias wget="wget -c"
+alias md='glow'
+alias wget="wget -c --hsts-file=$XDG_DATA_HOME/wget-hsts"
 alias timezone-update='sudo tzupdate'
 alias perms="stat --format '%a'"
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
+alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 # kdeconnect
 # alias send-text="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-text $@"

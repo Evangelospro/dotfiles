@@ -15,7 +15,7 @@ fi
 
 # evaluting some useful commands
 eval $(thefuck --alias)
-eval "$(zoxide init zsh --no-aliases --hook pwd)"
+# eval "$(zoxide init zsh --no-aliases --hook pwd)"
 # eval "$($ZSH/scripts/venvs/venv_finder.sh)"
 
 # changed keyboard shortcut in navi
@@ -74,7 +74,7 @@ fpath+=$ZSH/.zfunc
 
 autoload -Uz compinit
 
-compinit -i
+compinit -i -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 
 # Plugins (at the end of the file)
 source "$ZSH/plugins.zsh"

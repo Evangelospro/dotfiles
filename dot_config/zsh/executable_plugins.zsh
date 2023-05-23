@@ -1,15 +1,20 @@
-if [[ ! -f "$zi_home/bin/zi.zsh" ]]; then
+if [[ ! -f "${ZI[BIN_DIR]}/zi.zsh" ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}Z-SHELL%F{220} A Swiss Army Knife for Zsh (%F{33}z-shell/zi%F{220})…%f"
-    command mkdir -p "$zi_home" && command chmod g-rwX "$zi_home"
-    command git clone https://github.com/z-shell/zi.git "$zi_home/bin" && \
+    command mkdir -p "${ZI[HOME_DIR]}" && command chmod g-rwX "${ZI[HOME_DIR]}"
+    command git clone https://github.com/z-shell/zi.git "${ZI[BIN_DIR]}" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
 # Loading ZI
-source "${zi_home}/bin/zi.zsh"
+source "${ZI[BIN_DIR]}/zi.zsh"
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
+
+zi ice as'null' from"gh-r" sbin
+zi light ajeetdsouza/zoxide
+zi has'zoxide' wait lucid for \
+  z-shell/zsh-zoxide
 
 # Annexes (extensions) for ZI. Adds ice modifiers:
 #   - patch-dl: Download and apply patches. ice: `dl` `patch`

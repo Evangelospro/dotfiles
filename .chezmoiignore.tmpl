@@ -1,0 +1,87 @@
+# VSCODE workspace
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+*.code-workspace
+
+# Exclude for security reasons
+.history/
+.dccache
+.env
+
+# Zsh compiled script + zrecompile backup
+*.zwc
+*.zwc.old
+
+# Zsh completion-optimization dumpfile
+*zcompdump*
+
+# Zsh zcalc history
+.zcalc_history
+
+# A popular plugin manager's files
+._zi
+._zinit
+._zplugin
+.zi_lastupd
+.zinit_lastupd
+.zplugin_lstupd
+
+# z-shell/zshelldoc tool's files
+zsdoc/data
+docs/zsdoc/data
+
+# ohmyzsh/ohmyzsh/plugins/per-directory-history plugin's files
+# (when set-up to store the history in the local directory)
+.directory_history
+
+# MichaelAquilina/zsh-autoswitch-virtualenv plugin's files
+# (for Zsh plugins using Python)
+.zsh/.venv/
+
+.zsh/antigen/
+.zsh/cache/
+.zsh/.zi/**
+.zsh/zoxide/**
+.zsh/zsh_history.zsh
+.zsh/ecsc/
+.zsh/.zfunc/ataka.py
+
+# Only create ssh keys if they don't exist
+
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/eraspberry1") }}
+.ssh/keys/eraspberry1
+{{ end }}
+
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/kasm") }}
+.ssh/keys/kasm
+{{ end }}
+
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/portainer") }}
+.ssh/keys/portainer
+{{ end }}
+
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/proxmox") }}
+.ssh/keys/proxmox
+{{ end }}
+
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/scripter") }}
+.ssh/keys/scripter
+{{ end }}
+
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/server") }}
+.ssh/keys/server
+{{ end }}
+
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ftc") }}
+.ssh/keys/ftc
+{{ end }}
+
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/xsshunter") }}
+.ssh/keys/xsshunter
+{{ end }}
+
+# causing troubles latelly
+.config/BetterDiscord/
