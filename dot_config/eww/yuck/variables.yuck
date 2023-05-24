@@ -7,18 +7,18 @@
 (defpoll calendar_day :interval "20h" "date '+%d'")
 (defpoll calendar_year :interval "20h" "date '+%Y'")
 
-; Sound Disabled just use the buttons on the keyboard
-(defpoll volume_percent :interval "1s"  :run_while volume_reveal "scripts/volume --get")
+; Sound bar Disabled just use the buttons on the keyboard
+(defpoll volume_percent :interval "1s"  :run_while volume_reveal "scripts/stats sound --percent")
 (defpoll mic_percent :interval "1s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 
-; Brightness Disabled just use the buttons on the keyboard
-(defpoll brightness_percent :interval "1s" :run_while brightness_reveal "scripts/brightness --get")
+; Brightness bar Disabled just use the buttons on the keyboard
+(defpoll brightness_percent :interval "1s" :run_while brightness_reveal "scripts/stats brightness --percent")
 
-; Wifi
+; Network
 (defpoll interfaceId :interval "1m" "nmcli c s --active | awk '/wifi|ethernet/ {print $4}' | head -n 1")
-(defpoll COL_WLAN :interval "20s" :run_while wifi_reveal "scripts/stats --wifi --col")
-(defpoll ESSID_WLAN :interval "20s" :run_while wifi_reveal "scripts/stats --wifi --essid")
-(defpoll WLAN_ICON :interval "20s" :run_while wifi_reveal  "scripts/stats --wifi --icon")
+(defpoll COL_WLAN :interval "20s" :run_while wifi_reveal "scripts/stats network --col")
+(defpoll ESSID_WLAN :interval "20s" :run_while wifi_reveal "scripts/stats network --essid")
+(defpoll WLAN_ICON :interval "20s" :run_while wifi_reveal  "scripts/stats network --icon")
 
 ; Literals
 (deflisten workspaces0_literal "scripts/workspaces 1")
@@ -34,6 +34,8 @@
 (defvar control_reveal false)
 (defvar wifi_reveal false)
 (defvar time_reveal false)
+
+; Sidebar
 
 ; Sidebar music data (poll only when hovered)
 (defpoll art		:interval "1s" :run-while side_reveal "scripts/music coverloc")
@@ -52,10 +54,9 @@
 (defpoll wm :run-while side_reveal :interval "5m" "echo $XDG_CURRENT_DESKTOP")
 
 ; Notification variables
-; (deflisten notificationsCards "scripts/logger subscribe")
-; (defpoll notificationsCrits :interval "1s" :run_while notifications_reveal "scripts/logger crits")
-(defpoll notificationNum :interval "1s" :run_while notifications_reveal "scripts/logger tot")
+(defpoll notificationIcon :interval "1s" :run_while notifications_reveal "scripts/stats notifications --icon")
+(defpoll notificationNum :interval "1s" :run_while notifications_reveal "scripts/stats notifications --num")
 
 ;system
-(defpoll battery :interval "1s" :run_while control_reveal "scripts/stats --bat --percent")
-(defpoll battery_status :interval "1s" :run_while control_reveal "scripts/stats --bat --status")
+(defpoll battery :interval "1s" :run_while control_reveal "scripts/stats battery --percent")
+(defpoll battery_status :interval "1s" :run_while control_reveal "scripts/stats battery --status")

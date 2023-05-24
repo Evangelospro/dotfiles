@@ -9,7 +9,7 @@
     :class "launcher_module"
     :orientation "h"
     (button
-      :onclick "launcher &"
+      :onclick "launcher"
       :class "iconlauncher"
     "")
   ))
@@ -380,13 +380,19 @@
 )
 
 (defwidget notification-button[]
-  (button :class "notification-button" :tooltip "${notificationNum} Notifications" :onclick "swaync-client -t -sw" " ")
+  (button 
+    :class "notification-button" 
+    :tooltip "${notificationNum} Notifications}" 
+    :onclick "/home/evangelospro/.config/swaync/pop"
+    :onrightclick "swaync-client -d"
+    "${notificationIcon}${notificationNum} "
+  )
 )
 
 (defwidget audio []
   (box
     :class "audio-box"
-    :orientation "v"
+    :oientation "v"
     :space-evenly "false"
     :vexpand "false"
     :hexpand "false"
