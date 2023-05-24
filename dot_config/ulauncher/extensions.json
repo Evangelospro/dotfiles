@@ -6,13 +6,6 @@
     "updated_at": "2023-05-21T13:32:16.131335",
     "url": "https://github.com/dcervenkov/ulauncher-z-search"
   },
-  "com.github.jetbug123.ulauncher-ssh": {
-    "id": "com.github.jetbug123.ulauncher-ssh",
-    "last_commit": "dae2cc875b90ae5d625cf177127626e1c8b9719f",
-    "last_commit_time": "2020-05-10T00:20:33",
-    "updated_at": "2023-05-21T13:32:26.024199",
-    "url": "https://github.com/jetbug123/ulauncher-ssh"
-  },
   "com.github.melianmiko.ulauncher-nmcli": {
     "id": "com.github.melianmiko.ulauncher-nmcli",
     "last_commit": "fe967c947748616df602c9d022fec6d68a6b2cf2",
@@ -26,5 +19,12 @@
     "last_commit_time": "2021-08-12T09:39:56",
     "updated_at": "2023-05-21T13:32:02.216713",
     "url": "https://github.com/tchar/ulauncher-albert-calculate-anything"
+  },
+  "org.codeberg.petrarca.ulauncher-ssh": {
+    "id": "org.codeberg.petrarca.ulauncher-ssh",
+    "last_commit": "e7cd3e411f6216c80bd08aa1f571fa9e3a392109",
+    "last_commit_time": "2021-12-27T19:19:47",
+    "updated_at": "2023-05-24T12:51:37.097851",
+    "url": "https://codeberg.org/petrarca/ulauncher-ssh"
   }
 }

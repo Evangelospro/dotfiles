@@ -4,7 +4,7 @@
 
 indicator-caps-lock
 # datestr=%A
-image=~/background.png
+image=~/Pictures/backgrounds/background.png
 scaling=fill
 font=JetBrainsMono Nerd Font
 font-size=32

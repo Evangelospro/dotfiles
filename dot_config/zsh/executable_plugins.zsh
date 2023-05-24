@@ -94,7 +94,3 @@ zi depth=1 lucid nocd for \
 zi wait lucid for id-as="fast-highlight" \
   atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     z-shell/F-SY-H
-
-# load after syntax highlighting to prevent "= is not a valid identifier" error
-zi ice wait
-zi light arzzen/calc.plugin.zsh
