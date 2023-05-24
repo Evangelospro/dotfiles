@@ -1,5 +1,13 @@
 #!/bin/bash
 
+clean(){
+    # reapply the background
+    pkill -9 swaybg && swaybg -o \* -i ~/Pictures/backgrounds/background.png -m fill &
+    # reload eww
+    ~/.local/scripts/ewwLaunch
+    hyprctl reload
+}
+
 # Define the options for the Rofi menu
 options=("Extend Monitors
 Duplicate Monitors")
@@ -11,9 +19,10 @@ choice=$(printf '%s
 case $choice in
     "Extend Monitors")
         cp ~/.config/hypr/monitors_extend.conf ~/.config/hypr/monitors.conf
+        clean
         ;;
     "Duplicate Monitors")
         cp ~/.config/hypr/monitors_duplicate.conf ~/.config/hypr/monitors.conf
+        clean
         ;;
 esac
-hyprctl reload

@@ -10,7 +10,7 @@
     :orientation "h"
     (button
       :onclick "launcher"
-      :class "iconlauncher"
+      :class "launcher_icon"
     "")
   ))
 

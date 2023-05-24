@@ -8,7 +8,7 @@ export AUTO_NOTIFY_EXPIRE_TIME=4
 # Adding to the PATH
 export PATH=$PATH:~/.cargo/bin/
 export PATH=$PATH:~/.local/bin/
-export PATH=$PATH:~/.local/.scripts/
+export PATH=$PATH:~/.local/scripts/
 export PATH=$PATH:~/bin/
 export PATH=$PATH:~/.ruby/bin/
 export PATH="$PATH:$HOME/.rvm/bin"
