@@ -66,7 +66,7 @@ alias scripter='ssh evangelospro@scripter'
 alias eraspberry1='ssh evangelospro@eraspberry1'
 
 # Command replacemnts
-alias cat='/usr/bin/bat --theme=Dracula'
+alias cat='/usr/bin/bat'
 alias top='btop'
 
 
