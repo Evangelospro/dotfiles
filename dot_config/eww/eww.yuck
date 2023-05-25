@@ -260,7 +260,7 @@
     :orientation "h"
     :hexpand "false"
     :visible "true"
-  :width 150))
+  :width 125))
 
 
 (defwidget tray []

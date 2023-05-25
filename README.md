@@ -22,6 +22,11 @@ pip install -r requirements.txt
 
 ##### hyprload (plugin manager)
 ```
+paru -Sy cpio
+mkdir -p ~/.local/share/hyprload/src
+git clone https://github.com/Duckonaut/hyprload/ ~/.local/share/hyprload/src --depth 1
+cd ~/.local/share/hyprload/hyprland
+make pluginenv
 curl -sSL https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh | bash
 ```
 
