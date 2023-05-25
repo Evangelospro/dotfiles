@@ -1,0 +1,17 @@
+; Sidebar
+
+; Sidebar music data (poll only when hovered)
+(defpoll art		:interval "1s" :run-while side_reveal "scripts/music coverloc")
+(defpoll title		:interval "1s" :run-while side_reveal "scripts/music title")
+(defpoll artist		:interval "1s" :run-while side_reveal "scripts/music artist")
+(defpoll album		:interval "1s" :run-while side_reveal "scripts/music album")
+(defpoll playpause	:interval "1s" :run-while side_reveal "scripts/music statusicon")
+(defpoll lyrics		:interval "1s" :run-while side_reveal "scripts/music lyrics")
+
+; sidebar system data (poll only when hovered)
+(defpoll uptime :run-while side_reveal :interval "1m" "uptime -p | sed -e 's/up //;s/ hours,/h/;s/ minutes/m/'")
+(defpoll packages :run-while side_reveal :interval "5m" "pacman -Q | wc -l")
+(defpoll kernel :run-while side_reveal :interval "5m" "uname -r")
+(defpoll name :run-while side_reveal :interval "5m" "whoami")
+(defpoll host :run-while side_reveal :interval "5m" "uname -n")
+(defpoll wm :run-while side_reveal :interval "5m" "echo $XDG_CURRENT_DESKTOP")

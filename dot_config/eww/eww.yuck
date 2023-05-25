@@ -1,6 +1,6 @@
 (include "yuck/windows.yuck")
 (include "yuck/variables.yuck")
-(include "yuck/sidebar.yuck")
+; (include "yuck/sidebar.yuck")
 
 ;; WIDGETS
 
@@ -108,54 +108,54 @@
   )
 )
 
-(defwidget bright []
-  (eventbox
-    :onhover "${EWW_CMD} update brightness_reveal=true"
-    :onhoverlost "${EWW_CMD} update brightness_reveal=false"
-    (box
-      :space-evenly "false"
-      :orientation "h"
-      :spacing "3"
-      (revealer
-        :transition "slideright"
-        :reveal brightness_reveal
-        :duration "350ms"
-        (scale    :class "brightbar"
-          :value brightness_percent
-          :orientation "h"
-          :tooltip "${brightness_percent}%"
-          :max 100
-          :min 0
-        :onchange "lightctl set {}%" ))
-      (label
-        :text ""
-        :class "bright_icon"
-      :tooltip "brightness"))))
+; (defwidget bright []
+;   (eventbox
+;     :onhover "${EWW_CMD} update brightness_reveal=true"
+;     :onhoverlost "${EWW_CMD} update brightness_reveal=false"
+;     (box
+;       :space-evenly "false"
+;       :orientation "h"
+;       :spacing "3"
+;       (revealer
+;         :transition "slideright"
+;         :reveal brightness_reveal
+;         :duration "350ms"
+;         (scale    :class "brightbar"
+;           :value brightness_percent
+;           :orientation "h"
+;           :tooltip "${brightness_percent}%"
+;           :max 100
+;           :min 0
+;         :onchange "lightctl set {}%" ))
+;       (label
+;         :text ""
+;         :class "bright_icon"
+;       :tooltip "brightness"))))
 
-(defwidget volume []
-  (eventbox
-    :onhover "${EWW_CMD} update volume_reveal=true"
-    :onhoverlost "${EWW_CMD} update volume_reveal=false"
-    (box
-      :space-evenly "false"
-      :orientation "h"
-      :spacing "3"
-      (revealer
-        :transition "slideright"
-        :reveal volume_reveal
-        :duration "350ms"
-        (scale
-          :class "volbar"
-          :value volume_percent
-          :orientation "h"
-          :tooltip "${volume_percent}%"
-          :max 100
-          :min 0
-        :onchange "volumectl set {}%" ))
-      (button
-        :onclick "${EWW_CMD} open --toggle audio_ctl"
-        :class "volume_icon"
-      "墳"))))
+; (defwidget volume []
+;   (eventbox
+;     :onhover "${EWW_CMD} update volume_reveal=true"
+;     :onhoverlost "${EWW_CMD} update volume_reveal=false"
+;     (box
+;       :space-evenly "false"
+;       :orientation "h"
+;       :spacing "3"
+;       (revealer
+;         :transition "slideright"
+;         :reveal volume_reveal
+;         :duration "350ms"
+;         (scale
+;           :class "volbar"
+;           :value volume_percent
+;           :orientation "h"
+;           :tooltip "${volume_percent}%"
+;           :max 100
+;           :min 0
+;         :onchange "volumectl set {}%" ))
+;       (button
+;         :onclick "${EWW_CMD} open --toggle audio_ctl"
+;         :class "volume_icon"
+;       "墳"))))
 
 (defwidget wifi []
   (eventbox
@@ -203,7 +203,6 @@
         :class "iconbat"
         :limit-width 2
         :tooltip "battery on ${battery}%"
-        ; :show_truncated false
         :onclick "${EWW_CMD} open --toggle system"
         :wrap false
       ""))))
@@ -219,7 +218,6 @@
         :limit-width 2
         :tooltip "using ${EWW_RAM.used_mem_perc}% ram"
         :onclick "${EWW_CMD} open --toggle system"
-        ; :show_truncated false
         :wrap false
       ""))))
 
@@ -389,80 +387,80 @@
   )
 )
 
-(defwidget audio []
-  (box
-    :class "audio-box"
-    :oientation "v"
-    :space-evenly "false"
-    :vexpand "false"
-    :hexpand "false"
-    (box
-      :halign "center"
-      :space-evenly "false"
-      :hexpand "false"
-      :vexpand "false"
-      (box
-        :class "speaker_icon"
-      :orientation "v")
-      (box
-        :orientation "v"
-        :halign "center"
-        :vexpand "false"
-        :hexpand "false"
-        (label
-          :class "speaker_text"
-          :text "speaker"
-          :valign "center"
-          :halign "start"
-        )
-        (box
-          :class "speaker_bar"
-          :halign "center"
-          :vexpand "false"
-          :hexpand "false"
-          (scale
-            :value volume_percent
-            :space-evenly "false"
-            :orientation "h"
-            :onchange "amixer -D pulse sset Master {}%"
-            :tooltip "volume on ${volume_percent}%"
-            :max 100
-          :min 0))))
-    (label
-      :text "_____________________________________"
-      :class "audio_sep"
-    :halign "center")
-    (box
-      :halign "center"
-      :space-evenly "false"
-      :hexpand "false"
-      :vexpand "false"
-      (box
-        :class "mic_icon"
-      :orientation "v")
-      (box
-        :orientation "v"
-        :halign "center"
-        :vexpand "false"
-        :hexpand "false"
-        (label
-          :class "mic_text"
-          :text "mic"
-          :valign "center"
-          :halign "left"
-        )
-        (box
-          :class "mic_bar"
-          :halign "center"
-          :vexpand "false"
-          :hexpand "false"
-          (scale
-            :value mic_percent
-            :orientation "h"
-            :tooltip "mic on ${mic_percent}%"
-            :onchange "amixer -D pulse sset Capture {}%"
-            :max 100
-          :min 0))))))
+; (defwidget audio []
+;   (box
+;     :class "audio-box"
+;     :oientation "v"
+;     :space-evenly "false"
+;     :vexpand "false"
+;     :hexpand "false"
+;     (box
+;       :halign "center"
+;       :space-evenly "false"
+;       :hexpand "false"
+;       :vexpand "false"
+;       (box
+;         :class "speaker_icon"
+;       :orientation "v")
+;       (box
+;         :orientation "v"
+;         :halign "center"
+;         :vexpand "false"
+;         :hexpand "false"
+;         (label
+;           :class "speaker_text"
+;           :text "speaker"
+;           :valign "center"
+;           :halign "start"
+;         )
+;         (box
+;           :class "speaker_bar"
+;           :halign "center"
+;           :vexpand "false"
+;           :hexpand "false"
+;           (scale
+;             :value volume_percent
+;             :space-evenly "false"
+;             :orientation "h"
+;             :onchange "amixer -D pulse sset Master {}%"
+;             :tooltip "volume on ${volume_percent}%"
+;             :max 100
+;           :min 0))))
+;     (label
+;       :text "_____________________________________"
+;       :class "audio_sep"
+;     :halign "center")
+;     (box
+;       :halign "center"
+;       :space-evenly "false"
+;       :hexpand "false"
+;       :vexpand "false"
+;       (box
+;         :class "mic_icon"
+;       :orientation "v")
+;       (box
+;         :orientation "v"
+;         :halign "center"
+;         :vexpand "false"
+;         :hexpand "false"
+;         (label
+;           :class "mic_text"
+;           :text "mic"
+;           :valign "center"
+;           :halign "left"
+;         )
+;         (box
+;           :class "mic_bar"
+;           :halign "center"
+;           :vexpand "false"
+;           :hexpand "false"
+;           (scale
+;             :value mic_percent
+;             :orientation "h"
+;             :tooltip "mic on ${mic_percent}%"
+;             :onchange "amixer -D pulse sset Capture {}%"
+;             :max 100
+;           :min 0))))))
 
 
 ;;Define System widget
