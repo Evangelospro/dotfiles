@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
+# probably will use the hyprland module for soonTM
 import asyncio
-import subprocess
 from evdev import InputDevice, categorize, ecodes
+import hyprland
+import subprocess
+import os
+
+HOME = os.environ["HOME"]
 
 KEYBOARD = "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
 # CAPS_EVENT_ON: "type 17 (EV_LED), code 1 (LED_CAPSL), value 1"
@@ -35,22 +40,22 @@ while True:
 	widget="(box :orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\" :class \"indicators\" "   
 	widget+=(f"(label :text \"{keyboard_layout}\")")
 	if com['CAPS_LOCK'] == 1:
-		widget+="(image :path \"/home/evangelospro/.config/eww/images/capslock-enabled.svg\")"
+		widget+=f"(image :path \"{HOME}/.config/eww/images/capslock-enabled.svg\")"
 	elif com['CAPS_LOCK'] == 0:
-		widget+="(image :path \"/home/evangelospro/.config/eww/images/capslock-disabled.svg\")"
+		widget+=f"(image :path \"{HOME}/.config/eww/images/capslock-disabled.svg\")"
 	if com['NUM_LOCK'] == 1:
-		widget+="(image :path \"/home/evangelospro/.config/eww/images/numlock-enabled.svg\")"
+		widget+=f"(image :path \"{HOME}/.config/eww/images/numlock-enabled.svg\")"
 	elif com['NUM_LOCK'] == 0:
-		widget+="(image :path \"/home/evangelospro/.config/eww/images/numlock-disabled.svg\")"
+		widget+=f"(image :path \"{HOME}/.config/eww/images/numlock-disabled.svg\")"
 	SWAYIDLE_STATE = 1
 	try:
 		subprocess.check_output("pgrep swayidle", shell=True)
 	except subprocess.CalledProcessError:
 		SWAYIDLE_STATE = 0
 	if SWAYIDLE_STATE == 0:
-		widget+="(button :onclick \"swayidle &\" (image :path \"/home/evangelospro/.config/eww/images/caffeine-active.svg\") )"
+		widget+=f"(button :onclick \"swayidle &\" (image :path \"{HOME}/.config/eww/images/caffeine-active.svg\") )"
 	else:
-		widget+="(button :onclick \"pkill -9 swayidle\" (image :path \"/home/evangelospro/.config/eww/images/caffeine-inactive.svg\") )"
+		widget+=f"(button :onclick \"pkill -9 swayidle\" (image :path \"{HOME}/.config/eww/images/caffeine-inactive.svg\") )"
 	widget+=")"
 	print(widget)
 	# Run other tasks and yield control to the event loop

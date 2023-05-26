@@ -1,218 +1,258 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 
-firstMonitor="eDP-1"
-secondMonitor="HDMI-A-1"
-targetMonitor=$1
-# check if target monitor is a number if it is not output usage
-if [[ $targetMonitor =~ ^[0-9]+$ ]]; then
-    if [[ $targetMonitor == 1 ]]; then
-        targetMonitor=$firstMonitor
-        workspaceList=$(seq 1 10)
-    elif [[ $targetMonitor == 2 ]]; then
-        targetMonitor=$secondMonitor
-        workspaceList=$(seq 11 20)
-    else
-        echo "Usage: $0 [1|2]"
-        exit 1
-    fi
-else
-    echo "Usage: $0 [1|2]"
-    exit 1
-fi
-debug="$2"
-# set -ex # DEBUG BY DEFAULT WITH EWW LOGS
+import subprocess
+import re
+import json
+import os
+import sys
+import hyprland
 
-# get initial focused workspace
-focusedws=$(hyprctl -j monitors | jq -r '.[] | select(.focused == true) | .activeWorkspace.id')
 
-declare -A occupiedWorkspaces=([1]=0 [2]=0 [3]=0 [4]=0 [5]=0 [6]=0 [7]=0 [8]=0 [9]=0 [10]=0)
-declare -A highestOccupiedWorkspace=1
-declare -A monitormap
-declare -A workspaceNames
-appgridIcon=$(geticons --no-fallbacks "appgrid" -s 24 -c 1 | head -n 1)
-declare -A allAppIcons
-# initialize allAppIcons to be an array with 10x4 elements
-for i in $workspaceList; do
-  for j in {0..3}; do
-    allAppIcons[$i,$j]=""
-  done
-done
-declare -A grids
+class Workspacer(hyprland.Events):
+    def __init__(self):
+        self.numOfWorkspaces = 10
+        # Initialize variables
+        self.windowNames = json.loads(
+            open(os.path.expanduser("~/.config/eww/scripts/windowNames.json")).read()
+        )
 
-# handle workspace create/destroy
-workspace_event() {
-  occupiedWorkspaces[$1]=$2
-  while read -r k v; do workspaceNames[$k]="$v"; done < <(hyprctl -j workspaceNames | jq -r '.[]|"\(.id) \(.monitor)"')
-}
+        self.firstMonitor = "eDP-1"
+        self.secondMonitor = "HDMI-A-1"
+        self.targetMonitor = sys.argv[1]
 
-# handle monitor (dis)connects
-monitor_event() {
-  while read -r k v; do monitormap["$k"]=$v; done < <(hyprctl -j monitors | jq -r '.[]|"\(.name) \(.id) "')
-}
+        # check if target monitor is a number if it is not output usage
+        if re.match("^[0-9]+$", self.targetMonitor):
+            self.targetMonitor = int(self.targetMonitor)
+            if self.targetMonitor == 0:
+                self.targetMonitor = self.firstMonitor
+                self.workspaceList = list(range(1, self.numOfWorkspaces + 1))
+            elif self.targetMonitor == 1:
+                self.targetMonitor = self.secondMonitor
+                self.workspaceList = list(
+                    range(self.numOfWorkspaces + 1, 2 * (self.numOfWorkspaces + 1))
+                )
+            else:
+                print("Usage: python script.py [0|1]")
+                sys.exit(1)
+        else:
+            print("Usage: python script.py [0|1]")
+            sys.exit(1)
 
-applistClass() {
-  ws="$1"
-  # return a list of classes
-  command="hyprctl -j clients | jq -jr '.[] | select(.workspace.id == "
-  command+=$ws
-  command+=") | .class + \"\n\"'"
-  classes=$(eval $command)
-  readarray -t classes <<< "$classes"
-  printf '%s\n' "${classes[@]}"
-}
+        self.debug = sys.argv[2] if len(sys.argv) > 2 else ""
 
-getIcon() {
-  class="$1"
-  # echo "Class: $class"
-  icon=$(geticons --no-fallbacks "$class" -s 24 -c 1| head -n 1)
-  if [[ $icon == "" ]]; then
-    lowerClass=$(echo "$class" | tr '[:upper:]' '[:lower:]')
-    icon=$(geticons --no-fallbacks "$lowerClass" -s 24 -c 1 | head -n 1)
-  fi
-  echo "$icon"
-}
+        self.focusedws = int(
+            json.loads(subprocess.check_output(["hyprctl", "-j", "monitors"]).decode())[
+                0
+            ]["activeWorkspace"]["id"]
+        )
+        # workspace number: 1 if occupied, 0 if not
+        self.occupiedWorkspaces = {i: 0 for i in self.workspaceList}
+        self.monitormap = {}
+        self.workspaceNames = {}
+        self.appgridIcon = (
+            subprocess.check_output(
+                ["geticons", "--no-fallbacks", "appgrid", "-s", "24", "-c", "1"]
+            )
+            .decode()
+            .splitlines()[0]
+        )
+        # 1 extra because workspaces start from 1
+        self.workspaces = [[] for i in self.workspaceList] + [[]]
+        self.grids = ["" for i in self.workspaceList] + [""]
 
-appicons(){
-  ws="$1"
-  appicons=("" "" "" "")
-  # keep the applistClass as an array
-  applistClass=($(applistClass "$ws"))
-  for i in {0..3}; do
-    class=${applistClass[$i]}
-    candidateClass=$(jq -r --arg class "$class" '.[$class]' ~/.config/eww/scripts/windowNames.json)
-    [[ $candidateClass != "null" ]] && class=$candidateClass
-    icon=$(getIcon "$class")
-    appicons[$i]="$icon"
-  done
-  echo "${appicons[*]}"
-}
+        # SETUP
+        # add monitors
+        self.monitor_event()
 
-# generate eww widget
-generate() {
-# REFRESH ONLY FOCUSED WORKSPACE BUT STILL SHOW ALL WORKSPACES (UPDATE THE APPICONS ARRAY)
-for num in $workspaceList; do
-  # if the workspace number is the focused workspace
-  if [[ $num == $focusedws ]]; then
-    status="active-workspace"
-    appicons=($(appicons "$num"))
-    for index in {0..3}; do
-      icon=${appicons[$index]}
-      allAppIcons[$num,$index]="$icon"
-    done
-  else
-    status="inactive-workspace"
-  fi
-  displayNum=$((num > 10 ? num-10 : num))
-  grids[$num]="(button :onclick \"hyprctl dispatch split-workspace $num\" :class \"$status\" :tooltip \"workspace $displayNum\" \
-  (box :orientation \"v\" :spacing 3 :space-evenly \"false\" :valign \"center\" \
-  (label :text \"$displayNum\" :class \"workspace-num\" :tooltip \"Workspace $displayNum\") \
-  (box "
-  # the end result should be something like this:
-  # box vertical
-  # -box
-  #   -box
-  #     -image
-  #   -box
-  #     -image
-  # -box
-  #   -box
-  #     -image
-  #   -box
-  #     -image
+        with subprocess.Popen(
+            ["hyprctl", "-j", "workspaces"], stdout=subprocess.PIPE
+        ) as proc:
+            output = json.loads(proc.stdout.read().decode())
+            for workspace in output:
+                id = int(workspace["id"])
+                name = workspace["name"]
+                monitor = workspace["monitor"]
+                if monitor == self.targetMonitor:
+                    self.workspaceNames[id] = name
 
-  # only create the inner boxe if allAppIcons is not empty at that index
-  # check in pairs of 2
-  # so the result is a 2x2 grid of boxes, though only create the boxes if there is an icon
-  foundEmpty=false
-  for i in {0..3}; do
-    icon=${allAppIcons[$num,$i]}
-    image="(image :path \"$icon\")"
-    if [[ $icon != "" ]]; then
-      if (( i % 2 == 0)); then
-        grids[$num]+=" (box :orientation \"v\" :spacing 3 :space-evenly \"false\" :valign \"center\""
-      fi
-      grids[$num]+=" $image"
-      # if the next element is empty or if i is not divisible by 2
-      if (( i % 2 == 1)); then
-        grids[$num]+=")"
-      fi
-    else
-      if [[ $foundEmpty == false ]]; then
-        # check if i is not divisible by 2 and not 0
-        if (( i % 2 == 1 && i != 0)); then
-          grids[$num]+=")"
-        fi
-        foundEmpty=true
-      fi
-    fi
-  done
-  grids[$num]+=") ) ) (sep)" # close the button and box
-done
+        # check occupied workspaceNames
+        for num in self.workspaceNames.keys():
+            self.occupiedWorkspaces[num] = 1
 
-gridString=""
-# combine all the grids into a string
-for i in $workspaceList; do
-  gridString+="${grids[$i]}"
-done
+        # generateWidget initial widget
+        self.generateWidget()
 
-widget="(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
-          (box	:class \"workspaces\"	:orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\"	\
-              $gridString \
-          ) \
-        )"
+        self.c = hyprland.Config()
+        super().__init__()
 
-if [[ $debug == "debug" ]]; then
-  echo "DEBUG INFO"
-  echo "Focused workspace: $focusedws"
-  echo "WorkspaceNames: ${workspaceNames[@]}"
-  echo "Monitormap: ${monitormap[@]}"
-  echo "Occupied workspaces: ${!occupiedWorkspaces[@]}"
-  echo "--------------------------------"
-  echo "allAppIcons: "
-  for i in $workspaceList; do
-    for j in {0..3}; do
-      echo "Workspace $i, app $j: ${allAppIcons[$i,$j]}"
-    done
-  done
-  echo  "--------------------------------"
-else
-  echo "$widget"
-fi
-}
+    # handle workspace create/destroy
+    def workspace_event(self, workspace_num, occupied):
+        self.occupiedWorkspaces[workspace_num] = occupied
+        with subprocess.Popen(
+            ["hyprctl", "-j", "workspaces"], stdout=subprocess.PIPE
+        ) as proc:
+            output = json.loads(proc.stdout.read().decode())
+        for workspace in output:
+            id = int(workspace["id"])
+            name = workspace["monitor"]
+            self.workspaceNames[id] = name
 
-# SETUP
+    # handle monitor (dis)connects
+    def monitor_event(self):
+        with subprocess.Popen(
+            ["hyprctl", "-j", "monitors"], stdout=subprocess.PIPE
+        ) as proc:
+            output = json.loads(proc.stdout.read().decode())
+        for monitor in output:
+            id = int(monitor["id"])
+            name = monitor["name"]
+            self.monitormap[id] = name
 
-# add monitors
-monitor_event
+    def applistClass(self, ws):
+        with subprocess.Popen(
+            ["hyprctl", "-j", "clients"], stdout=subprocess.PIPE
+        ) as proc:
+            classes = json.loads(proc.stdout.read().decode())
+        classes = [c["class"] for c in classes if c["workspace"]["id"] == ws]
+        return classes
 
-# add workspaceNames
-while read -r k v; do workspaceNames[$k]="$v"; done < <(hyprctl -j workspaces | jq -r '.[]|"\(.id) \(.monitor)"')
+    def getIcon(self, class_name):
+        icon_list = (
+            subprocess.check_output(
+                ["geticons", "--no-fallbacks", class_name, "-s", "24", "-c", "1"]
+            )
+            .decode()
+            .splitlines()
+        )
+        icon = icon_list[0] if icon_list else None
+        if icon is None:
+            lowerClass = class_name.lower()
+            icon_list = (
+                subprocess.check_output(
+                    ["geticons", "--no-fallbacks", lowerClass, "-s", "24", "-c", "1"]
+                )
+                .decode()
+                .splitlines()
+            )
+            icon = icon_list[0] if icon_list else None
+        if icon is None:
+            icon = self.appgridIcon
+        return icon
 
-# check occupied workspaceNames
-for num in "${!workspaceNames[@]}"; do
-  occupiedWorkspaces[$num]=1
-done
-# generate initial widget
-generate
+    def get_appicons(self, ws):
+        appicons = []
+        applist = self.applistClass(ws)
+        for class_name in applist:
+            candidateClass = self.windowNames.get(class_name)
+            if candidateClass is not None:
+                class_name = candidateClass
+            icon = self.getIcon(class_name)
+            appicons.append(icon)
+        return appicons
 
-# main loop                                                                                          window (may be too often???)
-socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | rg --line-buffered "window|workspace|mon(itor)?" | while read -r line; do
-  case ${line%>>*} in
-    "workspace")
-      focusedws=${line#*>>}
-      ;;
-    "focusedmon")
-      focusedws=${line#*,}
-      ;;
-    "createworkspace")
-      workspace_event "${line#*>>}" 1
-      ;;
-    "destroyworkspace")
-      workspace_event "${line#*>>}" 0
-      ;;
-    "monitor"*)
-      monitor_event
-      ;;
-  esac
-  generate
-done
+    def generateWidget(self):
+        widget = ""
+        for num in self.workspaceList:
+            if num == self.focusedws:
+                self.workspaces[num] = []
+                status = "active-workspace"
+                appicons = self.get_appicons(num)[0:4]  # only show up to 4 icons
+                for icon in appicons:
+                    self.workspaces[num].append(icon)
+            else:
+                status = "inactive-workspace"
+            num = num if num <= 10 else num - 10
+            self.grids[
+                num
+            ] = f"""(button :onclick \"hyprctl dispatch split-workspace {num}\" :class \"{status}\" :tooltip \"workspace {num}\"
+			(box :orientation \"v\" :spacing 3 :space-evenly \"false\" :valign \"center\"
+				(label :text \"{num}\" :class \"workspace-num\" :tooltip \"Workspace {num}\")
+				(box """
+            workspaceLen = len(self.workspaces[num])
+            for i, icon in enumerate(self.workspaces[num]):
+                image = f'(image :path "{icon}")'
+                if i % 2 == 0:
+                    self.grids[
+                        num
+                    ] += f"""
+				(box :orientation \"v\" :spacing 3 :space-evenly \"false\" :valign \"center\"
+					{image}
+				"""
+                    if i + 1 == workspaceLen:
+                        self.grids[num] += ")"
+                else:
+                    self.grids[num] += f"{image} )"
+            self.grids[num] += ") ) ) (sep)"
+
+        gridString = "".join(self.grids)
+
+        widget = f"""
+		(eventbox :onscroll \"echo {{}} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\"
+			(box :class \"workspaces\" :orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\"
+				{gridString}
+			)
+		)
+		""".strip()
+
+        if self.debug == "debug":
+            print("DEBUG INFO")
+            print(f"Focused workspace: {self.focusedws}")
+            print(f"WorkspaceNames: {self.workspaceNames}")
+            print(f"Monitormap: {self.monitormap}")
+            print(f"Occupied workspaces: {self.occupiedWorkspaces.keys()}")
+            print("--------------------------------")
+            print("allAppIcons:")
+            for i, workspace_apps in enumerate(self.workspaces[1:]):
+                for j, app in enumerate(workspace_apps):
+                    print(f"Workspace {i+1}, app {j+1}: {app}")
+            print("--------------------------------")
+        else:
+            # eww doesn't like newlines
+            print(widget.replace("\n", ""))
+
+    async def on_connect(self):
+        if self.debug == "debug":
+            print("Connected to Hyprland socket")
+        self.c = await hyprland.Config.from_conf()
+
+    async def on_workspace(self, ws):
+        self.focusedws = int(ws.split("\n")[0])
+        if self.debug == "debug":
+            print(f"Workspace changed to {self.focusedws}")
+        self.generateWidget()
+        self.generateWidget()
+
+    async def on_focusedmon(self, mon, ws):
+        self.focusedws = int(ws.split("\n")[0])
+        if self.debug == "debug":
+            print(f"Monitor changed to {mon} at workspace {self.focusedws}")
+        self.generateWidget()
+
+    async def on_createworkspace(self, ws):
+        self.focusedws = int(ws.split("\n")[0])
+        if self.debug == "debug":
+            print(f"Workspace created {self.focusedws}")
+        if self.focusedws in self.workspaceList:
+            self.workspace_event(self.focusedws, 1)
+        self.generateWidget()
+
+    async def on_destroyworkspace(self, ws):
+        self.focusedws = int(ws.split("\n")[0])
+        if self.debug == "debug":
+            print(f"Workspace destroyed {self.focusedws}")
+        if self.focusedws in self.workspaceList:
+            self.workspace_event(self.focusedws, 0)
+        self.generateWidget()
+
+    async def on_moveworkspace(self, ws, mon):
+        self.focusedws = int(ws.split("\n")[0])
+        if self.debug == "debug":
+            print(f"app moved to workspace {self.focusedws} on monitor {mon}")
+        if self.focusedws in self.workspaceList:
+            self.workspace_event(self.focusedws, 1)
+        self.generateWidget()
+
+
+w = Workspacer()
+
+w.async_connect()

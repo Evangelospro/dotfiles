@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+import asyncio
+from evdev import InputDevice, categorize, ecodes
+import hyprland
+
+layout = "English (US)"
+
+class Config(hyprland.Events):
+	def __init__(self):
+		self.c = hyprland.Config()
+		self.event_listener = hyprland.sockets.EventListener()
+		super().__init__()
+
+	async def get_devices(self):
+		devices = await hyprland.info.Info().devices()
+		return devices
+
+	async def get_kb_layout(self, device):
+		return device["active_keymap"]
+
+	async def on_connect(self):
+		print("Connected to Hyprland")
+		self.c = await hyprland.Config.from_conf()
+		devices = await self.get_devices()
+		keyboards = devices["keyboards"]
+		laptop_layout = await self.get_kb_layout(keyboards[5])
+		external_layout = await self.get_kb_layout(keyboards[8])
+		print(f"Laptop layout: {laptop_layout}")
+		print(f"External layout: {external_layout}")
+		if layout != laptop_layout:
+			layout = laptop_layout
+		elif layout != external_layout:
+			layout = external_layout
+		print(f"Layout: {layout}")
+
+
+c = Config()
+
+c.async_connect()
