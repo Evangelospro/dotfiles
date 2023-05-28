@@ -10,6 +10,12 @@ import hyprland
 
 class Workspacer(hyprland.Events):
     def __init__(self):
+        # Initialize hyprland
+        self.i = hyprland.info.Info()
+        self.c = hyprland.Config()
+        super().__init__()
+
+        # Initialize constants
         self.numOfWorkspaces = 10
         # Initialize variables
         self.windowNames = json.loads(
@@ -64,6 +70,7 @@ class Workspacer(hyprland.Events):
         # add monitors
         self.monitor_event()
 
+        # output = json.loads(self.i.workspaces())
         with subprocess.Popen(
             ["hyprctl", "-j", "workspaces"], stdout=subprocess.PIPE
         ) as proc:
@@ -81,9 +88,6 @@ class Workspacer(hyprland.Events):
 
         # generateWidget initial widget
         self.generateWidget()
-
-        self.c = hyprland.Config()
-        super().__init__()
 
     # handle workspace create/destroy
     def workspace_event(self, workspace_num, occupied):
@@ -161,10 +165,10 @@ class Workspacer(hyprland.Events):
                     self.workspaces[num].append(icon)
             else:
                 status = "inactive-workspace"
-            num = num if num <= 10 else num - 10
+            actualNum = num if num <= 10 else num - 10 # because split-workspace plugin still takes them as 11-20
             self.grids[
                 num
-            ] = f"""(button :onclick \"hyprctl dispatch split-workspace {num}\" :class \"{status}\" :tooltip \"workspace {num}\"
+            ] = f"""(button :onclick \"hyprctl dispatch split-workspace {actualNum}\" :class \"{status}\" :tooltip \"workspace {num}\"
 			(box :orientation \"v\" :spacing 3 :space-evenly \"false\" :valign \"center\"
 				(label :text \"{num}\" :class \"workspace-num\" :tooltip \"Workspace {num}\")
 				(box """
@@ -216,20 +220,20 @@ class Workspacer(hyprland.Events):
         self.c = await hyprland.Config.from_conf()
 
     async def on_workspace(self, ws):
-        self.focusedws = int(ws.split("\n")[0])
+        self.focusedws = int(ws)
         if self.debug == "debug":
             print(f"Workspace changed to {self.focusedws}")
         self.generateWidget()
         self.generateWidget()
 
     async def on_focusedmon(self, mon, ws):
-        self.focusedws = int(ws.split("\n")[0])
+        self.focusedws = int(ws)
         if self.debug == "debug":
             print(f"Monitor changed to {mon} at workspace {self.focusedws}")
         self.generateWidget()
 
     async def on_createworkspace(self, ws):
-        self.focusedws = int(ws.split("\n")[0])
+        self.focusedws = int(ws)
         if self.debug == "debug":
             print(f"Workspace created {self.focusedws}")
         if self.focusedws in self.workspaceList:
@@ -237,7 +241,7 @@ class Workspacer(hyprland.Events):
         self.generateWidget()
 
     async def on_destroyworkspace(self, ws):
-        self.focusedws = int(ws.split("\n")[0])
+        self.focusedws = int(ws)
         if self.debug == "debug":
             print(f"Workspace destroyed {self.focusedws}")
         if self.focusedws in self.workspaceList:
@@ -245,7 +249,7 @@ class Workspacer(hyprland.Events):
         self.generateWidget()
 
     async def on_moveworkspace(self, ws, mon):
-        self.focusedws = int(ws.split("\n")[0])
+        self.focusedws = int(ws)
         if self.debug == "debug":
             print(f"app moved to workspace {self.focusedws} on monitor {mon}")
         if self.focusedws in self.workspaceList:

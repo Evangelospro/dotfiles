@@ -1,5 +1,5 @@
 ; top bar
-(deflisten indicators_literal "/usr/bin/python3 scripts/indicators")
+(deflisten indicators_literal "scripts/indicators nodebug")
 
 ; Clock / Calendar
 (defpoll clock_time :interval "5s" "date '+\%l\%M \%p'")

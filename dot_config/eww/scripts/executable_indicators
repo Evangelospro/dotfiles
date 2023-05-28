@@ -1,62 +1,104 @@
 #!/usr/bin/env python3
-# probably will use the hyprland module for soonTM
 import asyncio
 from evdev import InputDevice, categorize, ecodes
 import hyprland
-import subprocess
+import sys
 import os
+import subprocess
 
-HOME = os.environ["HOME"]
+class Indicators(hyprland.Events):
+	def __init__(self):
+		self.debug = sys.argv[1] if len(sys.argv) > 1 else ""
+		self.c = hyprland.Config()
+		self.layout = "US"
+		self.layout_dict = {"Greek": "GR", "English (US)": "US"}
+		self.KEYBOARD = "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
+		# CAPS_EVENT_ON: "type 17 (EV_LED), code 1 (LED_CAPSL), value 1"
+		# CAPS_EVENT_OFF: "type 17 (EV_LED), code 1 (LED_CAPSL), value 0"
+		self.keyboard = InputDevice(self.KEYBOARD)
+		self.laptop_keyboard_name = "at-translated-set-2-keyboard"
+		self.external_keyboard_name = "compx-2.4g-receiver"
+		self.HOME = os.environ["HOME"]
+		self.caps_lock = 'inactive'
+		self.num_lock = 'inactive'
+		self.caffeine_state = 'inactive'
+		self.swayidle_activate = "swayidle &"
+		self.swayidle_deactivate = "pkill -9 swayidle"
+		super().__init__()
 
-KEYBOARD = "/dev/input/by-path/platform-i8042-serio-0-event-kbd"
-# CAPS_EVENT_ON: "type 17 (EV_LED), code 1 (LED_CAPSL), value 1"
-# CAPS_EVENT_OFF: "type 17 (EV_LED), code 1 (LED_CAPSL), value 0"
+	async def locks(self):
+		async for ev in self.keyboard.async_read_loop():
+			if ev.type == ecodes.EV_LED:
+				value = ev.value
+				if ev.code == ecodes.LED_CAPSL:
+					if self.debug == "debug":
+						print(f"Caps lock: {value}")
+					self.caps_lock = 'active' if value == 1 else 'inactive'
+				if ev.code == ecodes.LED_NUML:
+					if self.debug == "debug":
+						print(f"Num lock: {value}")
+					self.num_lock = 'active' if value == 1 else 'inactive'
 
-keyboard = InputDevice(KEYBOARD)
+	async def update_lock_status_periodically(self, interval):
+		while True:
+			await self.locks()
+			await asyncio.sleep(interval)
 
-async def helper(dev, com):
-	async for ev in dev.async_read_loop():
-		if ev.type == ecodes.EV_LED:
-			if ev.code == ecodes.LED_CAPSL:
-				com['CAPS_LOCK'] = ev.value
-			if ev.code == ecodes.LED_NUML:
-				com['NUM_LOCK'] = ev.value
+	async def swayidleUpdate(self):
+		try:
+			subprocess.check_output(["pgrep", "swayidle"])
+		except subprocess.CalledProcessError:
+			self.caffeine_state = 'active'
+			if self.debug == "debug":
+				print("Swayidle is not running")
+		else:
+			self.caffeine_state = 'inactive'
+			if self.debug == "debug":
+				print("Swayidle is running")
+	
+	async def update_swayidle_status_periodically(self, interval):
+		while True:
+			await self.swayidleUpdate()
+			await asyncio.sleep(interval)
 
-# Create a task to run the helper function in the background
-async def background_task(com):
-	await helper(keyboard, com)
+	async def on_activelayout(self, keyboard, layout):
+		if keyboard == self.laptop_keyboard_name or keyboard == self.external_keyboard_name:
+			self.layout = self.layout_dict[layout]
+		if self.debug == "debug":
+			print(f"Keyboard: {keyboard}")
+			print(f"Layout: {self.layout}")
+		await self.generate()
 
-com = dict()
-com['CAPS_LOCK'] = 0
-com['NUM_LOCK'] = 0
+	async def generate(self):
+		widget = f"""
+		(box :orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\" :class \"indicators\"   
+			(label :text \"{self.layout}\")
+			(image :path \"{self.HOME}/.config/eww/images/capslock-{self.caps_lock}.svg\")
+			(image :path \"{self.HOME}/.config/eww/images/numlock-{self.num_lock}.svg\")
+			(button :onclick \"{self.swayidle_activate if self.caffeine_state == 'active' else self.swayidle_deactivate}\" 
+				(image :path \"{self.HOME}/.config/eww/images/caffeine-{self.caffeine_state}.svg\") 
+			)
+		)"""
+		if self.debug != "debug":
+			# eww doesn't like newlines
+			print(widget.replace("\n", ""), flush=True)
 
-# Create an event loop
-loop = asyncio.get_event_loop()
-task = loop.create_task(background_task(com))
+	async def generate_periodically(self, interval):
+		while True:
+			await self.generate()
+			await asyncio.sleep(interval)
 
-while True:
-	command = "hyprctl devices | grep keymap | tail --lines 1"
-	keyboard_layout = subprocess.check_output(command, shell=True).decode("utf-8").split("(")[1].replace(")", "").replace("\n", "")
-	widget="(box :orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\" :class \"indicators\" "   
-	widget+=(f"(label :text \"{keyboard_layout}\")")
-	if com['CAPS_LOCK'] == 1:
-		widget+=f"(image :path \"{HOME}/.config/eww/images/capslock-enabled.svg\")"
-	elif com['CAPS_LOCK'] == 0:
-		widget+=f"(image :path \"{HOME}/.config/eww/images/capslock-disabled.svg\")"
-	if com['NUM_LOCK'] == 1:
-		widget+=f"(image :path \"{HOME}/.config/eww/images/numlock-enabled.svg\")"
-	elif com['NUM_LOCK'] == 0:
-		widget+=f"(image :path \"{HOME}/.config/eww/images/numlock-disabled.svg\")"
-	SWAYIDLE_STATE = 1
-	try:
-		subprocess.check_output("pgrep swayidle", shell=True)
-	except subprocess.CalledProcessError:
-		SWAYIDLE_STATE = 0
-	if SWAYIDLE_STATE == 0:
-		widget+=f"(button :onclick \"swayidle &\" (image :path \"{HOME}/.config/eww/images/caffeine-active.svg\") )"
-	else:
-		widget+=f"(button :onclick \"pkill -9 swayidle\" (image :path \"{HOME}/.config/eww/images/caffeine-inactive.svg\") )"
-	widget+=")"
-	print(widget)
-	# Run other tasks and yield control to the event loop
-	loop.run_until_complete(asyncio.sleep(0.01))
+	async def on_connect(self):
+		if self.debug == "debug":
+			print("Connected to Hyprland socket")
+		self.c = await hyprland.Config.from_conf()
+
+		asyncio.create_task(self.update_lock_status_periodically(1))
+
+		asyncio.create_task(self.update_swayidle_status_periodically(1))
+
+		asyncio.create_task(self.generate_periodically(1))
+
+indicators = Indicators()
+
+indicators.async_connect()
