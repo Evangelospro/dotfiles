@@ -63,7 +63,7 @@ class Workspacer(hyprland.Events):
             .splitlines()[0]
         )
         # 2 extra because workspaces start from 1 and range doesn't include the last number
-        self.workspaces = [[] for i in range(1, self.workspaceList[-1] + 2)]
+        self.workspaces = {i: {"classes": [], "adresses": [], "icons": []} for i in self.workspaceList}
         self.grids = ["" for i in range(1, self.workspaceList[-1] + 2)]
 
         # SETUP
@@ -112,6 +112,7 @@ class Workspacer(hyprland.Events):
             name = monitor["name"]
             self.monitormap[id] = name
 
+    # temporarily until i find a better way to get the class name from ipc
     def applistClass(self, ws):
         with subprocess.Popen(
             ["hyprctl", "-j", "clients"], stdout=subprocess.PIPE
@@ -145,8 +146,7 @@ class Workspacer(hyprland.Events):
 
     def get_appicons(self, ws):
         appicons = []
-        applist = self.applistClass(ws)
-        for class_name in applist:
+        for class_name in self.applistClass(ws):
             candidateClass = self.windowNames.get(class_name)
             if candidateClass is not None:
                 class_name = candidateClass
@@ -158,11 +158,8 @@ class Workspacer(hyprland.Events):
         widget = ""
         for num in self.workspaceList:
             if num == self.focusedws:
-                self.workspaces[num] = []
+                self.workspaces[num]["icons"] = self.get_appicons(num)[0:4] # only show up to 4 icons
                 status = "active-workspace"
-                appicons = self.get_appicons(num)[0:4]  # only show up to 4 icons
-                for icon in appicons:
-                    self.workspaces[num].append(icon)
             else:
                 status = "inactive-workspace"
             displayNum = num if num <= 10 else num - 10
@@ -172,8 +169,8 @@ class Workspacer(hyprland.Events):
 			(box :orientation \"v\" :spacing 3 :space-evenly \"false\" :valign \"center\"
 				(label :text \"{displayNum}\" :class \"workspace-num\" :tooltip \"Workspace {displayNum}\")
 				(box """
-            workspaceLen = len(self.workspaces[num])
-            for i, icon in enumerate(self.workspaces[num]):
+            workspaceLen = len(self.workspaces[num]["icons"])
+            for i, icon in enumerate(self.workspaces[num]["icons"]):
                 image = f'(image :path "{icon}")'
                 if i % 2 == 0:
                     self.grids[
@@ -206,8 +203,8 @@ class Workspacer(hyprland.Events):
             print(f"Occupied workspaces: {self.occupiedWorkspaces.keys()}")
             print("--------------------------------")
             print("allAppIcons:")
-            for i, workspace_apps in enumerate(self.workspaces[1:]):
-                for j, app in enumerate(workspace_apps):
+            for i, workspace_apps in enumerate(self.workspaces.values()):
+                for j, app in enumerate(workspace_apps["icons"]):
                     print(f"Workspace {i+1}, app {j+1}: {app}")
             print("--------------------------------")
         else:
@@ -262,6 +259,18 @@ class Workspacer(hyprland.Events):
             self.workspace_event(self.focusedws, 1)
         if self.debug == "debug":
             print(f"app moved to workspace {ws} on monitor {mon}")
+        self.generateWidget()
+
+    # async def on_activewindowv2(self, window_address):
+    #     if window_address not in self.workspaces[self.focusedws]["adresses"]:
+    #         self.workspaces[self.focusedws]["adresses"].append(window_address)
+    #     if self.debug == "debug":
+    #         print(f"window address changed to {window_address}")
+    
+    async def on_activewindow(self, window_class, window_title):
+    #     self.workspaces[self.focusedws]["classes"].append(window_class)
+    #     if self.debug == "debug":
+    #         print(f"window changed to {window_class} with title {window_title}")
         self.generateWidget()
 
 
