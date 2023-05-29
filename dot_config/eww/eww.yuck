@@ -72,7 +72,7 @@
 
 (defwidget appnames [?monitor]
   (box
-    :class "appnames"
+    :class {lyrics != 'LYRICS: No TrackID' ? "appnames-lyrics" : "appnames-no-lyrics"}
     (eventbox
       :onhover "${EWW_CMD} update control_reveal=true"
       :onhoverlost "${EWW_CMD} update control_reveal=false"

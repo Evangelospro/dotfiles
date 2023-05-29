@@ -73,6 +73,12 @@ class Appnames(hyprland.Events):
 			icon = self.appgridIcon
 		return icon
 
+	def fixClass(self, class_name):
+		if self.windowNames.get(class_name) is not None:
+			return self.windowNames[class_name]
+		else:
+			return class_name
+
 	def logEvent(self, event):
 		if self.debug == "debug":
 			print(event)
@@ -88,7 +94,7 @@ class Appnames(hyprland.Events):
 		if self.focusedMon == self.targetMonitor:
 			self.currClass = window_class
 			self.currTitle = window_title
-			self.currIconPath = self.getIcon(self.currClass)
+			self.currIconPath = self.getIcon(self.fixClass(window_class))
 			self.logEvent(f"window changed to {window_class} with title {window_title}")
 			self.generate()
 

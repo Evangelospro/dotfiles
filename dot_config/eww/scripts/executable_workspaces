@@ -124,7 +124,7 @@ class Workspacer(hyprland.Events):
     def getIcon(self, class_name):
         icon_list = (
             subprocess.check_output(
-                ["geticons", "--no-fallbacks", class_name, "-c", "1"]
+                ["geticons", "--no-fallbacks", class_name, "-s", "24", "-c", "1"]
             )
             .decode()
             .splitlines()
@@ -134,7 +134,7 @@ class Workspacer(hyprland.Events):
             lowerClass = class_name.lower()
             icon_list = (
                 subprocess.check_output(
-                    ["geticons", "--no-fallbacks", lowerClass, "-c", "1"]
+                    ["geticons", "--no-fallbacks", lowerClass, "-s", "24", "-c", "1"]
                 )
                 .decode()
                 .splitlines()
@@ -148,22 +148,26 @@ class Workspacer(hyprland.Events):
                     "-u",
                     "critical",
                     "-t",
-                    "5000",
+                    "50",
                     f"Icon not found for {class_name} manually fix in windowNames.json",
                 ]
             )
             icon = self.appgridIcon
         return icon
 
+    def fixClass(self, class_name):
+        if self.windowNames.get(class_name) is not None:
+            return self.windowNames[class_name]
+        else:
+            return class_name
+
     def set_appicons(self, ws):
         self.workspaces[ws]["icons"] = [[],[]]
         # classes = self.workspaces[ws]["classes"].values()
         classes = self.applistClass(ws)[0:4] # only render up to 4 icons
         for i, class_name in enumerate(classes):
-            candidateClass = self.windowNames.get(class_name)
-            if candidateClass is not None:
-                class_name = candidateClass
-            icon = self.getIcon(class_name)
+            fixed_class = self.fixClass(class_name)
+            icon = self.getIcon(fixed_class)
             self.workspaces[ws]["icons"][i%2].append(icon)
 
     def generateJSON(self):

@@ -3,16 +3,33 @@
 
 ![Hyprland](/hyprland.png)
 
-### Packages needed
+### Needed Packages (for basic functionallity)
 ```
 paru -Sy rustup go chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim polkit-gnome ffmpeg swaybg ttf-font-awesome \
-rofi-git pavucontrol fd qt5ct zsh wev wl-clipboard wf-recorder kwallet-pam cliphist jaq ripgrep btop moreutils \
-swaybg grimblast-git ffmpegthumbnailer playerctl dictd qtkeychain-qt6 flameshot-git batify2-git \
-noise-suppression-for-voice lf spotify-player libdisplay-info spotifywm-git \
-eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git discord betterdiscordctl-git dplymouth\
-papirus-icon-theme-git swayosd-git swaync swaync-client wezterm swayidle geticons udiskie python-pywal cpupower-git sddm-theme-astronaut xdg-ninja glow blueman
+rofi-git pavucontrol fd qt5ct qt6ct zsh wev wl-clipboard kwallet-pam cliphist jaq ripgrep btop moreutils \
+swaybg grimblast-git ffmpegthumbnailer playerctl qtkeychain-qt6 flameshot-git batify2-git \
+noise-suppression-for-voice lf libdisplay-info \
+eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git plymouth\
+papirus-icon-theme-git swayosd-git swaync swaync-client wezterm swayidle geticons udiskie python-pywal sddm-theme-astronaut blueman
 
 pip install -r requirements.txt
+```
+
+### Additional Packages (for additional functionallity)
+
+#### utils
+```
+paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow 
+```
+
+```
+sudo systemctl enable --now cpupower
+sudo systemctl enable --now pacman-cleanup-hook.timer
+```
+
+#### applications
+```
+paru -Sy discord betterdiscordctl-git spotify-player spotifywm-git
 ```
 
 ### depreaceated 
