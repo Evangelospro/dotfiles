@@ -1,3 +1,5 @@
 {
-	"burp-StartBurp": "Burp"
+	"burp-StartBurp": "Burp",
+	"yad-icon-browser": "yad",
+	"org.kde.kdeconnect-settings": "kdeconnect"
 }

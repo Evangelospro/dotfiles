@@ -21,18 +21,21 @@
 (defpoll WLAN_ICON :interval "20s" :run_while wifi_reveal  "scripts/stats network --icon")
 
 ; battery
-(defpoll battery :interval "1s" :run_while control_reveal "scripts/stats battery --percent")
-(defpoll battery_status :interval "1s" :run_while control_reveal "scripts/stats battery --status")
+(defpoll battery :initial "100" :interval "1s" :run_while control_reveal "scripts/stats battery --percent")
+(defpoll battery_status :initial "Full" :interval "1s" :run_while control_reveal "scripts/stats battery --status")
 
 ; Notification variables
 (defpoll notificationIcon :interval "1s" :run_while notifications_reveal "scripts/stats notifications --icon")
 (defpoll notificationNum :interval "1s" :run_while notifications_reveal "scripts/stats notifications --num")
 
-; Literals
-(deflisten workspaces0_literal "scripts/workspaces 0 nodebug")
-(deflisten workspaces1_literal "scripts/workspaces 1 nodebug")
-(deflisten appname0_literal "scripts/appname 1 nodebug")
-(deflisten appname1_literal "scripts/appname 2 nodebug")
+; Music
+(defpoll lyrics	:initial "" :interval "1s" "scripts/music lyrics 2")
+
+; Jsons
+(deflisten workspaces0_json "scripts/workspaces 0 nodebug")
+(deflisten workspaces1_json "scripts/workspaces 1 nodebug")
+(deflisten appname0_json "scripts/appname 1 nodebug")
+(deflisten appname1_json "scripts/appname 2 nodebug")
 
 ; revealers
 (defvar side_reveal false)

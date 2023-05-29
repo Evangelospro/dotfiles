@@ -14,50 +14,55 @@
     "")
   ))
 
-(defwidget workspaces0 []
-  (literal :content workspaces0_literal)
-)
-
-(defwidget workspaces1 []
-  (literal :content workspaces1_literal)
-)
-
-(defwidget appnames0 []
-  (box
-    :class "appnames"
-    (eventbox
-      :onhover "${EWW_CMD} update control_reveal=true"
-      :onhoverlost "${EWW_CMD} update control_reveal=false"
-      (box
-        :orientation "h"
-        :space-evenly "false"
-        :vexpand "false"
-        :hexpand "false"
-        (literal :content appname0_literal)
-        (revealer
-          :transition "slideright"
-          :reveal control_reveal
-          :duration "350ms"
+(defwidget workspaces [?monitor]
+  (eventbox :onscroll "echo {{}} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch split-workspace"
+    (box 
+      :orientation "h" 
+      :spacing 3 
+      :space-evenly "false" 
+      :valign "center"
+      (for workspace in {monitor == 0 ? workspaces0_json["workspaces"] : workspaces1_json["workspaces"]}
+        (button
+          :class "${workspace["status"]}"
+          :onclick "hyprctl dispatch split-workspace 1" 
+          :tooltip "workspace ${workspace["displayNum"]}"
           (box
-            :vexpand "false"
-            :hexpand "false"
-            :orientation "h"
-            :space-evenly "false"
-            (button
-              :class "app-controls"
-              :onclick "hyprctl dispatch togglefloating 1"
-              :tooltip "toggle floating"
-            "")
-            (button
-              :class "app-controls"
-              :onclick "hyprctl dispatch fullscreen 1"
-              :tooltip "toggle fullscreen"
-            "")
-            (button
-              :class "app-controls"
-              :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');"
-              :tooltip "kill app"
-            "")
+            :orientation "v"
+            :spacing 3 
+            :space-evenly "false" 
+            :valign "center"
+            :class "workspaces"
+            (label
+              :class "workspace-num"
+              :tooltip "Workspace ${workspace["displayNum"]}"
+              :text "${workspace["displayNum"]}"
+            )
+            (box 
+              :orientation "h" 
+              :spacing 3 
+              :space-evenly "false" 
+              :valign "center" 
+              :class "workspace-icons-left"
+              (for icon in "${workspace["icons"][0]}"
+                (image
+                  :image-width "24" 
+                  :path "${icon}"
+                )
+              )
+            )
+            (box 
+              :orientation "h" 
+              :spacing 3 
+              :space-evenly "false" 
+              :valign "center" 
+              :class "workspace-icons-right"
+              (for icon in "${workspace["icons"][1]}"
+                (image
+                  :image-width "24" 
+                  :path "${icon}"
+                )
+              )
+            )
           )
         )
       )
@@ -65,43 +70,60 @@
   )
 )
 
-(defwidget appnames1 []
+(defwidget appnames [?monitor]
   (box
     :class "appnames"
     (eventbox
       :onhover "${EWW_CMD} update control_reveal=true"
       :onhoverlost "${EWW_CMD} update control_reveal=false"
       (box
-        :orientation "h"
-        :space-evenly "false"
-        :vexpand "false"
-        :hexpand "false"
-        (literal :content appname1_literal)
-        (revealer
-          :transition "slideright"
-          :reveal control_reveal
-          :duration "350ms"
-          (box
-            :vexpand "false"
-            :hexpand "false"
-            :orientation "h"
-            :space-evenly "false"
-            (button
-              :class "app-controls"
-              :onclick "hyprctl dispatch togglefloating 1"
-              :tooltip "toggle floating"
-            "")
-            (button
-              :class "app-controls"
-              :onclick "hyprctl dispatch fullscreen 1"
-              :tooltip "toggle fullscreen"
-            "")
-            (button
-              :class "app-controls"
-              :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');"
-              :tooltip "kill app"
-            "")
+        :orientation "v"
+        :space-evenly false
+        (box
+          :orientation "h"
+          :halign "start"
+          :space-evenly false
+          (image
+              :class "app-icon"
+              :image-width "36"
+              :path {monitor == 0 ? appname0_json["icon"] : appname1_json["icon"] })
+          (label
+              :class "app-name"
+              :limit-width "35"
+              :show-truncated true
+              :text {monitor == 0 ? appname0_json["title"] : appname1_json["title"] })
+          (revealer
+            :transition "slideright"
+            :reveal control_reveal
+            :duration "350ms"
+            (box
+              :vexpand "false"
+              :hexpand "false"
+              :orientation "h"
+              :space-evenly "false"
+              (button
+                :class "app-controls"
+                :onclick "hyprctl dispatch togglefloating 1"
+                :tooltip "toggle floating"
+              "")
+              (button
+                :class "app-controls"
+                :onclick "hyprctl dispatch fullscreen 1"
+                :tooltip "toggle fullscreen"
+              "")
+              (button
+                :class "app-controls"
+                :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');"
+                :tooltip "kill app"
+              "")
+            )
           )
+        )
+        (label
+          :class "lyrics"
+          :show-truncated true
+          :text "${lyrics}"
+          :visible "${lyrics != 'LYRICS: No TrackID'}"
         )
       )
     )
@@ -214,10 +236,8 @@
       :thickness 4
       (button
         :class "iconbat"
-        :limit-width 2
         :tooltip "battery on ${battery}%"
         :onclick "${EWW_CMD} open --toggle system"
-        :wrap false
       ""))))
 
 (defwidget mem []
@@ -228,10 +248,8 @@
       :thickness 4
       (button
         :class "iconmem"
-        :limit-width 2
         :tooltip "using ${EWW_RAM.used_mem_perc}% ram"
         :onclick "${EWW_CMD} open --toggle system"
-        :wrap false
       ""))))
 
 (defwidget clock_module []
@@ -291,7 +309,7 @@
     :class "left_modules"
     (launcher)
     (sep)
-    (workspaces0))
+    (workspaces :monitor 0))
 )
 
 (defwidget left1 []
@@ -301,8 +319,8 @@
     :halign "start"
     :class "left_modules"
     (launcher)
-    (sep)
-    (workspaces1))
+    (sep))
+    ; (workspaces1 :monitor 1)
 )
 
 (defwidget center0 []
@@ -310,7 +328,7 @@
     :space-evenly false
     :halign "center"
     :class "center_modules"
-    (appnames0))
+    (appnames :monitor 0))
 )
 
 (defwidget center1 []
@@ -318,7 +336,7 @@
     :space-evenly false
     :halign "center"
     :class "center_modules"
-    (appnames1))
+    (appnames :monitor 1))
 )
 
 (defwidget right0 []

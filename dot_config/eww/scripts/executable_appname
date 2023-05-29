@@ -1,83 +1,98 @@
-#!/bin/bash
+#!/usr/bin/env python3
 
-#define icons for workspaces 1-9
-firstMonitor="eDP-1"
-secondMonitor="HDMI-A-1"
-currMonitor=$firstMonitor
-targetMonitor=$1
-# check if target monitor is a number if it is not output usage
-if [[ $targetMonitor =~ ^[0-9]+$ ]]; then
-    if [[ $targetMonitor == 1 ]]; then
-        targetMonitor=$firstMonitor
-    elif [[ $targetMonitor == 2 ]]; then
-        targetMonitor=$secondMonitor
-    else
-        echo "Usage: $0 [1|2]"
-        exit 1
-    fi
-else
-    echo "Usage: $0 [1|2]"
-    exit 1
-fi
-currClass=""
-currIconPath=""
-currTitle=""
-fullTitle=""
-debug=$2
+import subprocess
+import re
+import json
+import os
+import sys
+import hyprland
 
-getIcon() {
-  class="$1"
-  # echo "Class: $class"
-  icon=$(geticons --no-fallbacks "$class" -s 24 -c 1| head -n 1)
-  if [[ $icon == "" ]]; then
-    lowerClass=$(echo "$class" | tr '[:upper:]' '[:lower:]')
-    icon=$(geticons --no-fallbacks "$lowerClass" -s 24 -c 1 | head -n 1)
-  fi
-  echo "$icon"
-}
 
-appnames() {
-if [[ ${1:0:14} == "activewindow>>" ]]; then #set focused workspace
-    if [[ $currMonitor == $targetMonitor ]]; then
-        string=${1:14}
-        currClass="${string/,*/}"
-        candidateClass=$(jq -r --arg class "$currClass" '.[$class]' ~/.config/eww/scripts/windowNames.json)
-        [[ $candidateClass != "null" ]] && currClass=$candidateClass
-        # give the current title with backslashes and quotes escaped two times
-        currTitle=$(echo "${string/*,/}" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g')
-        [[ $currTitle == "" ]] && currTitle="No title"
-        currIconPath=$(getIcon "$currClass")
-        fullTitle="$currClass | $currTitle"
-    fi
-elif [[ ${1:0:12} == "focusedmon>>" ]]; then #set focused monitor
-    string=${1:12}
-    currMonitor="${string/,*/}"
-fi
-if [[ $debug == "debug" ]]; then
-    echo "focusedmon>>$currMonitor"
-    echo "activewindow>>$currClass"
-    echo "icon>>$currIconPath"
-    echo "title>>$currTitle"
-    echo "fulltitle>>$fullTitle"
-else
-    echo 	"(box \
-                :orientation \"h\" \
-                :halign \"start\" \
-                :space-evenly false \
-                (image \
-                    :class \"app-icon\" \
-                    :path \"$currIconPath\" \
-                    :image-width \"36\") \
-                (label \
-                    :class \"app-name\" \
-                    :limit-width \"35\" \
-                    :show-truncated true \
-                    :text \"$fullTitle\" \
-                ) \
-        )"
-fi
-}
+class Appnames(hyprland.Events):
+	def __init__(self):
+		# Initialize hyprland
+		self.i = hyprland.info.Info()
+		self.c = hyprland.Config()
+		super().__init__()
 
-socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r event; do 
-appnames "$event"
-done
+		# Initialize variables
+		self.windowNames = json.loads(
+			open(os.path.expanduser("~/.config/eww/scripts/windowNames.json")).read()
+		)
+		self.firstMonitor = "eDP-1"
+		self.secondMonitor = "HDMI-A-1"
+		self.targetMonitor = sys.argv[1]
+
+		# check if target monitor is a number if it is not output usage
+		if re.match("^[0-9]+$", self.targetMonitor):
+			self.targetMonitor = int(self.targetMonitor)
+		else:
+			print("Usage: python script.py [0|1]")
+			sys.exit(1)
+
+		self.debug = sys.argv[2] if len(sys.argv) > 2 else ""
+
+		self.appgridIcon = "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"
+
+		self.focusedMon = self.targetMonitor
+		self.currClass = ""
+		self.currIconPath = ""
+		self.currTitle = ""
+
+	def getIcon(self, class_name):
+		icon_list = (
+			subprocess.check_output(
+				["geticons", "--no-fallbacks", class_name, "-s", "24", "-c", "1"]
+			)
+			.decode()
+			.splitlines()
+		)
+		icon = icon_list[0] if icon_list else None
+		if icon is None:
+			lowerClass = class_name.lower()
+			icon_list = (
+				subprocess.check_output(
+					["geticons", "--no-fallbacks", lowerClass, "-s", "24", "-c", "1"]
+				)
+				.decode()
+				.splitlines()
+			)
+			icon = icon_list[0] if icon_list else None
+		if icon is None and class_name.strip() != "":
+			# send a notification that icon with class_name was not found
+			subprocess.Popen(
+				[
+					"notify-send",
+					"-u",
+					"critical",
+					"-t",
+					"5000",
+					f"Icon not found for {class_name} manually fix in windowNames.json",
+				]
+			)
+			icon = self.appgridIcon
+		return icon
+
+	def logEvent(self, event):
+		if self.debug == "debug":
+			print(event)
+
+	def generate(self):
+		title = f"{self.currClass} | {self.currTitle}"
+		if self.currTitle == "":
+			self.currIconPath = self.appgridIcon
+			title = "No focused window"
+		print(json.dumps({"title": title, "icon": self.currIconPath}), flush=True)
+
+	async def on_activewindow(self, window_class, window_title):
+		if self.focusedMon == self.targetMonitor:
+			self.currClass = window_class
+			self.currTitle = window_title
+			self.currIconPath = self.getIcon(self.currClass)
+			self.logEvent(f"window changed to {window_class} with title {window_title}")
+			self.generate()
+
+
+a = Appnames()
+
+a.async_connect()

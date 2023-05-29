@@ -228,10 +228,17 @@ scale trough {
 }
 
 .workspaces {
-	font-size: 27px;
-	font-weight: normal;
-	margin: 10px 4px 0px 4px;
+	// border: 2px solid $purple;
+	margin: 0px 10px 0px 10px;
 	background-color: $transparent;
+}
+
+.workspace-num {
+	color: $white;
+	font-size: 22px;
+	font-weight: bold;
+	// padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
 }
 
 .active-workspace {
@@ -241,14 +248,6 @@ scale trough {
 
 .inactive-workspace {
 	margin-top: -5px;
-}
-
-.workspace-num {
-	color: $white;
-	font-size: 15px;
-	font-weight: bold;
-	// padding: 0px 0px 0px 0px;
-	// margin: -5px 0px 0px 0px;
 }
 
 .cal {
@@ -349,15 +348,13 @@ scale trough {
 }
 
 .appnames {
-	// stay always horizontally centered
-	margin: 25px 100px 0px 0px;
+	margin: 0px 100px 0px 0px;
 }
 
 .app-name {
 	color: $white;
 	font-size: 20px;
 	font-weight: bold;
-	margin: 0px 0px 0px 0px;
 }
 
 .app-icon {
@@ -368,7 +365,7 @@ scale trough {
 	color: $cyan;
 	font-size: 24px;
 	font-weight: bold;
-	margin: 0px 10px 23px 10px;
+	margin: 0px 10px 0px 10px;
 }
 
 .audio-box {

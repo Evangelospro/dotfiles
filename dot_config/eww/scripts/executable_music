@@ -112,6 +112,8 @@ lyrics() {
 TrackID=$(playerctl --player=$Control metadata --format {{mpris:trackid}} | sed -e 's/\/com\/spotify\/track\///g')
 if [ -n "$TrackID" ]; then
 	# echo "$TrackID"
+	# very hacky but it works
+	numOfLyricsToDisplay=$(($1-2))
 	data=$( curl -s --get "https://spotify-lyric-api.herokuapp.com/?trackid=$TrackID")
 	# check if it DOES NOT contain an "error" key
 	if [ "$(echo $data | jaq -r '.error')" != "true" ]; then
@@ -145,13 +147,12 @@ if [ -n "$TrackID" ]; then
 			for (( i = 0; i < ${#lyrTime[@]}; i++ )); do
 				# echo "${lyrTime[$i]}"
 				if [ "${lyrTime[$i]}" -gt "$timems" ]; then
-					# echo "Found"
-					# echo "${lyr[$i]}"
-					# echo "${lyr[$i+1]}"
-					# echo "${lyr[$i+2]}"
-					# echo "${lyr[$i+3]}"
-					# echo "${lyr[$i+4]}"
-					result="${lyrLines[$i-1]}\n${lyrLines[$i]}\n${lyrLines[$i+1]}\n${lyrLines[$i+1]}\n${lyrLines[$i+3]}"
+					# for loop to display the next "num" lyrics
+					result=""
+					for j in {-1..$numOfLyricsToDisplay}; do
+						# echo "${lyrLines[$i+$j]}"
+						result="$result${lyrLines[$i+$j]}\n"
+					done
 					break
 				fi
 			done
@@ -326,7 +327,7 @@ case $Control in
 		length)		length 					;;
 		percent)	echo "0"				;;
 		playlist)	playlist				;;
-		lyrics)		lyrics					;;
-		*)		doc					;;
+		lyrics)		lyrics $2			    ;;
+		*)		doc					        ;;
 	esac
 esac 2>/dev/null
