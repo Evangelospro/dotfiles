@@ -51,8 +51,8 @@ zi snippet $ZSH/scripts/utils/web-search.zsh
 zi ice wait
 zi light Game4Move78/zsh-bitwarden
 
-zi ice wait 
-zi light tom-auger/cmdtime
+# zi ice wait 
+# zi light tom-auger/cmdtime
 
 zi ice wait
 zi light jgogstad/passwordless-history

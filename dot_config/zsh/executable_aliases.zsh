@@ -107,7 +107,7 @@ alias which-command=whence
 alias fd='fd --hidden --follow'
 alias q='exit'
 alias hexdump='od -A x -t x1z -v'
-alias o='xdg-open'
+alias o='handlr open'
 # alias clear="$ZSH/scripts/utils/clear.sh"
 alias md='glow'
 alias wget="wget -c --hsts-file=$XDG_DATA_HOME/wget-hsts"
@@ -138,6 +138,7 @@ alias enable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=0'
 alias disable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=1'
 
 # Package managment / cleanup
+alias clear-cache='sudo rm -rf ~/.cache/*' # shows no mercy but it is cache right?
 alias clean-docker='docker system prune -f'
 alias clean-packages='sudo pacman -Rns $(pacman -Qtdq) && sudo \rm -rf /var/cache/pacman/pkg/*'
 alias clear-font-cache="fc-cache -f -v"

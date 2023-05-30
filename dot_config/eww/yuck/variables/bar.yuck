@@ -34,8 +34,8 @@
 ; Jsons
 (deflisten workspaces0_json "scripts/workspaces 0 nodebug")
 (deflisten workspaces1_json "scripts/workspaces 1 nodebug")
-(deflisten appname0_json "scripts/appname 1 nodebug")
-(deflisten appname1_json "scripts/appname 2 nodebug")
+(deflisten appname0_json "scripts/appname 0 nodebug")
+(deflisten appname1_json "scripts/appname 1 nodebug")
 
 ; revealers
 (defvar side_reveal false)

@@ -24,35 +24,36 @@
       (for workspace in {monitor == 0 ? workspaces0_json["workspaces"] : workspaces1_json["workspaces"]}
         (button
           :class "${workspace["status"]}"
-          :onclick "hyprctl dispatch split-workspace 1" 
-          :tooltip "workspace ${workspace["displayNum"]}"
+          :onclick "hyprctl dispatch split-workspace ${workspace["num"]}"
+          :tooltip "workspace ${workspace["num"]}"
           (box
             :orientation "v"
-            :spacing 3 
+            :spacing 1
             :space-evenly "false" 
             :valign "center"
             :class "workspaces"
             (label
               :class "workspace-num"
-              :tooltip "Workspace ${workspace["displayNum"]}"
-              :text "${workspace["displayNum"]}"
+              :tooltip "Workspace ${workspace["num"]}"
+              :text "${workspace["num"]}"
             )
             (box 
               :orientation "h" 
-              :spacing 3 
+              :spacing 1
               :space-evenly "false" 
               :valign "center" 
               :class "workspace-icons-left"
               (for icon in "${workspace["icons"][0]}"
                 (image
                   :image-width "24" 
+                  :image-height "24"
                   :path "${icon}"
                 )
               )
             )
             (box 
               :orientation "h" 
-              :spacing 3 
+              :spacing 1 
               :space-evenly "false" 
               :valign "center" 
               :class "workspace-icons-right"
@@ -86,6 +87,7 @@
           (image
               :class "app-icon"
               :image-width "36"
+              :image-height "36"
               :path {monitor == 0 ? appname0_json["icon"] : appname1_json["icon"] })
           (label
               :class "app-name"
@@ -319,8 +321,8 @@
     :halign "start"
     :class "left_modules"
     (launcher)
-    (sep))
-    ; (workspaces1 :monitor 1)
+    (sep)
+    (workspaces :monitor 1))
 )
 
 (defwidget center0 []

@@ -1,8 +1,14 @@
 {
-	"burp-StartBurp": "Burp",
-	"yad-icon-browser": "yad",
-	"org.kde.kdeconnect-settings": "kdeconnect",
-	"Microsoft Teams - Preview": "teams",
-	"imv": "image-viewer",
-	"ONLYOFFICE Desktop Editors": "onlyoffice-desktopeditors"
+	"burp-StartBurp": {"name":"BurpSuite", "icon":"burp"},
+	"yad-icon-browser": {"name":"Icon Browser", "icon":"yad"},
+	"org.kde.kdeconnect-settings": {"name":"KDEConnect Settings", "icon":"kdeconnect"},
+	"Microsoft Teams - Preview": {"name":"Microsoft Teams", "icon":"teams"},
+	"imv": {"name":"Image Viewer", "icon":"image-viewer"},
+	"ONLYOFFICE Desktop Editors": {"name":"onlyoffice", "icon":"onlyoffice-desktopeditors"},
+	"Rofi": {"name":"Rofi", "icon":"/usr/share/icons/hicolor/scalable/apps/rofi.svg"},
+	"Gimp-2.10": {"name":"Gimp", "icon":"gimp"},
+	"org.gnome.Nautilus": {"name":"Files", "icon":"nautilus"},
+	"org.wezfurlong.wezterm": {"name":"WezTerm", "icon":"org.wezfurlong.wezterm"},
+	"xournalpp": {"name":"Xournal++", "icon":"xournalpp"},
+	"org.kde.polkit-kde-authentication-agent-1": {"name":"Polkit-KDE", "icon":"password-manager"}
 }

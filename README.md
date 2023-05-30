@@ -10,8 +10,7 @@ rofi-git pavucontrol fd qt5ct qt6ct zsh wev wl-clipboard kwallet-pam cliphist ja
 swaybg grimblast-git ffmpegthumbnailer playerctl qtkeychain-qt6 flameshot-git batify2-git \
 noise-suppression-for-voice lf libdisplay-info \
 eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git plymouth\
-papirus-icon-theme-git swayosd-git swaync swaync-client wezterm swayidle geticons udiskie python-pywal sddm-theme-astronaut blueman
-
+papirus-icon-theme-git swayosd-git swaync swaync-client wezterm swayidle geticons udiskie python-pywal sddm-theme-astronaut blueman handlr-regexg
 pip install -r requirements.txt
 ```
 
@@ -22,6 +21,7 @@ pip install -r requirements.txt
 paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow 
 ```
 
+#### Systemd services
 ```
 sudo systemctl enable --now cpupower
 sudo systemctl enable --now pacman-cleanup-hook.timer
