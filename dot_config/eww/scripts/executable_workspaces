@@ -158,15 +158,8 @@ class Workspacer(hyprland.Events):
 			else:
 				status = "inactive-workspace"
 			self.workspaces[num]["status"] = status
-		print(json.dumps({
-			"monitorMap": self.monitormap,
-			"occupiedWorkspaces": self.occupiedWorkspaces,
-			"focusedMon": self.focusedMon,
-			"targetMonitor": self.targetMonitor,
-			"focusedws": self.focusedws,
-			# make self.workspaces a list instead of a dict for better user experience with eww, in addition set the num: key to the workspace number(1-10 always despite the monitor)
-			"workspaces": [{"num": i if i < self.numOfWorkspaces else i - self.numOfWorkspaces, **self.workspaces[i]} for i in self.workspaceRange]
-		}), flush=True)
+		print(json.dumps([{"num": i if i <= self.numOfWorkspaces else i - self.numOfWorkspaces, **self.workspaces[i]} for i in self.workspaceRange]
+		), flush=True)
 
 	def logEvent(self, event):
 		if self.debug == "debug":

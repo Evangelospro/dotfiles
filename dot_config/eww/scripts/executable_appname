@@ -117,20 +117,21 @@ class Appnames(hyprland.Events):
 
 	async def on_activewindow(self, window_class__, window_title__):
 		activeWindow = self.getActiveWindow()
-		window_class = activeWindow["class"]
-		window_title = activeWindow["title"]
-		self.focusedMon = activeWindow["monitor"]
-		self.logEvent(f"window changed to {window_class} with title {window_title} on monitor {self.focusedMon} target: {self.targetMonitor}")
-		if self.focusedMon == self.targetMonitor:
-			# get icon before changing currClass
-			self.currIconPath = self.getIcon(window_class)
-			try:
-				candidateName = self.windowNames[window_class]["name"]
-				self.currClass = candidateName
-			except KeyError:
-				self.currClass = window_class
-			self.currTitle = window_title
-			self.generate()
+		if activeWindow:
+			window_class = activeWindow["class"]
+			window_title = activeWindow["title"]
+			self.focusedMon = activeWindow["monitor"]
+			self.logEvent(f"window changed to {window_class} with title {window_title} on monitor {self.focusedMon} target: {self.targetMonitor}")
+			if self.focusedMon == self.targetMonitor:
+				# get icon before changing currClass
+				self.currIconPath = self.getIcon(window_class)
+				try:
+					candidateName = self.windowNames[window_class]["name"]
+					self.currClass = candidateName
+				except KeyError:
+					self.currClass = window_class
+				self.currTitle = window_title
+				self.generate()
 
 
 a = Appnames()

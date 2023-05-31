@@ -16,12 +16,12 @@
 
 (defwidget workspaces [?monitor]
   (eventbox :onscroll "echo {{}} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch split-workspace"
-    (box 
-      :orientation "h" 
-      :spacing 3 
-      :space-evenly "false" 
+    (box
+      :orientation "h"
+      :spacing 3
+      :space-evenly "false"
       :valign "center"
-      (for workspace in {monitor == 0 ? workspaces0_json["workspaces"] : workspaces1_json["workspaces"]}
+      (for workspace in {monitor == 0 ? workspaces0_json : workspaces1_json}
         (button
           :class "${workspace["status"]}"
           :onclick "hyprctl dispatch split-workspace ${workspace["num"]}"
@@ -29,7 +29,7 @@
           (box
             :orientation "v"
             :spacing 1
-            :space-evenly "false" 
+            :space-evenly "false"
             :valign "center"
             :class "workspaces"
             (label
@@ -37,29 +37,29 @@
               :tooltip "Workspace ${workspace["num"]}"
               :text "${workspace["num"]}"
             )
-            (box 
-              :orientation "h" 
+            (box
+              :orientation "h"
               :spacing 1
-              :space-evenly "false" 
-              :valign "center" 
+              :space-evenly "false"
+              :valign "center"
               :class "workspace-icons-left"
               (for icon in "${workspace["icons"][0]}"
                 (image
-                  :image-width "24" 
+                  :image-width "24"
                   :image-height "24"
                   :path "${icon}"
                 )
               )
             )
-            (box 
-              :orientation "h" 
-              :spacing 1 
-              :space-evenly "false" 
-              :valign "center" 
+            (box
+              :orientation "h"
+              :spacing 1
+              :space-evenly "false"
+              :valign "center"
               :class "workspace-icons-right"
               (for icon in "${workspace["icons"][1]}"
                 (image
-                  :image-width "24" 
+                  :image-width "24"
                   :path "${icon}"
                 )
               )
@@ -85,15 +85,15 @@
           :halign "start"
           :space-evenly false
           (image
-              :class "app-icon"
-              :image-width "36"
-              :image-height "36"
-              :path {monitor == 0 ? appname0_json["icon"] : appname1_json["icon"] })
+            :class "app-icon"
+            :image-width "36"
+            :image-height "36"
+          :path {monitor == 0 ? appname0_json["icon"] : appname1_json["icon"] })
           (label
-              :class "app-name"
-              :limit-width "35"
-              :show-truncated true
-              :text {monitor == 0 ? appname0_json["title"] : appname1_json["title"] })
+            :class "app-name"
+            :limit-width "35"
+            :show-truncated true
+          :text {monitor == 0 ? appname0_json["title"] : appname1_json["title"] })
           (revealer
             :transition "slideright"
             :reveal control_reveal
@@ -184,7 +184,7 @@
 (defwidget bluetooth []
   (button
     :class "module-bluetooth"
-    :onclick "blueman-manager"
+    :onclick "blueman-manager &"
     (image :path "${EWW_CONFIG_DIR}/images/bluetooth.svg")
   )
 )
@@ -200,13 +200,17 @@
         :onclick "${EWW_CONFIG_DIR}/scripts/wifi_menu &"
         (image :path "${EWW_CONFIG_DIR}/images/wifi.svg")
       )
-      (revealer
-        :transition "slideright"
-        :reveal wifi_reveal
-        :duration "350ms"
-        (label
-          :class "module_essid"
-          :text ESSID_WLAN
+      (button
+        :class "module-wifi"
+        :onclick "${EWW_CONFIG_DIR}/scripts/wifi_menu &"
+        (revealer
+          :transition "slideright"
+          :reveal wifi_reveal
+          :duration "350ms"
+          (label
+            :class "module_essid"
+            :text ESSID_WLAN
+          )
         )
       )
     )
@@ -409,7 +413,24 @@
   ))
 
 (defwidget indicators []
-  (literal :content indicators_literal)
+  (box
+    :orientation "h"
+    :spacing 3 
+    :space-evenly "false" 
+    :valign "center" 
+    :class "indicators"
+    (label 
+      :text "${indicators_json["layout"]}")
+    (image 
+      :path "${EWW_CONFIG_DIR}/images/capslock-${indicators_json["caps_lock"]}.svg")
+    (image 
+      :path "${EWW_CONFIG_DIR}/images/numlock-${indicators_json["num_lock"]}.svg")
+    (button 
+      :onclick "${indicators_json["caffeine_command"]}"
+      (image 
+        :path "${EWW_CONFIG_DIR}/images/caffeine-${indicators_json["caffeine_state"]}.svg")
+    )
+  )
 )
 
 (defwidget notification-button[]

@@ -10,5 +10,6 @@
 	"org.gnome.Nautilus": {"name":"Files", "icon":"nautilus"},
 	"org.wezfurlong.wezterm": {"name":"WezTerm", "icon":"org.wezfurlong.wezterm"},
 	"xournalpp": {"name":"Xournal++", "icon":"xournalpp"},
-	"org.kde.polkit-kde-authentication-agent-1": {"name":"Polkit-KDE", "icon":"password-manager"}
+	"org.kde.polkit-kde-authentication-agent-1": {"name":"Polkit-KDE", "icon":"password-manager"},
+	"blueman-manager": {"name":"Bluetooth Manager", "icon":"blueman"}
 }

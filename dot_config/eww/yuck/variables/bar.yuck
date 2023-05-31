@@ -1,6 +1,4 @@
 ; top bar
-(deflisten indicators_literal "scripts/indicators nodebug")
-
 ; Clock / Calendar
 (defpoll clock_time :interval "5s" "date '+\%l\%M \%p'")
 (defpoll clock_date :interval "10h" "date '+%b %d, %Y'")
@@ -32,10 +30,11 @@
 (defpoll lyrics	:initial "" :interval "1s" "scripts/music lyrics 2")
 
 ; Jsons
-(deflisten workspaces0_json "scripts/workspaces 0 nodebug")
-(deflisten workspaces1_json "scripts/workspaces 1 nodebug")
-(deflisten appname0_json "scripts/appname 0 nodebug")
-(deflisten appname1_json "scripts/appname 1 nodebug")
+(deflisten indicators_json :inital '[{"caps_lock": "inactive", "num_lock": "active", "caffeine_state": "inactive", "caffeine_command": "", "layout": "US"}]' "scripts/indicators nodebug")
+(deflisten workspaces0_json :initial '[{"num": 1, "status": "active-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 2, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 3, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 4, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 5, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 6, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 7, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 8, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 9, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 10, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}]' "scripts/workspaces 0 nodebug")
+(deflisten workspaces1_json :initial '[{"num": 11, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 12, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 13, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 14, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 15, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 16, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 17, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 18, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 19, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 20, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}]' "scripts/workspaces 1 nodebug")
+(deflisten appname0_json :inital '[{"title": "No focused window", "icon": "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"}]' "scripts/appname 0 nodebug")
+(deflisten appname1_json :initial '[{"title": "No focused window", "icon": "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"}]' "scripts/appname 1 nodebug")
 
 ; revealers
 (defvar side_reveal false)

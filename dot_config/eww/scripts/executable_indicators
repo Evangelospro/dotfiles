@@ -5,6 +5,7 @@ import hyprland
 import sys
 import os
 import subprocess
+import json
 
 class Indicators(hyprland.Events):
 	def __init__(self):
@@ -20,45 +21,40 @@ class Indicators(hyprland.Events):
 		self.external_keyboard_name = "compx-2.4g-receiver"
 		self.HOME = os.environ["HOME"]
 		self.caps_lock = 'inactive'
-		self.num_lock = 'inactive'
+		self.num_lock = 'active' # enable numlock by default on startup
 		self.caffeine_state = 'inactive'
 		self.swayidle_activate = "swayidle &"
 		self.swayidle_deactivate = "pkill -9 swayidle"
 		super().__init__()
+
+	def logEvent(self, event):
+		if self.debug == "debug":
+			print(event)
 
 	async def locks(self):
 		async for ev in self.keyboard.async_read_loop():
 			if ev.type == ecodes.EV_LED:
 				value = ev.value
 				if ev.code == ecodes.LED_CAPSL:
-					if self.debug == "debug":
-						print(f"Caps lock: {value}")
+					self.logEvent(f"Caps lock: {value}")
 					self.caps_lock = 'active' if value == 1 else 'inactive'
 				if ev.code == ecodes.LED_NUML:
-					if self.debug == "debug":
-						print(f"Num lock: {value}")
+					self.logEvent(f"Num lock: {value}")
 					self.num_lock = 'active' if value == 1 else 'inactive'
-
-	async def update_lock_status_periodically(self, interval):
-		while True:
-			await self.locks()
-			await asyncio.sleep(interval)
 
 	async def swayidleUpdate(self):
 		try:
 			subprocess.check_output(["pgrep", "swayidle"])
 		except subprocess.CalledProcessError:
 			self.caffeine_state = 'active'
-			if self.debug == "debug":
-				print("Swayidle is not running")
+			self.logEvent("Swayidle is not running")
 		else:
 			self.caffeine_state = 'inactive'
-			if self.debug == "debug":
-				print("Swayidle is running")
+			self.logEvent("Swayidle is running")
 	
-	async def update_swayidle_status_periodically(self, interval):
+	async def update_periodically(self, function, interval):
 		while True:
-			await self.swayidleUpdate()
+			await function()
 			await asyncio.sleep(interval)
 
 	async def on_activelayout(self, keyboard, layout):
@@ -67,37 +63,29 @@ class Indicators(hyprland.Events):
 		if self.debug == "debug":
 			print(f"Keyboard: {keyboard}")
 			print(f"Layout: {self.layout}")
-		await self.generate()
+		await self.generateJSON()
 
-	async def generate(self):
-		widget = f"""
-		(box :orientation \"h\" :spacing 3 :space-evenly \"false\" :valign \"center\" :class \"indicators\"   
-			(label :text \"{self.layout}\")
-			(image :path \"{self.HOME}/.config/eww/images/capslock-{self.caps_lock}.svg\")
-			(image :path \"{self.HOME}/.config/eww/images/numlock-{self.num_lock}.svg\")
-			(button :onclick \"{self.swayidle_activate if self.caffeine_state == 'active' else self.swayidle_deactivate}\" 
-				(image :path \"{self.HOME}/.config/eww/images/caffeine-{self.caffeine_state}.svg\") 
-			)
-		)"""
-		if self.debug != "debug":
-			# eww doesn't like newlines
-			print(widget.replace("\n", ""), flush=True)
-
-	async def generate_periodically(self, interval):
-		while True:
-			await self.generate()
-			await asyncio.sleep(interval)
+	async def generateJSON(self):
+		print(json.dumps({
+			"caps_lock": self.caps_lock,
+			"num_lock": self.num_lock,
+			"caffeine_state": self.caffeine_state,
+			"caffeine_command": self.swayidle_activate if self.caffeine_state == 'active' else self.swayidle_deactivate,
+			"layout": self.layout
+		}), flush=True)
 
 	async def on_connect(self):
 		if self.debug == "debug":
 			print("Connected to Hyprland socket")
 		self.c = await hyprland.Config.from_conf()
 
-		asyncio.create_task(self.update_lock_status_periodically(1))
+		DELAY = 0.5
 
-		asyncio.create_task(self.update_swayidle_status_periodically(1))
+		asyncio.create_task(self.update_periodically(self.swayidleUpdate, DELAY))
 
-		asyncio.create_task(self.generate_periodically(1))
+		asyncio.create_task(self.update_periodically(self.locks, DELAY))
+
+		asyncio.create_task(self.update_periodically(self.generateJSON, DELAY))
 
 indicators = Indicators()
 
