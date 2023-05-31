@@ -128,7 +128,7 @@ def lyrics(numOfLines):
 		if ACTIVE:
 			trackid = trackID()
 			if trackid == "No Track ID":
-				print(trackid, flush=True)
+				print(json.dumps(["No Lyrics: trackID not found"]), flush=True)
 			lyrics = requests.get(f"{API}/?trackid={trackid}").json()
 			if lyrics["error"] == False:
 				prevIndex = 0
@@ -145,6 +145,8 @@ def lyrics(numOfLines):
 					if (i != prevIndex or prevIndex == 0) and results != json.dumps([""]):
 						prevIndex = i
 						print(results, flush=True)
+			else:
+				print(json.dumps(["No Lyrics: API Error"]), flush=True)
 
 ########################## Main Function ##########################
 def main():
