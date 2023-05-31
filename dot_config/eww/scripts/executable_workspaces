@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# Author: https://github.com/Evangelospro
+
 import subprocess
 import re
 import json
@@ -128,16 +130,16 @@ class Workspacer(hyprland.Events):
 			icon = icon_list[0] if icon_list else None
 		if icon is None and class_name.strip() != "":
 			# send a notification that icon with class_name was not found
-			subprocess.Popen(
-				[
-					"notify-send",
-					"-u",
-					"critical",
-					"-t",
-					"5000",
-					f"Icon not found for {class_name} manually fix in windowNames.json",
-				]
-			)
+			# subprocess.Popen(
+			# 	[
+			# 		"notify-send",
+			# 		"-u",
+			# 		"critical",
+			# 		"-t",
+			# 		"5000",
+			# 		f"Icon not found for {class_name} manually fix in windowNames.json",
+			# 	]
+			# )
 			icon = self.appgridIcon
 		return icon
 

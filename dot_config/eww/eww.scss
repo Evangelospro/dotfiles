@@ -347,14 +347,42 @@ scale trough {
 	margin: 15px 10px 0px 20px;
 }
 
-.appnames-no-lyrics {
+.appnames-no-music {
 	margin: 28px 100px 0px 0px;
 	padding: 0px 0px 0px 0px;
 }
 
-.appnames-lyrics {
+.appnames-music {
 	margin: 0px 100px 0px 0px;
 	padding: 0px 0px 0px 0px;
+}
+
+.music-lyrics{
+	color: $purple;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0px 0px 0px 0px;
+}
+
+.music-controls-previous{
+	color: $cyan;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0px 10px 0px 10px;
+}
+
+.music-controls-play{
+	color: $cyan;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0px 10px 0px 10px;
+}
+
+.music-controls-next{
+	color: $cyan;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0px 10px 0px 10px;
 }
 
 .app-name {

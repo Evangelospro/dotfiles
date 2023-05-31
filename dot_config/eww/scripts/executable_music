@@ -1,333 +1,186 @@
-#!/bin/zsh
+#!/usr/bin/env python3
 
-# ╔╦╗ ╦ ╦ ╔═╗ ╦ ╔═╗
-# ║║║ ║ ║ ╚═╗ ║ ║  
-# ╩ ╩ ╚═╝ ╚═╝ ╩ ╚═╝
+# Author: https://github.com/Evangelospro
 
-# author	Niraj
-# github	niraj998
+#!/usr/bin/env python3
 
-# ┌─┐┌─┐┌┐┌┌─┐┬┌─┐┬ ┬┬─┐┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
-# │  │ ││││├┤ ││ ┬│ │├┬┘├─┤ │ ││ ││││└─┐
-# └─┘└─┘┘└┘└  ┴└─┘└─┘┴└─┴ ┴ ┴ ┴└─┘┘└┘└─┘
+import subprocess
+import os
+import requests
+from urllib.parse import quote
+import json
+from math import floor
+import sys
 
-# uncomment your music players below.
-# 
-
-# Control="MPD"
-[ -n "$(pgrep spotify)" ] && Control="spotify"
-# [ -n "$(pgrep brave-bin)" ] && Control="brave-bin"
-# [ -n "$(pgrep rhythmbox)" ] && Control="rhythmbox"
-# [ -n "$(pgrep audacious)" ] && Control="audacious"
-# [ -n "$(pgrep clementine)" ] && Control="clementine"
-# [ -n "$(pgrep strawberry)" ] && Control="strawberry"
-
-
+Control = "spotify"
 
 # saves covers here
-Cover=/tmp/cover.png
+Cover = "/tmp/cover.png"
 # if cover not found in metadata use this instead
-bkpCover=~/.config/eww/music.png
-# mpd music directory
-mpddir="$HOME/Music/"
-
-# ┌─┐┬  ┌─┐┬ ┬┌─┐┬─┐┌─┐┌┬┐┬    ┌─┐┌─┐┬─┐┬┌─┐┌┬┐┌─┐
-# ├─┘│  ├─┤└┬┘├┤ ├┬┘│   │ │    └─┐│  ├┬┘│├─┘ │ └─┐
-# ┴  ┴─┘┴ ┴ ┴ └─┘┴└─└─┘ ┴ ┴─┘  └─┘└─┘┴└─┴┴   ┴ └─┘
+bkpCover = os.path.expanduser("~/.config/eww/music.png")
 
 ########################## Title ##########################
-title() {
-title=$(playerctl --player=$Control metadata --format {{title}})
-[ -z "$title" ] && title="Play Something"
-echo "$title"
-}
+def title():
+	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{title}}"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if not output:
+		output = "Play Something"
+	return output
 
 ########################## Artist ##########################
-artist() {
-artist=$(playerctl --player=$Control metadata --format {{artist}})
-[ -z "$artist" ] && artist="Artist"
-echo "$artist"
-}
+def artist():
+	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{artist}}"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if not output:
+		output = "Artist"
+	return output
 
 ########################## Album ##########################
-album() {
-album=$(playerctl --player=$Control metadata --format {{album}})
-[ -z "$album" ] && album="Album"
-echo "$album"
-}
+def album():
+	result =subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{album}}"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if not output:
+		output = "Album"
+	return output
 
 ########################## Status ##########################
-status() {
-status=$(playerctl --player=$Control status)
-[ -z "$status" ] && status="Stopped"
-echo "$status"
-}
+def status():
+	result = subprocess.run(["playerctl", f"--player={Control}", "status"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if output:
+		return output
 
 ########################## Time ##########################
-ctime() {
-time=$(playerctl --player=$Control position --format "{{ duration(position) }}")
-[ -z "$time" ] && time="0:00"
-echo "$time"
-}
+def position_min():
+	result = subprocess.run(["playerctl", f"--player={Control}", "position", "--format", "{{ duration(position) }}"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if not output:
+		output = "00:00"
+	return output
 
-########################## Time ##########################
-time_ms() {
-# return time in milliseconds
-postime=$(playerctl --player=$Control position)
-timems=$((echo "$postime * 1000" | bc))
-echo $timems
-}
+def position_ms():
+	result = subprocess.run(["playerctl", f"--player={Control}", "position", "--format", "{{ position }}"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if not output:
+		output = "00:00"
+	return int(int(output) / 1000)
 
 ########################## Length ##########################
-length() {
-length=$(playerctl --player=$Control metadata --format "{{ duration(mpris:length) }}")
-[ -z "$length" ] && length="0:00"
-echo "$length"
-}
+def length_min():
+	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{ duration(mpris:length) }}"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if not output:
+		output = "00:00"
+	return output
+
+def length_ms():
+	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{ mpris:length }}"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if not output:
+		output = "00:00"
+	return output
 
 ########################## trackNumber ##########################
-playlist() {
-playlist=$(playerctl --player=$Control metadata xesam:trackNumber)
-[ -z "$playlist" ] && playlist='"No playlist"'
-echo "$playlist"
-}
+def trackNumber():
+	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "xesam:trackNumber"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if not output:
+		output = "No Track Number"
+	return output
 
-########################## Cover ##########################
-cover() {
-albumart="$(playerctl --player=$Control metadata mpris:artUrl | sed -e 's/open.spotify.com/i.scdn.co/g')"
-[ $(playerctl --player=$Control metadata mpris:artUrl) ] && curl -s "$albumart" --output $Cover || cp $bkpCover $Cover 
-echo "$Cover"
-}
+########################## trackID ##############################
+def trackID():
+	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "mpris:trackid"], capture_output=True, text=True)
+	output = result.stdout.strip()
+	if output:
+		return output.replace("/com/spotify/track/", "")
+	return "No Track ID"
+
+########################## Cover ###############################
+def cover():
+	albumArtUrl = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{mpris:artUrl}}"], capture_output=True, text=True).stdout.strip()
+	if albumArtUrl:
+		albumArtUrl = albumArtUrl.replace("open.spotify.com", "i.scdn.co")
+		response = requests.get(albumArtUrl)
+		if response.status_code == 200:
+			with open(Cover, "wb") as f:
+				f.write(response.content)
+		else:
+			os.copy(bkpCover, Cover)
 
 ########################## Statusicon ##########################
-statusicon() {
-icon=""
-[ $(playerctl --player=$Control status) = "Playing" ] && icon=""
-[ $(playerctl --player=$Control status) = "Paused" ] && icon=""
-echo "$icon"
-}
+def statusicon():
+	if status() == "Playing":
+		icon=""
+	elif status() == "Paused":
+		icon=""
+	else:
+		icon=""
+	print(icon, flush=True)
+
 
 ########################## Lyrics ##########################
-lyrics() {
-TrackID=$(playerctl --player=$Control metadata --format {{mpris:trackid}} | sed -e 's/\/com\/spotify\/track\///g')
-if [ -n "$TrackID" ]; then
-	# echo "$TrackID"
-	# very hacky but it works
-	numOfLyricsToDisplay=$(($1-2))
-	data=$( curl -s --get "https://spotify-lyric-api.herokuapp.com/?trackid=$TrackID")
-	# check if it DOES NOT contain an "error" key
-	if [ "$(echo $data | jaq -r '.error')" != "true" ]; then
-		# echo "No errors"
-		lyrics=$( echo $data | jaq -r '.lines[] | .startTimeMs, .words' )
-		if [ -n "$lyrics" ]; then
-			# echo "$lyrics"
-			# ok so the output is json display the current lyric(and next 4) based on the time
-			postime=$(playerctl --player=$Control position)
-			timems=$(echo "$postime * 1000" | bc | sed -e 's/\..*$//g')
-			# echo "$timems"
-			# find the line number of the lyric with the time closest to the current time
-			# first line is the time, second line is the lyric
-			# break the loop when the time is greater than the current time
-			# process the lyrics and make it into two arrays one for time and one for lyrics
+def lyrics(numOfLines):
+	RANGE = 300
+	API = "https://spotify-lyric-api.herokuapp.com"
+	while True:
+		ACTIVE = status() == "Playing"
+		if ACTIVE:
+			trackid = trackID()
+			if trackid == "No Track ID":
+				print(trackid, flush=True)
+			lyrics = requests.get(f"{API}/?trackid={trackid}").json()
+			if lyrics["error"] == False:
+				prevIndex = 0
+				PLAYING = True
+				while PLAYING:
+					currTimems = position_ms()
+					for i, lyric in enumerate(lyrics["lines"]):
+						if abs(currTimems - int(lyric["startTimeMs"])) < RANGE:
+							if i == len(lyrics["lines"]) - 1:
+								PLAYING = False
+							break
+					# turn the lines into a json list for eww
+					results = json.dumps([lyric["words"] for lyric in lyrics["lines"][i:i+numOfLines]])
+					if (i != prevIndex or prevIndex == 0) and results != json.dumps([""]):
+						prevIndex = i
+						print(results, flush=True)
 
-			lyrTime=()
-			lyrLines=()
-			while IFS= read -r line; do
-				lyrTime+=("$line")
-				IFS= read -r line
-				lyrLines+=("$line")
-			done < <(echo "$lyrics")
+########################## Main Function ##########################
+def main():
+	command = sys.argv[1]
+	# switch case in python
+	match command:
+		case "title":
+			print(title())
+		case "artist":
+			print(artist())
+		case "album":
+			print(album())
+		case "status":
+			while True:
+				print(status())
+		case "position_min":
+			print(position_min())
+		case "position_ms":
+			print(position_ms())
+		case "length_min":
+			print(length_min())
+		case "length_ms":
+			print(length_ms())
+		case "trackNumber":
+			print(trackNumber())
+		case "trackID":
+			print(trackID())
+		case "cover":
+			print(cover())
+		case "statusicon":
+			while True:
+				statusicon()
+		case "lyrics":
+			numOfLines = sys.argv[2] if len(sys.argv) > 2 else 5
+			lyrics(int(numOfLines))
 
-			# echo "${time[@]}"
-			# echo "${lyr[@]}"
+if __name__ == "__main__":
+	main()
 
-			# display the current lyric and the next 4
-			result=""
-			delay=100
-			for (( i = 0; i < ${#lyrTime[@]}; i++ )); do
-				# echo "${lyrTime[$i]}"
-				if [ "${lyrTime[$i]}" -gt "$timems" ]; then
-					# for loop to display the next "num" lyrics
-					result=""
-					for j in {-1..$numOfLyricsToDisplay}; do
-						# echo "${lyrLines[$i+$j]}"
-						result="$result${lyrLines[$i+$j]}\n"
-					done
-					break
-				fi
-			done
-			echo "$result"
-		else
-			echo "LYRICS: No Lyrics"
-		fi
-	else
-		echo "LYRICS: API errors"
-	fi
-else
-	echo "LYRICS: No TrackID"
-fi
-}
-
-# ┌┬┐┌─┐┌┬┐  ┌─┐┌─┐┬─┐┬┌─┐┌┬┐┌─┐
-# │││├─┘ ││  └─┐│  ├┬┘│├─┘ │ └─┐
-# ┴ ┴┴  ─┴┘  └─┘└─┘┴└─┴┴   ┴ └─┘
-
-########################## Title ##########################
-mpctitle() {
-title=$(mpc -f %title% current)
-[ -z "$title" ] && title="Play Something"
-echo "$title"
-}
-
-########################## Artist ##########################
-mpcartist() {
-artist=$(mpc -f %artist% current)
-[ -z "$artist" ] && artist="Artist"
-echo "$artist"
-}
-
-########################## Album ##########################
-mpcalbum() {
-album=$(mpc -f %album% current)
-[ -z "$album" ] && album="Album" 
-echo "$album"
-}
-
-########################## Cover ##########################
-mpccover() {
-ffmpeg -i "$mpddir"/"$(mpc current -f %file%)" "${Cover}" -y || cp $bkpCover $Cover
-echo "$Cover" && exit
-}
-
-########################## Time ##########################
-mpctime() {
-time=$(mpc status %currenttime%)
-[ -z "$time" ] && time="0:00"
-echo "$time"
-}
-
-########################## Length ##########################
-mpclength() {
-length=$(mpc status %totaltime%)
-[ -z "$length" ] && length="0:00" 
-echo "$length"
-}
-
-########################## Icon ##########################
-mpcicon() {
-status=$(mpc status | head -2 | tail -1 | cut -c2-7 )
-icon=""
-[ "$status" = "playin" ] && icon=""
-[ "$status" = "paused" ] && icon=""
-echo "$icon"
-}
-
-########################## Status ##########################
-mpcstatus() {
-stat=$(mpc status | head -2 | tail -1 | cut -c2-7 )
-status="Stopped"
-[ "$stat" = "playin" ] && status="Playing"
-[ "$stat" = "paused" ] && status="Paused"
-echo "$status"
-}
-
-########################## Percent ##########################
-mpcperc() {
-perc=$(mpc status %percenttime%)
-[ -z "$perc" ] && perc="0" 
-echo "$perc"
-}
-
-########################## Playlist ##########################
-mpcsongpos() {
-pos=$(mpc status %songpos%)
-allsongs=$(mpc status %length%)
-playlist="$pos/$allsongs"
-[ -z "$pos" ] && playlist="0/0"
-echo "$playlist"
-}
-
-########################## Lyrics ##########################
-mpclyrics() {
-Title=$(mpc -f %title% current)
-Artist=$(mpc -f %artist% current)
-URL="https://api.lyrics.ovh/v1/$Artist/$Title"
-lyrics=$(curl -s "$( echo "$URL" | sed s/" "/%20/g | sed s/"&"/%26/g | sed s/,/%2C/g | sed s/-/%2D/g)" | jq '.lyrics' )
-[ "$lyrics" = "null" ] && lyrics=$( curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$Artist" --data-urlencode "title=$Title")
-printf "$lyrics" | less
-}
-
-# ┬ ┬┌─┐┬  ┌─┐
-# ├─┤├┤ │  ├─┘
-# ┴ ┴└─┘┴─┘┴  
-
-doc() {
-echo "Usage:
-  music [Options]
-
-Options:
-  previous	previous song
-  next		next song
-  toggle	toggle between play-pause song
-  title		shows title of current song
-  album		shows album of current song
-  artist	shows artist of current song
-  status	music status (playing/paused/stopped)
-  statusicon	music status icons (playing/paused/stopped)
-  coverloc	saves cover and shows location to cover of current song
-  showcover	opens cover using feh
-  time		shows current time of song
-  length	shows length of song
-  percent	shows percent song
-  playlist	shows playlist position of current song
-  lyrics	shows lyrics"
-}
-
-# ┌─┐┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
-# │ │├─┘ │ ││ ││││└─┐
-# └─┘┴   ┴ ┴└─┘┘└┘└─┘
-
-case $Control in
-	MPD)
-	case $1 in 
-		next)		mpc -q next		;;
-		previous)	mpc -q prev		;;
-		toggle)		mpc -q toggle		;;
-		title)		mpctitle		;;
-		artist)		mpcartist		;;
-		album)		mpcalbum		;;
-		status)		mpcstatus		;;
-		statusicon)	mpcicon			;;
-		player)		echo "$Control"		;;
-		coverloc)	mpccover		;;
-		showcover)	mpccover | xargs feh	;;
-		time)		mpctime			;;
-		length)		mpclength		;;
-		percent)	mpcperc			;;
-		playlist)	mpcsongpos		;;
-		lyrics)		mpclyrics		;;
-		*)		doc			;;
-	esac
-	;;
-	*)
-	case $1 in 
-		next)		playerctl --player=$Control next	;;
-		previous)	playerctl --player=$Control previous	;;
-		toggle)		playerctl --player=$Control play-pause	;;
-		title)		title					;;
-		artist)		artist					;;
-		album)		album					;;
-		status)		status					;;
-		statusicon)	statusicon				;;
-		player)		echo "$Control"			;;
-		coverloc)	cover					;;
-		showcover)	cover | xargs feh 	 	;;
-		ctime)		ctime 					;;
-		time)		time_ms 				;;
-		length)		length 					;;
-		percent)	echo "0"				;;
-		playlist)	playlist				;;
-		lyrics)		lyrics $2			    ;;
-		*)		doc					        ;;
-	esac
-esac 2>/dev/null
