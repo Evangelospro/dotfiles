@@ -6,9 +6,10 @@
     :x "15px"
     :y "9px"
     :width "99%"
-    :height "100px"
+    :height "91px"
   :anchor "top center")
-  (bar_layout0))
+  (bar_layout :monitor 0)
+)
 
 (defwindow bar1
   :exclusive true
@@ -18,9 +19,10 @@
     :x "15px"
     :y "9px"
     :width "99%"
-    :height "100px"
+    :height "91px"
   :anchor "top center")
-  (bar_layout1))
+  (bar_layout :monitor 1)
+)
 
 (defwindow audio_ctl
   :stacking "fg"
@@ -66,7 +68,8 @@
   :stacking "fg"
   :screen 1
   :monitor 0
-  :geometry (geometry :x "0px"
+  :geometry (geometry 
+    :x "0px"
     :y "10px"
     :width "1px"
     :height "92%"

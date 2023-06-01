@@ -1,7 +1,3 @@
-ataka_completion() {
-    eval $(env _TYPER_COMPLETE_ARGS="${words[1,$CURRENT]}" _PYTHON _M ATAKA_COMPLETE=complete_zsh python -m ataka)
-}
-
 # clipboard
 # X11 / Wayland
 function copy() {
@@ -122,27 +118,72 @@ cd () {
 	fi
 }
 
-urlencode() {
-LC_ALL=C awk -- '
-    BEGIN {
-    for (i = 1; i <= 255; i++) hex[sprintf("%c", i)] = sprintf("%%%02X", i)
-    }
-    function urlencode(s,  c,i,r,l) {
-    l = length(s)
-    for (i = 1; i <= l; i++) {
-        c = substr(s, i, 1)
-        r = r "" (c ~ /^[-._~0-9a-zA-Z]$/ ? c : hex[c])
-    }
-    return r
-    }
-    BEGIN {
-    for (i = 1; i < ARGC; i++)
-        print urlencode(ARGV[i])
-    }' "$@"
-}
-
 # Time Zshell loading time
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do time $shell -i -c exit; done
+}
+
+# Hacking
+scan() {
+    \rustscan --ulimit 5000 -b 3000 -a $1 -- -sC -sV
+}
+
+urlencode() {
+    python3 -c "from pwn import *; print(urlencode('$1'));"
+}
+
+urldecode() {
+    python3 -c "from pwn import *; print(urldecode('$1'));"
+}
+
+ffuf-vhost() {
+    arg_count=3
+    if [[ $2 && $2 != -* ]]; then
+        wordlist=$2
+    else
+        wordlist='/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt'
+        arg_count=2
+    fi
+    ffuf -c -H "Host: FUZZ.$1" -u http://$1 -w $wordlist ${@: $arg_count};
+}
+
+ffuf-dir() {
+    arg_count=3
+    if [[ $2 && $2 != -* ]]; then
+        wordlist=$2
+    else
+        wordlist='/usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-medium.txt'
+        arg_count=2
+    fi
+    ffuf -c -u $1FUZZ -w $wordlist ${@: $arg_count};
+}
+
+ffuf-req() {
+    arg_count=2
+    if [[ $1 && $1 != -* ]]; then
+        wordlist=$1
+    else
+        wordlist='/usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-medium.txt'
+        arg_count=1
+    fi
+    ffuf -c -ic -request new.req -request-proto http -w $wordlist ${@: $arg_count};
+}
+
+plzsh() {
+    if [[ $1 ]]; then
+        port=$1
+    else
+        port=1337
+    fi
+    stty raw -echo; (echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python -c "import pty;pty.spawn(\"/bin/bash\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | nc -lvnp $port && reset
+}
+
+qssh() {
+    sshpass -p $2 ssh -o StrictHostKeyChecking=no $1@$3 ${@: 4};
+}
+
+# ECSC
+ataka_completion() {
+    eval $(env _TYPER_COMPLETE_ARGS="${words[1,$CURRENT]}" _PYTHON _M ATAKA_COMPLETE=complete_zsh python -m ataka)
 }

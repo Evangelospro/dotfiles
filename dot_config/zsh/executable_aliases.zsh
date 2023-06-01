@@ -12,7 +12,6 @@ alias please='sudo $(fc -ln -1)'
 
 # HACKING TOOLS
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
-alias rustscan="rustscan --ulimit 5000 $@ -- -sC -sV"
 alias stego="$HackingSetupScripts/stego/stego"
 alias steganabara="~/Desktop/HACKING/HACKING-TOOLS/Stego/Steganabara/run"
 alias cerbrutus="python3 ~/.local/bin/cerbrutus/cerbrutus.py"
@@ -36,7 +35,7 @@ alias hosts='sudo ~/SCRIPTS/hosts.sh'
 alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
 alias navi-update="$ZSH/scripts/updaters/navi-updater.sh"
 alias feroxbuster="feroxbuster -e"
-alias wpscan='wpscan --plugins-detection aggressive'
+alias wpscan='wpscan -e ap,t,u --plugins-detection aggressive'
 alias frida-init="adb connect 127.0.0.1:5555 && sleep && adb -s 127.0.0.1:5555 root && adb -s 127.0.0.1:5555 push $HACKING_TOOLS/Mobile/frida/frida-server /data/local/tmp/ && adb -s 127.0.0.1:5555 shell 'chmod 755 /data/local/tmp/frida-server' && adb -s 127.0.0.1:5555 shell '/data/local/tmp/frida-server &' "
 
 # Grub
@@ -102,6 +101,7 @@ alias pscpu='ps auxf | sort -nr -k 3'
 alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
 alias psmem='ps auxf | sort -nr -k 4'
 
+alias jq='jaq'
 alias termbin='nc termbin.com 9999|copy'
 alias which-command=whence
 alias fd='fd --hidden --follow'

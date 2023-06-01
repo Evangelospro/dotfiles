@@ -4,110 +4,49 @@
 
 #!/usr/bin/env python3
 
-import subprocess
 import os
 import requests
-from urllib.parse import quote
 import json
 from math import floor
 import sys
+import dbus
+
+
+session_bus = dbus.SessionBus()
+spotify_bus = session_bus.get_object("org.mpris.MediaPlayer2.spotify",
+                                     "/org/mpris/MediaPlayer2")
+spotify_properties = dbus.Interface(spotify_bus,
+                                    "org.freedesktop.DBus.Properties")
+
 
 Control = "spotify"
 
-# saves covers here
 Cover = "/tmp/cover.png"
-# if cover not found in metadata use this instead
 bkpCover = os.path.expanduser("~/.config/eww/music.png")
 
-########################## Title ##########################
-def title():
-	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{title}}"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if not output:
-		output = "Play Something"
-	return output
+def metadata():
+	return spotify_properties.Get("org.mpris.MediaPlayer2.Player", "Metadata")
 
-########################## Artist ##########################
-def artist():
-	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{artist}}"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if not output:
-		output = "Artist"
-	return output
-
-########################## Album ##########################
-def album():
-	result =subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{album}}"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if not output:
-		output = "Album"
-	return output
-
-########################## Status ##########################
-def status():
-	result = subprocess.run(["playerctl", f"--player={Control}", "status"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if output:
-		return output
-
-########################## Time ##########################
-def position_min():
-	result = subprocess.run(["playerctl", f"--player={Control}", "position", "--format", "{{ duration(position) }}"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if not output:
-		output = "00:00"
-	return output
-
-def position_ms():
-	result = subprocess.run(["playerctl", f"--player={Control}", "position", "--format", "{{ position }}"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if not output:
-		output = "00:00"
-	return int(int(output) / 1000)
-
-########################## Length ##########################
-def length_min():
-	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{ duration(mpris:length) }}"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if not output:
-		output = "00:00"
-	return output
-
-def length_ms():
-	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{ mpris:length }}"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if not output:
-		output = "00:00"
-	return output
-
-########################## trackNumber ##########################
-def trackNumber():
-	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "xesam:trackNumber"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if not output:
-		output = "No Track Number"
-	return output
-
-########################## trackID ##############################
 def trackID():
-	result = subprocess.run(["playerctl", f"--player={Control}", "metadata", "mpris:trackid"], capture_output=True, text=True)
-	output = result.stdout.strip()
-	if output:
-		return output.replace("/com/spotify/track/", "")
-	return "No Track ID"
+	trackid = metadata().get("mpris:trackid", "No Track ID")
+	if trackid != "No Track ID":
+		trackid = trackid.replace("/com/spotify/track/", "")
+	return trackid
 
-########################## Cover ###############################
+def status():
+	return spotify_properties.Get("org.mpris.MediaPlayer2.Player", "PlaybackStatus")
+
 def cover():
-	albumArtUrl = subprocess.run(["playerctl", f"--player={Control}", "metadata", "--format", "{{mpris:artUrl}}"], capture_output=True, text=True).stdout.strip()
+	albumArtUrl = metadata().get("mpris:artUrl")
 	if albumArtUrl:
 		albumArtUrl = albumArtUrl.replace("open.spotify.com", "i.scdn.co")
 		response = requests.get(albumArtUrl)
 		if response.status_code == 200:
 			with open(Cover, "wb") as f:
 				f.write(response.content)
+			return Cover
 		else:
-			os.copy(bkpCover, Cover)
-
+			return bkpCover
 ########################## Statusicon ##########################
 def statusicon():
 	if status() == "Playing":
@@ -118,6 +57,9 @@ def statusicon():
 		icon=""
 	print(icon, flush=True)
 
+
+def position_milli():
+	return int(spotify_properties.Get("org.mpris.MediaPlayer2.Player", "Position")/1000)
 
 ########################## Lyrics ##########################
 def lyrics(numOfLines):
@@ -132,9 +74,15 @@ def lyrics(numOfLines):
 			lyrics = requests.get(f"{API}/?trackid={trackid}").json()
 			if lyrics["error"] == False:
 				prevIndex = 0
+				prevTitle = ""
 				PLAYING = True
 				while PLAYING:
-					currTimems = position_ms()
+					title = metadata().get("xesam:title")
+					# if the title is different from the previous one, reset PLAYING
+					if title != prevTitle:
+						PLAYING = False
+					prevTitle = title
+					currTimems = position_milli()
 					for i, lyric in enumerate(lyrics["lines"]):
 						if abs(currTimems - int(lyric["startTimeMs"])) < RANGE:
 							if i == len(lyrics["lines"]) - 1:
@@ -153,25 +101,13 @@ def main():
 	command = sys.argv[1]
 	# switch case in python
 	match command:
-		case "title":
-			print(title())
-		case "artist":
-			print(artist())
-		case "album":
-			print(album())
+		case "metadata":
+			print(metadata())
 		case "status":
 			while True:
 				print(status())
-		case "position_min":
-			print(position_min())
-		case "position_ms":
-			print(position_ms())
-		case "length_min":
-			print(length_min())
-		case "length_ms":
-			print(length_ms())
-		case "trackNumber":
-			print(trackNumber())
+		case "position_milli":
+			print(position_milli())
 		case "trackID":
 			print(trackID())
 		case "cover":
@@ -182,6 +118,9 @@ def main():
 		case "lyrics":
 			numOfLines = sys.argv[2] if len(sys.argv) > 2 else 5
 			lyrics(int(numOfLines))
+		case _:
+			print("Usage: python script.py [metadata|status|position_milli|trackID|cover|statusicon|lyrics]")
+			sys.exit(1)
 
 if __name__ == "__main__":
 	main()

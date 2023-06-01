@@ -351,7 +351,7 @@
 )
 
 ;;define widget groups
-(defwidget left0 []
+(defwidget left [?monitor]
   (box
     :orientation "h"
     :space-evenly false
@@ -359,37 +359,19 @@
     :class "left_modules"
     (launcher)
     (sep)
-    (workspaces :monitor 0))
+    (workspaces :monitor {monitor})
+  )
 )
 
-(defwidget left1 []
-  (box
-    :orientation "h"
-    :space-evenly false
-    :halign "start"
-    :class "left_modules"
-    (launcher)
-    (sep)
-    (workspaces :monitor 1))
-)
-
-(defwidget center0 []
+(defwidget center [?monitor]
   (box :orientation "h"
     :space-evenly false
     :halign "center"
     :class "center_modules"
-    (appnames :monitor 0))
+    (appnames :monitor {monitor}))
 )
 
-(defwidget center1 []
-  (box :orientation "h"
-    :space-evenly false
-    :halign "center"
-    :class "center_modules"
-    (appnames :monitor 1))
-)
-
-(defwidget right0 []
+(defwidget right [?monitor]
   (box
     :orientation "h"
     :space-evenly false
@@ -413,48 +395,17 @@
     (powermenu)
   ))
 
-(defwidget right1 []
-  (box
-    :orientation "h"
-    :space-evenly false
-    :halign "end"
-    :class "right_modules"
-    ; (bright)
-    ; (volume)
-    (bluetooth)
-    (wifi)
-    (network-speeds)
-    (sep)
-    (indicators)
-    (sep)
-    (tray)
-    (sep)
-    (bat)
-    (mem)
-    (sep)
-    (clock_module)
-    (notification-button)
-    (powermenu)
-  ))
 
 ;;Define bars
-(defwidget bar_layout0 []
+(defwidget bar_layout [?monitor]
   (centerbox
     :class "bar_class"
     :orientation "h"
-    (left0)
-    (center0)
-    (right0)
-  ))
-
-(defwidget bar_layout1 []
-  (centerbox
-    :class "bar_class"
-    :orientation "h"
-    (left1)
-    (center1)
-    (right1)
-  ))
+    (left :monitor {monitor})
+    (center :monitor {monitor})
+    (right :monitor {monitor})
+  )
+)
 
 (defwidget indicators []
   (box
