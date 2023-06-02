@@ -33,8 +33,8 @@ alias gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init"
 alias pwndbg='gdb -q -ex init-pwndbg "$@"'
 alias hosts='sudo ~/SCRIPTS/hosts.sh'
 alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
-alias navi-update="$ZSH/scripts/updaters/navi-updater.sh"
-alias feroxbuster="feroxbuster -e"
+alias navi-update="$HackingSetupScripts/scripts/updaters/navi-updater.sh"
+alias feroxbuster-dir="feroxbuster -e -u"
 alias wpscan='wpscan -e ap,t,u --plugins-detection aggressive'
 alias frida-init="adb connect 127.0.0.1:5555 && sleep && adb -s 127.0.0.1:5555 root && adb -s 127.0.0.1:5555 push $HACKING_TOOLS/Mobile/frida/frida-server /data/local/tmp/ && adb -s 127.0.0.1:5555 shell 'chmod 755 /data/local/tmp/frida-server' && adb -s 127.0.0.1:5555 shell '/data/local/tmp/frida-server &' "
 
@@ -105,7 +105,6 @@ alias jq='jaq'
 alias termbin='nc termbin.com 9999|copy'
 alias which-command=whence
 alias fd='fd --hidden --follow'
-alias q='exit'
 alias hexdump='od -A x -t x1z -v'
 alias o='handlr open'
 # alias clear="$ZSH/scripts/utils/clear.sh"
@@ -143,10 +142,12 @@ alias clean-docker='docker system prune -f'
 alias clean-packages='sudo pacman -Rns $(pacman -Qtdq) && sudo \rm -rf /var/cache/pacman/pkg/*'
 alias clear-font-cache="fc-cache -f -v"
 
-# typos
+# basics/typos
 alias cd..='cd ..'
 alias pdw="pwd"
 alias sl='ls'
+alias q='exit'
+alias qq='exit'
 
 # image utils
 alias icat="wezterm imgcat"

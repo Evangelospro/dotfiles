@@ -1,23 +1,38 @@
 #!/usr/bin/env python3
-
 # Author: https://github.com/Evangelospro
 
-#!/usr/bin/env python3
-
 import os
+from re import T
 import requests
 import json
 from math import floor
 import sys
 import dbus
-
+import time
 
 session_bus = dbus.SessionBus()
-spotify_bus = session_bus.get_object("org.mpris.MediaPlayer2.spotify",
-                                     "/org/mpris/MediaPlayer2")
-spotify_properties = dbus.Interface(spotify_bus,
-                                    "org.freedesktop.DBus.Properties")
 
+def spotify():
+	def connect():
+		try:
+			spotify_bus = session_bus.get_object("org.mpris.MediaPlayer2.spotify",
+											"/org/mpris/MediaPlayer2")
+			spotify_properties = dbus.Interface(spotify_bus,
+											"org.freedesktop.DBus.Properties")
+			return spotify_properties
+		except dbus.exceptions.DBusException:
+			print("No players found", flush=True)
+			return False
+	
+	spotify_properties = connect()
+	DISCONNECTED = spotify_properties == False
+	TIMEOUT = 1.5
+	while DISCONNECTED:
+		spotify_properties = connect()
+		DISCONNECTED = spotify_properties == False
+		if DISCONNECTED:
+			time.sleep(TIMEOUT)
+	return spotify_properties
 
 Control = "spotify"
 
@@ -25,7 +40,11 @@ Cover = "/tmp/cover.png"
 bkpCover = os.path.expanduser("~/.config/eww/music.png")
 
 def metadata():
-	return spotify_properties.Get("org.mpris.MediaPlayer2.Player", "Metadata")
+	conn = spotify()
+	try:
+		return conn.Get("org.mpris.MediaPlayer2.Player", "Metadata")
+	except dbus.exceptions.DBusException:
+		return False
 
 def trackID():
 	trackid = metadata().get("mpris:trackid", "No Track ID")
@@ -34,7 +53,11 @@ def trackID():
 	return trackid
 
 def status():
-	return spotify_properties.Get("org.mpris.MediaPlayer2.Player", "PlaybackStatus")
+	conn = spotify()
+	try:
+		return conn.Get("org.mpris.MediaPlayer2.Player", "PlaybackStatus")
+	except dbus.exceptions.DBusException:
+		return "No players found"
 
 def cover():
 	albumArtUrl = metadata().get("mpris:artUrl")
@@ -47,7 +70,7 @@ def cover():
 			return Cover
 		else:
 			return bkpCover
-########################## Statusicon ##########################
+
 def statusicon():
 	if status() == "Playing":
 		icon=""
@@ -59,7 +82,8 @@ def statusicon():
 
 
 def position_milli():
-	return int(spotify_properties.Get("org.mpris.MediaPlayer2.Player", "Position")/1000)
+	conn = spotify()
+	return int(conn.Get("org.mpris.MediaPlayer2.Player", "Position")/1000)
 
 ########################## Lyrics ##########################
 def lyrics(numOfLines):

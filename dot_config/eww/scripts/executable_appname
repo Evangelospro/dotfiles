@@ -135,6 +135,13 @@ class Appnames(hyprland.Events):
 				self.currTitle = window_title
 				self.generate()
 
+	async def on_closewindow(self, window_address):
+		self.logEvent(f"window with address {window_address} destroyed")
+		if self.focusedMon == self.targetMonitor:
+			self.currClass = ""
+			self.currTitle = ""
+			self.generate()
+
 
 a = Appnames()
 

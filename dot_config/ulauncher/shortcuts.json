@@ -1,4 +1,14 @@
 {
+  "duckduckgo": {
+    "added": 1684664750,
+    "cmd": "#!/bin/bash\nxdg-open https://duckduckgo.com/?q=$1",
+    "icon": "/usr/share/icons/Papirus-Dark/24x24/apps/duckduckgo.svg",
+    "id": "duckduckgo",
+    "is_default_search": true,
+    "keyword": "ddg",
+    "name": "DuckDuckGo",
+    "run_without_argument": true
+  },
   "googlesearch": {
     "added": 1684664754,
     "cmd": "https://google.com/search?q=%s",
@@ -28,5 +38,5 @@
     "keyword": "wiki",
     "name": "Wikipedia",
     "run_without_argument": false
-  }
+  }  
 }
