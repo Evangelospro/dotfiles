@@ -1,0 +1,475 @@
+029611f5-6ec5-47b2-8f33-7623a3b86e1a:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:49:09'
+035830a6-4e84-4043-ad6d-58ff11042104:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:49:07'
+04ee02f7-4e0f-4256-a57e-b36403d2c56b:
+  message: 'Dependency installed: times32 in apps'
+  severity: info
+  timestamp: '2023-06-06 19:31:04'
+06a91e4b-2fc7-4e8e-b9b1-d9110acc1a83:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:25:33'
+0941b611-59f2-4397-8562-8ceec7714487:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:52:35'
+0cd711cc-9404-455a-b4f6-7873e28eeeb8:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 08:59:07'
+0e2e66dc-21c6-473b-ada8-95065a8312bf:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 09:10:18'
+1051b6a0-4a9f-4978-afe9-1c6943f55df6:
+  message: 'Dependency installed: dotnet461 in apps'
+  severity: info
+  timestamp: '2023-06-06 21:56:54'
+12fce725-7640-4815-a571-c7a138f0e1a2:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:51:11'
+13174c88-f356-4809-8be8-57554b614856:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:50:42'
+13357923-1497-47ee-8d50-ab02e2746bca:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:31:15'
+17375dfd-900f-48a2-a67f-34be3d2e5a2a:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:50:49'
+17b48672-694a-4d9e-a4e5-160c9028fb63:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:57:44'
+199e707e-e3e2-4654-9704-6c6bdf45c22a:
+  message: A crash has been detected.
+  severity: crash
+  timestamp: '2023-06-06 21:56:02'
+1d0f31f1-a2f4-4a89-86e9-d04799a9fabf:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:49:01'
+1eff6711-13d2-4eb3-b46c-00742b69b7f5:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:52:55'
+22289171-4e23-4169-9c47-1afe358e4878:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:31:07'
+2620c714-1a82-444e-82c9-996584772680:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:48:05'
+289d5b63-9171-4ba0-8dbe-b8b81f7c289a:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:50:56'
+292ddc7c-cdd2-4faa-80f7-c65b8a41bf54:
+  message: No runtime found.
+  severity: warning
+  timestamp: '2023-06-06 19:20:13'
+2d63a749-1192-4c33-8b62-76f3458aca5e:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:50:13'
+2e1bff61-d863-4ea3-ba95-35958b95d176:
+  message: 'Component installed: latencyflex latencyflex-v0.1.1'
+  severity: info
+  timestamp: '2023-06-06 19:20:13'
+2e703e30-62dc-48b3-863c-b13ec4fbd530:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:48:33'
+2f5c68a4-c9f4-4fd1-b1fc-7972214d46e3:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:50:28'
+3315dbf4-1f7a-422e-a594-f776f1e9aa6c:
+  message: 'Dependency installed: gecko in apps'
+  severity: info
+  timestamp: '2023-06-06 21:48:18'
+360bf4f3-2508-4590-ba4e-877702294e20:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:28:57'
+37732963-d262-4ec2-9eab-021a809aeb2d:
+  message: 'Dependency installed: gecko in apps'
+  severity: info
+  timestamp: '2023-06-06 21:47:28'
+386a865b-4850-4d7b-97ab-83bf9388e43f:
+  message: 'Component installed: runtime runtime-0.6'
+  severity: info
+  timestamp: '2023-06-06 19:20:23'
+3e69baee-a9bf-44fa-9e07-5b5523221835:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:48:26'
+418c6b81-a3da-406c-b962-85e31639d5fe:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:48:39'
+48cfde34-ba03-4e57-b675-f63867d88e33:
+  message: File [wine_gecko-2.47.2-x86_64.msi] already exists in temp, skipping.
+  severity: warning
+  timestamp: '2023-06-06 21:48:15'
+4939da84-5009-42af-a279-bbacb15ba43b:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:30:20'
+4bacc026-cd4a-4bec-9c69-e245358c9053:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 09:01:34'
+519cb2f8-505b-4c81-8bc4-57e8bcf1be19:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:49:05'
+55c51279-90f1-4e98-ab9e-55da1fc68b25:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:52:21'
+56520a15-0daa-48c7-9882-71b7981810e2:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:23:21'
+587247b5-ab6b-469f-b801-015615e39961:
+  message: No nvapi found.
+  severity: warning
+  timestamp: '2023-06-06 19:20:04'
+5c8113f5-f0dd-44fa-86dc-fb5aa53205d7:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:52:08'
+5d020192-53cc-49fb-8fd7-50dc80788217:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:48:53'
+5e1f3252-4a4f-4159-b5af-9b181b097c8f:
+  message: 'Dependency installed: dotnet45 in apps'
+  severity: info
+  timestamp: '2023-06-06 21:50:21'
+5ef69009-353f-48a3-b8e9-79658503770f:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:31:22'
+600875e9-e61f-447d-8452-7b347cf1f8c6:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 08:59:51'
+6069f249-c440-48bd-89a1-04498d4ca496:
+  message: 'Component installed: runner soda-7.0-9'
+  severity: info
+  timestamp: '2023-06-06 19:22:32'
+622edbec-6a55-4a5d-80b1-7d403c55ca06:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:53:02'
+6423ec65-716d-4be5-89bc-f9026940954b:
+  message: 'Dependency installed: dotnet40 in apps'
+  severity: info
+  timestamp: '2023-06-06 21:40:01'
+68b364b4-8d70-480e-884a-a5d24c876cad:
+  message: 'Dependency installed: msftedit in apps'
+  severity: info
+  timestamp: '2023-06-06 21:21:59'
+69f9a2bc-7e97-47b4-8778-fcd5a0af8201:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:52:42'
+6e3fe4ac-5300-4b1d-9d04-77b19da4c5d5:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:53:01'
+6f4946a5-7764-4e55-9f98-edb01aafa0e5:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:29:25'
+6f8b7e88-0b85-4681-8027-3a5222a7d53a:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:51:39'
+707646cf-fe9d-4a64-9868-4f1233361a0f:
+  message: 'Error while running async job: <function ProgramEntry.run_executable.<locals>._run
+    at 0x7fcb085ea200>
+
+    Exception: ''str'' object has no attribute ''Parameters'''
+  severity: error
+  timestamp: '2023-06-06 21:56:02'
+7333e19e-8bfc-4989-b22f-cb3c4b136464:
+  message: 'Component installed: dxvk dxvk-2.2'
+  severity: info
+  timestamp: '2023-06-06 19:20:00'
+734afcdf-c86f-4ef4-aec9-2801c930cb98:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:30:38'
+7429ad83-2ebe-42ed-925a-ca3703d487d3:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:30:47'
+759e8376-23b2-46f5-bd0e-3a735168fae4:
+  message: No managed runners found.
+  severity: warning
+  timestamp: '2023-06-06 19:20:33'
+794390fe-e34b-4ba2-8d21-fe7a0e0204aa:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:30:52'
+7b94e14b-193e-4612-98a5-ee2f418ff071:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:52:28'
+84149b20-9b71-4bce-a422-3e4aca01395a:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:51:25'
+884a28cb-47eb-4595-8908-073d471c4a47:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:50:35'
+8d947165-dde9-4e45-a484-13f9a06a1712:
+  message: 'Dependency installed: dotnet48 in apps'
+  severity: info
+  timestamp: '2023-06-06 21:44:21'
+917ad076-c387-4e42-87d3-db6c95a4f47c:
+  message: 'Dependency installed: dotnet46 in apps'
+  severity: info
+  timestamp: '2023-06-06 21:52:30'
+9655e83a-8bc0-4609-9c55-e13a74c97db3:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:51:48'
+96763fc4-e405-4a8e-a5e6-576914f6d10f:
+  message: 'Component installed: winebridge winebridge-1.1.0'
+  severity: info
+  timestamp: '2023-06-06 19:20:32'
+96b505e2-3378-4ca5-b08f-47121bf36cff:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:31:19'
+97f12068-6cae-4b34-a7cb-c00889921c71:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:52:48'
+9b0d9d62-e2ee-4d26-9224-ffc2b6bba9c3:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:48:20'
+9c446ead-8814-4d1d-b76e-fa7b49ae28e1:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:30:56'
+9e80e3bf-776f-47cb-8c64-9f3af98216d8:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:57:34'
+9ea177f2-aa2b-4feb-b286-e585a47a3292:
+  message: 'Dependency installed: mono in apps'
+  severity: info
+  timestamp: '2023-06-06 21:19:00'
+9f59c1ae-133d-41d6-8376-527937626ae3:
+  message: 'Dependency installed: dotnet20 in apps'
+  severity: info
+  timestamp: '2023-06-06 21:37:35'
+a1e8a96e-d9bc-40a0-b66c-687adb834393:
+  message: 'Dependency installed: arial32 in apps'
+  severity: info
+  timestamp: '2023-06-06 19:30:44'
+a6d7d72b-c7b9-4888-b903-42c598db1983:
+  message: No vkd3d found.
+  severity: warning
+  timestamp: '2023-06-06 19:20:00'
+a71493ca-449f-4cf9-ae32-e0f755d0e260:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:52:01'
+a80b7059-e41f-4a30-af91-334a842b111c:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:50:21'
+a85adfb0-c516-46b4-91be-802e1a782cc4:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 09:07:12'
+a9818d17-2fcd-4a1f-b912-af7346004e9e:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:48:59'
+abfae979-0043-497c-ba0e-14c4814795e1:
+  message: 'Dependency installed: courie32 in apps'
+  severity: info
+  timestamp: '2023-06-06 19:31:22'
+ae2937a0-2791-475b-9842-87dd32f4ea78:
+  message: File [wine_gecko-2.47.2-x86.msi] already exists in temp, skipping.
+  severity: warning
+  timestamp: '2023-06-06 21:48:12'
+aef1f6f5-9abc-4a62-938d-d67fb4ddd6e8:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:31:00'
+aefe6b05-0bb5-4f76-8596-0f88aea9bb99:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:57:35'
+afe4869f-2ef6-435b-aa32-a4b066cb9842:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:50:15'
+b33b6b2b-efcf-4e53-9dec-5a81ceb8902e:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:49:38'
+b3ea24a0-0b81-4a5a-8800-79645b826898:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:52:14'
+b4bd1c7e-c646-4134-94ee-77e11c9e8311:
+  message: 'Component installed: nvapi dxvk-nvapi-v0.6.3'
+  severity: info
+  timestamp: '2023-06-06 19:20:09'
+b4de5fac-1a53-4050-be6d-8660370a5d7e:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:29:52'
+b609f1da-ad96-45ad-b462-8282c4fbc919:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:28:30'
+b8cb0dab-d076-4e06-bb1d-ae0a46f52cc9:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:49:06'
+bb8a7813-71f0-4cb1-8083-0883b69efa3a:
+  message: 'Component installed: vkd3d vkd3d-proton-2.9'
+  severity: info
+  timestamp: '2023-06-06 19:20:04'
+bcd89c08-facf-4c0b-97d6-5aab919ef997:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:51:32'
+be6b8bba-d44c-424e-8600-c5efc3b63ad4:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:27:56'
+be82dd7b-24d7-41c6-98ad-d34e8b6afebd:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:51:18'
+c4f53576-239c-4fdb-9e60-ced527a3c8cc:
+  message: No latencyflex found.
+  severity: warning
+  timestamp: '2023-06-06 19:20:09'
+ca68ffe2-7bbb-4f0b-a4cb-60897dc04e9e:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:53:03'
+cb862457-68bd-47aa-bfd7-086c68579dd9:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:27:25'
+d03958c6-0006-4400-8d92-877451f538b5:
+  message: Library file not found, creating new one
+  severity: warning
+  timestamp: '2023-06-06 19:19:36'
+d08ffb33-6a18-4cc2-885f-6980b9a22948:
+  message: 'Dependency installed: dotnet472 in apps'
+  severity: info
+  timestamp: '2023-06-06 22:05:21'
+d147fa0b-6a9e-4caa-a92e-7ace63230ecc:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:48:46'
+d35c10e9-0c7c-4a18-81e1-6be5635e4070:
+  message: Data file not found. Creating new one.
+  severity: error
+  timestamp: '2023-06-06 19:19:31'
+d3a6a89e-3fa7-491d-aba3-85ae6ff41ad2:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:44:47'
+d40adcba-0b1f-4625-9617-30a4fc933bfd:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:48:13'
+d6aa9ba2-0d62-40a8-98e1-b1367105122a:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 09:08:44'
+d83931cb-c702-42d1-a04b-dc9538a0aa42:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:25:53'
+d8bbd85e-cf31-4824-a37b-09a7de75e0e4:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:51:04'
+da43b80a-f6b8-4ecb-ab08-a05a998a4b43:
+  message: No dxvk found.
+  severity: warning
+  timestamp: '2023-06-06 19:19:52'
+dc1ad398-911a-40a5-98e0-1161ac18d3be:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 09:00:38'
+dc722154-9604-404e-9c6c-b1adb74e3f85:
+  message: 'New bottle created: apps'
+  severity: info
+  timestamp: '2023-06-06 19:31:22'
+df96b708-b6b2-4a27-8bc5-9af29303b811:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:44:34'
+e1c335cc-7772-403e-bf24-8ba1d2e0af76:
+  message: 'Dependency installed: riched20 in apps'
+  severity: info
+  timestamp: '2023-06-06 21:19:34'
+e73bf9d2-885b-4026-a670-48b357464fa6:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 08:59:17'
+e8d3ec70-05c2-4c29-9b5d-872a34f56c1a:
+  message: No WineBridge found.
+  severity: warning
+  timestamp: '2023-06-06 19:20:23'
+e9feaffe-66eb-4780-abcf-5390c438ce0a:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 09:03:40'
+eb22f795-87ff-4799-8851-46037b99b6d3:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 09:10:33'
+edff5cad-c543-4f15-b0aa-acb4d42b2afb:
+  message: New template application created
+  severity: info
+  timestamp: '2023-06-06 19:31:34'
+f6815368-0c69-4e41-9b05-6da708feb19d:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 19:31:11'
+f8b8c6e9-380f-4801-9e9c-c3a74c02d808:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:57:29'
+fb5bf86d-2e8e-4739-9da5-756f61683f17:
+  message: Bottles runtime was requested but not found
+  severity: warning
+  timestamp: '2023-06-06 20:51:54'
+fcee93e8-bbf2-459e-b9be-6951945115f9:
+  message: 'Dependency installed: dotnet462 in apps'
+  severity: info
+  timestamp: '2023-06-06 22:00:53'
+ffacc321-1118-46e1-8982-6d154fc8e956:
+  message: Terminal not supported.
+  severity: warning
+  timestamp: '2023-06-07 09:02:47'

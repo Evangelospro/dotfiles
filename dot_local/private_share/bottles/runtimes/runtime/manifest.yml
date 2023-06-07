@@ -1,0 +1,7 @@
+author: mirkobrombin
+description: This is a set of librarires from Ubuntu 20.04 to ensure runners compatibility
+  in Bottles
+license: MIT
+name: Bottles runtime
+url: https://github.com/bottlesdevs/runtime
+version: 0.5

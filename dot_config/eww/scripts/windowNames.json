@@ -11,5 +11,7 @@
 	"org.wezfurlong.wezterm": {"name":"WezTerm", "icon":"org.wezfurlong.wezterm"},
 	"xournalpp": {"name":"Xournal++", "icon":"xournalpp"},
 	"org.kde.polkit-kde-authentication-agent-1": {"name":"Polkit-KDE", "icon":"password-manager"},
-	"blueman-manager": {"name":"Bluetooth Manager", "icon":"blueman"}
+	"blueman-manager": {"name":"Bluetooth Manager", "icon":"blueman"},
+	"ghidra-Ghidra": {"name":"Ghidra", "icon":"ghidra"},
+	"com.usebottles.bottles": {"name":"Bottles", "icon":"com.usebottles.bottles"}
 }

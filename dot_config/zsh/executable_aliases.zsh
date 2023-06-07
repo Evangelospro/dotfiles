@@ -82,7 +82,6 @@ alias reload='exec zsh -l'
 alias tobash='sudo chsh evangelospro -s /bin/bash && echo '\''Now log out.'\'
 alias tozsh='sudo chsh evangelospro -s /bin/zsh && echo '\''Now log out.'\'
 
-alias mvd='mv ~/Downloads/"$(/usr/bin/ls -t ~/Downloads | head -n 1)" .'
 alias df='df -h'
 alias diff='diff --color'
 alias free='free -m'

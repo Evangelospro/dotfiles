@@ -1,3 +1,23 @@
+# Maintenance is hard...
+function update(){
+    paru -Syu
+    zi self-update
+    zi update
+    navi-update
+}
+
+# Move latest Download to current directory
+function mvd() {
+    local fileName
+    fileName=$(\ls -t ~/Downloads | head -n 1)
+    # Check if file doesn't end with .crdownload ignore casing
+    if [[ ${(L)fileName} != *.crdownload ]]; then 
+        mv ~/Downloads/"$fileName" .
+    else
+        echo $fileName has not finished downloading
+    fi
+}
+
 # clipboard
 # X11 / Wayland
 function copy() {

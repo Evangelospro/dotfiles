@@ -65,6 +65,10 @@ docs/zsdoc/data
 .zsh/ecsc/
 .zsh/.zfunc/ataka.py
 
+# Temporary stuff probably not needed
+**/tmp/**
+**/temp/**
+
 # Only create ssh keys if they don't exist
 
 {{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/eraspberry1") }}
@@ -95,9 +99,10 @@ docs/zsdoc/data
 .ssh/keys/ftc
 {{ end }}
 
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/xsshunter") }}
-.ssh/keys/xsshunter
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ida") }}
+.ssh/keys/ida
 {{ end }}
 
-# causing troubles latelly
+# The below are to be manually updated, if needed(the usually store files that change with timestamps...)
 .config/BetterDiscord/
+.local/share/bottles/

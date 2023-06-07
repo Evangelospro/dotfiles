@@ -23,6 +23,13 @@
   "hide-on-clear": false,
   "hide-on-action": true,
   "script-fail-notify": true,
+  "notification-visibility": {
+    "flameshot": {
+      "state": "ignored",
+      "urgency": "Low",
+      "app-name": "flameshot"
+    }
+  },
   "widgets": [
     "title",
     "dnd",

@@ -4,13 +4,18 @@
 ![Hyprland](/hyprland.png)
 
 ### Needed Packages (for basic functionallity)
+
+#### Arch packages
 ```
 paru -Sy rustup go chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim polkit-gnome ffmpeg swaybg ttf-font-awesome \
 rofi-git pavucontrol fd qt5ct qt6ct zsh wev wl-clipboard kwallet-pam cliphist jaq ripgrep btop moreutils \
 swaybg grimblast-git ffmpegthumbnailer playerctl qtkeychain-qt6 flameshot-git batify2-git \
 noise-suppression-for-voice lf libdisplay-info \
 eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git plymouth\
-papirus-icon-theme-git swaync swaync-client wezterm swayidle geticons udiskie python-pywal sddm-theme-astronaut blueman handlr-regexg
+papirus-icon-theme-git swaync-gir swaync-client wezterm swayidle geticons udiskie python-pywal sddm-theme-astronaut blueman handlr-regexg
+```
+#### Python packages
+```
 pip install -r requirements.txt
 ```
 
@@ -27,17 +32,27 @@ sudo systemctl enable --now cpupower
 sudo systemctl enable --now pacman-cleanup-hook.timer
 ```
 
-#### applications
+#### Applications
 ```
 paru -Sy discord betterdiscordctl-git spotify-player spotifywm-git
 ```
 
-### depreaceated 
-```cargo install hyprsome```
+#### I prefer the windows version of IDA(you know why) and other program, hence bottles setup
+```
+paru -Sy wine bottles pyhton-ntlm-auth
+```
+### Workspace managment
 
-#### USE
+#### depreaceated 
 
-##### hyprload (plugin manager)
+##### hyprsome (workspace manager)
+```
+cargo install hyprsome
+```
+
+#### use, split-monitor workspace on hyprload instead
+
+##### hyprload (plugin manager, with split-monitor workspaces)
 ```
 paru -Sy cpio
 mkdir -p ~/.local/share/hyprload/src
