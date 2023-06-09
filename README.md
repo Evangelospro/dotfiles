@@ -15,7 +15,7 @@ playerctlqtkeychain-qt6 flameshot-git batify2-git \
 noise-suppression-for-voice lf libdisplay-info \
 eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch plymouth\
 papirus-icon-theme-git swaync-gir swaync-client wezterm swayidle geticons udiskie \
-sddm-theme-astronaut blueman handlr-regex
+sddm-theme-astronaut blueman handlr-regex pistol-git
 ```
 
 #### Python packages
