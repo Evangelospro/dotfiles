@@ -15,7 +15,7 @@ playerctlqtkeychain-qt6 flameshot-git batify2-git \
 noise-suppression-for-voice lf libdisplay-info \
 eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch plymouth\
 papirus-icon-theme-git swaync-gir swaync-client wezterm swayidle geticons udiskie \
-python-pywal sddm-theme-astronaut blueman handlr-regexg
+sddm-theme-astronaut blueman handlr-regex
 ```
 
 #### Python packages
@@ -27,7 +27,7 @@ pip install -r requirements.txt
 
 #### utils
 ```
-paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow 
+paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow tldr
 ```
 
 #### Systemd services
@@ -38,7 +38,7 @@ sudo systemctl enable --now pacman-cleanup-hook.timer
 
 #### Applications
 ```
-paru -Sy discord betterdiscordctl-git spotify-player spotifywm-git
+paru -Sy discord betterdiscordctl-git spotify-player spotifywm-git obsidian
 ```
 
 #### Hacking packages

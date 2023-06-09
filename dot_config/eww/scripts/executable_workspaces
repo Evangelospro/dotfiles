@@ -8,7 +8,7 @@ import json
 import os
 import sys
 import hyprland
-
+import random
 
 class Workspacer(hyprland.Events):
 	def __init__(self):
@@ -148,6 +148,7 @@ class Workspacer(hyprland.Events):
 		self.workspaces[ws]["icons"] = [[],[]]
 		# classes = self.workspaces[ws]["classes"].values()
 		classes = self.applistClass(ws)[0:4] # only render up to 4 icons
+		self.workspaces[ws]["classes"] = {f"0x{random.randint(0, 0xffffffffffff):012x}": class_name for class_name in classes}
 		for i, class_name in enumerate(classes):
 			icon = self.getIcon(class_name)
 			self.workspaces[ws]["icons"][i%2].append(icon)

@@ -1,2 +1,0 @@
-#!/bin/bash
-java --illegal-access=permit -Dfile.encoding=utf-8 -javaagent:$HOME/Burp/Burp-Loader/loader.jar -noverify -jar $HOME/Burp/Burp-Loader/burpsuite_pro.jar

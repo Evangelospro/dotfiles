@@ -401,6 +401,8 @@
   (centerbox
     :class "bar_class"
     :orientation "h"
+    :hexpand "false"
+    :vexpand "false"
     (left :monitor {monitor})
     (center :monitor {monitor})
     (right :monitor {monitor})

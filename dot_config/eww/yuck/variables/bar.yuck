@@ -19,16 +19,16 @@
 (defpoll WLAN_ICON :interval "20s" :run_while wifi_reveal  "scripts/stats network --icon")
 
 ; battery
-(defpoll battery :initial "100" :interval "1s" :run_while control_reveal "scripts/stats battery --percent")
-(defpoll battery_status :initial "Full" :interval "1s" :run_while control_reveal "scripts/stats battery --status")
+(defpoll battery :initial "100" :interval "1m" :run_while control_reveal "scripts/stats battery --percent")
+(defpoll battery_status :initial "Full" :interval "20s" :run_while control_reveal "scripts/stats battery --status")
 
 ; Notification variables
-(defpoll notificationIcon :interval "1s" :run_while notifications_reveal "scripts/stats notifications --icon")
-(defpoll notificationNum :interval "1s" :run_while notifications_reveal "scripts/stats notifications --num")
+(defpoll notificationIcon :interval "1s" "scripts/stats notifications --icon")
+(defpoll notificationNum :interval "5s" "scripts/stats notifications --num")
 
 ; Music
 (deflisten music_status "scripts/music status")
-(deflisten lyrics_json "scripts/music lyrics 2")
+(deflisten lyrics_json :run_while {music_status == "No players found" ? "false" : "true"} "scripts/music lyrics 2")
 
 ; Jsons
 (deflisten indicators_json :inital '[{"caps_lock": "inactive", "num_lock": "active", "caffeine_state": "inactive", "caffeine_command": "", "layout": "US"}]' "scripts/indicators nodebug")
@@ -38,11 +38,9 @@
 (deflisten appname1_json :initial '[{"title": "No focused window", "icon": "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"}]' "scripts/appname 1 nodebug")
 
 ; revealers
-(defvar music_reveal false)
-(defvar side_reveal false)
-(defvar notifications_reveal false)
-(defvar volume_reveal false)
-(defvar brightness_reveal false)
+; (defvar side_reveal false)
+; (defvar volume_reveal false)
+; (defvar brightness_reveal false)
 (defvar control_reveal false)
-(defvar wifi_reveal false)
+; (defvar wifi_reveal false)
 (defvar time_reveal false)

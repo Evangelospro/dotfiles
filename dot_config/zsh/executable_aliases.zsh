@@ -11,8 +11,7 @@ alias pls='please'
 
 # HACKING TOOLS
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
-alias stego="$HackingSetupScripts/stego/stego"
-alias steganabara="~/Desktop/HACKING/HACKING-TOOLS/Stego/Steganabara/run"
+alias stego-toolkit='docker run -it --rm -v $(pwd)/data:/data dominicbreuker/stego-toolkit /bin/bash'
 alias cerbrutus="python3 ~/.local/bin/cerbrutus/cerbrutus.py"
 alias autorecon="autorecon --only-scans-dir --single-target"
 alias rot13='tr '\''A-Za-z'\'' '\''N-ZA-Mn-za-m'\'
@@ -21,7 +20,6 @@ alias rr='nc evangelospro.com 1337'
 alias webserver='updog -p 8000'
 alias penelope="penelope --configfile ~/.config/penelope/penelope.conf"
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
-alias ctfinit="python3 ~/Desktop/HACKING/CTF\ Automation/ctfinit.py"
 alias mobsf="~/SCRIPTS/r ~/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
 alias burl="curl -x localhost:8080 -k "
 alias frm="/usr/bin/rm -rf"

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Burp
+Comment=Burp
+Exec=/usr/bin/java --illegal-access=permit -Dfile.encoding=utf-8 -javaagent:$HOME/Burp/Burp-Loader/loader.jar -noverify -jar $HOME/Burp/Burp-Loader/burpsuite_pro.jar
+Icon=burp
+Terminal=false
+Type=Application
+Categories=Development;Security;Network;WebDevelopment;

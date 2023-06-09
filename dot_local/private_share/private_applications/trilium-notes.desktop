@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Trilium Notes
+Icon=/opt/trilium-bin/icon.png
+Exec=/opt/trilium-bin/trilium
+Categories=Office
+Terminal=false
