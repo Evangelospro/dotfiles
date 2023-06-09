@@ -7,13 +7,17 @@
 
 #### Arch packages
 ```
-paru -Sy rustup go chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim polkit-gnome ffmpeg swaybg ttf-font-awesome \
-rofi-git pavucontrol fd qt5ct qt6ct zsh wev wl-clipboard kwallet-pam cliphist jaq ripgrep btop moreutils \
-swaybg grimblast-git ffmpegthumbnailer playerctl qtkeychain-qt6 flameshot-git batify2-git \
+paru -Sy rustup go chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim \
+polkit-gnome ffmpeg swaybg ttf-font-awesome \
+rofi-git pavucontrol fd qt5ct qt6ct zsh wev wl-clipboard kwallet-pam cliphist \
+jaq ripgrep btop moreutils swaybg grimblast-git ffmpegthumbnailer \
+playerctlqtkeychain-qt6 flameshot-git batify2-git \
 noise-suppression-for-voice lf libdisplay-info \
-eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch espanso-wayland-git plymouth\
-papirus-icon-theme-git swaync-gir swaync-client wezterm swayidle geticons udiskie python-pywal sddm-theme-astronaut blueman handlr-regexg
+eww-wayland wlogout swaylock-effects-git sddm-git pamixer neofetch plymouth\
+papirus-icon-theme-git swaync-gir swaync-client wezterm swayidle geticons udiskie \
+python-pywal sddm-theme-astronaut blueman handlr-regexg
 ```
+
 #### Python packages
 ```
 pip install -r requirements.txt
@@ -37,20 +41,17 @@ sudo systemctl enable --now pacman-cleanup-hook.timer
 paru -Sy discord betterdiscordctl-git spotify-player spotifywm-git
 ```
 
+#### Hacking packages
+```
+paru -Sy ghidra cutter rz-ghidra rz-cutter penelope-git ffuf-bin feroxbuster
+```
+
 #### I prefer the windows version of IDA(you know why) and other program, hence bottles setup
 ```
 paru -Sy wine bottles pyhton-ntlm-auth
 ```
+
 ### Workspace managment
-
-#### depreaceated 
-
-##### hyprsome (workspace manager)
-```
-cargo install hyprsome
-```
-
-#### use, split-monitor workspace on hyprload instead
 
 ##### hyprload (plugin manager, with split-monitor workspaces)
 ```
@@ -62,13 +63,13 @@ make pluginenv
 curl -sSL https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh | bash
 ```
 
-##### plymouth theme based on https://github.com/PROxZIMA/proxzima-plymouth
+### plymouth theme based on https://github.com/PROxZIMA/proxzima-plymouth
 ```
 sudo cp -r confs/proxzima-plymouth/proxzima /usr/share/plymouth/themes
 sudo plymouth-set-default-theme -R proxzima
 ```
 
-#### Vscode
+### Vscode
 ```
 resPrefix=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
 sudo cp -r ~/.icons/vscode $resPrefix
@@ -80,22 +81,21 @@ sed -i 's;</head>;<link rel="stylesheet" href="vsc.css"></head>;g' $resPrefix/wo
 Fix Checksums: Apply inside vscode run
 ```
 
-#### SDDM
+### SDDM
 ```
 sudo cp confs/sddm.conf /etc/sddm.conf
 ```
 
-#### Nvidia drivers
+### Nvidia drivers
 ```
 sudo pacman -Sy nvidia-dkms nvidia-vaapi-driver-git
 ```
 
 ### Thanks to these awesome projects
 * [pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)
-* [pamixer](https://archlinux.org/packages/extra/x86_64/pamixer/)
 * [playerctl](https://www.archlinux.org/packages/extra/x86_64/playerctl/)
 * [blueman](https://archlinux.org/packages/extra/x86_64/blueman/)
 * [hyprland](https://aur.archlinux.org/packages/hyprland-git/)
 * [swayidle](https://archlinux.org/packages/extra/x86_64/swayidle/)
 
-## Anything in the confs folder is a config file for a program (usually in etc), replace the file with the one in the confs folder at your own risk!
+## Anything in the confs folder is a config file for a program (usually in etc), replace the file with the one in the confs folder __at your own risk__!

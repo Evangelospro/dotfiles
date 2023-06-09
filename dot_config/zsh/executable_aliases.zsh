@@ -7,8 +7,7 @@ alias zshconfig="e $ZSH"
 
 alias sudo='sudo '
 alias please='sudo $(fc -ln -1)'
-
-# VPNs
+alias pls='please'
 
 # HACKING TOOLS
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
@@ -20,7 +19,7 @@ alias rot13='tr '\''A-Za-z'\'' '\''N-ZA-Mn-za-m'\'
 alias rot47='tr '\''\!-~'\'' '\''P-~\!-O'\'
 alias rr='nc evangelospro.com 1337'
 alias webserver='updog -p 8000'
-alias penelope="/usr/bin/python3 /usr/bin/penelope/penelope.py"
+alias penelope="penelope --configfile ~/.config/penelope/penelope.conf"
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
 alias ctfinit="python3 ~/Desktop/HACKING/CTF\ Automation/ctfinit.py"
 alias mobsf="~/SCRIPTS/r ~/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
@@ -34,7 +33,6 @@ alias pwndbg='gdb -q -ex init-pwndbg "$@"'
 alias hosts='sudo ~/SCRIPTS/hosts.sh'
 alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
 alias navi-update="$ZSH/scripts/updaters/navi-updater.sh"
-alias feroxbuster-dir="feroxbuster -e -u"
 alias wpscan='wpscan -e ap,t,u --plugins-detection aggressive'
 alias frida-init="adb connect 127.0.0.1:5555 && sleep && adb -s 127.0.0.1:5555 root && adb -s 127.0.0.1:5555 push $HACKING_TOOLS/Mobile/frida/frida-server /data/local/tmp/ && adb -s 127.0.0.1:5555 shell 'chmod 755 /data/local/tmp/frida-server' && adb -s 127.0.0.1:5555 shell '/data/local/tmp/frida-server &' "
 

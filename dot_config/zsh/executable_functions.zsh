@@ -106,16 +106,16 @@ man() {
 
 # navigation
 up () {
-local d=""
-local limit="$1"
+    local d=""
+    local limit="$1"
 
-# Default to limit of 1
-if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
-limit=1
-fi
+    # Default to limit of 1
+    if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+        limit=1
+    fi
 
-for ((i=1;i<=limit;i++)); do
-d="../$d"
+    for ((i=1;i<=limit;i++)); do
+        d="../$d"
 done
 
 # perform cd. Show error if cd fails
@@ -138,10 +138,10 @@ cd () {
 	fi
 }
 
-# Time Zshell loading time
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do time $shell -i -c exit; done
+# Time shell loading time
+timeshell() {
+    shell=${1-$SHELL}
+    for i in $(seq 1 10); do time $shell -i -c exit; done
 }
 
 # Hacking
@@ -168,35 +168,70 @@ ffuf-vhost() {
     ffuf -c -H "Host: FUZZ.$1" -u http://$1 -w $wordlist ${@: $arg_count};
 }
 
+ferox-dir() {
+    arg_count=3
+    if [[ $2 && $2 != -* ]]; then
+        wordlist=$2
+    else
+        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
+        arg_count=2
+    fi
+    feroxbuster -u $1 -w $wordlist ${@: $arg_count};
+}
+
 ffuf-dir() {
     arg_count=3
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist='/usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-medium.txt'
+        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
         arg_count=2
     fi
     ffuf -c -u $1FUZZ -w $wordlist ${@: $arg_count};
 }
 
-ffuf-req() {
-    arg_count=2
-    if [[ $1 && $1 != -* ]]; then
-        wordlist=$1
+
+ffuf-ext() {
+    arg_count=3
+    if [[ $2 && $2 != -* ]]; then
+        wordlist=$2
     else
-        wordlist='/usr/share/dirbuster/wordlists/directory-list-lowercase-2.3-medium.txt'
-        arg_count=1
+        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
+        arg_count=2
     fi
-    ffuf -c -ic -request new.req -request-proto http -w $wordlist ${@: $arg_count};
+    ffuf -c -u $1FUZZ -w $wordlist ${@: $arg_count};
 }
 
-plzsh() {
+ferox-ext() {
+    exts=(php html phps asp bak)
+    arg_count=3
+    if [[ $2 && $2 != -* ]]; then
+        wordlist=$2
+    else
+        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
+        arg_count=2
+    fi
+    feroxbuster -u $1 -w $wordlist -x ${exts[@]} ${@: $arg_count};
+}
+
+ffuf-req() {
+    arg_count=3
+    if [[ $2 && $2 != -* ]]; then
+        wordlist=$2
+    else
+        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
+        arg_count=2
+    fi
+    ffuf -c -ic -request $1 -request-proto http -w $wordlist ${@: $arg_count};
+}
+
+listener() {
     if [[ $1 ]]; then
         port=$1
     else
         port=1337
     fi
-    stty raw -echo; (echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python -c "import pty;pty.spawn(\"/bin/bash\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | nc -lvnp $port && reset
+    stty raw -echo; (echo export TERM=xterm;echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python -c "import pty;pty.spawn(\"/bin/bash\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | nc -lvnp $port && reset
 }
 
 qssh() {

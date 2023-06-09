@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+# VPNs: tryhackme, htb_release_arena, htb_starting_point, htb_machines
+# all using openvpn
+
+import os
+import sys
+import shutil
+import subprocess
+
+vpns = {"thm": "tryhackme",  "htb-ra" : "htb_release_arena", "htb-sp": "htb_starting_point", "htb-ma": "htb_machines"}
+
+def main():
+	if len(sys.argv) != 2:
+		print(f"Usage: vpn <vpn_name>({', '.join(vpns.keys())})")
+		sys.exit(1)
+
+	vpn_name = sys.argv[1]
+	try:
+		vpn_name = vpns[vpn_name]
+	except KeyError:
+		print(f"VPN {vpn_name} does not exist")
+	vpn_path = os.path.expanduser(f"~/HACKING/VPNs/{vpn_name}.ovpn")
+
+	if not os.path.exists(vpn_path):
+		print(f"VPN {vpn_name} does not exist")
+		sys.exit(1)
+
+	# copy the vpn file to /tmp/running_vpn.ovpn
+	shutil.copyfile(vpn_path, "/tmp/running_vpn.ovpn")
+	subprocess.run(["sudo", "openvpn", "--config", "/tmp/running_vpn.ovpn"])
+
+if __name__ == "__main__":
+	main()
