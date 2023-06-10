@@ -38,9 +38,10 @@
 (deflisten appname1_json :initial '[{"title": "No focused window", "icon": "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"}]' "scripts/appname 1 nodebug")
 
 ; revealers
+(defvar music_reveal false)
+(defvar control_reveal false)
+(defvar wifi_reveal false)
+(defvar time_reveal false)
 ; (defvar side_reveal false)
 ; (defvar volume_reveal false)
 ; (defvar brightness_reveal false)
-(defvar control_reveal false)
-; (defvar wifi_reveal false)
-(defvar time_reveal false)

@@ -3,11 +3,29 @@
 
 ![Hyprland](/hyprland.png)
 
+
+### Nvidia drivers (try nvidia-open-dkms if supported)
+```
+sudo pacman -Sy nvidia-dkms nvidia-vaapi-driver-git
+```
+
+### Hyprland
+#### Non-Nvidia
+```
+paru -Sy hyprland-git xdg-desktop-portal-hyprland-git
+```
+#### Nvidia
+```
+paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
+```
+
+
+
 ### Needed Packages (for basic functionallity)
 
 #### Arch packages
 ```
-paru -Sy rustup go chezmoi hyprland-git xdg-desktop-portal-hyprland-git grim \
+paru -Sy rustup go chezmoi grim \
 polkit-gnome ffmpeg swaybg ttf-font-awesome \
 rofi-git pavucontrol fd qt5ct qt6ct zsh wev wl-clipboard kwallet-pam cliphist \
 jaq ripgrep btop moreutils swaybg grimblast-git ffmpegthumbnailer \
@@ -84,11 +102,6 @@ Fix Checksums: Apply inside vscode run
 ### SDDM
 ```
 sudo cp confs/sddm.conf /etc/sddm.conf
-```
-
-### Nvidia drivers
-```
-sudo pacman -Sy nvidia-dkms nvidia-vaapi-driver-git
 ```
 
 ### Thanks to these awesome projects
