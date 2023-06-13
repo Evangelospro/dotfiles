@@ -9,6 +9,11 @@
 sudo pacman -Sy nvidia-dkms nvidia-vaapi-driver-git
 ```
 
+### Envy control (Hybrid setups)
+```
+paru -Sy envycontrol
+```
+
 ### Hyprland
 #### Non-Nvidia
 ```
@@ -108,5 +113,7 @@ sudo cp confs/sddm.conf /etc/sddm.conf
 * [blueman](https://archlinux.org/packages/extra/x86_64/blueman/)
 * [hyprland](https://aur.archlinux.org/packages/hyprland-git/)
 * [swayidle](https://archlinux.org/packages/extra/x86_64/swayidle/)
+* [envycontrol](https://github.com/bayasdev/envycontrol)
+
 
 ## Anything in the confs folder is a config file for a program (usually in etc), replace the file with the one in the confs folder __at your own risk__!
