@@ -29,7 +29,7 @@ paru -Sy rustup go chezmoi grim \
 polkit-gnome ffmpeg swaybg ttf-font-awesome \
 rofi-git pavucontrol pamixer fd qt5ct qt6ct zsh wev wl-clipboard kwallet-pam cliphist \
 jaq ripgrep btop moreutils swaybg grimblast-git ffmpegthumbnailer \
-playerctlqtkeychain-qt6 flameshot-git batify2-git lf libdisplay-info \
+playerctl qtkeychain-qt6 flameshot-git batify2-git lf libdisplay-info \
 eww-wayland wlogout swaylock-effects-git sddm-git fastfetch\
 papirus-icon-theme-git swaync-git swaync-client wezterm swayidle geticons udiskie2 \
 sddm-theme-astronaut blueman handlr-regex pistol-git
