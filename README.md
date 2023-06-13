@@ -25,14 +25,12 @@ paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
 
 #### Arch packages
 ```
-paru -Sy rustup go chezmoi grim \
-polkit-gnome ffmpeg swaybg ttf-font-awesome \
-rofi-git pavucontrol pamixer fd qt5ct qt6ct zsh wev wl-clipboard kwallet-pam cliphist \
-jaq ripgrep btop moreutils swaybg grimblast-git ffmpegthumbnailer \
-playerctl qtkeychain-qt6 flameshot-git batify2-git lf libdisplay-info \
-eww-wayland wlogout swaylock-effects-git sddm-git fastfetch\
-papirus-icon-theme-git swaync-git swaync-client wezterm swayidle geticons udiskie2 \
-sddm-theme-astronaut blueman handlr-regex pistol-git
+paru -Sy rustup go chezmoi grim sddm-theme-astronaut blueman handlr-regex pistol-git \
+polkit-gnome ffmpeg swaybg ttf-font-awesome wev wl-clipboard kwallet-pam cliphist \
+rofi-git pavucontrol pamixer fd qt5ct qt6ct zsh swaybg grimblast-git geticons udiskie2 \
+eww-wayland wlogout swaylock-effects-git sddm-git fastfetch jaq ripgrep btop moreutils  \
+playerctl qtkeychain-qt5 qtkeychain-qt6 flameshot-git batify2-git lf libdisplay-info \
+papirus-icon-theme-git swaync-git swaync-client wezterm swayidle \
 ```
 
 #### Python packages
