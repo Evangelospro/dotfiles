@@ -26,10 +26,10 @@ paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
 #### Arch packages
 ```
 paru -Sy rustup go chezmoi grim sddm-theme-astronaut blueman handlr-regex pistol-git \
-polkit-gnome ffmpeg swaybg ttf-font-awesome wev wl-clipboard kwallet-pam cliphist \
+polkit-gnome swaybg ttf-font-awesome wl-clipboard kwallet-pam cliphist \
 rofi-git pavucontrol pamixer fd qt5ct qt6ct zsh swaybg grimblast-git geticons udiskie2 \
-eww-wayland wlogout swaylock-effects-git sddm-git fastfetch jaq ripgrep btop moreutils  \
-playerctl qtkeychain-qt5 qtkeychain-qt6 flameshot-git batify2-git lf libdisplay-info \
+eww-wayland wlogout swaylock-effects-git sddm-git fastfetch jaq ripgrep moreutils  \
+playerctl qtkeychain-qt5 qtkeychain-qt6 flameshot-git batify2-git lf nautilus \
 papirus-icon-theme-git swaync-git swaync-client wezterm swayidle \
 ```
 
@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 #### utils
 ```
-paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow tldr
+paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow tldr ffmpeg btop wev
 ```
 
 #### Systemd services
