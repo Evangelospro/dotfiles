@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 #### utils
 ```
-paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow tldr ffmpeg btop wev
+paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow tldr ffmpeg btop wev openvpn bat
 ```
 
 #### Systemd services
