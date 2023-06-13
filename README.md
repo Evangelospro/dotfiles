@@ -49,6 +49,7 @@ paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow tldr ffmpeg btop wev
 ```
 sudo systemctl enable --now cpupower
 sudo systemctl enable --now pacman-cleanup-hook.timer
+sudo systemctl enable --now sddm
 ```
 
 #### Applications
