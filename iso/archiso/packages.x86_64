@@ -1,0 +1,336 @@
+alsa-utils
+amd-ucode
+arch-install-scripts
+archinstall
+b43-fwcutter
+base
+bind
+brltty
+broadcom-wl
+btrfs-progs
+clonezilla
+cloud-init
+cryptsetup
+darkhttpd
+ddrescue
+dhclient
+dhcpcd
+diffutils
+dmidecode
+dmraid
+dnsmasq
+dosfstools
+e2fsprogs
+edk2-shell
+efibootmgr
+espeakup
+ethtool
+exfatprogs
+f2fs-tools
+fatresize
+foot-terminfo
+fsarchiver
+gnu-netcat
+gpart
+gpm
+gptfdisk
+grml-zsh-config
+grub
+hdparm
+hyperv
+intel-ucode
+irssi
+iw
+iwd
+jfsutils
+kitty-terminfo
+less
+lftp
+libfido2
+libusb-compat
+linux
+linux-atm
+linux-firmware
+linux-firmware-marvell
+livecd-sounds
+lsscsi
+lvm2
+lynx
+man-db
+man-pages
+mc
+mdadm
+memtest86+
+memtest86+-efi
+mkinitcpio
+mkinitcpio-archiso
+mkinitcpio-nfs-utils
+modemmanager
+mtools
+nano
+nbd
+ndisc6
+nfs-utils
+nilfs-utils
+nmap
+ntfs-3g
+nvme-cli
+open-iscsi
+open-vm-tools
+openconnect
+openssh
+openvpn
+partclone
+parted
+partimage
+pcsclite
+ppp
+pptpclient
+pv
+qemu-guest-agent
+refind
+reflector
+reiserfsprogs
+rp-pppoe
+rsync
+rxvt-unicode-terminfo
+screen
+sdparm
+sg3_utils
+smartmontools
+sof-firmware
+squashfs-tools
+sudo
+syslinux
+systemd-resolvconf
+tcpdump
+terminus-font
+testdisk
+tmux
+tpm2-tss
+udftools
+usb_modeswitch
+usbmuxd
+usbutils
+vim
+virtualbox-guest-utils-nox
+vpnc
+wezterm-terminfo
+wireless-regdb
+wireless_tools
+wpa_supplicant
+wvdial
+xfsprogs
+xl2tpd
+zsh
+
+
+# everything above comes from archiso releng folder
+#######################################################
+###                    ALCI                         ###
+#######################################################
+
+#######################################################
+###  PACKAGES THAT ARE REMOVED AFTER INSTALLATION   ###
+###             VIA CALAMARES CONFIG                ###
+#######################################################
+
+alci-dwm
+#alci-dwm-nemesis
+alci-calamares
+#alci-calamares-dev
+alci-calamares-config
+#alci-calamares-config-btrfs
+#alci-calamares-config-dev
+#alci-calamares-config-hardened
+#alci-calamares-config-lts
+#alci-calamares-config-pure
+#alci-calamares-config-xanmod
+#alci-calamares-config-zen
+xterm
+
+#######################################################
+###      PACKAGES THAT STAY AFTER INSTALLATION      ###
+#######################################################
+
+sddm
+bash-completion
+os-prober
+dex
+libxinerama
+make
+xorg-xkill
+xterm
+xorg-xrdb
+mkinitcpio-openswap
+
+# Networking
+networkmanager
+#network-manager-applet
+
+# Bluetooth
+blueman
+
+#Sound
+pavucontrol
+pamixer
+
+#######################################################
+###                    EXTRAS                       ###
+#######################################################
+
+
+##### Drivers for graphical cards
+
+#driver for virtualbox - xf86-video-vmware is dependency
+#systemctl enable vboxservice
+#systemctl start vboxservice
+#to have fullscreen
+#virtualbox-guest-utils
+
+xf86-video-intel
+#xf86-video-amdgpu
+#xf86-video-nouveau
+
+#nvidia
+#nvidia-settings
+#nvidia-utils
+
+##### lightdm display manager
+
+#lightdm
+#lightdm-gtk-greeter
+
+##### sddm display manager
+
+sddm-git
+sddm-theme-astronaut
+
+
+##### want to have base-devel group
+
+base-devel
+
+##### want to have linux-headers
+
+linux-headers
+linux-headers-zen
+
+##### want to have a desktop
+
+hyprland-git
+xdg-desktop-portal-hyprland-git
+
+##### want to add/use the Chaotic repo
+
+chaotic-mirrorlist
+chaotic-keyring
+
+
+#grub theme
+grub-theme-cyberre
+
+# XDG standard
+handlr-regex 
+pistol-git
+xdg-ninja
+
+# System utils(background, clipboard, volume control, polkit, wallet, bar, login, logout, notification daemon, idle daemon, disk mounting)
+swaybg
+wl-clipboard
+cliphist
+pavucontrol
+polkit-gnome
+kwallet-pam
+eww-wayland
+swaylock-effects-git
+wlogout
+swaync-git
+swaync-client
+swayidle
+udiskie2
+
+# Qt5/6
+qt5ct
+qt6ct
+qtkeychain-qt5
+qtkeychain-qt6
+
+# Fonts
+ttf-font-awesome
+
+# Icon theme
+papirus-icon-theme-git
+
+# Launcher
+rofi-git
+
+# Screenshoting
+grim
+flameshot-git
+grimblast-git
+
+# Programming
+rustup
+go
+
+# Music
+playerctl
+
+# Terminal
+wezterm
+
+# Shell
+zsh
+
+# Dotfiles
+chezmoi
+
+# Parsers
+jaq
+rigrep
+
+# Fetch
+fastfetch
+
+# File managment
+nautilus
+lf
+fd
+
+# Other
+wev
+btop
+geticons
+moreutils
+#batify2-git
+
+# Additional utils
+pacman-cleanup-hook
+cpupower-git
+glow
+tldr
+ffmpeg
+btop
+wev
+
+# Applications
+discord
+betterdiscordctl-git
+spotify-player
+spotifywm-git
+obsidian
+
+# Hacking
+ghidra
+cutter
+rz-ghidra
+rz-cutter
+penelope-git
+ffuf-bin
+feroxbuster
+
+# Windows emulation
+#wine
+#bottles
+#python-ntlm-auth

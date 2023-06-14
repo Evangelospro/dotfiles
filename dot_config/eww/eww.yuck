@@ -14,6 +14,15 @@
     "")
   ))
 
+(defwidget rogcontrol []
+  :class "rogcontrol"
+  :orientation "h"
+  (image :path "${EWW_CONFIG_DIR}/images/rogcontrol.svg"
+    (button
+      :onclick "rog-control-center &"
+    )
+  )
+
 (defwidget workspaces [?monitor]
   (eventbox :onscroll "echo {{}} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch split-workspace"
     (box
@@ -358,6 +367,7 @@
     :halign "start"
     :class "left_modules"
     (launcher)
+    (rogcontrol)
     (sep)
     (workspaces :monitor {monitor})
   )

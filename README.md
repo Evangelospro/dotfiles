@@ -9,7 +9,12 @@
 sudo pacman -Sy nvidia-dkms nvidia-vaapi-driver-git
 ```
 
-### Envy control (Hybrid setups)
+### Asus (I prefer to always stay latest), hence -git
+```
+paru -Sy asusctl-git supergfxctl-git
+```
+
+### Envy control (Hybrid setups, for asus use supergfxctl
 ```
 paru -Sy envycontrol
 ```
@@ -55,6 +60,7 @@ paru -Sy pacman-cleanup-hook cpupower-git xdg-ninja glow tldr ffmpeg btop wev op
 sudo systemctl enable --now cpupower
 sudo systemctl enable --now pacman-cleanup-hook.timer
 sudo systemctl enable --now sddm
+sudo systemctl enable --now bluetooth.service
 ```
 
 #### Applications
@@ -82,12 +88,6 @@ git clone https://github.com/Duckonaut/hyprload/ ~/.local/share/hyprload/src --d
 cd ~/.local/share/hyprload/hyprland
 make pluginenv
 curl -sSL https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh | bash
-```
-
-### plymouth theme based on https://github.com/PROxZIMA/proxzima-plymouth
-```
-sudo cp -r confs/proxzima-plymouth/proxzima /usr/share/plymouth/themes
-sudo plymouth-set-default-theme -R proxzima
 ```
 
 ### Vscode
