@@ -1,5 +1,8 @@
 # dotfiles 
-## use chezmoi to apply them
+### use chezmoi to apply (all configs except thos in confs, which should be installed manually and at your own risk, with knowledge of their according location!)
+```
+chezmoi init --apply Evangelospro
+```
 
 ![Hyprland](/hyprland.png)
 
@@ -102,11 +105,6 @@ sed -i 's;</head>;<link rel="stylesheet" href="vsc.css"></head>;g' $resPrefix/wo
 Fix Checksums: Apply inside vscode run
 ```
 
-### SDDM
-```
-sudo cp confs/sddm.conf /etc/sddm.conf
-```
-
 ### Thanks to these awesome projects
 * [pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)
 * [playerctl](https://www.archlinux.org/packages/extra/x86_64/playerctl/)
@@ -114,6 +112,3 @@ sudo cp confs/sddm.conf /etc/sddm.conf
 * [hyprland](https://aur.archlinux.org/packages/hyprland-git/)
 * [swayidle](https://archlinux.org/packages/extra/x86_64/swayidle/)
 * [envycontrol](https://github.com/bayasdev/envycontrol)
-
-
-## Anything in the confs folder is a config file for a program (usually in etc), replace the file with the one in the confs folder __at your own risk__!
