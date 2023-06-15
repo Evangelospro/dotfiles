@@ -135,17 +135,8 @@ zsh
 ###             VIA CALAMARES CONFIG                ###
 #######################################################
 
-#alci-dwm
-#alci-dwm-nemesis
+
 alci-calamares
-#alci-calamares-dev
-#alci-calamares-config
-#alci-calamares-config-btrfs
-#alci-calamares-config-dev
-#alci-calamares-config-hardened
-#alci-calamares-config-lts
-#alci-calamares-config-pure
-#alci-calamares-config-xanmod
 alci-calamares-config-zen
 xterm
 
@@ -320,22 +311,16 @@ feroxbuster
 # Windows emulation
 #wine
 #bottles
-#python-ntlm-auth
-org/paru
-org/grub-theme-cyberre
-org/handlr-regex
-org/pistol-git
-org/swaylock-effects-git
-org/swaync-git
-org/paru
-org/grub-theme-cyberre
-org/handlr-regex
-org/pistol-git
-org/swaylock-effects-git
-org/swaync-git
-org/paru
-org/grub-theme-cyberre
-org/handlr-regex
-org/pistol-git
-org/swaylock-effects-git
-org/swaync-git
+#python-ntlm-authorg/paru
+
+# Aur packages
+paru
+
+grub-theme-cyberre
+
+handlr-regex
+custom/pistol-git
+
+swaylock-effects-git
+
+swaync-git

@@ -17,11 +17,7 @@ echo "Fill the array with the original folders first"
 # use ls -d */ > list to get the list of the created githubs and copy/paste in
 
 directories=(
-alci-calamares-config/
 alci-calamares-config-zen/
-alci-iso-zen/
-alci-pkgbuild/
-alci_repo/
 )
 
 count=0

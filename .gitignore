@@ -1,4 +1,5 @@
-iso/aur_repo_x86_64/
 iso/isoOUT/
 iso/isoBUILD/
-iso/archiso/AUR_BUILDER/
+iso/AUR_BUILDER/aur_repo_x86_64
+iso/AUR_BUILDER/pkgbuilds
+iso/archiso/aur_repo_x86_64
