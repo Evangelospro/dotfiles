@@ -18,25 +18,10 @@ echo "Fill the array with the original folders first"
 
 directories=(
 alci-calamares-config/
-alci-calamares-config-dev/
-alci-calamares-config-hardened/
-alci-calamares-config-lts/
-alci-calamares-config-pure/
-alci-calamares-config-xanmod/
 alci-calamares-config-zen/
-alci-dwm/
-alci-dwm-nemesis/
-alci-grub-theme/
-alci-iso/
-alci-iso-dev/
-alci-iso-hardened/
-alci-iso-lts/
-alci-iso-pure/
-alci-iso-xanmod/
 alci-iso-zen/
 alci-pkgbuild/
 alci_repo/
-nemesis-wallpapers/
 )
 
 count=0

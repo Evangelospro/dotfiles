@@ -13,11 +13,11 @@
 
 sudo pacman -S base-devel --noconfirm --needed
 
-source="https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay-bin"
-folder="alci-yay-bin"
-name="PKGBUILD"
+source="https://aur.archlinux.org/paru.git"
+folder="paru"
+target="PKGBUILD"
 
 mkdir /tmp/$folder
-wget $source -O /tmp/$folder/$name
+wget $source -O /tmp/$folder/$target
 cd /tmp/$folder
-makepkg -i
+makepkg -si

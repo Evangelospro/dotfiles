@@ -1,0 +1,15 @@
+# Paru
+url https://aur.archlinux.org/paru.git
+
+#grub theme
+url https://aur.archlinux.org/grub-theme-cyberre.git
+
+xdg-stuff
+url https://aur.archlinux.org/handlr-regex.git
+url https://aur.archlinux.org/pistol-git.git
+
+# lock screen
+url https://aur.archlinux.org/swaylock-effects-git.git
+
+# notification daemon
+url https://aur.archlinux.org/swaync-git.git

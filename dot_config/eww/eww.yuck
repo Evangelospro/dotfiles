@@ -12,16 +12,19 @@
       :onclick "launcher"
       :class "launcher_icon"
     "")
-  ))
+  )
+)
 
 (defwidget rogcontrol []
-  :class "rogcontrol"
-  :orientation "h"
-  (image :path "${EWW_CONFIG_DIR}/images/rogcontrol.svg"
+  (image 
+    :class "rogcontrol"
+    :orientation "h"
+    :path "${EWW_CONFIG_DIR}/images/rogcontrol.svg"
     (button
       :onclick "rog-control-center &"
     )
   )
+)
 
 (defwidget workspaces [?monitor]
   (eventbox :onscroll "echo {{}} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch split-workspace"
@@ -134,7 +137,7 @@
     )
     (box
       :class "music"
-      :visible {music_status == "No players found" ? "false" : "true"}
+      :visible {music_status == "No Players Found" ? "false" : "true"}
       (eventbox
         :onhover "${EWW_CMD} update music_reveal=true"
         :onhoverlost "${EWW_CMD} update music_reveal=false"

@@ -26,8 +26,9 @@ echo
 
 	# setting of the general parameters
 	archisoRequiredVersion="archiso 71-1"
-	buildFolder=$HOME"/alci-build"
-	outFolder=$HOME"/Alci-Iso-Out"
+	buildFolder="$(pwd)/isoBUILD"
+	# get the absolute path of the current folder
+	outFolder="$(pwd)/isoOUT"
 	archisoVersion=$(sudo pacman -Q archiso)
 
 	echo "################################################################## "
@@ -116,7 +117,7 @@ echo
 
 	echo
 	echo "Saving current archiso version to archiso.md"
-	sudo sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" ../archiso.md
+	sudo sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" archiso.md
 	echo
 	echo "Making mkarchiso verbose"
 	sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
@@ -137,7 +138,7 @@ echo
 	echo "Copying the Archiso folder to build work"
 	echo
 	mkdir $buildFolder
-	cp -r ../archiso $buildFolder/archiso
+	cp -r archiso $buildFolder/archiso
 
 # echo
 # echo "################################################################## "
@@ -164,7 +165,7 @@ echo
 #	rm $buildFolder/archiso/packages.x86_64
 #	echo
 #	echo "Copying the new packages.x86_64 file to the build folder"
-#	cp -f ../archiso/packages.x86_64 $buildFolder/archiso/packages.x86_64
+#	cp -f archiso/packages.x86_64 $buildFolder/archiso/packages.x86_64
 #	echo
 #	echo "Changing group for polkit folder"
 #	sudo chgrp polkitd $buildFolder/archiso/airootfs/etc/polkit-1/rules.d
@@ -240,7 +241,7 @@ tput sgr0
 echo "################################################################## "
 echo
 
-	[ -d $outFolder ] || mkdir $outFolder
+	[ -d $outFolder ] || mkdir -p $outFolder
 	cd $buildFolder/archiso/
 	sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/archiso/
 

@@ -135,18 +135,18 @@ zsh
 ###             VIA CALAMARES CONFIG                ###
 #######################################################
 
-alci-dwm
+#alci-dwm
 #alci-dwm-nemesis
 alci-calamares
 #alci-calamares-dev
-alci-calamares-config
+#alci-calamares-config
 #alci-calamares-config-btrfs
 #alci-calamares-config-dev
 #alci-calamares-config-hardened
 #alci-calamares-config-lts
 #alci-calamares-config-pure
 #alci-calamares-config-xanmod
-#alci-calamares-config-zen
+alci-calamares-config-zen
 xterm
 
 #######################################################
@@ -196,11 +196,6 @@ xf86-video-intel
 #nvidia-settings
 #nvidia-utils
 
-##### lightdm display manager
-
-#lightdm
-#lightdm-gtk-greeter
-
 ##### sddm display manager
 
 sddm-git
@@ -211,12 +206,12 @@ sddm-theme-astronaut
 
 base-devel
 
-##### want to have linux-headers
+##### kernel
 
 linux-headers
 linux-headers-zen
 
-##### want to have a desktop
+##### Desktop environment
 
 hyprland-git
 xdg-desktop-portal-hyprland-git
@@ -226,13 +221,7 @@ xdg-desktop-portal-hyprland-git
 chaotic-mirrorlist
 chaotic-keyring
 
-
-#grub theme
-grub-theme-cyberre
-
-# XDG standard
-handlr-regex 
-pistol-git
+# XDG standard helper
 xdg-ninja
 
 # System utils(background, clipboard, volume control, polkit, wallet, bar, login, logout, notification daemon, idle daemon, disk mounting)
@@ -243,9 +232,7 @@ pavucontrol
 polkit-gnome
 kwallet-pam
 eww-wayland
-swaylock-effects-git
 wlogout
-swaync-git
 swaync-client
 swayidle
 udiskie2
@@ -334,3 +321,21 @@ feroxbuster
 #wine
 #bottles
 #python-ntlm-auth
+org/paru
+org/grub-theme-cyberre
+org/handlr-regex
+org/pistol-git
+org/swaylock-effects-git
+org/swaync-git
+org/paru
+org/grub-theme-cyberre
+org/handlr-regex
+org/pistol-git
+org/swaylock-effects-git
+org/swaync-git
+org/paru
+org/grub-theme-cyberre
+org/handlr-regex
+org/pistol-git
+org/swaylock-effects-git
+org/swaync-git
