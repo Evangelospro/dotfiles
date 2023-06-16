@@ -2,14 +2,33 @@
 aur paru
 
 #grub theme
-aur grub-theme-cyberre
+#aur grub-theme-cyberre
 
 # xdg-stuff
 aur handlr-regex
 aur pistol-git
 
 # lock screen
-aur swaylock-effects-git
+auzr swaylock-effects-git
 
 # notification daemon
 aur swaync-git
+
+# Launcher
+aur rofi-git
+
+# parsers
+aur jaq
+aur ripgrep
+
+# spotify
+aur spotify-player
+aur spotifywm-git
+
+# Hacking
+aur penelope-git
+aur ffuf-bin
+aur feroxbuster
+
+# pacman
+aur pacman-cleanup-hook

@@ -18,9 +18,9 @@ alias rot13='tr '\''A-Za-z'\'' '\''N-ZA-Mn-za-m'\'
 alias rot47='tr '\''\!-~'\'' '\''P-~\!-O'\'
 alias rr='nc evangelospro.com 1337'
 alias webserver='updog -p 8000'
-alias penelope="penelope --configfile ~/.config/penelope/penelope.conf"
+alias penelope="penelope --configfile $HOME/.config/penelope/penelope.conf"
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
-alias mobsf="~/SCRIPTS/r ~/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
+alias mobsf="$HOME/SCRIPTS/r $HOME/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
 alias burl="curl -x localhost:8080 -k "
 alias frm="/usr/bin/rm -rf"
 alias rm="$ZSH/scripts/utils/rm"
@@ -28,7 +28,7 @@ alias rmz="/usr/bin/rm *.zip"
 alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
 alias gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init"
 alias pwndbg='gdb -q -ex init-pwndbg "$@"'
-alias hosts='sudo ~/SCRIPTS/hosts.sh'
+alias hosts='sudo $HOME/SCRIPTS/hosts.sh'
 alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
 alias navi-update="$ZSH/scripts/updaters/navi-updater.sh"
 alias wpscan='wpscan -e ap,t,u --plugins-detection aggressive'
@@ -131,11 +131,12 @@ alias flush-cache='sudo killall -USR1 systemd-resolved'
 alias enable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=0'
 alias disable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=1'
 
-# Package managment / cleanup
-alias clear-cache='sudo rm -rf ~/.cache/*' # shows no mercy but it is cache right?
+# Cleanups
+alias clean-cache="sudo rm -rf $HOME/.cache/*" # shows no mercy but it is cache right?
 alias clean-docker='docker system prune -f'
 alias clean-packages='sudo pacman -Rns $(pacman -Qtdq) && sudo \rm -rf /var/cache/pacman/pkg/*'
-alias clear-font-cache="fc-cache -f -v"
+alias clean-font-cache="fc-cache -f -v"
+alias clean-seafile-cache="rm -rf $HOME/.seadrive/data/file-cache"
 
 # basics/typos
 alias cd..='cd ..'

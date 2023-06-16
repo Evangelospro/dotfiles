@@ -34,7 +34,6 @@ gnu-netcat
 gpart
 gpm
 gptfdisk
-grml-zsh-config
 grub
 hdparm
 hyperv
@@ -72,7 +71,6 @@ nbd
 ndisc6
 nfs-utils
 nilfs-utils
-nmap
 ntfs-3g
 nvme-cli
 open-iscsi
@@ -106,7 +104,6 @@ systemd-resolvconf
 tcpdump
 terminus-font
 testdisk
-tmux
 tpm2-tss
 udftools
 usb_modeswitch
@@ -122,7 +119,6 @@ wpa_supplicant
 wvdial
 xfsprogs
 xl2tpd
-zsh
 
 
 # everything above comes from archiso releng folder
@@ -136,8 +132,8 @@ zsh
 #######################################################
 
 
-alci-calamares
-alci-calamares-config-zen
+# alci-calamares
+# alci-calamares-config-zen
 xterm
 
 #######################################################
@@ -199,8 +195,8 @@ base-devel
 
 ##### kernel
 
-linux-headers
-linux-headers-zen
+linux-zen
+linux-zen-headers
 
 ##### Desktop environment
 
@@ -211,6 +207,9 @@ xdg-desktop-portal-hyprland-git
 
 chaotic-mirrorlist
 chaotic-keyring
+
+# shell
+zsh
 
 # XDG standard helper
 xdg-ninja
@@ -226,7 +225,7 @@ eww-wayland
 wlogout
 swaync-client
 swayidle
-udiskie2
+udiskie
 
 # Qt5/6
 qt5ct
@@ -239,9 +238,6 @@ ttf-font-awesome
 
 # Icon theme
 papirus-icon-theme-git
-
-# Launcher
-rofi-git
 
 # Screenshoting
 grim
@@ -264,10 +260,6 @@ zsh
 # Dotfiles
 chezmoi
 
-# Parsers
-jaq
-rigrep
-
 # Fetch
 fastfetch
 
@@ -284,8 +276,6 @@ moreutils
 #batify2-git
 
 # Additional utils
-pacman-cleanup-hook
-cpupower-git
 glow
 tldr
 ffmpeg
@@ -295,8 +285,6 @@ wev
 # Applications
 discord
 betterdiscordctl-git
-spotify-player
-spotifywm-git
 obsidian
 
 # Hacking
@@ -304,23 +292,33 @@ ghidra
 cutter
 rz-ghidra
 rz-cutter
-penelope-git
-ffuf-bin
-feroxbuster
+nmap
 
 # Windows emulation
 #wine
 #bottles
-#python-ntlm-authorg/paru
+#python-ntlm-authorg
 
 # Aur packages
 paru
 
-grub-theme-cyberre
-
 handlr-regex
-custom/pistol-git
+pistol-git
 
 swaylock-effects-git
 
 swaync-git
+
+rofi-git
+
+jaq
+ripgrep
+
+spotify-player
+spotifywm-git
+
+penelope-git
+ffuf-bin
+feroxbuster
+
+pacman-cleanup-hook
