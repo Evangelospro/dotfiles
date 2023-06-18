@@ -130,8 +130,7 @@ xl2tpd
 ###             VIA CALAMARES CONFIG                ###
 #######################################################
 
-calamares
-xterm
+alci-calamares-config-zen
 
 #######################################################
 ###      PACKAGES THAT STAY AFTER INSTALLATION      ###
@@ -181,27 +180,23 @@ xf86-video-intel
 #nvidia-utils
 
 # Display manager
-
 sddm-git
 sddm-theme-astronaut
 
 
 # Base-devel group
-
 base-devel
 
 
-##### Desktop environment
-
+# Desktop environment
 hyprland-git
 xdg-desktop-portal-hyprland-git
 
-##### want to add/use the Chaotic repo
-
+# Chaotic repo
 chaotic-mirrorlist
 chaotic-keyring
 
-# shell
+# Shell
 zsh
 
 # XDG standard
@@ -209,14 +204,22 @@ xdg-ninja
 handlr-regex
 pistol-git
 
-# System utils(background, clipboard, volume control, polkit, wallet, bar, login, logout, notification daemon, lockscreen, idle daemon, disk mounting)
+# System utils
+## Background
 swaybg
+## Clipboard
 wl-clipboard
 cliphist
+# Sound
 pavucontrol
+# brightness
+brightnessctl
+# Authentication
 polkit-gnome
 kwallet-pam
+# eww bar
 eww-wayland
+# logout shell
 wlogout
 swaync-git
 swaync-client
@@ -255,6 +258,9 @@ wezterm-terminfo
 # Shell
 zsh
 
+# Password manager
+bitwarden-cli
+
 # Dotfiles
 chezmoi
 
@@ -281,6 +287,8 @@ btop
 wev
 
 # Applications
+## Browser
+chromium
 discord
 betterdiscordctl-git
 obsidian
@@ -303,7 +311,7 @@ feroxbuster
 #bottles
 #python-ntlm-authorg
 
-# Paru
+# Paru (AUR helper)
 paru
 
 # grub theme

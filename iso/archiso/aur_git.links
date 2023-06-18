@@ -9,7 +9,7 @@ aur handlr-regex
 aur pistol-git
 
 # lock screen
-auzr swaylock-effects-git
+auz swaylock-effects-git
 
 # notification daemon
 aur swaync-git
