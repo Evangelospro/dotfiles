@@ -1,5 +1,18 @@
-alsa-utils
+# Any aur packages must be defined both here and in aur_git.links
+
+# kernel / firmware
 amd-ucode
+e2fsprogs
+efibootmgr
+linux
+linux-atm
+linux-firmware
+linux-firmware-marvell
+linux-zen
+linux-zen-headers
+
+# Base packages
+alsa-utils
 arch-install-scripts
 archinstall
 b43-fwcutter
@@ -20,9 +33,7 @@ dmidecode
 dmraid
 dnsmasq
 dosfstools
-e2fsprogs
 edk2-shell
-efibootmgr
 espeakup
 ethtool
 exfatprogs
@@ -42,15 +53,10 @@ irssi
 iw
 iwd
 jfsutils
-kitty-terminfo
 less
 lftp
 libfido2
 libusb-compat
-linux
-linux-atm
-linux-firmware
-linux-firmware-marvell
 livecd-sounds
 lsscsi
 lvm2
@@ -112,7 +118,6 @@ usbutils
 vim
 virtualbox-guest-utils-nox
 vpnc
-wezterm-terminfo
 wireless-regdb
 wireless_tools
 wpa_supplicant
@@ -120,20 +125,12 @@ wvdial
 xfsprogs
 xl2tpd
 
-
-# everything above comes from archiso releng folder
-#######################################################
-###                    ALCI                         ###
-#######################################################
-
 #######################################################
 ###  PACKAGES THAT ARE REMOVED AFTER INSTALLATION   ###
 ###             VIA CALAMARES CONFIG                ###
 #######################################################
 
-
-# alci-calamares
-# alci-calamares-config-zen
+calamares
 xterm
 
 #######################################################
@@ -183,20 +180,16 @@ xf86-video-intel
 #nvidia-settings
 #nvidia-utils
 
-##### sddm display manager
+# Display manager
 
 sddm-git
 sddm-theme-astronaut
 
 
-##### want to have base-devel group
+# Base-devel group
 
 base-devel
 
-##### kernel
-
-linux-zen
-linux-zen-headers
 
 ##### Desktop environment
 
@@ -211,10 +204,12 @@ chaotic-keyring
 # shell
 zsh
 
-# XDG standard helper
+# XDG standard
 xdg-ninja
+handlr-regex
+pistol-git
 
-# System utils(background, clipboard, volume control, polkit, wallet, bar, login, logout, notification daemon, idle daemon, disk mounting)
+# System utils(background, clipboard, volume control, polkit, wallet, bar, login, logout, notification daemon, lockscreen, idle daemon, disk mounting)
 swaybg
 wl-clipboard
 cliphist
@@ -223,7 +218,9 @@ polkit-gnome
 kwallet-pam
 eww-wayland
 wlogout
+swaync-git
 swaync-client
+swaylock-effects-git
 swayidle
 udiskie
 
@@ -253,6 +250,7 @@ playerctl
 
 # Terminal
 wezterm
+wezterm-terminfo
 
 # Shell
 zsh
@@ -286,6 +284,9 @@ wev
 discord
 betterdiscordctl-git
 obsidian
+# spotify
+spotify-player
+spotifywm-git
 
 # Hacking
 ghidra
@@ -293,32 +294,27 @@ cutter
 rz-ghidra
 rz-cutter
 nmap
+penelope-git
+ffuf-bin
+feroxbuster
 
 # Windows emulation
 #wine
 #bottles
 #python-ntlm-authorg
 
-# Aur packages
+# Paru
 paru
 
-handlr-regex
-pistol-git
+# grub theme
+#grub-theme-cyberre
 
-swaylock-effects-git
-
-swaync-git
-
+# Launcher
 rofi-git
 
+# parsers
 jaq
 ripgrep
 
-spotify-player
-spotifywm-git
-
-penelope-git
-ffuf-bin
-feroxbuster
-
+# pacman
 pacman-cleanup-hook

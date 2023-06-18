@@ -82,7 +82,13 @@ echo
 	else
 
 		#checking which helper is installed
-		if pacman -Qi yay &> /dev/null; then
+		if pacman -Qi paru &> /dev/null; then
+
+			echo "################################################################"
+			echo "######### Installing with paru"
+			echo "################################################################"
+			paru -S --noconfirm $package
+		elif pacman -Qi yay &> /dev/null; then
 
 			echo "################################################################"
 			echo "######### Installing with yay"
@@ -95,7 +101,6 @@ echo
 			echo "######### Installing with trizen"
 			echo "################################################################"
 			trizen -S --noconfirm --needed --noedit $package
-
 		fi
 
 		# Just checking if installation was successful

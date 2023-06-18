@@ -25,9 +25,11 @@ echo "################################################################## "
 echo
 
 	# setting of the general parameters
+	base_dir="$(pwd)"
 	archisoRequiredVersion="archiso 71-1"
-	buildFolder="../isoBUILD"
-	outFolder="../isoOUT"
+	buildFolder="$base_dir/isoBUILD"
+	# get the absolute path of the current folder
+	outFolder="$base_dir/isoOUT"
 	archisoVersion=$(sudo pacman -Q archiso)
 
 	echo "################################################################## "
@@ -81,7 +83,13 @@ echo
 	else
 
 		#checking which helper is installed
-		if pacman -Qi yay &> /dev/null; then
+		if pacman -Qi paru &> /dev/null; then
+
+			echo "################################################################"
+			echo "######### Installing with paru"
+			echo "################################################################"
+			paru -S --noconfirm $package
+		elif pacman -Qi yay &> /dev/null; then
 
 			echo "################################################################"
 			echo "######### Installing with yay"
@@ -94,7 +102,6 @@ echo
 			echo "######### Installing with trizen"
 			echo "################################################################"
 			trizen -S --noconfirm --needed --noedit $package
-
 		fi
 
 		# Just checking if installation was successful
@@ -116,7 +123,7 @@ echo
 
 	echo
 	echo "Saving current archiso version to archiso.md"
-	sudo sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" ../archiso.md
+	sudo sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" "$base_dir/archiso.md"
 	echo
 	echo "Making mkarchiso verbose"
 	sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
@@ -137,7 +144,7 @@ echo
 	echo "Copying the Archiso folder to build work"
 	echo
 	mkdir $buildFolder
-	cp -r ../archiso $buildFolder/archiso
+	cp -r $base_dir/archiso $buildFolder/archiso
 
 # echo
 # echo "################################################################## "
