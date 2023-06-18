@@ -296,6 +296,9 @@ echo
 	#echo "Deleting the build folder if one exists - takes some time"
 	#[ -d $buildFolder ] && sudo rm -rf $buildFolder
 
+echo "Set permissions to the out folder"
+sudo chmod 777 -R $outFolder
+
 echo
 echo "##################################################################"
 tput setaf 2

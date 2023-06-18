@@ -163,18 +163,20 @@ pamixer
 #######################################################
 
 
-##### Drivers for graphical cards
-
+# Drivers for graphical cards
+## virtualbox
 #driver for virtualbox - xf86-video-vmware is dependency
 #systemctl enable vboxservice
 #systemctl start vboxservice
 #to have fullscreen
 #virtualbox-guest-utils
 
+# opensource
 xf86-video-intel
 #xf86-video-amdgpu
 #xf86-video-nouveau
 
+# proprietary
 #nvidia
 #nvidia-settings
 #nvidia-utils
@@ -183,10 +185,8 @@ xf86-video-intel
 sddm-git
 sddm-theme-astronaut
 
-
 # Base-devel group
 base-devel
-
 
 # Desktop environment
 hyprland-git
@@ -264,8 +264,10 @@ bitwarden-cli
 # Dotfiles
 chezmoi
 
-# Fetch
+# ascii art
 fastfetch
+figlet 
+lolcat 
 
 # File managment
 nautilus

@@ -18,22 +18,35 @@ effect-vignette=0.5:0.5
 timestr=%I:%M:%S
 datestr=%d.%m
 
+layout-bg-color=1F202A
+layout-text-color=f8f8f2
 
-# Ring
+inside-clear-color=6272a4
+inside-color=1e2030
+inside-ver-color=bd93f9
+inside-wrong-color=ff5555
+
+# line-uses-ring
+line-clear-color=1F202A
+line-color=1e2030
+line-ver-color=1F202A
+line-wrong-color=1F202A
+
+ring-clear-color=6272a4
+ring-ver-color=bd93f9
+ring-color=24273a
+ring-wrong-color=ff5555
+
+text-caps-lock-color=f8f8f2
+text-color=cad3f5
+text-ver-color=1F202A
+text-clear-color=1F202A
+text-wrong-color=1F202A
+
+bs-hl-color=ff5555
+key-hl-color=50fa7b
+
 indicator-radius=200
 indicator-thickness=20
-# line-uses-ring
-line-color=#1e2030
-text-color=#cad3f5
-inside-color=#1e2030
-inside-ver-color=#cad3f5
-line-ver-color=#cad3f5
-ring-ver-color=#cad3f5
-ring-color=#24273a
-key-hl-color=#b7bdf8
-separator-color=#b7bdf8
-layout-text-color=#b7bdf8
-line-wrong-color=#cad3f5
-ring-wrong-color=#cad3f5
-inside-wrong-color=#cad3f5
+separator-color=b7bdf8
 

@@ -2,15 +2,15 @@
 export AUTO_NOTIFY_THRESHOLD=450
 export AUTO_NOTIFY_TITLE="Boss! the command: %command has just finished"
 export AUTO_NOTIFY_BODY="Time taken: %elapsed seconds exit code: %exit_code, have a look"
-export AUTO_NOTIFY_IGNORE=("htb", "thm", "ipython", "docker" "man","nano","vim","ssh","less","e","openvpn","ping","nc","penelope", 'code', 'crontab', 'watch')
+export AUTO_NOTIFY_IGNORE=("vpn", "htb", "thm", "ipython", "docker", "man", "nano", "vim", "ssh", "less", "e", "openvpn", "ping", "nc", "penelope", 'code', 'crontab', 'watch')
 export AUTO_NOTIFY_EXPIRE_TIME=4
 
 # Adding to the PATH
-export PATH=$PATH:~/.cargo/bin/
-export PATH=$PATH:~/.local/bin/
-export PATH=$PATH:~/.local/scripts/
-export PATH=$PATH:~/bin/
-export PATH=$PATH:~/.ruby/bin/
+export PATH="$PATH:$HOME/.cargo/bin/"
+export PATH="$PATH:$HOME/.local/bin/"
+export PATH="$PATH:$HOME/.local/scripts/"
+export PATH="$PATH:$HOME/bin/"
+export PATH="$PATH:$HOME/.ruby/bin/"
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$GOPATH/bin"
 
@@ -26,10 +26,10 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk/"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 # Ruby
-export GEM_HOME=~/$XDG_DATA_HOME/ruby/
+export GEM_HOME=$HOME/$XDG_DATA_HOME/ruby/
 # Python
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
-export WORKON_HOME="~/$XDG_DATA_HOME/virtualenvs"
+export WORKON_HOME="$HOME/$XDG_DATA_HOME/virtualenvs"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 # Rust
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
@@ -42,6 +42,9 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 # Sqlite
 export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
 
+# Wine
+export WINEPREFIX="$XDG_DATA_HOME"/wine
+
 # Sage
 export DOT_SAGE="$XDG_CONFIG_HOME/sage"
 
@@ -50,6 +53,9 @@ export ANDROID_HOME="$XDG_DATA_HOME/android"
 
 # gnupg
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+
+# Docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
 # ZSH
 export ZSH="$XDG_CONFIG_HOME/zsh"
@@ -67,10 +73,21 @@ _ZO_DATA_DIR="$ZSH/zoxide"
 
 
 # Hacking tools
-export HACKING_TOOLS="~/HACKING/Tools"
-export HackingSetupScripts="~/HACKING/Tools/Setup-Scripts"
+export HACKING_TOOLS="$HOME/HACKING/Tools"
+export HackingSetupScripts="$HOME/HACKING/Tools/Setup-Scripts"
 
 # Editor
-export VISUAL=code;
-export EDITOR=code;
+export VISUAL="code";
+export EDITOR="code";
 export EDITOR_DIR="/opt/visual-studio-code"
+
+# Theming
+export MANPAGER="/usr/bin/less -s -M +Gg"
+export LESS_TERMCAP_mb=$'\e[1;31m'      # begin bold
+export LESS_TERMCAP_md=$'\e[1;34m'      # begin blink
+export LESS_TERMCAP_so=$'\e[01;45;37m'  # begin reverse video
+export LESS_TERMCAP_us=$'\e[01;36m'     # begin underline
+export LESS_TERMCAP_me=$'\e[0m'         # reset bold/blink
+export LESS_TERMCAP_se=$'\e[0m'         # reset reverse video
+export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
+export GROFF_NO_SGR=1                   # for konsole
