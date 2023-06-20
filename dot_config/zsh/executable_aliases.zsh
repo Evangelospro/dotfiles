@@ -11,6 +11,7 @@ alias pls='please'
 
 # HACKING TOOLS
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
+alias shellz="bash $HACKING_TOOLS/shells/shells.sh"
 alias stego-toolkit='docker run -it --rm -v $(pwd)/data:/data dominicbreuker/stego-toolkit /bin/bash'
 alias cerbrutus="python3 ~/.local/bin/cerbrutus/cerbrutus.py"
 alias autorecon="autorecon --only-scans-dir --single-target"
@@ -144,6 +145,7 @@ alias pdw="pwd"
 alias sl='ls'
 alias q='exit'
 alias qq='exit'
+alias sduo='sudo'
 
 # image utils
 alias icat="wezterm imgcat"

@@ -1,2 +1,5 @@
+# EWW bar
 evdev
 hyprland
+# hacking
+updog

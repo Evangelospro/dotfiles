@@ -299,6 +299,7 @@ spotify-player
 spotifywm-git
 
 # Hacking
+rlwrap
 ghidra
 cutter
 rz-ghidra
@@ -307,6 +308,7 @@ nmap
 penelope-git
 ffuf-bin
 feroxbuster
+imhex
 
 # Windows emulation
 #wine

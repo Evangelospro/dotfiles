@@ -4,7 +4,7 @@ $ZSH/scripts/utils/banner.sh
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh' ]]; then
-  source '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh'
+    source '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh'
 fi
 
 # To customize prompt, run `p10k configure` or edit $ZSH/p10k.zsh.
@@ -24,33 +24,33 @@ source $ZSH/navi-loader.zsh
 ENABLE_CORRECTION="true"
 
 case ${TERM} in
-  xterm*|rxvt*|Eterm*|aterm|kterm|terminator|gnome*|alacritty|st|konsole*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-        ;;
-  screen*)
-    PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
+    xterm*|rxvt*|Eterm*|aterm|kterm|terminator|gnome*|alacritty|st|konsole*)
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
+    ;;
+    screen*)
+        PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
     ;;
 esac
 if [ "$TERM" = "linux" ]; then
-	printf %b '\e[40m' '\e[8]' # set default background to color 0 'dracula-bg'
-	printf %b '\e[37m' '\e[8]' # set default foreground to color 7 'dracula-fg'
-	printf %b '\e]P0282a36'    # redefine 'black'          as 'dracula-bg'
-	printf %b '\e]P86272a4'    # redefine 'bright-black'   as 'dracula-comment'
-	printf %b '\e]P1ff5555'    # redefine 'red'            as 'dracula-red'
-	printf %b '\e]P9ff7777'    # redefine 'bright-red'     as '#ff7777'
-	printf %b '\e]P250fa7b'    # redefine 'green'          as 'dracula-green'
-	printf %b '\e]PA70fa9b'    # redefine 'bright-green'   as '#70fa9b'
-	printf %b '\e]P3f1fa8c'    # redefine 'brown'          as 'dracula-yellow'
-	printf %b '\e]PBffb86c'    # redefine 'bright-brown'   as 'dracula-orange'
-	printf %b '\e]P4bd93f9'    # redefine 'blue'           as 'dracula-purple'
-	printf %b '\e]PCcfa9ff'    # redefine 'bright-blue'    as '#cfa9ff'
-	printf %b '\e]P5ff79c6'    # redefine 'magenta'        as 'dracula-pink'
-	printf %b '\e]PDff88e8'    # redefine 'bright-magenta' as '#ff88e8'
-	printf %b '\e]P68be9fd'    # redefine 'cyan'           as 'dracula-cyan'
-	printf %b '\e]PE97e2ff'    # redefine 'bright-cyan'    as '#97e2ff'
-	printf %b '\e]P7f8f8f2'    # redefine 'white'          as 'dracula-fg'
-	printf %b '\e]PFffffff'    # redefine 'bright-white'   as '#ffffff'
-	clear
+    printf %b '\e[40m' '\e[8]' # set default background to color 0 'dracula-bg'
+    printf %b '\e[37m' '\e[8]' # set default foreground to color 7 'dracula-fg'
+    printf %b '\e]P0282a36'    # redefine 'black'          as 'dracula-bg'
+    printf %b '\e]P86272a4'    # redefine 'bright-black'   as 'dracula-comment'
+    printf %b '\e]P1ff5555'    # redefine 'red'            as 'dracula-red'
+    printf %b '\e]P9ff7777'    # redefine 'bright-red'     as '#ff7777'
+    printf %b '\e]P250fa7b'    # redefine 'green'          as 'dracula-green'
+    printf %b '\e]PA70fa9b'    # redefine 'bright-green'   as '#70fa9b'
+    printf %b '\e]P3f1fa8c'    # redefine 'brown'          as 'dracula-yellow'
+    printf %b '\e]PBffb86c'    # redefine 'bright-brown'   as 'dracula-orange'
+    printf %b '\e]P4bd93f9'    # redefine 'blue'           as 'dracula-purple'
+    printf %b '\e]PCcfa9ff'    # redefine 'bright-blue'    as '#cfa9ff'
+    printf %b '\e]P5ff79c6'    # redefine 'magenta'        as 'dracula-pink'
+    printf %b '\e]PDff88e8'    # redefine 'bright-magenta' as '#ff88e8'
+    printf %b '\e]P68be9fd'    # redefine 'cyan'           as 'dracula-cyan'
+    printf %b '\e]PE97e2ff'    # redefine 'bright-cyan'    as '#97e2ff'
+    printf %b '\e]P7f8f8f2'    # redefine 'white'          as 'dracula-fg'
+    printf %b '\e]PFffffff'    # redefine 'bright-white'   as '#ffffff'
+    clear
 fi
 
 # Generated for envman. Do not edit.
@@ -61,8 +61,8 @@ source $ZSH/aliases.zsh
 # source $ZSH/ecsc/aliases.zsh commented out hopefully next year...
 
 HISTFILE=$ZSH/zsh_history.zsh
-SAVEHIST=1000000000
-HISTSIZE=99999
+SAVEHIST=10000000
+HISTSIZE=50000
 
 # History command configuration
 setopt extended_history       # record timestamp of command in HISTFILE
@@ -74,16 +74,11 @@ setopt inc_append_history     # add commands to HISTFILE in order of execution
 
 setopt INTERACTIVE_COMMENTS
 
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
-
 # Sourcing zsh themes
 # source $ZSH/themes/dracula.zsh
 
-# Bindings
-bindkey '^[[H' beginning-of-line
-bindkey '^[[F' end-of-line
-bindkey '^[[3~' delete-char
+source $ZSH/binds.zsh
+
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
@@ -93,9 +88,14 @@ source $ZSH/functions.zsh
 
 fpath+=$ZSH/.zfunc
 
-autoload -Uz compinit
-
+autoload -U compinit && compinit -u
+zstyle ':completion:*' menu select
+# Auto complete with case insenstivity
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 compinit -i -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 
 # Plugins (at the end of the file)
 source "$ZSH/plugins.zsh"
+
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
