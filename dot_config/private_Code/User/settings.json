@@ -1,0 +1,77 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "snyk.advanced.cliPath": "/home/evangelospro/.local/share/snyk-ls/snyk-linux",
+    "files.autoSave": "afterDelay",
+    "snyk.trustedFolders": [
+        "/home/evangelospro/"
+    ],
+    "sync.autoDownload": true,
+    "sync.autoUpload": true,
+    "sync.forceDownload": true,
+    "sync.forceUpload": true,
+    "workbench.colorTheme": "Sweet Dracula",
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "snyk.yesWelcomeNotification": false,
+    "workbench.startupEditor": "none",
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": true,
+        "markdown": true
+    },
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "window.zoomLevel": 2,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "github.copilot.advanced": {
+        
+    },
+    "git.confirmSync": false,
+    "remote.SSH.remotePlatform": {
+        "evangelospro.com": "linux"
+    },
+    "git.openRepositoryInParentFolders": "always",
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
+    "settingsSync.ignoredExtensions": [
+        "WakaTime.vscode-wakatime"
+    ],
+    "editor.insertSpaces": false,
+    "prettier.tabWidth": 4,
+    "security.workspace.trust.untrustedFiles": "open",
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "apklab.apkSignerPath": "/home/evangelospro/.apklab/uber-apk-signer-1.2.1.jar",
+    "apklab.apktoolPath": "/home/evangelospro/.apklab/apktool_2.7.0.jar",
+    "apklab.jadxDirPath": "/home/evangelospro/.apklab/jadx-1.4.6",
+    "telemetry.telemetryLevel": "off",
+    "prettier.useTabs": true,
+    "apklab.initProjectDirAsGit": false,
+    "editor.indentSize": "tabSize",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "security.workspace.trust.banner": "always",
+    "security.workspace.trust.enabled": false,
+    "prettier.endOfLine": "auto",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "pythonIndent.trimLinesWithOnlyWhitespace": true,
+    "pythonIndent.useTabOnHangingIndent": true,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.exclude": [
+        ".git",
+        "**/node_modules",
+        "**/__pycache__"
+    ]
+}

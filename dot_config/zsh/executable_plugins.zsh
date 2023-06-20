@@ -106,3 +106,6 @@ source "$ZSH/themes/dracula.zsh-theme"
 zi wait lucid for id-as="fast-highlight" \
   atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
     z-shell/F-SY-H
+
+# Search repos for programs that can't be found
+source /usr/share/doc/pkgfile/command-not-found.zsh 2>/dev/null

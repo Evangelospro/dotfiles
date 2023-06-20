@@ -1,0 +1,17 @@
+// Place your key bindings in this file to override the defaults
+[
+{
+    "key": "ctrl+x",
+    "command": "-extension.vim_ctrl+x",
+    "when": "editorTextFocus && vim.active && vim.use<C-x> && !inDebugRepl"
+},
+{
+    "key": "ctrl+a",
+    "command": "-extension.vim_ctrl+a",
+    "when": "editorTextFocus && vim.active && vim.use<C-a> && !inDebugRepl"
+},
+{
+    "key": "alt+f",
+    "command": "inlineFold.toggle"
+},
+]
