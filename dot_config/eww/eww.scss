@@ -164,10 +164,17 @@ tooltip label {
 	color: $cyan;
 	margin: 0px 10px 0px 0px;
 }
+
 .module-wifi {
 	font-size: 25px;
 	color: $cyan;
-	margin: 0px 10px 0px 5px;
+	margin: 0px 5px 0px 5px;
+}
+
+.module_bluetooth{
+	font-size: 25px;
+	color: $cyan;
+	margin: 0px 15px 0px 5px;
 }
 
 .launcher_icon {

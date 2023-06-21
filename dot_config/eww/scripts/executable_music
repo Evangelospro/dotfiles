@@ -21,7 +21,7 @@ def spotify():
 											"org.freedesktop.DBus.Properties")
 			return spotify_properties
 		except dbus.exceptions.DBusException:
-			print("No players found", flush=True)
+			print(json.dumps(["No players found"]), flush=True)
 			return False
 	
 	spotify_properties = connect()

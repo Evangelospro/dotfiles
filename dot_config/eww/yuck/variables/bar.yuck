@@ -14,11 +14,15 @@
 
 ; Network
 (defpoll interfaceId :initial "enp1s0" :interval "1m" "nmcli c s --active | awk '/wifi|ethernet/ {print $6}' | head -n 1")
-(defpoll COL_WLAN :interval "20s" :run_while wifi_reveal "scripts/stats network --col")
-(defpoll ESSID_WLAN :interval "20s" :run_while wifi_reveal "scripts/stats network --essid")
-(defpoll WLAN_ICON :interval "20s" :run_while wifi_reveal  "scripts/stats network --icon")
+(defpoll wlanESSID :interval "20s" "scripts/stats network --essid")
+(defpoll wlanIcon :interval "20s"  "scripts/stats network --icon")
 
-; battery
+; Bluetooth
+(defpoll bluetoothStatus :interval "20s" "scripts/stats network --status")
+(defpoll bluetoothDevices :interval "20s" "scripts/stats network --devices")
+(defpoll bluetootheIcon :interval "20s"  "scripts/stats network --icon")
+
+; Battery
 (defpoll battery :initial "100" :interval "1m" :run_while control_reveal "scripts/stats battery --percent")
 (defpoll battery_status :initial "Full" :interval "20s" :run_while control_reveal "scripts/stats battery --status")
 
@@ -28,7 +32,7 @@
 
 ; Music
 (deflisten music_status "scripts/music status")
-(deflisten lyrics_json :run_while {music_status == "No players found" ? "false" : "true"} "scripts/music lyrics 2")
+(deflisten lyrics_json :run_while {music_status[0] == "No players found" ? "false" : "true"} "scripts/music lyrics 2")
 
 ; Jsons
 (deflisten indicators_json :inital '[{"caps_lock": "inactive", "num_lock": "active", "caffeine_state": "inactive", "caffeine_command": "", "layout": "US"}]' "scripts/indicators nodebug")

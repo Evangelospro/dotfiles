@@ -88,7 +88,7 @@
     :orientation "v"
     :space-evenly false
     (box
-      :class {music_status == "No players found" ? "appnames-no-music" : "appnames-music"}
+      :class {music_status[0] == "No players found" ? "appnames-no-music" : "appnames-music"}
       (eventbox
         :onhover "${EWW_CMD} update control_reveal=true"
         :onhoverlost "${EWW_CMD} update control_reveal=false"
@@ -137,7 +137,7 @@
     )
     (box
       :class "music"
-      :visible {music_status == "No Players Found" ? "false" : "true"}
+      :visible {music_status[0] == "No players found" ? "false" : "true"}
       (eventbox
         :onhover "${EWW_CMD} update music_reveal=true"
         :onhoverlost "${EWW_CMD} update music_reveal=false"
@@ -174,7 +174,7 @@
                 :class "music-controls-play"
                 :onclick "playerctl play-pause"
                 :tooltip "start/stop"
-              {music_status == "Playing" ? "" : ""})
+              {music_status[0] == "Playing" ? "" : ""})
               (button
                 :class "music-controls-next"
                 :onclick "playerctl next"
@@ -241,35 +241,17 @@
   (button
     :class "module-bluetooth"
     :onclick "blueman-manager &"
+    :tooltip {bluetoothStatus == "off" ? "bluetooth disabled" : bluetoothDevices}
     (image :path "${EWW_CONFIG_DIR}/images/bluetooth.svg")
   )
 )
 
 (defwidget wifi []
-  (eventbox
-    :onhover "${EWW_CMD} update wifi_reveal=true"
-    :onhoverlost "${EWW_CMD} update wifi_reveal=false"
-    (box
-      :space-evenly "false"
-      (button
-        :class "module-wifi"
-        :onclick "${EWW_CONFIG_DIR}/scripts/wifi_menu &"
-        (image :path "${EWW_CONFIG_DIR}/images/wifi.svg")
-      )
-      (button
-        :class "module-wifi"
-        :onclick "${EWW_CONFIG_DIR}/scripts/wifi_menu &"
-        (revealer
-          :transition "slideright"
-          :reveal wifi_reveal
-          :duration "350ms"
-          (label
-            :class "module_essid"
-            :text ESSID_WLAN
-          )
-        )
-      )
-    )
+  (button
+    :class "module-wifi"
+    :onclick "${EWW_CONFIG_DIR}/scripts/wifi_menu &"
+    :tooltip {wlanESSID == "" ? "wifi disabled" : wlanESSID}
+    (image :path "${EWW_CONFIG_DIR}/images/wifi.svg")
   )
 )
 
@@ -293,7 +275,7 @@
     :vexpand "false"
     :hexpand "false"
     (circular-progress
-      :value {battery}
+      :value battery
       :class "batbar"
       :thickness 4
       (button
@@ -392,12 +374,11 @@
     :class "right_modules"
     ; (bright)
     ; (volume)
-    (bluetooth)
+    ; (network-speeds)
+    (sep)
     (wifi)
-    (network-speeds)
-    (sep)
+    (bluetooth)
     (indicators)
-    (sep)
     (tray)
     (sep)
     (bat)

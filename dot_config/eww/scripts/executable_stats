@@ -2,33 +2,53 @@
 
 battery(){
 	BAT=$(\ls /sys/class/power_supply | grep BAT | head -n 1)
-	percent=$(\cat /sys/class/power_supply/${BAT}/capacity)
-	status=$(\cat /sys/class/power_supply/${BAT}/status)
+	if [ -z $BAT ]; then
+        case $1 in
+            --percent) echo "0";;
+            --status) echo "No battery connected";;
+        esac
+    else
+        percent=$(\cat /sys/class/power_supply/${BAT}/capacity)
+        status=$(\cat /sys/class/power_supply/${BAT}/status)
 
-	case $1 in
-		--percent) echo $percent;;
-		--status) echo $status;;
-	esac
+        case $1 in
+            --percent) echo $percent;;
+            --status) echo $status;;
+        esac  
+    fi
 }
 
-# Wifi function
 network() {
     status=$(nmcli g | grep -oE "disconnected")
 
     if [ $status ] ; then
         icon="睊"
-        text=""
-        col="#575268"
+        essid=""
     else
         essid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
         icon=""
-        text="${essid}"
-        col="#a1bdce"
     fi
 
     case $1 in
-        --col) echo $col;;
-        --essid) echo $text;;
+        --essid) echo $essid;;
+        --icon) echo $icon;;
+    esac
+}
+
+bluetooth() {
+    status=$(bluetoothctl show | grep -oE "Powered: yes")
+    devices=$(bluetoothctl devices | grep Device | cut -d ' ' -f 2-)
+    
+    if [ $status ] ; then
+        icon=""
+        text=""
+    else
+        icon=""
+        text=""
+    fi
+
+    case $1 in
+        --devices) echo $devices;;
         --icon) echo $icon;;
     esac
 }
