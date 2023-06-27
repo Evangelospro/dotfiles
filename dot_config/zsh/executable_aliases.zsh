@@ -11,6 +11,7 @@ alias pls='please'
 
 # HACKING TOOLS
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
+alias pwnsetup="python3 $HACKING_TOOLS/pwn/pwnsetup/pwnsetup.py"
 alias shellz="bash $HACKING_TOOLS/shells/shells.sh"
 alias stego-toolkit='docker run -it --rm -v $(pwd)/data:/data dominicbreuker/stego-toolkit /bin/bash'
 alias cerbrutus="python3 ~/.local/bin/cerbrutus/cerbrutus.py"
