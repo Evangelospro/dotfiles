@@ -11,7 +11,7 @@ alias pls='please'
 
 # HACKING TOOLS
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
-alias pwnsetup="python3 $HACKING_TOOLS/pwn/pwnsetup/pwnsetup.py"
+alias pwnsetup="python3 $HACKING_TOOLS/pwn/pwnenv/pwnsetup/pwnsetup.py"
 alias shellz="bash $HACKING_TOOLS/shells/shells.sh"
 alias stego-toolkit='docker run -it --rm -v $(pwd)/data:/data dominicbreuker/stego-toolkit /bin/bash'
 alias cerbrutus="python3 ~/.local/bin/cerbrutus/cerbrutus.py"
@@ -30,6 +30,8 @@ alias rmz="/usr/bin/rm *.zip"
 alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
 alias gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init"
 alias pwndbg='gdb -q -ex init-pwndbg "$@"'
+alias peda='gdb -q -ex init-peda "$@"'
+alias gef='gdb -q -ex init-gef "$@"'
 alias hosts='sudo $HOME/SCRIPTS/hosts.sh'
 alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
 alias navi-update="$ZSH/scripts/updaters/navi-updater.sh"

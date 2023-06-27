@@ -3,3 +3,6 @@ evdev
 hyprland
 # hacking
 updog
+# gdb
+typing_extensions
+tabulate
