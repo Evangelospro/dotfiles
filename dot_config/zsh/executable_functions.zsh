@@ -145,6 +145,23 @@ timeshell() {
 }
 
 # Hacking
+getWorlist() {
+    # because seclists gets updated a lot and I really want .git to be in my preferred wordlist
+    defaultDirWordlist="/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt"
+    defaultDnsWordlist="/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt"
+    modifiedWordlist="/tmp/modifiedWordlist.txt"
+    if [[ $1 == "dir" ]]; then
+        cp $defaultDirWordlist $modifiedWordlist
+        sed -i '1s/^/.git\n/' $modifiedWordlist
+        echo $modifiedWordlist
+    elif [[ $1 == "dns" ]]; then
+        cp $defaultDnsWordlist $modifiedWordlist
+        echo $modifiedWordlist
+    else
+        echo "Usage: getWordlist <dir|dns>"
+    fi
+}
+
 scan() {
     \rustscan --ulimit 5000 -b 3000 -a $1 -- -sC -sV
 }
@@ -162,7 +179,7 @@ ffuf-vhost() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist='/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt'
+        wordlist=$(getWorlist dns)
         arg_count=2
     fi
     ffuf -c -H "Host: FUZZ.$1" -u http://$1 -w $wordlist ${@: $arg_count};
@@ -173,7 +190,7 @@ ferox-dir() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
+        wordlist=$(getWorlist dir)
         arg_count=2
     fi
     feroxbuster -u $1 -w $wordlist ${@: $arg_count};
@@ -184,7 +201,7 @@ ffuf-dir() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
+        wordlist=$(getWorlist dir)
         arg_count=2
     fi
     ffuf -c -u $1FUZZ -w $wordlist ${@: $arg_count};
@@ -192,14 +209,15 @@ ffuf-dir() {
 
 
 ffuf-ext() {
+    exts=(php html phps asp bak)
     arg_count=3
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
+        wordlist=$(getWorlist dir)
         arg_count=2
     fi
-    ffuf -c -u $1FUZZ -w $wordlist ${@: $arg_count};
+    ffuf -c -u $1FUZZ -w $wordlist ${@: $arg_count} -x ${exts[@]};
 }
 
 ferox-ext() {
@@ -208,21 +226,33 @@ ferox-ext() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
+        wordlist=$(getWorlist dir)
         arg_count=2
     fi
     feroxbuster -u $1 -w $wordlist -x ${exts[@]} ${@: $arg_count};
 }
 
-ffuf-req() {
+ffuf-req-dir() {
     arg_count=3
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist='/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt'
+        wordlist=$(getWorlist dir)
         arg_count=2
     fi
     ffuf -c -ic -request $1 -request-proto http -w $wordlist ${@: $arg_count};
+}
+
+ffuf-req-ext() {
+    exts=(php html phps asp bak)
+    arg_count=3
+    if [[ $2 && $2 != -* ]]; then
+        wordlist=$2
+    else
+        wordlist=$(getWorlist dir)
+        arg_count=2
+    fi
+    ffuf -c -ic -request $1 -request-proto http -w $wordlist -x ${exts[@]} ${@: $arg_count};
 }
 
 listener() {
