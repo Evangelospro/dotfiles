@@ -1,8 +1,16 @@
 # EWW bar
 evdev
 hyprland
-# hacking
+# Hacking
 updog
-# gdb
+## gdb
 typing_extensions
 tabulate
+## PWN tools
+pwntools
+ptrlib
+ropper
+ROPGadget
+## Crypto
+sagemath 
+numpy

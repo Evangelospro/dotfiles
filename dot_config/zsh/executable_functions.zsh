@@ -46,7 +46,7 @@ function pwnenv() {
         docker exec -it pwnenv zsh
     else
         echo "Starting container..."
-        docker run --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it pwnenv zsh
+        docker run --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v "$(pwd)":/root/data pwnenv
     fi
 }
 

@@ -73,5 +73,6 @@
         ".git",
         "**/node_modules",
         "**/__pycache__"
-    ]
+    ],
+    "workbench.editor.enablePreview": false
 }
