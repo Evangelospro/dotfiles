@@ -1,0 +1,27 @@
+[".config/gdb/pwndbg"]
+    type = "archive"
+    url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".config/gdb/gef"]
+    type = "archive"
+    url = "https://github.com/hugsy/gef/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".config/gdb/peda"]
+    type = "archive"
+    url = "https://github.com/longld/peda/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".config/gdb/peda-arm"]
+    type = "archive"
+    url = "https://github.com/alset0326/peda-arm/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
