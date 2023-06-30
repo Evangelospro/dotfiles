@@ -3,6 +3,8 @@ evdev
 hyprland
 # Hacking
 updog
+# shell
+thefuck
 ## gdb
 typing_extensions
 tabulate
