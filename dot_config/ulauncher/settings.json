@@ -4,7 +4,7 @@
   "grab_mouse_pointer": false,
   "hotkey_show_app": "<Primary>space",
   "jump_keys": "1234567890abcdefghijklmnopqrstuvwxyz",
-  "max_recent_apps": 5,
+  "max_recent_apps": 10,
   "raise_if_started": false,
   "render_on_screen": "mouse-pointer-monitor",
   "show_indicator_icon": true,

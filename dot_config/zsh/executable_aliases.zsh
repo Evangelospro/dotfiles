@@ -12,13 +12,13 @@ alias pls='please'
 # HACKING TOOLS
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
 alias pwnsetup="python3 $HACKING_TOOLS/pwn/pwnenv/pwnsetup/pwnsetup.py"
+alias jwt-tool="python3 $HACKING_TOOLS/Web/jwt_tool/jwt_tool.py"
 alias shellz="bash $HACKING_TOOLS/shells/shells.sh"
 alias stego-toolkit='docker run -it --rm -v $(pwd)/data:/data dominicbreuker/stego-toolkit /bin/bash'
 alias cerbrutus="python3 ~/.local/bin/cerbrutus/cerbrutus.py"
 alias autorecon="autorecon --only-scans-dir --single-target"
 alias rot13='tr '\''A-Za-z'\'' '\''N-ZA-Mn-za-m'\'
 alias rot47='tr '\''\!-~'\'' '\''P-~\!-O'\'
-alias rr='nc evangelospro.com 1337'
 alias webserver='updog -p 8000'
 alias penelope="penelope --configfile $HOME/.config/penelope/penelope.conf"
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
