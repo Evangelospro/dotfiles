@@ -43,10 +43,10 @@ function checkContainerRunning() {
 function pwnenv() {
     if [ $(checkContainerRunning "pwnenv") ]; then
         echo "Container already running, attaching..."
-        docker exec -it pwnenv /bin/zsh
+        docker exec -it pwnenv zsh
     else
         echo "Starting container..."
-        docker run --name="pwnenv" --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v "$(pwd)":/root/data pwnenv
+        docker run --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v "$(pwd)":/root/data --name pwnenv ghcr.io/evangelospro/pwnenv:latest
     fi
 }
 
