@@ -299,15 +299,19 @@ spotify-player
 spotifywm-git
 
 # Hacking
+## Reverse engineering
 rlwrap
 ghidra
 cutter
 rz-ghidra
 rz-cutter
+## Netowrking
 nmap
 penelope-git
+## Bruteforcing
 ffuf-bin
 feroxbuster
+## hex editor
 imhex
 
 # Windows emulation
