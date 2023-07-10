@@ -1,3 +1,5 @@
+set debuginfod enabled off
+
 define init-peda
 source ~/.config/gdb/peda/peda.py
 end
