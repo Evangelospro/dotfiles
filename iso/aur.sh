@@ -1,8 +1,7 @@
 #!/bin/bash
-# FILE: yes_build_aur.sh
 # DESC: Download aur packages from file, build packages, enable in pacman.conf
-# Set repo directory
 
+# Set repo directory
 base_dir=$PWD
 repo_name="aur_repo_x86_64"
 repo_dir="$base_dir/AUR_BUILDER/$repo_name"

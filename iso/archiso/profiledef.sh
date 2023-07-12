@@ -2,7 +2,7 @@
 # shellcheck disable=SC2034
 
 iso_name="ELARCH"
-iso_label="ARCH_$(date +%Y%m)"
+iso_label="ELARCH_$(date +%Y%m)"
 iso_publisher="Arch Linux <https://evangelospro.com>"
 iso_application="Arch Linux Live/Rescue CD"
 iso_version="$(date +%Y.%m.%d)"
@@ -20,6 +20,7 @@ file_permissions=(
     ["/usr/local/bin/choose-mirror"]="0:0:755"
     ["/usr/local/bin/Installation_guide"]="0:0:755"
     ["/usr/local/bin/livecd-sound"]="0:0:755"
+    ["/root/install.zsh"]="0:0:755"
     ["/etc/polkit-1/rules.d"]="0:0:750"
     ["/etc/sudoers.d"]="0:0:750"
     ["/usr/local/bin/alci-make-a-pure-arch"]="0:0:755"

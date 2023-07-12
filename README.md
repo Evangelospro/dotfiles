@@ -96,6 +96,12 @@ when in the live environment run if you want to install the dotfiles
 ```
 chezmoi init --apply Evangelospro
 ```
+FIRST STEPS
+```
+sudo pacman-key --init && sudo pacman-key --refresh-keys && gpg --refresh-keys
+paru
+
+```
 A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically run
 ```
 sudo calamares

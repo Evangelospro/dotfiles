@@ -33,6 +33,12 @@ echo
 	archisoVersion=$(sudo pacman -Q archiso)
 
 	echo "################################################################## "
+	echo "Archiso version installed              : "$archisoVersion
+	echo "Out folder                             : "$outFolder
+	echo "Build folder                           : "$buildFolder
+	echo "################################################################## "
+
+	echo "################################################################## "
 	#echo "Building the desktop                   : "$desktop
 	#echo "Building version                       : "$arcolinuxVersion
 	#echo "Iso label                              : "$isoLabel
@@ -95,13 +101,6 @@ echo
 			echo "######### Installing with yay"
 			echo "################################################################"
 			yay -S --noconfirm $package
-
-		elif pacman -Qi trizen &> /dev/null; then
-
-			echo "################################################################"
-			echo "######### Installing with trizen"
-			echo "################################################################"
-			trizen -S --noconfirm --needed --noedit $package
 		fi
 
 		# Just checking if installation was successful
@@ -278,10 +277,10 @@ echo
 # 	echo "########################"
 # 	md5sum $isoLabel | tee $isoLabel.md5
 # 	echo
- 	echo "Moving pkglist.x86_64.txt"
+ 	echo "Moving packages.x86_64"
  	echo "########################"
 	rename=$(date +%Y-%m-%d)
- 	cp $buildFolder/iso/arch/pkglist.x86_64.txt  $outFolder/archlinux-$rename-pkglist.txt
+ 	cp $buildFolder/archiso/packages.x86_64 $outFolder/archlinux-$rename-pkglist.txt
 
 
 #echo

@@ -24,9 +24,9 @@ alias penelope="penelope --configfile $HOME/.config/penelope/penelope.conf"
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
 alias mobsf="$HOME/SCRIPTS/r $HOME/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
 alias burl="curl -x localhost:8080 -k "
-alias frm="/usr/bin/rm -rf"
+alias frm="\rm -rf"
 alias rm="$ZSH/scripts/utils/rm"
-alias rmz="/usr/bin/rm *.zip"
+alias rmz="\rm *.zip"
 alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
 alias gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init"
 alias pwndbg='gdb -q -ex init-pwndbg "$@"'
@@ -136,11 +136,11 @@ alias enable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=0'
 alias disable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=1'
 
 # Cleanups
-alias clean-cache="sudo rm -rf $HOME/.cache/*" # shows no mercy but it is cache right?
+alias clean-cache="sudo \rm -rf $HOME/.cache/*" # shows no mercy but it is cache right?
 alias clean-docker='docker system prune -f'
 alias clean-packages='sudo pacman -Rns $(pacman -Qtdq) && sudo \rm -rf /var/cache/pacman/pkg/*'
 alias clean-font-cache="fc-cache -f -v"
-alias clean-seafile-cache="rm -rf $HOME/.seadrive/data/file-cache"
+alias clean-seafile-cache="\rm -rf $HOME/.seadrive/data/file-cache"
 
 # basics/typos
 alias cd..='cd ..'

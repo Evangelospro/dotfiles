@@ -130,6 +130,7 @@ xl2tpd
 ###             VIA CALAMARES CONFIG                ###
 #######################################################
 
+alci-calamares
 alci-calamares-config-zen
 
 #######################################################
@@ -143,6 +144,7 @@ dex
 libxinerama
 make
 xorg-xkill
+xorg-xhost
 xterm
 xorg-xrdb
 mkinitcpio-openswap
@@ -190,6 +192,7 @@ base-devel
 
 # Desktop environment
 hyprland-git
+xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland-git
 
 # Chaotic repo
@@ -215,10 +218,12 @@ pavucontrol
 # brightness
 brightnessctl
 # Authentication
-polkit-gnome
+polkit-kde-agent
+polkit-qt5
 kwallet-pam
 # eww bar
 eww-wayland
+# eww-tray-wayland-git
 # logout shell
 wlogout
 swaync-git
@@ -245,6 +250,8 @@ flameshot-git
 grimblast-git
 
 # Programming
+python3
+python3-pip
 rustup
 go
 
@@ -252,10 +259,11 @@ go
 playerctl
 
 # Terminal
-wezterm
-wezterm-terminfo
+wezterm-git
+# wezterm-terminfo-git
 
 # Shell
+zoxide
 zsh
 
 # Password manager
@@ -266,8 +274,8 @@ chezmoi
 
 # ascii art
 fastfetch
-figlet 
-lolcat 
+# figlet 
+# lolcat 
 
 # File managment
 nautilus
@@ -297,6 +305,12 @@ obsidian
 # spotify
 spotify-player
 spotifywm-git
+qdirstat-bin
+
+# Software Development
+## IDE
+visual-studio-code-bin
+android-studio
 
 # Hacking
 ## Reverse engineering
@@ -319,13 +333,17 @@ imhex
 #bottles
 #python-ntlm-authorg
 
-# Paru (AUR helper)
+# Packaging
+## Paru (AUR helper)
 paru
+## Mirrors
+rate-mirrors-bin
 
 # grub theme
 #grub-theme-cyberre
 
-# Launcher
+# Launchers
+ulauncher-git
 rofi-git
 
 # parsers

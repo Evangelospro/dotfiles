@@ -1,8 +1,11 @@
 # Paru
 aur paru
 
-#grub theme
-#aur grub-theme-cyberre
+# EWW bar
+# eww-tray-wayland-git
+
+# grub theme
+# aur grub-theme-cyberre
 
 # xdg-stuff
 aur handlr-regex
@@ -14,7 +17,12 @@ auz swaylock-effects-git
 # notification daemon
 aur swaync-git
 
-# Launcher
+# wezterm
+aur wezterm-git
+aur wezterm-terminfo-git
+
+# Launchers
+aur ulauncher-git
 aur rofi-git
 
 # parsers
@@ -30,5 +38,11 @@ aur penelope-git
 aur ffuf-bin
 aur feroxbuster
 
-# pacman
+# Packages
 aur pacman-cleanup-hook
+aur rate-mirrors-bin
+aur qdirstat-bin
+
+# Software development
+aur visual-studio-code-bin
+aur android-studio

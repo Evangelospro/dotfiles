@@ -25,11 +25,18 @@ echo "################################################################## "
 echo
 
 	# setting of the general parameters
+	base_dir="$(pwd)"
 	archisoRequiredVersion="archiso 71-1"
-	buildFolder="$(pwd)/isoBUILD"
+	buildFolder="$base_dir/isoBUILD"
 	# get the absolute path of the current folder
-	outFolder="$(pwd)/isoOUT"
+	outFolder="$base_dir/isoOUT"
 	archisoVersion=$(sudo pacman -Q archiso)
+
+	echo "################################################################## "
+	echo "Archiso version installed              : "$archisoVersion
+	echo "Out folder                             : "$outFolder
+	echo "Build folder                           : "$buildFolder
+	echo "################################################################## "
 
 	echo "################################################################## "
 	#echo "Building the desktop                   : "$desktop
@@ -94,13 +101,6 @@ echo
 			echo "######### Installing with yay"
 			echo "################################################################"
 			yay -S --noconfirm $package
-
-		elif pacman -Qi trizen &> /dev/null; then
-
-			echo "################################################################"
-			echo "######### Installing with trizen"
-			echo "################################################################"
-			trizen -S --noconfirm --needed --noedit $package
 		fi
 
 		# Just checking if installation was successful
@@ -275,12 +275,12 @@ echo
 # 	sha256sum $isoLabel | tee $isoLabel.sha256
 # 	echo "Building md5sum"
 # 	echo "########################"
-# 	md5sum $isoLabel | tee $isoLabel.md5
+# 	rmd5sum $isoLabel | tee $isoLabel.md5
 # 	echo
- 	echo "Moving pkglist.x86_64.txt"
+ 	echo "Moving packages.x86_64"
  	echo "########################"
 	rename=$(date +%Y-%m-%d)
- 	cp $buildFolder/iso/arch/pkglist.x86_64.txt  $outFolder/archlinux-$rename-pkglist.txt
+ 	cp $buildFolder/archiso/packages.x86_64 $outFolder/archlinux-$rename-pkglist.txt
 
 
 echo
