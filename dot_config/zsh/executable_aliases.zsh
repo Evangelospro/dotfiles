@@ -132,8 +132,14 @@ alias ip='ip -color -brief'
 alias wmonitor-off='sudo airmon-ng stop wlp4s0f3u3'
 alias wmonitor-on='sudo airmon-ng start wlp4s0f3u3'
 alias flush-cache='sudo killall -USR1 systemd-resolved'
+
+# Disables / Enables
 alias enable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=0'
 alias disable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=1'
+alias disable-ipv6='sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1'
+alias enable-ipv6='sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0'
+alias disable-aslr='sudo sysctl -w kernel.randomize_va_space=0'
+alias enable-aslr='sudo sysctl -w kernel.randomize_va_space=2'
 
 # Cleanups
 alias clean-cache="sudo \rm -rf $HOME/.cache/*" # shows no mercy but it is cache right?
