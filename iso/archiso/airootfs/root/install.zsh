@@ -10,7 +10,7 @@ sudo pacman-key --init
 sudo pacman-key --populate
 rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
 # paru -Syyu
-sudo -u liveuser curl https://raw.githubusercontent.com/duckonaut/hyprload/main/install.sh | sudo -u liveuser bash
+bash $USER_HOME/.local/share/chezmoi/confs/grub-themes/CyberRe/install.sh
 # Add a "#" to start of the line that has "hyprload.sh" in it in $USER_HOME/.config/hypr/startup.conf
 sudo -u liveuser sed -i '/hyprload\.sh/s/^/# /' $USER_HOME/.config/hypr/startup.conf
 sudo -u liveuser xhost +
