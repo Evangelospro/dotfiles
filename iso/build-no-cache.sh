@@ -28,6 +28,7 @@ echo
 	base_dir="$(pwd)"
 	archisoRequiredVersion="archiso 71-1"
 	buildFolder="$base_dir/isoBUILD"
+	# buildFolder="/tmp/isoBUILD"
 	# get the absolute path of the current folder
 	outFolder="$base_dir/isoOUT"
 	archisoVersion=$(sudo pacman -Q archiso)

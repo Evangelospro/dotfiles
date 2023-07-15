@@ -87,24 +87,17 @@ cd iso
 ```
 ## Install
 get the iso from the iso/isoOUT folder and install it as usual
-Default user is `liveuser` and password is `liveuser`
-In case ssdm didn't start automatically run
+Default user is `liveuser` and password is `liveuser` sign in with these during the installation process and then run
 ```
-sudo systemctl enable --now sddm
+/install.zsh
 ```
-when in the live environment run if you want to install the dotfiles
-```
-chezmoi init --apply Evangelospro
-```
-FIRST STEPS
-```
-sudo pacman-key --init && sudo pacman-key --refresh-keys && gpg --refresh-keys
-paru
+to initialize the dotfile and misc installation process
 
+SDDM should have started and once you login with liveuser you should be greeted with a nice hyprland WM
+
+A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically run in a terminal(such as wezterm)
 ```
-A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically run
-```
-sudo calamares
+calamares -d
 ```
 
 
