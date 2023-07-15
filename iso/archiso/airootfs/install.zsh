@@ -11,7 +11,7 @@ sudo pacman-key --init
 sudo pacman-key --populate
 rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
 # paru -Syyu
-cd /home/evangelospro/.local/share/chezmoi/confs/grub-themes/CyberRe && sudo ./install.sh
+# cd /home/evangelospro/.local/share/chezmoi/confs/grub-themes/CyberRe && sudo ./install.sh
 sudo rm /usr/lib/python$PYTHON_VERSION/EXTERNALLY_MANAGED
 # Add a "#" to start of the line that has "hyprload.sh" in it in $HOME/.config/hypr/startup.conf
 bash $HOME/.config/hypr/plugins/update.sh
