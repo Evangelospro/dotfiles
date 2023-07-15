@@ -49,23 +49,11 @@ sudo systemctl enable --now sddm
 sudo systemctl enable --now bluetooth.service
 ```
 
-### Workspace managment
-
-##### hyprload (plugin manager, with split-monitor workspaces)
-```
-paru -Sy cpio
-mkdir -p ~/.local/share/hyprload/src
-git clone https://github.com/Duckonaut/hyprload/ ~/.local/share/hyprload/src --depth 1
-cd ~/.local/share/hyprload/hyprland
-make pluginenv
-curl -sSL https://raw.githubusercontent.com/Duckonaut/hyprload/main/install.sh | bash
-```
-
 ### Vscode
 ```
-resPrefix=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
-sudo cp -r ~/.icons/vscode $resPrefix
-sudo cp ~/confs/vscode.css $resPrefix/vsc.css
+vsCodeWorkbench=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
+sudo cp -r $HOME/.local/share/chezmoi/dot_local/private_share/icons/vscode $vsCodeWorkbench
+sudo cp $HOME/.local/share/chezmoi/confs/vscode.css $vsCodeWorkbench/vsc.css
 ```
 ##### needs to be performed on every vscode update hence aliased the first in .zsh
 ```
@@ -76,10 +64,14 @@ Fix Checksums: Apply inside vscode run
 # Custom Arch Linux ISO with AUR packages
 ## Setup
 ```
-DE: Hyprland
-WM: Hyprland
-DM: SDDM
+Desktop Environment: Hyprland
+Display Server: Wayland
+Window Manager: Hyprland
+Display Manager: SDDM
+Terminal: Wezterm
+Shell: Zsh
 ```
+
 ## Build
 ```
 cd iso

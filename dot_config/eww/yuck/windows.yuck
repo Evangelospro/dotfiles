@@ -6,7 +6,7 @@
     :x "15px"
     :y "9px"
     :width "99%"
-    :height "91px"
+    :height "75px"
   :anchor "top center")
   (bar_layout :monitor 0)
 )
@@ -19,7 +19,7 @@
     :x "15px"
     :y "9px"
     :width "99%"
-    :height "91px"
+    :height "75px"
   :anchor "top center")
   (bar_layout :monitor 1)
 )

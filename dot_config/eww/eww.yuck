@@ -339,7 +339,7 @@
 
 
 (defwidget tray []
-  (system-tray :active-only false
+  (systray :active-only false
     :pack-direction "ltr"
   )
 )

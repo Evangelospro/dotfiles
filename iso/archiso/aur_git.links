@@ -1,11 +1,8 @@
 # Paru
 aur paru
 
-# Hyprland
-# aur hyprsome
-
 # EWW bar
-# aur eww-tray-wayland-git
+aur eww-tray-wayland-git
 
 # grub theme
 # aur grub-theme-cyberre
@@ -15,7 +12,7 @@ aur handlr-regex
 aur pistol-git
 
 # lock screen
-auz swaylock-effects-git
+aur swaylock-effects-git
 
 # notification daemon
 aur swaync-git
@@ -40,6 +37,10 @@ aur spotifywm-git
 aur penelope-git
 aur ffuf-bin
 aur feroxbuster
+
+# ZSH
+aur c-lolcat
+aur figlet-fonts-extra
 
 # Packages
 aur pacman-cleanup-hook
