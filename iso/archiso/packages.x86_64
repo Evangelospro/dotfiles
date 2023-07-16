@@ -191,9 +191,9 @@ sddm-theme-astronaut
 base-devel
 
 # Desktop environment
-hyprland-git
+hyprland
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-hyprland
 # hyprsome
 
 # Chaotic repo
