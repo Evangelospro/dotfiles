@@ -21,6 +21,7 @@ for package in $packages; do
 done
 
 cd $base_dir
+mkdir -p "$iso_dir/$repo_name"
 cp $repo_dir/* "$iso_dir/$repo_name"
 
 # Add packages and pacman.conf
