@@ -276,7 +276,7 @@ chezmoi
 # ascii art
 fastfetch
 figlet
-figlet-fonts-extra 
+# figlet-fonts-extra 
 c-lolcat
 bat
 lsd

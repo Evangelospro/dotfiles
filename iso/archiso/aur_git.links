@@ -40,7 +40,7 @@ aur feroxbuster
 
 # ZSH
 aur c-lolcat
-aur figlet-fonts-extra
+# aur figlet-fonts-extra
 
 # Packages
 aur pacman-cleanup-hook
