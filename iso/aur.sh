@@ -14,17 +14,14 @@ cd ./AUR_BUILDER
 ./git_build_packages.sh $repo_name
 packages="$repo_dir/*.pkg.tar.zst"
 echo "Build Packages: $packages"
+
 for package in $packages; do
     echo "Adding $package to repo"
     repo-add "$repo_dir/$repo_name.db.tar.gz" "$package"
 done
 
 cd $base_dir
-repo_dir="$iso_dir/$repo_name"
-# rm -rf $repo_dir
-cp ./AUR_BUILDER/$repo_name/$repo_name.db.tar.gz $repo_dir
-cp ./AUR_BUILDER/$repo_name/$repo_name.files.tar.gz $repo_dir
-cp ./AUR_BUILDER/$repo_name/$repo_name.db $repo_dir
+cp $repo_dir/* "$iso_dir/$repo_name"
 
 # Add packages and pacman.conf
 cd $base_dir

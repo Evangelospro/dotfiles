@@ -278,6 +278,8 @@ fastfetch
 # figlet
 # figlet-fonts-extra 
 c-lolcat
+bat
+lsd
 
 # File managment
 nautilus
