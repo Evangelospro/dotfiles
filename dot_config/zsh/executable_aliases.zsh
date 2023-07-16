@@ -88,11 +88,13 @@ alias free='free -m'
 
 # python / pip
 alias p='python3'
-alias pip='noglob pip3'
-alias pipi='pip3 install'
-alias pipir='pip3 install -r'
-alias pipreq='pip3 freeze > requirements.txt'
-alias pipua='pip3 list | cut -d " " -f1 | tail +3 | xargs pip3 install -U'
+alias pip='noglob pip'
+alias pipx='noglob pipx'
+alias pipi='pip install'
+alias pipir='pip install -r'
+alias pipreq='pip freeze > requirements.txt'
+alias pipua='pip list | cut -d " " -f1 | tail +3 | xargs pip install -U'
+alias pipxua='pipx list | cut -d " " -f1 | tail +3 | xargs pipx install -U'
 
 # PS
 alias psa='ps auxf'

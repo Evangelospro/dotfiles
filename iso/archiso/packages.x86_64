@@ -252,7 +252,7 @@ grimblast-git
 
 # Programming
 python3
-python-pip
+python-pipx
 rustup
 go
 
@@ -275,8 +275,8 @@ chezmoi
 
 # ascii art
 fastfetch
-# figlet
-# figlet-fonts-extra 
+figlet
+figlet-fonts-extra 
 c-lolcat
 bat
 lsd

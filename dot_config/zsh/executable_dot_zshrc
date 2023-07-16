@@ -88,7 +88,9 @@ source $ZSH/functions.zsh
 
 fpath+=$ZSH/.zfunc
 
-autoload -U compinit && compinit -u
+autoload -U +X compinit && compinit -u
+autoload -U +X bashcompinit && bashcompinit
+eval "$(register-python-argcomplete pipx)"
 zstyle ':completion:*' menu select
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
