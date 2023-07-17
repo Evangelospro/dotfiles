@@ -5,18 +5,20 @@ hyprland
 updog
 # shell
 thefuck
-## gdb
+# gdb
 typing_extensions
 tabulate
-## PWN tools
+# PWN tools
 pwntools
 pwnscripts
 ptrlib
 ropper
 ROPGadget
-## Reverse
+# Reverse
 angr
 claripy
-## Crypto
+# Crypto
 sagemath 
 numpy
+# General
+trash-cli
