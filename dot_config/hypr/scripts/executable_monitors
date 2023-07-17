@@ -3,8 +3,10 @@
 clean(){
     # reapply the background
     pkill -9 swaybg && swaybg -o \* -i ~/Pictures/backgrounds/background.png -m fill &
-    # reload eww
-    ~/.local/scripts/ewwLaunch
+    if [["$(pidof amadeus.x86 | wc -w)" eq 0]]; then
+        # reload eww
+        # ~/.local/bin/ewwLaunch
+    fi
     hyprctl reload
 }
 
