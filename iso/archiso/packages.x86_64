@@ -252,6 +252,7 @@ grimblast-git
 
 # Programming
 python3
+python-pip
 python-pipx
 rustup
 go
@@ -299,6 +300,7 @@ tldr
 ffmpeg
 btop
 wev
+onefetch
 
 # Applications
 ## Browser
@@ -306,10 +308,20 @@ google-chrome
 discord
 betterdiscordctl-git
 obsidian
+qdirstat-bin
 # spotify
 spotify-player
 spotifywm-git
-qdirstat-bin
+
+# Audio
+volumectl
+pavucontrol # GUI pulseaudio controller
+pamixer # Pulseaudio command line utils
+pulseaudio # Audio
+pulseaudio-bluetooth # bluetooth audio support
+
+# Brightness
+brightnessctl
 
 # Software Development
 ## IDE
@@ -331,6 +343,8 @@ ffuf-bin
 feroxbuster
 ## hex editor
 imhex
+## wordlists
+seclists
 
 # Windows emulation
 #wine
@@ -344,7 +358,7 @@ paru
 rate-mirrors-bin
 
 # grub theme
-#grub-theme-cyberre
+# grub-theme-cyberre
 
 # Launchers
 ulauncher-git

@@ -112,6 +112,17 @@ docs/zsdoc/data
 .ssh/keys/ida
 {{ end }}
 
+{{- if eq .chezmoi.hostname "ELARCH-WORK" }}
+.ssh/keys/eraspberry1
+.ssh/keys/kasm
+.ssh/keys/portainer
+.ssh/keys/proxmox
+.ssh/keys/scripter
+.ssh/keys/server
+.ssh/keys/ftc
+.ssh/keys/ida
+{{- end }}
+
 # The below are to be manually updated, if needed(the usually store files that change with timestamps...)
 .config/BetterDiscord/
 # .local/share/bottles/
