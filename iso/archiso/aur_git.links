@@ -25,6 +25,9 @@ aur wezterm-terminfo-git
 aur ulauncher-git
 aur rofi-git
 
+# Sound
+aur volumectl
+
 # parsers
 aur jaq
 aur ripgrep
@@ -37,6 +40,7 @@ aur spotifywm-git
 aur penelope-git
 aur ffuf-bin
 aur feroxbuster
+aur seclists
 
 # ZSH
 aur c-lolcat
