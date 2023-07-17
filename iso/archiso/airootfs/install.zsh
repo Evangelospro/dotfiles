@@ -21,5 +21,5 @@ rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
 # Add a "#" to start of the line that has "hyprload.sh" in it in $HOME/.config/hypr/startup.conf
 bash $HOME/.config/hypr/plugins/update.sh
 xhost +
-sudo systemctl --user enable --now ulauncher
+systemctl --user enable --now ulauncher
 sudo systemctl enable --now sddm
