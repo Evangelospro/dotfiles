@@ -1,12 +1,13 @@
-file:///home/evangelospro/SeaDrive/My%20Libraries/Desktop
 file:///home/evangelospro/Documents
 file:///home/evangelospro/Music
 file:///home/evangelospro/Pictures
 file:///home/evangelospro/Videos
 file:///home/evangelospro/Downloads
+{{ if not .chezmoi.os "ELARCH-WORK" }}
 file:///home/evangelospro/School
 file:///home/evangelospro/HACKING
 file:///home/evangelospro/HACKING/Tools
 file:///home/evangelospro/HACKING/CTFs
 file:///home/evangelospro/HACKING/CTFs/2023
 file:///home/evangelospro/Courses
+{{- end }}

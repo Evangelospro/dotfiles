@@ -239,14 +239,16 @@ qt6ct
 qtkeychain-qt5
 qtkeychain-qt6
 
-# Fonts
+# Fonts/text
 ttf-font-awesome
+tesseract
 
 # Icon theme
 papirus-icon-theme-git
 
 # Screenshoting
 grim
+slurp
 flameshot-git
 grimblast-git
 
@@ -315,13 +317,23 @@ spotifywm-git
 
 # Audio
 volumectl
-pavucontrol # GUI pulseaudio controller
-pamixer # Pulseaudio command line utils
-pulseaudio # Audio
-pulseaudio-bluetooth # bluetooth audio support
+pipewire
+pipewire-pulse
+pavucontrol
+
 
 # Brightness
 brightnessctl
+
+# Video
+vlc
+
+# Images
+gthumb
+
+# Office
+xournalpp
+# zathura
 
 # Software Development
 ## IDE
