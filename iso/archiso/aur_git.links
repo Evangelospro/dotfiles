@@ -51,6 +51,9 @@ aur pacman-cleanup-hook
 aur rate-mirrors-bin
 aur qdirstat-bin
 
+# Performance
+aur stacer
+
 # Software development
 aur visual-studio-code-bin
 aur android-studio

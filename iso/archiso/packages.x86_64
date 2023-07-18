@@ -233,6 +233,9 @@ swaylock-effects-git
 swayidle
 udiskie
 
+# Performace
+stacer
+
 # Qt5/6
 qt5ct
 qt6ct
