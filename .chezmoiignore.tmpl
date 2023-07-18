@@ -80,7 +80,7 @@ docs/zsdoc/data
 
 # Only create ssh keys if they don't exist
 
-{{- if eq .chezmoi.hostname "ELARCH-WORK" or eq .chezmoi.hostname "ELARCH-ISO" }}
+{{- if (or (eq .chezmoi.hostname "ELARCH-WORK") (eq .chezmoi.hostname "ELARCH-ISO")) }}
 .ssh/keys/eraspberry1
 .ssh/keys/kasm
 .ssh/keys/portainer
