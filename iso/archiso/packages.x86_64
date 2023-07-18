@@ -158,7 +158,6 @@ networkmanager
 blueman
 
 # Audio
-volumectl
 pipewire
 pipewire-pulse
 pavucontrol
