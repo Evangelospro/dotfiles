@@ -279,7 +279,6 @@ playerctl
 
 # Terminal
 wezterm-git
-wezterm-terminfo-git
 
 # Shell
 zoxide
