@@ -198,6 +198,9 @@ sddm-theme-astronaut
 # Base-devel group
 base-devel
 
+# Docker
+docker
+
 # Desktop environment
 hyprland
 xdg-desktop-portal-gtk
@@ -301,6 +304,7 @@ lf
 fd
 
 # Additional utils
+unzip
 glow
 tldr
 ffmpeg
@@ -333,6 +337,8 @@ xournalpp
 # zathura
 
 # Software Development
+## Github
+github-cli
 ## IDE
 visual-studio-code-bin
 android-studio
