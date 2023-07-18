@@ -349,6 +349,7 @@ rz-ghidra
 rz-cutter
 ## Netowrking
 nmap
+rustscan
 penelope-git
 ## Bruteforcing
 ffuf-bin
