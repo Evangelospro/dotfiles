@@ -30,7 +30,7 @@ exec-once=avizo-service
 # USER STARTUPS
 # exec-once=$HOME/.config/eww/launch
 # Comment the below line as you probably don't use seafile
-{{ if not .chezmoi.os "ELARCH-WORK" }}
+{{ if ne .chezmoi.os "ELARCH-WORK" }}
 exec-once=fusermount -u $HOME/SeaDrive ; seadrive -c $HOME/.config/seadrive/seadrive.conf -l $HOME/.seadrive/logs/seadrive.log -f -d $HOME/.seadrive/data $HOME/SeaDrive -o allow_root
 exec-once=/usr/lib/kdeconnectd -platform offscreen &
 {{- end }}
