@@ -1,9 +1,7 @@
 #!/bin/zsh
 PYTHON_VERSION=$(python -V | cut -d " " -f 2 | cut -d "." -f 1,2)
-git clone https://github.com/evangelospro/dotfiles $HOME/.local/share/chezmoi
-sudo rm $HOME/.local/share/chezmoi/private_dot_ssh/keys/*
-chezmoi apply -R
-cp $HOME/.local/share/chezmoi/dot_config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
+chezmoi init --apply Evangelospro
+cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
 sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc -r
 sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt -r
 # create default directories Desktop, Documents, Downloads, Music, Pictures, Public, Templates, Videos
