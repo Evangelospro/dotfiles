@@ -62,8 +62,11 @@ bind=$mod,S,movewindow,d
 # bind=$shift_mod,left,movecurrentworkspacetomonitor,eDP-1
 # bind=$shift_mod,right,movecurrentworkspacetomonitor,HDMI-A-1
 bind=$shift_mod,left,movewindow,mon:eDP-1
+{{ if eq .chezmoi.os "ELARCH-WORK" }}
+bind=$shift_mod,right,movewindow,mon:VGA-1
+{{ else }}
 bind=$shift_mod,right,movewindow,mon:HDMI-A-1
-
+{{- end }}
 # Workspace bindings
 
 # hyprsome
