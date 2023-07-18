@@ -43,6 +43,7 @@ foot-terminfo
 fsarchiver
 gnu-netcat
 gpart
+gparted
 gpm
 gptfdisk
 grub
@@ -156,9 +157,16 @@ networkmanager
 # Bluetooth
 blueman
 
-#Sound
+# Audio
+volumectl
+pipewire
+pipewire-pulse
 pavucontrol
 pamixer
+
+
+# Brightness
+brightnessctl
 
 #######################################################
 ###                    EXTRAS                       ###
@@ -209,8 +217,6 @@ handlr-regex
 pistol-git
 
 # System utils
-## TTY mouse scrolling
-gpm
 ## Background
 swaybg
 ## Clipboard
@@ -269,7 +275,7 @@ playerctl
 
 # Terminal
 wezterm-git
-# wezterm-terminfo-git
+wezterm-terminfo-git
 
 # Shell
 zoxide
@@ -294,18 +300,14 @@ nautilus
 lf
 fd
 
-# Other
-wev
-btop
-geticons
-moreutils
-#batify2-git
-
 # Additional utils
 glow
 tldr
 ffmpeg
 btop
+geticons
+moreutils
+#batify2-git
 wev
 onefetch
 
@@ -319,16 +321,6 @@ qdirstat-bin
 # spotify
 spotify-player
 spotifywm-git
-
-# Audio
-volumectl
-pipewire
-pipewire-pulse
-pavucontrol
-
-
-# Brightness
-brightnessctl
 
 # Video
 vlc
