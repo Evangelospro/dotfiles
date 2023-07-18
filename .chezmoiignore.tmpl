@@ -80,38 +80,6 @@ docs/zsdoc/data
 
 # Only create ssh keys if they don't exist
 
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/eraspberry1") }}
-.ssh/keys/eraspberry1
-{{ end }}
-
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/kasm") }}
-.ssh/keys/kasm
-{{ end }}
-
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/portainer") }}
-.ssh/keys/portainer
-{{ end }}
-
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/proxmox") }}
-.ssh/keys/proxmox
-{{ end }}
-
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/scripter") }}
-.ssh/keys/scripter
-{{ end }}
-
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/server") }}
-.ssh/keys/server
-{{ end }}
-
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ftc") }}
-.ssh/keys/ftc
-{{ end }}
-
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ida") }}
-.ssh/keys/ida
-{{ end }}
-
 {{- if eq .chezmoi.hostname "ELARCH-WORK" }}
 .ssh/keys/eraspberry1
 .ssh/keys/kasm
@@ -121,8 +89,32 @@ docs/zsdoc/data
 .ssh/keys/server
 .ssh/keys/ftc
 .ssh/keys/ida
+{{ else }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/eraspberry1") }}
+.ssh/keys/eraspberry1
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/kasm") }}
+.ssh/keys/kasm
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/portainer") }}
+.ssh/keys/portainer
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/proxmox") }}
+.ssh/keys/proxmox
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/scripter") }}
+.ssh/keys/scripter
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/server") }}
+.ssh/keys/server
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ftc") }}
+.ssh/keys/ftc
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ida") }}
+.ssh/keys/ida
+{{ end }}
 {{- end }}
-
 # The below are to be manually updated, if needed(the usually store files that change with timestamps...)
 .config/BetterDiscord/
 # .local/share/bottles/
