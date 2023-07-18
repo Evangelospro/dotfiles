@@ -7,34 +7,34 @@ env = EDITOR, "code"
 # located in $HOME/.local/bin (which must be in $PATH)
 env = clipMenu, "$HOME/.local/bin/clipMenu"
 env = lockscreen, "$HOME/.local/bin/lockscreen"
-env = launcher, "$HOME/.local/bin/launcher"
+env = launcher, "$HOME/.local/bin/launcher &"
 env = ewwLaunch, "$HOME/.local/bin/ewwLaunch"
 
-$mod = SUPER
-$shift_mod = $mod_SHIFT
+$MOD = SUPER
+$SHIFT_MOD = $MOD_SHIFT
 
-bind=$mod,RETURN,exec,eval $TERMINAL
+bind=$MOD,RETURN,exec,eval $TERMINAL
 bind=ALT_L,F4,killactive
 bind=ALT_L,XF86Back,killactive
 bind=CTRL_SHIFT,ESC,exec,hyprctl kill # xkill like functionality
-bind=$mod,M,exit
-bind=$mod,E,exec,eval $fileManager
-bind=$shift_mod,E,exec,eval $ewwLaunch
-bind=$shift_mod,F,togglefloating,
-bind=$mod,P,exec,~/.config/hypr/scripts/monitors
-bind=$mod,F,fullscreen
-bind=$mod,L,exec,eval $lockscreen
-bind=$mod,SPACE,exec,eval $launcher
+bind=$MOD,M,exit
+bind=$MOD,E,exec,eval $fileManager
+bind=$SHIFT_MOD,E,exec,eval $ewwLaunch
+bind=$SHIFT_MOD,F,togglefloating,
+bind=$MOD,P,exec,~/.config/hypr/scripts/monitors
+bind=$MOD,F,fullscreen
+bind=$MOD,L,exec,eval $lockscreen
+bind=$MOD,SPACE,exec,eval $launcher
 bind=,XF86Search,exec,eval $launcher
 # bind=,XF86Calculator,exec,""
-bind=$mod,V,exec,eval $clipMenu
-bind=$mod,C,exec,hyprpicker | wl-copy
-bind=$shift_mod,Z,exec,~/.config/hypr/scripts/toggle_opacity
+bind=$MOD,V,exec,eval $clipMenu
+bind=$MOD,C,exec,hyprpicker | wl-copy
+bind=$SHIFT_MOD,Z,exec,~/.config/hypr/scripts/toggle_opacity
 
 # Disable animations for screenshot
 bind=,Print,exec,hyprctl keyword animation "fadeOut,0,0,default";flameshot gui;hyprctl keyword animation "fadeOut,1,4,default"
 # select area to perform OCR on
-bind=$mod,O,exec,wl-ocr
+bind=$MOD,O,exec,wl-ocr
 
 # Function keys
 binde=,XF86AudioRaiseVolume,exec,volumectl -b up
@@ -46,77 +46,77 @@ bind=,XF86AudioPrev,exec,playerctl previous
 binde=,XF86MonBrightnessUp,exec,lightctl up
 binde=,XF86MonBrightnessDown,exec,lightctl down
 
-bind=$mod,left,movefocus,l
-bind=$mod,right,movefocus,r
-bind=$mod,up,movefocus,u
-bind=$mod,down,movefocus,d
+bind=$MOD,left,movefocus,l
+bind=$MOD,right,movefocus,r
+bind=$MOD,up,movefocus,u
+bind=$MOD,down,movefocus,d
 
-bind=$mod,A,movewindow,l
-bind=$mod,D,movewindow,r
-bind=$mod,W,movewindow,u
-bind=$mod,S,movewindow,d
+bind=$MOD,A,movewindow,l
+bind=$MOD,D,movewindow,r
+bind=$MOD,W,movewindow,u
+bind=$MOD,S,movewindow,d
 
-# bind=$shift_mod,R,hyprload,reload
-# bind=$shift_mod,U,hyprload,update
+# bind=$SHIFT_MOD,R,hyprload,reload
+# bind=$SHIFT_MOD,U,hyprload,update
 
-# bind=$shift_mod,left,movecurrentworkspacetomonitor,eDP-1
-# bind=$shift_mod,right,movecurrentworkspacetomonitor,HDMI-A-1
-bind=$shift_mod,left,movewindow,mon:eDP-1
+# bind=$SHIFT_MOD,left,movecurrentworkspacetomonitor,eDP-1
+# bind=$SHIFT_MOD,right,movecurrentworkspacetomonitor,HDMI-A-1
+bind=$SHIFT_MOD,left,movewindow,mon:eDP-1
 {{ if eq .chezmoi.os "ELARCH-WORK" }}
-bind=$shift_mod,right,movewindow,mon:VGA-1
+bind=$SHIFT_MOD,right,movewindow,mon:VGA-1
 {{ else }}
-bind=$shift_mod,right,movewindow,mon:HDMI-A-1
+bind=$SHIFT_MOD,right,movewindow,mon:HDMI-A-1
 {{- end }}
 # Workspace bindings
 
 # hyprsome
-# bind=$mod,1,exec,hyprsome workspace 1
-# bind=$mod,2,exec,hyprsome workspace 2
-# bind=$mod,3,exec,hyprsome workspace 3
-# bind=$mod,4,exec,hyprsome workspace 4
-# bind=$mod,5,exec,hyprsome workspace 5
-# bind=$mod,6,exec,hyprsome workspace 6
-# bind=$mod,7,exec,hyprsome workspace 7
-# bind=$mod,8,exec,hyprsome workspace 8
-# bind=$mod,9,exec,hyprsome workspace 9
-# bind=$mod,0,exec,hyprsome workspace 10
+# bind=$MOD,1,exec,hyprsome workspace 1
+# bind=$MOD,2,exec,hyprsome workspace 2
+# bind=$MOD,3,exec,hyprsome workspace 3
+# bind=$MOD,4,exec,hyprsome workspace 4
+# bind=$MOD,5,exec,hyprsome workspace 5
+# bind=$MOD,6,exec,hyprsome workspace 6
+# bind=$MOD,7,exec,hyprsome workspace 7
+# bind=$MOD,8,exec,hyprsome workspace 8
+# bind=$MOD,9,exec,hyprsome workspace 9
+# bind=$MOD,0,exec,hyprsome workspace 10
 
-# bind=$shift_mod,1,exec,hyprsome move 1
-# bind=$shift_mod,2,exec,hyprsome move 2
-# bind=$shift_mod,3,exec,hyprsome move 3
-# bind=$shift_mod,4,exec,hyprsome move 4
-# bind=$shift_mod,5,exec,hyprsome move 5
-# bind=$shift_mod,6,exec,hyprsome move 6
-# bind=$shift_mod,7,exec,hyprsome move 7
-# bind=$shift_mod,8,exec,hyprsome move 8
-# bind=$shift_mod,9,exec,hyprsome move 9
-# bind=$shift_mod,0,exec,hyprsome move 10
+# bind=$SHIFT_MOD,1,exec,hyprsome move 1
+# bind=$SHIFT_MOD,2,exec,hyprsome move 2
+# bind=$SHIFT_MOD,3,exec,hyprsome move 3
+# bind=$SHIFT_MOD,4,exec,hyprsome move 4
+# bind=$SHIFT_MOD,5,exec,hyprsome move 5
+# bind=$SHIFT_MOD,6,exec,hyprsome move 6
+# bind=$SHIFT_MOD,7,exec,hyprsome move 7
+# bind=$SHIFT_MOD,8,exec,hyprsome move 8
+# bind=$SHIFT_MOD,9,exec,hyprsome move 9
+# bind=$SHIFT_MOD,0,exec,hyprsome move 10
 
 # split-workspaces hyprland plugin
-bind=$mod,1,split-workspace,1
-bind=$mod,2,split-workspace,2
-bind=$mod,3,split-workspace,3
-bind=$mod,4,split-workspace,4
-bind=$mod,5,split-workspace,5
-bind=$mod,6,split-workspace,6
-bind=$mod,7,split-workspace,7
-bind=$mod,8,split-workspace,8
-bind=$mod,9,split-workspace,9
-bind=$mod,0,split-workspace,10
+bind=$MOD,1,split-workspace,1
+bind=$MOD,2,split-workspace,2
+bind=$MOD,3,split-workspace,3
+bind=$MOD,4,split-workspace,4
+bind=$MOD,5,split-workspace,5
+bind=$MOD,6,split-workspace,6
+bind=$MOD,7,split-workspace,7
+bind=$MOD,8,split-workspace,8
+bind=$MOD,9,split-workspace,9
+bind=$MOD,0,split-workspace,10
 
-bind=$shift_mod,1,split-movetoworkspace, 1
-bind=$shift_mod,2,split-movetoworkspace, 2
-bind=$shift_mod,3,split-movetoworkspace, 3
-bind=$shift_mod,4,split-movetoworkspace, 4
-bind=$shift_mod,5,split-movetoworkspace, 5
-bind=$shift_mod,6,split-movetoworkspace, 6
-bind=$shift_mod,7,split-movetoworkspace, 7
-bind=$shift_mod,8,split-movetoworkspace, 8
-bind=$shift_mod,9,split-movetoworkspace, 9
-bind=$shift_mod,0,split-movetoworkspace, 10
+bind=$SHIFT_MOD,1,split-movetoworkspace, 1
+bind=$SHIFT_MOD,2,split-movetoworkspace, 2
+bind=$SHIFT_MOD,3,split-movetoworkspace, 3
+bind=$SHIFT_MOD,4,split-movetoworkspace, 4
+bind=$SHIFT_MOD,5,split-movetoworkspace, 5
+bind=$SHIFT_MOD,6,split-movetoworkspace, 6
+bind=$SHIFT_MOD,7,split-movetoworkspace, 7
+bind=$SHIFT_MOD,8,split-movetoworkspace, 8
+bind=$SHIFT_MOD,9,split-movetoworkspace, 9
+bind=$SHIFT_MOD,0,split-movetoworkspace, 10
 
-bind=$mod,TAB,workspace, e+1
-bind=$shift_mod,TAB,workspace, e-1
+bind=$MOD,TAB,workspace, e+1
+bind=$SHIFT_MOD,TAB,workspace, e-1
 
-bindm=$mod,mouse:272,movewindow
-bindm=$mod,mouse:273,resizewindow
+bindm=$MOD,mouse:272,movewindow
+bindm=$MOD,mouse:273,resizewindow
