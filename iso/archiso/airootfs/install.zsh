@@ -9,7 +9,7 @@ mkdir -p $HOME/{Desktop,Documents,Downloads,Music,Pictures,Public,Templates,Vide
 vsCodeWorkbench=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
 sudo cp -r $HOME/.local/share/chezmoi/dot_local/private_share/icons/vscode $vsCodeWorkbench
 sudo cp $HOME/.local/share/chezmoi/confs/vscode.css $vsCodeWorkbench/vsc.css
-sudo rm /usr/lib/python$PYTHON_VERSION/EXTERNALLY_MANAGED
+sudo rm /usr/lib/python$PYTHON_VERSION/EXTERNALLY-MANAGED
 pip install -r $HOME/.local/share/chezmoi/requirments.txt
 sudo pacman-key --init
 sudo pacman-key --populate
