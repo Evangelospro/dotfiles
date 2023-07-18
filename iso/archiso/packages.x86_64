@@ -209,6 +209,8 @@ handlr-regex
 pistol-git
 
 # System utils
+## TTY mouse scrolling
+gpm
 ## Background
 swaybg
 ## Clipboard
