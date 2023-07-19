@@ -350,6 +350,8 @@ ghidra
 cutter
 rz-ghidra
 rz-cutter
+## Web
+wpscan
 ## Netowrking
 nmap
 rustscan
