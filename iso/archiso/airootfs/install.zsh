@@ -1,9 +1,18 @@
 #!/bin/zsh
 PYTHON_VERSION=$(python -V | cut -d " " -f 2 | cut -d "." -f 1,2)
 chezmoi init --apply Evangelospro -R
+function update(){
+    # chaotic was taking over hence hyprland is on hold
+    paru -Syu aur/hyprland-git && git pull $HOME/.config/hypr/hyprland-repo && $HOME/.config/hypr/plugins/update.sh
+    paru -Syu
+    zi self-update
+    zi update
+    navi-update
+}
+update
 cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
-sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc -r
-sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt -r
+sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r
+sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt/ -r
 # create default directories Desktop, Documents, Downloads, Music, Pictures, Public, Templates, Videos
 mkdir -p $HOME/{Desktop,Documents,Downloads,Music,Pictures,Public,Templates,Videos}
 vsCodeWorkbench=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
@@ -18,7 +27,7 @@ rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
 # cd /home/evangelospro/.local/share/chezmoi/confs/grub-themes/CyberRe && sudo ./install.sh
 # Add a "#" to start of the line that has "hyprload.sh" in it in $HOME/.config/hypr/startup.conf
 bash $HOME/.config/hypr/plugins/update.sh
-xhost +
+# xhost + aliased calamares to xhost + && calamares
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo systemctl enable --now sddm

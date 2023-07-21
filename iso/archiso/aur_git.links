@@ -1,6 +1,10 @@
 # Paru
 aur paru
 
+# Desktop environment
+aur hyprland-git
+aur xdg-desktop-portal-hyprland-git
+
 # EWW bar
 aur eww-tray-wayland-git
 

@@ -27,10 +27,9 @@
     refreshPeriod = "168h"
 
 [".config/hypr/hyprland-repo"]
-    type = "archive"
-    url = "https://github.com/hyprwm/hyprland/archive/main.tar.gz"
-    exact = true
-    stripComponents = 1
+    type = "git-repo"
+    url = "https://github.com/hyprwm/hyprland.git"
+    branch = "main"
     refreshPeriod = "24h"
 
 [".config/hypr/plugins/split-monitor-workspaces"]

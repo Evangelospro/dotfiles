@@ -201,9 +201,9 @@ base-devel
 docker
 
 # Desktop environment
-hyprland
+hyprland-git
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland
+xdg-desktop-portal-hyprland-git
 # hyprsome
 
 # Chaotic repo

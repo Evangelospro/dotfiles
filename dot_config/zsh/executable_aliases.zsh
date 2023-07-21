@@ -1,3 +1,6 @@
+# Installation
+alias calamares='xhost + && calamares'
+
 # Editor
 alias e="sed -i 's;</head>;<link rel=\"stylesheet\" href=\"vsc.css\"></head>;g' $EDITOR_DIR/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html && code"
 
@@ -5,7 +8,7 @@ alias e="sed -i 's;</head>;<link rel=\"stylesheet\" href=\"vsc.css\"></head>;g' 
 alias config='chezmoi cd && e .'
 alias zshconfig="e $ZSH"
 
-alias sudo='sudo '
+alias sudo='nocorrect sudo'
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
 
