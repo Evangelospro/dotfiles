@@ -20,6 +20,13 @@ function mvd() {
     fi
 }
 
+function mvs() {
+    local fileName
+    fileName=$(\ls -t ~/Pictures/Screenshots | head -n 1)
+    mv ~/Pictures/Screenshots/"$fileName" .
+}
+
+
 # clipboard
 # X11 / Wayland
 function copy() {
