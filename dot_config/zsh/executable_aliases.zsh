@@ -58,7 +58,7 @@ alias l='lsd -hAFlt --group-dirs first --color=always'
 alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
 
 # Servers /  SSH
-alias ssh='wezterm ssh'
+# alias ssh='wezterm ssh'
 alias server='ssh evangelospro@evangelospro.com'
 alias kasm='ssh ubuntu@kasm'
 alias xsshunter='ssh ubuntu@xsshunter'

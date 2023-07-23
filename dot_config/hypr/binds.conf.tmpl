@@ -15,7 +15,7 @@ $SHIFT_MOD = $MOD_SHIFT
 
 bind=$MOD,RETURN,exec,eval $TERMINAL
 bind=ALT_L,F4,killactive
-bind=ALT_L,XF86Back,killactive
+# bind=ALT_L,z,killactive
 bind=CTRL_SHIFT,ESC,exec,hyprctl kill # xkill like functionality
 bind=$MOD,M,exit
 bind=$MOD,E,exec,eval $fileManager
@@ -26,10 +26,9 @@ bind=$MOD,F,fullscreen
 bind=$MOD,L,exec,eval $lockscreen
 bind=$MOD,SPACE,exec,ulauncher-toggle
 bind=,XF86Search,exec,eval $launcher
-# bind=,XF86Calculator,exec,""
 bind=$MOD,V,exec,eval $clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
-bind=$SHIFT_MOD,Z,exec,~/.config/hypr/scripts/toggle_opacity
+# bind=$SHIFT_MOD,Z,exec,~/.config/hypr/scripts/toggle_opacity
 
 # Disable animations for screenshot
 bind=,Print,exec,hyprctl keyword animation "fadeOut,0,0,default";flameshot gui;hyprctl keyword animation "fadeOut,1,4,default"
