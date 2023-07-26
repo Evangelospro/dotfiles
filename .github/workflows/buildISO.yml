@@ -50,11 +50,11 @@ jobs:
           # Make sure container is up-to-date
           pacman -Syu --noconfirm
           
-          rustup default stable
-
           # Install necessary packages
           pacman -S git archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
           
+          rustup default stable
+
           # Create a builder user so makepkg doesn't run as root
           sudo useradd builder -m
           # Allow the builder user to run sudo without a password
