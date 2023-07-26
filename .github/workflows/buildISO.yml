@@ -51,6 +51,7 @@ jobs:
           git config core.sparseCheckout true
           echo "iso" >> .git/info/sparse-checkout
           git pull origin main
+          ls -lasih
           cd iso
           ls -lasih . # check if iso folder is there
           
