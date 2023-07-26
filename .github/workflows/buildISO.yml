@@ -54,7 +54,7 @@ jobs:
           rustup default stable
 
           # Install necessary packages
-          pacman -S git archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel --needed --noconfirm
+          pacman -S git archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
           
           # Create a builder user so makepkg doesn't run as root
           sudo useradd builder -m
