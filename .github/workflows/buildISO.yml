@@ -48,7 +48,8 @@ jobs:
           export BUILD_DATE=$(date +'%d-%m-%Y')
           
           # Make sure container is up-to-date
-          pacman -Syu
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm --needed cmake ninja
           pacman -S --noconfirm --needed bind
           
           # Install necessary packages
