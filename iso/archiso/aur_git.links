@@ -29,7 +29,7 @@ aur jaq
 aur ripgrep
 
 # spotify
-aur spotify-player
+# aur spotify-player
 aur spotifywm-git
 
 # Hacking
@@ -37,6 +37,3 @@ aur penelope-git
 aur ffuf-bin
 aur feroxbuster
 aur seclists
-
-# Packages
-aur pacman-cleanup-hook
