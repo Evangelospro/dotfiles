@@ -26,7 +26,6 @@ jobs:
     container:
       image: archlinux:latest
       options: --privileged
-      
     steps:
       - 
         uses: styfle/cancel-workflow-action@0.9.0
@@ -45,6 +44,12 @@ jobs:
           # Install necessary packages
           pacman -S git archiso pacman-contrib --needed --noconfirm
           
+
+          # Create a builder user so makepkg doesn't run as root
+          sudo useradd builder -m
+          # Become the builder
+          sudo -u builder bash << EOF
+
           # Clone ISO repo and enter it
           mkdir build
           cd build
@@ -62,6 +67,10 @@ jobs:
           bash aur.sh
           bash build-no-cache.sh
           
+          # Stop being the builder
+          exit
+          EOF
+
           FILE_PATH=$(find isoOUT -type f -name "*.iso")
           FILE_PKGS=$(find isoOUT -type f -name "*.txt")
 
