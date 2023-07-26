@@ -205,6 +205,34 @@ hyprland-git
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland-git
 # hyprsome
+## requirements
+gdb
+ninja
+gcc
+cmake
+meson
+libxcb
+xcb-proto
+xcb-util
+xcb-util-keysyms
+libfixes
+lix11
+libxcomposite
+xorg-input
+libxrenderer
+pixman
+wayland-protocols
+cairo
+pango
+seatd
+libxkbcommon
+xcb-util-wm
+xorg-xwayland
+libinput
+libliftoff
+libdisplay
+libdisplay-info
+cpio
 
 # Chaotic repo
 chaotic-mirrorlist

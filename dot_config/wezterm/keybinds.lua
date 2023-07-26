@@ -32,11 +32,11 @@ local keys = {
     mods = "CTRL|SHIFT",
     action = action.ReloadConfiguration,
   },
-  {
-    key = "w",
-    mods = "CTRL|SHIFT",
-    action = action.QuitApplication,
-  },
+  -- {
+  --   key = "q",
+  --   mods = "CTRL|SHIFT",
+  --   action = action.QuitApplication,
+  -- },
   {
     key = "t",
     mods = "CTRL|SHIFT",
@@ -53,7 +53,7 @@ local keys = {
     action = action.SpawnWindow,
   },
   {
-    key = "q",
+    key = "w",
     mods = "CTRL|SHIFT",
     action = action{CloseCurrentTab = {confirm=true}},
   },
