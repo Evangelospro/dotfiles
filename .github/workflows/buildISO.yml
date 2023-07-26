@@ -44,13 +44,14 @@ jobs:
           pacman -S git archiso pacman-contrib --needed --noconfirm
           
           # Clone ISO repo and enter it
-          mkdir iso
-          cd iso
+          mkdir build
+          cd build
           git init
           git remote add -f origin https://github.com/evangelospro/dotfiles
           git config core.sparseCheckout true
           echo "iso" >> .git/info/sparse-checkout
           git pull origin main
+          cd iso
           ls -lasih . # check if iso folder is there
           
           # Build ISO and rename to match BUILD_DATE
