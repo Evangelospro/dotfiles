@@ -48,7 +48,7 @@ jobs:
           export BUILD_DATE=$(date +'%d-%m-%Y')
           
           # Make sure container is up-to-date
-          pacman -Syu --needed --noconfirm
+          pacman -Syu
           pacman -S --noconfirm --needed bind
           
           # Install necessary packages
