@@ -5,7 +5,6 @@ echo "Phase 1 : "
 echo "- Setting General parameters"
 echo "################################################################## "
 echo
-
 	# setting of the general parameters
 	base_dir="$(pwd)"
 	archisoRequiredVersion="archiso 71-1"
