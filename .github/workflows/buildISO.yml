@@ -46,10 +46,13 @@ jobs:
           
           # Create a builder user so makepkg doesn't run as root
           sudo useradd builder -m
-          cd /home/builder
+          # Allow the builder user to run sudo without a password
+          echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
           # Become the builder
           sudo -u builder bash << EOF
 
+          cd /home/builder
+          
           # Clone ISO repo and enter it
           mkdir build
           cd build
