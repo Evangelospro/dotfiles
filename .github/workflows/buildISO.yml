@@ -22,9 +22,11 @@ jobs:
   build-release:
     runs-on: ubuntu-20.04
     needs: [prepare-release]
+    # runs as user and use sudo if needed
     container:
       image: archlinux:latest
       options: --privileged
+      
     steps:
       - 
         uses: styfle/cancel-workflow-action@0.9.0
@@ -50,6 +52,7 @@ jobs:
           git remote add -f origin https://github.com/evangelospro/dotfiles
           git config core.sparseCheckout true
           echo "iso" >> .git/info/sparse-checkout
+          git config --global init.defaultBranch main
           git pull origin main
           ls -lasih
           cd iso
