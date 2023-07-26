@@ -63,6 +63,8 @@ jobs:
           # Install necessary packages
           pacman -S git archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
           
+          # Set up rust
+          rustup install stable
           rustup default stable
 
           # Create a builder user so makepkg doesn't run as root

@@ -215,11 +215,11 @@ libxcb
 xcb-proto
 xcb-util
 xcb-util-keysyms
-libfixes
-lix11
+libxfixes
+libx11
 libxcomposite
-xorg-input
-libxrenderer
+xorg-xinput
+libxrender
 pixman
 wayland-protocols
 cairo
@@ -230,7 +230,6 @@ xcb-util-wm
 xorg-xwayland
 libinput
 libliftoff
-libdisplay
 libdisplay-info
 cpio
 
