@@ -1,0 +1,81 @@
+name: iso_build
+on:
+  workflow_dispatch:
+  # schedule:
+  #  - cron:  '30 2 * * *'
+
+jobs:
+  prepare-release:
+    runs-on: ubuntu-20.04
+    steps:
+      - 
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ github.token }}
+      - 
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with:
+          format: 'DDMMYYYYHHmm'
+    outputs:
+      release_tag: ${{ steps.time.outputs.time }}
+  build-release:
+    runs-on: ubuntu-20.04
+    needs: [prepare-release]
+    steps:
+      - 
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ github.token }}
+      - name: Build
+        id: build
+        run: |
+          # Set BUILD_DATE
+          export BUILD_DATE=$(date +'%d-%m-%Y')
+          
+          # Make sure container is up-to-date
+          pacman -Syu --needed --noconfirm
+          pacman -S --noconfirm --needed bind
+          
+          # Install necessary packages
+          pacman -S git archiso pacman-contrib --needed --noconfirm
+          
+          # Clone ISO repo and enter it
+          mkdir iso
+          cd iso
+          git init
+          git remote add -f origin https://github.com/evangelospro/dotfiles
+          git config core.sparseCheckout true
+          echo "iso/" >> .git/info/sparse-checkout
+          git pull origin master
+          
+          # Build ISO and rename to match BUILD_DATE
+          bash build-no-cache.sh
+          
+          FILE_PATH=$(find isoOUT -type f -name "*.iso")
+          FILE_PKGS=$(find isoOUT -type f -name "*.txt")
+
+          # split the iso if larger than 2GB
+          zip -j -s 1950m $(basename $FILE_PATH).zip $FILE_PATH
+          ls -lasih .
+          sha256sum $(basename $FILE_PATH).z* > $(basename $FILE_PATH).sha256
+          echo SHA256SUM=ELARCH-latest.sha256 >> $GITHUB_ENV
+
+          echo FILE_PATH=$FILE_PATH >> $GITHUB_ENV
+          echo SHA256SUM=$(basename $FILE_PATH).sha256 >> $GITHUB_ENV
+          echo FILE_PKGS=$FILE_PKGS >> $GITHUB_ENV
+      - name: Upload Release zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.prepare-release.outputs.upload_url }}
+          asset_path: ./${{ env.FILE_PATH }}
+          asset_name: ${{ env.FILE_PATH }}
+          asset_content_type: application/zip
+      -
+        name: rollback
+        if: ${{ failure() || cancelled() }}
+        run: |
+          echo ${{ github.token }} | gh auth login --with-token
+          gh release delete ${{ needs.prepare-release.outputs.release_tag }} -y --repo ${{ github.repository }}

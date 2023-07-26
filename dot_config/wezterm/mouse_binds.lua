@@ -13,7 +13,19 @@ local paste_right_click = {
   }
 }
 
-module.mouse_bindings = { paste_right_click }
+copyOnSelection = {
+  event = {
+    Up = {
+      streak = 1, 
+      button = "Left"
+    }
+  },
+  mods = "NONE",
+  action = wezterm.action{
+    CompleteSelectionOrOpenLinkAtMouseCursor = "PrimarySelection"
+  }
+}
 
+module.mouse_bindings = { paste_right_click, copyOnSelection }
 return module
 
