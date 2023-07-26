@@ -44,9 +44,9 @@ jobs:
           # Install necessary packages
           pacman -S git archiso pacman-contrib --needed --noconfirm
           
-
           # Create a builder user so makepkg doesn't run as root
           sudo useradd builder -m
+          cd /home/builder
           # Become the builder
           sudo -u builder bash << EOF
 
