@@ -45,7 +45,7 @@ done < git.links
 #Build all packages
 for package in ./pkgbuilds/*; do
     echo "Building $package"
-    (cd "$package"; makepkg -s)
+    (cd "$package"; makepkg -s --noconfirm)
 done
 
 # Move all packages to REPO_DIR
