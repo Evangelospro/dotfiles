@@ -38,8 +38,9 @@ jobs:
           
           # Make sure container is up-to-date
           pacman -Syu --needed --noconfirm
-          pacman -S --noconfirm --needed bind sudo
-          cd iso          # Install necessary packages
+          pacman -S --noconfirm --needed bind
+          
+          # Install necessary packages
           pacman -S git archiso pacman-contrib --needed --noconfirm
           
           # Clone ISO repo and enter it
