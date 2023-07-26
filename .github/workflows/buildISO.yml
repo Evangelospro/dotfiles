@@ -34,6 +34,16 @@ jobs:
       - name: Build
         id: build
         run: |
+          # Enable multilib
+          echo "[multilib]" >> /etc/pacman.conf
+          echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+          
+          # Set timezone
+          ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
+
+          # Set locale
+          echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+
           # Set BUILD_DATE
           export BUILD_DATE=$(date +'%d-%m-%Y')
           
