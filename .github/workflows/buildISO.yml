@@ -50,7 +50,7 @@ jobs:
           git remote add -f origin https://github.com/evangelospro/dotfiles
           git config core.sparseCheckout true
           echo "iso/" >> .git/info/sparse-checkout
-          git pull origin master
+          git pull origin main
           
           # Build ISO and rename to match BUILD_DATE
           bash build-no-cache.sh
