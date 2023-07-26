@@ -49,7 +49,6 @@ jobs:
           
           # Make sure container is up-to-date
           pacman -Syu --noconfirm
-          pacman -S --noconfirm --needed cmake ninja
           pacman -S --noconfirm --needed bind
           
           # Install necessary packages
@@ -60,9 +59,8 @@ jobs:
           # Allow the builder user to run sudo without a password
           echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
           # Become the builder
-          sudo -u builder bash << EOF
-
           cd /home/builder
+          sudo -u builder bash << EOF
 
           # Clone ISO repo and enter it
           mkdir build
@@ -107,7 +105,7 @@ jobs:
           asset_name: ${{ env.FILE_PATH }}
           asset_content_type: application/zip
       -
-        name: rollback
+        name: Rollback
         if: ${{ failure() || cancelled() }}
         run: |
           echo ${{ github.token }} | gh auth login --with-token
