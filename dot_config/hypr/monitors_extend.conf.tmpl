@@ -1,13 +1,14 @@
 # Monitors
-monitor=eDP-1,1920x1080@60,0x0,1
-{{ if eq .chezmoi.os "ELARCH-WORK" }}
-monitor=HDMI-A-1,preferred,1980x0,1
+{{ if eq .chezmoi.hostname "ELARCH-WORK" }}
+monitor=eDP-1,1366x766,0x0,1
+monitor=VGA-1,1920x1080@60,1366x0,1
 {{ else }}
-monitor=VGA-1,1920x1080@60,1980x0,1
+monitor=eDP-1,1920x1080@60,0x0,1
+monitor=HDMI-A-1,preferred,1980x0,1
 {{- end }}
 
 # Workspace binds
-workspace=1,monitor:eDP-1
+workspace=1,monitor:eDP-1bind
 workspace=2,monitor:eDP-1
 workspace=3,monitor:eDP-1
 workspace=4,monitor:eDP-1
@@ -18,7 +19,7 @@ workspace=8,monitor:eDP-1
 workspace=9,monitor:eDP-1
 workspace=10,monitor:eDP-1
 
-{{ if eq .chezmoi.os "ELARCH-WORK" }}
+{{ if eq .chezmoi.hostname "ELARCH-WORK" }}
 workspace=11,monitor:VGA-1
 workspace=12,monitor:VGA-1
 workspace=13,monitor:VGA-1
@@ -44,7 +45,7 @@ workspace=20,monitor:HDMI-A-1
 
 # Default workspace
 workspace=eDP-1,1
-{{ if eq .chezmoi.os "ELARCH-WORK" }}
+{{ if eq .chezmoi.hostname "ELARCH-WORK" }}
 workspace=VGA-1,11
 {{ else }}
 workspace=HDMI-A-1,11
