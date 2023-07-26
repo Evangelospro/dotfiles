@@ -49,7 +49,6 @@ jobs:
           
           # Make sure container is up-to-date
           pacman -Syu --noconfirm
-          pacman -S --noconfirm --needed bind
           
           rustup default stable
 
