@@ -51,6 +51,8 @@ jobs:
           pacman -Syu --noconfirm
           pacman -S --noconfirm --needed bind
           
+          rustup default stable
+
           # Install necessary packages
           pacman -S git archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel --needed --noconfirm
           

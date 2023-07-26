@@ -1,6 +1,3 @@
-# Paru
-aur paru
-
 # Desktop environment
 aur hyprland-git
 aur xdg-desktop-portal-hyprland-git
@@ -15,22 +12,14 @@ aur eww-tray-wayland-git
 aur handlr-regex
 aur pistol-git
 
-# lock screen
-aur swaylock-effects-git
-
 # OSD
-aur avizo
-
-# notification daemon
-aur swaync-git
+aur avizoq
 
 # wezterm
 aur wezterm-git
-aur wezterm-terminfo-git
 
 # Launchers
 aur ulauncher-git
-aur rofi-git
 
 # Sound
 aur volumectl
@@ -49,18 +38,5 @@ aur ffuf-bin
 aur feroxbuster
 aur seclists
 
-# ZSH
-aur c-lolcat
-# aur figlet-fonts-extra
-
 # Packages
 aur pacman-cleanup-hook
-aur rate-mirrors-bin
-aur qdirstat-bin
-
-# Performance
-aur stacer
-
-# Software development
-aur visual-studio-code-bin
-aur android-studio

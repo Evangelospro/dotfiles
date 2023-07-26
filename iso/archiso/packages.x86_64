@@ -267,9 +267,9 @@ kwallet-pam
 eww-tray-wayland-git
 # logout shell
 wlogout
-swaync-git
+swaync
 swaync-client
-swaylock-effects-git
+swaylock-effects
 swayidle
 udiskie
 
@@ -350,7 +350,7 @@ google-chrome
 discord
 betterdiscordctl-git
 obsidian
-qdirstat-bin
+qdirstat
 # spotify
 spotify-player
 spotifywm-git
@@ -400,16 +400,16 @@ seclists
 
 # Packaging
 ## Paru (AUR helper)
-paru
+chaotic-aur/paru
 ## Mirrors
-rate-mirrors-bin
+rate-mirrors
 
 # grub theme
 # grub-theme-cyberre
 
 # Launchers
 ulauncher-git
-rofi-git
+rofi
 
 # parsers
 jaq
