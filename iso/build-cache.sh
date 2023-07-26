@@ -1,26 +1,8 @@
 #!/bin/bash
-#set -e
-##################################################################################################################
-# Author	:	Erik Dubois
-# Website	:	https://www.erikdubois.online
-# Website	:	https://www.arcolinux.info
-# Website	:	https://www.arcolinux.com
-# Website	:	https://www.arcolinuxd.com
-# Website	:	https://www.arcolinuxb.com
-# Website	:	https://www.arcolinuxiso.com
-# Website	:	https://www.arcolinuxforum.com
-# Website	:	https://www.alci.online
-##################################################################################################################
-#
-#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
-#
-##################################################################################################################
 echo
 echo "################################################################## "
-tput setaf 2
 echo "Phase 1 : "
 echo "- Setting General parameters"
-tput sgr0
 echo "################################################################## "
 echo
 
@@ -50,31 +32,25 @@ echo
 	echo "################################################################## "
 
 	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
-		tput setaf 2
-		echo "##################################################################"
+				echo "##################################################################"
 		echo "Archiso has the correct version. Continuing ..."
 		echo "##################################################################"
-		tput sgr0
-	else
-	tput setaf 1
-	echo "###################################################################################################"
+			else
+		echo "###################################################################################################"
 	echo "You need to install the correct version of Archiso"
 	echo "Use 'sudo downgrade archiso' to do that"
 	echo "or update your system"
 	echo "If a new archiso package comes in and you want to test if you can still build"
 	echo "the iso then change the version in line 37."
 	echo "###################################################################################################"
-	tput sgr0
-	fi
+		fi
 
 echo
 echo "################################################################## "
-tput setaf 2
 echo "Phase 2 :"
 echo "- Checking if archiso is installed"
 echo "- Saving current archiso version to archiso.md"
 echo "- Making mkarchiso verbose"
-tput sgr0
 echo "################################################################## "
 echo
 
@@ -130,11 +106,9 @@ echo
 
 echo
 echo "################################################################## "
-tput setaf 2
 echo "Phase 3 :"
 echo "- Deleting the build folder if one exists"
 echo "- Copying the Archiso folder to build folder"
-tput sgr0
 echo "################################################################## "
 echo
 
@@ -148,15 +122,13 @@ echo
 
 # echo
 # echo "################################################################## "
-# tput setaf 2
-# echo "Phase 4 :"
+# # echo "Phase 4 :"
 # echo "- Deleting any files in /etc/skel"
 # echo "- Getting the last version of bashrc in /etc/skel"
 # echo "- Removing the old packages.x86_64 file from build folder"
 # echo "- Copying the new packages.x86_64 file to the build folder"
 # echo "- Changing group for polkit folder"
-# tput sgr0
-# echo "################################################################## "
+# # echo "################################################################## "
 # echo
 
 #	echo "Deleting any files in /etc/skel"
@@ -179,12 +151,10 @@ echo
 
 # echo
 # echo "################################################################## "
-# tput setaf 2
-# echo "Phase 5 : "
+# # echo "Phase 5 : "
 # echo "- Changing all references"
 # echo "- Adding time to /etc/dev-rel"
-# tput sgr0
-# echo "################################################################## "
+# # echo "################################################################## "
 # echo
 #
 # 	#Setting variables
@@ -228,11 +198,9 @@ echo
 
 #echo
 #echo "################################################################## "
-#tput setaf 2
-#echo "Phase 6 :"
+##echo "Phase 6 :"
 #echo "- Cleaning the cache from /var/cache/pacman/pkg/"
-#tput sgr0
-#echo "################################################################## "
+##echo "################################################################## "
 #echo
 
 	#echo "Cleaning the cache from /var/cache/pacman/pkg/"
@@ -240,10 +208,8 @@ echo
 
 echo
 echo "################################################################## "
-tput setaf 2
 echo "Phase 7 :"
 echo "- Building the iso - this can take a while - be patient"
-tput sgr0
 echo "################################################################## "
 echo
 
@@ -255,12 +221,10 @@ echo
 
 # echo
 # echo "###################################################################"
-# tput setaf 2
-# echo "Phase 8 :"
+# # echo "Phase 8 :"
 # echo "- Creating checksums"
 # echo "- Copying pgklist"
-# tput sgr0
-# echo "###################################################################"
+# # echo "###################################################################"
 # echo
 #
 # 	cd $outFolder
@@ -286,11 +250,9 @@ echo
 
 #echo
 #echo "##################################################################"
-#tput setaf 2
-#echo "Phase 9 :"
+##echo "Phase 9 :"
 #echo "- Making sure we start with a clean slate next time"
-#tput sgr0
-#echo "################################################################## "
+##echo "################################################################## "
 #echo
 
 	#echo "Deleting the build folder if one exists - takes some time"
@@ -301,9 +263,7 @@ sudo chmod 777 -R $outFolder
 
 echo
 echo "##################################################################"
-tput setaf 2
 echo "DONE"
 echo "- Check your out folder :"$outFolder
-tput sgr0
 echo "################################################################## "
 echo
