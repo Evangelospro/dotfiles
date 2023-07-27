@@ -1,9 +1,0 @@
-#!/bin/bash
-
-lockcmd="swaylock"
-bat=$(ls /sys/class/power_supply | grep -m 1 "BAT")
-
-sway-audio-idle-inhibit & 
-swayidle -w \
-	timeout 600 "$lockcmd & if [[ \"$(cat /sys/class/power_supply/$bat/status)\" == \"Discharging\" ]]; then systemctl suspend; else hyprctl dispatch dpms off; fi" resume "hyprctl dispatch dpms on"\
-	before-sleep "$lockcmd"

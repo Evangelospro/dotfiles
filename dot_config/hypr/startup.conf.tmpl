@@ -35,5 +35,5 @@ exec-once=/usr/bin/ulauncher --no-window
 exec-once=fusermount -u $HOME/SeaDrive ; seadrive -c $HOME/.config/seadrive/seadrive.conf -l $HOME/.seadrive/logs/seadrive.log -f -d $HOME/.seadrive/data $HOME/SeaDrive -o allow_root
 exec-once=/usr/lib/kdeconnectd -platform offscreen &
 {{- end }}
-
+exec-once=$HOME/.local/bin/keyboard_backlight
 exec-once=notify-send "Hyprland is fully loaded!"
