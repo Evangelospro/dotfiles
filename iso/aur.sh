@@ -8,7 +8,7 @@ repo_dir="$base_dir/AUR_BUILDER/$repo_name"
 iso_name="archiso"
 iso_dir="$base_dir/$iso_name"
 
-cp "$iso_dir/aur_git.links" ./AUR_BUILDER/git.links
+cp "$iso_dir/aur_packages.x86_64" ./AUR_BUILDER/git.links
 
 cd ./AUR_BUILDER
 ./git_build_packages.sh $repo_name
