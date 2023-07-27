@@ -1,0 +1,42 @@
+# Desktop environment
+aur hyprland-git
+aur xdg-desktop-portal-hyprland-git
+
+# EWW bar
+aur eww-tray-wayland-git
+
+# grub theme
+# aur grub-theme-cyberre
+
+# xdg-stuff
+aur handlr-regex
+aur pistol-git
+
+# OSD
+aur avizo
+
+# wezterm
+aur wezterm-git
+
+# Launchers
+aur ulauncher-git
+
+# Sound
+aur volumectl
+
+# parsers
+aur jaq
+aur ripgrep
+
+# spotify
+# aur spotify-player
+aur spotifywm-git
+
+# Hacking
+aur penelope-git
+aur ffuf-bin
+aur feroxbuster
+# aur seclists
+
+# Screenshoting
+aur flameshot-git
