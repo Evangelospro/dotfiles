@@ -96,27 +96,29 @@ jobs:
           exit
           EOF
 
-          FILE_PATH=$(find isoOUT -type f -name "*.iso")
-          FILE_PKGS=$(find isoOUT -type f -name "*.txt")
+          ISO_PATH=$(find isoOUT -type f -name "*.iso")
+          ISO_NAME=$(basename $ISO_PATH)
+          ISO_PKGS=$(find isoOUT -type f -name "*.txt")
 
           # split the iso if larger than 2GB
-          zip -j -s 1950m $(basename $FILE_PATH).zip $FILE_PATH
+          split -b 1950M $ISO_PATH "${ISO_NAME%.*}.part"
           ls -lasih .
-          sha256sum $(basename $FILE_PATH).z* > $(basename $FILE_PATH).sha256
-          echo SHA256SUM=ELARCH-latest.sha256 >> $GITHUB_ENV
-
-          echo FILE_PATH=$FILE_PATH >> $GITHUB_ENV
-          echo SHA256SUM=$(basename $FILE_PATH).sha256 >> $GITHUB_ENV
-          echo FILE_PKGS=$FILE_PKGS >> $GITHUB_ENV
-      - name: Upload Release zip
-        uses: actions/upload-release-asset@v1
+          for part in $(ls *.part*); do
+            sha256sum $part > "${part}.sha256"
+          done
+          ls -lasih .
+          echo ISO_PATH=$ISO_PATH >> $GITHUB_ENV
+          echo ISO_PARTS=$(find . -type f -name "*.part*") >> $GITHUB_ENV
+          echo SHA256SUMS=$(find . -type f -name "*.sha256") >> $GITHUB_ENV
+          echo ISO_PKGS=$ISO_PKGS >> $GITHUB_ENV
+      - name: Upload Releases
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.prepare-release.outputs.upload_url }}
-          asset_path: ./${{ env.FILE_PATH }}
-          asset_name: ${{ env.FILE_PATH }}
-          asset_content_type: application/zip
+          files: |
+            *.part*
+            *.sha256
       -
         name: Rollback
         if: ${{ failure() || cancelled() }}

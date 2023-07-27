@@ -8,7 +8,10 @@ repo_dir="$base_dir/AUR_BUILDER/$repo_name"
 iso_name="archiso"
 iso_dir="$base_dir/$iso_name"
 
-cp "$iso_dir/aur_packages.x86_64" ./AUR_BUILDER/git.links
+cp "$iso_dir/all_packages.x86_64" ./AUR_BUILDER/git.links
+
+# filter out comments and remove the aur prefix and copy to packages.x86_64
+grep -v '^#' ./AUR_BUILDER/git.links | sed 's/aur\///g' > ./AUR_BUILDER/packages.x86_64
 
 cd ./AUR_BUILDER
 ./git_build_packages.sh $repo_name

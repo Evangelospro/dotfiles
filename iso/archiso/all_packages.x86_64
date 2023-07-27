@@ -201,9 +201,9 @@ base-devel
 docker
 
 # Desktop environment
-hyprland-git
+aur hyprland-git
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland-git
+aur xdg-desktop-portal-hyprland-git
 # hyprsome
 ## requirements
 gdb
@@ -242,12 +242,12 @@ zsh
 
 # XDG standard
 xdg-ninja
-handlr-regex
-pistol-git
+aur handlr-regex
+aur pistol-git
 
 # System utils
 ## OSD
-avizo
+aur avizo
 ## Background
 swaybg
 ## Clipboard
@@ -263,7 +263,7 @@ polkit-qt5
 kwallet-pam
 # eww bar
 # eww-wayland
-eww-tray-wayland-git
+aur eww-tray-wayland-git
 # logout shell
 wlogout
 swaync
@@ -286,13 +286,12 @@ ttf-font-awesome
 tesseract
 
 # Icon theme
-papirus-icon-theme-git
+aur papirus-icon-theme-git
 
 # Screenshoting
 grim
 slurp
-flameshot-git
-grimblast-git
+aur flameshot-git
 
 # Programming
 python3
@@ -305,7 +304,7 @@ go
 playerctl
 
 # Terminal
-wezterm-git
+aur wezterm-git
 
 # Shell
 zoxide
@@ -318,10 +317,10 @@ bitwarden-cli
 chezmoi
 
 # ascii art
-fastfetch
+aur fastfetch
 figlet
 # figlet-fonts-extra 
-c-lolcat
+aur c-lolcat
 bat
 lsd
 
@@ -337,7 +336,7 @@ glow
 tldr
 ffmpeg
 btop
-geticons
+aur geticons
 moreutils
 #batify2-git
 wev
@@ -345,14 +344,14 @@ onefetch
 
 # Applications
 ## Browser
-google-chrome
+aur google-chrome
 discord
-betterdiscordctl-git
+aur betterdiscordctl-git
 obsidian
 qdirstat
 # spotify
 # spotify-player
-spotifywm-git
+aur spotifywm-git
 
 # Video
 vlc
@@ -369,7 +368,7 @@ xournalpp
 github-cli
 ## IDE
 visual-studio-code-bin
-# android-studio
+# aur android-studio
 
 # Hacking
 ## Reverse engineering
@@ -383,14 +382,14 @@ wpscan
 ## Netowrking
 nmap
 rustscan
-penelope-git
+aur penelope-git
 ## Bruteforcing
-ffuf-bin
-feroxbuster
+aur ffuf-bin
+aur feroxbuster
 ## hex editor
-imhex
+aur imhex
 ## wordlists
-# seclists
+# aur seclists
 
 # Windows emulation
 # wine
@@ -399,17 +398,17 @@ imhex
 
 # Packaging
 ## Paru (AUR helper)
-chaotic-aur/paru
+aur paru
 ## Mirrors
 rate-mirrors
 
 # grub theme
-# grub-theme-cyberre
+# aur grub-theme-cyberre
 
 # Launchers
-ulauncher-git
+aur ulauncher-git
 rofi
 
 # parsers
-jaq
-ripgrep
+aur jaq
+aur ripgrep
