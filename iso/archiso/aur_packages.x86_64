@@ -1,3 +1,6 @@
+# AUR helper
+aur paru
+
 # Desktop environment
 aur hyprland-git
 aur xdg-desktop-portal-hyprland-git
@@ -28,15 +31,30 @@ aur volumectl
 aur jaq
 aur ripgrep
 
+# Shell
+aur c-lolcat
+aur fastfetch
+
 # spotify
 # aur spotify-player
 aur spotifywm-git
+
+# Applications
+aur google-chrome
+aur betterdiscordctl-git
+# aur android-studio
+
+# Theming
+aur papirus-icon-theme-git
+aur geticons
 
 # Hacking
 aur penelope-git
 aur ffuf-bin
 aur feroxbuster
+aur imhex
 # aur seclists
 
 # Screenshoting
 aur flameshot-git
+aur grimblast-git

@@ -369,7 +369,7 @@ xournalpp
 github-cli
 ## IDE
 visual-studio-code-bin
-android-studio
+# android-studio
 
 # Hacking
 ## Reverse engineering
@@ -390,12 +390,12 @@ feroxbuster
 ## hex editor
 imhex
 ## wordlists
-seclists
+# seclists
 
 # Windows emulation
-#wine
-#bottles
-#python-ntlm-authorg
+# wine
+# bottles
+# python-ntlm-authorg
 
 # Packaging
 ## Paru (AUR helper)
