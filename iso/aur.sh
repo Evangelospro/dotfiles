@@ -43,15 +43,11 @@ if [ "$1" == "enable" ]; then
         fi
         # clone each package
         git clone $CLONE_URL $PKG_PATH
+        echo "Building $PKG_PATH"
+        (cd $PKG_PATH; makepkg -s --noconfirm; repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
+        mv $PKG_PATH/*.pkg.tar.zst $repo_dir
+        rm -rf $PKG_PATH
     done < "$iso_dir/all_packages.x86_64"
-
-    #Build all packages
-    for package in ./pkgbuilds/*; do
-        echo "Building $package"
-        (cd "$package"; makepkg -s --noconfirm; repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
-        mv $package/*.pkg.tar.zst $repo_dir
-        rm -rf "$package"
-    done
 
     cd $base_dir
     mkdir -p "$iso_dir/$repo_name"
@@ -64,7 +60,7 @@ if [ "$1" == "enable" ]; then
     echo -ne "\nServer = file://"$repo_dir >> "$iso_dir/pacman.conf"
 
     # Remove the aur prefix and copy to packages.x86_64
-    cat "$iso_dir/all_packages.x86_64" | sed 's/aur\///g' > "$iso_dir/packages.x86_64"
+    cat "$iso_dir/all_packages.x86_64" | sed 's/aur //g' > "$iso_dir/packages.x86_64"
 else
     echo "AUR disabled"
     # Remove any aur packages from packages.x86_64 by removing any line that starts with aur

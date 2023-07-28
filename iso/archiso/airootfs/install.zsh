@@ -29,7 +29,7 @@ if [[! -f /var/log/Calamares-install.json ]]; then
     sudo systemctl enable --now sddm
 else
     echo "Post installation phase"
-    rm /var/log/Calamares-install.json # stores critical information (even passwords)
+    rm /var/log/Calamares* # stores critical information (even passwords)
     # create default directories Desktop, Documents, Downloads, Music, Pictures, Public, Templates, Videos
     mkdir -p $HOME/{Desktop,Documents,Downloads,Music,Pictures,Public,Templates,Videos}
     vsCodeWorkbench=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench

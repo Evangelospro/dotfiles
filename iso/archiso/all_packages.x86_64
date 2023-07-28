@@ -400,11 +400,17 @@ aur seclists
 # bottles
 # python-ntlm-authorg
 
+# Remote desktop
+remmina
+freerdp
+libvncserver
+spice-gtk
+
 # Packaging
 ## Paru (AUR helper)
 aur paru
 ## Mirrors
-rate-mirrors
+aur rate-mirrors-bin
 
 # grub theme
 # aur grub-theme-cyberre
