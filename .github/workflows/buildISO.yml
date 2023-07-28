@@ -89,7 +89,7 @@ jobs:
           ls -lasih . # check if iso folder is there
           
           # Build ISO and rename to match BUILD_DATE
-          bash aur.sh
+          bash aur.sh enable
           bash build-no-cache.sh
           
           # Stop being the builder
