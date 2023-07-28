@@ -1,5 +1,3 @@
-# Any aur packages must be defined both here and in aur_git.links
-
 # kernel / firmware
 amd-ucode
 e2fsprogs
@@ -122,6 +120,9 @@ vpnc
 wireless-regdb
 wireless_tools
 wpa_supplicant
+networkmanager
+network-manager-applet
+dialog
 wvdial
 xfsprogs
 xl2tpd
@@ -371,7 +372,7 @@ xournalpp
 github-cli
 ## IDE
 visual-studio-code-bin
-# aur android-studio
+aur android-studio
 
 # Hacking
 ## Reverse engineering
@@ -392,7 +393,7 @@ aur feroxbuster
 ## hex editor
 aur imhex
 ## wordlists
-# aur seclists
+aur seclists
 
 # Windows emulation
 # wine

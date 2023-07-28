@@ -1,8 +1,7 @@
 # Maintenance is hard...
 function update(){
-    # chaotic was taking over hence hyprland is on hold
-    paru -Syu aur/hyprland-git && git pull $HOME/.config/hypr/hyprland-repo && $HOME/.config/hypr/plugins/update.sh
     paru -Syu
+    git pull $HOME/.config/hypr/hyprland-repo && $HOME/.config/hypr/plugins/update.sh
     zi self-update
     zi update
     navi-update
