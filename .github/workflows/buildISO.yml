@@ -96,17 +96,18 @@ jobs:
           exit
           EOF
 
-          ISO_PATH=$(find isoOUT -type f -name "*.iso")
+          cd isoOUT
+          ISO_PATH=$(find . -type f -name "*.iso")
           ISO_NAME=$(basename $ISO_PATH)
-          ISO_PKGS=$(find isoOUT -type f -name "*.txt")
+          ISO_PKGS=$(find . -type f -name "*.txt")
 
           # split the iso if larger than 2GB
           split -b 1950M $ISO_PATH "${ISO_NAME%.*}.part"
-          ls -lasih .
-          for part in $(ls *.part*); do
+          \ls -lasih .
+          for part in $(\ls *.part*); do
             sha256sum $part > "${part}.sha256"
           done
-          ls -lasih .
+          \ls -lasih .
           echo ISO_PATH=$ISO_PATH >> $GITHUB_ENV
           echo ISO_PARTS=$(find . -type f -name "*.part*") >> $GITHUB_ENV
           echo SHA256SUMS=$(find . -type f -name "*.sha256") >> $GITHUB_ENV
