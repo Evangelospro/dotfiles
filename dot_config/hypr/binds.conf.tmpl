@@ -5,10 +5,10 @@ env = browser, "google-chrome-stable"
 env = EDITOR, "code"
 
 # located in $HOME/.local/bin (which must be in $PATH)
-env = clipMenu, "$HOME/.local/bin/clipMenu"
-env = lockscreen, "$HOME/.local/bin/lockscreen"
-# env = launcher, "$HOME/.local/bin/launcher"
-env = ewwLaunch, "$HOME/.local/bin/ewwLaunch"
+env = clipMenu, "clipMenu"
+env = lockscreen, "lockscreen"
+env = launcher, "launcher"
+env = ewwLaunch, "ewwLaunch"
 
 $MOD = SUPER
 $SHIFT_MOD = $MOD_SHIFT
@@ -28,7 +28,6 @@ bind=$MOD,SPACE,exec,ulauncher-toggle
 bind=,XF86Search,exec,eval $launcher
 bind=$MOD,V,exec,eval $clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
-# bind=$SHIFT_MOD,Z,exec,~/.config/hypr/scripts/toggle_opacity
 
 # Disable animations for screenshot
 bind=,Print,exec,hyprctl keyword animation "fadeOut,0,0,default";flameshot gui;hyprctl keyword animation "fadeOut,1,4,default"

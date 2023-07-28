@@ -202,6 +202,7 @@ docker
 
 # Desktop environment
 aur hyprland-git
+aur hyprpicker
 xdg-desktop-portal-gtk
 aur xdg-desktop-portal-hyprland-git
 # hyprsome
@@ -284,6 +285,7 @@ qtkeychain-qt6
 # Fonts/text
 ttf-font-awesome
 tesseract
+tesseract-data-eng
 
 # Icon theme
 aur papirus-icon-theme-git
@@ -309,6 +311,7 @@ aur wezterm-git
 # Shell
 zoxide
 zsh
+aur lolcate
 
 # Password manager
 bitwarden-cli
