@@ -61,7 +61,7 @@ jobs:
           pacman -Syu --noconfirm
           
           # Install necessary packages
-          pacman -S git archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
+          pacman -S git gh archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
 
           # Create a builder user so makepkg doesn't run as root
           sudo useradd builder -m
