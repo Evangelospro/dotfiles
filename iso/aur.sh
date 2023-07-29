@@ -16,7 +16,6 @@ if [ "$1" == "enable" ]; then
     # Initialization
     mkdir -p $repo_dir
     cd $repo_dir
-    mkdir -p ./pkgbuilds
 
     while read repo; do
         if [ "$repo" == "" ]; then
@@ -33,10 +32,10 @@ if [ "$1" == "enable" ]; then
             PACKAGE_NAME=${tokens[1]}
             echo "Cloning $PACKAGE_NAME"
             CLONE_URL="$AUR_URL${tokens[1]}.git"
-            PKG_PATH="./pkgbuilds/${tokens[1]}"
+            PKG_PATH="${tokens[1]}"
         elif [ ${tokens[0]} == "url" ]; then
             CLONE_URL="${tokens[1]}"
-            PKG_PATH="./pkgbuilds/$(basename ${tokens[1]})"
+            PKG_PATH="$(basename ${tokens[1]})"
         else
             # echo "unhandled url type"
             continue
@@ -44,8 +43,8 @@ if [ "$1" == "enable" ]; then
         # clone each package
         git clone $CLONE_URL $PKG_PATH
         echo "Building $PKG_PATH"
-        (cd $PKG_PATH; makepkg -s --noconfirm; repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
-        sudo mv $PKG_PATH/*.pkg.tar.zst "$repo_dir/$repo_name"
+        (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_name.db.tar.gz" *.pkg.tar.zst)
+        sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
         sudo rm -rf $PKG_PATH
     done < "$iso_dir/all_packages.x86_64"
 
