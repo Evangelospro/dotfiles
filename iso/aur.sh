@@ -6,17 +6,17 @@ AUR_URL="https://aur.archlinux.org/"
 # Set repo directory
 base_dir=$PWD
 repo_name="aur_repo_x86_64"
-repo_dir="$base_dir/AUR_BUILDER/$repo_name"
 iso_name="archiso"
 iso_dir="$base_dir/$iso_name"
+repo_dir="$iso_dir/$repo_name"
 
 if [ "$1" == "enable" ]; then
     echo "AUR enabled"
-    cd ./AUR_BUILDER
 
     # Initialization
-    mkdir -p ./pkgbuilds
     mkdir -p $repo_dir
+    cd $repo_dir
+    mkdir -p ./pkgbuilds
 
     while read repo; do
         if [ "$repo" == "" ]; then
@@ -45,13 +45,12 @@ if [ "$1" == "enable" ]; then
         git clone $CLONE_URL $PKG_PATH
         echo "Building $PKG_PATH"
         (cd $PKG_PATH; makepkg -s --noconfirm; repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
-        sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
+        sudo mv $PKG_PATH/*.pkg.tar.zst "$repo_dir/$repo_name"
         sudo rm -rf $PKG_PATH
     done < "$iso_dir/all_packages.x86_64"
 
     cd $base_dir
-    mkdir -p "$iso_dir/$repo_name"
-    cp $repo_dir/* "$iso_dir/$repo_name"
+    # cp $repo_dir/* "$iso_dir/$repo_name"
 
     # Configure Pacman
     cp "$iso_dir/pacman.conf.bak" "$iso_dir/pacman.conf"
@@ -61,6 +60,8 @@ if [ "$1" == "enable" ]; then
 
     # Remove the aur prefix and copy to packages.x86_64
     cat "$iso_dir/all_packages.x86_64" | sed 's/aur //g' > "$iso_dir/packages.x86_64"
+    echo "AUR packages downloaded and built"
+    echo "Space remaining: $(df -h)"
 else
     echo "AUR disabled"
     # Remove any aur packages from packages.x86_64 by removing any line that starts with aur

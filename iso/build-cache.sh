@@ -5,44 +5,40 @@ echo "Phase 1 : "
 echo "- Setting General parameters"
 echo "################################################################## "
 echo
-	# setting of the general parameters
-	base_dir="$(pwd)"
-	archisoRequiredVersion="archiso 71-1"
-	buildFolder="$base_dir/isoBUILD"
-	# buildFolder="/tmp/isoBUILD"
-	# get the absolute path of the current folder
-	outFolder="$base_dir/isoOUT"
-	archisoVersion=$(sudo pacman -Q archiso)
 
-	echo "################################################################## "
-	echo "Archiso version installed              : "$archisoVersion
-	echo "Out folder                             : "$outFolder
-	echo "Build folder                           : "$buildFolder
-	echo "################################################################## "
+base_dir="$(pwd)"
+archisoRequiredVersion="archiso 71-1"
+buildFolder="$base_dir/isoBUILD"
+outFolder="$base_dir/isoOUT"
+archisoVersion=$(sudo pacman -Q archiso)
 
-	echo "################################################################## "
-	#echo "Building the desktop                   : "$desktop
-	#echo "Building version                       : "$arcolinuxVersion
-	#echo "Iso label                              : "$isoLabel
-	echo "Do you have the right archiso version? : "$archisoVersion
-	echo "What is the required archiso version?  : "$archisoRequiredVersion
-	echo "Build folder                           : "$buildFolder
-	echo "Out folder                             : "$outFolder
-	echo "################################################################## "
+echo "################################################################## "
+echo "Archiso version installed              : "$archisoVersion
+echo "Out folder                             : "$outFolder
+echo "Build folder                           : "$buildFolder
+echo "################################################################## "
 
-	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
-				echo "##################################################################"
-		echo "Archiso has the correct version. Continuing ..."
-		echo "##################################################################"
-			else
-		echo "###################################################################################################"
-	echo "You need to install the correct version of Archiso"
-	echo "Use 'sudo downgrade archiso' to do that"
-	echo "or update your system"
-	echo "If a new archiso package comes in and you want to test if you can still build"
-	echo "the iso then change the version in line 37."
-	echo "###################################################################################################"
-		fi
+echo "################################################################## "
+echo "Do you have the right archiso version? : "$archisoVersion
+echo "What is the required archiso version?  : "$archisoRequiredVersion
+echo "Build folder                           : "$buildFolder
+echo "Out folder                             : "$outFolder
+echo "################################################################## "
+
+if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
+    echo "##################################################################"
+    echo "Archiso has the correct version. Continuing ..."
+    echo "##################################################################"
+else
+    echo "###################################################################################################"
+    echo "You need to install the correct version of Archiso"
+    echo "Use 'sudo downgrade archiso' to do that"
+    echo "or update your system"
+    echo "If a new archiso package comes in and you want to test if you can still build"
+    echo "the iso then change the version in line 37."
+    echo "###################################################################################################"
+    exit 1
+fi
 
 echo
 echo "################################################################## "
@@ -53,55 +49,41 @@ echo "- Making mkarchiso verbose"
 echo "################################################################## "
 echo
 
-	package="archiso"
+package="archiso"
 
-	#----------------------------------------------------------------------------------
+if pacman -Qi $package &> /dev/null; then
+    echo "Archiso is already installed"
+else
+    if pacman -Qi paru &> /dev/null; then
+        echo "################################################################"
+        echo "######### Installing with paru"
+        echo "################################################################"
+        paru -S --noconfirm $package
+    elif pacman -Qi yay &> /dev/null; then
+        echo "################################################################"
+        echo "######### Installing with yay"
+        echo "################################################################"
+        yay -S --noconfirm $package
+    fi
 
-	#checking if application is already installed or else install with aur helpers
-	if pacman -Qi $package &> /dev/null; then
+    if pacman -Qi $package &> /dev/null; then
+        echo "################################################################"
+        echo "#########  "$package" has been installed"
+        echo "################################################################"
+    else
+        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        echo "!!!!!!!!!  "$package" has NOT been installed"
+        echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+        exit 1
+    fi
+fi
 
-			echo "Archiso is already installed"
-
-	else
-
-		#checking which helper is installed
-		if pacman -Qi paru &> /dev/null; then
-
-			echo "################################################################"
-			echo "######### Installing with paru"
-			echo "################################################################"
-			paru -S --noconfirm $package
-		elif pacman -Qi yay &> /dev/null; then
-
-			echo "################################################################"
-			echo "######### Installing with yay"
-			echo "################################################################"
-			yay -S --noconfirm $package
-		fi
-
-		# Just checking if installation was successful
-		if pacman -Qi $package &> /dev/null; then
-
-			echo "################################################################"
-			echo "#########  "$package" has been installed"
-			echo "################################################################"
-
-		else
-
-			echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-			echo "!!!!!!!!!  "$package" has NOT been installed"
-			echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-			exit 1
-		fi
-
-	fi
-
-	echo
-	echo "Saving current archiso version to archiso.md"
-	sudo sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" "$base_dir/archiso.md"
-	echo
-	echo "Making mkarchiso verbose"
-	sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
+echo
+echo "Saving current archiso version to archiso.md"
+sudo sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" "$base_dir/archiso.md"
+echo
+echo "Making mkarchiso verbose"
+sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
 
 echo
 echo "################################################################## "
@@ -111,99 +93,13 @@ echo "- Copying the Archiso folder to build folder"
 echo "################################################################## "
 echo
 
-	echo "Deleting the build folder if one exists - takes some time"
-	[ -d $buildFolder ] && sudo rm -rf $buildFolder
-	echo
-	echo "Copying the Archiso folder to build work"
-	echo
-	mkdir $buildFolder
-	cp -r $base_dir/archiso $buildFolder/archiso
-
-# echo
-# echo "################################################################## "
-# # echo "Phase 4 :"
-# echo "- Deleting any files in /etc/skel"
-# echo "- Getting the last version of bashrc in /etc/skel"
-# echo "- Removing the old packages.x86_64 file from build folder"
-# echo "- Copying the new packages.x86_64 file to the build folder"
-# echo "- Changing group for polkit folder"
-# # echo "################################################################## "
-# echo
-
-#	echo "Deleting any files in /etc/skel"
-#	rm -rf $buildFolder/archiso/airootfs/etc/skel/.* 2> /dev/null
-#	echo
-
-#	echo "Getting the last version of bashrc in /etc/skel"
-#	echo
-#	wget https://raw.githubusercontent.com/arcolinux/arcolinux-root/master/etc/skel/.bashrc-latest -O $buildFolder/archiso/airootfs/etc/skel/.bashrc
-
-#	echo "Removing the old packages.x86_64 file from build folder"
-#	rm $buildFolder/archiso/packages.x86_64
-#	echo
-#	echo "Copying the new packages.x86_64 file to the build folder"
-#	cp -f ../archiso/packages.x86_64 $buildFolder/archiso/packages.x86_64
-#	echo
-#	echo "Changing group for polkit folder"
-#	sudo chgrp polkitd $buildFolder/archiso/airootfs/etc/polkit-1/rules.d
-#	#is not working so fixing this during calamares installation
-
-# echo
-# echo "################################################################## "
-# # echo "Phase 5 : "
-# echo "- Changing all references"
-# echo "- Adding time to /etc/dev-rel"
-# # echo "################################################################## "
-# echo
-#
-# 	#Setting variables
-#
-# 	#profiledef.sh
-# 	oldname1='iso_name=arcolinux'
-# 	newname1='iso_name=arcolinux'
-#
-# 	oldname2='iso_label="arcolinux'
-# 	newname2='iso_label="arcolinux'
-#
-# 	oldname3='ArcoLinux'
-# 	newname3='ArcoLinux'
-#
-# 	#hostname
-# 	oldname4='ArcoLinux'
-# 	newname4='ArcoLinux'
-#
-# 	#lightdm.conf user-session
-# 	oldname5='user-session=xfce'
-# 	newname5='user-session='$lightdmDesktop
-#
-# 	#lightdm.conf autologin-session
-# 	oldname6='#autologin-session='
-# 	newname6='autologin-session='$lightdmDesktop
-#
-# 	echo "Changing all references"
-# 	echo
-# 	sed -i 's/'$oldname1'/'$newname1'/g' $buildFolder/archiso/profiledef.sh
-# 	sed -i 's/'$oldname2'/'$newname2'/g' $buildFolder/archiso/profiledef.sh
-# 	sed -i 's/'$oldname3'/'$newname3'/g' $buildFolder/archiso/airootfs/etc/dev-rel
-# 	sed -i 's/'$oldname4'/'$newname4'/g' $buildFolder/archiso/airootfs/etc/hostname
-# 	sed -i 's/'$oldname5'/'$newname5'/g' $buildFolder/archiso/airootfs/etc/lightdm/lightdm.conf
-# 	sed -i 's/'$oldname6'/'$newname6'/g' $buildFolder/archiso/airootfs/etc/lightdm/lightdm.conf
-#
-# 	echo "Adding time to /etc/dev-rel"
-# 	date_build=$(date -d now)
-# 	echo "Iso build on : "$date_build
-# 	sudo sed -i "s/\(^ISO_BUILD=\).*/\1$date_build/" $buildFolder/archiso/airootfs/etc/dev-rel
-
-
-#echo
-#echo "################################################################## "
-##echo "Phase 6 :"
-#echo "- Cleaning the cache from /var/cache/pacman/pkg/"
-##echo "################################################################## "
-#echo
-
-	#echo "Cleaning the cache from /var/cache/pacman/pkg/"
-	#yes | sudo pacman -Scc
+echo "Deleting the build folder if one exists - takes some time"
+[ -d $buildFolder ] && sudo rm -rf $buildFolder
+echo
+echo "Copying the Archiso folder to build work"
+echo
+mkdir $buildFolder
+cp -r $base_dir/archiso $buildFolder/archiso
 
 echo
 echo "################################################################## "
@@ -212,53 +108,9 @@ echo "- Building the iso - this can take a while - be patient"
 echo "################################################################## "
 echo
 
-	[ -d $outFolder ] || mkdir $outFolder
-	cd $buildFolder/archiso/
-	sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/archiso/
-
-
-
-# echo
-# echo "###################################################################"
-# # echo "Phase 8 :"
-# echo "- Creating checksums"
-# echo "- Copying pgklist"
-# # echo "###################################################################"
-# echo
-#
-# 	cd $outFolder
-#
-# 	echo "Creating checksums for : "$isoLabel
-# 	echo "##################################################################"
-# 	echo
-# 	echo "Building sha1sum"
-# 	echo "########################"
-# 	sha1sum $isoLabel | tee $isoLabel.sha1
-# 	echo "Building sha256sum"
-# 	echo "########################"
-# 	sha256sum $isoLabel | tee $isoLabel.sha256
-# 	echo "Building md5sum"
-# 	echo "########################"
-# 	md5sum $isoLabel | tee $isoLabel.md5
-# 	echo
- 	echo "Moving packages.x86_64"
- 	echo "########################"
-	rename=$(date +%Y-%m-%d)
- 	cp $buildFolder/archiso/packages.x86_64 $outFolder/archlinux-$rename-pkglist.txt
-
-
-#echo
-#echo "##################################################################"
-##echo "Phase 9 :"
-#echo "- Making sure we start with a clean slate next time"
-##echo "################################################################## "
-#echo
-
-	#echo "Deleting the build folder if one exists - takes some time"
-	#[ -d $buildFolder ] && sudo rm -rf $buildFolder
-
-echo "Set permissions to the out folder"
-sudo chmod 777 -R $outFolder
+[ -d $outFolder ] || mkdir $outFolder
+cd $buildFolder/archiso/
+sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/archiso/
 
 echo
 echo "##################################################################"

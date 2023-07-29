@@ -140,7 +140,6 @@ alci-calamares-config-zen
 ###      PACKAGES THAT STAY AFTER INSTALLATION      ###
 #######################################################
 
-sddm
 bash-completion
 os-prober
 dex
@@ -203,10 +202,12 @@ base-devel
 docker
 
 # Desktop environment
-aur hyprland-git
+# aur hyprland-git
+chaotic-aur/hyprland-git
 aur hyprpicker
 xdg-desktop-portal-gtk
-aur xdg-desktop-portal-hyprland-git
+# aur xdg-desktop-portal-hyprland-git
+chaotic-aur/xdg-desktop-portal-hyprland-git
 # hyprsome
 ## requirements
 gdb
@@ -244,7 +245,7 @@ chaotic-keyring
 zsh
 
 # XDG standard
-xdg-ninja
+chaotic-aur/xdg-ninja-git
 aur handlr-regex
 aur pistol-git
 
@@ -295,7 +296,8 @@ aur papirus-icon-theme-git
 # Screenshoting
 grim
 slurp
-aur flameshot-git
+# aur flameshot-git
+chaotic-aur/flameshot-git
 
 # Programming
 python3
@@ -308,7 +310,7 @@ go
 playerctl
 
 # Terminal
-aur wezterm-git
+chaotic-aur/wezterm-git
 
 # Shell
 zoxide
@@ -322,10 +324,10 @@ bitwarden-cli
 chezmoi
 
 # ascii art
-aur fastfetch
+chaotic-aur/fastfetch
 figlet
 # figlet-fonts-extra 
-aur c-lolcat
+chaotic-aur/c-lolcat
 bat
 lsd
 
@@ -349,11 +351,11 @@ onefetch
 
 # Applications
 ## Browser
-aur google-chrome
+chaotic-aur/google-chrome
 discord
-aur betterdiscordctl-git
+chaotic-aur/betterdiscordctl-git
 obsidian
-qdirstat
+chaotic-aur/qdirstat
 # spotify
 # spotify-player
 aur spotifywm-git
@@ -373,7 +375,7 @@ xournalpp
 github-cli
 ## IDE
 visual-studio-code-bin
-aur android-studio
+chaotic-aur/android-studio
 
 # Hacking
 ## Reverse engineering
@@ -392,7 +394,7 @@ aur penelope-git
 aur ffuf-bin
 aur feroxbuster
 ## hex editor
-aur imhex
+chaotic-aur/imhex
 ## wordlists
 aur seclists
 
@@ -409,7 +411,7 @@ spice-gtk
 
 # Packaging
 ## Paru (AUR helper)
-aur paru
+chaotic-aur/paru
 ## Mirrors
 aur rate-mirrors-bin
 
