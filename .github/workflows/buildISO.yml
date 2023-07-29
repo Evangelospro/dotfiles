@@ -62,7 +62,7 @@ jobs:
           
           # Install necessary packages
           pacman -S git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
-          sudo ln -s /usr/lib64/go/bin/go /usr/bin/go
+
           # Create a builder user so makepkg doesn't run as root
           sudo useradd builder -m
           # Allow the builder user to run sudo without a password
