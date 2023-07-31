@@ -63,6 +63,18 @@ jobs:
           # Install necessary packages
           pacman -S git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
 
+          # Paru (AUR helper)
+          git clone https://aur.archlinux.org/paru.git
+          cd paru
+          makepkg -si
+          cd ..
+
+          paru -Sy rate-mirrors-bin
+
+          # Find fastest mirrors
+          rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
+
+
           # Create a builder user so makepkg doesn't run as root
           sudo useradd builder -m
           # Allow the builder user to run sudo without a password
