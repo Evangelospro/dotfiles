@@ -72,6 +72,10 @@ jobs:
           cd /home/builder
           sudo -u builder bash << EOF
 
+          # Set up rust
+          rustup install stable
+          rustup default stable
+
           # Paru (AUR helper)
           git clone https://aur.archlinux.org/paru.git
           cd paru
@@ -82,10 +86,6 @@ jobs:
 
           # Find fastest mirrors
           rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
-
-          # Set up rust
-          rustup install stable
-          rustup default stable
 
           # Clone ISO repo and enter it
           mkdir build
