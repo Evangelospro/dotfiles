@@ -43,7 +43,7 @@ if [ "$1" == "enable" ]; then
         # clone each package
         git clone $CLONE_URL $PKG_PATH
         echo "Building $PKG_PATH"
-        (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_name.db.tar.gz" *.pkg.tar.zst)
+        (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
         sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
         sudo rm -rf $PKG_PATH
     done < "$iso_dir/all_packages.x86_64"
