@@ -75,6 +75,7 @@ jobs:
           # Install necessary packages
           pacman -S git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
 
+
           # Create a builder user so makepkg doesn't run as root
           sudo useradd builder -m
           # Allow the builder user to run sudo without a password
@@ -86,6 +87,17 @@ jobs:
           # Set up rust
           rustup install stable
           rustup default stable
+
+          # Paru (AUR helper)
+          git clone https://aur.archlinux.org/paru.git
+          cd paru
+          makepkg -si --noconfirm
+          cd ..
+
+          paru -Sy rate-mirrors-bin --noconfirm
+
+          # Find fastest mirrors
+          rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
 
           # Clone ISO repo and enter it
           mkdir build
