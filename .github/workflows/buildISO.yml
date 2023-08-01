@@ -1,4 +1,4 @@
-name: iso_build
+8name: iso_build
 on:
   workflow_dispatch:
   # schedule:
@@ -32,7 +32,7 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 2560
+          root-reserve-mb: 4096
           swap-size-mb: 1024
           remove-dotnet: 'true'
           remove-android: 'true'
