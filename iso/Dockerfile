@@ -57,17 +57,17 @@ WORKDIR /home/builder
 # RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
 
 # # Clone ISO repo and enter it
-# RUN mkdir build
-# RUN cd build
-# RUN git init
-# RUN git remote add -f origin https://github.com/evangelospro/dotfiles
-# RUN git config core.sparseCheckout true
-# RUN echo "iso" >> .git/info/sparse-checkout
-# RUN git config --global init.defaultBranch main
-# RUN git pull origin main
-# RUN ls -lasih
-# RUN cd iso
-# RUN ls -lasih . # check if iso folder is there
+RUN mkdir build
+RUN cd build
+RUN git init
+RUN git remote add -f origin https://github.com/evangelospro/dotfiles
+RUN git config core.sparseCheckout true
+RUN echo "iso" >> .git/info/sparse-checkout
+RUN git config --global init.defaultBranch main
+RUN git pull origin main
+RUN ls -lasih
+RUN cd iso
+RUN ls -lasih . # check if iso folder is there
 
 # # Build ISO and rename to match BUILD_DATE
 # RUN bash aur.sh enable
