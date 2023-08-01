@@ -30,7 +30,7 @@ jobs:
       # - name: Maximize build space
       #   uses: easimon/maximize-build-space@master
       #   with:
-      #     root-reserve-mb: 512
+      #     root-reserve-mb: 1536
       #     swap-size-mb: 1024
       #     remove-dotnet: 'true'
       #     remove-android: 'true'
@@ -50,8 +50,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: |
-            *.part*
-            *.sha256
+            isoOUT/*.part*
+            isoOUT/*.sha256
+            isoOUT/*.txt
       - name: Rollback
         if: ${{ failure() || cancelled() }}
         run: |
