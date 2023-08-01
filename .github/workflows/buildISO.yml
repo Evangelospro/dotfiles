@@ -7,6 +7,8 @@ on:
 jobs:
   prepare-release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - 
         uses: styfle/cancel-workflow-action@0.9.0
@@ -20,8 +22,6 @@ jobs:
     outputs:
       release_tag: ${{ steps.time.outputs.time }}
   build-release:
-    permissions:
-      contents: write
     runs-on: ubuntu-latest
     needs: [prepare-release]
     steps:
@@ -49,19 +49,22 @@ jobs:
           ref: main
           opts: --network=host --privileged -v "$(pwd)/isoOUT/":/home/builder/build/iso/isoOUT
           dockerfile: iso/Dockerfile
-      - name: List output directory
+      - name: List files
         run: |
           pwd
-          ls -lasih isoOUT
+          ls -lasih .
       - name: Upload Releases
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release create ${{ needs.prepare-release.outputs.release_tag }} isoOUT/*.part* isoOUT/*.sha256 isoOUT/*.txt --generate-notes --title "Build ${{ needs.prepare-release.outputs.release_tag }}"
-      - name: Rollback fail protection
+        with:
+          tag_name: ${{ needs.prepare-release.outputs.release_tag }}
+          files: |
+            isoOUT/*.part*
+            isoOUT/*.sha256
+            isoOUT/*.txt
+      - name: Rollback
         if: ${{ failure() || cancelled() }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo ${{ github.token }} | gh auth login --with-token
           gh release delete ${{ needs.prepare-release.outputs.release_tag }} -y --repo ${{ github.repository }}
