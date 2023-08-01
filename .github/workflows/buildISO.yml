@@ -52,15 +52,11 @@ jobs:
           pwd
           ls -lasih .
       - name: Upload Releases
-        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ needs.prepare-release.outputs.release_tag }}
-          files: |
-            isoOUT/*.part*
-            isoOUT/*.sha256
-            isoOUT/*.txt
+        run: |
+          echo ${{ github.token }} | gh auth login --with-token
+          gh release create main isoOUT/*.iso isoOUT/*.sha256 isoOUT/*.txt -t ${{ needs.prepare-release.outputs.release_tag }} --repo ${{ github.repository }}
       - name: Rollback
         if: ${{ failure() || cancelled() }}
         run: |
