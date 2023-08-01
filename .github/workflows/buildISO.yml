@@ -45,8 +45,8 @@ jobs:
           dockerfile: iso/Dockerfile
       - name: List files
         run: |
-        pwd
-        ls -lasih .
+          pwd
+          ls -lasih .
       - name: Upload Releases
         uses: softprops/action-gh-release@v1
         env:
