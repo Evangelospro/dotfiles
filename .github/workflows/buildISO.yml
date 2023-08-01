@@ -82,7 +82,7 @@ jobs:
           makepkg -si --noconfirm
           cd ..
 
-          paru -Sy rate-mirrors-bin
+          paru -Sy rate-mirrors-bin --noconfirm
 
           # Find fastest mirrors
           rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
