@@ -45,7 +45,7 @@ jobs:
         with:
           repository: evangelospro/dotfiles
           ref: main
-          opts: --network=host --privileged -v "$(pwd)/isouOUT/":/home/builder/build/iso/isoOUT
+          opts: --network=host --privileged -v "$(pwd)/isoOUT/":/home/builder/build/iso/isoOUT
           dockerfile: iso/Dockerfile
       - name: List files
         run: |
@@ -58,9 +58,9 @@ jobs:
         with:
           tag_name: ${{ needs.prepare-release.outputs.release_tag }}
           files: |
-            *.part*
-            *.sha256
-            *.txt
+            isoOUT/*.part*
+            isoOUT/*.sha256
+            isoOUT/*.txt
       - name: Rollback
         if: ${{ failure() || cancelled() }}
         run: |
