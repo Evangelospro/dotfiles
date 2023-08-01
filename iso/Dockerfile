@@ -49,7 +49,7 @@ WORKDIR /home/builder
 # RUN git clone https://aur.archlinux.org/paru.git
 # WORKDIR paru
 # RUN makepkg -si --noconfirm
-# WORKDIR ..
+# WORKDIR /home/builder
 
 # RUN paru -Sy rate-mirrors-bin --noconfirm
 
