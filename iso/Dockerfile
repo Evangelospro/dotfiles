@@ -68,4 +68,4 @@ RUN git pull origin main
 WORKDIR iso
 RUN ls -lasih .
 
-ENTRYPOINT ["./build.sh"]
+ENTRYPOINT ["/home/builder/build/iso/build.sh"]
