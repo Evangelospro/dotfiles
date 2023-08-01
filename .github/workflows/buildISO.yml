@@ -39,6 +39,7 @@ jobs:
       - name: Create output directory
         run: |
           mkdir -p isoOUT
+          chmod 777 isoOUT
       - name: Run Docker builder
         uses: pl-strflt/docker-container-action@v1
         with:
