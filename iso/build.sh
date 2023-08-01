@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/builder/build/iso
+
 # Build ISO and rename to match BUILD_DATE
 bash aur.sh enable
 bash build-no-cache.sh
