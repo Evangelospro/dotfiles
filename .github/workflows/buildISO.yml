@@ -48,6 +48,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          tag_name: ${{ needs.prepare-release.outputs.release_tag }}
           files: |
             isoOUT/*.part*
             isoOUT/*.sha256
