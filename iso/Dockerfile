@@ -47,9 +47,9 @@ WORKDIR /home/builder
 
 # # Paru (AUR helper)
 # RUN git clone https://aur.archlinux.org/paru.git
-# RUN cd paru
+# WORKDIR paru
 # RUN makepkg -si --noconfirm
-# RUN cd ..
+# WORKDIR ..
 
 # RUN paru -Sy rate-mirrors-bin --noconfirm
 
@@ -58,7 +58,7 @@ WORKDIR /home/builder
 
 # # Clone ISO repo and enter it
 RUN mkdir build
-RUN cd build
+WORKDIR build
 RUN git init
 RUN git remote add -f origin https://github.com/evangelospro/dotfiles
 RUN git config core.sparseCheckout true
@@ -66,7 +66,7 @@ RUN echo "iso" >> .git/info/sparse-checkout
 RUN git config --global init.defaultBranch main
 RUN git pull origin main
 RUN ls -lasih
-RUN cd iso
+WORKDIR iso
 RUN ls -lasih . # check if iso folder is there
 
 # # Build ISO and rename to match BUILD_DATE
@@ -75,7 +75,7 @@ RUN ls -lasih . # check if iso folder is there
 
 USER root
 
-RUN cd isoOUT
+WORKDIR isoOUT
 # RUN ISO_PATH=$(find . -type f -name "*.iso")
 # RUN ISO_NAME=$(basename $ISO_PATH)
 # RUN ISO_PKGS=$(find . -type f -name "*.txt")
