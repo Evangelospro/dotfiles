@@ -43,6 +43,10 @@ jobs:
           ref: main
           opts: --network=host --privileged -v "isoOUT":/home/builder/build/iso/isoOUT
           dockerfile: iso/Dockerfile
+      - name: List files
+        run: |
+        pwd
+        ls -lasih .
       - name: Upload Releases
         uses: softprops/action-gh-release@v1
         env:
