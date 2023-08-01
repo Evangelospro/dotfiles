@@ -42,19 +42,19 @@ USER builder
 WORKDIR /home/builder
 
 # Set up rust
-# RUN rustup install stable
-# RUN rustup default stable
+RUN rustup install stable
+RUN rustup default stable
 
-# # Paru (AUR helper)
-# RUN git clone https://aur.archlinux.org/paru.git
-# WORKDIR paru
-# RUN makepkg -si --noconfirm
-# WORKDIR /home/builder
+# Paru (AUR helper)
+RUN git clone https://aur.archlinux.org/paru.git
+WORKDIR paru
+RUN makepkg -si --noconfirm
+WORKDIR /home/builder
 
-# RUN paru -Sy rate-mirrors-bin --noconfirm
+RUN paru -Sy rate-mirrors-bin --noconfirm
 
-# # Find fastest mirrors
-# RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
+# Find fastest mirrors
+RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
 
 # # Clone ISO repo and enter it
 RUN mkdir build
