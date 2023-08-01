@@ -52,7 +52,7 @@ jobs:
       - name: List files
         run: |
           pwd
-          ls -lasih .
+          ls -lasih isoOUT
       - name: Upload Releases
         uses: softprops/action-gh-release@v1
         env:
