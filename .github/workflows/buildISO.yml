@@ -57,7 +57,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create main isoOUT/*.part* isoOUT/*.sha256 isoOUT/*.txt -t ${{ needs.prepare-release.outputs.release_tag }} --repo ${{ github.repository }} --generate-notes --title "Build ${{ needs.prepare-release.outputs.release_tag }}"
+          gh release create ${{ needs.prepare-release.outputs.release_tag }} isoOUT/*.part* isoOUT/*.sha256 isoOUT/*.txt --generate-notes --title "Build ${{ needs.prepare-release.outputs.release_tag }}"
       - name: Rollback fail protection
         if: ${{ failure() || cancelled() }}
         env:
