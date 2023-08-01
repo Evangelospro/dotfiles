@@ -22,42 +22,11 @@ jobs:
   build-release:
     runs-on: ubuntu-latest
     needs: [prepare-release]
-    # runs as user and use sudo if needed
-    container:
-      image: archlinux:latest
-      options: --privileged
     steps:
-      - name: Setup
-        run: |
-          # Update pacman
-          pacman-key --init
-          pacman-key --populate
-
-          # Enable multilib
-          echo "[multilib]" >> /etc/pacman.conf
-          echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-          
-          # Chaotic-AUR
-          pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-          pacman-key --lsign-key 3056513887B78AEB
-          pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' --noconfirm
-          echo "[chaotic-aur]" >> /etc/pacman.conf
-          echo "Include = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
-
-          # Set timezone
-          ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
-
-          # Set locale
-          echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-
-          # Set BUILD_DATE
-          export BUILD_DATE=$(date +'%d-%m-%Y')
-          
-          # Make sure container is up-to-date
-          pacman -Syu --noconfirm
-          
-          # Install necessary packages
-          pacman -S git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
+      - name: Allow workflow to be cancelled
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ github.token }}          
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
@@ -67,76 +36,14 @@ jobs:
           remove-android: 'true'
           remove-haskell: 'true'
           remove-codeql: 'true'
-      - name: Allow workflow to be cancelled
-        uses: styfle/cancel-workflow-action@0.9.0
+      - name: Run Docker container
+        uses: pl-strflt/docker-container-action@v1
         with:
-          access_token: ${{ github.token }}
-      - name: Build
-        id: build
-        run: |
-          # Check free space
-          df -h
-
-          # Create a builder user so makepkg doesn't run as root
-          sudo useradd builder -m
-          # Allow the builder user to run sudo without a password
-          echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-          # Become the builder
-          cd /home/builder
-          sudo -u builder bash << EOF
-
-          # Set up rust
-          rustup install stable
-          rustup default stable
-
-          # Paru (AUR helper)
-          git clone https://aur.archlinux.org/paru.git
-          cd paru
-          makepkg -si --noconfirm
-          cd ..
-
-          paru -Sy rate-mirrors-bin --noconfirm
-
-          # Find fastest mirrors
-          rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
-
-          # Clone ISO repo and enter it
-          mkdir build
-          cd build
-          git init
-          git remote add -f origin https://github.com/evangelospro/dotfiles
-          git config core.sparseCheckout true
-          echo "iso" >> .git/info/sparse-checkout
-          git config --global init.defaultBranch main
-          git pull origin main
-          ls -lasih
-          cd iso
-          ls -lasih . # check if iso folder is there
-          
-          # Build ISO and rename to match BUILD_DATE
-          bash aur.sh enable
-          bash build-no-cache.sh
-          
-          # Stop being the builder
-          exit
-          EOF
-
-          cd isoOUT
-          ISO_PATH=$(find . -type f -name "*.iso")
-          ISO_NAME=$(basename $ISO_PATH)
-          ISO_PKGS=$(find . -type f -name "*.txt")
-
-          # split the iso if larger than 2GB
-          split -b 1950M $ISO_PATH "${ISO_NAME%.*}.part"
-          \ls -lasih .
-          for part in $(\ls *.part*); do
-            sha256sum $part > "${part}.sha256"
-          done
-          \ls -lasih .
-          echo ISO_PATH=$ISO_PATH >> $GITHUB_ENV
-          echo ISO_PARTS=$(find . -type f -name "*.part*") >> $GITHUB_ENV
-          echo SHA256SUMS=$(find . -type f -name "*.sha256") >> $GITHUB_ENV
-          echo ISO_PKGS=$ISO_PKGS >> $GITHUB_ENV
+          repository: evangelospro/dotfiles
+          ref: main
+          opts: --network=host --privileged
+          dockerfile: Dockerfile
+          args: -v "$(pwd)":/home/builder
       - name: Upload Releases
         uses: softprops/action-gh-release@v1
         env:
