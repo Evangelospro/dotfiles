@@ -41,7 +41,7 @@ jobs:
         with:
           repository: evangelospro/dotfiles
           ref: main
-          opts: --network=host --privileged -v "$(pwd)":/home/builder/build/iso/isoOUT
+          opts: 
           dockerfile: iso/Dockerfile
       - name: List files
         run: |

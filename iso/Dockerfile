@@ -59,33 +59,12 @@ WORKDIR /home/builder
 # # Clone ISO repo and enter it
 RUN mkdir build
 WORKDIR build
+RUN git config --global init.defaultBranch main
 RUN git init
 RUN git remote add -f origin https://github.com/evangelospro/dotfiles
 RUN git config core.sparseCheckout true
 RUN echo "iso" >> .git/info/sparse-checkout
-RUN git config --global init.defaultBranch main
 RUN git pull origin main
-RUN ls -lasih
 WORKDIR iso
-RUN ls -lasih . # check if iso folder is there
 
-# # Build ISO and rename to match BUILD_DATE
-# RUN bash aur.sh enable
-# RUN bash build-no-cache.sh
-
-USER root
-
-WORKDIR isoOUT
-# RUN ISO_PATH=$(find . -type f -name "*.iso")
-# RUN ISO_NAME=$(basename $ISO_PATH)
-# RUN ISO_PKGS=$(find . -type f -name "*.txt")
-
-# # split the iso if larger than 2GB
-# RUN split -b 1950M $ISO_PATH "${ISO_NAME%.*}.part"
-# RUN \ls -lasih .
-# RUN for part in $(\ls *.part*); do sha256sum $part > "${part}.sha256"; done
-# RUN \ls -lasih .
-
-RUN echo "packages" > packages.txt
-RUN echo "part" > test.part1
-RUN echo "hash" > test.part1.sha256
+ENTRYPOINT ["./build.sh"]
