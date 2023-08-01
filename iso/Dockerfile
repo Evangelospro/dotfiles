@@ -66,5 +66,6 @@ RUN git config core.sparseCheckout true
 RUN echo "iso" >> .git/info/sparse-checkout
 RUN git pull origin main
 WORKDIR iso
+RUN ls -lasih .
 
 ENTRYPOINT ["./build.sh"]
