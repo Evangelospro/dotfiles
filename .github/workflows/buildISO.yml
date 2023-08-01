@@ -47,18 +47,19 @@ jobs:
           ref: main
           opts: --network=host --privileged -v "$(pwd)/isoOUT/":/home/builder/build/iso/isoOUT
           dockerfile: iso/Dockerfile
-      - name: List files
+      - name: List output directory
         run: |
           pwd
-          ls -lasih .
+          ls -lasih isoOUT
       - name: Upload Releases
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo ${{ github.token }} | gh auth login --with-token
           gh release create main isoOUT/*.iso isoOUT/*.sha256 isoOUT/*.txt -t ${{ needs.prepare-release.outputs.release_tag }} --repo ${{ github.repository }}
       - name: Rollback
         if: ${{ failure() || cancelled() }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo ${{ github.token }} | gh auth login --with-token
           gh release delete ${{ needs.prepare-release.outputs.release_tag }} -y --repo ${{ github.repository }}
