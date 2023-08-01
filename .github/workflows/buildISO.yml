@@ -79,7 +79,7 @@ jobs:
           # Paru (AUR helper)
           git clone https://aur.archlinux.org/paru.git
           cd paru
-          makepkg -si
+          makepkg -si --noconfirm
           cd ..
 
           paru -Sy rate-mirrors-bin
