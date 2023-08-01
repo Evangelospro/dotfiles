@@ -1,4 +1,4 @@
-8name: iso_build
+name: iso_build
 on:
   workflow_dispatch:
   # schedule:
