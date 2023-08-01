@@ -7,6 +7,7 @@
 # ISO_NAME=$(basename $ISO_PATH)
 # ISO_PKGS=$(find . -type f -name "*.txt")
 
+mkdir -p isoOUT
 cd isoOUT
 
 # # split the iso if larger than 2GB
