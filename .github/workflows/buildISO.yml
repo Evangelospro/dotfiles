@@ -27,24 +27,8 @@ jobs:
       image: archlinux:latest
       options: --privileged
     steps:
-      - name: Maximize build space
-        uses: easimon/maximize-build-space@master
-        with:
-          root-reserve-mb: 512
-          swap-size-mb: 1024
-          remove-dotnet: 'true'
-          remove-android: 'true'
-          remove-haskell: 'true'
-          remove-codeql: 'true'
-      - name: Allow workflow to be cancelled
-        uses: styfle/cancel-workflow-action@0.9.0
-        with:
-          access_token: ${{ github.token }}
-      - name: Build
-        id: build
+      - name: Setup
         run: |
-          # Check free space
-          df -h
           # Update pacman
           pacman-key --init
           pacman-key --populate
@@ -74,7 +58,24 @@ jobs:
           
           # Install necessary packages
           pacman -S git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
-
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: 'true'
+          remove-android: 'true'
+          remove-haskell: 'true'
+          remove-codeql: 'true'
+      - name: Allow workflow to be cancelled
+        uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ github.token }}
+      - name: Build
+        id: build
+        run: |
+          # Check free space
+          df -h
 
           # Create a builder user so makepkg doesn't run as root
           sudo useradd builder -m
