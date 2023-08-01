@@ -36,14 +36,14 @@ jobs:
           remove-android: 'true'
           remove-haskell: 'true'
           remove-codeql: 'true'
-      - name: Run Docker container
+      - name: Run Docker builder
         uses: pl-strflt/docker-container-action@v1
         with:
           repository: evangelospro/dotfiles
           ref: main
           opts: --network=host --privileged
-          dockerfile: Dockerfile
-          args: -v "$(pwd)":/home/builder
+          dockerfile: iso/Dockerfile
+          args: -v "isoOUT":/home/builder/build/iso/isoOUT
       - name: Upload Releases
         uses: softprops/action-gh-release@v1
         env:
@@ -52,8 +52,7 @@ jobs:
           files: |
             *.part*
             *.sha256
-      -
-        name: Rollback
+      - name: Rollback
         if: ${{ failure() || cancelled() }}
         run: |
           echo ${{ github.token }} | gh auth login --with-token
