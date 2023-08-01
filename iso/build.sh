@@ -19,3 +19,5 @@ cd isoOUT
 echo "packages" > packages.txt
 echo "part" > test.part1
 echo "hash" > test.part1.sha256
+
+# /bin/bash

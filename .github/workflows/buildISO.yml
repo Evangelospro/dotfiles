@@ -36,12 +36,15 @@ jobs:
       #     remove-android: 'true'
       #     remove-haskell: 'true'
       #     remove-codeql: 'true'
+      - name: Create output directory
+        run: |
+          mkdir -p isoOUT
       - name: Run Docker builder
         uses: pl-strflt/docker-container-action@v1
         with:
           repository: evangelospro/dotfiles
           ref: main
-          opts: 
+          opts: --network=host --privileged -v "$(pwd)/isouOUT/":/home/builder/build/iso/isoOUT
           dockerfile: iso/Dockerfile
       - name: List files
         run: |

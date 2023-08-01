@@ -67,4 +67,6 @@ RUN echo "iso" >> .git/info/sparse-checkout
 RUN git pull origin main
 WORKDIR iso
 
+COPY ./build.sh .
+
 ENTRYPOINT ["./build.sh"]
