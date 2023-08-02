@@ -18,9 +18,9 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 RUN paru -Syu git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
 
 # Create a builder user so makepkg doesn't run as root
-RUN useradd builder -ms /bin/bash -G sudo
+RUN useradd builder -ms /bin/bash -G wheel
 # Allow the builder user to run sudo without a password
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 # Become the builder
 USER builder
 WORKDIR /home/builder
