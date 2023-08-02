@@ -48,6 +48,7 @@ RUN paru -Sy rate-mirrors-bin --noconfirm
 RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
 
 # Clone ISO repo and enter it
+RUN chown -R builder:builder /home/builder/build
 WORKDIR /home/builder/build
 RUN git config --global init.defaultBranch main
 RUN git init
