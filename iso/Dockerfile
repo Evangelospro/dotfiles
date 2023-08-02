@@ -15,7 +15,7 @@ RUN ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 
 # Install necessary packages
-RUN paru -Syu git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup rate-mirrors-bin --needed --noconfirm
+RUN paru -Syu git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
 
 # Create a builder user so makepkg doesn't run as root
 RUN useradd builder -m
@@ -29,9 +29,6 @@ WORKDIR /home/builder
 # Set up Rust
 RUN rustup install stable
 RUN rustup default stable
-
-# Find fastest mirrors
-RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
 
 # Clone ISO repo and enter it
 RUN git config --global init.defaultBranch main
