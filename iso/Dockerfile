@@ -1,4 +1,4 @@
-FROM archlinux:latest
+FROM greyltc/archlinux-aur:paru
 
 # Update pacman
 RUN pacman-key --init
@@ -43,19 +43,12 @@ RUN chmod 777 -R /home/builder
 RUN rustup install stable
 RUN rustup default stable
 
-# Paru (AUR helper)
-RUN git clone https://aur.archlinux.org/paru.git
-WORKDIR paru
-RUN makepkg -si --noconfirm
-WORKDIR /home/builder
-
 RUN paru -Sy rate-mirrors-bin --noconfirm
 
 # Find fastest mirrors
 RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
 
-# # Clone ISO repo and enter it
-RUN mkdir build
+# Clone ISO repo and enter it
 WORKDIR build
 RUN git config --global init.defaultBranch main
 RUN git init
