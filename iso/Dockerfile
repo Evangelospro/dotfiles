@@ -27,6 +27,7 @@ RUN pacman -S git github-cli go archiso pacman-contrib binutils make gcc pkg-con
 
 # Create a builder user so makepkg doesn't run as root
 RUN sudo useradd builder -m
+RUN sudo chown -R builder:builder /home/builder/
 # Allow the builder user to run sudo without a password
 RUN echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 # Become the builder
@@ -44,7 +45,6 @@ RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Sy
 
 # Clone ISO repo and enter it
 WORKDIR /home/builder/build
-RUN sudo chown -R builder:builder /home/builder/build
 RUN git config --global init.defaultBranch main
 RUN git init
 RUN git remote add -f origin https://github.com/evangelospro/dotfiles
