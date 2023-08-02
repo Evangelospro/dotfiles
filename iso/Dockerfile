@@ -10,14 +10,12 @@ RUN pacman-key --lsign-key 3056513887B78AEB
 RUN pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' --noconfirm
 RUN echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
 
-# Set timezone
+# Set timezone and locale
 RUN ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
-
-# Set locale
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 
 # Set BUILD_DATE
-RUN export BUILD_DATE=$(date +'%d-%m-%Y')
+ENV BUILD_DATE=$(date +'%d-%m-%Y')
 
 # Make sure container is up-to-date
 RUN pacman -Syu --noconfirm
@@ -44,7 +42,6 @@ RUN paru -Sy rate-mirrors-bin --noconfirm
 RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
 
 # Clone ISO repo and enter it
-WORKDIR /home/builder/build
 RUN git config --global init.defaultBranch main
 RUN git init
 RUN git remote add -f origin https://github.com/evangelospro/dotfiles
@@ -54,4 +51,4 @@ RUN git pull origin main
 WORKDIR iso
 RUN ls -lasih .
 
-ENTRYPOINT ["/home/builder/build/iso/build.sh"]
+ENTRYPOINT ["/home/builder/iso/build.sh"]
