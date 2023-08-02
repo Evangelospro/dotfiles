@@ -30,9 +30,6 @@ RUN pacman -Syu --noconfirm
 # Install necessary packages
 RUN pacman -S git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
 
-# Check free space
-RUN df -h
-
 # Create a builder user so makepkg doesn't run as root
 RUN sudo useradd builder -m
 # Allow the builder user to run sudo without a password
@@ -40,6 +37,7 @@ RUN echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 # Become the builder
 USER builder
 WORKDIR /home/builder
+RUN chmod 777 -R /home/builder
 
 # Set up rust
 RUN rustup install stable
