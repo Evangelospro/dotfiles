@@ -37,7 +37,6 @@ RUN echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 # Become the builder
 USER builder
 WORKDIR /home/builder
-RUN chmod 777 -R /home/builder
 
 # Set up rust
 RUN rustup install stable
@@ -49,7 +48,7 @@ RUN paru -Sy rate-mirrors-bin --noconfirm
 RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
 
 # Clone ISO repo and enter it
-WORKDIR build
+WORKDIR /home/builder/build
 RUN git config --global init.defaultBranch main
 RUN git init
 RUN git remote add -f origin https://github.com/evangelospro/dotfiles
