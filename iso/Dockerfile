@@ -14,32 +14,24 @@ RUN echo -e "[multilib]\nInclude = /etc/pacman.d/mirrorlist\n[chaotic-aur]\nIncl
 RUN ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 
-# Set BUILD_DATE
-ENV BUILD_DATE=$(date +'%d-%m-%Y')
-
-# Make sure container is up-to-date
-RUN pacman -Syu --noconfirm
-
 # Install necessary packages
-RUN pacman -S git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
+RUN paru -Syu git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup rate-mirrors-bin --needed --noconfirm
 
 # Create a builder user so makepkg doesn't run as root
-RUN sudo useradd builder -m
-RUN sudo chown -R builder:builder /home/builder/
+RUN useradd builder -m
+RUN chown -R builder:builder /home/builder
 # Allow the builder user to run sudo without a password
 RUN echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 # Become the builder
 USER builder
 WORKDIR /home/builder
 
-# Set up rust
+# Set up Rust
 RUN rustup install stable
 RUN rustup default stable
 
-RUN paru -Sy rate-mirrors-bin --noconfirm
-
 # Find fastest mirrors
-RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu  --noconfirm
+RUN rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
 
 # Clone ISO repo and enter it
 RUN git config --global init.defaultBranch main
@@ -48,7 +40,8 @@ RUN git remote add -f origin https://github.com/evangelospro/dotfiles
 RUN git config core.sparseCheckout true
 RUN echo "iso" >> .git/info/sparse-checkout
 RUN git pull origin main
+RUN sudo chown -R builder:builder iso
 WORKDIR iso
 RUN ls -lasih .
 
-ENTRYPOINT ["/home/builder/iso/build.sh"]
+ENTRYPOINT ["/bin/bash", "/home/builder/iso/build.sh"]

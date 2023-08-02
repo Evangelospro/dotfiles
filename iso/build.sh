@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/builder/build/iso
+cd /home/builder/iso
 
 # Build ISO and rename to match BUILD_DATE
 bash aur.sh enable
