@@ -26,8 +26,6 @@ RUN echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 USER builder
 
 # Set up Rust
-WORKDIR /home/builder/.rustup
-RUN sudo chown -R builder:builder /home/builder/.rustup
 RUN rustup install stable
 RUN rustup default stable
 
