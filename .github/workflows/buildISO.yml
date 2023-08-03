@@ -61,7 +61,7 @@ jobs:
             isoOUT/*.part*
             isoOUT/*.sha256
             isoOUT/*.txt
-        fail_on_unmatched_files: true
+          fail_on_unmatched_files: true
       - name: Rollback
         if: ${{ failure() || cancelled() }}
         run: |

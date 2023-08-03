@@ -6,9 +6,9 @@ ls -lasih
 # Build ISO and rename to match BUILD_DATE
 bash aur.sh enable
 bash build-no-cache.sh
-ISO_PATH=$(find . -type f -name "*.iso")
+ISO_PATH=$(find ./isoOUT -type f -name "*.iso")
 ISO_NAME=$(basename $ISO_PATH)
-ISO_PKGS=$(find . -type f -name "*.txt")
+ISO_PKGS=$(find ./isoOUT -type f -name "*.txt")
 
 mkdir -p isoOUT
 cd isoOUT
