@@ -13,6 +13,7 @@ alias please='sudo $(fc -ln -1)'
 alias pls='please'
 
 # HACKING TOOLS
+alias cme='crackmapexec'
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
 alias pwnsetup="python3 $HACKING_TOOLS/pwn/pwnenv/pwnsetup/pwnsetup.py"
 alias jwt-tool="python3 $HACKING_TOOLS/Web/jwt_tool/jwt_tool.py"
@@ -105,6 +106,7 @@ alias pscpu='ps auxf | sort -nr -k 3'
 alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
 alias psmem='ps auxf | sort -nr -k 4'
 
+alias nc='ncat -v'
 alias locate='lolcate'
 alias jq='jaq'
 alias termbin='nc termbin.com 9999|copy'
