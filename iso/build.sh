@@ -1,8 +1,7 @@
 #!/bin/bash
 
 cd /home/builder/iso
-sudo chown -R builder:builder /home/builder/.rustup
-sudo chmod 777 /home/builder/.rustup
+ls -lasih
 
 # Build ISO and rename to match BUILD_DATE
 bash aur.sh enable

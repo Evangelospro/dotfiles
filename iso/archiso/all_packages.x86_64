@@ -246,7 +246,7 @@ zsh
 
 # XDG standard
 chaotic-aur/xdg-ninja-git
-aur handlr-regex
+aur handlr-regex-bin
 # aur pistol-git
 
 # System utils

@@ -29,15 +29,6 @@ WORKDIR /home/builder
 RUN rustup install stable
 RUN rustup default stable
 
-# Clone ISO repo and enter it
-RUN git config --global init.defaultBranch main
-RUN git init
-RUN git remote add -f origin https://github.com/evangelospro/dotfiles
-RUN git config core.sparseCheckout true
-RUN echo "iso" >> .git/info/sparse-checkout
-RUN git pull origin main
-RUN sudo chown -R builder:builder iso
-WORKDIR /home/builder/iso
-RUN ls -lasih .
+COPY --chown=builder:builder ./iso /home/builder/iso
 
 ENTRYPOINT ["/home/builder/iso/build.sh"]

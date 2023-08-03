@@ -38,18 +38,20 @@ jobs:
         run: |
           mkdir -p isoOUT
           chmod 777 isoOUT
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Run Docker builder
         uses: pl-strflt/docker-container-action@v1
         with:
           repository: evangelospro/dotfiles
           ref: main
           opts: --network=host --privileged -v "$(pwd)/isoOUT/":/home/builder/iso/isoOUT
-          dockerfile: iso/Dockerfile
+          dockerfile: Dockerfile
       - name: List files
         run: |
           pwd
           ls -lasih isoOUT
-      - name: Upload Releases
+      - name: Upload Releases only if build was successful
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -59,6 +61,7 @@ jobs:
             isoOUT/*.part*
             isoOUT/*.sha256
             isoOUT/*.txt
+        fail_on_unmatched_files: true
       - name: Rollback
         if: ${{ failure() || cancelled() }}
         run: |
