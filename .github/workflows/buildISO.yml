@@ -37,6 +37,7 @@ jobs:
       - name: List files
         run: |
           pwd
+          sudo chmod -R 777 isoOUT
           ls -lasih isoOUT
       - name: Upload Releases only if build was successful
         uses: softprops/action-gh-release@v1
@@ -49,8 +50,3 @@ jobs:
             isoOUT/*.sha256
             isoOUT/*.txt
           fail_on_unmatched_files: true
-      - name: Rollback
-        if: ${{ failure() || cancelled() }}
-        run: |
-          echo ${{ github.token }} | gh auth login --with-token
-          gh release delete ${{ needs.prepare-release.outputs.release_tag }} -y --repo ${{ github.repository }}

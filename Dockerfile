@@ -20,7 +20,8 @@ RUN paru -Syu git go archiso pacman-contrib binutils make gcc pkg-config fakeroo
 # Set up Rust
 RUN rustup install stable
 RUN rustup default stable
-RUN ls -lah /root/.cargo/
+# Add .cargo/bin to PATH
+ENV PATH="/root/.cargo/bin:${PATH}"
 
 # replace "exit $E_ROOT" with "#exit $E_ROOT" in /usr/bin/makepkg
 RUN sed -i 's/exit $E_ROOT/#exit $E_ROOT/g' /usr/bin/makepkg
