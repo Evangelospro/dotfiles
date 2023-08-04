@@ -38,10 +38,6 @@ jobs:
           ref: main
           opts: --network=host --privileged -v "$(pwd)/isoOUT/":/home/builder/iso/isoOUT
           dockerfile: Dockerfile
-      - name: List files
-        run: |
-          pwd
-          ls -lasih isoOUT
       - name: Upload Releases only if build was successful
         uses: softprops/action-gh-release@v1
         env:
