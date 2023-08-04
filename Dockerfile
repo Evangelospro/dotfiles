@@ -15,11 +15,12 @@ RUN ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 
 # Install necessary packages
-RUN paru -Syu git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rust rustup --needed --noconfirm
+RUN paru -Syu git go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
 
 # Set up Rust
 RUN rustup install stable
 RUN rustup default stable
+RUN ls -lah /root/.cargo/
 
 # replace "exit $E_ROOT" with "#exit $E_ROOT" in /usr/bin/makepkg
 RUN sed -i 's/exit $E_ROOT/#exit $E_ROOT/g' /usr/bin/makepkg
