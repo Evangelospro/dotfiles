@@ -17,18 +17,13 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 # Install necessary packages
 RUN paru -Syu git github-cli go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rustup --needed --noconfirm
 
-# Create a builder user so makepkg doesn't run as root
-RUN useradd builder -ms /bin/bash -G wheel
-# Allow the builder user to run sudo without a password
-RUN echo '%wheel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-# Become the builder
-USER builder
-WORKDIR /home/builder
-
 # Set up Rust
 RUN rustup install stable
 RUN rustup default stable
 
-COPY --chown=builder:builder ./iso /home/builder/iso
+# replace "exit $E_ROOT" with "#exit $E_ROOT" in /usr/bin/makepkg
+RUN sed -i 's/exit $E_ROOT/#exit $E_ROOT/g' /usr/bin/makepkg
 
-ENTRYPOINT ["/home/builder/iso/build.sh"]
+COPY ./iso /root/iso
+
+ENTRYPOINT ["/root/iso/build.sh"]

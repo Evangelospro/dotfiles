@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/builder/iso
+cd /root/iso
 ls -lasih
 
 # Build ISO and rename to match BUILD_DATE
