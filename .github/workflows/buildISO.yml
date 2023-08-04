@@ -36,9 +36,7 @@ jobs:
       #     dockerfile: Dockerfile
       - name: Check dependencies
         run: |
-          if [ ! -f $HOME/.gnupg/pubring.kbx ]; then
-            ./iso/prep.sh
-          fi
+          ./iso/prep.sh
       - name: Build ISO
         run: |
           ./iso/build.sh
