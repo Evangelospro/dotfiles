@@ -4,6 +4,8 @@
 AUR_URL="https://aur.archlinux.org/"
 
 # Set repo directory
+enabled=$1
+conserve_space=$2
 base_dir=$PWD
 repo_name="aur_repo_x86_64"
 iso_name="archiso"
@@ -15,10 +17,29 @@ build() {
     PKG_PATH=$2
     # clone each package
     git clone $CLONE_URL $PKG_PATH
-    echo "Building $PKG_PATH"
-    (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
-    sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
-    sudo rm -rf $PKG_PATH
+    # get the result of the above command if it failed with (fatal: destination path '...' already exists and is not an empty directory.)
+    if [ $? -ne 0 ]; then
+        echo "Package $PKG_PATH already exists, updating"
+        # if there is no update, then skip the build
+        (cd $PKG_PATH && git pull)
+        if [ $? -ne 0 ]; then
+            echo "No update for $PKG_PATH"
+        else
+            echo "Building $PKG_PATH"
+            (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
+            sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
+            if [ "$conserve_space" == "conserve_space" ]; then
+                sudo rm -rf $PKG_PATH
+            fi
+        fi
+    else
+        echo "Building $PKG_PATH"
+        (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
+        sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
+        if [ "$conserve_space" == "conserve_space" ]; then
+            sudo rm -rf $PKG_PATH
+        fi
+    fi
 }
 
 if [ "$1" == "enable" ]; then

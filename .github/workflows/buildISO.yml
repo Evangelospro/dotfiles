@@ -27,8 +27,6 @@ jobs:
     steps:    
       - name: Create output directory
         run: |
-          pwd
-          ls
           mkdir -p isoOUT
           chmod 777 isoOUT
       - name: Checkout repository
