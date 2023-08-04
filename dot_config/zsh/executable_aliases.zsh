@@ -50,7 +50,10 @@ alias restart-gnome="killall -3 gnome-shell"
 alias restart-kde="killall -3 plasmashell"
 alias hyprland-logs="cat /tmp/hypr/$(\ls -t /tmp/hypr/ | head -n 1)/hyprland.log"
 
-alias copydir='pwd | tr -d '\n' |copy|paste'
+# Copy / Paste (X11 / Wayland)
+alias copy='if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard; else wl-copy; fi'
+alias paste='if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard -o; else wl-paste; fi'
+alias copydir='pwd | tr -d '\n' |copy && paste'
 
 # Listing
 alias tree='tree -a -I .git --dirsfirst'

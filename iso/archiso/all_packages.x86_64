@@ -104,6 +104,7 @@ smartmontools
 sof-firmware
 squashfs-tools
 sudo
+sshpass
 syslinux
 systemd-resolvconf
 tcpdump

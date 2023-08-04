@@ -37,15 +37,14 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
 # Js
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+# Sage
+export DOT_SAGE="$XDG_CONFIG_HOME/sage"
 
 # Sqlite
 export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
 
 # Wine
 export WINEPREFIX="$XDG_DATA_HOME"/wine
-
-# Sage
-export DOT_SAGE="$XDG_CONFIG_HOME/sage"
 
 # Android studio
 export ANDROID_HOME="$XDG_DATA_HOME/android"
@@ -72,10 +71,8 @@ ZI[BIN_DIR]="$ZSH/.zi/bin"
 ZI[CACHE_DIR]="$ZSH/.zi/cache"
 ZI[ZCOMPDUMP_PATH]="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 
-
 export ZINIT_HOME="$ZSH/zinit/zinit.git"
 _ZO_DATA_DIR="$ZSH/zoxide"
-
 
 # Hacking tools
 export HACKING_TOOLS="$HOME/HACKING/Tools"

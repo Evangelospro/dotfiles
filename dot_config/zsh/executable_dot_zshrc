@@ -10,9 +10,6 @@ fi
 # To customize prompt, run `p10k configure` or edit $ZSH/p10k.zsh.
 [[ ! -f $ZSH/p10k.zsh ]] || source $ZSH/p10k.zsh
 
-# Uncomment the following line to enable auto-installation
-# eval "$($ZSH/install.sh)"
-
 # evaluting some useful commands
 eval $(thefuck --alias)
 # eval "$(zoxide init zsh --no-aliases --hook pwd)"
