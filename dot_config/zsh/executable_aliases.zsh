@@ -138,6 +138,8 @@ alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; p
 
 # Networking
 alias ip='ip -color -brief'
+# remove the "/etc/NetworkManager/system-connections/" part
+alias wifi-pass="sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | sed 's/\/etc\/NetworkManager\/system-connections\///g' | grep $1"
 alias wmonitor-off='sudo airmon-ng stop wlp4s0f3u3'
 alias wmonitor-on='sudo airmon-ng start wlp4s0f3u3'
 alias flush-cache='sudo killall -USR1 systemd-resolved'

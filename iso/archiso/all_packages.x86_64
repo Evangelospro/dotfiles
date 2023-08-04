@@ -29,7 +29,6 @@ dhcpcd
 diffutils
 dmidecode
 dmraid
-dnsmasq
 dosfstools
 edk2-shell
 espeakup
