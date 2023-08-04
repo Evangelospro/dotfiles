@@ -25,15 +25,6 @@ jobs:
     permissions:
       contents: write
     steps:    
-      - name: Maximize build space
-        uses: easimon/maximize-build-space@master
-        with:
-          root-reserve-mb: 30720
-          swap-size-mb: 4096
-          remove-dotnet: 'true'
-          remove-android: 'true'
-          remove-haskell: 'true'
-          remove-codeql: 'true'
       - name: Create output directory
         run: |
           mkdir -p isoOUT
