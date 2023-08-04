@@ -1,4 +1,5 @@
-FROM greyltc/archlinux-aur:paru
+FROM menci/archlinuxarm
+# FROM greyltc/archlinux-aur:paru
 
 # Update pacman
 RUN pacman-key --init
