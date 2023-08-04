@@ -40,7 +40,6 @@ echo
 echo "################################################################## "
 echo "Phase 2 :"
 echo "- Checking if archiso is installed"
-echo "- Saving current archiso version to archiso.md"
 echo "- Making mkarchiso verbose"
 echo "################################################################## "
 echo
@@ -79,9 +78,6 @@ else
     fi
 fi
 
-echo
-echo "Saving current archiso version to archiso.md"
-sudo sed -i "s/\(^archiso-version=\).*/\1$archisoVersion/" archiso.md
 echo
 echo "Making mkarchiso verbose"
 sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso

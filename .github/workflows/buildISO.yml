@@ -27,16 +27,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Run Docker builder
-        uses: pl-strflt/docker-container-action@v1
-        with:
-          repository: evangelospro/dotfiles
-          ref: main
-          opts: --network=host --privileged -v "$(pwd)/isoOUT/":/home/builder/iso/isoOUT
-          dockerfile: Dockerfile
+      # - name: Run Docker builder
+      #   uses: pl-strflt/docker-container-action@v1
+      #   with:
+      #     repository: evangelospro/dotfiles
+      #     ref: main
+      #     opts: --network=host --privileged -v "$(pwd)/isoOUT/":/home/builder/iso/isoOUT
+      #     dockerfile: Dockerfile
+      - name: Check dependencies
+        run: |
+          if [ ! -f $HOME/.gnupg/pubring.kbx ]; then
+            ./iso/prep.sh
+          fi
+      - name: Build ISO
+        run: |
+          ./iso/build.sh
       - name: List files
         run: |
-          pwd
           sudo chmod -R 777 isoOUT
           ls -lasih isoOUT
       - name: Upload Releases only if build was successful
