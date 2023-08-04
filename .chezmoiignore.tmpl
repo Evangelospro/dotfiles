@@ -1,4 +1,5 @@
 # I anyways populate manually so don't litter $HOME
+Dockerfile
 confs/
 hyprland.png
 README.md
@@ -81,6 +82,7 @@ docs/zsdoc/data
 # Only create ssh keys if they don't exist
 
 {{- if (or (eq .chezmoi.hostname "ELARCH-WORK") (eq .chezmoi.hostname "ELARCH-ISO")) }}
+.ssh/config
 .ssh/keys/eraspberry1
 .ssh/keys/kasm
 .ssh/keys/portainer
@@ -89,7 +91,11 @@ docs/zsdoc/data
 .ssh/keys/server
 .ssh/keys/ftc
 .ssh/keys/ida
+.ssh/keys/elarch-builder
 {{ else }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/config") }}
+.ssh/config
+{{ end }}
 {{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/eraspberry1") }}
 .ssh/keys/eraspberry1
 {{ end }}
@@ -113,6 +119,9 @@ docs/zsdoc/data
 {{ end }}
 {{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ida") }}
 .ssh/keys/ida
+{{ end }}
+{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/elarch-builder") }}
+.ssh/keys/elarch-builder
 {{ end }}
 {{- end }}
 # The below are to be manually updated, if needed(the usually store files that change with timestamps...)

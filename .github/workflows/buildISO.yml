@@ -6,7 +6,7 @@ on:
 
 jobs:
   prepare-release:
-    runs-on: ubuntu-latest
+    runs-on: elarch-builder
     steps:
       - name: Allow workflow to be cancelled
         uses: styfle/cancel-workflow-action@0.9.0
@@ -20,7 +20,7 @@ jobs:
     outputs:
       release_tag: ${{ steps.time.outputs.time }}
   build-release:
-    runs-on: ubuntu-latest
+    runs-on: elarch-builder
     needs: [prepare-release]
     permissions:
       contents: write

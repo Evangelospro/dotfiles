@@ -63,11 +63,11 @@ alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
 
 # Servers /  SSH
 # alias ssh='wezterm ssh'
-alias server='ssh evangelospro@evangelospro.com'
-alias proxmox='sshm root@proxmox'
-alias portainer='ssh evangelospro@portainer'
-alias scripter='ssh evangelospro@scripter'
-alias eraspberry1='ssh evangelospro@eraspberry1'
+alias server='ssh ewebsite'
+alias proxmox='ssh proxmox'
+alias portainer='ssh portainer'
+alias scripter='ssh scripter'
+alias eraspberry1='ssh eraspberry1'
 
 # Command replacemnts
 alias cat='/usr/bin/bat'

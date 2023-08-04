@@ -3,7 +3,7 @@
 
 iso_name="ELARCH"
 iso_label="ELARCH_$(date +%Y%m)"
-iso_publisher="Arch Linux <https://evangelospro.com>"
+iso_publisher="Evangelos Lioudakis <https://evangelospro.com>"
 iso_application="Arch Linux Live/Rescue CD"
 iso_version="$(date +%Y.%m.%d)"
 install_dir="arch"
