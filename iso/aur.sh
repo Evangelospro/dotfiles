@@ -51,10 +51,10 @@ if [ "$1" == "enable" ]; then
             # echo "unhandled url type"
             continue
         fi
-        # if [ "$CLONE_URL" == "https://aur.archlinux.org/jaq.git" ]; then
-        #     build $CLONE_URL $PKG_PATH
-        # fi
-        build $CLONE_URL $PKG_PATH
+        if [ "$CLONE_URL" == "https://aur.archlinux.org/jaq.git" ]; then
+            build $CLONE_URL $PKG_PATH
+        fi
+        # build $CLONE_URL $PKG_PATH
     done < "$iso_dir/all_packages.x86_64"
 
     cd $base_dir
