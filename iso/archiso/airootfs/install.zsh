@@ -10,7 +10,7 @@ PYTHON_VERSION=$(python -V | cut -d " " -f 2 | cut -d "." -f 1,2)
 chezmoi init --apply Evangelospro -R
 cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
 # /var/log/Calamares-install.json if exists then we are past the installation phase
-if [[! -f /var/log/Calamares-install.json ]]; then
+if [ ! -f /var/log/Calamares-install.json ]; then
     echo "Installation phase"
     sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r
     sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt/ -r

@@ -3,7 +3,7 @@ file:///home/evangelospro/Music
 file:///home/evangelospro/Pictures
 file:///home/evangelospro/Videos
 file:///home/evangelospro/Downloads
-{{ if ne .chezmoi.hostname "ELARCH-WORK" }}
+{{- if (and (ne .chezmoi.hostname "ELARCH-WORK") (ne .chezmoi.hostname "ELARCH-ISO")) }}
 file:///home/evangelospro/School
 file:///home/evangelospro/HACKING
 file:///home/evangelospro/HACKING/Tools
