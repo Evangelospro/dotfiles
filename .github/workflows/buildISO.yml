@@ -24,16 +24,11 @@ jobs:
     needs: [prepare-release]
     permissions:
       contents: write
+    container:
+      image: archlinux:latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      # - name: Run Docker builder
-      #   uses: pl-strflt/docker-container-action@v1
-      #   with:
-      #     repository: evangelospro/dotfiles
-      #     ref: main
-      #     opts: --network=host --privileged -v "$(pwd)/isoOUT/":/home/builder/iso/isoOUT
-      #     dockerfile: Dockerfile
       - name: Check dependencies
         run: |
           ./iso/prep.sh
