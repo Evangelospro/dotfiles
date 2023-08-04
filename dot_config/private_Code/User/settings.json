@@ -1,14 +1,11 @@
 {
     "editor.inlineSuggest.enabled": true,
+    "editor.smoothScrolling": true,
     "snyk.advanced.cliPath": "/home/evangelospro/.local/share/snyk-ls/snyk-linux",
     "files.autoSave": "afterDelay",
     "snyk.trustedFolders": [
         "/home/evangelospro/"
     ],
-    "sync.autoDownload": true,
-    "sync.autoUpload": true,
-    "sync.forceDownload": true,
-    "sync.forceUpload": true,
     "workbench.colorTheme": "Sweet Dracula",
     "[python]": {
         "editor.formatOnType": true,
@@ -62,10 +59,7 @@
     },
     "security.workspace.trust.banner": "always",
     "security.workspace.trust.enabled": false,
-    "prettier.endOfLine": "auto",
     "diffEditor.ignoreTrimWhitespace": false,
-    "pythonIndent.trimLinesWithOnlyWhitespace": true,
-    "pythonIndent.useTabOnHangingIndent": true,
     "python.analysis.autoFormatStrings": true,
     "python.analysis.autoImportCompletions": true,
     "python.analysis.completeFunctionParens": true,
