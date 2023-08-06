@@ -376,6 +376,10 @@ xournalpp
 github-cli
 ## IDE
 visual-studio-code-bin
+
+# Android
+chaotic-aur/android-sdk-platform-tools
+android-tools
 chaotic-aur/android-studio
 
 # Hacking
