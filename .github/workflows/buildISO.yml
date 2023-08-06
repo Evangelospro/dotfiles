@@ -33,6 +33,8 @@ jobs:
         run: |
           cd iso
           ./prep.sh
+          # replace "exit $E_ROOT" with "#exit $E_ROOT" in /usr/bin/makepkg, only do this in a container not when building locally
+          sed -i 's/exit $E_ROOT/#exit $E_ROOT/g' /usr/bin/makepkg
       - name: Build ISO
         run: |
           cd iso

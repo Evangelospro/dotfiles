@@ -68,5 +68,7 @@
         "**/node_modules",
         "**/__pycache__"
     ],
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "headwind.runOnSave": true,
+    
 }

@@ -54,7 +54,7 @@ local keys = {
   },
   {
     key = "w",
-    mods = "CTRL",
+    mods = "CTRL|SHIFT",
     action = action{CloseCurrentTab = {confirm=true}},
   },
   {
