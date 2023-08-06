@@ -35,6 +35,7 @@ jobs:
           ./prep.sh
       - name: Build ISO
         run: |
+          cd iso
           ./build.sh
       - name: List files
         run: |
