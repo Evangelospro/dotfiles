@@ -31,10 +31,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Check dependencies
         run: |
-          ./iso/prep.sh
+          cd iso
+          ./prep.sh
       - name: Build ISO
         run: |
-          ./iso/build.sh
+          ./build.sh
       - name: List files
         run: |
           sudo chmod -R 777 isoOUT
