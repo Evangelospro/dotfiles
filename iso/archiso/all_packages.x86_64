@@ -115,7 +115,6 @@ upower
 usb_modeswitch
 usbmuxd
 usbutils
-vencord-installer-bin
 vim
 virtualbox-guest-utils-nox
 vpnc
@@ -268,7 +267,7 @@ polkit-qt5
 kwallet-pam
 # eww bar
 # eww-wayland
-aur eww-tray-wayland-git
+# aur eww-tray-wayland-git
 # logout shell
 wlogout
 swaync
@@ -351,6 +350,8 @@ wev
 onefetch
 
 # Applications
+## Communications
+aur vencord-installer-bin
 ## Browser
 chaotic-aur/google-chrome
 discord
