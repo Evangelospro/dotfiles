@@ -53,7 +53,7 @@ jobs:
         with:
           tag_name: ${{ needs.prepare-release.outputs.release_tag }}
           files: |
-            isoOUT/*.part*
-            isoOUT/*.sha256
-            isoOUT/*.txt
+            iso/isoOUT/*.part*
+            iso/isoOUT/*.sha256
+            iso/isoOUT/*.txt
           fail_on_unmatched_files: true
