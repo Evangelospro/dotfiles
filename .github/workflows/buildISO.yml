@@ -40,10 +40,6 @@ jobs:
         run: |
           cd iso
           ./build.sh
-      - name: List files
-        run: |
-          sudo chmod -R 777 ./iso/isoOUT
-          ls -lasih ./iso/isoOUT
       - name: Upload Releases only if build was successful
         uses: softprops/action-gh-release@v1
         env:
