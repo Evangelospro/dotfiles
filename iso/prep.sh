@@ -16,4 +16,4 @@ ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
 echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 
 # Install necessary packages
-pacman -Syu git go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rust cargo --needed --noconfirm
+pacman -Syu git go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rust cargo scdoc --needed --noconfirm
