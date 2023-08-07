@@ -25,7 +25,7 @@ jobs:
     permissions:
       contents: write
     container:
-      image: archlinux:latest
+      image: ghcr.io/evangelospro/archbase:latest
       options: --privileged
     steps:
       - name: Checkout repository
