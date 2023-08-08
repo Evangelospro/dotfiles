@@ -55,5 +55,5 @@ jobs:
           files: |
             iso/isoOUT/*.part*
             iso/isoOUT/*.sha256
-            iso/archiso/all_packages.x86_64.txt
+            iso/archiso/all_packages.x86_64
           fail_on_unmatched_files: true
