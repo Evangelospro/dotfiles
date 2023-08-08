@@ -34,8 +34,8 @@ build() {
         fi
     else
         echo "Building $PKG_PATH"
-        (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
-        sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
+        (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
+        sudo mv $PKG_PATH/*.pkg.tar $repo_dir
         if [ "$conserve_space" == "conserve_space" ]; then
             sudo rm -rf $PKG_PATH
         fi
@@ -87,7 +87,6 @@ if [ "$1" == "enable" ]; then
     # Remove the aur prefix and copy to packages.x86_64
     cat "$iso_dir/all_packages.x86_64" | sed 's/aur //g' > "$iso_dir/packages.x86_64"
     echo "AUR packages downloaded and built"
-    echo "Space remaining: $(df -h)"
 else
     echo "AUR disabled"
     # Remove any aur packages from packages.x86_64 by removing any line that starts with aur
