@@ -6,7 +6,7 @@ AUR_URL="https://aur.archlinux.org/"
 # Set repo directory
 enabled=$1
 conserve_space=$2
-base_dir=$pwd
+base_dir=$(pwd)
 repo_name="aur_repo_x86_64"
 iso_name="archiso"
 iso_dir="$base_dir/$iso_name"
