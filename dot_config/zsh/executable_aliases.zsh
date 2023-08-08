@@ -135,9 +135,10 @@ alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 # kdeconnect
 if type kdeconnect-cli &>/dev/null; then
-	alias send-text="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-text $@"
-	alias send-file="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-file $@"
-	alias send-link="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-link $@"
+	# don't echo anything
+	current_device=$(kdeconnect-cli -a --id-name-only 2>/dev/null | cut -d ' ' -f 1)
+	alias share-clip="kdeconnect-cli -d $current_device --share-text $@"
+	alias share="kdeconnect-cli -d $current_device --share $@"
 fi
 
 # Custom
