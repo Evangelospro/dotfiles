@@ -1,6 +1,6 @@
 # dotfiles 
 
-![Hyprland](/hyprland.png)
+![Hyprland](/Pictures/showcase/1.png)
 
 
 ### use chezmoi to apply (all configs except those in confs, which should be installed manually and at your own risk, with knowledge of their according location!) I suggest you fork the repo and make your own changes and examine very carefully, make sure you understand what you are doing before applying anything!
@@ -67,7 +67,7 @@ Shell: Zsh
 ## Build
 ```
 cd iso
-./build-no-cache.sh or ./build-cache.sh if it's not the first time or use one of the iso in releases if you don't want to build it yourself
+./build.sh
 ```
 ## Install
 get the iso from the iso/isoOUT folder and install it as usual

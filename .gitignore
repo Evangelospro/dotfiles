@@ -1,10 +1,5 @@
 iso/isoOUT/
 iso/isoBUILD/
-iso/AUR_BUILDER/aur_repo_x86_64
-iso/AUR_BUILDER/pkgbuilds
-iso/archiso/aur_repo_x86_64
+iso/archiso/custom_repos/aur_repo_x86_64
+iso/archiso/custom_repos/calamares_repo
 iso/archiso/packages.x86_64
-
-**/node_modules/
-**/package-lock.json
-**/package.json

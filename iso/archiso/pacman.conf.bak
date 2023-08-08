@@ -96,8 +96,3 @@ Include = /etc/pacman.d/mirrorlist
 [chaotic-aur]
 SigLevel = Optional TrustAll
 Include = /etc/pacman.d/chaotic-mirrorlist
-
-# only needed for the calamares installer
-[alci_repo]
-SigLevel = Optional TrustedOnly
-Server = https://arch-linux-calamares-installer.github.io/$repo/$arch

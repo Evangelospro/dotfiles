@@ -2,7 +2,7 @@
 
 # Build ISO and rename to match BUILD_DATE
 bash aur.sh enable
-bash build-no-cache.sh
+bash build-iso.sh
 cd isoOUT
 ISO_PATH=$(find . -type f -name "*.iso")
 ISO_NAME=$(basename $ISO_PATH)
