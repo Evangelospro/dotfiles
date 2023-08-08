@@ -107,6 +107,16 @@ alias pscpu='ps auxf | sort -nr -k 3'
 alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
 alias psmem='ps auxf | sort -nr -k 4'
 
+# Always need sudo, don't even bother
+alias shutdown="sudo shutdown"
+alias reboot="sudo reboot"
+alias umount="sudo umount"
+alias mount="sudo mount"
+
+alias mkcdir="mkdir -p $1 && cd $1"
+alias fetch="clear; fastfetch"
+alias less="less -r"
+alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias nc='ncat -v'
 alias locate='lolcate'
 alias jq='jaq'
@@ -124,10 +134,11 @@ alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 # kdeconnect
-# alias send-text="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-text $@"
-# alias send-file="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-file $@"
-# alias send-link="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-link $@"
-
+if type kdeconnect-cli &>/dev/null; then
+	alias send-text="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-text $@"
+	alias send-file="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-file $@"
+	alias send-link="kdeconnect-cli -d $(kdeconnect-cli -a|cut -f 1) --share-link $@"
+fi
 
 # Custom
 alias upload="$ZSH/scripts/utils/upload"

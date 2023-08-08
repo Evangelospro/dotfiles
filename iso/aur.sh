@@ -15,8 +15,8 @@ repo_dir="$iso_dir/$repo_name"
 build() {
     CLONE_URL=$1
     PKG_PATH=$2
-    # clone each package
-    git clone $CLONE_URL $PKG_PATH
+    # clone each package without history to save space and time
+    git clone  --depth 1 $CLONE_URL $PKG_PATH
     # get the result of the above command if it failed with (fatal: destination path '...' already exists and is not an empty directory.)
     if [ $? -ne 0 ]; then
         echo "Package $PKG_PATH already exists, updating"
