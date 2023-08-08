@@ -32,14 +32,14 @@ jobs:
         uses: actions/checkout@v2
       - name: Check dependencies
         run: |
+          # Speedup package building
+          cp dot_config/pacman/makepkg.conf /etc/makepkg.conf
+
           cd iso
           # ./prep.sh on new systems to add chaotic-aur and multilib already done in the used docker container no need to redo
           # Set timezone and locale 
           ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime 
           echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen 
-
-          # Speedup package building
-          cp dot_config/pacman/makepkg.conf /etc/makepkg.conf
           
           # Install necessary packages 
           pacman -Syu go archiso gcc pkg-config zip rust cargo scdoc wlroots meson ninja cmake --needed --noconfirm
