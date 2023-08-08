@@ -1,12 +1,12 @@
 #!/bin/bash
-# DESC: Download aur packages from file, build packages, enable in pacman.conf
+# Download aur packages from file, build packages, enable in pacman.conf
 
 AUR_URL="https://aur.archlinux.org/"
 
 # Set repo directory
 enabled=$1
 conserve_space=$2
-base_dir=$PWD
+base_dir=$pwd
 repo_name="aur_repo_x86_64"
 iso_name="archiso"
 iso_dir="$base_dir/$iso_name"
@@ -27,7 +27,7 @@ build() {
             echo "No update for $PKG_PATH"
         else
             echo "Building $PKG_PATH as there is an update"
-            (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
+            (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
             sudo mv $PKG_PATH/*.pkg.tar $repo_dir
             if [ "$conserve_space" == "conserve_space" ]; then
                 sudo rm -rf $PKG_PATH
@@ -55,7 +55,6 @@ if [ "$1" == "enable" ]; then
             continue
         fi
         tokens=( $repo )
-        # echo "token0: ${tokens[0]} token1: ${tokens[1]}"
         CLONE_URL=""
         PKG_PATH=""
         if [ ${tokens[0]} == "#" ]; then
