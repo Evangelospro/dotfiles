@@ -1,6 +1,6 @@
 # dotfiles 
 
-![Pictures/showcase/1.png](hyprland.png)
+![1.png](Pictures/showcase/1.png)
 
 
 ### use chezmoi to apply (all configs except those in confs, which should be installed manually and at your own risk, with knowledge of their according location!) I suggest you fork the repo and make your own changes and examine very carefully, make sure you understand what you are doing before applying anything!
