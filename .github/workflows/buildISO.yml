@@ -39,7 +39,7 @@ jobs:
           echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen 
   
           # Install necessary packages 
-          pacman -Syu git go archiso pacman-contrib binutils make gcc pkg-config fakeroot sudo zip base-devel rust cargo scdoc --needed --noconfirm
+          pacman -Syu go archiso gcc pkg-config zip rust cargo scdoc --needed --noconfirm
           # replace "exit $E_ROOT" with "#exit $E_ROOT" in /usr/bin/makepkg, only do this in a container not when building locally
           sed -i 's/exit $E_ROOT/#exit $E_ROOT/g' /usr/bin/makepkg
       - name: Build ISO
