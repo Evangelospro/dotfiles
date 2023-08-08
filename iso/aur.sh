@@ -80,9 +80,6 @@ if [ "$1" == "enable" ]; then
 
     # Configure Pacman
     cp "$iso_dir/pacman.conf.bak" "$iso_dir/pacman.conf"
-    echo -ne "\n\n[calamares_repo]" >> "$iso_dir/pacman.conf"
-    echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
-    echo -ne "\nServer = file://"$iso_dir"/custom_repo/calamares_repo" >> "$iso_dir/pacman.conf"
     echo -ne "\n\n[$repo_name]" >> "$iso_dir/pacman.conf"
     echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
     echo -ne "\nServer = file://"$repo_dir >> "$iso_dir/pacman.conf"

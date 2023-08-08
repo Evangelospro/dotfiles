@@ -1,5 +1,7 @@
 iso/isoOUT/
 iso/isoBUILD/
 iso/archiso/custom_repos/aur_repo_x86_64
-iso/archiso/custom_repos/calamares_repo
+iso/archiso/custom_repos/calamares_repo/*files
+iso/archiso/custom_repos/calamares_repo/*.db
+iso/archiso/custom_repos/calamares_repo/*.tar.gz*
 iso/archiso/packages.x86_64

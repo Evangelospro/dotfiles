@@ -1,8 +1,15 @@
 #!/bin/bash
 base_dir="$(pwd)"
+iso_dir="$base_dir/archiso"
 buildFolder="$base_dir/isoBUILD"
 outFolder="$base_dir/isoOUT"
 archisoVersion=$(sudo pacman -Q archiso)
+
+echo "Enabling local calamares repo"
+repo-add "$iso_dir/custom_repos/calamares_repo.db.tar.gz" "$iso_dir/custom_repo/calamares_repo/calamares-*.pkg.tar.zst"
+echo -ne "\n\n[calamares_repo]" >> "$iso_dir/pacman.conf"
+echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
+echo -ne "\nServer = file://"$iso_dir"/custom_repo/calamares_repo" >> "$iso_dir/pacman.conf"
 
 echo "Archiso version installed              : "$archisoVersion
 echo "Out folder                             : "$outFolder
