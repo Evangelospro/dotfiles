@@ -1,10 +1,9 @@
-#!/bin/zsh
+#!/usr/bin/zsh
 # Ensure connection to the internet and time synchronization
 if ! ping -c 1 archlinux.org &> /dev/null; then
     echo "No internet connection please activate a connection or connect to an ethernet cable"
     nmtui
 fi
-chsh -s /usr/bin/zsh
 PYTHON_VERSION=$(python -V | cut -d " " -f 2 | cut -d "." -f 1,2)
 chezmoi init --apply Evangelospro -R
 cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
@@ -13,18 +12,20 @@ if [ ! -f /var/log/Calamares-install.json ]; then
     echo "Installation phase"
     sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r
     sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt/ -r
+    sudo cp $HOME/.local/share/chezmoi/confs/usr/* /usr/ -r
     sudo pacman-key --init
     sudo pacman-key --populate
     rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
     function update(){
         paru -Syu --noconfirm
-        git pull $HOME/.config/hypr/hyprland-repo && $HOME/.config/hypr/plugins/update.sh
+        git pull $HOME/.config/hypr/hyprland-repo && git submodule update --init --recursive && $HOME/.config/hypr/plugins/update.sh
         zi self-update
         zi update
         navi-update
     }
     update
     sudo rm /usr/lib/python$PYTHON_VERSION/EXTERNALLY-MANAGED
+    pip install trash-put
     sudo systemctl enable --now sddm
 else
     echo "Post installation phase"

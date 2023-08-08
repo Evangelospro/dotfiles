@@ -130,14 +130,15 @@ xl2tpd
 
 #######################################################
 ###  PACKAGES THAT ARE REMOVED AFTER INSTALLATION   ###
-###             VIA CALAMARES CONFIG                ###
+###             VIA CALAMARES CONFIG START          ###
 #######################################################
 
 alci-calamares
 alci-calamares-config-zen
 
 #######################################################
-###      PACKAGES THAT STAY AFTER INSTALLATION      ###
+###  PACKAGES THAT ARE REMOVED AFTER INSTALLATION   ###
+###             VIA CALAMARES CONFIG END            ###
 #######################################################
 
 bash-completion
@@ -240,9 +241,6 @@ cpio
 # Chaotic repo
 chaotic-mirrorlist
 chaotic-keyring
-
-# Shell
-zsh
 
 # XDG standard
 chaotic-aur/xdg-ninja-git
