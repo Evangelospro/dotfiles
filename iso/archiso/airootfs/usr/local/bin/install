@@ -4,7 +4,6 @@ if ! ping -c 1 archlinux.org &> /dev/null; then
     echo "No internet connection please activate a connection or connect to an ethernet cable"
     nmtui
 fi
-timedatectl set-ntp true
 chsh -s /usr/bin/zsh
 PYTHON_VERSION=$(python -V | cut -d " " -f 2 | cut -d "." -f 1,2)
 chezmoi init --apply Evangelospro -R
@@ -29,12 +28,13 @@ if [ ! -f /var/log/Calamares-install.json ]; then
     sudo systemctl enable --now sddm
 else
     echo "Post installation phase"
-    rm /var/log/Calamares* # stores critical information (even passwords)
+    sudo rm /var/log/Calamares* # stores critical information (even passwords)
     # create default directories Desktop, Documents, Downloads, Music, Pictures, Public, Templates, Videos
     mkdir -p $HOME/{Desktop,Documents,Downloads,Music,Pictures,Public,Templates,Videos}
     vsCodeWorkbench=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
     sudo cp -r $HOME/.local/share/chezmoi/dot_local/private_share/icons/vscode $vsCodeWorkbench
-    sudo cp $HOME/.local/share/chezmoi/confs/vscode.css $vsCodeWorkbench/vsc.css# paru -Syyu
+    sudo cp $HOME/.local/share/chezmoi/confs/vscode.css $vsCodeWorkbench/vsc.css
+    # paru -Syyu
     pip install -r $HOME/.local/share/chezmoi/requirements.txt
     rustup default stable
     # Lolcate database

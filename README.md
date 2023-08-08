@@ -3,7 +3,7 @@
 ![Hyprland](/hyprland.png)
 
 
-### use chezmoi to apply (all configs except thos in confs, which should be installed manually and at your own risk, with knowledge of their according location!)
+### use chezmoi to apply (all configs except those in confs, which should be installed manually and at your own risk, with knowledge of their according location!) I suggest you fork the repo and make your own changes and examine very carefully, make sure you understand what you are doing before applying anything!
 ```
 chezmoi init --apply Evangelospro
 ```
@@ -41,14 +41,6 @@ paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
 pip install -r requirements.txt
 ```
 
-### Systemd services
-```
-sudo systemctl enable --now cpupower
-sudo systemctl enable --now pacman-cleanup-hook.timer
-sudo systemctl enable --now sddm
-sudo systemctl enable --now bluetooth.service
-```
-
 ### Vscode
 ```
 vsCodeWorkbench=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
@@ -75,13 +67,13 @@ Shell: Zsh
 ## Build
 ```
 cd iso
-./build-no-cache.sh or ./build-cache.sh if it's not the first time
+./build-no-cache.sh or ./build-cache.sh if it's not the first time or use one of the iso in releases if you don't want to build it yourself
 ```
 ## Install
 get the iso from the iso/isoOUT folder and install it as usual
 Default user is `liveuser` and password is `liveuser` sign in with these during the installation process and then run
 ```
-/install.zsh
+install
 ```
 to initialize the dotfile and misc installation process
 
@@ -91,7 +83,6 @@ A nice calamares installer is also included to guide you through the installatio
 ```
 calamares -d
 ```
-
 
 ### Thanks to these awesome projects
 * [pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)
