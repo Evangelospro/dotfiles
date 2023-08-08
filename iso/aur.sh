@@ -28,7 +28,7 @@ build() {
         else
             echo "Building $PKG_PATH as there is an update"
             (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
-            sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
+            sudo mv $PKG_PATH/*.pkg.tar $repo_dir
             if [ "$conserve_space" == "conserve_space" ]; then
                 sudo rm -rf $PKG_PATH
             fi
