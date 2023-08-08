@@ -66,11 +66,16 @@ Shell: Zsh
 
 ## Ways to get the ISO
 ### From the releases tab
-#### Download all the files from the latest release and run
-#### VERY IMPORTANT(remove the sha256sums file before merging the parts)
+#### Download all the files from the latest release
+##### Verify the sha256sums(all should return OK)
+```
+sha256sum --check *.sha256
+```
+##### VERY IMPORTANT(remove the sha256sums file before merging the parts)
 ```
 rm ELARCH-*.part*.sha256
 ```
+##### Merge the parts together to get the iso
 ```
 cat ELARCH-*.part* > ELARCH.iso
 ```
