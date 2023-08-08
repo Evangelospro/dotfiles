@@ -11,6 +11,7 @@ repo_name="aur_repo_x86_64"
 iso_name="archiso"
 iso_dir="$base_dir/$iso_name"
 repo_dir="$iso_dir/custom_repos/$repo_name"
+makepkg_flags="-s --skip-checksums --skip-pgpcheck --noconfirm"
 
 build() {
     CLONE_URL=$1
@@ -25,16 +26,16 @@ build() {
         if [ $? -ne 0 ]; then
             echo "No update for $PKG_PATH"
         else
-            echo "Building $PKG_PATH"
-            (cd $PKG_PATH && makepkg -s --skip-checksum --skip-pgpcheck --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
+            echo "Building $PKG_PATH as there is an update"
+            (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
             sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
             if [ "$conserve_space" == "conserve_space" ]; then
                 sudo rm -rf $PKG_PATH
             fi
         fi
     else
-        echo "Building $PKG_PATH"
-        (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
+        echo "Building $PKG_PATH as it is a new package"
+        (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
         sudo mv $PKG_PATH/*.pkg.tar $repo_dir
         if [ "$conserve_space" == "conserve_space" ]; then
             sudo rm -rf $PKG_PATH
