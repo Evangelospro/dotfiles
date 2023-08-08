@@ -37,7 +37,10 @@ jobs:
           # Set timezone and locale 
           ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime 
           echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen 
-  
+
+          # Speedup package building
+          cp dot_config/pacman/makepkg.conf /etc/makepkg.conf
+          
           # Install necessary packages 
           pacman -Syu go archiso gcc pkg-config zip rust cargo scdoc wlroots meson ninja cmake --needed --noconfirm
           # replace "exit $E_ROOT" with "#exit $E_ROOT" in /usr/bin/makepkg, only do this in a container not when building locally
