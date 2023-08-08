@@ -11,7 +11,7 @@ repo_name="aur_repo_x86_64"
 iso_name="archiso"
 iso_dir="$base_dir/$iso_name"
 repo_dir="$iso_dir/custom_repos/$repo_name"
-makepkg_flags="-s --skip-checksums --skip-pgpcheck --noconfirm"
+makepkg_flags="-s --skipchecksums --skippgpcheck --skipinteg --noconfirm"
 
 build() {
     CLONE_URL=$1

@@ -11,9 +11,12 @@ for file in $calamares_files; do
     echo "Adding "$file" to calamares_repo"
     repo-add $iso_dir/custom_repos/calamares_repo/calamares_repo.db.tar.gz $file
 done
-echo -ne "\n\n[calamares_repo]" >> "$iso_dir/pacman.conf"
-echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
-echo -ne "\nServer = file://"$iso_dir"/custom_repo/calamares_repo" >> "$iso_dir/pacman.conf"
+# if calamares_repo is not defined in pacman.conf then add it
+if ! grep -q "calamares_repo" "$iso_dir/pacman.conf"; then
+    echo -ne "\n\n[calamares_repo]" >> "$iso_dir/pacman.conf"
+    echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
+    echo -ne "\nServer = file://"$iso_dir"/custom_repo/calamares_repo" >> "$iso_dir/pacman.conf"
+fi
 
 echo "Archiso version installed              : "$archisoVersion
 echo "Out folder                             : "$outFolder
