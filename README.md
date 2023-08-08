@@ -1,6 +1,6 @@
 # dotfiles 
 
-![Hyprland](/Pictures/showcase/1.png)
+![Pictures/showcase/1.png](hyprland.png)
 
 
 ### use chezmoi to apply (all configs except those in confs, which should be installed manually and at your own risk, with knowledge of their according location!) I suggest you fork the repo and make your own changes and examine very carefully, make sure you understand what you are doing before applying anything!
@@ -35,7 +35,7 @@ paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
 
 ### Packages
 #### Arch packages listed and organized in
-[[iso/packages.x86_64]](packages)
+[[iso/all_packages.x86_64]](packages)
 #### Python packages
 ```
 pip install -r requirements.txt
@@ -53,7 +53,7 @@ sed -i 's;</head>;<link rel="stylesheet" href="vsc.css"></head>;g' $resPrefix/wo
 Fix Checksums: Apply inside vscode run
 ```
 
-# Custom Arch Linux ISO with AUR packages
+# Custom Arch Linux ISO with AUR packages batteries included
 ## Setup
 ```
 Desktop Environment: Hyprland
@@ -64,12 +64,23 @@ Terminal: Wezterm
 Shell: Zsh
 ```
 
-## Build
+## Ways to get the ISO
+### From the releases tab
+#### Download all the files from the latest release and run
+#### VERY IMPORTANT(remove the sha256sums file before merging the parts)
+```
+rm ELARCH-*.part*.sha256
+```
+```
+cat ELARCH-*.part* > ELARCH.iso
+```
+### Manual Build
 ```
 cd iso
 ./build.sh
 ```
-## Install
+
+## Installation and Usage
 get the iso from the iso/isoOUT folder and install it as usual
 Default user is `liveuser` and password is `liveuser` sign in with these during the installation process and then run
 ```
@@ -77,11 +88,11 @@ install
 ```
 to initialize the dotfile and misc installation process
 
-SDDM should have started and once you login with liveuser you should be greeted with a nice hyprland WM
+SDDM should have started and once you login with liveuser you should be greeted with a gorgeous desktop!
 
 A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically run in a terminal(such as wezterm)
 ```
-calamares -d
+sudo calamares -d
 ```
 
 ### Thanks to these awesome projects

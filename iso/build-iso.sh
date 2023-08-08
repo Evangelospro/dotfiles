@@ -6,7 +6,11 @@ outFolder="$base_dir/isoOUT"
 archisoVersion=$(sudo pacman -Q archiso)
 
 echo "Enabling local calamares repo"
-repo-add "$iso_dir/custom_repos/calamares_repo.db.tar.gz" "$iso_dir/custom_repos/calamares_repo/calamares-*.pkg.tar.zst"
+calamares_files=$(find $iso_dir/custom_repos/calamares_repo -name "*.pkg.tar.zst")
+for file in $calamares_files; do
+    echo "Adding "$file" to calamares_repo"
+    repo-add $iso_dir/custom_repos/calamares_repo/calamares_repo.db.tar.gz $file
+done
 echo -ne "\n\n[calamares_repo]" >> "$iso_dir/pacman.conf"
 echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
 echo -ne "\nServer = file://"$iso_dir"/custom_repo/calamares_repo" >> "$iso_dir/pacman.conf"
