@@ -12,13 +12,11 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.0
         with:
           access_token: ${{ github.token }}
-      - name: Get time
-        id: time
-        uses: nanzm/get-time-action@v1.1
-        with:
-          format: 'DDMMYYYYHHmm'
+      - name: Get release tag
+        id: release-tag
+        run: echo "::set-output name=release-tag::ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')"
     outputs:
-      release_tag: ${{ steps.time.outputs.time }}
+      release_tag: ${{ steps.release-tag.outputs.release-tag }}
   build-release:
     runs-on: self-hosted
     needs: [prepare-release]

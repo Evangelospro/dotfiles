@@ -1,11 +1,12 @@
 #!/bin/bash
 # check if there are parameters passed that are not files or directories
 # if so then just echo no need for -rf everything goes to recycle bin
-file_loc=$(readlink -f "$1")
+file_loc=$(readlink -f "$@")
 
 if echo "$file_loc" | grep -q "SeaDrive"; then
-    mv "$file_loc" ~/.local/share/Trash/files
+    mv "$file_loc" $HOME/.local/share/Trash/files
     exit 0
 else
     trash-put --trash-dir=$HOME/.local/share/Trash "$file_loc"
+    exit 0
 fi

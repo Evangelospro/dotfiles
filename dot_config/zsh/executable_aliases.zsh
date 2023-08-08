@@ -13,6 +13,11 @@ alias please='sudo $(fc -ln -1)'
 alias pls='please'
 
 # HACKING TOOLS
+# check if /opt/sqlmap-bin/sqlmap.py exists
+if [ -f /opt/sqlmap-bin/sqlmap.py ];
+then
+	alias sqlmap="/opt/sqlmap-bin/sqlmap.py"
+fi
 alias cme='crackmapexec'
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
 alias pwnsetup="python3 $HACKING_TOOLS/pwn/pwnenv/pwnsetup/pwnsetup.py"
@@ -26,7 +31,7 @@ alias rot47='tr '\''\!-~'\'' '\''P-~\!-O'\'
 alias webserver='updog -p 8000'
 alias penelope="penelope --configfile $HOME/.config/penelope/penelope.conf"
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
-alias mobsf="$HOME/SCRIPTS/r $HOME/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
+alias mobsf="$HOME/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
 alias burl="curl -x localhost:8080 -k "
 alias frm="\rm -rf"
 alias rm="$ZSH/scripts/utils/rm"
@@ -72,9 +77,6 @@ alias eraspberry1='ssh eraspberry1'
 # Command replacemnts
 alias cat='/usr/bin/bat'
 alias top='btop'
-
-
-# Command minimization
 
 # GIT
 alias g=git
@@ -143,7 +145,6 @@ fi
 
 # Custom
 alias upload="$ZSH/scripts/utils/upload"
-
 
 # get fastest mirrors
 alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu'

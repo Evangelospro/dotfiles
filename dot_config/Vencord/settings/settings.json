@@ -56,7 +56,7 @@
             "settingsLocation": "aboveActivity"
         },
         "AlwaysAnimate": {
-            "enabled": false
+            "enabled": true
         },
         "AlwaysTrust": {
             "enabled": true
@@ -72,7 +72,9 @@
             "sidebar": true,
             "closeAllHomeButton": false,
             "closeAllFolders": false,
-            "forceOpen": false
+            "forceOpen": false,
+            "sidebarAnim": true,
+            "closeOthers": false
         },
         "BetterGifAltText": {
             "enabled": false
@@ -93,7 +95,8 @@
             "enabled": false
         },
         "CallTimer": {
-            "enabled": true
+            "enabled": true,
+            "format": "stopwatch"
         },
         "ClearURLs": {
             "enabled": true
@@ -130,7 +133,8 @@
             "enableStickerBypass": true,
             "enableStreamQualityBypass": true,
             "transformStickers": true,
-            "transformEmojis": true
+            "transformEmojis": true,
+            "transformCompoundSentence": false
         },
         "FakeProfileThemes": {
             "enabled": false
@@ -194,7 +198,9 @@
         },
         "MessageLogger": {
             "enabled": true,
-            "deleteStyle": "text"
+            "deleteStyle": "text",
+            "ignoreBots": false,
+            "ignoreSelf": false
         },
         "MessageTags": {
             "enabled": false
@@ -221,7 +227,7 @@
             "enabled": false
         },
         "NoDevtoolsWarning": {
-            "enabled": false
+            "enabled": true
         },
         "NoF1": {
             "enabled": false
@@ -414,7 +420,8 @@
             "enabled": false
         },
         "VolumeBooster": {
-            "enabled": true
+            "enabled": true,
+            "multiplier": 2
         },
         "WhoReacted": {
             "enabled": true
@@ -433,6 +440,6 @@
         "authenticated": true,
         "url": "https://api.vencord.dev/",
         "settingsSync": true,
-        "settingsSyncVersion": 1691309981855
+        "settingsSyncVersion": 1691506947973
     }
 }

@@ -15,7 +15,7 @@ done
 if ! grep -q "calamares_repo" "$iso_dir/pacman.conf"; then
     echo -ne "\n\n[calamares_repo]" >> "$iso_dir/pacman.conf"
     echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
-    echo -ne "\nServer = file://"$iso_dir"/custom_repo/calamares_repo" >> "$iso_dir/pacman.conf"
+    echo -ne "\nServer = file://"$iso_dir"/custom_repos/calamares_repo" >> "$iso_dir/pacman.conf"
 fi
 
 echo "Archiso version installed              : "$archisoVersion
