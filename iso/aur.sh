@@ -26,7 +26,7 @@ build() {
             echo "No update for $PKG_PATH"
         else
             echo "Building $PKG_PATH"
-            (cd $PKG_PATH && makepkg -s --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
+            (cd $PKG_PATH && makepkg -s --skip-checksum --skip-pgpcheck --noconfirm && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar.zst)
             sudo mv $PKG_PATH/*.pkg.tar.zst $repo_dir
             if [ "$conserve_space" == "conserve_space" ]; then
                 sudo rm -rf $PKG_PATH
