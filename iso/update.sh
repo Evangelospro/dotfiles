@@ -1,3 +1,5 @@
+# DO NOT RUN THIS SCRIPT (needs work)!!!
+
 git checkout releng
 
 cp -rf /usr/share/archiso/configs/releng/* /archiso/.
