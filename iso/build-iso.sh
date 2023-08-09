@@ -5,12 +5,6 @@ buildFolder="$base_dir/isoBUILD"
 outFolder="$base_dir/isoOUT"
 archisoVersion=$(sudo pacman -Q archiso)
 
-echo "Enabling local calamares repo"
-calamares_files=$(find $iso_dir/custom_repos/calamares_repo -name "*.pkg.tar.zst")
-for file in $calamares_files; do
-    echo "Adding "$file" to calamares_repo"
-    repo-add $iso_dir/custom_repos/calamares_repo/calamares_repo.db.tar.gz $file
-done
 # if calamares_repo is not defined in pacman.conf then add it
 if ! grep -q "calamares_repo" "$iso_dir/pacman.conf"; then
     echo -ne "\n\n[calamares_repo]" >> "$iso_dir/pacman.conf"

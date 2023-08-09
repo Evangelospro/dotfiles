@@ -1,0 +1,35 @@
+componentName:  elarch 
+welcomeStyleCalamares:   false
+welcomeExpandingLogo:   true
+windowExpanding:    normal
+windowSize: 800px,520px
+windowPlacement: center
+sidebar: widget
+navigation: widget
+
+strings:
+    productName:         ELARCH 
+    shortProductName:    ELARCH
+    version:             2021.01.1
+    shortVersion:        2021.01.1
+    versionedName:       elarch
+    shortVersionedName:  elarch
+    bootloaderEntryName: elarch
+
+images:
+    productIcon:         "elarch-logo.png"
+    productLogo:         "elarch-logo.png"
+    productWelcome:      "languages.png"
+
+style:
+   sidebarBackground:    "#282a36"
+   sidebarText:          "#FFFFFF"
+   sidebarTextSelect:    "#FFFFFF"
+   sidebarTextHighlight: "#81A1C1"
+
+slideshow:               "show.qml"
+slideshowAPI: 2
+
+uploadServer :
+    type :    "fiche"
+    url :     "http://termbin.com:9999"
