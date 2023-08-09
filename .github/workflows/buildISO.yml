@@ -59,3 +59,4 @@ jobs:
             iso/isoOUT/*.part*
             iso/archiso/all_packages.x86_64
           fail_on_unmatched_files: true
+          generate_release_notes: true
