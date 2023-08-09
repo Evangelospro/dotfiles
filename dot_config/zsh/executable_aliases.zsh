@@ -89,11 +89,12 @@ alias reload='exec zsh -l'
 alias tobash='sudo chsh evangelospro -s /bin/bash && echo '\''Now log out.'\'
 alias tozsh='sudo chsh evangelospro -s /bin/zsh && echo '\''Now log out.'\'
 
+# Storage / Memory
 alias df='df -h'
 alias diff='diff --color'
 alias free='free -m'
 
-# python / pip
+# python / pip / pipx
 alias p='python3'
 alias pip='noglob pip'
 alias pipx='noglob pipx'
@@ -118,6 +119,7 @@ alias mount="sudo mount"
 alias mkcdir="mkdir -p $1 && cd $1"
 alias fetch="clear; fastfetch"
 alias less="less -r"
+alias tldr="tealdeer"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias nc='ncat -v'
 alias locate='lolcate'

@@ -341,7 +341,8 @@ fd
 navi
 unzip
 glow
-tldr
+# tldr
+tealdeer
 ffmpeg
 btop
 aur geticons
