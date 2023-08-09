@@ -65,7 +65,8 @@ Shell: Zsh
 ```
 
 ## Ways to get the ISO
-### From the releases tab
+### From the releases tab (automated build)
+[![iso_build](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml)
 #### Download all the files from the latest release
 ##### Verify the part sha256sums(all should return OK)
 ```
