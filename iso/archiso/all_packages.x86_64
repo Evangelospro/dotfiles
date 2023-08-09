@@ -300,6 +300,7 @@ slurp
 chaotic-aur/flameshot-git
 
 # Programming
+# aur python2
 python3
 python-pip
 python-pipx
@@ -389,6 +390,7 @@ chaotic-aur/android-studio
 ## Frameworks
 metasploit
 ## Reverse engineering
+python-z3-solver
 python-claripy
 # aur python-angr-git
 rlwrap
@@ -404,10 +406,13 @@ aur python-pwnscripts
 ropper
 ropgadget
 ## Web
+python-xcat
+python-flask
 wpscan
 ## Networking
 nmap
 rustscan
+python-scapy
 aur penelope-git
 ## Bruteforcing
 aur ffuf-bin
@@ -417,6 +422,8 @@ chaotic-aur/imhex
 ## wordlists
 aur seclists
 ## Crypto
+python-pycryptodome
+python-pycryptodomex
 sagemath
 python-numpy
 

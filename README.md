@@ -67,8 +67,13 @@ Shell: Zsh
 ## Ways to get the ISO
 ### From the releases tab (automated build)
 [![iso_build](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml)
-#### Download all the files from the latest release
-##### Verify the part sha256sums(all should return OK)
+#### Oneliner that gets you a ready to use iso
+```
+curl https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get_iso.sh|bash
+```
+#### Manual download and verification
+##### Download all the files from the latest release
+##### Verify each part's sha256sum(all should return OK)
 ```
 sha256sum --check *.part*.sha256
 ```
