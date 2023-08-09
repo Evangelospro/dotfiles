@@ -390,7 +390,7 @@ chaotic-aur/android-studio
 metasploit
 ## Reverse engineering
 python-claripy
-aur python-angr-git
+# aur python-angr-git
 rlwrap
 ghidra
 cutter
