@@ -263,10 +263,12 @@ brightnessctl
 polkit-kde-agent
 polkit-qt5
 kwallet-pam
-# eww bar
+## eww bar
 # eww-wayland
 # aur eww-tray-wayland-git
-# logout shell
+libevdev
+python-evdev
+## misc
 wlogout
 swaync
 swaync-client
@@ -311,6 +313,8 @@ playerctl
 chaotic-aur/wezterm-git
 
 # Shell
+trash-cli
+thefuck
 zoxide
 zsh
 aur lolcate
@@ -324,7 +328,6 @@ chezmoi
 # ascii art
 chaotic-aur/fastfetch
 figlet
-# figlet-fonts-extra 
 chaotic-aur/c-lolcat
 bat
 lsd
@@ -385,14 +388,23 @@ chaotic-aur/android-studio
 ## Frameworks
 metasploit
 ## Reverse engineering
+python-claripy
+python-angr-git
 rlwrap
 ghidra
 cutter
 rz-ghidra
 rz-cutter
+## PWN
+python-typing_extensions
+python-tabulate
+python-pwntools
+python-pwnscripts
+ropper
+ropgadget
 ## Web
 wpscan
-## Netowrking
+## Networking
 nmap
 rustscan
 aur penelope-git
@@ -403,6 +415,9 @@ aur feroxbuster
 chaotic-aur/imhex
 ## wordlists
 aur seclists
+## Crypto
+sagemath
+python-numpy
 
 # Windows emulation
 # wine

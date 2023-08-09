@@ -15,7 +15,5 @@ sha256sums=()
 
 package() {
 	# install -dm755 ${pkgdir}${_destname1}
-	cd ${_buildDir}
-	pwd
-	cp -r etc/calamares ${pkgdir}${_destname1}
+	cp -r ${_buildDir}etc/calamares ${pkgdir}${_destname1}
 }

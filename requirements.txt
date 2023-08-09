@@ -1,24 +1,7 @@
 # EWW bar
-evdev
 hyprland
 # Hacking
-updog
-# shell
-thefuck
-# gdb
-typing_extensions
-tabulate
-# PWN tools
-pwntools
-pwnscripts
+## PWN tools
 ptrlib
-ropper
-ROPGadget
-# Reverse
-angr
-claripy
-# Crypto
-sagemath 
-numpy
-# General
-trash-cli
+## Reverse
+angr 
