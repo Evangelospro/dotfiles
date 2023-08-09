@@ -18,7 +18,7 @@ if [ ! -f /var/log/Calamares-install.json ]; then
     rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
     function update(){
         paru -Syu --noconfirm
-        git pull $HOME/.config/hypr/hyprland-repo && git submodule update --init --recursive && $HOME/.config/hypr/plugins/update.sh
+        $HOME/.config/hypr/plugins/update.sh
         zi self-update
         zi update
         navi-update

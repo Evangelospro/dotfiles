@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Build ISO and rename to match BUILD_DATE
+bash calamares.sh enable
 bash aur.sh enable
 bash build-iso.sh
 cd isoOUT

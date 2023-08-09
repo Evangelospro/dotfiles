@@ -1,8 +1,8 @@
 # Monitors
 monitor=eDP-1,preferred,0x0,1
-{{ if eq .chezmoi.hostname "ELARCH-WORK" }}
+{{- if eq .chezmoi.hostname "ELARCH-WORK" }}
 monitor=VGA-1,preferred,auto,1,mirror,eDP-1
-{{ else }}
+{{- else }}
 monitor=HDMI-A-1,preferred,auto,1,mirror,eDP-1
 {{- end }}
 
