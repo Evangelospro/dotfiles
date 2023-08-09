@@ -9,7 +9,7 @@ url=""
 license=('GPL3')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
-depends=('calamares', 'calamares-git')
+depends=('calamares')
 source=()
 sha256sums=()
 
