@@ -13,10 +13,10 @@ jobs:
         with:
           access_token: ${{ github.token }}
       - name: Get release tag
-        id: release-tag
-        run: echo "::set-output name=release-tag::ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')"
+        id: get-tag
+        run: echo "release-tag"="ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')" >> $GITHUB_OUTPUT
     outputs:
-      release_tag: ${{ steps.release-tag.outputs.release-tag }}
+      release_tag: ${{ steps.get-tag.outputs.release-tag }}
   build-release:
     runs-on: self-hosted
     needs: [prepare-release]
@@ -32,6 +32,8 @@ jobs:
         run: |
           # Speedup package building with some custom options
           cp dot_config/pacman/makepkg.conf /etc/makepkg.conf
+          # Only do this in a container not when building locally, building with root is DANGEROUS!!!(I removed ther root check on this copy)
+          cp iso/makepkg /usr/bin/makepkg
 
           cd iso
           # MUST RUN ./setup.sh on new systems to add chaotic-aur and multilib already done in the used docker container no need to redo
@@ -41,10 +43,7 @@ jobs:
           echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen 
           
           # Install necessary packages 
-          pacman -Syu go archiso gcc pkg-config zip rust cargo scdoc wlroots meson ninja cmake --needed --noconfirm
-
-          # replace "exit $E_ROOT" with "#exit $E_ROOT" in /usr/bin/makepkg, only do this in a container not when building locally, building with root is DANGEROUS!!!
-          sed -i 's/exit $E_ROOT/#exit $E_ROOT/g' /usr/bin/makepkg
+          sudo pacman -Syu go archiso gcc pkg-config zip rust cargo scdoc wlroots meson ninja cmake --needed --noconfirm
       - name: Build ISO
         run: |
           cd iso
