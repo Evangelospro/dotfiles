@@ -41,7 +41,7 @@ paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
 pip install -r requirements.txt
 ```
 
-### Vscode
+### Vscode (custom css)
 ```
 vsCodeWorkbench=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
 sudo cp -r $HOME/.local/share/chezmoi/dot_local/private_share/icons/vscode $vsCodeWorkbench
@@ -67,17 +67,18 @@ Shell: Zsh
 ## Ways to get the ISO
 ### From the releases tab
 #### Download all the files from the latest release
-##### Verify the sha256sums(all should return OK)
+##### Verify the part sha256sums(all should return OK)
 ```
-sha256sum --check *.sha256
-```
-##### VERY IMPORTANT(remove the sha256sums file before merging the parts)
-```
-rm ELARCH-*.part*.sha256
+sha256sum --check *.part*.sha256
 ```
 ##### Merge the parts together to get the iso
 ```
-cat ELARCH-*.part* > ELARCH.iso
+iso_name=$(\ls | grep -E '^ELARCH-*.iso.sha256$' | sed 's/.sha256//')
+cat $(\ls | grep -E '^ELARCH-.*\.part[^.]*$') > $iso_name
+```
+##### Verify the combined sha256sum
+```
+sha256sum --check $iso_name.sha256
 ```
 ### Manual Build
 ```
@@ -89,9 +90,9 @@ cd iso
 get the iso from the iso/isoOUT folder and install it as usual
 Default user is `liveuser` and password is `liveuser` sign in with these during the installation process and then run
 ```
-install
+installer
 ```
-to initialize the dotfile and misc installation process
+in the tty to initialize the dotfile and misc installation process
 
 SDDM should have started and once you login with liveuser you should be greeted with a gorgeous desktop!
 

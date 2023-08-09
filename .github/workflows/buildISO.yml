@@ -56,6 +56,7 @@ jobs:
         with:
           tag_name: ${{ needs.prepare-release.outputs.release_tag }}
           files: |
+            iso/isoOUT/*.iso.sha256
             iso/isoOUT/*.part*
             iso/archiso/all_packages.x86_64
           fail_on_unmatched_files: true
