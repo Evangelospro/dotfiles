@@ -1,5 +1,6 @@
 #!/bin/bash
 cd $HOME/.config/hypr/hyprland-repo
+git submodule update --init --recursive
 git pull --recurse-submodules
 sudo make pluginenv
 cd ~/.config/hypr/plugins/split-monitor-workspaces

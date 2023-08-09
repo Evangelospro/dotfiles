@@ -133,8 +133,8 @@ xl2tpd
 ###             VIA CALAMARES CONFIG START          ###
 #######################################################
 
-alci-calamares
-alci-calamares-config-zen
+calamares-git
+elarch-calamares-config
 
 #######################################################
 ###  PACKAGES THAT ARE REMOVED AFTER INSTALLATION   ###

@@ -5,3 +5,4 @@ iso/archiso/custom_repos/calamares_repo/*files
 iso/archiso/custom_repos/calamares_repo/*.db
 iso/archiso/custom_repos/calamares_repo/*.tar.gz*
 iso/archiso/packages.x86_64
+iso/archiso/custom_repos/calamares_repo/**/*.pkg.tar

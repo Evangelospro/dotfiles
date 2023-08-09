@@ -1,5 +1,7 @@
 # SYSTEM STARTUPS
 # scale apps
+# xorg BS
+exec-once=xhost +
 exec-once=xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 exec-once=hyprctl setcursor Bibata-Modern-Amber 24
 exec-once=/usr/lib/polkit-kde-authentication-agent-1

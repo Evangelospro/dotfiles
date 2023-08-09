@@ -1,20 +1,21 @@
 pkgname=elarch-calamares-config
+_buildDir=$(pwd)
 _destname1="/etc"
 pkgver=1.0
 pkgrel=1
 pkgdesc="Calamares config for ELARCH"
 arch=('any')
-url="https://github.com/evangelospro/dotfiles/iso/archiso/custom_repos/calamares_repo/calamares-config"
+url=""
 license=('GPL3')
-makedepends=('git')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
-# source is this very directory get it from the local filesystem
-source=(${pkgname}::"file://${PWD}")
-# SKIP the sha256sums for now
-sha256sums=('SKIP')
+depends=('calamares', 'calamares-git')
+source=()
+sha256sums=()
 
 package() {
-	install -dm755 ${pkgdir}${_destname1}
-	cp -r ${srcdir}${_destname1}/calamares ${pkgdir}${_destname1}
+	# install -dm755 ${pkgdir}${_destname1}
+	cd ${_buildDir}
+	pwd
+	cp -r etc/calamares ${pkgdir}${_destname1}
 }
