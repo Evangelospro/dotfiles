@@ -133,7 +133,7 @@ xl2tpd
 ###             VIA CALAMARES CONFIG START          ###
 #######################################################
 
-calamares-git
+calamares
 elarch-calamares-config
 
 #######################################################
@@ -390,7 +390,7 @@ chaotic-aur/android-studio
 metasploit
 ## Reverse engineering
 python-claripy
-python-angr-git
+aur python-angr-git
 rlwrap
 ghidra
 cutter
@@ -400,7 +400,7 @@ rz-cutter
 python-typing_extensions
 python-tabulate
 python-pwntools
-python-pwnscripts
+aur python-pwnscripts
 ropper
 ropgadget
 ## Web
