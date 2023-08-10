@@ -5,7 +5,6 @@ if ! ping -c 1 archlinux.org &> /dev/null; then
     sleep 2
     nmtui
 fi
-PYTHON_VERSION=$(python -V | cut -d " " -f 2 | cut -d "." -f 1,2)
 chezmoi init --apply Evangelospro -R
 cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
 # /var/log/Calamares-install.json if exists then we are past the installation phase
@@ -16,30 +15,18 @@ if [ ! -f /var/log/Calamares-install.json ]; then
     sudo cp $HOME/.local/share/chezmoi/confs/usr/* /usr/ -r
     sudo pacman-key --init
     sudo pacman-key --populate
-    rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
-    function update(){
-        paru -Syu --noconfirm
-        $HOME/.config/hypr/plugins/update.sh
-        # zi self-update
-        # zi update
-        # navi-update
-    }
-    update
+    # rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
+    # paru -Syu --noconfirm
+    $HOME/.config/hypr/plugins/update.sh
     sudo systemctl enable --now sddm
 else
-    sudo rm /root/.automated_script.sh
     echo "Post installation phase"
-    sudo rm /var/log/Calamares* # stores critical information (even passwords)
-    # create default directories Desktop, Documents, Downloads, Music, Pictures, Public, Templates, Videos
-    mkdir -p $HOME/{Desktop,Documents,Downloads,Music,Pictures,Public,Templates,Videos}
-    vsCodeWorkbench=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
-    sudo cp -r $HOME/.local/share/chezmoi/dot_local/private_share/icons/vscode $vsCodeWorkbench
-    sudo cp $HOME/.local/share/chezmoi/confs/vscode.css $vsCodeWorkbench/vsc.css
+    sudo rm /var/log/Calamares*
+    $HOME/.config/hypr/plugins/update.sh
     pip install -r $HOME/.local/share/chezmoi/requirements.txt
     rustup default stable
     # Lolcate database
-    lolcate --create
-    lolcate --update 2>/dev/null
+    lolcate --create && lolcate --update 2>/dev/null
     # cd /home/evangelospro/.local/share/chezmoi/confs/grub-themes/CyberRe && sudo ./install.sh
     echo "If everything went well, please remove /usr/local/bin/installer"
 fi

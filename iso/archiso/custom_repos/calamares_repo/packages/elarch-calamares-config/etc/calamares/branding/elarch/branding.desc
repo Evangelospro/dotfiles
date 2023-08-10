@@ -10,11 +10,15 @@ navigation: widget
 strings:
     productName:         ELARCH 
     shortProductName:    ELARCH
-    version:             2021.01.1
-    shortVersion:        2021.01.1
+    version:             2023.08.08
+    shortVersion:        2023.08.08
     versionedName:       elarch
     shortVersionedName:  elarch
     bootloaderEntryName: elarch
+    productUrl:          https://github.com/evangelospro/dotfiles
+    supportUrl:          https://github.com/evangelospro/dotfiles
+    knownIssuesUrl:      https://github.com/evangelospro/dotfiles/issues
+
 
 images:
     productIcon:         "elarch-logo.png"
@@ -28,7 +32,7 @@ style:
    sidebarTextHighlight: "#81A1C1"
 
 slideshow:               "show.qml"
-slideshowAPI: 2
+slideshowAPI:            2
 
 uploadServer :
     type :    "fiche"
