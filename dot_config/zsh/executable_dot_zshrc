@@ -1,4 +1,4 @@
-$ZSH/scripts/utils/banner.sh
+$ZSH/scripts/utils/Wezterm
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of $ZSHrc.
 # Initialization code that may require console input (password prompts, [y/n]
