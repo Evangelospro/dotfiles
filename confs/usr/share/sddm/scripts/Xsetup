@@ -1,7 +1,9 @@
 #!/bin/sh
 # Xsetup - run as root before the login dialog appears
-for next in $(xrandr --listmonitors | grep -E " *[0-9]+:.*" | cut -d" " -f6); do
+monitors=$(xrandr --listmonitors | grep -E " *[0-9]+:.*" | cut -d" " -f6)
+for next in $monitors; do
 	[ -z "$current" ] && current=$next && continue
 	xrandr --output $current --auto --output $next --auto --right-of $current
 	current=$next
 done
+current

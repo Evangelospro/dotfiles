@@ -275,7 +275,9 @@ swaync
 swaync-client
 swaylock-effects
 swayidle
+# Disks
 udiskie
+gparted
 
 # Performace
 stacer
