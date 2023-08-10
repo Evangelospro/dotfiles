@@ -269,6 +269,7 @@ kwallet-pam
 libevdev
 python-evdev
 ## misc
+progress
 wlogout
 swaync
 swaync-client
@@ -406,6 +407,8 @@ aur python-pwnscripts
 ropper
 ropgadget
 ## Web
+curl
+wget
 python-xcat
 python-flask
 wpscan
