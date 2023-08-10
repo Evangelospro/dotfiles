@@ -14,3 +14,4 @@ users:x:985:liveuser
 nopasswdlogin:x:966:liveuser
 autologin:x:967:liveuser
 liveuser:x:1000:
+plugdev:x:10001:liveuser
