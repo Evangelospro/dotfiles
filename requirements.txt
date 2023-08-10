@@ -4,4 +4,4 @@ hyprland
 ## PWN tools
 ptrlib
 ## Reverse
-angr 
+angr

@@ -35,7 +35,7 @@ paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
 
 ### Packages
 #### Arch packages listed and organized in
-[[iso/all_packages.x86_64]](packages)
+[[packages]](iso/all_packages.x86_64)
 #### Python packages
 ```
 pip install -r requirements.txt
