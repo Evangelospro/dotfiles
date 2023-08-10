@@ -7,7 +7,7 @@ sha256sum --check *.part*.sha256
 # if the checksums are correct, merge the parts
 if [ $? -eq 0 ]; then
 	iso_name=$(\ls | grep -E '^ELARCH-*.iso.sha256$' | sed 's/.sha256//')
-	cat $(\ls | grep -E '^ELARCH-.*\.part[^.]*$') > $iso_name
+	cat $(\ls | grep -E '^ELARCH-.*\.part[^.]*$') > "$iso_name"
 	# verify the checksum for the final iso
 	sha256sum --check $iso_name.sha256
 	# if the checksum is correct, delete the parts

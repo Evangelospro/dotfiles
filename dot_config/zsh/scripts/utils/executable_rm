@@ -1,7 +1,18 @@
 #!/bin/bash
-# check if there are parameters passed that are not files or directories
-# if so then just echo no need for -rf everything goes to recycle bin
-file_loc=$(readlink -f "$@")
+# find if there are paramaters such as -r -f or -rf and just remove them
+for arg in "$@"; do
+    case $arg in
+        -r | -f | -rf)
+            # Skip these parameters
+            ;;
+        *)
+            # Add non-matching arguments to the new_args array
+            new_args+=("$arg")
+            ;;
+    esac
+done
+
+file_loc=$(readlink -f "$new_args")
 
 if echo "$file_loc" | grep -q "SeaDrive"; then
     mv "$file_loc" $HOME/.local/share/Trash/files
