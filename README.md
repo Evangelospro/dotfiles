@@ -41,12 +41,6 @@ paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
 pip install -r requirements.txt
 ```
 
-### Vscode (custom css)
-```
-vsCodeWorkbench=/opt/visual-studio-code/resources/app/out/vs/code/electron-sandbox/workbench
-sudo cp -r $HOME/.local/share/chezmoi/dot_local/private_share/icons/vscode $vsCodeWorkbench
-sudo cp $HOME/.local/share/chezmoi/confs/vscode.css $vsCodeWorkbench/vsc.css
-```
 ##### needs to be performed on every vscode update hence aliased the first in .zsh
 ```
 sed -i 's;</head>;<link rel="stylesheet" href="vsc.css"></head>;g' $resPrefix/workbench.html
