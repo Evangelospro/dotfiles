@@ -64,19 +64,20 @@ Shell: Zsh
 #### Oneliner that gets you a ready to use iso
 ```
 curl https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get_iso.sh|bash
+ls iso
 ```
 #### Manual download and verification
-##### Download all the files from the latest release
-##### Verify each part's sha256sum(all should return OK)
+##### 1) Download all the files from the latest release
+##### 2) Verify each part's sha256sum(all should return OK)
 ```
 sha256sum --check *.part*.sha256
 ```
-##### Merge the parts together to get the iso
+##### 3) Merge the parts together to get the iso
 ```
 iso_name=$(\ls | grep -E '^ELARCH-*.iso.sha256$' | sed 's/.sha256//')
 cat $(\ls | grep -E '^ELARCH-.*\.part[^.]*$') > $iso_name
 ```
-##### Verify the combined sha256sum
+##### #) Verify the combined sha256sum
 ```
 sha256sum --check $iso_name.sha256
 ```

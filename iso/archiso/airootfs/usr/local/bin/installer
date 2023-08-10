@@ -27,6 +27,7 @@ if [ ! -f /var/log/Calamares-install.json ]; then
     update
     sudo systemctl enable --now sddm
 else
+    sudo rm /root/.automated_script.sh
     echo "Post installation phase"
     sudo rm /var/log/Calamares* # stores critical information (even passwords)
     # create default directories Desktop, Documents, Downloads, Music, Pictures, Public, Templates, Videos
@@ -40,4 +41,5 @@ else
     lolcate --create
     lolcate --update 2>/dev/null
     # cd /home/evangelospro/.local/share/chezmoi/confs/grub-themes/CyberRe && sudo ./install.sh
+    echo "If everything went well, please remove /usr/local/bin/installer"
 fi

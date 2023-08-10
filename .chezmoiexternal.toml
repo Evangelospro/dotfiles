@@ -31,6 +31,8 @@
     url = "https://github.com/hyprwm/hyprland.git"
     branch = "main"
     refreshPeriod = "24h"
+    clone.args = ["--recurse-submodules", "--shallow-submodules"]
+    pull.args = ["--recurse-submodules"]
 
 [".config/hypr/plugins/split-monitor-workspaces"]
     type = "git-repo"
