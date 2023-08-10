@@ -411,7 +411,6 @@ ropgadget
 ## Web
 curl
 wget
-python-xcat
 python-flask
 wpscan
 ## Networking
