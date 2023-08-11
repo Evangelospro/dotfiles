@@ -1,12 +1,31 @@
-# dotfiles 
+<div align="center">
+    <h1>【 Evangelospro's dotfiles 】</h1>
+    <h3></h3>
+</div>
+
+<div align="center">
+	![](https://img.shields.io/github/last-commit/evangelospro/dotfiles?&style=for-the-badge&color=FFB1C8&logoColor=D9E0EE&labelColor=292324)
+	![](https://img.shields.io/github/stars/evangelospro/dotfiles?style=for-the-badge&logo=andela&color=FFB686&logoColor=D9E0EE&labelColor=292324)
+	[![](https://img.shields.io/github/repo-size/evangelospro/dotfiles?color=CAC992&label=SIZE&logo=googledrive&style=for-the-badge&logoColor=D9E0EE&labelColor=292324)](https://github.com/evangelospro/dotfiles)
+	</a>
+</div>
 
 ![1.png](Pictures/showcase/1.png)
 
+# ELARCH<a name="top"></a>
+1. [How to apply?](#applying)
+2. [Dependencies](#dependencies)
+3. [Packages](#packages)
+4. [Custom Arch Linux ISO with AUR packages batteries included](#custom-arch-linux-iso-with-aur-packages-batteries-included)
+5. [Installation and Usage](#installation-and-usage)
+6. [Sources / Inspiration](#sources-and-inspiration)
 
-### use chezmoi to apply (all configs except those in confs, which should be installed manually and at your own risk, with knowledge of their according location!) I suggest you fork the repo and make your own changes and examine very carefully, make sure you understand what you are doing before applying anything!
+### use chezmoi to apply (all configs except those in confs, which should be installed manually and at your own risk, with knowledge of their according location!) I suggest you fork the repo and make your own changes and examine very carefully, make sure you understand what you are doing before applying anything!<a name="applying"></a>
 ```
 chezmoi init --apply Evangelospro
 ```
+
+## Dependencies<a name="dependencies"></a>
 
 ### Nvidia drivers (try nvidia-open-dkms if supported)
 ```
@@ -102,7 +121,12 @@ A nice calamares installer is also included to guide you through the installatio
 sudo calamares -d
 ```
 
-### Thanks to these awesome projects
+# 🌟 Stars
+- _Consider leaving a star if you liked the project! Thanks!_
+
+[![Stars](https://starchart.cc/evangelospro/dotfiles.svg)](https://starchart.cc/evangelospro/dotfiles)
+
+### Thanks to these awesome projects <a name="sources-and-inspiration"></a>
 * [pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)
 * [playerctl](https://www.archlinux.org/packages/extra/x86_64/playerctl/)
 * [blueman](https://archlinux.org/packages/extra/x86_64/blueman/)
