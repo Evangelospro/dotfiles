@@ -10,18 +10,6 @@ jobs:
     steps:
       - name: Allow workflow to be cancelled
         uses: styfle/cancel-workflow-action@0.9.0
-        with:
-          access_token: ${{ github.token }}
-      - name: Get release tag
-        id: get-tag
-        run: |
-          # Set timezone and locale 
-          sudo ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime 
-          # echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen 
-          
-          echo "release-tag"="ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')" >> $GITHUB_OUTPUT
-    outputs:
-      release_tag: ${{ steps.get-tag.outputs.release-tag }}
   build-release:
     runs-on: self-hosted
     needs: [prepare-release]
@@ -33,6 +21,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      - name: Timezone and locales
+        run: |
+          # Set timezone and locale 
+          sudo ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime 
+          # echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen 
+          
+          echo "release-tag"="ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')" >> $GITHUB_ENV
       - name: Check dependencies
         run: |
           # Speedup package building with some custom options
@@ -54,7 +49,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ needs.prepare-release.outputs.release_tag }}
+          tag_name: $release_tag
           files: |
             iso/isoOUT/*.iso.sha256
             iso/isoOUT/*.part*
