@@ -260,7 +260,8 @@ pavucontrol
 # brightness
 brightnessctl
 # Authentication
-polkit-kde-agent
+gnome-keyring
+polkit-gnome
 polkit-qt5
 kwallet-pam
 ## eww bar
