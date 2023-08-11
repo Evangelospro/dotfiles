@@ -1,6 +1,5 @@
 <div align="center">
     <h1>【 Evangelospro's dotfiles 】</h1>
-    <h3></h3>
 </div>
 
 <div align="center">
@@ -11,7 +10,7 @@
 
 ![1.png](Pictures/showcase/1.png)
 
-# ELARCH<a name="top"></a>
+# ELARCH<a name="top">
 1. [How to apply?](#applying)
 2. [Dependencies](#dependencies)
 3. [Packages](#packages)
