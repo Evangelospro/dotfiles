@@ -99,38 +99,40 @@
             :class "app-icon"
             :image-width "36"
             :image-height "36"
-          :path {monitor == 0 ? appname0_json["icon"] : appname1_json["icon"] })
+            :path {monitor == 0 ? appname0_json["icon"] : appname1_json["icon"]}
+          )
           (label
-            :class "app-name"
+            :class {monitor == 0 ? "app-name0" : "app-name1"}
             :xalign 0.5
             :limit-width "35"
             :show-truncated true
-          :text {monitor == 0 ? appname0_json["title"] : appname1_json["title"] })
+            :text {monitor == 0 ? appname0_json["title"] : appname1_json["title"]}
+          )
           (revealer
             :transition "slideright"
             :reveal control_reveal
             :duration "350ms"
-            (box
-              :vexpand "false"
-              :hexpand "false"
-              :orientation "h"
-              :space-evenly "false"
-              (button
-                :class "app-controls"
-                :onclick "hyprctl dispatch togglefloating 1"
-                :tooltip "toggle floating"
-              "")
-              (button
-                :class "app-controls"
-                :onclick "hyprctl dispatch fullscreen 1"
-                :tooltip "toggle fullscreen"
-              "")
-              (button
-                :class "app-controls"
-                :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');"
-                :tooltip "kill app"
-              "")
-            )
+            ; (box
+            ;   :vexpand "false"
+            ;   :hexpand "false"
+            ;   :orientation "h"
+            ;   :space-evenly "false"
+            ;   (button
+            ;     :class "app-controls"
+            ;     :onclick "hyprctl dispatch togglefloating 1"
+            ;     :tooltip "toggle floating"
+            ;   "")
+            ;   (button
+            ;     :class "app-controls"
+            ;     :onclick "hyprctl dispatch fullscreen 1"
+            ;     :tooltip "toggle fullscreen"
+            ;   "")
+            ;   (button
+            ;     :class "app-controls"
+            ;     :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');"
+            ;     :tooltip "kill app"
+            ;   "")
+            ; )
           )
         )
       )
@@ -296,7 +298,7 @@
         :onclick "${EWW_CMD} open --toggle system"
       ""))))
 
-(defwidget clock_module []
+(defwidget clock_module [?monitor]
   (eventbox
     :onhover "${EWW_CMD} update time_reveal=true"
     :onhoverlost "${EWW_CMD} update time_reveal=false"
@@ -306,19 +308,19 @@
       :spacing "0"
       (label
         :text clock_time
-      :class "clock_time_class" )
+      :class {monitor == 0 ? "clock_time_class0" : "clock_time_class1"})
       (revealer :transition "slideleft"
         :reveal time_reveal
         :duration "350ms"
         (button
-          :class "clock_date_class"
-        :onclick "${EWW_CMD} open --toggle calendar" clock_date)))))
+          :class {monitor == 0 ? "clock_date_class0" : "clock_date_class1"}
+          :onclick "${EWW_CMD} open --toggle calendar" clock_date)))))
 
-(defwidget powermenu []
+(defwidget powermenu [?monitor]
   (button
     :class "powermenu_icon"
     :onclick "pidof wlogout || wlogout -p layer-shell &"
-  )
+    "襤")
 )
 
 (defwidget sep []
@@ -339,7 +341,8 @@
 
 
 (defwidget tray []
-  (systray :active-only false
+  (systray 
+    ; :active-only false
     :pack-direction "ltr"
   )
 )
@@ -350,9 +353,10 @@
     :orientation "h"
     :space-evenly false
     :halign "start"
+    :hexpand "true"
     :class "left_modules"
     (launcher)
-    (rogcontrol)
+    ; (rogcontrol)
     (sep)
     (workspaces :monitor {monitor})
   )
@@ -384,8 +388,8 @@
     (bat)
     (mem)
     (sep)
-    (clock_module)
-    (notification-button)
+    (clock_module :monitor {monitor})
+    (notification-button :monitor {monitor})
     (powermenu)
   ))
 
@@ -397,9 +401,21 @@
     :orientation "h"
     :hexpand "false"
     :vexpand "false"
-    (left :monitor {monitor})
-    (center :monitor {monitor})
-    (right :monitor {monitor})
+    (transform
+      :scale-x  {monitor == 0 ? "100%" : "100%"}
+      :translate-x {monitor == 0 ? "0%" : "0%"}
+      (left :monitor {monitor})
+    )
+    (transform
+      :scale-x  {monitor == 0 ? "100%" : "100%"}
+      :translate-x {monitor == 0 ? "0%" : "0%"}
+      (center :monitor {monitor})
+    )
+    (transform
+      :scale-x  {monitor == 0 ? "100%" : "100%"}
+      :translate-x {monitor == 0 ? "0%" : "0%"}
+      (right :monitor {monitor})
+    )
   )
 )
 
@@ -424,9 +440,9 @@
   )
 )
 
-(defwidget notification-button[]
+(defwidget notification-button [?monitor]
   (button
-    :class "notification-button"
+    :class {monitor == 0 ? "notification-button0" : "notification-button1"}
     :tooltip "${notificationNum} Notifications}"
     :onclick "/home/evangelospro/.config/swaync/pop"
     :onrightclick "swaync-client -d"

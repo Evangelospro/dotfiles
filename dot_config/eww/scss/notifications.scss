@@ -1,7 +1,15 @@
 //Notification Center
-.notification-button {
+.notification-button0 {
 	font-family: Material\-Design\-Iconic\-Font;
 	font-size: 28px;
+	color: $white;
+	border-radius: 6px;
+	margin: 10px 0px;
+}
+
+.notification-button1 {
+	font-family: Material\-Design\-Iconic\-Font;
+	font-size: 20px;
 	color: $white;
 	border-radius: 6px;
 	margin: 10px 0px;

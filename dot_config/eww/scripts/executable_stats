@@ -10,7 +10,6 @@ battery(){
     else
         percent=$(\cat /sys/class/power_supply/${BAT}/capacity)
         status=$(\cat /sys/class/power_supply/${BAT}/status)
-
         case $1 in
             --percent) echo $percent;;
             --status) echo $status;;

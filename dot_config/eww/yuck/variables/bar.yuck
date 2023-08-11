@@ -1,4 +1,5 @@
 ; top bar
+
 ; Clock / Calendar
 (defpoll clock_time :interval "5s" "date '+\%l\%M \%p'")
 (defpoll clock_date :interval "10h" "date '+%b %d, %Y'")

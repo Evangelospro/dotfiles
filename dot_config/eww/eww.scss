@@ -68,7 +68,7 @@
 /** tooltip!! **/
 tooltip.background {
 	background-color: $transparent;
-	font-size: 18;
+	font-size: 18px;
 	border-radius: 10px;
 	color: $background;
 }
@@ -79,34 +79,43 @@ tooltip label {
 
 /** Widgets **/
 
-.clock_date_class {
-	font-size: 24;
+.clock_date_class0 {
+	font-size: 24px;
 	margin: 0px 20px 0px 0px;
 	color: $red;
 }
 
-.clock_time_class {
+.clock_date_class1 {
+	font-size: 20px;
+	margin: 0px 20px 0px 0px;
+	color: $red;
+}
+
+.clock_time_class0 {
 	color: $white;
-	font-size: 28;
+	font-size: 28px;
 	font-weight: bold;
 	margin: 0px 20px 0px 5px;
 }
 
-.notif_button {
-	font-size: 28;
-	margin: 0px 20px 0px 0px;
+.clock_time_class1 {
 	color: $white;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0px 20px 0px 5px;
 }
 
+// .powermenu_icon {
+// 	border-radius: 100%;
+// }
+
 .powermenu_icon {
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-image: url("images/mainicon.jpg");
-	background-position: center;
-	min-height: 52px;
-	min-width: 52px;
-	margin: 0px 10px 5px 0px;
-	border-radius: 60%;
+	margin: 5px 10px 5px 0px;
+	font-family: Material\-Design\-Iconic\-Font;
+	font-size: 28px;
+	font-weight: bold;
+	color: $white;
+	border-radius: 6px;
 }
 
 .batbar {
@@ -122,7 +131,7 @@ tooltip label {
 }
 
 .bright_icon {
-	font-size: 22;
+	font-size: 22px;
 	color: $orange;
 	margin: 0px 10px 0px 0px;
 }
@@ -362,12 +371,12 @@ scale trough {
 }
 
 .appnames-no-music {
-	margin: 25px 100px 0px 0px;
+	margin: 15px 50px 0px 0px;
 	padding: 0px 0px 0px 0px;
 }
 
 .appnames-music {
-	margin: -2px 100px 0px 0px;
+	margin: 0px 50px 0px 0px;
 	padding: 0px 0px 0px 0px;
 }
 
@@ -399,15 +408,22 @@ scale trough {
 	margin: 0px 10px 0px 10px;
 }
 
-.app-name {
+.app-name0 {
 	color: $white;
 	font-size: 20px;
 	font-weight: bold;
-	margin: -15px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+.app-name1 {
+	color: $white;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0px 0px 0px 0px;
 }
 
 .app-icon {
-	margin:-15px 10px 0px 0px;
+	margin: 0px 10px 0px 0px;
 }
 
 .app-controls {
