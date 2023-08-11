@@ -40,16 +40,16 @@ jobs:
           
           # Install necessary packages 
           sudo pacman -Syu go archiso gcc pkg-config zip rust cargo scdoc wlroots meson ninja cmake --needed --noconfirm
-      - name: Build ISO
-        run: |
-          cd iso
-          ./build.sh
+      # - name: Build ISO
+      #   run: |
+      #     cd iso
+      #     ./build.sh
       - name: Upload Releases only if build was successful
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: $release_tag
+          tag_name: ${{ env.release-tag }}
           files: |
             iso/isoOUT/*.iso.sha256
             iso/isoOUT/*.part*
