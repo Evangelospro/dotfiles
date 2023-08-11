@@ -42,9 +42,8 @@ jobs:
           sudo pacman -Syu go archiso gcc pkg-config zip rust cargo scdoc wlroots meson ninja cmake --needed --noconfirm
       - name: Build ISO
         run: |
-          # cd iso
-          # ./build.sh
-          echo ${{ env.release-tag }}
+          cd iso
+          ./build.sh
       - name: Upload Releases only if build was successful
         uses: softprops/action-gh-release@v1
         env:
