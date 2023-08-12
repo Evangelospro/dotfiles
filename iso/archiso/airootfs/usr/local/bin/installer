@@ -7,26 +7,12 @@ if ! ping -c 1 archlinux.org &> /dev/null; then
 fi
 chezmoi init --apply Evangelospro -R
 cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
-# /var/log/Calamares-install.json if exists then we are past the installation phase
-if [ ! -f /var/log/Calamares-install.json ]; then
-    echo "Installation phase"
-    sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r
-    sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt/ -r
-    sudo cp $HOME/.local/share/chezmoi/confs/usr/* /usr/ -r
-    sudo pacman-key --init
-    sudo pacman-key --populate
-    # rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
-    # paru -Syu --noconfirm
-    $HOME/.config/hypr/plugins/update.sh
-    sudo systemctl enable --now sddm
-else
-    echo "Post installation phase"
-    sudo rm /var/log/Calamares*
-    $HOME/.config/hypr/plugins/update.sh
-    pip install -r $HOME/.local/share/chezmoi/requirements.txt
-    rustup default stable
-    # Lolcate database
-    lolcate --create && lolcate --update 2>/dev/null
-    # cd /home/evangelospro/.local/share/chezmoi/confs/grub-themes/CyberRe && sudo ./install.sh
-    echo "If everything went well, please remove /usr/local/bin/installer"
-fi
+echo "Installation phase"
+sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r
+sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt/ -r
+sudo cp $HOME/.local/share/chezmoi/confs/usr/* /usr/ -r
+sudo pacman-key --init
+sudo pacman-key --populate
+# rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
+# paru -Syu --noconfirm
+sudo systemctl enable --now sddm

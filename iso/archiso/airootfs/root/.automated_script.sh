@@ -1,1 +1,0 @@
-sudo -u liveuser /usr/local/bin/installer

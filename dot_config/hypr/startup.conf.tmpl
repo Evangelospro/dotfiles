@@ -1,6 +1,5 @@
 # SYSTEM STARTUPS
-# scale apps
-# xorg BS
+# scale apps and xorg BS
 exec-once = xhost +
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 exec-once = hyprctl setcursor Bibata-Modern-Amber 24
@@ -11,11 +10,13 @@ exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTO
 # for auto/mounting drives
 exec-once=udiskie
 
+{{- if (ne .chezmoi.hostname "ELARCH-ISO") }}
 # exec-once=$HOME/.local/share/hyprload/hyprload.sh
 exec-once=hyprctl plugin load $HOME/.config/hypr/plugins/split-monitor-workspaces/split-monitor-workspaces.so
 # exec-once=hyprctl dispatch hyprload update # needs sudo for now
+{{- end }}
+
 exec-once=$HOME/.config/hypr/scripts/import_themes
-# exec-once=$HOME/.config/hypr/scripts/rgb_borders & # replaced with bulting hyprland functionality
 
 exec-once=swaybg -o \* -i $HOME/Pictures/backgrounds/background.png -m fill &
 exec-once=swaync & # or dunst notification daemon
