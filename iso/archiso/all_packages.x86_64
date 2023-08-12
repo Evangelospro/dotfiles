@@ -51,6 +51,7 @@ irssi
 iw
 iwd
 jfsutils
+jgmenu
 less
 lftp
 libfido2
@@ -154,7 +155,7 @@ mkinitcpio-openswap
 
 # Networking
 networkmanager
-#network-manager-applet
+network-manager-applet
 
 # Bluetooth
 blueman

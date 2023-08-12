@@ -104,8 +104,8 @@ class Workspacer(hyprland.Events):
 		# Attempt to use any manually set icons
 		if self.windowNames.get(class_name) is not None:
 			icon = self.windowNames[class_name]["icon"]
-			if icon.startswith("/"):
-				return icon
+			if os.path.exists(os.path.expanduser(icon)):
+				return os.path.expanduser(icon)
 			else:
 				class_name = icon
 		# attempt to get icon from geticons, with the provided class_name
@@ -170,7 +170,8 @@ class Workspacer(hyprland.Events):
 
 	async def on_connect(self):
 		self.logEvent("Connected to Hyprland socket")
-		self.c = await hyprland.Config.from_conf()
+		self.generateJSON()
+		# self.c = await hyprland.Config.from_conf()
 
 	async def on_workspace(self, ws):
 		self.logEvent(f"Workspace changed to {ws}")
@@ -239,6 +240,7 @@ class Workspacer(hyprland.Events):
 
 	async def on_closewindow(self, window_address):
 		self.logEvent(f"window with address {window_address} destroyed")
+		self.generateJSON()
 		# regenerate on destroy window or there will be a ghost icon on eww
 		# self.workspaces[self.focusedws]["classes"].pop(window_address, None)
 		# self.generateJSON()

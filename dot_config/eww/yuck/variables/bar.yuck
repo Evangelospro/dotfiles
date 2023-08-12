@@ -32,7 +32,7 @@
 (defpoll notificationNum :interval "5s" "scripts/stats notifications --num")
 
 ; Music
-(deflisten music_status "scripts/music status")
+(deflisten music_status :initial '["No players found"]' "scripts/music status")
 (deflisten lyrics_json :run_while {music_status[0] == "No players found" ? "false" : "true"} "scripts/music lyrics 2")
 
 ; Jsons
@@ -44,8 +44,7 @@
 
 ; revealers
 (defvar music_reveal false)
-(defvar control_reveal false)
-(defvar wifi_reveal false)
+; (defvar control_reveal false)
 (defvar time_reveal false)
 ; (defvar side_reveal false)
 ; (defvar volume_reveal false)

@@ -45,7 +45,7 @@
     "prettier.tabWidth": 4,
     "security.workspace.trust.untrustedFiles": "open",
     "[scss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.css-language-features"
     },
     "apklab.apkSignerPath": "/home/evangelospro/.apklab/uber-apk-signer-1.2.1.jar",
     "apklab.apktoolPath": "/home/evangelospro/.apklab/apktool_2.7.0.jar",

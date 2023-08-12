@@ -1,7 +1,6 @@
 @import "scss/variables.scss";
 @import "scss/music.scss";
 @import "scss/notifications.scss";
-@import "scss/sidebar.scss";
 
 * {
 	all: unset;
@@ -14,7 +13,7 @@
 	background-color: $background;
 	border-radius: 16px;
 	border-style: solid;
-	border-width: 3;
+	border-width: 3px;
 	border-color: $purple;
 }
 
@@ -56,13 +55,36 @@
 	// border-color: $purple;
 }
 
-.rightside, .leftside {
-	background-color: $background;
-	border-radius: 16px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: $purple;
-	padding: 0px 30px 0px 30px;
+menu {
+	background: $background;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+	border: 2px solid $purple;
+	padding: 1rem 0;
+}
+
+menu menu {
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+}
+
+menu>menuitem {
+	padding: 0.4em 1.5rem;
+	background: transparent;
+	transition: 0.2s ease background;
+}
+
+menu>menuitem:hover {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+menu>menuitem check:checked~label {
+	color: $purple;
+	font-weight: 600;
+}
+
+menubar>menuitem {
+	margin-left: 0.6rem;
 }
 
 /** tooltip!! **/
@@ -137,22 +159,18 @@ tooltip label {
 }
 
 .brightbar trough highlight {
-	background-image: linear-gradient(
-		to right,
-		$orange 30%,
-		#f2cdcd 50%,
-		$orange 100% * 50
-	);
+	background-image: linear-gradient(to right,
+			$orange 30%,
+			#f2cdcd 50%,
+			$orange 100% * 50);
 	border-radius: 10px;
 }
 
 .volbar trough highlight {
-	background-image: linear-gradient(
-		to right,
-		#afcee0 30%,
-		#92b6f4 50%,
-		#77a5bf 100% * 50
-	);
+	background-image: linear-gradient(to right,
+			#afcee0 30%,
+			#92b6f4 50%,
+			#77a5bf 100% * 50);
 	border-radius: 10px;
 }
 
@@ -162,7 +180,7 @@ tooltip label {
 	margin: 0px 10px 0px 0px;
 }
 
-.module_bluetooth{
+.module_bluetooth {
 	font-size: 25px;
 	color: $cyan;
 	margin: 0px 10px 0px 5px;
@@ -180,7 +198,7 @@ tooltip label {
 	margin: 0px 5px 0px 5px;
 }
 
-.module_bluetooth{
+.module_bluetooth {
 	font-size: 25px;
 	color: $cyan;
 	margin: 0px 15px 0px 5px;
@@ -322,49 +340,59 @@ scale trough {
 	font-size: 18px;
 	margin: 0px 10px 0px 10px;
 }
+
 .sys_text_bat_sub,
 .sys_text_mem_sub {
 	font-size: 16px;
 	color: #bbc5d7;
 	margin: 5px 0px 0px 25px;
 }
+
 .sys_text_bat,
 .sys_text_mem {
 	font-size: 21px;
 	font-weight: bold;
 	margin: 14px 0px 0px 25px;
 }
+
 .sys_icon_bat,
 .sys_icon_mem {
 	font-size: 30px;
 	margin: 30px;
 }
+
 .sys_win {
 	background-color: $background;
 	border-radius: 16px;
 }
+
 .sys_bat {
 	color: $green;
 	background-color: $grey;
 	border-radius: 10px;
 }
+
 .sys_mem {
 	color: #f1fa8c;
 	background-color: $grey;
 	border-radius: 10px;
 }
+
 .sys_icon_bat,
 .sys_text_bat {
 	color: $green;
 }
+
 .sys_icon_mem,
 .sys_text_mem {
 	color: $orange;
 }
+
 .sys_bat_box {
 	border-radius: 16px;
 	margin: 15px 10px 0px 20px;
 }
+
 .sys_mem_box {
 	border-radius: 16px;
 	margin: 15px 10px 0px 20px;
@@ -380,28 +408,28 @@ scale trough {
 	padding: 0px 0px 0px 0px;
 }
 
-.music-lyrics{
+.music-lyrics {
 	color: $purple;
 	font-size: 20px;
 	font-weight: bold;
 	margin: -5px 0px 0px 0px;
 }
 
-.music-controls-previous{
+.music-controls-previous {
 	color: $cyan;
 	font-size: 20px;
 	font-weight: bold;
 	margin: 0px 10px 0px 10px;
 }
 
-.music-controls-play{
+.music-controls-play {
 	color: $cyan;
 	font-size: 20px;
 	font-weight: bold;
 	margin: 0px 10px 0px 10px;
 }
 
-.music-controls-next{
+.music-controls-next {
 	color: $cyan;
 	font-size: 20px;
 	font-weight: bold;
@@ -433,98 +461,13 @@ scale trough {
 	margin: 0px 10px 0px 10px;
 }
 
-.audio-box {
-	background-color: $background;
-	border-radius: 16px;
-}
-
-.speaker_icon {
-	background-size: cover;
-	background-image: url("images/speaker.png");
-	background-position: center;
-	min-height: 70px;
-	min-width: 75px;
-	margin: 10px 20px 0px 20px;
-	border-radius: 12px;
-}
-
-.speaker_text {
-	color: $cyan;
-	font-size: 26px;
-	font-weight: bold;
-	margin: 20px 0px 0px 0px;
-}
-
-.speaker_bar scale trough highlight {
-	all: unset;
-	background-image: linear-gradient(
-		to right,
-		#afcee0 30%,
-		#92b6f4 50%,
-		#77a5bf 100% * 50
-	);
-	border-radius: 24px;
-}
-.speaker_bar scale trough {
-	all: unset;
-	background-color: #232232;
-	box-shadow: 0 2px 3px 2px $shadow;
-	border-radius: 24px;
-	min-height: 13px;
-	min-width: 120px;
-	margin: 0px 0px 5px 0px;
-}
-
-.mic_icon {
-	background-size: cover;
-	background-image: url("images/mic.png");
-	background-position: center;
-	min-height: 70px;
-	min-width: 75px;
-	margin: 20px 20px 0px 20px;
-	border-radius: 12px;
-}
-
-.mic_text {
-	color: $cyan;
-	font-size: 26px;
-	font-weight: bold;
-	margin: 0px 0px 0px 0px;
-}
-
-.mic_bar scale trough highlight {
-	all: unset;
-	background-image: linear-gradient(
-		to right,
-		#afcee0 30%,
-		#92b6f4 50%,
-		#77a5bf 100% * 50
-	);
-	border-radius: 24px;
-}
-.mic_bar scale trough {
-	all: unset;
-	box-shadow: 0 2px 3px 2px $shadow;
-	background-color: #232232;
-	border-radius: 24px;
-	min-height: 13px;
-	min-width: 120px;
-	margin: 0px 0px 20px 0px;
-}
-
-.audio_sep {
-	color: #38384d;
-	font-size: 18px;
-	margin: 0px 0px 0px 0px;
-}
-
 .date {
 	all: unset;
 	background-color: $widget-background;
 	padding: 33px 27px 27px 27px;
 	border-radius: 16px;
 	border-style: solid;
-	border-width: 2;
+	border-width: 2px;
 	border-color: $red;
 	color: $cyan;
 	font-size: 18px;

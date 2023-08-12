@@ -13,5 +13,6 @@
 	"org.kde.polkit-kde-authentication-agent-1": {"name":"Polkit-KDE", "icon":"password-manager"},
 	"blueman-manager": {"name":"Bluetooth Manager", "icon":"blueman"},
 	"ghidra-Ghidra": {"name":"Ghidra", "icon":"ghidra"},
-	"com.usebottles.bottles": {"name":"Bottles", "icon":"com.usebottles.bottles"}
+	"com.usebottles.bottles": {"name":"Bottles", "icon":"com.usebottles.bottles"},
+	"eww": {"name":"eww", "icon":"~/.config/eww/images/EwwLogo.svg"}
 }

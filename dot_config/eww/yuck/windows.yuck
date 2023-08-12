@@ -1,6 +1,7 @@
 (defwindow bar0
   :exclusive true
-  :stacking "bg"
+  :windowtype "dock"
+  :stacking "fg"
   :wm-ignore "false"
   :monitor 0
   :geometry (geometry
@@ -8,13 +9,15 @@
     :y "3px"
     :width "99.5%"
     :height "75px"
-  :anchor "top center")
+    :anchor "top center"
+  )
   (bar_layout :monitor 0)
 )
 
 (defwindow bar1
   :exclusive true
-  :stacking "bg"
+  :windowtype "dock"
+  :stacking "fg"
   :wm-ignore "false"
   :monitor 1
   :geometry (geometry
@@ -22,22 +25,10 @@
     :y "3px"
     :width "99.5%"
     :height "75px"
-  :anchor "top center")
+    :anchor "top center"
+  )
   (bar_layout :monitor 1)
 )
-
-(defwindow audio_ctl
-  :stacking "fg"
-  :focusable "false"
-  :screen 1
-  :monitor 0
-  :geometry (geometry
-    :x "20"
-    :y "0"
-    :anchor "top right"
-    :width "280px"
-  :height "60px")
-  (audio))
 
 (defwindow calendar
   :stacking "fg"
@@ -51,30 +42,4 @@
     :width "270px"
   :height "60px")
   (cal)
-)
-
-(defwindow system
-  :stacking "fg"
-  :focusable "false"
-  :screen 1
-  :monitor 0
-  :geometry (geometry
-    :x "20"
-    :y "0"
-    :anchor "top right"
-    :width "290px"
-  :height "120px")
-  (system))
-
-(defwindow sidebar
-  :stacking "fg"
-  :screen 1
-  :monitor 0
-  :geometry (geometry 
-    :x "0px"
-    :y "10px"
-    :width "1px"
-    :height "92%"
-  :anchor "bottom left")
-  (sidebar)
 )

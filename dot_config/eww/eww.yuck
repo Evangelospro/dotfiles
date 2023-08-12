@@ -90,8 +90,8 @@
     (box
       :class {music_status[0] == "No players found" ? "appnames-no-music" : "appnames-music"}
       (eventbox
-        :onhover "${EWW_CMD} update control_reveal=true"
-        :onhoverlost "${EWW_CMD} update control_reveal=false"
+        ; :onhover "${EWW_CMD} update control_reveal=true"
+        ; :onhoverlost "${EWW_CMD} update control_reveal=false"
         (box
           :orientation "h"
           :space-evenly false
@@ -108,32 +108,32 @@
             :show-truncated true
             :text {monitor == 0 ? appname0_json["title"] : appname1_json["title"]}
           )
-          (revealer
-            :transition "slideright"
-            :reveal control_reveal
-            :duration "350ms"
-            ; (box
-            ;   :vexpand "false"
-            ;   :hexpand "false"
-            ;   :orientation "h"
-            ;   :space-evenly "false"
-            ;   (button
-            ;     :class "app-controls"
-            ;     :onclick "hyprctl dispatch togglefloating 1"
-            ;     :tooltip "toggle floating"
-            ;   "")
-            ;   (button
-            ;     :class "app-controls"
-            ;     :onclick "hyprctl dispatch fullscreen 1"
-            ;     :tooltip "toggle fullscreen"
-            ;   "")
-            ;   (button
-            ;     :class "app-controls"
-            ;     :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');"
-            ;     :tooltip "kill app"
-            ;   "")
-            ; )
-          )
+          ; (revealer
+          ;   :transition "slideright"
+          ;   :reveal control_reveal
+          ;   :duration "350ms"
+          ;   (box
+          ;     :vexpand "false"
+          ;     :hexpand "false"
+          ;     :orientation "h"
+          ;     :space-evenly "false"
+          ;     (button
+          ;       :class "app-controls"
+          ;       :onclick "hyprctl dispatch togglefloating 1"
+          ;       :tooltip "toggle floating"
+          ;     "")
+          ;     (button
+          ;       :class "app-controls"
+          ;       :onclick "hyprctl dispatch fullscreen 1"
+          ;       :tooltip "toggle fullscreen"
+          ;     "")
+          ;     (button
+          ;       :class "app-controls"
+          ;       :onclick "kill -9 $(hyprctl activewindow | grep 'pid: ' | awk '{print $2}');"
+          ;       :tooltip "kill app"
+          ;     "")
+          ;   )
+          ; )
         )
       )
     )
@@ -340,12 +340,24 @@
   :width 125))
 
 
-(defwidget tray []
+(defwidget tray-widget []
   (systray 
     ; :active-only false
     :pack-direction "ltr"
   )
 )
+
+; (deflisten tray-json "scripts/tray/host.py")
+
+; (defwidget tray-widget []
+;   (box 
+;     :orientation "h" 
+;     :space-evenly true
+;         (for entry in tray-json
+;               (button :onclick {entry.menu_cmd + " &"}
+;                       :onrightclick {entry.cmd + " &"}
+;                       (image :image-height 20
+;                              :path {entry.IconPath})))))
 
 ;;define widget groups
 (defwidget left [?monitor]
@@ -380,10 +392,10 @@
     ; (volume)
     ; (network-speeds)
     (sep)
-    (wifi)
-    (bluetooth)
+    ; (wifi)
+    ; (bluetooth)
     (indicators)
-    (tray)
+    (tray-widget)
     (sep)
     (bat)
     (mem)
@@ -444,7 +456,7 @@
   (button
     :class {monitor == 0 ? "notification-button0" : "notification-button1"}
     :tooltip "${notificationNum} Notifications}"
-    :onclick "/home/evangelospro/.config/swaync/pop"
+    :onclick "/home/evangelospro/.config/swaync/pop &"
     :onrightclick "swaync-client -d"
     "${notificationIcon}${notificationNum} "
   )

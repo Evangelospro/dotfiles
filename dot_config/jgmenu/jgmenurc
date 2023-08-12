@@ -1,0 +1,45 @@
+position_mode        = pointer
+stay_alive           = 0
+csv_cmd              = pmenu
+csv_no_dirs          = 0
+tint2_look           = 0
+terminal_exec        = alacritty
+terminal_args        = 
+
+menu_width           = 250
+menu_padding_top     = 5
+menu_padding_right   = 5
+menu_padding_bottom  = 5
+menu_padding_left    = 5
+
+menu_radius          = 10
+menu_border          = 0
+menu_halign          = left
+
+sub_hover_action     = 1
+item_margin_y        = 3
+item_height          = 25
+item_padding_x       = 20
+item_radius          = 10
+item_border          = 0
+
+sep_height           = 5
+sep_halign           = left
+sep_markup           = style="italic"
+font                 = Inter 11pt
+
+icon_size            = 0
+icon_text_spacing    = 0
+icon_theme           = Colloid-teal-nord-dark
+arrow_string         = <span font_desc = "Symbols Nerd Font 13"></span>
+
+color_menu_bg        = #171B20 80
+color_menu_border    = #c0caf5
+
+color_norm_bg        = #171B20 0
+color_norm_fg        = #b6beca 100
+
+color_sel_bg         = #74bee9 50
+color_sel_fg         = #b6beca 100
+
+color_sep_fg         = b6beca 80

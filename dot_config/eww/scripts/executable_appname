@@ -44,8 +44,8 @@ class Appnames(hyprland.Events):
 		# Attempt to use any manually set icons
 		if self.windowNames.get(class_name) is not None:
 			icon = self.windowNames[class_name]["icon"]
-			if icon.startswith("/"):
-				return icon
+			if os.path.exists(os.path.expanduser(icon)):
+				return os.path.expanduser(icon)
 			else:
 				class_name = icon
 		# attempt to get icon from geticons, with the provided class_name
@@ -87,13 +87,16 @@ class Appnames(hyprland.Events):
 		return json.loads(
 			subprocess.check_output(["hyprctl", "-j", "activewindow"]).decode()
 		)
-	
+
 	# handle monitor (dis)connects
 	def monitor_event(self):
 		with subprocess.Popen(
 			["hyprctl", "-j", "monitors"], stdout=subprocess.PIPE
 		) as proc:
-			output = json.loads(proc.stdout.read().decode())
+			try:
+				output = json.loads(proc.stdout.read().decode())
+			except json.decoder.JSONDecodeError:
+				return
 		for monitor in output:
 			id = int(monitor["id"])
 			name = monitor["name"]
@@ -105,25 +108,32 @@ class Appnames(hyprland.Events):
 
 	def generate(self):
 		title = f"{self.currClass} | {self.currTitle}"
-		if self.currTitle == "":
+		if not self.currTitle or self.currTitle == "":
 			self.currIconPath = self.appgridIcon
 			title = "No focused window"
 		print(json.dumps({"title": title, "icon": self.currIconPath}), flush=True)
 
 	async def on_focusedmon(self, mon, ws):
 		self.focusedMon = self.monitormap[mon]
-		self.logEvent(f"monitor changed to {self.focusedMon} target: {self.targetMonitor}")
+		self.logEvent(
+			f"monitor changed to {self.focusedMon} target: {self.targetMonitor}"
+		)
 		if self.focusedMon == self.targetMonitor:
 			self.focusedws = int(ws)
-			self.generate()
+			# self.generate()
 
 	async def on_activewindow(self, window_class__, window_title__):
-		activeWindow = self.getActiveWindow()
+		try:
+			activeWindow = self.getActiveWindow()
+		except subprocess.CalledProcessError:
+			return
 		if activeWindow:
 			window_class = activeWindow["class"]
 			window_title = activeWindow["title"]
 			self.focusedMon = activeWindow["monitor"]
-			self.logEvent(f"window changed to {window_class} with title {window_title} on monitor {self.focusedMon} target: {self.targetMonitor}")
+			self.logEvent(
+				f"window changed to {window_class} with title {window_title} on monitor {self.focusedMon} target: {self.targetMonitor}"
+			)
 			if self.focusedMon == self.targetMonitor:
 				# get icon before changing currClass
 				self.currIconPath = self.getIcon(window_class)

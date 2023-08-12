@@ -4,9 +4,16 @@
 # https://specifications.freedesktop.org/notification-spec/latest/ar01s04.html
 
 # swaync-client -C
-swaync-client --reload-config
-swaync-client -rs
-swaync-client -t -sw
+# make a lock file, if it exists then we close the script, if not we create it
+if [ -f /tmp/swaync.lock ]; then
+	swaync-client -cp
+	rm /tmp/swaync.lock
+else
+	touch /tmp/swaync.lock
+	swaync-client --reload-config
+	swaync-client -rs
+	swaync-client -op
+fi
 
 # -u critical
 # -t 5000
