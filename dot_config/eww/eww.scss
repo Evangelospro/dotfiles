@@ -144,76 +144,14 @@ tooltip label {
 	color: $green;
 	background-color: $grey;
 	border-radius: 10px;
+	padding: 0px 0px 0px 0px;
 }
 
 .membar {
 	color: $orange;
 	background-color: $grey;
 	border-radius: 10px;
-}
-
-.bright_icon {
-	font-size: 22px;
-	color: $orange;
-	margin: 0px 10px 0px 0px;
-}
-
-.brightbar trough highlight {
-	background-image: linear-gradient(to right,
-			$orange 30%,
-			#f2cdcd 50%,
-			$orange 100% * 50);
-	border-radius: 10px;
-}
-
-.volbar trough highlight {
-	background-image: linear-gradient(to right,
-			#afcee0 30%,
-			#92b6f4 50%,
-			#77a5bf 100% * 50);
-	border-radius: 10px;
-}
-
-.volume_icon {
-	font-size: 25px;
-	color: $cyan;
-	margin: 0px 10px 0px 0px;
-}
-
-.module_bluetooth {
-	font-size: 25px;
-	color: $cyan;
-	margin: 0px 10px 0px 5px;
-}
-
-.module_essid {
-	font-size: 18px;
-	color: $cyan;
-	margin: 0px 10px 0px 0px;
-}
-
-.module-wifi {
-	font-size: 25px;
-	color: $cyan;
-	margin: 0px 5px 0px 5px;
-}
-
-.module_bluetooth {
-	font-size: 25px;
-	color: $cyan;
-	margin: 0px 15px 0px 5px;
-}
-
-.launcher_icon {
-	color: $cyan;
-	font-size: 36px;
-	margin: 0px 0px 0px 15px;
-}
-
-.rogcontrol_icon {
-	color: $red;
-	font-size: 36px;
-	margin: 0px 0px 0px 15px;
+	padding: 0px 0px 0px 0px;
 }
 
 .iconsearch {
@@ -239,11 +177,14 @@ tooltip label {
 	color: $grey;
 	font-weight: bold;
 	font-size: 22px;
-	margin: 0px 5px 0px 5px;
+	margin: -5px 3px 0px 3px;
 }
 
 .launcher_module {
 	background-color: $transparent;
+	font-size: 30px;
+	color: $cyan;
+	margin-left: 10px;
 }
 
 .mem_module {
