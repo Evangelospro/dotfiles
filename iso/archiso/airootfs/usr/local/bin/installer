@@ -5,7 +5,9 @@ if ! ping -c 1 archlinux.org &> /dev/null; then
     sleep 2
     nmtui
 fi
-chezmoi init --apply Evangelospro -R
+chezmoi init Evangelospro
+# No need to clone the external/submodule repos for the live environment
+chezmoi apply --exclude externals,encrypted
 cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
 echo "Installation phase"
 sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r

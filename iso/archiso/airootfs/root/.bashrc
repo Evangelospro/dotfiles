@@ -18,6 +18,8 @@ alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles exce
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 
+### AUTOMATED INSTALLATION START ###
 if [[ $(tty) == "/dev/tty1" ]]; then
 	/usr/local/bin/installer
 fi
+### AUTOMATED INSTALLATION END ###
