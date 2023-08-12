@@ -151,6 +151,11 @@ class Appnames(hyprland.Events):
 			self.currClass = ""
 			self.currTitle = ""
 			self.generate()
+	
+	async def on_movewindow(self, window_address, workspace):
+		self.logEvent(f"window with address {window_address} moved to workspace {workspace}")
+		self.focusedMon = 0 if workspace < 10 else 1
+		self.generate()
 
 
 a = Appnames()
