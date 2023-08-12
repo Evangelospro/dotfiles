@@ -32,8 +32,8 @@
 (defpoll notificationNum :interval "5s" "scripts/stats notifications --num")
 
 ; Music
-(deflisten music_status :initial '["No players found"]' "scripts/music status")
-(deflisten lyrics_json :run_while {music_status[0] == "No players found" ? "false" : "true"} "scripts/music lyrics 2")
+(deflisten music_status :initial "No players found" "scripts/music status")
+(deflisten lyrics_json :run_while {music_status == "No players found" ? "false" : "true"} "scripts/music lyrics 1")
 
 ; Jsons
 (deflisten indicators_json :inital '[{"caps_lock": "inactive", "num_lock": "active", "caffeine_state": "inactive", "caffeine_command": "", "layout": "US"}]' "scripts/indicators nodebug")

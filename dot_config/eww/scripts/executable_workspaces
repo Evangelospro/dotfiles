@@ -48,7 +48,7 @@ class Workspacer(hyprland.Events):
 		self.occupiedWorkspaces = {}
 		self.appgridIcon = (
 			subprocess.check_output(
-				["geticons", "--no-fallbacks", "appgrid", "-s", "24", "-c", "1"]
+				["geticons", "--no-fallbacks", "appgrid", "-s", "22", "-c", "1"]
 			)
 			.decode()
 			.splitlines()[0]
@@ -111,7 +111,7 @@ class Workspacer(hyprland.Events):
 		# attempt to get icon from geticons, with the provided class_name
 		icon_list = (
 			subprocess.check_output(
-				["geticons", "--no-fallbacks", class_name, "-s", "24", "-c", "1"]
+				["geticons", "--no-fallbacks", class_name, "-s", "22", "-c", "1"]
 			)
 			.decode()
 			.splitlines()
@@ -122,7 +122,7 @@ class Workspacer(hyprland.Events):
 			lowerClass = class_name.lower()
 			icon_list = (
 				subprocess.check_output(
-					["geticons", "--no-fallbacks", lowerClass, "-s", "24", "-c", "1"]
+					["geticons", "--no-fallbacks", lowerClass, "-s", "22", "-c", "1"]
 				)
 				.decode()
 				.splitlines()
@@ -248,6 +248,15 @@ class Workspacer(hyprland.Events):
 		self.logEvent(f"window with address {window_address} moved to workspace {workspace}")
 		self.focusedMon = 0 if workspace < 10 else 1
 		self.generate()
+
+	async def om_focusedmon(self, mon, ws):
+		self.focusedMon = self.monitormap[mon]
+		self.logEvent(
+			f"monitor changed to {self.focusedMon} target: {self.targetMonitor}"
+		)
+		if self.focusedMon == self.targetMonitor:
+			self.focusedws = int(ws)
+			self.generate()
 
 w = Workspacer()
 

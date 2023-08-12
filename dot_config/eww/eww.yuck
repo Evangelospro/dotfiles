@@ -36,7 +36,6 @@
           :tooltip "workspace ${workspace["num"]}"
           (box
             :orientation "v"
-            :spacing 1
             :space-evenly "false"
             :valign "center"
             :class "workspaces"
@@ -47,27 +46,25 @@
             )
             (box
               :orientation "h"
-              :spacing 1
               :space-evenly "false"
               :valign "center"
               :class "workspace-icons-left"
               (for icon in "${workspace["icons"][0]}"
                 (image
-                  :image-width "24"
-                  :image-height "24"
+                  :image-width "20"
+                  :image-height "20"
                   :path "${icon}"
                 )
               )
             )
             (box
               :orientation "h"
-              :spacing 1
               :space-evenly "false"
               :valign "center"
               :class "workspace-icons-right"
               (for icon in "${workspace["icons"][1]}"
                 (image
-                  :image-width "24"
+                  :image-width "20"
                   :path "${icon}"
                 )
               )
@@ -84,7 +81,7 @@
     :orientation "v"
     :space-evenly false
     (box
-      :class {music_status[0] == "No players found" ? "appnames-no-music" : "appnames-music"}
+      :class {music_status == "No players found" ? "appnames-no-music" : "appnames-music"}
       (eventbox
         ; :onhover "${EWW_CMD} update control_reveal=true"
         ; :onhoverlost "${EWW_CMD} update control_reveal=false"
@@ -93,14 +90,14 @@
           :space-evenly false
           (image
             :class "app-icon"
-            :image-width "36"
-            :image-height "36"
+            :image-width "24"
+            :image-height "24"
             :path {monitor == 0 ? appname0_json["icon"] : appname1_json["icon"]}
           )
           (label
             :class {monitor == 0 ? "app-name0" : "app-name1"}
-            :xalign 0.5
-            :limit-width "35"
+            ; :xalign 0.5
+            :limit-width {monitor == 0 ? "40" : "35"}
             :show-truncated true
             :text {monitor == 0 ? appname0_json["title"] : appname1_json["title"]}
           )
@@ -135,7 +132,7 @@
     )
     (box
       :class "music"
-      :visible {music_status[0] == "No players found" ? "false" : "true"}
+      :visible {music_status == "No players found" ? "false" : "true"}
       (eventbox
         :onhover "${EWW_CMD} update music_reveal=true"
         :onhoverlost "${EWW_CMD} update music_reveal=false"
@@ -148,8 +145,9 @@
             (for lyric in lyrics_json
               (label
                 :class "music-lyric"
-                :limit-width "35"
-                :xalign 0.5
+                :css ".music-lyric { margin: 50px 0px 0px 0px; }"
+                :limit-width {monitor == 0 ? "45" : "40"}
+                ; :xalign 0.5
                 :justify "center"
                 :text "${lyric}"
               )
@@ -165,17 +163,17 @@
               :halign "end"
               (button
                 :class "music-controls-previous"
-                :onclick "playerctl previous"
+                :onclick "playerctl --player=spotify previous"
                 :tooltip "previous"
               "")
               (button
                 :class "music-controls-play"
-                :onclick "playerctl play-pause"
+                :onclick "playerctl --player=spotify play-pause"
                 :tooltip "start/stop"
-              {music_status[0] == "Playing" ? "" : ""})
+              {music_status == "Playing" ? "" : ""})
               (button
                 :class "music-controls-next"
-                :onclick "playerctl next"
+                :onclick "playerctl --player=spotify next"
                 :tooltip "next"
               "")
             )
@@ -282,7 +280,6 @@
         ;                       (image :image-height 20
         ;                              :path {entry.IconPath})))))
 
-;;define widget groups
 (defwidget left [?monitor]
   (box
     :orientation "h"
@@ -323,8 +320,6 @@
     (powermenu)
   ))
 
-
-;;Define bars
 (defwidget bar_layout [?monitor]
   (centerbox
     :class "bar_class"
@@ -380,82 +375,6 @@
   )
 )
 
-; (defwidget audio []
-  ;   (box
-    ;     :class "audio-box"
-    ;     :oientation "v"
-    ;     :space-evenly "false"
-    ;     :vexpand "false"
-    ;     :hexpand "false"
-    ;     (box
-      ;       :halign "center"
-      ;       :space-evenly "false"
-      ;       :hexpand "false"
-      ;       :vexpand "false"
-      ;       (box
-        ;         :class "speaker_icon"
-      ;       :orientation "v")
-      ;       (box
-        ;         :orientation "v"
-        ;         :halign "center"
-        ;         :vexpand "false"
-        ;         :hexpand "false"
-        ;         (label
-          ;           :class "speaker_text"
-          ;           :text "speaker"
-          ;           :valign "center"
-          ;           :halign "start"
-        ;         )
-        ;         (box
-          ;           :class "speaker_bar"
-          ;           :halign "center"
-          ;           :vexpand "false"
-          ;           :hexpand "false"
-          ;           (scale
-            ;             :value volume_percent
-            ;             :space-evenly "false"
-            ;             :orientation "h"
-            ;             :onchange "amixer -D pulse sset Master {}%"
-            ;             :tooltip "volume on ${volume_percent}%"
-            ;             :max 100
-          ;           :min 0))))
-    ;     (label
-      ;       :text "_____________________________________"
-      ;       :class "audio_sep"
-    ;     :halign "center")
-    ;     (box
-      ;       :halign "center"
-      ;       :space-evenly "false"
-      ;       :hexpand "false"
-      ;       :vexpand "false"
-      ;       (box
-        ;         :class "mic_icon"
-      ;       :orientation "v")
-      ;       (box
-        ;         :orientation "v"
-        ;         :halign "center"
-        ;         :vexpand "false"
-        ;         :hexpand "false"
-        ;         (label
-          ;           :class "mic_text"
-          ;           :text "mic"
-          ;           :valign "center"
-          ;           :halign "left"
-        ;         )
-        ;         (box
-          ;           :class "mic_bar"
-          ;           :halign "center"
-          ;           :vexpand "false"
-          ;           :hexpand "false"
-          ;           (scale
-            ;             :value mic_percent
-            ;             :orientation "h"
-            ;             :tooltip "mic on ${mic_percent}%"
-            ;             :onchange "amixer -D pulse sset Capture {}%"
-            ;             :max 100
-          ;           :min 0))))))
-
-
 (defwidget system []
   (box
     :class "sys_win"
@@ -463,7 +382,6 @@
     :space-evenly "false"
     :hexpand "false"
     :vexpand "false"
-    :spacing 0
     (box
       :class "sys_bat_box"
       :orientation "h"
@@ -552,11 +470,11 @@
           :class "sys_text_mem_sub"
           :limit-width 22
         :wrap false)
-      ))))
+      )
+    )
+  )
+)
 
-
-
-;;Calendar Widget
 (defwidget cal []
   (box
     :class "cal"
@@ -565,5 +483,8 @@
       :class "cal-in"
       (calendar
         :day calendar_day
-      :year calendar_year))))
+      :year calendar_year)
+    )
+  )
+)
 

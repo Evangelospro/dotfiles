@@ -91,8 +91,9 @@ menubar>menuitem {
 tooltip.background {
 	background-color: $transparent;
 	font-size: 18px;
+	font-weight: bold;
 	border-radius: 10px;
-	color: $background;
+	color: $white;
 }
 
 tooltip label {
@@ -102,39 +103,35 @@ tooltip label {
 /** Widgets **/
 
 .clock_date_class0 {
-	font-size: 24px;
+	font-size: 20px;
 	margin: 0px 20px 0px 0px;
 	color: $red;
 }
 
 .clock_date_class1 {
-	font-size: 20px;
+	font-size: 16px;
 	margin: 0px 20px 0px 0px;
 	color: $red;
 }
 
 .clock_time_class0 {
 	color: $white;
-	font-size: 28px;
+	font-size: 20px;
 	font-weight: bold;
 	margin: 0px 20px 0px 5px;
 }
 
 .clock_time_class1 {
 	color: $white;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: bold;
 	margin: 0px 20px 0px 5px;
 }
 
-// .powermenu_icon {
-// 	border-radius: 100%;
-// }
-
 .powermenu_icon {
 	margin: 5px 10px 5px 0px;
 	font-family: Material\-Design\-Iconic\-Font;
-	font-size: 28px;
+	font-size: 20px;
 	font-weight: bold;
 	color: $white;
 	border-radius: 6px;
@@ -152,11 +149,6 @@ tooltip label {
 	background-color: $grey;
 	border-radius: 10px;
 	padding: 0px 0px 0px 0px;
-}
-
-.iconsearch {
-	color: $white;
-	font-size: 24px;
 }
 
 .iconmem {
@@ -213,24 +205,33 @@ scale trough {
 	// border: 2px solid $purple;
 	margin: 0px 5px 0px 5px;
 	background-color: $transparent;
+	padding: 0px 0px 0px 0px;
 }
 
 .workspace-num {
 	color: $white;
 	font-size: 17px;
 	font-weight: bold;
-	// padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	margin: -6px 0px 0px 0px;
+}
+
+.weorkspace-icons-left {
+	padding: 0px 0px 0px 0px;
+}
+
+.weorkspace-icons-right {
+	padding: 0px 0px 0px 0px;
 }
 
 .active-workspace {
 	background-color: $purple;
-	margin-top: -5px;
+	// margin-top: -5px;
 }
 
-.inactive-workspace {
-	margin-top: -5px;
-}
+// .inactive-workspace {
+// 	margin-top: -5px;
+// }
 
 .cal {
 	background-color: $background;
@@ -291,7 +292,7 @@ scale trough {
 
 .sys_text_bat,
 .sys_text_mem {
-	font-size: 21px;
+	font-size: 20px;
 	font-weight: bold;
 	margin: 14px 0px 0px 25px;
 }
@@ -351,9 +352,9 @@ scale trough {
 
 .music-lyrics {
 	color: $purple;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: bold;
-	margin: -5px 0px 0px 0px;
+	// margin: -5px 0px 0px 0px;
 }
 
 .music-controls-previous {
@@ -397,7 +398,7 @@ scale trough {
 
 .app-controls {
 	color: $cyan;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: bold;
 	margin: 0px 10px 0px 10px;
 }

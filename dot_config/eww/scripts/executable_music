@@ -21,7 +21,7 @@ def spotify():
 											"org.freedesktop.DBus.Properties")
 			return spotify_properties
 		except dbus.exceptions.DBusException:
-			print(json.dumps(["No players found"]), flush=True)
+			print("No players found", flush=True)
 			return False
 	
 	spotify_properties = connect()
@@ -55,7 +55,8 @@ def trackID():
 def status():
 	conn = spotify()
 	try:
-		return conn.Get("org.mpris.MediaPlayer2.Player", "PlaybackStatus")
+		res = conn.Get("org.mpris.MediaPlayer2.Player", "PlaybackStatus")
+		return res
 	except dbus.exceptions.DBusException:
 		return "No players found"
 
