@@ -11,7 +11,7 @@ function update(){
 function mvd() {
     local fileName
     # check that the user is not in the Downloads directory already
-    if [[ $(pwd) == *Downloads ]]; then
+    if [[ $(pwd) == "$HOME"/Downloads ]]; then
         echo "Already in Downloads directory"
         return 1
     else
@@ -34,7 +34,7 @@ function mvd() {
 # Move latest Screenshot to current directory
 function mvs() {
     # check that the user is not in the Screenshots directory already
-    if [[ $(pwd) == *Screenshots ]]; then
+    if [[ $(pwd) == "$HOME"/Pictures/Screenshots ]]; then
         echo "Already in Screenshots directory"
         return 1
     else
