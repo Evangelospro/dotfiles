@@ -7,6 +7,15 @@ function update(){
     navi-update
 }
 
+function upload(){
+    if [[ -z $1 ]]; then
+        echo "No file specified for upload"
+        return 1
+    fi
+    full_path=$(realpath $1)
+    curl --silent -F"file=@$full_path" https://0x0.st|copy && paste
+}
+
 # Move latest Download to current directory
 function mvd() {
     local fileName
@@ -122,16 +131,16 @@ man() {
 up () {
     local d=""
     local limit="$1"
-    
+
     # Default to limit of 1
     if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
         limit=1
     fi
-    
+
     for ((i=1;i<=limit;i++)); do
         d="../$d"
     done
-    
+
     # perform cd. Show error if cd fails
     if ! cd "$d"; then
         echo "Couldn't go up $limit dirs.";

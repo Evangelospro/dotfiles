@@ -52,10 +52,10 @@ alias restart-gnome="killall -3 gnome-shell"
 alias restart-kde="killall -3 plasmashell"
 alias hyprland-logs="cat /tmp/hypr/$(\ls -t /tmp/hypr/ | head -n 1)/hyprland.log"
 
-# Copy / Paste (X11 / Wayland)
-alias copy='if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard; else wl-copy; fi'
+# Copy / Paste (X11 / Wayland) remove ending newline when copying
+alias copy="if [[ -z $WAYLAND_DISPLAY ]]; then tr -d '\n' | xclip -selection clipboard; else wl-copy; fi"
 alias paste='if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard -o; else wl-paste; fi'
-alias copydir='pwd | tr -d '\n' |copy && paste'
+alias copydir='pwd | copy && paste'
 
 # Listing
 alias tree='tree -a -I .git --dirsfirst'
@@ -121,9 +121,10 @@ alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {
 alias nc='ncat -v'
 alias locate='lolcate'
 # alias jq='jaq'
-alias termbin='nc termbin.com 9999|copy'
+alias termbin='\ncat termbin.com 9999|copy && paste'
 alias which-command=whence
 alias fd='fd --hidden --follow'
+alias find='fd'
 alias hexdump='od -A x -t x1z -v'
 alias o='handlr open'
 # alias clear="$ZSH/scripts/utils/clear.sh"
@@ -141,9 +142,6 @@ if type kdeconnect-cli &>/dev/null; then
     alias share-clip="kdeconnect-cli -d $current_device --share-text $@"
     alias share="kdeconnect-cli -d $current_device --share $@"
 fi
-
-# Custom
-alias upload="$ZSH/scripts/utils/upload"
 
 # get fastest mirrors
 alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu'
