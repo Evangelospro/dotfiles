@@ -12,7 +12,7 @@ if [[ ! $(pidof eww) ]]; then
 fi
 
 ## Open widgets
-NB_MONITORS=($(hyprctl monitors -j | jaq -r '.[] | .id'))
+NB_MONITORS=($(hyprctl monitors -j | jq -r '.[] | .id'))
 echo "NB_MONITORS: ${NB_MONITORS[@]}"
 for i in "${!NB_MONITORS[@]}"; do
     ${EWW} open bar$i

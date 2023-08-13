@@ -120,7 +120,7 @@ alias tldr="tealdeer"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias nc='ncat -v'
 alias locate='lolcate'
-alias jq='jaq'
+# alias jq='jaq'
 alias termbin='nc termbin.com 9999|copy'
 alias which-command=whence
 alias fd='fd --hidden --follow'

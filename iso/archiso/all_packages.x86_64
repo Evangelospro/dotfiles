@@ -458,5 +458,6 @@ aur ulauncher-git
 rofi
 
 # parsers
-aur jaq
+# aur jaq
+jq
 aur ripgrep
