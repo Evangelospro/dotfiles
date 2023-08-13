@@ -10,19 +10,44 @@ function update(){
 # Move latest Download to current directory
 function mvd() {
     local fileName
-    fileName=$(\ls -t ~/Downloads | head -n 1)
-    # Check if file doesn't end with .crdownload ignore casing
-    if [[ ${(L)fileName} != *.crdownload ]]; then
-        mv ~/Downloads/"$fileName" .
+    # check that the user is not in the Downloads directory already
+    if [[ $(pwd) == *Downloads ]]; then
+        echo "Already in Downloads directory"
+        return 1
     else
-        echo $fileName has not finished downloading
+        fileName=$(\ls -t ~/Downloads | head -n 1)
+        # check that the command was completed successfully and has an output
+        if [[ $? == 0 && -n $fileName ]]; then
+            # Check if file doesn't end with .crdownload ignore casing
+            if [[ ${(L)fileName} != *.crdownload ]]; then
+                mv ~/Downloads/"$fileName" .
+            else
+                echo $fileName has not finished downloading
+            fi
+        else
+            echo "No files in Downloads"
+            return 1
+        fi
     fi
 }
 
+# Move latest Screenshot to current directory
 function mvs() {
-    local fileName
-    fileName=$(\ls -t ~/Pictures/Screenshots | head -n 1)
-    mv ~/Pictures/Screenshots/"$fileName" .
+    # check that the user is not in the Screenshots directory already
+    if [[ $(pwd) == *Screenshots ]]; then
+        echo "Already in Screenshots directory"
+        return 1
+    else
+        local fileName
+        fileName=$(\ls -t ~/Pictures/Screenshots | head -n 1)
+        # check that the command was completed successfully and has an output
+        if [[ $? == 0 && -n $fileName ]]; then
+            mv ~/Pictures/Screenshots/"$fileName" .
+        else
+            echo "No files in Screenshots"
+            return 1
+        fi
+    fi
 }
 
 function checkContainerRunning() {
@@ -97,16 +122,16 @@ man() {
 up () {
     local d=""
     local limit="$1"
-    
+
     # Default to limit of 1
     if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
         limit=1
     fi
-    
+
     for ((i=1;i<=limit;i++)); do
         d="../$d"
     done
-    
+
     # perform cd. Show error if cd fails
     if ! cd "$d"; then
         echo "Couldn't go up $limit dirs.";
