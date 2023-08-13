@@ -45,11 +45,11 @@ build() {
 
 if [ "$1" == "enable" ]; then
     echo "AUR enabled"
-    
+
     # Initialization
     mkdir -p $repo_dir
     cd $repo_dir
-    
+
     while read repo; do
         if [ "$repo" == "" ]; then
             continue
@@ -74,16 +74,16 @@ if [ "$1" == "enable" ]; then
         fi
         build $CLONE_URL $PKG_PATH
     done < "$iso_dir/all_packages.x86_64"
-    
+
     cd $base_dir
     # cp $repo_dir/* "$iso_dir/$repo_name"
-    
+
     # Configure Pacman
     cp "$iso_dir/pacman.conf.bak" "$iso_dir/pacman.conf"
     echo -ne "\n\n[$repo_name]" >> "$iso_dir/pacman.conf"
     echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
     echo -ne "\nServer = file://"$repo_dir >> "$iso_dir/pacman.conf"
-    
+
     # Remove the aur prefix and copy to packages.x86_64
     cat "$iso_dir/all_packages.x86_64" | sed 's/aur //g' > "$iso_dir/packages.x86_64"
     echo "AUR packages downloaded and built"

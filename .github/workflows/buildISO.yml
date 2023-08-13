@@ -1,58 +1,62 @@
 name: iso_build
 on:
-  workflow_dispatch:
-  # schedule:
-  #  - cron:  '30 2 * * *'
+    workflow_dispatch:
+    # schedule:
+    #  - cron:  '30 2 * * *'
 
 jobs:
-  prepare-release:
-    runs-on: self-hosted
-    steps:
-      - name: Allow workflow to be cancelled
-        uses: styfle/cancel-workflow-action@0.9.0
-  build-release:
-    runs-on: self-hosted
-    needs: [prepare-release]
-    permissions:
-      contents: write
-    container:
-      image: ghcr.io/evangelospro/archbase:latest
-      options: --privileged
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Timezone and locales
-        run: |
-          # Set timezone and locale 
-          sudo ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime 
-          # echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen 
-      - name: Check dependencies
-        run: |
-          # Speedup package building with some custom options
-          cp dot_config/pacman/makepkg.conf /etc/makepkg.conf
-          # Only do this in a container not when building locally, building with root is DANGEROUS!!!(I removed ther root check on this copy)
-          cp iso/makepkg /usr/bin/makepkg
+    prepare-release:
+        runs-on: self-hosted
+        steps:
+            - name: Allow workflow to be cancelled
+              uses: styfle/cancel-workflow-action@0.9.0
+    build-release:
+        runs-on: self-hosted
+        needs: [prepare-release]
+        permissions:
+            contents: write
+        container:
+            image: ghcr.io/evangelospro/archbase:latest
+            options: --privileged
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Timezone and locales
+              run: |
+                  # Set timezone and locale
+                  sudo ln -sf /usr/share/zoneinfo/Europe/Athens /etc/localtime
+                  # echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+            - name: Check dependencies
+              run: |
+                  # Speedup package building with some custom options
+                  cp dot_config/pacman/makepkg.conf /etc/makepkg.conf
+                  # Only do this in a container not when building locally, building with root is DANGEROUS!!!(I removed ther root check on this copy)
+                  cp iso/makepkg /usr/bin/makepkg
 
-          cd iso
-          # MUST RUN ./setup.sh on new systems to add chaotic-aur and multilib already done in the used docker container no need to redo
-          
-          # Install necessary packages 
-          sudo pacman -Syu go archiso gcc pkg-config zip rust cargo scdoc wlroots meson ninja cmake --needed --noconfirm
-      - name: Build ISO
-        run: |
-          cd iso
-          ./build.sh
-      - name: Get release tag
-        run: echo "release-tag"="ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')" >> $GITHUB_ENV
-      - name: Upload Releases only if build was successful
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ env.release-tag }}
-          files: |
-            iso/isoOUT/*.iso.sha256
-            iso/isoOUT/*.part*
-            iso/archiso/all_packages.x86_64
-          fail_on_unmatched_files: true
-          generate_release_notes: true
+                  cd iso
+                  # MUST RUN ./setup.sh on new systems to add chaotic-aur and multilib already done in the used docker container no need to redo
+
+                  # Install necessary packages
+                  sudo pacman -Syu go archiso gcc pkg-config zip rustup cargo scdoc wlroots meson ninja cmake --needed --noconfirm
+
+                  # Install rust nightly toolchain to build eww-tray-wayland-git
+                  rustup toolchain install nightly
+                  rustup default nightly
+            - name: Build ISO
+              run: |
+                  cd iso
+                  ./build.sh
+            - name: Get release tag
+              run: echo "release-tag"="ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')" >> $GITHUB_ENV
+            - name: Upload Releases only if build was successful
+              uses: softprops/action-gh-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ env.release-tag }}
+                  files: |
+                      iso/isoOUT/*.iso.sha256
+                      iso/isoOUT/*.part*
+                      iso/archiso/all_packages.x86_64
+                  fail_on_unmatched_files: true
+                  generate_release_notes: true

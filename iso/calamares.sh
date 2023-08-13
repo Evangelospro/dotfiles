@@ -7,7 +7,7 @@ repo_name="calamares_repo"
 iso_name="archiso"
 iso_dir="$base_dir/$iso_name"
 repo_dir="$iso_dir/custom_repos/$repo_name"
-makepkg_flags="-s --noextract --skipchecksums --skippgpcheck --skipinteg --noconfirm"
+makepkg_flags="-s --skipchecksums --skippgpcheck --skipinteg --noconfirm"
 
 build() {
     PKG_PATH=$1
