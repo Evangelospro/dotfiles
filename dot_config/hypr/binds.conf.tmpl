@@ -67,30 +67,7 @@ bind=$SHIFT_MOD,right,movewindow,mon:HDMI-A-1
 {{- end }}
 # Workspace bindings
 
-# hyprsome
-# bind=$MOD,1,exec,hyprsome workspace 1
-# bind=$MOD,2,exec,hyprsome workspace 2
-# bind=$MOD,3,exec,hyprsome workspace 3
-# bind=$MOD,4,exec,hyprsome workspace 4
-# bind=$MOD,5,exec,hyprsome workspace 5
-# bind=$MOD,6,exec,hyprsome workspace 6
-# bind=$MOD,7,exec,hyprsome workspace 7
-# bind=$MOD,8,exec,hyprsome workspace 8
-# bind=$MOD,9,exec,hyprsome workspace 9
-# bind=$MOD,0,exec,hyprsome workspace 10
-
-# bind=$SHIFT_MOD,1,exec,hyprsome move 1
-# bind=$SHIFT_MOD,2,exec,hyprsome move 2
-# bind=$SHIFT_MOD,3,exec,hyprsome move 3
-# bind=$SHIFT_MOD,4,exec,hyprsome move 4
-# bind=$SHIFT_MOD,5,exec,hyprsome move 5
-# bind=$SHIFT_MOD,6,exec,hyprsome move 6
-# bind=$SHIFT_MOD,7,exec,hyprsome move 7
-# bind=$SHIFT_MOD,8,exec,hyprsome move 8
-# bind=$SHIFT_MOD,9,exec,hyprsome move 9
-# bind=$SHIFT_MOD,0,exec,hyprsome move 10
-
-{- if ne .chezmoi.hostname "ELARCH-ISO" }
+{{- if ne .chezmoi.hostname "ELARCH-ISO" }}
 # split-workspaces hyprland plugin
 bind=$MOD,1,split-workspace,1
 bind=$MOD,2,split-workspace,2
@@ -113,7 +90,7 @@ bind=$SHIFT_MOD,7,split-movetoworkspace, 7
 bind=$SHIFT_MOD,8,split-movetoworkspace, 8
 bind=$SHIFT_MOD,9,split-movetoworkspace, 9
 bind=$SHIFT_MOD,0,split-movetoworkspace, 10
-{- else }
+{{- else }}
 bind=$MOD,1,workspace,1
 bind=$MOD,2,workspace,2
 bind=$MOD,3,workspace,3
@@ -135,7 +112,7 @@ bind=$SHIFT_MOD,7,movetoworkspace, 7
 bind=$SHIFT_MOD,8,movetoworkspace, 8
 bind=$SHIFT_MOD,9,movetoworkspace, 9
 bind=$SHIFT_MOD,0,movetoworkspace, 10
-{- end }
+{{- end }}
 
 bind=$MOD,TAB,workspace, e+1
 bind=$SHIFT_MOD,TAB,workspace, e-1
