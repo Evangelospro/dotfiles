@@ -144,11 +144,15 @@ cd iso
 
 [![Stars](https://starchart.cc/evangelospro/dotfiles.svg)](https://starchart.cc/evangelospro/dotfiles)
 
-#@ Thanks to these awesome projects and many more!!! <a name="sources-and-inspiration"></a>
-* [pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)
-* [playerctl](https://www.archlinux.org/packages/extra/x86_64/playerctl/)
-* [blueman](https://archlinux.org/packages/extra/x86_64/blueman/)
-* [hyprland](https://aur.archlinux.org/packages/hyprland-git/)
-* [swayidle](https://archlinux.org/packages/extra/x86_64/swayidle/)
-* [envycontrol](https://github.com/bayasdev/envycontrol)
+## Thanks to these awesome projects and many more!!! <a name="sources-and-inspiration"></a>
+* [Arch Linux](https://archlinux.org/)
+* [Archiso](https://wiki.archlinux.org/title/Archiso)
 * [ALCI](https://alci.online/)
+* [Calamares](https://calamares.io/)
+* [Hyprland](https://aur.archlinux.org/packages/hyprland-git/)
+* [Eww](https://github.com/elkowar/eww/)
+* [Wezterm](https://github.com/wez/wezterm/)
+* [playerctl](https://github.com/altdesktop/playerctl/)
+* [swayidle](https://archlinux.org/packages/extra/x86_64/swayidle/)
+* [envycontrol](https://github.com/bayasdev/envycontrol/)
+* [swaylock-effects](https://github.com/mortie/swaylock-effects/)

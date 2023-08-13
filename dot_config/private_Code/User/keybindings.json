@@ -14,4 +14,44 @@
         "key": "alt+f",
         "command": "inlineFold.toggle"
     },
+    {
+        "key": "ctrl+enter",
+        "command": "-editor.action.insertLineAfter",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-jupyter.runByLineStop",
+        "when": "notebookCellResource in 'jupyter.notebookeditor.runByLineCells'"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-jupyter.runcurrentcell",
+        "when": "editorTextFocus && isWorkspaceTrusted && jupyter.hascodecells && !editorHasSelection && !jupyter.havenativecells && !notebookEditorFocused"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-notebook.cell.insertCodeCellBelow",
+        "when": "notebookCellListFocused && !inputFocus"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-interactive.acceptChanges",
+        "when": "inlineChatHasProvider && inlineChatVisible && !inlineChatDocumentChanged || inlineChatHasProvider && inlineChatVisible && config.inlineChat.editMode != 'preview'"
+    },
+    {
+        "key": "ctrl+alt+enter",
+        "command": "-interactive.acceptChanges",
+        "when": "interactiveEditorHasProvider && interactiveEditorVisible && !interactiveEditorDocumentChanged || interactiveEditorHasProvider && interactiveEditorVisible && config.interactiveEditor.editMode != 'preview'"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-workbench.action.submitComment",
+        "when": "commentEditorFocused"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "-markdown.extension.onCtrlEnterKey",
+        "when": "editorTextFocus && !editorHasMultipleSelections && !editorReadonly && !markdown.extension.editor.cursor.inFencedCodeBlock && !markdown.extension.editor.cursor.inMathEnv && !suggestWidgetVisible && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+    },
 ]
