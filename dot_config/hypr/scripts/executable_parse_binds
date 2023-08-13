@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+import os
+
+hypr_keybings = os.path.expanduser('~/.config/hypr/binds.conf')
+
+# Control keys
+# $MOD = SUPER
+# $SHIFT_MOD = $MOD_SHIFT
+control_keys = {
+    "$MOD":"Win",
+    "$SHIFT_MOD":"Win + Shift",
+    "ALT_L":"Alt",
+    "CTRL_SHIFT":"Ctrl + Shift"
+}
+
+print('|Shortcut|Action|')
+print('|--------|------|')
+
+with open(hypr_keybings, 'r') as f:
+    lines = f.readlines()
+    for line in lines:
+        if line.startswith('bind'):
+            parts = line.split('=')[1].split(',')
+            try:
+                shortcut = control_keys[parts[0].strip()]
+                action = ' '.join(parts[1:]).strip()
+                print(f'|{shortcut}|{action}|')
+            except KeyError:
+                continue

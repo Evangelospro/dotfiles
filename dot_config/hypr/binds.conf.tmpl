@@ -1,37 +1,43 @@
-# Variables in caps are special variables
+# Keybind environment variables
+## Variables in caps are special variables
 env = TERMINAL, "wezterm"
 env = fileManager, "nautilus"
 env = browser, "google-chrome-stable"
 env = EDITOR, "code"
 
-# located in $HOME/.local/bin (which must be in $PATH)
+## located in $HOME/.local/bin (which must be in $PATH)
 env = clipMenu, "clipMenu"
 env = lockscreen, "lockscreen"
 env = launcher, "launcher"
 env = ewwLaunch, "ewwLaunch"
 
+# Control keys
 $MOD = SUPER
 $SHIFT_MOD = $MOD_SHIFT
 
-bind=$MOD,RETURN,exec,eval $TERMINAL
-bind=ALT_L,F4,killactive
-# bind=ALT_L,z,killactive
-bind=CTRL_SHIFT,ESC,exec,hyprctl kill # xkill like functionality
+# Exit Hyprland
 bind=$MOD,M,exit
-bind=$MOD,E,exec,eval $fileManager
-bind=$SHIFT_MOD,R,exec,eval $ewwLaunch
-bind=$SHIFT_MOD,F,togglefloating,
-bind=$MOD,P,exec,~/.config/hypr/scripts/monitors
-bind=$MOD,F,fullscreen
+
+# Launch / Reload Applications
+bind=$MOD,ENTER,exec,eval $TERMINAL
 bindl=$MOD,L,exec,eval $lockscreen
 bind=$MOD,SPACE,exec,ulauncher-toggle
 bind=,XF86Search,exec,eval $launcher
 bind=$MOD,V,exec,eval $clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
+bind=$MOD,E,exec,eval $fileManager
+bind=$SHIFT_MOD,R,exec,eval $ewwLaunch
 
-# Disable animations for screenshot
+# Close / Fullscreen / Kill Applications / Arrange monitors
+bind=ALT_L,F4,killactive
+bind=CTRL_SHIFT,ESC,exec,hyprctl kill # xkill like functionality
+bind=$MOD,F,fullscreen
+bind=$MOD,P,exec,~/.config/hypr/scripts/monitors
+
+# Screenshot / OCR
+## Disable animations for screenshot
 bind=,Print,exec,hyprctl keyword animation "fadeOut,0,0,default";flameshot gui;hyprctl keyword animation "fadeOut,1,4,default"
-# select area to perform OCR on
+## Select area to perform OCR on
 bind=$MOD,O,exec,wl-ocr
 
 # Function keys
@@ -44,29 +50,31 @@ bind=,XF86AudioPrev,exec,playerctl previous
 binde=,XF86MonBrightnessUp,exec,lightctl up
 binde=,XF86MonBrightnessDown,exec,lightctl down
 
+# Move focus between windows in the current workspace
 bind=$MOD,left,movefocus,l
 bind=$MOD,right,movefocus,r
 bind=$MOD,up,movefocus,u
 bind=$MOD,down,movefocus,d
 
+# Rearrange windows in the current workspace
 bind=$MOD,A,movewindow,l
 bind=$MOD,D,movewindow,r
 bind=$MOD,W,movewindow,u
 bind=$MOD,S,movewindow,d
 
+# Hyprload
 # bind=$SHIFT_MOD,R,hyprload,reload
 # bind=$SHIFT_MOD,U,hyprload,update
 
-# bind=$SHIFT_MOD,left,movecurrentworkspacetomonitor,eDP-1
-# bind=$SHIFT_MOD,right,movecurrentworkspacetomonitor,HDMI-A-1
+# Move Windows Between Monitors
 bind=$SHIFT_MOD,left,movewindow,mon:eDP-1
 {{ if eq .chezmoi.hostname "ELARCH-WORK" }}
 bind=$SHIFT_MOD,right,movewindow,mon:VGA-1
 {{ else }}
 bind=$SHIFT_MOD,right,movewindow,mon:HDMI-A-1
 {{- end }}
-# Workspace bindings
 
+# Move Windows Between Workspaces
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}
 # split-workspaces hyprland plugin
 bind=$MOD,1,split-workspace,1
@@ -114,8 +122,9 @@ bind=$SHIFT_MOD,9,movetoworkspace, 9
 bind=$SHIFT_MOD,0,movetoworkspace, 10
 {{- end }}
 
+# Cycle through workspaces
 bind=$MOD,TAB,workspace, e+1
 bind=$SHIFT_MOD,TAB,workspace, e-1
 
+# Move Windows with Mouse
 bindm=$MOD,mouse:272,movewindow
-bindm=$MOD,mouse:273,resizewindow

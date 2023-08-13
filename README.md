@@ -16,41 +16,77 @@
 5. [Installation and Usage](#installation-and-usage)
 6. [Sources / Inspiration](#sources-and-inspiration)
 
-### use chezmoi to apply (all configs except those in confs, which should be installed manually and at your own risk, with knowledge of their according location!) I suggest you fork the repo and make your own changes and examine very carefully, make sure you understand what you are doing before applying anything!<a name="applying"></a>
+### My dotfiles can be applied with the below oneliner. BUT I highly recommend that you fork this repo and edit the files to your liking before applying them(using your GitHub username). <a name="applying"></a>
 ```
 chezmoi init --apply Evangelospro
 ```
 
-## Dependencies<a name="dependencies"></a>
-
-### Nvidia drivers (try nvidia-open-dkms if supported)
-```
-sudo pacman -Sy nvidia-dkms nvidia-vaapi-driver-git
-```
-
-### Asus (I prefer to always stay latest), hence -git
-```
-paru -Sy asusctl-git supergfxctl-git
-```
-
-### Envy control (Hybrid setups, for asus use supergfxctl)
-```
-paru -Sy envycontrol
-```
-
+## Keybindings
 ### Hyprland
-#### Non-Nvidia
-```
-paru -Sy hyprland-git xdg-desktop-portal-hyprland-git
-```
-#### Nvidia
-```
-paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
-```
+| Keybinding | Action |
+| --- | --- |
+| Windows + M | Exit Hyprland |
 
+### Launch / Reload Applications
+| Keybinding | Action |
+| --- | --- |
+| Windows + Enter | Launch Terminal |
+| Windows + L | Lock Screen(swaylock) |
+| Windows + Space | Launch launcher(ulauncher) |
+| Windows + V | Open clipboard manager (wl-clipboard) |
+| Windows + C | Select color from screen (hyprpicker) and copy it |
+| Windows + E | Open file manager(nautilus) |
+| Windows + R | Reload the bar on top (eww) |
+
+### Close / Fullscreen / Kill Applications / Arrange monitors
+| Keybinding | Action |
+| --- | --- |
+| ALT + F4 | Close focused window |
+| CTRL + SHIFT + ESC | Kill window clicked on (xkill or windows taskmanager) |
+| Windows + F | Toggle fullscreen on focused window |
+| Windows + P | Arrange monitors (extend / duplicate) |
+
+### Screenshot / OCR
+| Keybinding | Action |
+| --- | --- |
+| prtsc | Take screenshot interactively (flameshot) |
+| Windows + O | Copy text from screen with OCR (tesseract) |
+
+### Move focus between windows in the current workspace
+| Keybinding | Action |
+| --- | --- |
+| Windows + Arrow keys | Move focus to the direction of the arrow key |
+
+### Rearrange windows in the current workspace
+| Keybinding | Action |
+| --- | --- |
+| Windows + AWSD | Move focused window to the direction of the AWSD keys |
+
+### Move Windows Between Monitors
+| Keybinding | Action |
+| --- | --- |
+| Windows + SHIFT + Arrow keys | Move focused window to the monitor in the direction of the arrow key |
+
+### Move Windows Between Workspaces
+| Keybinding | Action |
+| --- | --- |
+| Windows + SHIFT + 1-9 | Move focused window to the workspace with the number pressed |
+| Windows + 1-9 | Move to the workspace with the number pressed |
+
+### Cycle through workspaces
+| Keybinding | Action |
+| --- | --- |
+| Windows + TAB | Cycle through workspaces forward |
+| Windows + SHIFT + TAB | Cycle through workspaces backward |
+
+### Move window with mouse
+| Keybinding | Action |
+| --- | --- |
+| Windows + Click and drag | Move window with mouse |
+
+## Dependencies<a name="dependencies"></a>
 ### Packages
-#### Arch packages listed and organized in
-[[packages]](iso/all_packages.x86_64)
+#### Arch packages listed and organized in the [packages](iso/archiso/all_packages.x86_64) file
 #### Python packages
 ```
 pip install -r requirements.txt
@@ -70,9 +106,9 @@ Shell: Zsh
 ## Ways to get the ISO
 ### From the releases tab (automated build)
 [![iso_build](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml)
-#### Oneliner that gets you a ready to use iso
+#### Oneliner that gets you a ready-to-use iso with my dotfiles and packages
 ```
-curl https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get_iso.sh|bash
+curl https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get-iso.sh|bash
 ls iso
 ```
 #### Manual download and verification
@@ -97,19 +133,14 @@ cd iso
 ```
 
 ## Installation and Usage
-get the iso from the iso/isoOUT folder and install it as usual
-Default user is `liveuser` and password is `liveuser` sign in with these during the installation process and then run
-```
-installer
-```
-in the tty to initialize the dotfile and misc installation process
+### get the iso from the isoOUT folder and flash it to a usb drive
+### Default user is `liveuser` and password is `liveuser` sign in with these after the iso has finished the initial downloads
+### SDDM should have started and once you login with `liveuser` you should be greeted with a gorgeous desktop!
 
-SDDM should have started and once you login with liveuser you should be greeted with a gorgeous desktop!
+### A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically using the launcher shortcut from [above](#launch--reload-applications), you can start it manually by searching `install` in the launcher or by running `sudo calamares -d` in a terminal
 
-A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically run in a terminal(such as wezterm)
-```
-sudo calamares -d
-```
+### After the installation is complete, you can login with your user and password and enjoy your new system!
+
 
 # 🌟 Stars
 - _Consider leaving a star if you liked the project! Thanks!_

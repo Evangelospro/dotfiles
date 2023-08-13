@@ -1,7 +1,7 @@
 #!/bin/bash
-mkdir -p iso
-cd iso
-curl --silent "https://api.github.com/repos/evangelospro/dotfiles/releases/latest" | grep "browser_download_url" | cut -d : -f 2,3 | tr -d \" | wget -qi -
+mkdir -p isoOUT
+cd isoOUT
+curl --silent "https://api.github.com/repos/evangelospro/dotfiles/releases/latest" | grep "browser_download_url" | cut -d : -f 2,3 | tr -d \" | wget --show-progress -qi -
 # verify the checksums for each part
 sha256sum --check *.part*.sha256
 # if the checksums are correct, merge the parts
