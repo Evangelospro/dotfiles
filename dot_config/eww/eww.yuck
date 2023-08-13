@@ -239,7 +239,7 @@
 
 (defwidget powermenu [?monitor]
   (button
-    :class "powermenu_icon"
+    :class "powermenu-icon"
     :onclick "pidof wlogout || wlogout -p layer-shell &"
   "襤")
 )
@@ -360,7 +360,12 @@
     (button
       :onclick "${indicators_json["caffeine_command"]}"
       (image
-      :path "${EWW_CONFIG_DIR}/images/caffeine-${indicators_json["caffeine_state"]}.svg")
+        :class "caffeine-icon"
+        :tooltip "Caffeine"
+        :image-height 22
+        :image-width 22
+        :path "${EWW_CONFIG_DIR}/images/caffeine-${indicators_json["caffeine_state"]}.svg"
+      )
     )
   )
 )

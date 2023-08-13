@@ -108,7 +108,7 @@ Shell: Zsh
 [![iso_build](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml)
 #### Oneliner that gets you a ready-to-use iso with my dotfiles and packages
 ```
-curl https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get-iso.sh|bash
+curl --silent https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get-iso.sh|bash
 ls iso
 ```
 #### Manual download and verification
@@ -136,16 +136,15 @@ cd iso
 ### 1) [Download](#ways-to-get-the-iso) the iso and flash it to a usb drive
 ### 2) Default user is `liveuser` and password is `liveuser` sign in with these after the iso has finished the initial downloads
 ### 3) A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically using the launcher shortcut from [above](#launch--reload-applications), you can start it manually by searching `install` in the launcher or by running `sudo calamares -d` in a terminal
-
 ### 4) After the installation is complete, you can login with your just created user and password and enjoy your new system!
 
 
-# 🌟 Stars
+## 🌟 Stars 🌟
 - _Consider leaving a star if you liked the project! Thanks!_
 
 [![Stars](https://starchart.cc/evangelospro/dotfiles.svg)](https://starchart.cc/evangelospro/dotfiles)
 
-### Thanks to these awesome projects and many more!!! <a name="sources-and-inspiration"></a>
+#@ Thanks to these awesome projects and many more!!! <a name="sources-and-inspiration"></a>
 * [pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)
 * [playerctl](https://www.archlinux.org/packages/extra/x86_64/playerctl/)
 * [blueman](https://archlinux.org/packages/extra/x86_64/blueman/)
