@@ -15,12 +15,12 @@ function mvd() {
         echo "Already in Downloads directory"
         return 1
     else
-        fileName=$(\ls -t ~/Downloads | head -n 1)
+        fileName=$(\ls -t $HOME/Downloads | head -n 1)
         # check that the command was completed successfully and has an output
         if [[ $? == 0 && -n $fileName ]]; then
             # Check if file doesn't end with .crdownload ignore casing
             if [[ ${(L)fileName} != *.crdownload ]]; then
-                mv ~/Downloads/"$fileName" .
+                mv $HOME/Downloads/"$fileName" .
             else
                 echo $fileName has not finished downloading
             fi
@@ -39,10 +39,10 @@ function mvs() {
         return 1
     else
         local fileName
-        fileName=$(\ls -t ~/Pictures/Screenshots | head -n 1)
+        fileName=$(\ls -t $HOME/Pictures/Screenshots | head -n 1)
         # check that the command was completed successfully and has an output
         if [[ $? == 0 && -n $fileName ]]; then
-            mv ~/Pictures/Screenshots/"$fileName" .
+            mv $HOME/Pictures/Screenshots/"$fileName" .
         else
             echo "No files in Screenshots"
             return 1
