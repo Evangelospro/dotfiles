@@ -13,8 +13,8 @@ echo "Installation phase"
 sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r
 sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt/ -r
 sudo cp $HOME/.local/share/chezmoi/confs/usr/* /usr/ -r
-sudo pacman-key --init
-sudo pacman-key --populate
+# sudo pacman-key --init
+# sudo pacman-key --populate
 # rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist
 # paru -Syu --noconfirm
 sudo systemctl enable --now sddm
