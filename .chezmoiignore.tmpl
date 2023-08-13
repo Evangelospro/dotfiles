@@ -81,7 +81,7 @@ docs/zsdoc/data
 
 # Only create ssh keys if they don't exist
 
-{{- if (or (eq .chezmoi.hostname "ELARCH-WORK") (eq .chezmoi.hostname "ELARCH-ISO")) }}
+{{- if (ne .chezmoi.hostname "ELARCH") }}
 .ssh/config
 .ssh/keys/eraspberry1
 .ssh/keys/kasm
@@ -92,37 +92,37 @@ docs/zsdoc/data
 .ssh/keys/ftc
 .ssh/keys/ida
 .ssh/keys/elarch-builder
-{{ else }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/config") }}
+{{- else }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/config") }}
 .ssh/config
-{{ end }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/eraspberry1") }}
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/eraspberry1") }}
 .ssh/keys/eraspberry1
-{{ end }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/kasm") }}
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/kasm") }}
 .ssh/keys/kasm
-{{ end }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/portainer") }}
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/portainer") }}
 .ssh/keys/portainer
-{{ end }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/proxmox") }}
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/proxmox") }}
 .ssh/keys/proxmox
-{{ end }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/scripter") }}
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/scripter") }}
 .ssh/keys/scripter
-{{ end }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ewebsite") }}
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/ewebsite") }}
 .ssh/keys/ewebsite
-{{ end }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ftc") }}
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/ftc") }}
 .ssh/keys/ftc
-{{ end }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/ida") }}
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/ida") }}
 .ssh/keys/ida
-{{ end }}
-{{ if stat (joinPath .chezmoi.homeDir ".ssh/keys/elarch-builder") }}
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/elarch-builder") }}
 .ssh/keys/elarch-builder
-{{ end }}
+{{- end }}
 {{- end }}
 # The below are to be manually updated, if needed(the usually store files that change with timestamps...)
 .config/BetterDiscord/

@@ -68,9 +68,9 @@ bind=$MOD,S,movewindow,d
 
 # Move Windows Between Monitors
 bind=$SHIFT_MOD,left,movewindow,mon:eDP-1
-{{ if eq .chezmoi.hostname "ELARCH-WORK" }}
+{{- if  eq .chezmoi.hostname "ELARCH-WORK" }}
 bind=$SHIFT_MOD,right,movewindow,mon:VGA-1
-{{ else }}
+{{- else }}
 bind=$SHIFT_MOD,right,movewindow,mon:HDMI-A-1
 {{- end }}
 
