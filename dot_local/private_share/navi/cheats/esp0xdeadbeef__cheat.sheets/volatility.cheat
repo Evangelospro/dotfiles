@@ -1,9 +1,9 @@
-% memory dump analysis volatility2 
+% memory dump analysis volatility2
 ## heavely edited but creds go to (https://medium.com/@zemelusa/first-steps-to-volatile-memory-analysis-dcbd4d2d56a1)
 $ dump-location: ls *.bin *.mem *.dmp 2>/dev/null | sort -u | tr ' ' '\n'
-## base64 encoded data is: 
+## base64 encoded data is:
 ## $ active-profile-options: python3 -c "import os; p = os.popen('volatility2 --info  2> /dev/null');a = p.read(); p.close(); print('\n'.join(a.split('--------')[1].replace(' \n', '\n').split('\n\n')[0].split('\n')[1:]))" | tr -s ' '
-## i don't know why it is not working without baseing it. (i hope it's a temp fix. ;) ) 
+## i don't know why it is not working without baseing it. (i hope it's a temp fix. ;) )
 
 ## $ active-profile-options: echo L3Vzci9zYmluL3B5dGhvbjMgLWMgImltcG9ydCBvczsgcCA9IG9zLnBvcGVuKCd2b2xhdGlsaXR5MiAtLWluZm8gIDI+IC9kZXYvbnVsbCcpO2EgPSBwLnJlYWQoKTsgcC5jbG9zZSgpOyBwcmludCgnXG4nLmpvaW4oYS5zcGxpdCgnLS0tLS0tLS0nKVsxXS5yZXBsYWNlKCcgXG4nLCAnXG4nKS5zcGxpdCgnXG5cbicpWzBdLnNwbGl0KCdcbicpWzE6XSkpIiB8IHRyIC1zICcgJwo= | base64 -d | sh
 ## $ active-profile-options: "python3 -c $(printf '\x22')import os; p = os.popen('volatility2 --info  2> /dev/null');a = p.read(); p.close(); print('\n'.join(a.split('\x2D\x2D\x2D\x2D\x2D\x2D\x2D\x2D')[1].replace(' \n', '\n').split('\n\n')[0].split('\n')[1:]))$(printf '\x22') | tr -s ' '"
@@ -39,7 +39,7 @@ volatility2 -f <dump-location> --profile=$(cat .active-profile.txt) sockets | te
 # volatility2 Display process command-line arguments
 volatility2 -f <dump-location> --profile=$(cat .active-profile.txt) cmdline | tee -a cmdline.out
 
-# volatility2 Extract command history by scanning for _CONSOLE_INFORMATION 
+# volatility2 Extract command history by scanning for _CONSOLE_INFORMATION
 volatility2 -f <dump-location> --profile=$(cat .active-profile.txt) consoles | tee -a consoles.out
 
 # volatility2 Extract command history by scanning for _COMMAND_HISTORY
@@ -60,7 +60,7 @@ volatility2 -f <dump-location> --profile=$(cat .active-profile.txt) printkey -K 
 # volatility2 dump Passwords from a memdump using Mimikatz
 volatility2 -f <dump-location> --profile=$(cat .active-profile.txt) mimikatz | tee -a Mimikatz.out
 
-# volatility2 Check clipboard for saved things 
+# volatility2 Check clipboard for saved things
 volatility2 -f <dump-location> --profile=$(cat .active-profile.txt) clipboard | tee -a Clipboard.out
 
 # volatility2 Check Environment Variables content of a MemDump

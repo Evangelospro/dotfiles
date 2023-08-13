@@ -22,11 +22,11 @@ else
     if pacman -Qi paru &> /dev/null; then
         echo "Installing with paru"
         paru -S --noconfirm archiso
-    elif pacman -Qi yay &> /dev/null; then
+        elif pacman -Qi yay &> /dev/null; then
         echo "Installing with yay"
         yay -S --noconfirm $package
     fi
-
+    
     if pacman -Qi archiso &> /dev/null; then
         echo "Archiso has been installed. Continuing ..."
     else

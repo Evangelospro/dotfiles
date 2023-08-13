@@ -23,7 +23,7 @@ Download using the [GitHub .zip download](https://github.com/dracula/gtk/files/5
 
 #### Activating icon theme
 
-To activate the theme in Gnome, run the following commands in Terminal: 
+To activate the theme in Gnome, run the following commands in Terminal:
 
 ```
 gsettings set org.gnome.desktop.interface icon-theme "Dracula"

@@ -68,22 +68,22 @@ menu menu {
 	border-top-right-radius: 12px;
 }
 
-menu>menuitem {
+menu > menuitem {
 	padding: 0.4em 1.5rem;
 	background: transparent;
 	transition: 0.2s ease background;
 }
 
-menu>menuitem:hover {
+menu > menuitem:hover {
 	background: rgba(255, 255, 255, 0.1);
 }
 
-menu>menuitem check:checked~label {
+menu > menuitem check:checked ~ label {
 	color: $purple;
 	font-weight: 600;
 }
 
-menubar>menuitem {
+menubar > menuitem {
 	margin-left: 0.6rem;
 }
 

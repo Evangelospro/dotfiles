@@ -5,7 +5,7 @@
 # ...
 #
 # OR
-# 
+#
 # MOV byte ptr [EBP + 0x10],0x68
 # MOV byte ptr [EBP + 0x11],0x74
 # MOV byte ptr [EBP + 0x12],0x68
@@ -17,11 +17,11 @@
 # Issues:
 # - Only works when instructions loading the string are in loading order (that is destination order is not evaluated)
 # - Only works with ASCII
-#@author 
+#@author
 #@category
-#@keybinding 
+#@keybinding
 #@menupath Tools.Decoders.Simple Stack Strings
-#@toolbar 
+#@toolbar
 
 from ghidra.program.model.listing import CodeUnit
 
@@ -54,4 +54,3 @@ codeUnit = listing.getCodeUnitAt(currentAddress)
 codeUnit.setComment(codeUnit.PRE_COMMENT, comment)
 
 print "Full string: " + stack_str
-

@@ -35,5 +35,3 @@ deadbeef13
 ```
 
 ![Example of RC4Decrypter.py annotation in Ghidra](RC4Decrypter.png)
-
-

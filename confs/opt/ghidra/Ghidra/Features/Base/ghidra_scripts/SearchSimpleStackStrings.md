@@ -41,5 +41,3 @@ It will place a `PRE_COMMENT` at the location it was invoked (appending to any e
 ### Example:
 
 ![Example of SearchSimpleStackStrings.py annotation and bookmarks in Ghidra](SearchSimpleStackStrings.png)
-
-

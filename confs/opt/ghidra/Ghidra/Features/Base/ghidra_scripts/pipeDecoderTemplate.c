@@ -24,4 +24,3 @@ int main(int argc, char *argv[])
 	write(1, buffer_out, len);
 	return 0;
 }
-

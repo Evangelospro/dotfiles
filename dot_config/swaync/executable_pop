@@ -6,13 +6,13 @@
 # swaync-client -C
 # make a lock file, if it exists then we close the script, if not we create it
 if [ -f /tmp/swaync.lock ]; then
-	swaync-client -cp
-	rm /tmp/swaync.lock
+    swaync-client -cp
+    rm /tmp/swaync.lock
 else
-	touch /tmp/swaync.lock
-	swaync-client --reload-config
-	swaync-client -rs
-	swaync-client -op
+    touch /tmp/swaync.lock
+    swaync-client --reload-config
+    swaync-client -rs
+    swaync-client -op
 fi
 
 # -u critical

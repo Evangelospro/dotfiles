@@ -16,7 +16,7 @@ style "terminal_notebook" = "dark"
 {
 	fg[ACTIVE] = mix (0.8, "#DADBDB", "#DADBDB")
 
-	engine "murrine" { 
+	engine "murrine" {
 	}
 }
 

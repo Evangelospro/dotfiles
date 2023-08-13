@@ -19,4 +19,3 @@ function module.merge(...)
 end
 
 return module
-

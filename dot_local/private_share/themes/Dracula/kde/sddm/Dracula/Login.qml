@@ -108,7 +108,7 @@ SessionManagementScreen {
         Layout.bottomMargin: 10
         Layout.preferredWidth: 150
         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                
+
         font.pointSize: config.fontSize
         font.family: config.font
 

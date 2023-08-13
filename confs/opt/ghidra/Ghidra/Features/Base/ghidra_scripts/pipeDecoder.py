@@ -4,11 +4,11 @@
 # - accept the data to be decoded via stdin
 # - send decoded output to stdout
 # - output error messages to stderr
-#@author 
+#@author
 #@category Memory
-#@keybinding 
+#@keybinding
 #@menupath Tools.Decoders.Call external (piped) decoder
-#@toolbar 
+#@toolbar
 
 from subprocess import Popen, PIPE
 from ghidra.program.model.listing import CodeUnit

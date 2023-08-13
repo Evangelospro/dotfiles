@@ -26,6 +26,3 @@ wpscan --url '<url>' --plugins-detection aggressive | tee -a wp-agressive-plugin
 
 # wordpress enumerate users from host (remove the tls-checks if http)
 wpscan --enumerate u --url '<url>' --disable-tls-checks | tee -a wp-enum-users.txt
-
-
-

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 battery(){
-	BAT=$(\ls /sys/class/power_supply | grep BAT | head -n 1)
-	if [ -z $BAT ]; then
+    BAT=$(\ls /sys/class/power_supply | grep BAT | head -n 1)
+    if [ -z $BAT ]; then
         case $1 in
             --percent) echo "0";;
             --status) echo "No battery connected";;
@@ -13,13 +13,13 @@ battery(){
         case $1 in
             --percent) echo $percent;;
             --status) echo $status;;
-        esac  
+        esac
     fi
 }
 
 network() {
     status=$(nmcli g | grep -oE "disconnected")
-
+    
     if [ $status ] ; then
         icon="睊"
         essid=""
@@ -27,7 +27,7 @@ network() {
         essid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
         icon=""
     fi
-
+    
     case $1 in
         --essid) echo $essid;;
         --icon) echo $icon;;
@@ -45,7 +45,7 @@ bluetooth() {
         icon=""
         text=""
     fi
-
+    
     case $1 in
         --devices) echo $devices;;
         --icon) echo $icon;;
@@ -53,10 +53,10 @@ bluetooth() {
 }
 
 memory() {
-	total="$(free -m | grep Mem: | awk '{ print $2 }')"
+    total="$(free -m | grep Mem: | awk '{ print $2 }')"
     used="$(free -m | grep Mem: | awk '{ print $3 }')"
     free=$(expr $total - $used)
-
+    
     case $1 in
         --total) echo $total;;
         --used) echo $used;;
@@ -68,11 +68,11 @@ brightness() {
     max=$(brightnessctl m)
     current=$(brightnessctl g)
     percent=$(echo "scale=2; $current / $max * 100" | bc)
-	
+    
     case $1 in
         --percent) echo $percent;;
     esac
-
+    
 }
 
 notifications(){
@@ -91,28 +91,28 @@ notifications(){
 
 sound() {
     status=`amixer get Master | tail -n1 | grep -wo 'on'`
-
-	if [[ "$status" == "on" ]]; then
-		volume=`amixer get Master | tail -n1 | awk -F ' ' '{print $5}' | tr -d '[%]'`
-	else
-		volume=0
-	fi
-	current="${volume%%%}"
-
-	if [[ "$status" == "on" ]]; then
-		if [[ "$current" -eq "0" ]]; then
-			icon="ﱝ"
-		elif [[ ("$current" -ge "0") && ("$current" -le "30") ]]; then
+    
+    if [[ "$status" == "on" ]]; then
+        volume=`amixer get Master | tail -n1 | awk -F ' ' '{print $5}' | tr -d '[%]'`
+    else
+        volume=0
+    fi
+    current="${volume%%%}"
+    
+    if [[ "$status" == "on" ]]; then
+        if [[ "$current" -eq "0" ]]; then
+            icon="ﱝ"
+            elif [[ ("$current" -ge "0") && ("$current" -le "30") ]]; then
             icon="奄"
-		elif [[ ("$current" -ge "30") && ("$current" -le "60") ]]; then
-			icon="奔"
-		elif [[ ("$current" -ge "60") && ("$current" -le "100") ]]; then
-			icon="墳"
-		fi
-	else
-		icon="ﱝ"
-	fi
-
+            elif [[ ("$current" -ge "30") && ("$current" -le "60") ]]; then
+            icon="奔"
+            elif [[ ("$current" -ge "60") && ("$current" -le "100") ]]; then
+            icon="墳"
+        fi
+    else
+        icon="ﱝ"
+    fi
+    
     case $1 in
         --icon) echo $icon;;
         --percent) echo $volume;;
@@ -122,7 +122,7 @@ sound() {
 # Check command-line arguments and call the appropriate function
 case $1 in
     "battery") battery $2;;
-	"memory") memory $2;;
+    "memory") memory $2;;
     "network") network $2;;
     "notifications") notifications $2;;
     "sound") sound $2;;

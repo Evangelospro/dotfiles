@@ -25,15 +25,14 @@
 var callbacks = [];
 
 function addCancelAutoTriggerCallback(callback) {
-    callbacks.push(callback);
+  callbacks.push(callback);
 }
 
 function cancelAutoTrigger() {
-    callbacks.forEach(function(c) {
-        if (!c) {
-            return;
-        }
-        c();
-    });
+  callbacks.forEach(function (c) {
+    if (!c) {
+      return;
+    }
+    c();
+  });
 }
-

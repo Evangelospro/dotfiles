@@ -1,9 +1,9 @@
 #Searches the program via YARA.
-#@author 
+#@author
 #@category Search
-#@keybinding 
+#@keybinding
 #@menupath Search.YARA
-#@toolbar 
+#@toolbar
 
 import os, tempfile
 
@@ -30,7 +30,7 @@ for r in ranges:
 	begin = r.getMinAddress()
 	end = r.getMaxAddress()
 	length = r.getLength()
-	
+
 	status = "Searching: " + r.toString()
 	print "[+] " + status
 

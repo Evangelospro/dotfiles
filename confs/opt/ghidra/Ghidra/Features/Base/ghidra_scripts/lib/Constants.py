@@ -153,7 +153,7 @@ class Constants:
         if kind not in ARGUMENTS:
             return None
 
-        constants = [] 
+        constants = []
         for const in ARGUMENTS[kind]['vals']:
 
             if self.monitor.isCancelled():
@@ -327,4 +327,3 @@ class Constants:
                         continue
 
                     self.updateEquates(call, const, value)
-

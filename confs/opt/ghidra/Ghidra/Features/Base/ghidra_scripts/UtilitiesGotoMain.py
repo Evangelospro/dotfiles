@@ -3,7 +3,7 @@
 #@category Pwn
 #@keybinding ctrl m
 #@menupath Analysis.Pwn.Utilities.Goto Main
-#@toolbar 
+#@toolbar
 
 import ghidra.app.util.opinion.ElfLoader as ElfLoader
 import ghidra.app.util.bin.MemoryByteProvider as MemoryByteProvider

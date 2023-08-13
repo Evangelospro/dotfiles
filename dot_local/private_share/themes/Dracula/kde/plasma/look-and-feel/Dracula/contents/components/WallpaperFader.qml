@@ -87,7 +87,7 @@ Item {
                     0,         0,         intensity, 0,
                     0,         0,         0,         1
                 ));
-    
+
 
         fragmentShader: "
             uniform mediump mat4 colorMatrix;

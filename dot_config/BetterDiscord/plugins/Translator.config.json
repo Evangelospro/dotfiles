@@ -1,29 +1,29 @@
 {
-	"all": {
-		"choices": {
-			"received": {
-				"input": "auto",
-				"output": "$discord"
-			},
-			"sent": {
-				"input": "auto",
-				"output": "$discord"
-			}
-		},
-		"engines": {
-			"backup": "deepl",
-			"translator": "googleapi"
-		},
-		"exceptions": {
-			"wordStart": [
-				"!"
-			]
-		},
-		"general": {
-			"addTranslateButton": true,
-			"usePerChatTranslation": true,
-			"sendOriginalMessage": false,
-			"showOriginalMessage": false
-		}
-	}
+  "all": {
+    "choices": {
+      "received": {
+        "input": "auto",
+        "output": "$discord"
+      },
+      "sent": {
+        "input": "auto",
+        "output": "$discord"
+      }
+    },
+    "engines": {
+      "backup": "deepl",
+      "translator": "googleapi"
+    },
+    "exceptions": {
+      "wordStart": [
+        "!"
+      ]
+    },
+    "general": {
+      "addTranslateButton": true,
+      "usePerChatTranslation": true,
+      "sendOriginalMessage": false,
+      "showOriginalMessage": false
+    }
+  }
 }

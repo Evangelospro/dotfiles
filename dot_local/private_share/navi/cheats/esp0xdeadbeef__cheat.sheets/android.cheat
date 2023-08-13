@@ -13,7 +13,7 @@ adb devices
 adb root
 
 # Decompile an android apk app
-apktool d <apk> 
+apktool d <apk>
 
 # Fix the bug with `waiting for debugger`
 adb shell am clear-debug-app

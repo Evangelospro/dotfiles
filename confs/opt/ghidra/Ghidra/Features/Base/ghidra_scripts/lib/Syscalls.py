@@ -750,4 +750,3 @@ class Syscalls:
 
                 self.flatProgram.setEOLComment(call, comment)
                 self.flatProgram.createBookmark(call, 'Syscall', 'Found %s -- %s' % (syscall, comment))
-

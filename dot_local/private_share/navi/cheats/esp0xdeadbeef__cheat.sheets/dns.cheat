@@ -81,4 +81,3 @@ dig txt <target> @$dns_server
 # (hack the box cheats) Identify the MX records for the target domain.
 nslookup -query=MX <target>
 dig mx <target> @$dns_server
-

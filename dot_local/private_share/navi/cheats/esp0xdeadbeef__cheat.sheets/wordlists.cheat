@@ -1,6 +1,6 @@
 % wordlist cheat sheet
-$ file: ls | sort -u 
-$ wordlist: fdfind . "$(pwd)" /usr/share/{seclists,wordlists} /usr/share/amass/ -Ltf | sort -u 
+$ file: ls | sort -u
+$ wordlist: fdfind . "$(pwd)" /usr/share/{seclists,wordlists} /usr/share/amass/ -Ltf | sort -u
 
 
 # hack the box cheat: Wordlists Directory/Page Wordlist
@@ -38,7 +38,7 @@ echo 'test1\ntest2\ntest3' | cook -d - d hackerone,H1 ,_ secret,user -mc '0:l;2:
 # cook, read from file
 cook -f: <wordlist> f
 
-# cewl, generate a wordlist from a webpage (-h for more info) 
+# cewl, generate a wordlist from a webpage (-h for more info)
 cewl --convert-umlauts --meta --email --email_file /tmp/cewl-email-output --meta_file /tmp/cewl-meta-file --verbose <url>
 
 # hack the box cheat: Misc Create Sequence Wordlist
@@ -47,7 +47,7 @@ for i in $(seq 1 1000); do echo $i >> /tmp/1-1000-ids.txt; done
 # username-anarchy, Username creds / credentials generator
 git clone https://github.com/urbanadventurer/username-anarchy.git /opt/username-anarchy || (cd /opt/username-anarchy; git pull)
 /opt/username-anarchy/username-anarchy 'firstname_example'  'secondname_example';
-/opt/username-anarchy/username-anarchy 
+/opt/username-anarchy/username-anarchy
 
 
 # rsmangler, Mangle username creds (will apt install if not on system)

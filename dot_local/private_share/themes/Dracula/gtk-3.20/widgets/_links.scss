@@ -2,48 +2,64 @@
  * Links *
  *********/
 *:link {
-  color: $link_color;
+	color: $link_color;
 
-  &:visited {
-    color: $link_visited_color;
+	&:visited {
+		color: $link_visited_color;
 
-    *:selected & { color: mix($selected_fg_color, $selected_bg_color, 60%); }
-  }
+		*:selected & {
+			color: mix($selected_fg_color, $selected_bg_color, 60%);
+		}
+	}
 
-  &:hover {
-    color: lighten($link_color,10%);
+	&:hover {
+		color: lighten($link_color, 10%);
 
-    *:selected & { color: mix($selected_fg_color, $selected_bg_color, 90%); }
-  }
+		*:selected & {
+			color: mix($selected_fg_color, $selected_bg_color, 90%);
+		}
+	}
 
-  &:active {
-    color: $link_color;
+	&:active {
+		color: $link_color;
 
-    *:selected & { color: mix($selected_fg_color, $selected_bg_color, 80%); }
-  }
+		*:selected & {
+			color: mix($selected_fg_color, $selected_bg_color, 80%);
+		}
+	}
 
-  &:backdrop { &:backdrop:hover, &:backdrop:hover:selected, & { color: $selected_bg_color; }}
+	&:backdrop {
+		&:backdrop:hover,
+		&:backdrop:hover:selected,
+		& {
+			color: $selected_bg_color;
+		}
+	}
 
-  @at-root %link_selected,
-  &:selected,
-  *:selected & { color: mix($selected_fg_color, $selected_bg_color, 80%); }
+	@at-root %link_selected,
+		&:selected,
+		*:selected & {
+		color: mix($selected_fg_color, $selected_bg_color, 80%);
+	}
 }
 
 button:link,
 button:visited {
-  @extend %undecorated_button;
+	@extend %undecorated_button;
 
-  @extend *:link;
+	@extend *:link;
 
-  text-shadow: none;
+	text-shadow: none;
 
-  &:hover,
-  &:active,
-  &:checked {
-    @extend %undecorated_button;
+	&:hover,
+	&:active,
+	&:checked {
+		@extend %undecorated_button;
 
-    text-shadow: none;
-  }
+		text-shadow: none;
+	}
 
-  > label { text-decoration-line: underline; }
+	> label {
+		text-decoration-line: underline;
+	}
 }

@@ -1,16 +1,16 @@
 {
-  "IS_MAXIMIZED": false,
-  "IS_MINIMIZED": false,
-  "OPEN_ON_STARTUP": false,
-  "MINIMIZE_TO_TRAY": false,
-  "SKIP_HOST_UPDATE": true,
-  "DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING": true,
-  "MIN_WIDTH": 940,
-  "MIN_HEIGHT": 500,
-  "WINDOW_BOUNDS": {
-    "x": 10,
-    "y": 10,
-    "width": 940,
-    "height": 1060
-  }
+    "IS_MAXIMIZED": false,
+    "IS_MINIMIZED": false,
+    "OPEN_ON_STARTUP": false,
+    "MINIMIZE_TO_TRAY": false,
+    "SKIP_HOST_UPDATE": true,
+    "DANGEROUS_ENABLE_DEVTOOLS_ONLY_ENABLE_IF_YOU_KNOW_WHAT_YOURE_DOING": true,
+    "MIN_WIDTH": 940,
+    "MIN_HEIGHT": 500,
+    "WINDOW_BOUNDS": {
+        "x": 10,
+        "y": 10,
+        "width": 940,
+        "height": 1060
+    }
 }

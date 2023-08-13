@@ -36,16 +36,16 @@ smbclient //<target>/<share> -c 'mkdir .\<remote-folder-with-backslashes>' <pass
 # Rename a file in a specific share folder
 smbclient //<target>/<share> -c 'rename <current file> <new file>' <password> -U <username>
 
-# enum4linux - General enumeration - anonymous session 
+# enum4linux - General enumeration - anonymous session
 enum4linux -a <target>
 
 # enum4linux - General enumeration - authenticated session
-enum4linux -u <username> -p <password> -a <target> 
+enum4linux -u <username> -p <password> -a <target>
 
 # enum4linux - Users enumeration
 enum4linux -u <username> -p <password> -U <target>
 
-# enum4linux - Group and members enumeration 
+# enum4linux - Group and members enumeration
 enum4linux -u <username> -p <password> -G <target>
 
 # enum4linux - Password policy
@@ -71,12 +71,12 @@ nmap -p 445 --script smb-enum-shares <target> --script-args smbuser=<username>,s
 ## nmap -p 445 --script smb-os-discovery <target>
 
 ### nmap - SMB Vulnerabilities on Windows
-## nmap -p 445 --script smb-vuln-ms06-025 <target> 
-## nmap -p 445 --script smb-vuln-ms07-029 <target> 
-## nmap -p 445 --script smb-vuln-ms08-067 <target> 
-## nmap -p 445 --script smb-vuln-ms10-054 <target> 
-## nmap -p 445 --script smb-vuln-ms10-061 <target> 
-## nmap -p 445 --script smb-vuln-ms17-010 <target> 
+## nmap -p 445 --script smb-vuln-ms06-025 <target>
+## nmap -p 445 --script smb-vuln-ms07-029 <target>
+## nmap -p 445 --script smb-vuln-ms08-067 <target>
+## nmap -p 445 --script smb-vuln-ms10-054 <target>
+## nmap -p 445 --script smb-vuln-ms10-061 <target>
+## nmap -p 445 --script smb-vuln-ms17-010 <target>
 
 # nmap - SMB all vulns windows:
 nmap -p 445 --script smb-vuln-ms06-025 --script smb-vuln-ms07-029 --script smb-vuln-ms08-067 --script smb-vuln-ms10-054 --script smb-vuln-ms10-061 --script smb-vuln-ms17-010 <target>

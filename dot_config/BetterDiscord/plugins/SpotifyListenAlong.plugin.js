@@ -9,7 +9,7 @@
  */
 /*@cc_on
 @if (@_jscript)
-    
+
     // Offer to self-install for clueless users that try to run this directly.
     var shell = WScript.CreateObject("WScript.Shell");
     var fs = new ActiveXObject("Scripting.FileSystemObject");
@@ -30,56 +30,56 @@
     WScript.Quit();
 
 @else@*/
-const config = {"info":{"name":"SpotifyListenAlong","authors":[{"name":"ordinall","discord_id":"374663636347650049","github_username":"ordinall"}],"version":"1.1.0","description":"Enables Spotify Listen Along feature on Discord without Premium","github":"https://github.com/ordinall/BetterDiscord-Stuff/tree/master/Plugins/SpotifyListenAlong/","github_raw":"https://raw.githubusercontent.com/ordinall/BetterDiscord-Stuff/master/Plugins/SpotifyListenAlong/SpotifyListenAlong.plugin.js"},"changelog":[{"title":"v1.1.0","items":["Fixed for the major discord electron update (thanks @d0gkiller87)"]}],"main":"index.js"};
+const config = { "info": { "name": "SpotifyListenAlong", "authors": [{ "name": "ordinall", "discord_id": "374663636347650049", "github_username": "ordinall" }], "version": "1.1.0", "description": "Enables Spotify Listen Along feature on Discord without Premium", "github": "https://github.com/ordinall/BetterDiscord-Stuff/tree/master/Plugins/SpotifyListenAlong/", "github_raw": "https://raw.githubusercontent.com/ordinall/BetterDiscord-Stuff/master/Plugins/SpotifyListenAlong/SpotifyListenAlong.plugin.js" }, "changelog": [{ "title": "v1.1.0", "items": ["Fixed for the major discord electron update (thanks @d0gkiller87)"] }], "main": "index.js" };
 class Dummy {
-    constructor() {this._config = config;}
-    start() {}
-    stop() {}
+  constructor() { this._config = config; }
+  start() { }
+  stop() { }
 }
- 
+
 if (!global.ZeresPluginLibrary) {
-    BdApi.showConfirmationModal("Library Missing", `The library plugin needed for ${config.info.name} is missing. Please click Download Now to install it.`, {
-        confirmText: "Download Now",
-        cancelText: "Cancel",
-        onConfirm: () => {
-            require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
-                if (error) return require("electron").shell.openExternal("https://betterdiscord.app/Download?id=9");
-                await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
-            });
-        }
-    });
+  BdApi.showConfirmationModal("Library Missing", `The library plugin needed for ${config.info.name} is missing. Please click Download Now to install it.`, {
+    confirmText: "Download Now",
+    cancelText: "Cancel",
+    onConfirm: () => {
+      require("request").get("https://rauenzi.github.io/BDPluginLibrary/release/0PluginLibrary.plugin.js", async (error, response, body) => {
+        if (error) return require("electron").shell.openExternal("https://betterdiscord.app/Download?id=9");
+        await new Promise(r => require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0PluginLibrary.plugin.js"), body, r));
+      });
+    }
+  });
 }
- 
+
 module.exports = !global.ZeresPluginLibrary ? Dummy : (([Plugin, Api]) => {
-     const plugin = (Plugin, Library) => {
+  const plugin = (Plugin, Library) => {
 
     const { Patcher, WebpackModules } = Library;
 
     return class SpotifyListenAlong extends Plugin {
-        constructor() {
-            super();
-        }
+      constructor() {
+        super();
+      }
 
-        onStart() {
-            const DeviceStore = WebpackModules.getByProps('getActiveSocketAndDevice');   
-            if (DeviceStore?.getActiveSocketAndDevice) {
-                Patcher.after(
-                    DeviceStore,
-                    'getActiveSocketAndDevice',
-                    (_, args, ret) => {
-                        if ( ret?.socket ) ret.socket.isPremium = true;
-                        return ret;
-                    }
-                );
+      onStart() {
+        const DeviceStore = WebpackModules.getByProps('getActiveSocketAndDevice');
+        if (DeviceStore?.getActiveSocketAndDevice) {
+          Patcher.after(
+            DeviceStore,
+            'getActiveSocketAndDevice',
+            (_, args, ret) => {
+              if (ret?.socket) ret.socket.isPremium = true;
+              return ret;
             }
+          );
         }
+      }
 
-        onStop() {
-            Patcher.unpatchAll()
-        }
+      onStop() {
+        Patcher.unpatchAll()
+      }
     };
 
-};
-     return plugin(Plugin, Api);
+  };
+  return plugin(Plugin, Api);
 })(global.ZeresPluginLibrary.buildPlugin(config));
 /*@end@*/

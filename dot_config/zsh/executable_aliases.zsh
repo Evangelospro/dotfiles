@@ -13,7 +13,7 @@ alias pls='please'
 # check if /opt/sqlmap-bin/sqlmap.py exists
 if [ -f /opt/sqlmap-bin/sqlmap.py ];
 then
-	alias sqlmap="/opt/sqlmap-bin/sqlmap.py"
+    alias sqlmap="/opt/sqlmap-bin/sqlmap.py"
 fi
 alias cme='crackmapexec'
 alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
@@ -136,10 +136,10 @@ alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 # kdeconnect
 if type kdeconnect-cli &>/dev/null; then
-	# don't echo anything
-	current_device=$(kdeconnect-cli -a --id-name-only 2>/dev/null | cut -d ' ' -f 1)
-	alias share-clip="kdeconnect-cli -d $current_device --share-text $@"
-	alias share="kdeconnect-cli -d $current_device --share $@"
+    # don't echo anything
+    current_device=$(kdeconnect-cli -a --id-name-only 2>/dev/null | cut -d ' ' -f 1)
+    alias share-clip="kdeconnect-cli -d $current_device --share-text $@"
+    alias share="kdeconnect-cli -d $current_device --share $@"
 fi
 
 # Custom

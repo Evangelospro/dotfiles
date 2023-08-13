@@ -2,51 +2,51 @@
 # Original file: default.yml
 
 matches:
-  # - trigger: ":espanso"
-  #   replace: "Hi there!"
-  - trigger: ":mail"
-    replace: "elioudakis123@gmail.com" 
-  - trigger: ":date"
-    replace: "{{date}}"
-    vars:
-      - name: date
-        type: date
-        params:
-          format: "%d/%m/%Y"
-  - trigger: ":shello"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: shell
-        params:
-          cmd: echo "I am your shell. What can I do for you today Evangelospro?"
-  - trigger: '::P'
-    replace: '#!/usr/bin/python3'
-  - trigger: '::B'
-    replace: '#!/bin/bash'
-  - trigger: stabilizeshell
-    replace: "python3 -c \"import pty; pty.spawn('/bin/bash')\""
-  - trigger: ":ip"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: shell
-        params:
-          cmd: "curl 'https://api.ipify.org'"
-  - trigger: ":lip"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: shell
-        params:
-          cmd: "ip a s tun0 | grep inet | cut -d '/' -f 1 | cut -d ' ' -f 6|head -n 1"
-  - trigger: ":revshell"
-    replace: "{{output}}"
-    vars:
-      - name: output
-        type: script
-        params:
-          inject args: true
-          args:
-            - python3
-            - "~/HACKING/ctfAutomation/reverse_shells_generator.py"
+    # - trigger: ":espanso"
+    #   replace: "Hi there!"
+    - trigger: ":mail"
+      replace: "elioudakis123@gmail.com"
+    - trigger: ":date"
+      replace: "{{date}}"
+      vars:
+          - name: date
+            type: date
+            params:
+                format: "%d/%m/%Y"
+    - trigger: ":shello"
+      replace: "{{output}}"
+      vars:
+          - name: output
+            type: shell
+            params:
+                cmd: echo "I am your shell. What can I do for you today Evangelospro?"
+    - trigger: "::P"
+      replace: "#!/usr/bin/python3"
+    - trigger: "::B"
+      replace: "#!/bin/bash"
+    - trigger: stabilizeshell
+      replace: 'python3 -c "import pty; pty.spawn(''/bin/bash'')"'
+    - trigger: ":ip"
+      replace: "{{output}}"
+      vars:
+          - name: output
+            type: shell
+            params:
+                cmd: "curl 'https://api.ipify.org'"
+    - trigger: ":lip"
+      replace: "{{output}}"
+      vars:
+          - name: output
+            type: shell
+            params:
+                cmd: "ip a s tun0 | grep inet | cut -d '/' -f 1 | cut -d ' ' -f 6|head -n 1"
+    - trigger: ":revshell"
+      replace: "{{output}}"
+      vars:
+          - name: output
+            type: script
+            params:
+                inject args: true
+                args:
+                    - python3
+                    - "~/HACKING/ctfAutomation/reverse_shells_generator.py"

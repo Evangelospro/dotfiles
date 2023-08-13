@@ -16,7 +16,7 @@
     "workbench.editor.tabCloseButton": "right",
     "workbench.editor.tabSizing": "shrink",
     "workbench.editor.untitled.hint": "hidden",
-	"workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreview": false,
     "workbench.colorTheme": "Sweet Dracula",
     "workbench.iconTheme": "material-icon-theme",
     "workbench.layoutControl.type": "menu",
@@ -27,7 +27,7 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
-	"workbench.colorCustomizations": {
+    "workbench.colorCustomizations": {
         "[Sweet Dracula]": {
             "editorGroupHeader.tabsBackground": "#161925"
         }
@@ -47,10 +47,10 @@
     "editor.detectIndentation": false,
     "editor.emptySelectionClipboard": false,
     "editor.fontFamily": "FiraCode Nerd Font",
-	"editor.fontLigatures": true,
+    "editor.fontLigatures": true,
     "editor.fontSize": 15,
     "editor.insertSpaces": true, // not sure
-	"editor.indentSize": "tabSize",
+    "editor.indentSize": "tabSize",
     "editor.inlineSuggest.enabled": true,
     "editor.minimap.enabled": false,
     "editor.formatOnSave": true,
@@ -92,9 +92,9 @@
         "comments": "on",
         "strings": "on"
     },
-	// TERMINAL
-	"terminal.integrated.fontFamily": "FiraCode Nerd Font",
-	"terminal.integrated.altClickMovesCursor": true,
+    // TERMINAL
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+    "terminal.integrated.altClickMovesCursor": true,
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.customGlyphs": true,
     "terminal.integrated.cursorStyle": "block",
@@ -111,25 +111,25 @@
         }
     },
     "terminal.integrated.shellIntegration.enabled": false,
-	// FORMATTING
+    // FORMATTING
     "prettier.tabWidth": 4,
     "prettier.useTabs": true,
-	// LANGUAGE SPECIFIC
+    // LANGUAGE SPECIFIC
     "[python]": {
-		"editor.semanticHighlighting.enabled": false,
+        "editor.semanticHighlighting.enabled": false,
         "editor.formatOnType": true,
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-	"python.analysis.completeFunctionParens": true,
-	"python.analysis.typeCheckingMode": "off",
-	"python.analysis.autoFormatStrings": true,
-	"python.analysis.autoImportCompletions": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.autoImportCompletions": true,
     "black-formatter.args": [
         "--line-length",
         "120"
     ],
     "python.languageServer": "Pylance",
-	"python.analysis.exclude": [
+    "python.analysis.exclude": [
         ".git",
         "**/node_modules",
         "**/__pycache__",
@@ -191,9 +191,9 @@
         "editor.formatOnSave": false
     },
     "js/ts.implicitProjectConfig.checkJs": true,
-	// GIT SETTINGS
+    // GIT SETTINGS
     "github.copilot.inlineSuggest.enable": true,
-	"github.copilot.enable": {
+    "github.copilot.enable": {
         "*": true,
         "yaml": true,
         "plaintext": true,
@@ -201,28 +201,26 @@
     },
     "git.enableSmartCommit": true,
     "git.autofetch": true,
-    "github.copilot.advanced": {
-
-    },
+    "github.copilot.advanced": {},
     "git.confirmSync": false,
-	"git.confirmForcePush": false,
+    "git.confirmForcePush": false,
     "git.openRepositoryInParentFolders": "always",
     // Gitlens
     "gitlens.currentLine.enabled": true,
     "gitlens.hovers.currentLine.over": "line",
     "gitlens.codeLens.enabled": false,
     "gitlens.statusBar.enabled": true,
-	// FILE EXPLORER
+    // FILE EXPLORER
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-	"files.autoSave": "afterDelay",
+    "files.autoSave": "afterDelay",
     // SNYK
-	"snyk.advanced.cliPath": "/home/evangelospro/.local/share/snyk-ls/snyk-linux",
+    "snyk.advanced.cliPath": "/home/evangelospro/.local/share/snyk-ls/snyk-linux",
     "snyk.trustedFolders": [
         "/home/evangelospro/"
     ],
     "snyk.yesWelcomeNotification": false,
-	// EXTENSIONS
+    // EXTENSIONS
     "remote.SSH.remotePlatform": {
         "evangelospro.com": "linux"
     },
@@ -230,17 +228,17 @@
         "WakaTime.vscode-wakatime"
     ],
     // APKLAB
-	"apklab.apkSignerPath": "/home/evangelospro/.apklab/uber-apk-signer-1.2.1.jar",
+    "apklab.apkSignerPath": "/home/evangelospro/.apklab/uber-apk-signer-1.2.1.jar",
     "apklab.apktoolPath": "/home/evangelospro/.apklab/apktool_2.7.0.jar",
     "apklab.jadxDirPath": "/home/evangelospro/.apklab/jadx-1.4.6",
     "apklab.initProjectDirAsGit": false,
-	// SECURITY
-	"security.workspace.trust.banner": "always",
+    // SECURITY
+    "security.workspace.trust.banner": "always",
     "security.workspace.trust.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
     // MISC / GENERAL
-	"telemetry.telemetryLevel": "off",
-	"diffEditor.ignoreTrimWhitespace": false,
+    "telemetry.telemetryLevel": "off",
+    "diffEditor.ignoreTrimWhitespace": false,
     "debug.onTaskErrors": "showErrors",
     "debug.openDebug": "openOnDebugBreak",
     // "eslint.enable": true,

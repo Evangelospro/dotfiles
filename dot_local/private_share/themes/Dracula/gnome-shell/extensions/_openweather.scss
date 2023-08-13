@@ -4,10 +4,11 @@
 .openweather-current-databox-values,
 .openweather-current-icon,
 .openweather-forecast-summary,
-.openweather-forecast-temperature{
-    background: transparent;
+.openweather-forecast-temperature {
+	background: transparent;
 }
 
-.openweather-current-databox-captions, .openweather-forecast-day {
-    color: $selected_bg_color;
+.openweather-current-databox-captions,
+.openweather-forecast-day {
+	color: $selected_bg_color;
 }

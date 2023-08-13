@@ -65,7 +65,7 @@ set_border_color() {
 }
 
 if [[ $(cat /sys/class/power_supply/BAT1/status) == "Charging" || $(cat /sys/class/power_supply/BAT1/status) == "Full" ]]; then
-    while true; do   
+    while true; do
         for color in "${gradient[@]}"; do
             hex_color=$(color_to_hex $color)
             set_border_color $hex_color

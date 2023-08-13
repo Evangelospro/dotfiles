@@ -1,9 +1,9 @@
 #Search a function name via Google
-#@author 
+#@author
 #@category
 #@keybinding ALT-SHIFT-G
-#@menupath 
-#@toolbar 
+#@menupath
+#@toolbar
 
 DEFAULT_BROWSER='firefox'
 
@@ -44,4 +44,3 @@ if search:
 	Popen([DEFAULT_BROWSER, search])
 else:
 	print "FAILED: Nothing found to search."
-

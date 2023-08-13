@@ -1,7 +1,7 @@
 {
-	"all": {
-		"general": {
-			"onlyHideInStream": false
-		}
-	}
+  "all": {
+    "general": {
+      "onlyHideInStream": false
+    }
+  }
 }

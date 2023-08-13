@@ -1,10 +1,10 @@
 swipe:
-  3:
-    left:
-      command: "xdotool key Super_L+d" # workspace right
-    right:
-      command: "xdotool key Super_L+a" # workspace left
-    up:
-      command: "xdotool key Super_L+s" # workspace down
-    down:
-      command: "xdotool key Super_L+w" # workspace up
+    3:
+        left:
+            command: "xdotool key Super_L+d" # workspace right
+        right:
+            command: "xdotool key Super_L+a" # workspace left
+        up:
+            command: "xdotool key Super_L+s" # workspace down
+        down:
+            command: "xdotool key Super_L+w" # workspace up

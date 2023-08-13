@@ -3,25 +3,29 @@
  ***********/
 
 menu spinner {
-    color: $selected_bg_color;
+	color: $selected_bg_color;
 }
 
 /*********************
  * Spinner Animation *
  *********************/
 @keyframes spin {
-  to { -gtk-icon-transform: rotate(1turn); }
+	to {
+		-gtk-icon-transform: rotate(1turn);
+	}
 }
 
 spinner {
-  background: none;
-  opacity: 0; // non spinning spinner makes no sense
-  -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
+	background: none;
+	opacity: 0; // non spinning spinner makes no sense
+	-gtk-icon-source: -gtk-icontheme("process-working-symbolic");
 
-  &:checked {
-    opacity: 1;
-    animation: spin 1s linear infinite;
+	&:checked {
+		opacity: 1;
+		animation: spin 1s linear infinite;
 
-    &:disabled { opacity: 0.5; }
-  }
+		&:disabled {
+			opacity: 0.5;
+		}
+	}
 }

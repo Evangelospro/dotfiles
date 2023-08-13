@@ -18,4 +18,3 @@ the path to and run the script.
 Now you can navigate to `main()` and all calls that have a path to `foo()` will
 be colored in red. This allows you to immediately see what calls are potentially
 relevant.
-

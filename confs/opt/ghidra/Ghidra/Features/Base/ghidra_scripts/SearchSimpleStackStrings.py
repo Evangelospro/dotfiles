@@ -5,7 +5,7 @@
 # ...
 #
 # OR
-# 
+#
 # MOV byte ptr [EBP + 0x10],0x68
 # MOV byte ptr [EBP + 0x11],0x74
 # MOV byte ptr [EBP + 0x12],0x68
@@ -14,11 +14,11 @@
 # Issues:
 # - Only works when instructions loading the string are in loading order (that is destination order is not evaluated)
 # - Only works with ASCII
-#@author 
+#@author
 #@category Search
-#@keybinding 
+#@keybinding
 #@menupath Search.Simple Stack Strings
-#@toolbar 
+#@toolbar
 
 from ghidra.program.model.listing import CodeUnit
 
@@ -92,4 +92,3 @@ for symbol in symbolTable.getAllSymbols(False):
 		if skip<=0 and (i.getScalar(1) or i.getScalar(0)):
 			skip = try_reassemble_stackstring(i.getAddress())
 		skip -= 1
-

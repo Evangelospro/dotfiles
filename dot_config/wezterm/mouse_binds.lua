@@ -16,7 +16,7 @@ local paste_right_click = {
 copyOnSelection = {
   event = {
     Up = {
-      streak = 1, 
+      streak = 1,
       button = "Left"
     }
   },
@@ -28,4 +28,3 @@ copyOnSelection = {
 
 module.mouse_bindings = { paste_right_click, copyOnSelection }
 return module
-

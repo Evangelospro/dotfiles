@@ -39,5 +39,3 @@ It will place a `PRE_COMMENT` at the location it was invoked (overwriting any pr
 ### Example:
 
 ![Example of SimpleStackStrings.py annotation in Ghidra](SimpleStackStrings.png)
-
-

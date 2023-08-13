@@ -23,7 +23,7 @@ Image {
             property int largeSpacing: units.gridUnit
             property int smallSpacing: Math.max(2, gridUnit/4)
         }
-       
+
         Image {
             id: logo
             property real size: units.gridUnit * 12
@@ -88,7 +88,7 @@ Image {
             RotationAnimator on rotation {
                 id: rotationAnimator2
                 from: 360
-                to: 0 
+                to: 0
                 duration: 1200
                 loops: Animation.Infinite
             }

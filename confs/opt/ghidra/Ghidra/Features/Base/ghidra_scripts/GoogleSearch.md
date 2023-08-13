@@ -15,5 +15,3 @@ This Ghidra script allows you to quickly search function names online.
 ### Example:
 
 ![Example of GoogleSearch.py](GoogleSearch.png)
-
-

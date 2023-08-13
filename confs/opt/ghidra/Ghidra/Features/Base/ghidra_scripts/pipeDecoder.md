@@ -36,5 +36,3 @@ openssl enc -d -aes-128-cbc -nopad -K EF310B9A8ACEB622601B2F657EEACE4B -iv 0
 ```
 
 ![Example of pipeDecoder.py annotation in Ghidra](pipeDecoder.png)
-
-

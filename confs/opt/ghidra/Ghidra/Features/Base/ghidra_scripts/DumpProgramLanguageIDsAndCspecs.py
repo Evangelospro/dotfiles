@@ -1,9 +1,9 @@
 #Dump the Language ID and Compiler Spec for all prgrams in a folder.
-#@author 
+#@author
 #@category
-#@keybinding 
-#@menupath 
-#@toolbar 
+#@keybinding
+#@menupath
+#@toolbar
 
 if currentProgram:
 	raise Exception("ERROR: Must be run in a tool without a program loaded!")

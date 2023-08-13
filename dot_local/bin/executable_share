@@ -4,7 +4,7 @@ normal=$(tput sgr0)
 red=$(tput setaf 7)
 
 if [ "$#" -ne 1 ]; then
-	echo 'File name not provided to file sharing service'
+    echo 'File name not provided to file sharing service'
 fi
 
 DEVICES=$(kdeconnect-cli -a --id-name-only)
@@ -25,13 +25,13 @@ done
 
 device_counter=$(($device_counter-1))
 
-if [ $device_counter -eq 1 ]; then 
+if [ $device_counter -eq 1 ]; then
 	echo "Sending file!"
 	recipient_str=${dev_array[0]}
 	recipient_str=($recipient_str)
 	FILE="$(pwd)/$1"
 	if test -f "$FILE"; then
-		echo "Sending to : ${recipient_str[1]}"	
+		echo "Sending to : ${recipient_str[1]}"
 		kdeconnect-cli -d ${recipient_str[0]} --share "$FILE"
 	else
 		echo "File not found!"
@@ -41,13 +41,13 @@ else
 	if [ $recipient_id -gt $device_counter ]; then
 		echo "${red}Invalid recipient ID!${normal}"
 		exit
-	elif [ $recipient_id -gt 0 ]; then 
+	elif [ $recipient_id -gt 0 ]; then
 		recipient_id=$(($recipient_id-1))
 		recipient_str=${dev_array[$recipient_id]}
 		recipient_str=($recipient_str)
 		FILE="$(pwd)/$1"
 		if test -f "$FILE"; then
-			echo "Sending to : ${recipient_str[1]}"	
+			echo "Sending to : ${recipient_str[1]}"
 			kdeconnect-cli -d ${recipient_str[0]} --share "$FILE"
 		else
 			echo "File not found!"

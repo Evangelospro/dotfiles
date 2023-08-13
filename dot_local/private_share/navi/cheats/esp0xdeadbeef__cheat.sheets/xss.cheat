@@ -1,6 +1,6 @@
 % XSS cheat sheets
 
-$ js_file: fdfind . -Ltf | grep -i '\.js$' | sort -u 
+$ js_file: fdfind . -Ltf | grep -i '\.js$' | sort -u
 
 # hack the box cheat: XSS javascript dangerous functions
 (echo 'innerHTML and outerHTML must be DOM objects'; grep '\.innerHTML

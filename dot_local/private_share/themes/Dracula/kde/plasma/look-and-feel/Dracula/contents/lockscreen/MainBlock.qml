@@ -66,7 +66,7 @@ SessionManagementScreen {
 
             placeholderTextColor: "#C3C7D1"
             palette.text: "#C3C7D1"
-            
+
             background: Rectangle {
                 color: "#272834"
                 opacity: 0.9
@@ -132,7 +132,7 @@ SessionManagementScreen {
                 rotation: -90
                 anchors.centerIn: parent
                 color: "#9B79CC"
-               
+
             }
 
             onClicked: startLogin()

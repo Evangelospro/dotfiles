@@ -53,7 +53,7 @@ PlasmaCore.ColorScope {
     function hibernateRequested() {
         root.suspendRequested(4);
     }
- 
+
     property real timeout: 30
     property real remainingTime: root.timeout
     property var currentAction: {

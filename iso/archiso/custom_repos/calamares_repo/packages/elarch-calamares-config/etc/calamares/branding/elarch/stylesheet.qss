@@ -260,4 +260,3 @@ QItemSelectionModel::Select {
 QHeaderView::section {
   font : 16px;
 }
-

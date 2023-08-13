@@ -9,5 +9,3 @@ else
     echo "float 1.0 detected"
     hyprctl --batch "keyword decoration:active_opacity 0.7 ; keyword decoration:inactive_opacity 0.7 ; keyword decoration:fullscreen_opacity 0.7"
 fi
-
-

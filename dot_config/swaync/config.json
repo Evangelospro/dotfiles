@@ -41,7 +41,7 @@
   "widget-config": {
     "title": {
       "text": "Notifications",
-      "clear-all-button": true, 
+      "clear-all-button": true,
       "button-text": "Clear All",
       "toggle-button": true
     },

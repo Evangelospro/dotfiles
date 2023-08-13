@@ -2,10 +2,10 @@
 	email = elioudakis123@gmail.com
 	name = Evangelos Lioudakis
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !/usr/bin/gh auth git-credential
 [safe]
   directory = ~/.local/share/hyprload

@@ -1,12 +1,12 @@
 {
-    "preferences": {
-        "max_results": "15",
-        "update_z_file": "true",
-        "z_file": "~/.zsh/zoxide/db.zo"
-    },
-    "triggers": {
-        "kw": {
-            "keyword": "z"
-        }
+  "preferences": {
+    "max_results": "15",
+    "update_z_file": "true",
+    "z_file": "~/.zsh/zoxide/db.zo"
+  },
+  "triggers": {
+    "kw": {
+      "keyword": "z"
     }
+  }
 }

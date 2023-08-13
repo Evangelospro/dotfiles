@@ -1,10 +1,10 @@
 #RC4 decrypts the selected memory with a user input key.
 #
-#@author 
+#@author
 #@category Memory
-#@keybinding 
+#@keybinding
 #@menupath Tools.Decoders.RC4 Decrypter
-#@toolbar 
+#@toolbar
 
 import array
 
@@ -54,7 +54,7 @@ for r in ranges:
 	def rc4(key, data):
 		S = list(range(256))
 		j = 0
-		
+
 		for i in list(range(256)):
 			j = (j + S[i] + key[i % len(key)]) % 256
 			S[i], S[j] = S[j], S[i]
@@ -71,12 +71,12 @@ for r in ranges:
 			out.append( ( (data[i]+128) ^ S[(S[j] + S[y]) % 256]) - 128 )
 
 		return out
-	
+
 	bytes = rc4(key, bytes)
 
 	try:
 		setBytes(begin, bytes)
-		key_str = "".join('{:02x}'.format(x) for x in key) 
+		key_str = "".join('{:02x}'.format(x) for x in key)
 		createBookmark(begin, SCRIPT_NAME, "Key: " + key_str + ", len: " + hex(len(bytes)))
 		cu = currentProgram.getListing().getCodeUnitAt(begin)
 		if cu == None:

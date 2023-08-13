@@ -1,31 +1,31 @@
 {
-    "preferences": {
-        "api_key": "",
-        "cache": "86400",
-        "currency_provider": "fixerio",
-        "default_cities": "Nicosia CY, New York City US, London GB, Madrid ES, Vancouver CA",
-        "default_currencies": "EUR,USD,GBP,CAD",
-        "show_empty_placeholder": "n",
-        "units_conversion_mode": "normal"
+  "preferences": {
+    "api_key": "",
+    "cache": "86400",
+    "currency_provider": "fixerio",
+    "default_cities": "Nicosia CY, New York City US, London GB, Madrid ES, Vancouver CA",
+    "default_currencies": "EUR,USD,GBP,CAD",
+    "show_empty_placeholder": "n",
+    "units_conversion_mode": "normal"
+  },
+  "triggers": {
+    "bin_kw": {
+      "keyword": "bin"
     },
-    "triggers": {
-        "bin_kw": {
-            "keyword": "bin"
-        },
-        "calc_kw": {
-            "keyword": "="
-        },
-        "dec_kw": {
-            "keyword": "dec"
-        },
-        "hex_kw": {
-            "keyword": "hex"
-        },
-        "oct_kw": {
-            "keyword": "oct"
-        },
-        "time_kw": {
-            "keyword": "time"
-        }
+    "calc_kw": {
+      "keyword": "="
+    },
+    "dec_kw": {
+      "keyword": "dec"
+    },
+    "hex_kw": {
+      "keyword": "hex"
+    },
+    "oct_kw": {
+      "keyword": "oct"
+    },
+    "time_kw": {
+      "keyword": "time"
     }
+  }
 }

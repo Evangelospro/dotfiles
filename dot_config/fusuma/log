@@ -7,7 +7,7 @@ I, [2023-01-29T11:23:35.458902 #68602]  INFO -- : OS: Linux 6.1.7-zen1-1-zen #1 
 I, [2023-01-29T11:23:35.460401 #68602]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-01-29T11:23:35.467863 #68602]  INFO -- : Desktop session: gnome x11
 I, [2023-01-29T11:23:35.467939 #68602]  INFO -- : ---------------------------------------------
-I, [2023-01-29T11:23:35.467978 #68602]  INFO -- : Enabled Plugins: 
+I, [2023-01-29T11:23:35.467978 #68602]  INFO -- : Enabled Plugins:
 I, [2023-01-29T11:23:35.468167 #68602]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-01-29T11:23:35.468211 #68602]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-01-29T11:23:35.468239 #68602]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -40,7 +40,7 @@ I, [2023-01-29T17:10:24.384603 #1538]  INFO -- : OS: Linux 6.1.7-zen1-1-zen #1 Z
 I, [2023-01-29T17:10:24.386979 #1538]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-01-29T17:10:24.396983 #1538]  INFO -- : Desktop session: gnome x11
 I, [2023-01-29T17:10:24.397200 #1538]  INFO -- : ---------------------------------------------
-I, [2023-01-29T17:10:24.397280 #1538]  INFO -- : Enabled Plugins: 
+I, [2023-01-29T17:10:24.397280 #1538]  INFO -- : Enabled Plugins:
 I, [2023-01-29T17:10:24.397491 #1538]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-01-29T17:10:24.397543 #1538]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-01-29T17:10:24.397578 #1538]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -77,7 +77,7 @@ I, [2023-01-30T07:19:41.506798 #1634]  INFO -- : OS: Linux 6.1.7-zen1-1-zen #1 Z
 I, [2023-01-30T07:19:41.512271 #1634]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-01-30T07:19:41.543196 #1634]  INFO -- : Desktop session: gnome x11
 I, [2023-01-30T07:19:41.543510 #1634]  INFO -- : ---------------------------------------------
-I, [2023-01-30T07:19:41.543659 #1634]  INFO -- : Enabled Plugins: 
+I, [2023-01-30T07:19:41.543659 #1634]  INFO -- : Enabled Plugins:
 I, [2023-01-30T07:19:41.544721 #1634]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-01-30T07:19:41.544934 #1634]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-01-30T07:19:41.545068 #1634]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -125,7 +125,7 @@ I, [2023-01-31T09:15:19.335812 #1639]  INFO -- : OS: Linux 6.1.8-zen1-1-zen #1 Z
 I, [2023-01-31T09:15:19.338940 #1639]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-01-31T09:15:19.349289 #1639]  INFO -- : Desktop session: gnome x11
 I, [2023-01-31T09:15:19.349443 #1639]  INFO -- : ---------------------------------------------
-I, [2023-01-31T09:15:19.349502 #1639]  INFO -- : Enabled Plugins: 
+I, [2023-01-31T09:15:19.349502 #1639]  INFO -- : Enabled Plugins:
 I, [2023-01-31T09:15:19.349768 #1639]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-01-31T09:15:19.349862 #1639]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-01-31T09:15:19.349916 #1639]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -162,7 +162,7 @@ I, [2023-02-01T07:15:21.141846 #1614]  INFO -- : OS: Linux 6.1.8-zen1-1-zen #1 Z
 I, [2023-02-01T07:15:21.144360 #1614]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-01T07:15:21.154057 #1614]  INFO -- : Desktop session: gnome x11
 I, [2023-02-01T07:15:21.154203 #1614]  INFO -- : ---------------------------------------------
-I, [2023-02-01T07:15:21.154300 #1614]  INFO -- : Enabled Plugins: 
+I, [2023-02-01T07:15:21.154300 #1614]  INFO -- : Enabled Plugins:
 I, [2023-02-01T07:15:21.154681 #1614]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-01T07:15:21.154784 #1614]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-01T07:15:21.154872 #1614]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -191,7 +191,7 @@ I, [2023-02-01T21:49:26.012260 #1634]  INFO -- : OS: Linux 6.1.8-zen1-1-zen #1 Z
 I, [2023-02-01T21:49:26.015220 #1634]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-01T21:49:26.027807 #1634]  INFO -- : Desktop session: gnome x11
 I, [2023-02-01T21:49:26.028017 #1634]  INFO -- : ---------------------------------------------
-I, [2023-02-01T21:49:26.028094 #1634]  INFO -- : Enabled Plugins: 
+I, [2023-02-01T21:49:26.028094 #1634]  INFO -- : Enabled Plugins:
 I, [2023-02-01T21:49:26.028434 #1634]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-01T21:49:26.028514 #1634]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-01T21:49:26.028569 #1634]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -218,7 +218,7 @@ I, [2023-02-02T07:00:36.361866 #1623]  INFO -- : OS: Linux 6.1.8-zen1-1-zen #1 Z
 I, [2023-02-02T07:00:36.364586 #1623]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-02T07:00:36.376815 #1623]  INFO -- : Desktop session: gnome x11
 I, [2023-02-02T07:00:36.376946 #1623]  INFO -- : ---------------------------------------------
-I, [2023-02-02T07:00:36.376996 #1623]  INFO -- : Enabled Plugins: 
+I, [2023-02-02T07:00:36.376996 #1623]  INFO -- : Enabled Plugins:
 I, [2023-02-02T07:00:36.377431 #1623]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-02T07:00:36.377497 #1623]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-02T07:00:36.377532 #1623]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -245,7 +245,7 @@ I, [2023-02-02T14:38:49.605643 #1641]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-02T14:38:49.607830 #1641]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-02T14:38:49.616959 #1641]  INFO -- : Desktop session: gnome x11
 I, [2023-02-02T14:38:49.617103 #1641]  INFO -- : ---------------------------------------------
-I, [2023-02-02T14:38:49.617155 #1641]  INFO -- : Enabled Plugins: 
+I, [2023-02-02T14:38:49.617155 #1641]  INFO -- : Enabled Plugins:
 I, [2023-02-02T14:38:49.617357 #1641]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-02T14:38:49.617407 #1641]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-02T14:38:49.617442 #1641]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -277,7 +277,7 @@ I, [2023-02-02T21:25:04.410569 #1622]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-02T21:25:04.412814 #1622]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-02T21:25:04.423723 #1622]  INFO -- : Desktop session: gnome x11
 I, [2023-02-02T21:25:04.423902 #1622]  INFO -- : ---------------------------------------------
-I, [2023-02-02T21:25:04.423979 #1622]  INFO -- : Enabled Plugins: 
+I, [2023-02-02T21:25:04.423979 #1622]  INFO -- : Enabled Plugins:
 I, [2023-02-02T21:25:04.424535 #1622]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-02T21:25:04.424629 #1622]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-02T21:25:04.424689 #1622]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -306,7 +306,7 @@ I, [2023-02-03T07:17:41.075960 #1545]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-03T07:17:41.078759 #1545]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-03T07:17:41.093027 #1545]  INFO -- : Desktop session: gnome x11
 I, [2023-02-03T07:17:41.093217 #1545]  INFO -- : ---------------------------------------------
-I, [2023-02-03T07:17:41.093293 #1545]  INFO -- : Enabled Plugins: 
+I, [2023-02-03T07:17:41.093293 #1545]  INFO -- : Enabled Plugins:
 I, [2023-02-03T07:17:41.093621 #1545]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-03T07:17:41.093698 #1545]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-03T07:17:41.093750 #1545]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -335,7 +335,7 @@ I, [2023-02-03T17:15:18.011948 #1617]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-03T17:15:18.014010 #1617]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-03T17:15:18.026316 #1617]  INFO -- : Desktop session: gnome x11
 I, [2023-02-03T17:15:18.026478 #1617]  INFO -- : ---------------------------------------------
-I, [2023-02-03T17:15:18.026534 #1617]  INFO -- : Enabled Plugins: 
+I, [2023-02-03T17:15:18.026534 #1617]  INFO -- : Enabled Plugins:
 I, [2023-02-03T17:15:18.026809 #1617]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-03T17:15:18.026875 #1617]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-03T17:15:18.026910 #1617]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -371,7 +371,7 @@ I, [2023-02-04T16:23:24.692424 #1616]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-04T16:23:24.694875 #1616]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-04T16:23:24.708706 #1616]  INFO -- : Desktop session: gnome x11
 I, [2023-02-04T16:23:24.708870 #1616]  INFO -- : ---------------------------------------------
-I, [2023-02-04T16:23:24.708936 #1616]  INFO -- : Enabled Plugins: 
+I, [2023-02-04T16:23:24.708936 #1616]  INFO -- : Enabled Plugins:
 I, [2023-02-04T16:23:24.709447 #1616]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-04T16:23:24.709534 #1616]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-04T16:23:24.709593 #1616]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -398,7 +398,7 @@ I, [2023-02-06T08:22:54.585083 #1651]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-06T08:22:54.587813 #1651]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-06T08:22:54.602673 #1651]  INFO -- : Desktop session: gnome x11
 I, [2023-02-06T08:22:54.602894 #1651]  INFO -- : ---------------------------------------------
-I, [2023-02-06T08:22:54.602978 #1651]  INFO -- : Enabled Plugins: 
+I, [2023-02-06T08:22:54.602978 #1651]  INFO -- : Enabled Plugins:
 I, [2023-02-06T08:22:54.603503 #1651]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-06T08:22:54.603596 #1651]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-06T08:22:54.603658 #1651]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -426,7 +426,7 @@ I, [2023-02-07T12:14:24.873005 #1654]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-07T12:14:24.875208 #1654]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-07T12:14:24.884110 #1654]  INFO -- : Desktop session: gnome x11
 I, [2023-02-07T12:14:24.884260 #1654]  INFO -- : ---------------------------------------------
-I, [2023-02-07T12:14:24.884340 #1654]  INFO -- : Enabled Plugins: 
+I, [2023-02-07T12:14:24.884340 #1654]  INFO -- : Enabled Plugins:
 I, [2023-02-07T12:14:24.884619 #1654]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-07T12:14:24.884702 #1654]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-07T12:14:24.884767 #1654]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -462,7 +462,7 @@ I, [2023-02-07T14:12:58.036351 #1642]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-07T14:12:58.039627 #1642]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-07T14:12:58.054708 #1642]  INFO -- : Desktop session: gnome x11
 I, [2023-02-07T14:12:58.054881 #1642]  INFO -- : ---------------------------------------------
-I, [2023-02-07T14:12:58.054968 #1642]  INFO -- : Enabled Plugins: 
+I, [2023-02-07T14:12:58.054968 #1642]  INFO -- : Enabled Plugins:
 I, [2023-02-07T14:12:58.055303 #1642]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-07T14:12:58.055387 #1642]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-07T14:12:58.055451 #1642]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -489,7 +489,7 @@ I, [2023-02-08T09:59:56.271658 #1671]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-08T09:59:56.277104 #1671]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-08T09:59:56.287672 #1671]  INFO -- : Desktop session: gnome x11
 I, [2023-02-08T09:59:56.287833 #1671]  INFO -- : ---------------------------------------------
-I, [2023-02-08T09:59:56.287948 #1671]  INFO -- : Enabled Plugins: 
+I, [2023-02-08T09:59:56.287948 #1671]  INFO -- : Enabled Plugins:
 I, [2023-02-08T09:59:56.288244 #1671]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-08T09:59:56.288367 #1671]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-08T09:59:56.288443 #1671]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -520,7 +520,7 @@ I, [2023-02-08T14:23:53.108909 #1629]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-08T14:23:53.111800 #1629]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-08T14:23:53.125572 #1629]  INFO -- : Desktop session: gnome x11
 I, [2023-02-08T14:23:53.125759 #1629]  INFO -- : ---------------------------------------------
-I, [2023-02-08T14:23:53.125836 #1629]  INFO -- : Enabled Plugins: 
+I, [2023-02-08T14:23:53.125836 #1629]  INFO -- : Enabled Plugins:
 I, [2023-02-08T14:23:53.126052 #1629]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-08T14:23:53.126103 #1629]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-08T14:23:53.126136 #1629]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -547,7 +547,7 @@ I, [2023-02-09T23:47:40.948233 #1661]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-09T23:47:40.951096 #1661]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-09T23:47:40.965126 #1661]  INFO -- : Desktop session: gnome x11
 I, [2023-02-09T23:47:40.965383 #1661]  INFO -- : ---------------------------------------------
-I, [2023-02-09T23:47:40.965485 #1661]  INFO -- : Enabled Plugins: 
+I, [2023-02-09T23:47:40.965485 #1661]  INFO -- : Enabled Plugins:
 I, [2023-02-09T23:47:40.965787 #1661]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-09T23:47:40.965879 #1661]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-09T23:47:40.965945 #1661]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -575,7 +575,7 @@ I, [2023-02-10T12:53:23.115297 #1656]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-10T12:53:23.117565 #1656]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-10T12:53:23.131117 #1656]  INFO -- : Desktop session: gnome x11
 I, [2023-02-10T12:53:23.131288 #1656]  INFO -- : ---------------------------------------------
-I, [2023-02-10T12:53:23.131403 #1656]  INFO -- : Enabled Plugins: 
+I, [2023-02-10T12:53:23.131403 #1656]  INFO -- : Enabled Plugins:
 I, [2023-02-10T12:53:23.131955 #1656]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-10T12:53:23.132050 #1656]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-10T12:53:23.132115 #1656]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -604,7 +604,7 @@ I, [2023-02-10T19:23:35.851538 #1621]  INFO -- : OS: Linux 6.1.9-zen1-1-zen #1 Z
 I, [2023-02-10T19:23:35.855029 #1621]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-10T19:23:35.870584 #1621]  INFO -- : Desktop session: gnome x11
 I, [2023-02-10T19:23:35.870762 #1621]  INFO -- : ---------------------------------------------
-I, [2023-02-10T19:23:35.870843 #1621]  INFO -- : Enabled Plugins: 
+I, [2023-02-10T19:23:35.870843 #1621]  INFO -- : Enabled Plugins:
 I, [2023-02-10T19:23:35.871133 #1621]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-10T19:23:35.871210 #1621]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-10T19:23:35.871264 #1621]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -632,7 +632,7 @@ I, [2023-02-12T01:01:16.084451 #1597]  INFO -- : OS: Linux 6.1.10-zen1-1-zen #1 
 I, [2023-02-12T01:01:16.089122 #1597]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-12T01:01:16.101639 #1597]  INFO -- : Desktop session: gnome x11
 I, [2023-02-12T01:01:16.101819 #1597]  INFO -- : ---------------------------------------------
-I, [2023-02-12T01:01:16.101893 #1597]  INFO -- : Enabled Plugins: 
+I, [2023-02-12T01:01:16.101893 #1597]  INFO -- : Enabled Plugins:
 I, [2023-02-12T01:01:16.102194 #1597]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-12T01:01:16.102284 #1597]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-12T01:01:16.102413 #1597]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -659,7 +659,7 @@ I, [2023-02-13T04:34:08.315918 #1593]  INFO -- : OS: Linux 6.1.10-zen1-1-zen #1 
 I, [2023-02-13T04:34:08.318760 #1593]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-13T04:34:08.332159 #1593]  INFO -- : Desktop session: gnome x11
 I, [2023-02-13T04:34:08.332331 #1593]  INFO -- : ---------------------------------------------
-I, [2023-02-13T04:34:08.332437 #1593]  INFO -- : Enabled Plugins: 
+I, [2023-02-13T04:34:08.332437 #1593]  INFO -- : Enabled Plugins:
 I, [2023-02-13T04:34:08.332746 #1593]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-13T04:34:08.332823 #1593]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-13T04:34:08.332925 #1593]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -698,7 +698,7 @@ I, [2023-02-14T22:36:05.336743 #1614]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 
 I, [2023-02-14T22:36:05.340179 #1614]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-14T22:36:05.349357 #1614]  INFO -- : Desktop session: gnome x11
 I, [2023-02-14T22:36:05.349484 #1614]  INFO -- : ---------------------------------------------
-I, [2023-02-14T22:36:05.349533 #1614]  INFO -- : Enabled Plugins: 
+I, [2023-02-14T22:36:05.349533 #1614]  INFO -- : Enabled Plugins:
 I, [2023-02-14T22:36:05.349736 #1614]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-14T22:36:05.349784 #1614]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-14T22:36:05.349816 #1614]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -725,7 +725,7 @@ I, [2023-02-15T19:40:47.828444 #1633]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 
 I, [2023-02-15T19:40:47.830905 #1633]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-15T19:40:47.840800 #1633]  INFO -- : Desktop session: gnome x11
 I, [2023-02-15T19:40:47.840961 #1633]  INFO -- : ---------------------------------------------
-I, [2023-02-15T19:40:47.841038 #1633]  INFO -- : Enabled Plugins: 
+I, [2023-02-15T19:40:47.841038 #1633]  INFO -- : Enabled Plugins:
 I, [2023-02-15T19:40:47.841321 #1633]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-15T19:40:47.841396 #1633]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-15T19:40:47.841454 #1633]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -752,7 +752,7 @@ I, [2023-02-16T20:56:34.184265 #1614]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 
 I, [2023-02-16T20:56:34.187388 #1614]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-16T20:56:34.201912 #1614]  INFO -- : Desktop session: gnome x11
 I, [2023-02-16T20:56:34.202081 #1614]  INFO -- : ---------------------------------------------
-I, [2023-02-16T20:56:34.202161 #1614]  INFO -- : Enabled Plugins: 
+I, [2023-02-16T20:56:34.202161 #1614]  INFO -- : Enabled Plugins:
 I, [2023-02-16T20:56:34.202468 #1614]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-16T20:56:34.202553 #1614]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-16T20:56:34.202612 #1614]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -786,7 +786,7 @@ I, [2023-02-18T11:32:57.469124 #1636]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 
 I, [2023-02-18T11:32:57.474064 #1636]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-18T11:32:57.492261 #1636]  INFO -- : Desktop session: gnome x11
 I, [2023-02-18T11:32:57.492458 #1636]  INFO -- : ---------------------------------------------
-I, [2023-02-18T11:32:57.492564 #1636]  INFO -- : Enabled Plugins: 
+I, [2023-02-18T11:32:57.492564 #1636]  INFO -- : Enabled Plugins:
 I, [2023-02-18T11:32:57.492906 #1636]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-18T11:32:57.493060 #1636]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-18T11:32:57.493148 #1636]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -813,7 +813,7 @@ I, [2023-02-18T16:42:39.916316 #1617]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 
 I, [2023-02-18T16:42:39.918970 #1617]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-18T16:42:39.933430 #1617]  INFO -- : Desktop session: gnome x11
 I, [2023-02-18T16:42:39.933617 #1617]  INFO -- : ---------------------------------------------
-I, [2023-02-18T16:42:39.933696 #1617]  INFO -- : Enabled Plugins: 
+I, [2023-02-18T16:42:39.933696 #1617]  INFO -- : Enabled Plugins:
 I, [2023-02-18T16:42:39.933988 #1617]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-18T16:42:39.934062 #1617]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-18T16:42:39.934121 #1617]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -840,7 +840,7 @@ I, [2023-02-18T17:53:11.233727 #1629]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 
 I, [2023-02-18T17:53:11.236221 #1629]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-18T17:53:11.245892 #1629]  INFO -- : Desktop session: gnome x11
 I, [2023-02-18T17:53:11.246026 #1629]  INFO -- : ---------------------------------------------
-I, [2023-02-18T17:53:11.246076 #1629]  INFO -- : Enabled Plugins: 
+I, [2023-02-18T17:53:11.246076 #1629]  INFO -- : Enabled Plugins:
 I, [2023-02-18T17:53:11.246305 #1629]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-18T17:53:11.246377 #1629]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-18T17:53:11.246413 #1629]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -869,7 +869,7 @@ I, [2023-02-19T18:59:31.847126 #1638]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 
 I, [2023-02-19T18:59:31.850622 #1638]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-19T18:59:31.866489 #1638]  INFO -- : Desktop session: gnome x11
 I, [2023-02-19T18:59:31.866659 #1638]  INFO -- : ---------------------------------------------
-I, [2023-02-19T18:59:31.866739 #1638]  INFO -- : Enabled Plugins: 
+I, [2023-02-19T18:59:31.866739 #1638]  INFO -- : Enabled Plugins:
 I, [2023-02-19T18:59:31.867055 #1638]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-19T18:59:31.867135 #1638]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-19T18:59:31.867193 #1638]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -896,7 +896,7 @@ I, [2023-02-20T10:06:27.840207 #1628]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 
 I, [2023-02-20T10:06:27.845456 #1628]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-20T10:06:27.862872 #1628]  INFO -- : Desktop session: gnome x11
 I, [2023-02-20T10:06:27.863068 #1628]  INFO -- : ---------------------------------------------
-I, [2023-02-20T10:06:27.863151 #1628]  INFO -- : Enabled Plugins: 
+I, [2023-02-20T10:06:27.863151 #1628]  INFO -- : Enabled Plugins:
 I, [2023-02-20T10:06:27.863580 #1628]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-20T10:06:27.863670 #1628]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-20T10:06:27.863730 #1628]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -924,7 +924,7 @@ I, [2023-02-21T12:33:05.438490 #1547]  INFO -- : OS: Linux 6.1.11-zen1-1-zen #1 
 I, [2023-02-21T12:33:05.439266 #1547]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-21T12:33:05.441665 #1547]  INFO -- : Desktop session: gnome x11
 I, [2023-02-21T12:33:05.441722 #1547]  INFO -- : ---------------------------------------------
-I, [2023-02-21T12:33:05.441740 #1547]  INFO -- : Enabled Plugins: 
+I, [2023-02-21T12:33:05.441740 #1547]  INFO -- : Enabled Plugins:
 I, [2023-02-21T12:33:05.441887 #1547]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-21T12:33:05.441905 #1547]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-21T12:33:05.441917 #1547]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -952,7 +952,7 @@ I, [2023-02-21T22:41:31.025598 #1586]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 
 I, [2023-02-21T22:41:31.026711 #1586]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-21T22:41:31.030299 #1586]  INFO -- : Desktop session: gnome x11
 I, [2023-02-21T22:41:31.030411 #1586]  INFO -- : ---------------------------------------------
-I, [2023-02-21T22:41:31.030443 #1586]  INFO -- : Enabled Plugins: 
+I, [2023-02-21T22:41:31.030443 #1586]  INFO -- : Enabled Plugins:
 I, [2023-02-21T22:41:31.030681 #1586]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-21T22:41:31.030719 #1586]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-21T22:41:31.030737 #1586]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -979,7 +979,7 @@ I, [2023-02-23T05:24:00.410790 #1563]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 
 I, [2023-02-23T05:24:00.423065 #1563]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-23T05:24:00.436504 #1563]  INFO -- : Desktop session: gnome x11
 I, [2023-02-23T05:24:00.436597 #1563]  INFO -- : ---------------------------------------------
-I, [2023-02-23T05:24:00.436620 #1563]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T05:24:00.436620 #1563]  INFO -- : Enabled Plugins:
 I, [2023-02-23T05:24:00.436737 #1563]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-23T05:24:00.436760 #1563]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-23T05:24:00.436776 #1563]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -1006,7 +1006,7 @@ I, [2023-02-23T14:02:55.714373 #1585]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 
 I, [2023-02-23T14:02:55.715244 #1585]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-23T14:02:55.718279 #1585]  INFO -- : Desktop session: gnome x11
 I, [2023-02-23T14:02:55.718438 #1585]  INFO -- : ---------------------------------------------
-I, [2023-02-23T14:02:55.718457 #1585]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T14:02:55.718457 #1585]  INFO -- : Enabled Plugins:
 I, [2023-02-23T14:02:55.718551 #1585]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-23T14:02:55.718572 #1585]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-23T14:02:55.718582 #1585]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -1033,7 +1033,7 @@ I, [2023-02-23T14:25:26.023780 #19957]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1
 I, [2023-02-23T14:25:26.024558 #19957]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-23T14:25:26.028268 #19957]  INFO -- : Desktop session: gnome x11
 I, [2023-02-23T14:25:26.028367 #19957]  INFO -- : ---------------------------------------------
-I, [2023-02-23T14:25:26.028391 #19957]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T14:25:26.028391 #19957]  INFO -- : Enabled Plugins:
 I, [2023-02-23T14:25:26.028496 #19957]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-23T14:25:26.028517 #19957]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-23T14:25:26.028675 #19957]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -1060,7 +1060,7 @@ I, [2023-02-23T14:31:09.609557 #3886]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1 
 I, [2023-02-23T14:31:09.613060 #3886]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-23T14:31:09.618221 #3886]  INFO -- : Desktop session: gnome x11
 I, [2023-02-23T14:31:09.618319 #3886]  INFO -- : ---------------------------------------------
-I, [2023-02-23T14:31:09.618343 #3886]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T14:31:09.618343 #3886]  INFO -- : Enabled Plugins:
 I, [2023-02-23T14:31:09.618531 #3886]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-23T14:31:09.618552 #3886]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-23T14:31:09.618566 #3886]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector
@@ -1087,7 +1087,7 @@ I, [2023-02-23T14:39:26.010482 #10134]  INFO -- : OS: Linux 6.1.12-zen1-1-zen #1
 I, [2023-02-23T14:39:26.011464 #10134]  INFO -- : Distribution: EndeavourOS Linux \r (\l)
 I, [2023-02-23T14:39:26.016791 #10134]  INFO -- : Desktop session: gnome x11
 I, [2023-02-23T14:39:26.016884 #10134]  INFO -- : ---------------------------------------------
-I, [2023-02-23T14:39:26.016904 #10134]  INFO -- : Enabled Plugins: 
+I, [2023-02-23T14:39:26.016904 #10134]  INFO -- : Enabled Plugins:
 I, [2023-02-23T14:39:26.017000 #10134]  INFO -- :   Fusuma::Plugin::Buffers::GestureBuffer
 I, [2023-02-23T14:39:26.017018 #10134]  INFO -- :   Fusuma::Plugin::Buffers::TimerBuffer
 I, [2023-02-23T14:39:26.017031 #10134]  INFO -- :   Fusuma::Plugin::Detectors::HoldDetector

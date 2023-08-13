@@ -1,9 +1,9 @@
 #Colors all calls along the call graph to the current address
-#@author 
+#@author
 #@category
-#@keybinding 
-#@menupath 
-#@toolbar 
+#@keybinding
+#@menupath
+#@toolbar
 
 from ghidra.program.model.address import Address
 from ghidra.program.model.address import AddressSet
@@ -26,4 +26,3 @@ addresses = AddressSet()
 collect_calls(addresses, currentAddress)
 
 setBackgroundColor(addresses, Color.RED)
-

@@ -19,7 +19,7 @@
     active-background: @drac-pnk;
     urgent-background: @drac-red;
     urgent-foreground: @drac-bgd;
-    
+
     selected-background: @active-background;
     selected-urgent-background: @urgent-background;
     selected-active-background: @active-background;

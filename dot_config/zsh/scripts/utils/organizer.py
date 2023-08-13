@@ -18,9 +18,9 @@ def recurse():
         aliases_list = []
         aliases_list.append(line.strip())
         start = False
-           
-start = 
-            
+
+start =
+
 for line in aliases_file.readlines():
     if line.startswith('alias'):
         aliases_list.append(line[6:].strip())

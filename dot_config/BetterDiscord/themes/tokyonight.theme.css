@@ -47,125 +47,125 @@
 /* Square Avatar, get square avatar on chat memberlist and user area (Disabled by default) */
 /* @import url("https://dyzean.github.io/Tokyo-Night/addons/square-avatar.css"); */
 
-
 /* ==== Discord Variables ==== */
-.theme-dark { /* Dark Mode */
+.theme-dark {
+	/* Dark Mode */
 
-  /*  Header Color  */
-  --header-primary: var(--text-normal);
-  --header-secondary: var(--text-muted);
+	/*  Header Color  */
+	--header-primary: var(--text-normal);
+	--header-secondary: var(--text-muted);
 
-  /*  Text Color  */
-  --text-normal: #b1bae6;
-  --text-muted: #565f89;
-  --interactive-normal: #5f647e;
-  --interactive-hover: #a2a6c2;
-  --interactive-active: #b5bad1;
-  --interactive-muted: #55576b;
+	/*  Text Color  */
+	--text-normal: #b1bae6;
+	--text-muted: #565f89;
+	--interactive-normal: #5f647e;
+	--interactive-hover: #a2a6c2;
+	--interactive-active: #b5bad1;
+	--interactive-muted: #55576b;
 
-  /* Background Color */
-  --background-primary: #1a1b26;
-  --background-secondary: #171722;
-  --background-secondary-alt: #13131a;
-  --background-tertiary: #16161e;
-  --background-tertiary-alt: var(--background-secondary-alt);
-  --background-accent: #434461;
-  --background-floating: #161620;
-  --background-modifier-hover: #212331c0;
-  --background-modifier-active: #282a3680;
-  --background-modifier-selected: #24263171;
-  --background-modifier-accent: #1e1e29;
-  --background-mentioned: #252836;
-  --border-mentioned: #474c64;
-  --background-mentioned-hover: #2f3344;
-  --accent-color: #7aa2f7;
+	/* Background Color */
+	--background-primary: #1a1b26;
+	--background-secondary: #171722;
+	--background-secondary-alt: #13131a;
+	--background-tertiary: #16161e;
+	--background-tertiary-alt: var(--background-secondary-alt);
+	--background-accent: #434461;
+	--background-floating: #161620;
+	--background-modifier-hover: #212331c0;
+	--background-modifier-active: #282a3680;
+	--background-modifier-selected: #24263171;
+	--background-modifier-accent: #1e1e29;
+	--background-mentioned: #252836;
+	--border-mentioned: #474c64;
+	--background-mentioned-hover: #2f3344;
+	--accent-color: #7aa2f7;
 
-  /* Folder Color */
-  --folder-color: #202332d0;
-  --folder-color-light: #2f3342d0;
+	/* Folder Color */
+	--folder-color: #202332d0;
+	--folder-color-light: #2f3342d0;
 
-  /* Scrollbars Color */
-  --scrollbar-thin-thumb: transparent;
-  --scrollbar-thin-track: transparent;
-  --scrollbar-auto-thumb: #2b2b46af;
-  --scrollbar-auto-thumb-hover: #27273d85;
-  --scrollba-auto-track: transparent;
-  --scrollbar-auto-scrollbar-color-thumb: var(--scrollbar-auto-thumb);
-  --scrollbar-auto-scrollbar-color-track: var(--scrollbar-auto-track);
+	/* Scrollbars Color */
+	--scrollbar-thin-thumb: transparent;
+	--scrollbar-thin-track: transparent;
+	--scrollbar-auto-thumb: #2b2b46af;
+	--scrollbar-auto-thumb-hover: #27273d85;
+	--scrollba-auto-track: transparent;
+	--scrollbar-auto-scrollbar-color-thumb: var(--scrollbar-auto-thumb);
+	--scrollbar-auto-scrollbar-color-track: var(--scrollbar-auto-track);
 
-  /* Chat Box Color */
-  --channeltextarea-background: var(--background-secondary);
-  --channeltextarea-background-hover: var(--background-tertiary);
+	/* Chat Box Color */
+	--channeltextarea-background: var(--background-secondary);
+	--channeltextarea-background-hover: var(--background-tertiary);
 
 	/* Square avatar addons */
 	--avatar-roundess: 5px;
 
-  /* Mac Titlebar addons */
-  --close-button-color: #e92a2ade;
-  --maximize-button-color: #f7bc1bde;
-  --minimize-button-color: #12db33de;
+	/* Mac Titlebar addons */
+	--close-button-color: #e92a2ade;
+	--maximize-button-color: #f7bc1bde;
+	--minimize-button-color: #12db33de;
 }
 
-.theme-light { /* Light Mode */
+.theme-light {
+	/* Light Mode */
 
-  /*  Header Color  */
-  --header-primary: var(--text-normal);
-  --header-secondary: var(--text-muted);
+	/*  Header Color  */
+	--header-primary: var(--text-normal);
+	--header-secondary: var(--text-muted);
 
-  /* Text Color */
-  --text-normal: #2e3338;
-  --text-muted: #747f8d;
-  --interactive-normal: #4c505e;
-  --interactive-hover: #404350;
-  --interactive-active: #373a44;
-  --interactive-muted: #77797c;
+	/* Text Color */
+	--text-normal: #2e3338;
+	--text-muted: #747f8d;
+	--interactive-normal: #4c505e;
+	--interactive-hover: #404350;
+	--interactive-active: #373a44;
+	--interactive-muted: #77797c;
 
-  /* Background Color */
-  --background-primary: #d5d6db;
-  --background-secondary: #cecfd4;
-  --background-secondary-alt: #b6b7bd;
-  --background-tertiary: #c5c6cc;
-  --background-tertiary-alt: #bbbbc2;
-  --background-accent: #9ca3bb;
-  --background-floating: #c2c2c9;
-  --background-mentioned: #c4c7da;
-  --background-modifier-hover: #2c2a2a25;
-  --background-modifier-active: #5a525229;
-  --background-modifier-selected: #555e693d;
-  --background-modifier-accent: #06060714;
-  --border-mentioned: #a9afcf;
-  --background-mentioned-hover: #cfd2e9;
-  --accent-color: #365aaa;
+	/* Background Color */
+	--background-primary: #d5d6db;
+	--background-secondary: #cecfd4;
+	--background-secondary-alt: #b6b7bd;
+	--background-tertiary: #c5c6cc;
+	--background-tertiary-alt: #bbbbc2;
+	--background-accent: #9ca3bb;
+	--background-floating: #c2c2c9;
+	--background-mentioned: #c4c7da;
+	--background-modifier-hover: #2c2a2a25;
+	--background-modifier-active: #5a525229;
+	--background-modifier-selected: #555e693d;
+	--background-modifier-accent: #06060714;
+	--border-mentioned: #a9afcf;
+	--background-mentioned-hover: #cfd2e9;
+	--accent-color: #365aaa;
 
-  /* Folder Color */
-  --folder-color: #a7a6a6d0;
-  --folder-color-light: #afafafd0;
+	/* Folder Color */
+	--folder-color: #a7a6a6d0;
+	--folder-color-light: #afafafd0;
 
-  /* Input Box Color */
-  --input-box-bg: #c2c2c7;
-  --input-box-border: #b3b4b8;
-  --input-box-border-focus: #959699;
+	/* Input Box Color */
+	--input-box-bg: #c2c2c7;
+	--input-box-border: #b3b4b8;
+	--input-box-border-focus: #959699;
 
-  /* Scrollbars Color */
-  --scrollbar-thin-thumb: transparent;
-  --scrollbar-thin-track: transparent;
-  --scrollbar-auto-thumb: #a0a0a0af;
-  --scrollbar-auto-thumb-hover: #77777785;
-  --scrollbar-auto-track: transparent;
-  --scrollbar-auto-scrollbar-color-thumb: var(--scrollbar-auto-thumb);
-  --scrollbar-auto-scrollbar-color-track: var(--scrollbar-auto-track);
+	/* Scrollbars Color */
+	--scrollbar-thin-thumb: transparent;
+	--scrollbar-thin-track: transparent;
+	--scrollbar-auto-thumb: #a0a0a0af;
+	--scrollbar-auto-thumb-hover: #77777785;
+	--scrollbar-auto-track: transparent;
+	--scrollbar-auto-scrollbar-color-thumb: var(--scrollbar-auto-thumb);
+	--scrollbar-auto-scrollbar-color-track: var(--scrollbar-auto-track);
 
-  /* Chat Box Color */
-  --channeltextarea-background: var(--background-secondary);
-  --channeltextarea-background-hover: var(--background-tertiary);
+	/* Chat Box Color */
+	--channeltextarea-background: var(--background-secondary);
+	--channeltextarea-background-hover: var(--background-tertiary);
 
-  /* Square avatar addons */
+	/* Square avatar addons */
 	--avatar-roundess: 5px;
 
-  /* Mac Titlebar addons */
-  --close-button-color: #e92a2ade;
-  --maximize-button-color: #f7bc1bde;
-  --minimize-button-color: #12db33de;
-  --button-position: row;
-
+	/* Mac Titlebar addons */
+	--close-button-color: #e92a2ade;
+	--maximize-button-color: #f7bc1bde;
+	--minimize-button-color: #12db33de;
+	--button-position: row;
 }

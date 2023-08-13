@@ -8,4 +8,3 @@ module.font = wezterm.font_with_fallback({
 module.font_size = 14
 
 return module
-

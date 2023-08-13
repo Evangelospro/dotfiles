@@ -164,7 +164,7 @@
 					height: 100%;
 					border-radius: 40%;
 					background:#455A64;
-					animation: liqanim 6s linear infinite;	
+					animation: liqanim 6s linear infinite;
 				}
 					@keyframes liqanim {
 					0%{

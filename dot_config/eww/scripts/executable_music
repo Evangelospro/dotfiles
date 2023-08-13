@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # Author: https://github.com/Evangelospro
 
-import os
-import requests
 import json
-from math import floor
+import os
 import sys
-import dbus
 import time
+from math import floor
+
+import dbus
+import requests
 
 session_bus = dbus.SessionBus()
 
@@ -15,12 +16,8 @@ session_bus = dbus.SessionBus()
 def spotify():
     def connect():
         try:
-            spotify_bus = session_bus.get_object(
-                "org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2"
-            )
-            spotify_properties = dbus.Interface(
-                spotify_bus, "org.freedesktop.DBus.Properties"
-            )
+            spotify_bus = session_bus.get_object("org.mpris.MediaPlayer2.spotify", "/org/mpris/MediaPlayer2")
+            spotify_properties = dbus.Interface(spotify_bus, "org.freedesktop.DBus.Properties")
             return spotify_properties
         except dbus.exceptions.DBusException:
             print("No players found", flush=True)
@@ -123,15 +120,8 @@ def lyrics(numOfLines):
                                 PLAYING = False
                             break
                     # turn the lines into a json list for eww
-                    results = json.dumps(
-                        [
-                            lyric["words"]
-                            for lyric in lyrics["lines"][i : i + numOfLines]
-                        ]
-                    )
-                    if (i != prevIndex or prevIndex == 0) and results != json.dumps(
-                        [""]
-                    ):
+                    results = json.dumps([lyric["words"] for lyric in lyrics["lines"][i : i + numOfLines]])
+                    if (i != prevIndex or prevIndex == 0) and results != json.dumps([""]):
                         prevIndex = i
                         print(results, flush=True)
             else:
@@ -161,9 +151,7 @@ def main():
             numOfLines = sys.argv[2] if len(sys.argv) > 2 else 5
             lyrics(int(numOfLines))
         case _:
-            print(
-                "Usage: python script.py [metadata|status|position_milli|trackID|cover|statusicon|lyrics]"
-            )
+            print("Usage: python script.py [metadata|status|position_milli|trackID|cover|statusicon|lyrics]")
             sys.exit(1)
 
 

@@ -1,4 +1,4 @@
-componentName:  elarch 
+componentName:  elarch
 welcomeStyleCalamares:   false
 welcomeExpandingLogo:   true
 windowExpanding:    normal
@@ -8,7 +8,7 @@ sidebar: widget
 navigation: widget
 
 strings:
-    productName:         ELARCH 
+    productName:         ELARCH
     shortProductName:    ELARCH
     version:             2023.08.08
     shortVersion:        2023.08.08

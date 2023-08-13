@@ -4,7 +4,7 @@ csv_cmd              = pmenu
 csv_no_dirs          = 0
 tint2_look           = 0
 terminal_exec        = alacritty
-terminal_args        = 
+terminal_args        =
 
 menu_width           = 250
 menu_padding_top     = 5

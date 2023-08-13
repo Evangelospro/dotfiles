@@ -4,11 +4,11 @@ for arg in "$@"; do
     case $arg in
         -r | -f | -rf)
             # Skip these parameters
-            ;;
+        ;;
         *)
             # Add non-matching arguments to the new_args array
             new_args+=("$arg")
-            ;;
+        ;;
     esac
 done
 

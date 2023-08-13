@@ -16,7 +16,7 @@
     left = 28%
     width = 50%
     top = 22%
-    height = 45%	
+    height = 45%
     item_font = "DroidLogo Regular 17"
     item_color = "#fb3048"
     selected_item_font = "DroidLogo Regular 17"
@@ -45,5 +45,3 @@
   border_color = "#31363b"
   highlight_style = "progress_highlight_*.png"
 }
-
-

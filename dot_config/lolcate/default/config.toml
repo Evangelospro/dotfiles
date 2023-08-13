@@ -18,4 +18,3 @@ ignore_hidden = false
 
 # Set to true to read .gitignore files and ignore matching files
 gitignore = false
-

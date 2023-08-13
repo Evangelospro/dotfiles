@@ -1,9 +1,9 @@
 #Dumps all available Language IDs to Console.
-#@author 
+#@author
 #@category
-#@keybinding 
-#@menupath 
-#@toolbar 
+#@keybinding
+#@menupath
+#@toolbar
 
 import ghidra.program.util.DefaultLanguageService
 

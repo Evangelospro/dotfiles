@@ -7,6 +7,6 @@ cd ~/.config/hypr/plugins/split-monitor-workspaces
 git pull
 # if any .so files exist, delete them
 if [ -f ~/.config/hypr/plugins/split-monitor-workspaces/*.so ]; then
-	rm ~/.config/hypr/plugins/split-monitor-workspaces/*.so
+    rm ~/.config/hypr/plugins/split-monitor-workspaces/*.so
 fi
 make all

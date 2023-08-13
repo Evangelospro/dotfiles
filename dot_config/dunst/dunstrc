@@ -59,4 +59,4 @@
 
 [logger]
 summary = "*"
-script = "~/.config/eww/scripts/logger.zsh"    
+script = "~/.config/eww/scripts/logger.zsh"

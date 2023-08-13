@@ -1,29 +1,29 @@
 # == Color ==
 # This has various color options. (Will be expanded in the future.)
 color:
-  # When to colorize the output.
-  # When "classic" is set, this is set to "never".
-  # Possible values: never, auto, always
-  when: always
-  # How to colorize the output.
-  # When "classic" is set, this is set to "no-color".
-  # Possible values: default, <theme-file-name>
-  # when specifying <theme-file-name>, lsd will look up theme file
-  # XDG Base Directory if relative, ~/.config/lsd/themes/<theme-file-name>.yaml,
-  # The file path if absolute
-  theme: dracula
+    # When to colorize the output.
+    # When "classic" is set, this is set to "never".
+    # Possible values: never, auto, always
+    when: always
+    # How to colorize the output.
+    # When "classic" is set, this is set to "no-color".
+    # Possible values: default, <theme-file-name>
+    # when specifying <theme-file-name>, lsd will look up theme file
+    # XDG Base Directory if relative, ~/.config/lsd/themes/<theme-file-name>.yaml,
+    # The file path if absolute
+    theme: dracula
 # == Icons ==
 icons:
-  # When to use icons.
-  # When "classic" is set, this is set to "never".
-  # Possible values: always, auto, never
-  when: always
-  # Which icon theme to use.
-  # Possible values: fancy, unicode
-  theme: fancy
-  # Separator between icon and the name
-  # Default to 1 space
-  separator: "  "
+    # When to use icons.
+    # When "classic" is set, this is set to "never".
+    # Possible values: always, auto, never
+    when: always
+    # Which icon theme to use.
+    # Possible values: fancy, unicode
+    theme: fancy
+    # Separator between icon and the name
+    # Default to 1 space
+    separator: "  "
 # == Layout ==
 # Which layout to use. "oneline" might be a bit confusing here and should be
 # called "one-per-line". It might be changed in the future.

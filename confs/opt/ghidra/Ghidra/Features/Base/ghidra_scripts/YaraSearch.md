@@ -26,5 +26,3 @@ Get some rules from:
 Load your systems local `libcrypt.so` and scan it with https://github.com/Yara-Rules/rules/blob/master/Crypto/crypto_signatures.yar
 
 ![Example of YaraSearch.py annotation in Ghidra](YaraSearch.png)
-
-

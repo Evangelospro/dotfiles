@@ -3,64 +3,63 @@
  ************/
 
 GraniteWidgetsPopOver {
+	-granitewidgetspopover-arrow-width: 21;
+	-granitewidgetspopover-arrow-height: 10;
+	-granitewidgetspopover-border-radius: 8px;
+	-granitewidgetspopover-border-width: 0;
+	-granitewidgetspopover-shadow-size: 12;
 
-  -GraniteWidgetsPopOver-arrow-width: 21;
-  -GraniteWidgetsPopOver-arrow-height: 10;
-  -GraniteWidgetsPopOver-border-radius: 8px;
-  -GraniteWidgetsPopOver-border-width: 0;
-  -GraniteWidgetsPopOver-shadow-size: 12;
-  
-  border: 1px solid $base_color;
-  background: $base_color;
-  color: $fg_color;
+	border: 1px solid $base_color;
+	background: $base_color;
+	color: $fg_color;
 
-  .button {
-    background-image: none;
-    background: none;
-    border: none;
+	.button {
+		background-image: none;
+		background: none;
+		border: none;
 
-    &:active,
-    &:active:hover, {
-      color: $selected_bg_color;
-    }
-  }
+		&:active,
+		&:active:hover {
+			color: $selected_bg_color;
+		}
+	}
 
-  > .frame {
-    border:none;
-  }
+	> .frame {
+		border: none;
+	}
 
-  .sidebar.view {
-    border: none;
-    background: none;
-  }
+	.sidebar.view {
+		border: none;
+		background: none;
+	}
 }
 
 GraniteWidgetsStaticNotebook .frame {
-  border: none;
+	border: none;
 }
 
 .popover_bg {
-  background-color: $base_color;
-  background-image: none;
-  border: 1px solid $base_color;
-  color: $fg_color;
+	background-color: $base_color;
+	background-image: none;
+	border: 1px solid $base_color;
+	color: $fg_color;
 }
-
 
 /***********
  * Welcome *
  **********/
 
 GraniteWidgetsWelcome {
-  background-color: $base_color;
+	background-color: $base_color;
 
-  GtkLabel {
-    color: $fg_color;
-  }
+	GtkLabel {
+		color: $fg_color;
+	}
 
-  .h1,.h3 {
-    color: transparentize($fg_color, 0.2);
-  }
+	.h1,
+	.h3 {
+		color: transparentize($fg_color, 0.2);
+	}
 }
 
 /**************
@@ -68,139 +67,138 @@ GraniteWidgetsWelcome {
 ***************/
 
 .source-list {
-  -GtkTreeView-horizontal-separator: 1px;
-  -GtkTreeView-vertical-separator: 6px;
+	-gtktreeview-horizontal-separator: 1px;
+	-gtktreeview-vertical-separator: 6px;
 
-  background-color: $bg_color;
-  border: solid $borders_color;
-  color: $fg_color;
-  border-right-width: 1px;
+	background-color: $bg_color;
+	border: solid $borders_color;
+	color: $fg_color;
+	border-right-width: 1px;
 
-  &:backdrop {}
+	&:backdrop {
+	}
 
-  .category-expander {
-    color: transparent;
-  }
+	.category-expander {
+		color: transparent;
+	}
 
-  .badge {
-    background-image: none;
-    background-color: transparentize(black, 0.6);
-    color: $bg_color;
-    border-radius: 10px;
-    padding: 0 6px;
-    margin: 0 3px;
-    border-width: 0;
+	.badge {
+		background-image: none;
+		background-color: transparentize(black, 0.6);
+		color: $bg_color;
+		border-radius: 10px;
+		padding: 0 6px;
+		margin: 0 3px;
+		border-width: 0;
 
-    &:selected:backdrop,
-    &:selected:hover:backdrop {
-      background-color: transparentize(black, 0.8);
-      color: darken($bg_color, 5%);
-    }
-  }
+		&:selected:backdrop,
+		&:selected:hover:backdrop {
+			background-color: transparentize(black, 0.8);
+			color: darken($bg_color, 5%);
+		}
+	}
 
-  row,
-  .list-row {
-    border:none;
-    padding: 0;
+	row,
+	.list-row {
+		border: none;
+		padding: 0;
 
-    > GtkLabel,
-    > label {
-      padding-left: 6px;
-      padding-right: 6px;
-    }
-  }
+		> GtkLabel,
+		> label {
+			padding-left: 6px;
+			padding-right: 6px;
+		}
+	}
 }
-
 
 /**************
 * Text Styles *
 **************/
 
 .h1 {
-  font-size: 24px;
+	font-size: 24px;
 }
 
 .h2 {
-  font-weight: 300;
-  font-size: 18px;
+	font-weight: 300;
+	font-size: 18px;
 }
 
 .h3 {
-  font-size: 11px;
+	font-size: 11px;
 }
 
 .h4,
 .category-label {
-  font-size: 12px;
-  padding: 6px;
-  color: transparentize($fg_color, 0.7);
-  font-weight: bold;
-  text-shadow: 0 1px transparentize(white,0.8);
+	font-size: 12px;
+	padding: 6px;
+	color: transparentize($fg_color, 0.7);
+	font-weight: bold;
+	text-shadow: 0 1px transparentize(white, 0.8);
 }
-
 
 /**************
 * Storage Bar *
 **************/
 .storage-bar {
+	.trough {
+		border: none;
+		box-shadow: 0 1px 0 0 $bottom_highlight;
+		background-image: none;
+		background-color: transparent;
+		padding: 8px 6px;
+	}
 
-  .trough {
-    border: none;
-    box-shadow:0 1px 0 0 $bottom_highlight;
-    background-image: none;
-    background-color: transparent;
-    padding: 8px 6px;
-  }
+	.fill-block {
+		background-color: $yellow;
+		border: none;
+		box-shadow: inset 0 1px 0 0 transparentize(black, 0.9),
+			inset 0 -1px 0 0 transparentize(black, 0.9);
 
-  .fill-block {
-    background-color: $yellow;
-    border:none;
-    box-shadow: inset 0 1px 0 0 transparentize(black, 0.9), inset 0 -1px 0 0 transparentize(black, 0.9);
+		transition: all 200ms ease-in-out;
 
-    transition: all 200ms ease-in-out;
+		padding: 8px 6px;
 
-    padding: 8px 6px;
-  
-    &:first-child {
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
-      border-left-width: 1px;
-      box-shadow: inset 0 1px 0 0 transparentize(black, 0.9),
-                  inset 1px 0 0 transparentize(black, 0.9),
-                  inset 0 -1px 0 0 transparentize(black, 0.9);
-    }
-    
-    &:last-child {
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
-      box-shadow: inset 0 1px 0 0 transparentize(black, 0.9),
-                  inset -1px 0 0 transparentize(black, 0.9),
-                  inset 0 -1px 0 0 transparentize(black, 0.9);
-    }
+		&:first-child {
+			border-top-left-radius: 4px;
+			border-bottom-left-radius: 4px;
+			border-left-width: 1px;
+			box-shadow: inset 0 1px 0 0 transparentize(black, 0.9),
+				inset 1px 0 0 transparentize(black, 0.9),
+				inset 0 -1px 0 0 transparentize(black, 0.9);
+		}
 
-    &.empty-block {
-      background-color: $base_color;
-    }
-    
-    &.app {
-      background-color: $blue;
-    }
+		&:last-child {
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+			box-shadow: inset 0 1px 0 0 transparentize(black, 0.9),
+				inset -1px 0 0 transparentize(black, 0.9),
+				inset 0 -1px 0 0 transparentize(black, 0.9);
+		}
 
-    &.audio {
-      background-color: $orange;
-    }
+		&.empty-block {
+			background-color: $base_color;
+		}
 
-    &.photo {
-      background-color: $red;
-    }
+		&.app {
+			background-color: $blue;
+		}
 
-    &.video {
-      background-color: $purple;
-    }
+		&.audio {
+			background-color: $orange;
+		}
 
-    .legend {
-      padding: 12px;
-      border-radius: 4px;
-    }
-  }
+		&.photo {
+			background-color: $red;
+		}
+
+		&.video {
+			background-color: $purple;
+		}
+
+		.legend {
+			padding: 12px;
+			border-radius: 4px;
+		}
+	}
 }

@@ -1,14 +1,14 @@
 {
- "clear_previous_query": true,
- "disable_desktop_filters": false,
- "enable_application_mode": true,
- "grab_mouse_pointer": false,
- "hotkey_show_app": "<Primary>space",
- "jump_keys": "1234567890abcdefghijklmnopqrstuvwxyz",
- "max_recent_apps": 10,
- "raise_if_started": false,
- "render_on_screen": "mouse-pointer-monitor",
- "show_indicator_icon": true,
- "terminal_command": "wezterm -e",
- "theme_name": "dracula"
+    "clear_previous_query": true,
+    "disable_desktop_filters": false,
+    "enable_application_mode": true,
+    "grab_mouse_pointer": false,
+    "hotkey_show_app": "<Primary>space",
+    "jump_keys": "1234567890abcdefghijklmnopqrstuvwxyz",
+    "max_recent_apps": 10,
+    "raise_if_started": false,
+    "render_on_screen": "mouse-pointer-monitor",
+    "show_indicator_icon": true,
+    "terminal_command": "wezterm -e",
+    "theme_name": "dracula"
 }

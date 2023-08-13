@@ -4,9 +4,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -20,10 +20,10 @@
 //since the arguments retrieval can be challenging.
 //
 //Decompile is expensive procedure, to optimize the code consider decompile only
-//the .rodata that matches to some "indication regex". mostly querying for "%" element will do. 
+//the .rodata that matches to some "indication regex". mostly querying for "%" element will do.
 //Since Java doesn't have any (native) proper configuration setup, we use inline editing.
 //
-//Try your regex on one of your files to ensure that it working. 
+//Try your regex on one of your files to ensure that it working.
 //In case you are not confident with it take this as an example (also look for interactive tools online):
 //The following regex will capture most of the function calls in the decompiler:
 //"^( |\t)*\\w+\\(\n?([^;]+)(,\n?[^;]*)*\\)\n?( |\\t)*;"
@@ -64,15 +64,15 @@ import ghidra.program.model.symbol.SourceType;
 import ghidra.util.task.TaskMonitor;
 
 public class ReplaceFuncNameFromLog extends GhidraScript {
-	
+
 //  EXAMPLES
 // 	RUCKUS (emfd) group 4
 //	private final String pattern = "^( |\t)*\\w+\\(\n?(.*\"\\[[A-Z]*\\] id\\(0x%08x\\) - %s\\(\\):.*?\")(,\n?[^;,]*)(,\n?[^;,]*)(\n|[^;]*)*\\)\n?( |\t)*;";
 //	RUCKUS (webs) group 3
 //	private final String pattern = "^( |\t)*\\w+\\(\n?(.*\"\\[[A-Z]*\\] %s\\(\\):.*?\")(,\n?[^;,]*)(,\n?[^;,]*)(\n|[^;]*)*\\)\n?( |\t)*;";
 // 	dropbear group 1
-//	private final String pattern = "\\w+\\(\"enter (\\w+)\"\\);"; 
-	
+//	private final String pattern = "\\w+\\(\"enter (\\w+)\"\\);";
+
 	private final String pattern = "";
 
 	private class MyDecompileConfigurer implements DecompileConfigurer {
@@ -87,27 +87,27 @@ public class ReplaceFuncNameFromLog extends GhidraScript {
 			decompiler.setOptions(options);
 		}
 	}
-	
+
 	@Override
 	protected void run() throws Exception {
-		
+
 		List<Entry<Pattern,Integer>> proccessedConfig = new ArrayList<Entry<Pattern,Integer>>();
-		
+
 		//-------------------------------------------------------------------------------
 		//---------------THIS IS THE CONFIGURATION FOR THE SCRIPT------------------------
 		//-------------------------------------------------------------------------------
 		//proccessedConfig.add(new SimpleEntry<Pattern,Integer>(Pattern.compile(PATTERN),GROUP)
-		
+
 		proccessedConfig.add(new SimpleEntry<Pattern,Integer>( Pattern.compile(pattern,Pattern.MULTILINE),0));
 
 		DecompilerCallback<Void> callback = new DecompilerCallback<Void>(currentProgram,
 			new MyDecompileConfigurer()) {
-			
+
 			//The following will run for each decompiled function
 			@Override
 			public Void process(DecompileResults results, TaskMonitor m) throws Exception {
 				boolean isFound = false;
-				if (results != null && results.getDecompiledFunction() != null 
+				if (results != null && results.getDecompiledFunction() != null
 						&& results.getDecompiledFunction().getC() != null) {
 					Function currentFunction = results.getFunction();
 					String cCode = results.getDecompiledFunction().getC();
@@ -124,7 +124,7 @@ public class ReplaceFuncNameFromLog extends GhidraScript {
 									.replaceAll(",", "")
 									.replaceAll("\"", "").trim();
 							boolean isAlfpaNumeric = filteredGroup.matches("\\w+");
-							if (posibleNames.contains(filteredGroup)) 
+							if (posibleNames.contains(filteredGroup))
 								continue;
 							posibleNames.add(filteredGroup);
 							if (!isAlfpaNumeric) {
@@ -133,18 +133,18 @@ public class ReplaceFuncNameFromLog extends GhidraScript {
 										+ "has a non-alphanumeric value <%s> "
 										+ "in the matched <%s> string\n",
 										currentFunction,
-										tempGroup, 
-										filteredGroup, 
+										tempGroup,
+										filteredGroup,
 										inputMatcher.group().trim()));
 								continue;
 							}
 							if (!isFound) {
 								newFuncName = filteredGroup;
-								
-//								println("Match found! Going to change " + 
+
+//								println("Match found! Going to change " +
 //								currentFunction.getName() +" to this: "+
 //										newFuncName +"\n");
-								
+
 								currentFunction.setName(newFuncName,
 										SourceType.USER_DEFINED);
 								isFound = true;
@@ -153,15 +153,15 @@ public class ReplaceFuncNameFromLog extends GhidraScript {
 							printerr(String.format(
 									"Conflict in function at 0x%s! "
 									+ "The name changed to %s but %s seems also good",
-									currentFunction.getEntryPoint().toString(), 
+									currentFunction.getEntryPoint().toString(),
 									newFuncName, filteredGroup));
-						} 
+						}
 					}
 				}
 				return null;
 			}
 		};
-		
+
 		try {
 			Set<Function> functions = getFunctiosThatRefferenceToData();
 			ParallelDecompiler.decompileFunctions(callback, currentProgram, functions, monitor);
@@ -182,8 +182,8 @@ public class ReplaceFuncNameFromLog extends GhidraScript {
 			Address maxaddr = memblock.getEnd();
 			AddressSetView addrsetview = new AddressSet(minaddr, maxaddr);
 			//This will return all labels of .rodata section
-			DataIterator dataIter = list.getDefinedData(addrsetview, false); 
-			
+			DataIterator dataIter = list.getDefinedData(addrsetview, false);
+
 			for ( Data data :dataIter ) {
 				//for each data item take all the references to it
 				ReferenceIterator refIter =  data.getReferenceIteratorTo();

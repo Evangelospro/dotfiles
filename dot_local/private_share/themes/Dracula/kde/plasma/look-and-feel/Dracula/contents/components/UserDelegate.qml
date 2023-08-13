@@ -71,7 +71,7 @@ Item {
             bottomMargin: units.largeSpacing
             horizontalCenter: parent.horizontalCenter
         }
-        Behavior on width { 
+        Behavior on width {
             PropertyAnimation {
                 from: faceSize
                 duration: units.longDuration;

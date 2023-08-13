@@ -512,7 +512,7 @@ PlasmaCore.ColorScope {
                 margins: units.smallSpacing
             }
 
-            
+
 
             PlasmaComponents.ToolButton {
                 text: i18ndc("plasma_lookandfeel_org.kde.lookandfeel", "Button to show/hide virtual keyboard", "Virtual Keyboard")

@@ -23,9 +23,9 @@ case $choice in
     "Extend Monitors")
         cp ~/.config/hypr/monitors_extend.conf ~/.config/hypr/monitors.conf
         clean
-        ;;
+    ;;
     "Duplicate Monitors")
         cp ~/.config/hypr/monitors_duplicate.conf ~/.config/hypr/monitors.conf
         clean
-        ;;
+    ;;
 esac

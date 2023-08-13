@@ -30,10 +30,10 @@ proxychains nmap -sT -Pn <ip-or-range> | tee -a tcp_nmap_<ip-or-range>.out
 # UDP Scan proxychains ICMP doesn't work.
 proxychains nmap -sT -Pn --top-ports <n-top-udp-ports-amount> <ip-or-range> | tee -a udp_nmap_<ip-or-range>.out
 
-# fast Enum full to run (outputs 3 files in current directory) 
+# fast Enum full to run (outputs 3 files in current directory)
 echo "<ip>" | xargs -I {} echo "nmap --top-ports 50 {} | tee -a top_50_nmap.out;nmap -p- {} | tee -a nmap.out;nmap -p\$(echo \$(cat nmap.out | grep open | grep -Eo \"[[:digit:]]*\" | tr \"\\n\" ,) | sed \"s/.$//\") -sV  -O -A {} | tee -a service_nmap.out" | sh
 
-# rustscan 
+# rustscan
 rustscan -a <ip-or-range> -g | tee -a rustscan.out
 
 # rustscan with Nmap behind it with a lot of threads.
@@ -45,17 +45,17 @@ docker run -it --rm --name rustscan rustscan/rustscan:latest -a <ip-or-range> -g
 # Rustscan with nmap behind it lots of threads, udp(top 50)/tcp scan searchsploit of udp and tcp
 export TCP="$(pwd)/.rustscan_nmap_tcp.xml";echo $TCP
 export UDP="$(pwd)/.nmap_udp.xml";echo $UDP
-if [[ ! -e $TCP ]]; 
-then 
-    rustscan -t 1500 --ulimit 5000 --tries 3 -a <ip> -- -oX $TCP -A -sC | tee -a rustscan_nmap_tcp.out 
-else 
-    echo "already scanned $TCP"; 
+if [[ ! -e $TCP ]];
+then
+    rustscan -t 1500 --ulimit 5000 --tries 3 -a <ip> -- -oX $TCP -A -sC | tee -a rustscan_nmap_tcp.out
+else
+    echo "already scanned $TCP";
 fi
-if [[ ! -e $UDP ]]; 
+if [[ ! -e $UDP ]];
 then
     nmap -sU --top-ports 50 -oX $UDP -A -sC <ip> | tee nmap_udp.out
-else 
-    echo "already scanned $UDP"; 
+else
+    echo "already scanned $UDP";
 fi
 fg 2> /dev/null; # wait for the tasks to finish.
 rm searchsploit.out 2>/dev/null;searchsploit --exclude="(PoC)|/dos/" --nmap $TCP | tee -a searchsploit.out
