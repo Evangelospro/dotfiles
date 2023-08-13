@@ -267,7 +267,7 @@ polkit-qt5
 kwallet-pam
 ## eww bar
 # eww-wayland
-# aur eww-tray-wayland-git
+aur eww-tray-wayland-git
 libevdev
 python-evdev
 ## misc
