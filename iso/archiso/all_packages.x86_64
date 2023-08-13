@@ -134,7 +134,7 @@ xl2tpd
 ###             VIA CALAMARES CONFIG START          ###
 #######################################################
 
-calamares
+elarch-calamares
 elarch-calamares-config
 
 #######################################################

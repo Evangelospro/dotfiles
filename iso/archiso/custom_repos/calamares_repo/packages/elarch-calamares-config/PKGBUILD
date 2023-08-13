@@ -5,11 +5,11 @@ pkgver=1.0
 pkgrel=1
 pkgdesc="Calamares config for ELARCH"
 arch=('any')
-url=""
+url="https://github.com/evangelospro/dotfiles"
 license=('GPL3')
 provides=("${pkgname}")
 options=(!strip !emptydirs)
-depends=('calamares')
+depends=()
 source=()
 sha256sums=()
 
