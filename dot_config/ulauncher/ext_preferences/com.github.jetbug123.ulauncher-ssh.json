@@ -1,13 +1,13 @@
 {
-  "preferences": {
-    "ssh_launcher_terminal": "wezterm",
-    "ssh_launcher_terminal_arg": "ssh",
-    "ssh_launcher_terminal_cmd": "\"%CONN\"",
-    "ssh_launcher_use_known_hosts": "True"
-  },
-  "triggers": {
-    "ssh_launcher_kw": {
-      "keyword": "ssh"
+    "preferences": {
+        "ssh_launcher_terminal": "wezterm",
+        "ssh_launcher_terminal_arg": "ssh",
+        "ssh_launcher_terminal_cmd": "\"%CONN\"",
+        "ssh_launcher_use_known_hosts": "True"
+    },
+    "triggers": {
+        "ssh_launcher_kw": {
+            "keyword": "ssh"
+        }
     }
-  }
 }

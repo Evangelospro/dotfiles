@@ -252,4 +252,7 @@
         "**/*.txt",
         "**/*.tex"
     ],
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
 }
