@@ -133,13 +133,11 @@ cd iso
 ```
 
 ## Installation and Usage
-### get the iso from the isoOUT folder and flash it to a usb drive
-### Default user is `liveuser` and password is `liveuser` sign in with these after the iso has finished the initial downloads
-### SDDM should have started and once you login with `liveuser` you should be greeted with a gorgeous desktop!
+### 1) [Download](#ways-to-get-the-iso) the iso and flash it to a usb drive
+### 2) Default user is `liveuser` and password is `liveuser` sign in with these after the iso has finished the initial downloads
+### 3) A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically using the launcher shortcut from [above](#launch--reload-applications), you can start it manually by searching `install` in the launcher or by running `sudo calamares -d` in a terminal
 
-### A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically using the launcher shortcut from [above](#launch--reload-applications), you can start it manually by searching `install` in the launcher or by running `sudo calamares -d` in a terminal
-
-### After the installation is complete, you can login with your user and password and enjoy your new system!
+### 4) After the installation is complete, you can login with your just created user and password and enjoy your new system!
 
 
 # 🌟 Stars
@@ -147,7 +145,7 @@ cd iso
 
 [![Stars](https://starchart.cc/evangelospro/dotfiles.svg)](https://starchart.cc/evangelospro/dotfiles)
 
-### Thanks to these awesome projects <a name="sources-and-inspiration"></a>
+### Thanks to these awesome projects and many more!!! <a name="sources-and-inspiration"></a>
 * [pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)
 * [playerctl](https://www.archlinux.org/packages/extra/x86_64/playerctl/)
 * [blueman](https://archlinux.org/packages/extra/x86_64/blueman/)
