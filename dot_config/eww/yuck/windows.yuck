@@ -30,32 +30,6 @@
   (bar_layout :monitor 1)
 )
 
-(defwindow calendar0
-  :stacking "fg"
-  :focusable "false"
-  :monitor 0
-  :geometry (geometry
-    :x "20"
-    :y "0"
-    :anchor "top right"
-    :width "270px"
-  :height "60px")
-  (cal)
-)
-
-(defwindow calendar1
-  :stacking "fg"
-  :focusable "false"
-  :monitor 1
-  :geometry (geometry
-    :x "20"
-    :y "0"
-    :anchor "top right"
-    :width "270px"
-  :height "60px")
-  (cal)
-)
-
 (defwindow system0
   :stacking "fg"
   :focusable "false"

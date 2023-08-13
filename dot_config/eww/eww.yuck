@@ -215,8 +215,6 @@
 
 (defwidget clock_module [?monitor]
   (eventbox
-    :onhover "${EWW_CMD} update time_reveal=true"
-    :onhoverlost "${EWW_CMD} update time_reveal=false"
     (box
       :space-evenly "false"
       :orientation "h"
@@ -224,14 +222,6 @@
       (label
         :text clock_time
         :class {monitor == 0 ? "clock_time_class0" : "clock_time_class1"}
-      )
-      (revealer :transition "slideleft"
-        :reveal time_reveal
-        :duration "350ms"
-        (button
-          :class {monitor == 0 ? "clock_date_class0" : "clock_date_class1"}
-          :onclick {monitor == 0 ? "${EWW_CMD} open --toggle calendar0 ${clock_date}" : "${EWW_CMD} open --toggle calendar1 ${clock_date}"}
-        )
       )
     )
   )
@@ -476,19 +466,6 @@
           :limit-width 22
         :wrap false)
       )
-    )
-  )
-)
-
-(defwidget cal []
-  (box
-    :class "cal"
-    :orientation "v"
-    (box
-      :class "cal-in"
-      (calendar
-        :day calendar_day
-      :year calendar_year)
     )
   )
 )

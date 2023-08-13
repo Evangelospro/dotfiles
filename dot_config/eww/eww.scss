@@ -237,50 +237,6 @@ scale trough {
 // 	margin-top: -5px;
 // }
 
-.cal {
-	background-color: $background;
-	border-radius: 16px;
-	font-family: Inter Nerd Font;
-	font-size: 18px;
-	font-weight: normal;
-
-	.cal-in {
-		padding: 10px 20px 10px 20px;
-		color: $white;
-
-		.cal {
-			&.highlight {
-				padding: 20px;
-			}
-
-			padding: 5px 5px 5px 5px;
-			margin-left: 10px;
-		}
-	}
-}
-
-.cal:selected {
-	color: $cyan;
-}
-
-.cal.header {
-	color: $cyan;
-	font-weight: bold;
-}
-
-.cal.button {
-	color: $green;
-}
-
-.cal.highlight {
-	color: $cyan;
-	font-weight: bold;
-}
-
-.cal:indeterminate {
-	color: #bfc9db;
-}
-
 .sys_sep {
 	color: $grey;
 	font-size: 18px;

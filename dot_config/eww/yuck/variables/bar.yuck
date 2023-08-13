@@ -39,13 +39,8 @@
 (deflisten indicators_json :inital '[{"caps_lock": "inactive", "num_lock": "active", "caffeine_state": "inactive", "caffeine_command": "", "layout": "US"}]' "scripts/indicators nodebug")
 (deflisten workspaces0_json :initial '[{"num": 1, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 2, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 3, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 4, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 5, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 6, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 7, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 8, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 9, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 10, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}]' "scripts/workspaces 0 nodebug")
 (deflisten workspaces1_json :initial '[{"num": 1, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 2, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 3, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 4, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 5, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 6, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 7, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 8, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 9, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}, {"num": 10, "status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}]' "scripts/workspaces 1 nodebug")
-(deflisten appname0_json :inital '[{"title": "No focused window", "icon": "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"}]' "scripts/appname 0 nodebug")
-(deflisten appname1_json :initial '[{"title": "No focused window", "icon": "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"}]' "scripts/appname 1 nodebug")
+(deflisten appname0_json :inital '[{"title": "No focused window", "icon": "/usr/share/icons/Papirus/22x22/apps/appgrid.svg"}]' "scripts/appname 0 nodebug")
+(deflisten appname1_json :initial '[{"title": "No focused window", "icon": "/usr/share/icons/Papirus/22x22/apps/appgrid.svg"}]' "scripts/appname 1 nodebug")
 
 ; revealers
 (defvar music_reveal false)
-; (defvar control_reveal false)
-(defvar time_reveal false)
-; (defvar side_reveal false)
-; (defvar volume_reveal false)
-; (defvar brightness_reveal false)
