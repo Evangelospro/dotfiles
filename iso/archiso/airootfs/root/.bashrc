@@ -20,6 +20,6 @@ bind '"\e[B":history-search-forward'
 
 ### AUTOMATED INSTALLATION START ###
 if [[ $(tty) == "/dev/tty1" ]]; then
-	/usr/local/bin/installer
+	sudo -u liveuser /usr/local/bin/installer
 fi
 ### AUTOMATED INSTALLATION END ###

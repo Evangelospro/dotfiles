@@ -56,12 +56,6 @@ paru -Sy hyprland-nvidia-git xdg-desktop-portal-hyprland-git
 pip install -r requirements.txt
 ```
 
-##### needs to be performed on every vscode update hence aliased the first in .zsh
-```
-sed -i 's;</head>;<link rel="stylesheet" href="vsc.css"></head>;g' $resPrefix/workbench.html
-Fix Checksums: Apply inside vscode run
-```
-
 # Custom Arch Linux ISO with AUR packages batteries included
 ## Setup
 ```

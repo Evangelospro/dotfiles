@@ -1,8 +1,5 @@
-# Installation
-alias calamares='xhost + && calamares'
-
 # Editor
-alias e="sed -i 's;</head>;<link rel=\"stylesheet\" href=\"vsc.css\"></head>;g' $EDITOR_DIR/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html && code"
+alias e="code"
 
 # Dotfiles
 alias config='chezmoi cd && e .'

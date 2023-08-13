@@ -2,7 +2,7 @@
 # shellcheck disable=SC2034
 
 iso_name="ELARCH"
-iso_label="ELARCH_$(date +%Y%m)"
+iso_label="ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')"
 iso_publisher="Evangelos Lioudakis <https://evangelospro.com>"
 iso_application="Arch Linux Live/Rescue CD"
 iso_version="$(date +%Y.%m.%d)"
