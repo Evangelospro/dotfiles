@@ -142,10 +142,10 @@
           (box
             :orientation "v"
             :class "music-lyrics"
-            (for lyric in lyrics_json
+            (for lyric in {music_status == "No players found" ? "[1]" : lyrics_json }
               (label
                 :class "music-lyric"
-                :css ".music-lyric { margin: 50px 0px 0px 0px; }"
+                ; :css ".music-lyric { margin: 50px 0px 0px 0px; }"
                 :limit-width {monitor == 0 ? "45" : "40"}
                 ; :xalign 0.5
                 :justify "center"
