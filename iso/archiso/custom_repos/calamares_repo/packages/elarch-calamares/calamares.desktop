@@ -1,13 +1,9 @@
 [Desktop Entry]
 Type=Application
 Version=1.0
-Name=Install Manjaro Linux
-Name[da]=Installer Manjaro Linux
-GenericName=Live Installer
-GenericName[da]=Live-installationsprogram
+Name=Install ELARCH Linux
+GenericName=ELARCH Live Installer
 Comment=Install the operating system to disk
-Comment[da]=Installer styresystemet på disk
-Comment[de]=Manjaro Linux installieren
 Exec=/usr/bin/calamares_polkit %f
 Icon=calamares
 Terminal=false

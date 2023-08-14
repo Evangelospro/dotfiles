@@ -22,8 +22,8 @@ source=("$_pkgname::git+$url.git"
 	"49-nopasswd-calamares.rules")
 
 sha256sums=('SKIP'
-            'd6a5ce002c99586dfa0cb8621cad631f148dfd0d6d234c31643a63c585c546ee'
-            'c176b28007bd1c1f23d8dbb2c936fa54d0c01bacfb67290ddad597606c129df3'
+            '68a2228ea72b2f53a57344bb0f66112c0ccdc7778cc3a878633b7db30f9b63ae'
+            'ab059a5ab5ec7d9b550736192b011d43a257a088a156f2b5fe11b47a8ee5a234'
             '56d85ff6bf860b9559b8c9f997ad9b1002f3fccc782073760eca505e3bddd176')
 
 prepare() {
