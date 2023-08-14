@@ -161,6 +161,7 @@ network-manager-applet
 blueman
 
 # Audio
+audacity
 pipewire
 pipewire-pulse
 pavucontrol
@@ -358,7 +359,10 @@ wev
 onefetch
 
 # Applications
+## Office
+onlyoffice-bin
 ## Communications
+chaotic-aur/zoom
 aur vencord-installer-bin
 ## Browser
 chaotic-aur/google-chrome
@@ -387,6 +391,8 @@ github-cli
 visual-studio-code-bin
 
 # Android
+aur jadx-gui-desktop
+chaotic-aur/genymotion
 chaotic-aur/android-sdk-platform-tools
 android-tools
 chaotic-aur/android-studio
