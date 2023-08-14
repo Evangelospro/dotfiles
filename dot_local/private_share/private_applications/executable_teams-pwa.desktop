@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Microsoft Teams - PWA
+Comment=Microsoft Teams for Linux is your chat-centered workspace in Office 365.
+Exec=/opt/google/chrome/google-chrome --profile-directory=Default --app-id=cifhbcnohmdccbgoicgdjpfamggdegmo
+Icon=teams
+Terminal=false
+StartupNotify=true
+StartupWMClass=Microsoft Teams - PWA
+Categories=Network,VideoConference
+MimeType=x-scheme-handler/msteams;
+X-KDE-Protocols=teams
+X-GNOME-UsesNotifications=true;

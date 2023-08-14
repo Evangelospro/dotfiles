@@ -362,7 +362,6 @@ onefetch
 ## Office
 onlyoffice-bin
 ## Communications
-chaotic-aur/zoom
 aur vencord-installer-bin
 ## Browser
 chaotic-aur/google-chrome
