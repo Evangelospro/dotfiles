@@ -39,9 +39,8 @@ jobs:
                   # Install necessary packages
                   sudo pacman -Syu go archiso gcc pkg-config zip rustup cargo scdoc wlroots meson ninja cmake --needed --noconfirm
 
-                  # Install rust nightly toolchain to build eww-tray-wayland-git
-                  rustup toolchain install nightly
-                  rustup default nightly
+                  # Install rust nightly toolchain to build eww-tray-wayland-git and jaq
+                  rustup default nightly-2022-08-27-x86_64-unknown-linux-gnu
             - name: Build ISO
               run: |
                   cd iso
