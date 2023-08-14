@@ -39,3 +39,6 @@ exec-once=/usr/lib/kdeconnectd -platform offscreen &
 {{- end }}
 exec-once=$HOME/.local/bin/keyboard_backlight
 exec-once=notify-send "Hyprland is fully loaded!"
+{{- if (eq .chezmoi.hostname "ELARCH-ISO") }}
+exec-once=xhost + && /usr/bin/calamares_polkit
+{{- end }}

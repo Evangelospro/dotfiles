@@ -1,4 +1,5 @@
-#!/usr/bin/zsh
+#!/usr/bin/env bash
+echo "Installation phase"
 # Ensure connection to the internet and time synchronization
 if ! ping -c 1 archlinux.org &> /dev/null; then
     echo "No internet connection please activate a connection or connect to an ethernet cable"
@@ -8,7 +9,6 @@ fi
 # No need to clone the external/submodule repos for the live environment
 chezmoi init Evangelospro --apply --exclude externals,encrypted -R
 cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
-echo "Installation phase"
 sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r
 sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt/ -r
 sudo cp $HOME/.local/share/chezmoi/confs/usr/* /usr/ -r
