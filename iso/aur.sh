@@ -64,7 +64,7 @@ if [ "$1" == "enable" ]; then
         fi
         tokens=( $repo )
         CLONE_URL=""
-        PKG_PATH=""
+        PKG_PATH="packages"
         if [ ${tokens[0]} == "#" ]; then
             # echo "skipping commented $repo"
             continue
@@ -72,10 +72,10 @@ if [ "$1" == "enable" ]; then
             PACKAGE_NAME=${tokens[1]}
             echo "Cloning $PACKAGE_NAME"
             CLONE_URL="$AUR_URL${tokens[1]}.git"
-            PKG_PATH="${tokens[1]}"
+            PKG_PATH="$PKG_PATH/${tokens[1]}"
             elif [ ${tokens[0]} == "url" ]; then
             CLONE_URL="${tokens[1]}"
-            PKG_PATH="$(basename ${tokens[1]})"
+            PKG_PATH="$PKG_PATH/$(basename ${tokens[1]})"
         else
             # echo "unhandled url type"
             continue
