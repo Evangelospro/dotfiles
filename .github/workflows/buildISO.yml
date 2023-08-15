@@ -45,13 +45,13 @@ jobs:
               run: |
                   cd iso
                   ./elarch-repo.sh enable
-                  # ./aur.sh enable # or use the prebuilt repo evangelospro/elarch-aur
-                  repo_name="aur_repo_x86_64"
-                  if ! grep -q "$repo_name" "$iso_dir/pacman.conf"; then
-                    echo -ne "\n\n[$repo_name]\n" >> "$iso_dir/pacman.conf"
-                    echo -ne "SigLevel = Optional TrustAll\n" >> "$iso_dir/pacman.conf"
-                    echo -ne "Server = https://evangelospro.github.io/elarch-aur/\n" >> "$iso_dir/pacman.conf"
-                  fi
+                  ./aur.sh enable # or use the prebuilt repo evangelospro/elarch-aur
+                  #   repo_name="aur_repo_x86_64"
+                  #   if ! grep -q "$repo_name" "$iso_dir/pacman.conf"; then
+                  #     echo -ne "\n\n[$repo_name]\n" >> "$iso_dir/pacman.conf"
+                  #     echo -ne "SigLevel = Optional TrustAll\n" >> "$iso_dir/pacman.conf"
+                  #     echo -ne "Server = https://evangelospro.github.io/elarch-aur/\n" >> "$iso_dir/pacman.conf"
+                  #   fi
                   ./build.sh
             - name: Get release tag
               run: echo "release-tag"="ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')" >> $GITHUB_ENV
