@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Download aur packages from file, build packages, enable in pacman.conf
 
 AUR_URL="https://aur.archlinux.org/"
@@ -50,6 +50,14 @@ if [ "$1" == "enable" ]; then
     mkdir -p $repo_dir
     cd $repo_dir
 
+    echo "Enabling local $repo_name repo"
+    # if repo is not defined in pacman.conf then add it
+    if ! grep -q "$repo_name" "$iso_dir/pacman.conf"; then
+        echo -ne "\n\n[$repo_name]" >> "$iso_dir/pacman.conf"
+        echo -ne "SigLevel = Optional TrustAll\n" >> "$iso_dir/pacman.conf"
+        echo -ne "Server = file://"$iso_dir"/custom_repos/$repo_name\n" >> "$iso_dir/pacman.conf"
+    fi
+
     while read repo; do
         if [ "$repo" == "" ]; then
             continue
@@ -78,17 +86,15 @@ if [ "$1" == "enable" ]; then
     cd $base_dir
     # cp $repo_dir/* "$iso_dir/$repo_name"
 
-    # Configure Pacman
-    cp "$iso_dir/pacman.conf.bak" "$iso_dir/pacman.conf"
-    echo -ne "\n\n[$repo_name]" >> "$iso_dir/pacman.conf"
-    echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
-    echo -ne "\nServer = file://"$repo_dir >> "$iso_dir/pacman.conf"
-
     # Remove the aur prefix and copy to packages.x86_64
     cat "$iso_dir/all_packages.x86_64" | sed 's/aur //g' > "$iso_dir/packages.x86_64"
     echo "AUR packages downloaded and built"
 else
-    echo "AUR disabled"
+    echo "Disabling local $repo_name repo"
+    # if repo is defined in pacman.conf then remove it
+    if grep -q "$repo_name" "$iso_dir/pacman.conf"; then
+        sed -i "/\[$repo_name\]/,/Server = file:\/\/$iso_name\/custom_repos\/$repo_name/d" "$iso_dir/pacman.conf"
+    fi
     # Remove any aur packages from packages.x86_64 by removing any line that starts with aur
     cat "$iso_dir/all_packages.x86_64" | sed '/^aur/d' > "$iso_dir/packages.x86_64"
 fi

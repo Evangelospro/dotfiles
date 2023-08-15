@@ -5,13 +5,6 @@ buildFolder="$base_dir/isoBUILD"
 outFolder="$base_dir/isoOUT"
 archisoVersion=$(sudo pacman -Q archiso)
 
-# if calamares_repo is not defined in pacman.conf then add it
-if ! grep -q "calamares_repo" "$iso_dir/pacman.conf"; then
-    echo -ne "\n\n[calamares_repo]" >> "$iso_dir/pacman.conf"
-    echo -ne "\nSigLevel = Optional TrustAll" >> "$iso_dir/pacman.conf"
-    echo -ne "\nServer = file://"$iso_dir"/custom_repos/calamares_repo" >> "$iso_dir/pacman.conf"
-fi
-
 echo "Archiso version installed              : "$archisoVersion
 echo "Out folder                             : "$outFolder
 echo "Build folder                           : "$buildFolder
@@ -26,7 +19,7 @@ else
         echo "Installing with yay"
         yay -S --noconfirm $package
     fi
-    
+
     if pacman -Qi archiso &> /dev/null; then
         echo "Archiso has been installed. Continuing ..."
     else

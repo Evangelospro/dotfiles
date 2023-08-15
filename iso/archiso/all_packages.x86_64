@@ -456,7 +456,7 @@ chaotic-aur/paru
 aur rate-mirrors-bin
 
 # grub theme
-# aur grub-theme-cyberre
+aur grub-theme-cyberre
 
 # Launchers
 aur ulauncher-git

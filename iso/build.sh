@@ -1,6 +1,6 @@
 #!/bin/bash
 
-bash calamares.sh enable
+bash elarch-repo.sh enable
 bash aur.sh enable
 bash build-iso.sh
 cd isoOUT
