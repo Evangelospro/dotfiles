@@ -2,10 +2,10 @@ iso/isoOUT/
 iso/isoBUILD/
 iso/archiso/custom_repos/aur_repo_x86_64/*files
 iso/archiso/custom_repos/aur_repo_x86_64/*.db
-iso/archiso/custom_repos/aur_repo_x86_64/*.tar.gz*
+iso/archiso/custom_repos/aur_repo_x86_64/*.pkg.tar*
 iso/archiso/custom_repos/calamares_repo/*files
 iso/archiso/custom_repos/calamares_repo/*.db
-iso/archiso/custom_repos/calamares_repo/*.tar.gz*
+iso/archiso/custom_repos/calamares_repo/*.pkg.tar*
 iso/archiso/packages.x86_64
 iso/archiso/custom_repos/calamares_repo/packages/**/*.pkg.tar
 iso/archiso/custom_repos/calamares_repo/packages/elarch-calamares/calamares
