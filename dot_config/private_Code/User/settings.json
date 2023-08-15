@@ -220,7 +220,8 @@
     "snyk.yesWelcomeNotification": false,
     // EXTENSIONS
     "remote.SSH.remotePlatform": {
-        "evangelospro.com": "linux"
+        "evangelospro.com": "linux",
+        "ewebsite": "linux"
     },
     "settingsSync.ignoredExtensions": [
         "WakaTime.vscode-wakatime"
@@ -256,4 +257,5 @@
     "[yuck]": {
         "editor.defaultFormatter": "eww-yuck.yuck"
     },
+    "remote.SSH.useLocalServer": false,
 }
