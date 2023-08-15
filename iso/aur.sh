@@ -52,11 +52,11 @@ if [ "$1" == "enable" ]; then
 
     echo "Enabling local $repo_name repo"
     # if repo is not defined in pacman.conf then add it
-    if ! grep -q "$repo_name" "$iso_dir/pacman.conf"; then
+    `if ! grep -q "$repo_name" "$iso_dir/pacman.conf"; then
         echo -ne "\n\n[$repo_name]\n" >> "$iso_dir/pacman.conf"
         echo -ne "SigLevel = Optional TrustAll\n" >> "$iso_dir/pacman.conf"
         echo -ne "Server = file://"$iso_dir"/custom_repos/$repo_name\n" >> "$iso_dir/pacman.conf"
-    fi
+    fi`
 
     while read repo; do
         if [ "$repo" == "" ]; then
