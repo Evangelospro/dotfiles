@@ -50,7 +50,7 @@ jobs:
                   if ! grep -q "$repo_name" "$iso_dir/pacman.conf"; then
                     echo -ne "\n\n[$repo_name]\n" >> "$iso_dir/pacman.conf"
                     echo -ne "SigLevel = Optional TrustAll\n" >> "$iso_dir/pacman.conf"
-                    echo -ne "Server = https://evangelospro.github.io/elarch-aur/n" >> "$iso_dir/pacman.conf"
+                    echo -ne "Server = https://evangelospro.github.io/elarch-aur/\n" >> "$iso_dir/pacman.conf"
                   fi
                   ./build.sh
             - name: Get release tag
