@@ -13,7 +13,7 @@ build() {
     PKG_PATH=$1
     echo "Building $PKG_PATH"
     (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
-    sudo mv $PKG_PATH/*.pkg.tar $repo_dir
+    # sudo mv $PKG_PATH/*.pkg.tar $repo_dir
     if [ "$conserve_space" == "conserve_space" ]; then
         sudo rm -rf $PKG_PATH
     fi

@@ -28,7 +28,7 @@ build() {
         else
             echo "Building $PKG_PATH as there is an update"
             (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
-            sudo mv $PKG_PATH/*.pkg.tar $repo_dir
+            # sudo mv $PKG_PATH/*.pkg.tar $repo_dir
             if [ "$conserve_space" == "conserve_space" ]; then
                 sudo rm -rf $PKG_PATH
             fi
@@ -53,7 +53,7 @@ if [ "$1" == "enable" ]; then
     echo "Enabling local $repo_name repo"
     # if repo is not defined in pacman.conf then add it
     if ! grep -q "$repo_name" "$iso_dir/pacman.conf"; then
-        echo -ne "\n\n[$repo_name]" >> "$iso_dir/pacman.conf"
+        echo -ne "\n\n[$repo_name]\n" >> "$iso_dir/pacman.conf"
         echo -ne "SigLevel = Optional TrustAll\n" >> "$iso_dir/pacman.conf"
         echo -ne "Server = file://"$iso_dir"/custom_repos/$repo_name\n" >> "$iso_dir/pacman.conf"
     fi
