@@ -1,7 +1,5 @@
 #!/bin/bash
 
-bash elarch-repo.sh enable
-bash aur.sh enable
 bash build-iso.sh
 cd isoOUT
 ISO_PATH=$(find . -type f -name "*.iso")

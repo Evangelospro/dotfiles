@@ -17,8 +17,6 @@ jobs:
             contents: write
         container:
             image: ghcr.io/evangelospro/archbase:latest
-            volumes:
-                - /home/evangelospro/elarch-iso/aur_repo_x86_64:/__w/dotfiles/dotfiles/iso/custom-repos/aur_repo_x86_64
             options: --privileged
         steps:
             - name: Checkout repository
@@ -46,6 +44,8 @@ jobs:
             - name: Build ISO
               run: |
                   cd iso
+                  ./elarch-repo.sh enable
+                  #   ./aur.sh enable or use the prebuilt repo evangelospro/elarch-aur
                   ./build.sh
             - name: Get release tag
               run: echo "release-tag"="ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')" >> $GITHUB_ENV
