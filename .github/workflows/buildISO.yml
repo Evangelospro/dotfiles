@@ -18,7 +18,7 @@ jobs:
         container:
             image: ghcr.io/evangelospro/archbase:latest
             volumes:
-                - $HOME/elarch-iso/aur_repo_x86_64:/__w/dotfiles/dotfiles/iso/custom-repos/aur_repo_x86_64
+                - /home/evangelospro/elarch-iso/aur_repo_x86_64:/__w/dotfiles/dotfiles/iso/custom-repos/aur_repo_x86_64
             options: --privileged
         steps:
             - name: Checkout repository
