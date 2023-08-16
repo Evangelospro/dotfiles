@@ -106,7 +106,8 @@ Shell: Zsh
 ## Ways to get the ISO
 ### From the releases tab (automated builds)
 ## Two self-explainatory isos (full and light)
-[![iso_build](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml)
+[![full version](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-full.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-full.yml)
+[![light version](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-light.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-light.yml)
 #### Oneliner that gets you a ready-to-use iso with my dotfiles and packages
 ```
 curl --silent https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get-iso.sh|bash
