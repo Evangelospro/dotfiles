@@ -278,7 +278,8 @@ swaync
 swaync-client
 swaylock-effects
 swayidle
-# Disks
+## Disks
+chaotic-aur/qdirstat
 udiskie
 gparted
 
@@ -361,14 +362,19 @@ onefetch
 # Applications
 ## Office
 onlyoffice-bin
+## Mail
+aur betterbird-bin
 ## Communications
 aur vencord-installer-bin
 ## Browser
 chaotic-aur/google-chrome
+xdman
+## Discord
 discord
 chaotic-aur/betterdiscordctl-git
+## Note taking
 obsidian
-chaotic-aur/qdirstat
+## spotify
 # spotify
 # spotify-player
 aur spotifywm-git
@@ -396,7 +402,7 @@ chaotic-aur/android-sdk-platform-tools
 android-tools
 chaotic-aur/android-studio
 
-# Hacking
+# Hacking Tools
 ## Frameworks
 metasploit
 ## Reverse engineering
@@ -437,6 +443,7 @@ python-pycryptodome
 python-pycryptodomex
 sagemath
 python-numpy
+# End Hacking Tools
 
 # Windows emulation
 # wine

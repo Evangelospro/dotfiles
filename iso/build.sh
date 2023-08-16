@@ -1,5 +1,11 @@
 #!/bin/bash
-
+light=$1
+if [ "$light" = "light" ]; then
+    echo "Building light iso"
+    sed -i '/^#Hacking Tools/,/^#End Hacking Tools/d' ../packages.x86_64
+else
+    echo "Building full iso (default)"
+fi
 bash build-iso.sh
 cd isoOUT
 ISO_PATH=$(find . -type f -name "*.iso")

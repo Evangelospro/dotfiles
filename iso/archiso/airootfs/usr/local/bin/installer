@@ -12,6 +12,7 @@ cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
 sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r
 sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt/ -r
 sudo cp $HOME/.local/share/chezmoi/confs/usr/* /usr/ -r
+papirus-folders -C magenta --theme Papirus-Dark
 # sudo pacman-key --init
 # sudo pacman-key --populate
 # rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist

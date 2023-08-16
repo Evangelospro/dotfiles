@@ -104,7 +104,8 @@ Shell: Zsh
 ```
 
 ## Ways to get the ISO
-### From the releases tab (automated build)
+### From the releases tab (automated builds)
+## Two self-explainatory isos (full and light)
 [![iso_build](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO.yml)
 #### Oneliner that gets you a ready-to-use iso with my dotfiles and packages
 ```

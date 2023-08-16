@@ -1,4 +1,4 @@
-name: iso_build
+name: Build Full iso (hacking tools included)
 on:
     workflow_dispatch:
     # schedule:
@@ -46,9 +46,9 @@ jobs:
                   cd iso
                   ./elarch-repo.sh enable
                   ./aur.sh enable
-                  ./build.sh
+                  ./build.sh full
             - name: Get release tag
-              run: echo "release-tag"="ELARCH_$(date +'%d/%m/%Y-%H-%M-%S')" >> $GITHUB_ENV
+              run: echo "release-tag"="ELARCH_FULL_$(date +'%d/%m/%Y-%H-%M-%S')" >> $GITHUB_ENV
             - name: Upload Releases only if build was successful
               uses: softprops/action-gh-release@v1
               env:

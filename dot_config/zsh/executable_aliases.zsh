@@ -9,6 +9,9 @@ alias sudo='nocorrect sudo'
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
 
+# alias chrome to the first found chromium based browser
+alias chrome='browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome" | head -n 1) && $browser'
+
 # HACKING TOOLS
 # check if /opt/sqlmap-bin/sqlmap.py exists
 if [ -f /opt/sqlmap-bin/sqlmap.py ];

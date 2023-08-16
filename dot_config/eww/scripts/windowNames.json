@@ -62,5 +62,9 @@
   "eww": {
     "name": "eww",
     "icon": "~/.config/eww/images/EwwLogo.svg"
+  },
+  "czkawka_gui": {
+    "name": "Czkawka",
+    "icon": "bleachbit"
   }
 }
