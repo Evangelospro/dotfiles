@@ -117,7 +117,7 @@ alias umount="sudo umount"
 alias mount="sudo mount"
 
 alias mkcdir="mkdir -p $1 && cd $1"
-alias fetch="clear; fastfetch"
+alias fetch="clear; neofetch"
 alias less="less -r"
 alias tldr="tealdeer"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"

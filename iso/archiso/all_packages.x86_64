@@ -40,7 +40,6 @@ foot-terminfo
 fsarchiver
 gnu-netcat
 gpart
-gparted
 gpm
 gptfdisk
 grub
@@ -122,8 +121,6 @@ vpnc
 wireless-regdb
 wireless_tools
 wpa_supplicant
-networkmanager
-network-manager-applet
 dialog
 wvdial
 xfsprogs
@@ -152,24 +149,6 @@ xorg-xhost
 xterm
 xorg-xrdb
 mkinitcpio-openswap
-
-# Networking
-networkmanager
-network-manager-applet
-
-# Bluetooth
-blueman
-
-# Audio
-audacity
-pipewire
-pipewire-pulse
-pavucontrol
-pamixer
-
-
-# Brightness
-brightnessctl
 
 #######################################################
 ###                    EXTRAS                       ###
@@ -205,11 +184,9 @@ base-devel
 docker
 
 # Desktop environment
-# aur hyprland-git
 chaotic-aur/hyprland-git
 aur hyprpicker
 xdg-desktop-portal-gtk
-# aur xdg-desktop-portal-hyprland-git
 chaotic-aur/xdg-desktop-portal-hyprland-git
 # hyprsome
 ## requirements
@@ -250,6 +227,17 @@ aur handlr-regex-bin
 # aur pistol-git
 
 # System utils
+## Networking
+networkmanager
+network-manager-applet
+## Bluetooth
+blueman
+## Audio / Sound
+audacity
+pipewire
+pipewire-pulse
+pavucontrol
+pamixer
 ## OSD
 aur avizo
 ## Background
@@ -257,22 +245,19 @@ swaybg
 ## Clipboard
 wl-clipboard
 cliphist
-# Sound
-pavucontrol
-# brightness
+## Brightness
 brightnessctl
-# Authentication
+## Authentication
 gnome-keyring
 polkit-gnome
 polkit-qt5
 kwallet-pam
-## eww bar
+## Eww bar
 # eww-wayland
 aur eww-tray-wayland-git
 libevdev
 python-evdev
 ## misc
-progress
 wlogout
 swaync
 swaync-client
@@ -303,7 +288,6 @@ aur papirus-icon-theme-git
 # Screenshoting
 grim
 slurp
-# aur flameshot-git
 chaotic-aur/flameshot-git
 
 # Programming
@@ -321,11 +305,20 @@ playerctl
 chaotic-aur/wezterm-git
 
 # Shell
+zsh
+curl
+wget
+progress
 trash-cli
 thefuck
 zoxide
-zsh
 aur lolcate
+## ascii art
+neofetch
+figlet
+chaotic-aur/c-lolcat
+bat
+lsd
 
 # Password manager
 bitwarden-cli
@@ -333,20 +326,12 @@ bitwarden-cli
 # Dotfiles
 chezmoi
 
-# ascii art
-chaotic-aur/fastfetch
-figlet
-chaotic-aur/c-lolcat
-bat
-lsd
-
 # File managment
 nautilus
 lf
 fd
 
 # Additional utils
-navi
 unzip
 glow
 # tldr
@@ -361,14 +346,15 @@ onefetch
 
 # Applications
 ## Office
+xournalpp
+# zathura
 onlyoffice-bin
 ## Mail
-aur betterbird-bin
+# aur betterbird-bin
 ## Communications
 aur vencord-installer-bin
 ## Browser
 chaotic-aur/google-chrome
-xdman
 ## Discord
 discord
 chaotic-aur/betterdiscordctl-git
@@ -385,10 +371,6 @@ vlc
 # Images
 gthumb
 
-# Office
-xournalpp
-# zathura
-
 # Software Development
 ## Github
 github-cli
@@ -403,6 +385,8 @@ android-tools
 chaotic-aur/android-studio
 
 # Hacking Tools
+## Autocomplete
+navi
 ## Frameworks
 metasploit
 ## Reverse engineering
@@ -422,8 +406,6 @@ aur python-pwnscripts
 ropper
 ropgadget
 ## Web
-curl
-wget
 python-flask
 wpscan
 ## Networking
