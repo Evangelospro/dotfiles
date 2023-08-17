@@ -4,7 +4,7 @@ rfkill_state=$(\cat /sys/class/rfkill/rfkill0/state)
 # if 0 notify-send "Airplane mode disabled"
 # if 1 notify-send "Airplane mode enabled"
 if [[ $rfkill_state == 0 ]]; then
-    notify-send "Airplane mode disabled"
-else
     notify-send "Airplane mode enabled"
+else
+    notify-send "Airplane mode disabled"
 fi
