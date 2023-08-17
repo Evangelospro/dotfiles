@@ -453,14 +453,14 @@
           ; :show_truncated false
         :wrap false)
         (label
-          :text "${round((EWW_RAM.available_mem / 1024), 0)} | ${round((EWW_RAM.total_mem / 1024), 0)}mb "
+          :text "${round((EWW_RAM.used_mem / 1024 / 1024), 0)} | ${round((EWW_RAM.total_mem / 1024 / 1024), 0)} MB "
           :halign "start"
           :class "sys_text_mem_sub"
           :limit-width 22
           ; :show_truncated false
         :wrap false)
         (label
-          :text "${round((EWW_RAM.used_mem / 1024), 0)}mb free"
+          :text "${round(((EWW_RAM.total_mem - EWW_RAM.used_mem) / 1024 / 1024), 0)} MB free"
           :halign "start"
           :class "sys_text_mem_sub"
           :limit-width 22
