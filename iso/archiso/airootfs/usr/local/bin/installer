@@ -3,7 +3,7 @@ echo "Installation phase"
 # Ensure connection to the internet and time synchronization
 if ! ping -c 1 archlinux.org &> /dev/null; then
     echo "No internet connection please activate a connection or connect to an ethernet cable"
-    sleep 2
+    sleep 1.5
     nmtui
 fi
 # No need to clone the external/submodule repos for the live environment

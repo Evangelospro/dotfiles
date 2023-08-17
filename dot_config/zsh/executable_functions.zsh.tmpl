@@ -1,9 +1,10 @@
 # Maintenance is hard...
 function update(){
     paru -Syu
-    git pull $HOME/.config/hypr/hyprland-repo && $HOME/.config/hypr/plugins/update.sh
     zi self-update
     zi update
+    pkgfile -u
+    $HOME/.config/hypr/plugins/update.sh
     navi-update
 }
 

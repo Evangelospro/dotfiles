@@ -170,6 +170,7 @@ alias clean-docker='docker system prune -f'
 alias clean-packages='sudo pacman -Rns $(pacman -Qtdq) && sudo \rm -rf /var/cache/pacman/pkg/*'
 alias clean-font-cache="fc-cache -f -v"
 alias clean-seafile-cache="\rm -rf $HOME/.seadrive/data/file-cache"
+alias clear-trash="sudo \rm -rf $HOME/.local/share/Trash/*"
 
 # basics/typos
 alias cd..='cd ..'
