@@ -14,8 +14,7 @@ alias chrome='browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome" | 
 
 # HACKING TOOLS
 # check if /opt/sqlmap-bin/sqlmap.py exists
-if [ -f /opt/sqlmap-bin/sqlmap.py ];
-then
+if [ -f /opt/sqlmap-bin/sqlmap.py ]; then
     alias sqlmap="/opt/sqlmap-bin/sqlmap.py"
 fi
 alias cme='crackmapexec'
@@ -117,7 +116,7 @@ alias umount="sudo umount"
 alias mount="sudo mount"
 
 alias mkcdir="mkdir -p $1 && cd $1"
-alias fetch="clear; neofetch"
+alias fetch="clear; archey4"
 alias less="less -r"
 alias tldr="tealdeer"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"

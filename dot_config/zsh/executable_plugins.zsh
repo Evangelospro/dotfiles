@@ -8,6 +8,8 @@ fi
 
 # Loading ZI
 source "${ZI[BIN_DIR]}/zi.zsh"
+# disable @zsh-eval-cache
+zstyle ':zsh-eval-cache:*' disable 1
 autoload -Uz _zi
 (( ${+_comps} )) && _comps[zi]=_zi
 

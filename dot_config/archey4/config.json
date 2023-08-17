@@ -1,0 +1,109 @@
+{
+	"allow_overriding": true,
+	"parallel_loading": true,
+	"suppress_warnings": false,
+	"entries_color": "",
+	"honor_ansi_color": true,
+	"logo_style": "",
+	"entries": [
+		{ "type": "User" },
+		{ "type": "Hostname" },
+		{ "type": "Model" },
+		{ "type": "Distro" },
+		{
+			"type": "Kernel",
+			"check_version": false
+		},
+		{ "type": "Uptime" },
+		{
+			"type": "LoadAverage",
+			"decimal_places": 2,
+			"warning_threshold": 1.0,
+			"danger_threshold": 2.0
+		},
+		{ "type": "Processes" },
+    {
+			"type": "Custom",
+			"name": "WindowManager",
+			"shell": true,
+			"command": "echo $XDG_CURRENT_DESKTOP",
+			"check": true,
+			"log_stderr": true,
+			"one_line": true
+		},
+		{ "type": "DesktopEnvironment" },
+		{ "type": "Shell" },
+		{
+			"type": "Terminal",
+			"use_unicode": true
+		},
+		{ "type": "Packages" },
+		{
+			"type": "Temperature",
+			"char_before_unit": " ",
+			"sensors_chipsets": [],
+			"sensors_excluded_subfeatures": [],
+			"use_fahrenheit": false
+		},
+		{
+			"type": "CPU",
+			"one_line": true,
+			"show_cores": true
+		},
+		{
+			"type": "Custom",
+      "name": "GPU",
+      "shell": true,
+      "command": "lspci | sed -n '2p' | awk -F ': ' '{print $2}' | awk -F ' \\\\[' '{print $1}'",
+      "check": true,
+      "log_stderr": true,
+      "one_line": false
+		},
+		{
+			"type": "RAM",
+			"warning_use_percent": 33.3,
+			"danger_use_percent": 66.7
+		},
+		{
+			"type": "Disk",
+			"show_filesystems": ["local"],
+			"combine_total": true,
+			"disk_labels": null,
+			"hide_entry_name": null,
+			"warning_use_percent": 50,
+			"danger_use_percent": 75
+		},
+		{
+			"type": "LAN_IP",
+			"one_line": true,
+			"max_count": 2,
+			"show_global": false,
+			"ipv6_support": true
+		},
+		{
+			"type": "WAN_IP",
+			"one_line": true,
+			"ipv4": {
+				"dns_query": "myip.opendns.com",
+				"dns_resolver": "resolver1.opendns.com",
+				"dns_timeout": 1,
+				"http_url": "https://v4.ident.me/",
+				"http_timeout": 1
+			},
+			"ipv6": {
+				"dns_query": "myip.opendns.com",
+				"dns_resolver": "resolver1.opendns.com",
+				"dns_timeout": 1,
+				"http_url": "https://v6.ident.me/",
+				"http_timeout": 1
+			}
+		}
+	],
+	"default_strings": {
+		"latest": "latest",
+		"available": "available",
+		"no_address": "No Address",
+		"not_detected": "Not detected",
+		"virtual_environment": "Virtual Environment"
+	}
+}
