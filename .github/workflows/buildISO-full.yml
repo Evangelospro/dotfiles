@@ -58,6 +58,6 @@ jobs:
                   files: |
                       iso/isoOUT/*.iso.sha256
                       iso/isoOUT/*.part*
-                      iso/archiso/all_packages.x86_64
+                      iso/archiso/packages.x86_64
                   fail_on_unmatched_files: true
                   generate_release_notes: true
