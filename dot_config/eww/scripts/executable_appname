@@ -114,7 +114,9 @@ class Appnames(hyprland.Events):
     async def on_activewindow(self, window_class__, window_title__):
         try:
             activeWindow = self.getActiveWindow()
+            # self.logEvent(f"activewindow JSON: {activeWindow}")
         except subprocess.CalledProcessError:
+            self.logEvent("hyprctl failed")
             return
         if activeWindow:
             window_class = activeWindow["class"]

@@ -1,7 +1,22 @@
 #!/bin/bash
+# ask the use if he wants the full or light version of the iso
+iso_version=""
+echo "Which version of the iso do you want to download?"
+echo "1) Full"
+echo "2) Light"
+read -p "Enter your choice (1 or 2): " choice
+# if the choice is 1, download the full iso
+if [ $choice -eq 1 ]; then
+    echo "Downloading the full iso..."
+    iso_version="FULL"
+elif [ $choice -eq 2 ]; then
+    echo "Downloading the light iso..."
+    iso_version="LIGHT"
+fi
 mkdir -p isoOUT
 cd isoOUT
-curl --silent "https://api.github.com/repos/evangelospro/dotfiles/releases/latest" | grep "browser_download_url" | cut -d : -f 2,3 | tr -d \" | wget --show-progress -qi -
+# curl for the latest release of the chosen iso
+curl --silent "https://api.github.com/repos/evangelospro/dotfiles/releases" | grep -B 1 $iso_version | grep -o 'browser_download_url.*' | cut -d : -f 2,3 | tr -d \" | wget --show-progress -qi -
 # verify the checksums for each part
 sha256sum --check *.part*.sha256
 # if the checksums are correct, merge the parts

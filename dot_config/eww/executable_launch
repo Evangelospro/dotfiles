@@ -12,7 +12,7 @@ if [[ $(pidof eww) ]]; then
 fi
 
 ## Files and cmd
-EWW="eww -c $HOME/.config/eww/"
+EWW="eww -c $HOME/.config/eww/ --force-wayland"
 
 ## Run eww daemon if not running already
 if [[ ! $(pidof eww) ]]; then

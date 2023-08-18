@@ -263,7 +263,8 @@ swaync
 swaync-client
 swaylock-effects
 swayidle
-## Disks
+## Disks / USB devices
+usbguard-applet-qt
 chaotic-aur/qdirstat
 udiskie
 gparted

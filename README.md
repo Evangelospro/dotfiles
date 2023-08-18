@@ -16,9 +16,7 @@
 5. [Installation and Usage](#installation-and-usage)
 6. [Sources / Inspiration](#sources-and-inspiration)
 
-### My dotfiles can be applied with the below oneliner. BUT I highly recommend that you fork this repo and edit the files to your liking before applying them(using your GitHub username) Remember to `grep for evangelospro and replace with your username`.`
-
-`. <a name="applying"></a>
+### My dotfiles can be applied with the below oneliner. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for evangelospro and replace with your username`. <a name="applying"></a>
 ```
 chezmoi init --apply Evangelospro
 ```

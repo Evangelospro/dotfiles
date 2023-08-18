@@ -69,6 +69,7 @@ window {
 }
 
 box#main {
+    margin-top: 150px;
 	background: rgba(36, 39, 58, 0.7);
 	border-radius: 16px;
 	padding: 8px;

@@ -1,13 +1,16 @@
 # SYSTEM STARTUPS
-# scale apps and xorg BS
-exec-once = xhost +
+
+# scale apps
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+
+# Theming
 exec-once = hyprctl setcursor Bibata-Modern-Amber 24
 exec-once = /usr/bin/gnome-keyring-daemon --start --components=secrets &
 exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-# for auto/mounting drives
+
+# Auto/mounting drives
 exec-once=udiskie
 
 {{- if (ne .chezmoi.hostname "ELARCH-ISO") }}
@@ -18,13 +21,15 @@ exec-once=hyprctl plugin load $HOME/.config/hypr/plugins/split-monitor-workspace
 
 exec-once=$HOME/.config/hypr/scripts/import_themes
 
-exec-once=swaybg -o \* -i $HOME/Pictures/backgrounds/background.png -m fill &
-exec-once=swaync & # or dunst notification daemon
+exec-once=swaybg -o \* -i $HOME/Pictures/backgrounds/background.png -m fill
+exec-once=swaync # or dunst notification daemon
 exec-once=wl-paste --watch cliphist store
-# exec-once=$HOME/.config/hypr/scripts/sync_tz_and_loc -f & # syncs timezone and location
 
 exec-once=$HOME/.config/hypr/scripts/default/launch_portals
 exec-once=swayidle
+
+# Applets / OSD
+exec-once=usbguard-applet-qt &
 exec-once=XDG_CURRENT_DESKTOP=Unity blueman-applet
 exec-once=nm-applet --indicator
 exec-once=avizo-service
