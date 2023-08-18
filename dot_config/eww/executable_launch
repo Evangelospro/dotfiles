@@ -1,6 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-pkill -9 eww
+rm /tmp/hypr_py/ -rf
+# if eww is running, kill it and ensure that only 1 process is running
+if [[ $(pidof eww) ]]; then
+    pkill -9 eww
+    sleep 1
+    while [[ $(pidof eww | wc -l) -gt 1 ]]; do
+        pkill -9 eww
+        sleep 1
+    done
+fi
 
 ## Files and cmd
 EWW="eww -c $HOME/.config/eww/"

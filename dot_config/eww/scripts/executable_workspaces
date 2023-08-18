@@ -260,5 +260,8 @@ class Workspacer(hyprland.Events):
 
 
 w = Workspacer()
-
-w.async_connect()
+try:
+    w.async_connect()
+except Exception as e:
+    print(e)
+    w.logEvent("Failed to connect to Hyprland socket")

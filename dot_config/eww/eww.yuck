@@ -230,7 +230,7 @@
 (defwidget powermenu [?monitor]
   (button
     :class "powermenu-icon"
-    :onclick "pidof wlogout || wlogout -p layer-shell &"
+    :onclick "pidof wlogout || wlogout -p layer-shell 2>/dev/null &"
   "襤")
 )
 
