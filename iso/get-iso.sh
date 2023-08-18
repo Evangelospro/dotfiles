@@ -12,6 +12,9 @@ if [ $choice -eq 1 ]; then
 elif [ $choice -eq 2 ]; then
     echo "Downloading the light iso..."
     iso_version="LIGHT"
+else
+    echo "Invalid choice. Please try again."
+    exit 1
 fi
 mkdir -p isoOUT
 cd isoOUT
