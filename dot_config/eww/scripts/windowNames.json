@@ -65,6 +65,10 @@
   },
   "czkawka_gui": {
     "name": "Czkawka",
-    "icon": "bleachbit"
+    "icon": "com.github.qarmin.czkawka"
+  },
+  "VencordDesktop": {
+    "name": "Discord",
+    "icon": "discord"
   }
 }

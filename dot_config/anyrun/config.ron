@@ -43,8 +43,6 @@ Config(
     "libsymbols.so",
     "librink.so",
     "libshell.so",
-    "libtranslate.so",
-    "libkidex.so",
     "librandr.so",
     "libstdin.so",
     "libdictionary.so",

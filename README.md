@@ -16,7 +16,9 @@
 5. [Installation and Usage](#installation-and-usage)
 6. [Sources / Inspiration](#sources-and-inspiration)
 
-### My dotfiles can be applied with the below oneliner. BUT I highly recommend that you fork this repo and edit the files to your liking before applying them(using your GitHub username). <a name="applying"></a>
+### My dotfiles can be applied with the below oneliner. BUT I highly recommend that you fork this repo and edit the files to your liking before applying them(using your GitHub username) Remember to `grep for evangelospro and replace with your username`.`
+
+`. <a name="applying"></a>
 ```
 chezmoi init --apply Evangelospro
 ```
@@ -32,7 +34,7 @@ chezmoi init --apply Evangelospro
 | --- | --- |
 | Windows + Enter | Launch Terminal |
 | Windows + L | Lock Screen(swaylock) |
-| Windows + Space | Launch launcher(ulauncher) |
+| Windows + Space | Launch launcher(anyrun) |
 | Windows + V | Open clipboard manager (wl-clipboard) |
 | Windows + C | Select color from screen (hyprpicker) and copy it |
 | Windows + E | Open file manager(nautilus) |
@@ -44,6 +46,7 @@ chezmoi init --apply Evangelospro
 | ALT + F4 | Close focused window |
 | CTRL + SHIFT + ESC | Kill window clicked on (xkill or windows taskmanager) |
 | Windows + F | Toggle fullscreen on focused window |
+| Windows + Shift + F | Toggle floating on focused window |
 | Windows + P | Arrange monitors (extend / duplicate) |
 
 ### Screenshot / OCR

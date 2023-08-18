@@ -5,11 +5,11 @@ env = fileManager, "nautilus"
 env = browser, "google-chrome-stable"
 env = EDITOR, "code"
 
-## located in $HOME/.local/bin (which must be in $PATH)
-env = clipMenu, "clipMenu"
-env = lockscreen, "lockscreen"
-env = launcher, "launcher"
-env = ewwLaunch, "ewwLaunch"
+## located in $HOME/.local/bin ($PATH)
+env = clipMenu, "$HOME/.local/bin/clipMenu"
+env = lockscreen, "$HOME/.local/bin/lockscreen"
+env = launcher, "$HOME/.local/bin/launcher"
+env = ewwLaunch, "$HOME/.local/bin/ewwLaunch"
 
 # Control keys
 $MOD = SUPER
@@ -21,7 +21,7 @@ bind=$MOD,M,exit
 # Launch / Reload Applications
 bind=$MOD,ENTER,exec,eval $TERMINAL
 bindl=$MOD,L,exec,eval $lockscreen
-bind=$MOD,SPACE,exec,anyrun
+bind=$MOD,SPACE,exec,eval $launcher
 bind=,XF86Search,exec,eval $launcher
 bind=$MOD,V,exec,eval $clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
