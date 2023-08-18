@@ -1,0 +1,4 @@
+// <Anyrun config directory>/kidex.ron
+Config(
+  max_entries: 3,
+)

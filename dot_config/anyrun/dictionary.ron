@@ -1,0 +1,4 @@
+// <Anyrun config dir>/dictionary.ron
+Config(
+  prefix: ":def",
+)

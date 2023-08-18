@@ -1,0 +1,5 @@
+//<Anyrun config dir>/randr.ron
+Config(
+  prefix: "mon",
+  max_entries: 5,
+)

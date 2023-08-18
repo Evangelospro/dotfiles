@@ -351,11 +351,11 @@ onlyoffice-bin
 ## Mail
 # aur betterbird-bin
 ## Communications
-aur vencord-installer-bin
+# signal-desktop
 ## Browser
 chaotic-aur/google-chrome
 ## Discord
-discord
+aur vencord-desktop-git
 chaotic-aur/betterdiscordctl-git
 ## Note taking
 obsidian
@@ -447,7 +447,8 @@ aur rate-mirrors-bin
 aur grub-theme-cyberre
 
 # Launchers
-aur ulauncher-git
+aur anyrun-git
+# aur ulauncher-git
 rofi
 
 # parsers
