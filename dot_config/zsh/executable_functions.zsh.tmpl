@@ -17,6 +17,11 @@ function upload(){
     curl --silent -F"file=@$full_path" https://0x0.st|copy && paste
 }
 
+function mkcdir(){
+    mkdir -p $1
+    cd $1
+}
+
 # Move latest Download to current directory
 function mvd() {
     local fileName

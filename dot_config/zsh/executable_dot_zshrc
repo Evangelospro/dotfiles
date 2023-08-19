@@ -1,5 +1,8 @@
 $ZSH/scripts/utils/clear
 
+# check message of the day
+[ ! -f /etc/motd ] || cat /etc/motd
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of $ZSHrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -52,10 +55,6 @@ fi
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# load aliases at the end to overwrite "framework" set aliases
-source $ZSH/aliases.zsh
-# source $ZSH/ecsc/aliases.zsh commented out hopefully next year...
 
 HISTFILE=$ZSH/zsh_history.zsh
 SAVEHIST=10000000
@@ -117,6 +116,10 @@ autoload -U +X compinit && compinit -u
 autoload -U +X bashcompinit && bashcompinit
 eval "$(register-python-argcomplete pipx)"
 compinit -i -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+
+# load aliases at the end to overwrite "framework" set aliases
+source $ZSH/aliases.zsh
+# source $ZSH/ecsc/aliases.zsh commented out hopefully next year...
 
 # Plugins (at the end of the file)
 source "$ZSH/plugins.zsh"

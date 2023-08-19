@@ -5,7 +5,7 @@ alias e="code"
 alias config='chezmoi cd && e .'
 alias zshconfig="e $ZSH"
 
-alias sudo='nocorrect sudo'
+alias sudo='nocorrect sudo -E' # keep env hopefully its not a security issue
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
 
@@ -33,7 +33,8 @@ alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
 alias mobsf="$HOME/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
 alias burl="curl -x localhost:8080 -k "
 alias frm="\rm -rf"
-alias rm="$ZSH/scripts/utils/rm"
+compdef trash-put=rm
+# alias rm="$ZSH/scripts/utils/rm"
 alias rmz="\rm *.zip"
 alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
 alias gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init"
@@ -115,7 +116,7 @@ alias reboot="sudo reboot"
 alias umount="sudo umount"
 alias mount="sudo mount"
 
-alias mkcdir="mkdir -p $1 && cd $1"
+alias mkdir="mkdir -p"
 alias fetch="clear; archey4"
 alias less="less -r"
 alias tldr="tealdeer"

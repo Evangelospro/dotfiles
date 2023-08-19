@@ -1,0 +1,10 @@
+[Unit]
+Description=KDE Connect
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/lib/kdeconnectd -platform offscreen
+
+[Install]
+WantedBy=graphical-session.target

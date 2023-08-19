@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ask the use if he wants the full or light version of the iso
 iso_version=""
 echo "Which version of the iso do you want to download?"
