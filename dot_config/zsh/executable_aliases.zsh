@@ -1,9 +1,9 @@
 # Editor
-alias e="code"
+alias e="$VISUAL"
 
 # Dotfiles
-alias config='chezmoi cd && e .'
-alias zshconfig="e $ZSH"
+alias config="chezmoi cd && $VISUAL ."
+alias zshconfig="$VISUAL $ZSH"
 
 alias sudo='nocorrect sudo -E' # keep env hopefully its not a security issue
 alias please='sudo $(fc -ln -1)'
@@ -34,8 +34,6 @@ alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
 alias mobsf="$HOME/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
 alias burl="curl -x localhost:8080 -k "
 alias frm="\rm -rf"
-compdef trash-put=rm
-# alias rm="$ZSH/scripts/utils/rm"
 alias rmz="\rm *.zip"
 alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
 alias gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init"
@@ -177,6 +175,8 @@ alias clear-trash="sudo \rm -rf $HOME/.local/share/Trash/*"
 alias cd..='cd ..'
 alias pdw="pwd"
 alias sl='ls'
+alias s='ls'
+alias l='ls'
 alias q='exit'
 alias qq='exit'
 alias sduo='sudo'

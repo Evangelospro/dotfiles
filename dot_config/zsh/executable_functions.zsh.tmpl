@@ -153,6 +153,39 @@ up () {
     fi
 }
 
+function rm(){
+    this_file_system=$(df -P $HOME | tail -1 | awk '{print $1}')
+    flags=()
+    targets=()
+    for arg in "$@"; do
+        if [[ $arg == -* ]]; then
+            flags+=("$arg")
+        else
+            targets+=("$arg")
+        fi
+    done
+    if [[ -z $targets ]]; then
+        echo "No targets specified"
+        return 1
+    fi
+    echo "targets: ${targets[@]}"
+    echo "flags: $flags"
+    for target in "${targets[@]}"; do
+        target_file_system=$(df -P $target 2>/dev/null | tail -1 | awk '{print $1}')
+        if [[ $target_file_system == $this_file_system ]]; then
+            trash-put $target
+        else
+            # if flags is empty, don't pass it to rm
+            if [[ -z $flags ]]; then
+                /usr/bin/rm $target
+            else
+                flags="${flags[@]}"
+                /usr/bin/rm $flags $target
+            fi
+        fi
+    done
+}
+
 # Adding onefetch to every cd you do with a .git dir
 cd () {
     __zoxide_z "$@"
@@ -179,7 +212,13 @@ timeshell() {
 function frida-init(){
     if [[ -z $1 ]]; then
         device=$(adb devices|tail -n +2 | cut -f1)
-        adb connect $device
+        # if the device is not an emulator connect via tcp
+        if [[ $device == *emulator* ]]; then
+            echo "Device is an emulator, no need to connect via tcp"
+        else
+            echo "Device is not an emulator, connecting via tcp"
+            adb connect $device
+        fi
     else
         device=$1
         adb connect $device
@@ -187,6 +226,7 @@ function frida-init(){
     # cleanup old frida-server
     \rm -f /tmp/frida*
     adb root
+    adb remount
     frida_version=$(frida --version)
     arch=$(adb shell getprop ro.product.cpu.abi)
     wget --show-progress -q "https://github.com/frida/frida/releases/download/$frida_version/frida-server-$frida_version-android-$arch.xz" -O /tmp/frida-server.xz
