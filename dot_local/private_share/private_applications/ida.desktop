@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Hexrays IDA Pro 7.7sp1
+StartupWMClass=ida-pro
+Comment=Hexrays IDA Pro 7.7sp1
+GenericName=Hexrays IDA Pro 7.7sp1
+Exec=/home/evangelospro/.local/bin/ida start
+Icon=/home/evangelospro/.local/share/applications/icons/ida-pro.png
+Terminal=false
+Type=Application
+Categories=Development

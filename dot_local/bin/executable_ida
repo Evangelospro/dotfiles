@@ -7,6 +7,7 @@
 function outputInfo(){
     echo "Start remmina and connect to localhost:3389"
     echo "RUN \`ida{arch}\` to start IDA"
+    echo "Remember to stop the container when you are done with \`ida stop\`"
 }
 
 function startRemmina(){
@@ -23,10 +24,12 @@ if [ "$1" == "start" ]; then
     if [ ! "$(docker ps -q -a -f name=docker-ida)" ]; then
         # Create container
         echo "Creating container..."
-        docker run -d --name docker-ida -p 8080:8080 -v "$HOME/HACKING:/root/HACKING" -p "3389:3389/tcp" --hostname="$(hostname)" --env="RDP_SERVER=yes" -it ghcr.io/nyamisty/docker-wine-ida:7.6sp1
+        docker run -d --name docker-ida -p 8080:8484 -v "$HOME/HACKING:/root/HACKING" -p "3389:3389/tcp" --hostname="$(hostname)" --env="RDP_SERVER=yes" -it ghcr.io/nyamisty/docker-wine-ida:7.6sp1
         echo "Container created"
     else
-        if [ "$(docker ps -aq -f status=exited -f name=docker-ida)" ]; then
+        # if status is exited or created, start it
+        status=$(docker inspect -f '{{.State.Status}}' docker-ida)
+        if [ "$status" == "exited" ] || [ "$status" == "created" ]; then
             echo "Starting container..."
             docker start docker-ida
         fi
@@ -41,8 +44,6 @@ elif [ "$1" == "stop" ]; then
         echo "Stopping container..."
         docker stop docker-ida
         echo "Container stopped"
-        # kill remmina
-        killall remmina
     else
         echo "Container does not exist, nothing to stop"
     fi
