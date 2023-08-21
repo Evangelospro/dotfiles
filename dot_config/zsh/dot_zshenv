@@ -5,19 +5,17 @@ export AUTO_NOTIFY_BODY="Time taken: %elapsed seconds exit code: %exit_code, hav
 export AUTO_NOTIFY_IGNORE=("vpn", "htb", "thm", "ipython", "docker", "man", "nano", "vim", "ssh", "less", "e", "openvpn", "ping", "nc", "penelope", 'code', 'crontab', 'watch')
 export AUTO_NOTIFY_EXPIRE_TIME=4
 
-# Adding to the PATH
-export PATH="$PATH:$HOME/.cargo/bin/"
-export PATH="$PATH:$HOME/.local/bin/"
-export PATH="$PATH:$HOME/bin/"
-export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:$GOPATH/bin"
+# Set locale
+source $HOME/.config/environment.d/10-locale.conf
 
 # XDG Base Directories
 source $HOME/.config/environment.d/20-xdg.conf
 
 # Clean $HOME
-source $HOME/.config/environment.d/40-clean-home.conf
+source $HOME/.config/environment.d/30-clean-home.conf
+
+# Set PATH
+source $HOME/.config/environment.d/40-path.conf
 
 # Program definitions
 source $HOME/.config/environment.d/50-programs.conf

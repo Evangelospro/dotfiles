@@ -377,16 +377,19 @@ github-cli
 ## IDE
 visual-studio-code-bin
 
-# Android
-aur jadx-gui-desktop
-chaotic-aur/genymotion
-chaotic-aur/android-sdk-platform-tools
-android-tools
-chaotic-aur/android-studio
-
 # Hacking Tools
 ## Autocomplete
 navi
+# Android
+aur jdk-openjdk # latest
+aur jadx-gui-desktop
+aur python-frida-tools
+aur python-androguard
+android-udev
+chaotic-aur/android-sdk-cmdline-tools-latest
+chaotic-aur/android-sdk-platform-tools
+android-tools
+chaotic-aur/android-studio
 ## Frameworks
 metasploit
 ## Reverse engineering

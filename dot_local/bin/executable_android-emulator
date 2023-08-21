@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+default_emulator=$(emulator -list-avds | head -n 1)
+emulator @$default_emulator -no-boot-anim -noaudio -writable-system

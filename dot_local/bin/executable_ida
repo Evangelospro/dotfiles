@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# check if the container(docker-ida) exists on the system
+# if it does not exist, create it
+
+
+
+function outputInfo(){
+    echo "Start remmina and connect to localhost:3389"
+    echo "RUN \`ida{arch}\` to start IDA"
+}
+
+function startRemmina(){
+    if ! pgrep -x "remmina" > /dev/null
+    then
+        remmina -c $HOME/.local/share/remmina/group_rdp_ida-docker_127-0-0-1.remmina &
+    fi
+}
+
+startup_command="echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida64.exe' > /usr/bin/ida64 && echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida.exe' > /usr/bin/ida32 && chmod +x /usr/bin/ida* && /bin/bash"
+
+# if the first parameter is start
+if [ "$1" == "start" ]; then
+    if [ ! "$(docker ps -q -a -f name=docker-ida)" ]; then
+        # Create container
+        echo "Creating container..."
+        docker run -d --name docker-ida -p 8080:8080 -v "$HOME/HACKING:/root/HACKING" -p "3389:3389/tcp" --hostname="$(hostname)" --env="RDP_SERVER=yes" -it ghcr.io/nyamisty/docker-wine-ida:7.6sp1
+        echo "Container created"
+    else
+        if [ "$(docker ps -aq -f status=exited -f name=docker-ida)" ]; then
+            echo "Starting container..."
+            docker start docker-ida
+        fi
+    fi
+    sleep 2
+    echo "Entering container..."
+    outputInfo
+    startRemmina
+    docker exec -it docker-ida /bin/bash -c "$startup_command"
+elif [ "$1" == "stop" ]; then
+    if [ "$(docker ps -aq -f name=docker-ida)" ]; then
+        echo "Stopping container..."
+        docker stop docker-ida
+        echo "Container stopped"
+        # kill remmina
+        killall remmina
+    else
+        echo "Container does not exist, nothing to stop"
+    fi
+else
+    echo "Usage: ida start|stop"
+fi

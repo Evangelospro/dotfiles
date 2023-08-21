@@ -13,7 +13,8 @@ alias pls='please'
 alias chrome='browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome" | head -n 1) && $browser'
 
 # HACKING TOOLS
-# check if /opt/sqlmap-bin/sqlmap.py exists
+## web
+### check if /opt/sqlmap-bin/sqlmap.py exists
 if [ -f /opt/sqlmap-bin/sqlmap.py ]; then
     alias sqlmap="/opt/sqlmap-bin/sqlmap.py"
 fi
@@ -45,7 +46,6 @@ alias hosts='sudo $HOME/SCRIPTS/hosts.sh'
 alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
 alias navi-update="$ZSH/scripts/updaters/navi-updater.sh"
 alias wpscan='wpscan -e ap,t,u --plugins-detection aggressive'
-alias frida-init="adb connect 127.0.0.1:5555 && sleep && adb -s 127.0.0.1:5555 root && adb -s 127.0.0.1:5555 push $HACKING_TOOLS/Mobile/frida/frida-server /data/local/tmp/ && adb -s 127.0.0.1:5555 shell 'chmod 755 /data/local/tmp/frida-server' && adb -s 127.0.0.1:5555 shell '/data/local/tmp/frida-server &' "
 
 # Grub
 alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
