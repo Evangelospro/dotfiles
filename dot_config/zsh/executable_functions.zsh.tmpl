@@ -14,7 +14,7 @@ function upload(){
         return 1
     fi
     full_path=$(realpath $1)
-    curl --silent -F"file=@$full_path" https://0x0.st|copy && paste
+    curl --silent -F"file=@$full_path" https://0x0.st
 }
 
 function mkcdir(){
