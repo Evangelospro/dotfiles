@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+checksec $1
+
+capa $1

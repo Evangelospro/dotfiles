@@ -186,3 +186,6 @@ alias sduo='sudo'
 # image utils
 alias icat="wezterm imgcat"
 alias rotate='jpegtran -perfect -rotate'
+
+# ECSC
+alias ecsc-vpn="wg-quick up $HOME/HACKING/CTFs/$(date +%Y)/ECSC/VPN/vpn.conf"

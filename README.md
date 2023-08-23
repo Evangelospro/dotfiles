@@ -136,7 +136,7 @@ cd iso
 ```
 
 ## Installation and Usage
-### WARNING: The dotfiles are applied differently on the iso based on the hostanme `ELARCH-ISO`, so whatever you do dont' change the hostname to `ELARCH-ISO` or `ELARCH`(as this applies some extra configs that are very specific to me), during or after the installation!
+### WARNING: The dotfiles are applied differently on the iso based on the hostanme `ELARCH-ISO`, so **whatever you do dont' change or set the hostname to** `ELARCH-ISO` or `ELARCH`(as this applies some extra configs that are very specific to me), during or after the installation! But again **I really, really recommend that you fork this repo and edit the files** to your liking before applying them!!!
 ### 1) [Download](#ways-to-get-the-iso) the iso and flash it to a usb drive
 ### 2) Default user is `liveuser` and password is `liveuser` sign in with these after the iso has finished the initial downloads
 ### 3) A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically using the launcher shortcut from [above](#launch--reload-applications), you can start it manually by searching `install system` in the launcher or by running `sudo calamares -d` in a terminal, which will also give you some debug info that you should include in an issue if you encounter any problems.

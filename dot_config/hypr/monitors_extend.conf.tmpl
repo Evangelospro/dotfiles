@@ -18,7 +18,7 @@ workspace=8,monitor:eDP-1
 workspace=9,monitor:eDP-1
 workspace=10,monitor:eDP-1
 
-{{- if  eq .chezmoi.hostname "ELARCH-WORK" }}
+{{- if eq .chezmoi.hostname "ELARCH-WORK" }}
 workspace=11,monitor:VGA-1
 workspace=12,monitor:VGA-1
 workspace=13,monitor:VGA-1
@@ -44,7 +44,7 @@ workspace=20,monitor:HDMI-A-1
 
 # Default workspace
 workspace=eDP-1,1
-{{- if  eq .chezmoi.hostname "ELARCH-WORK" }}
+{{- if eq .chezmoi.hostname "ELARCH-WORK" }}
 workspace=VGA-1,11
 {{- else }}
 workspace=HDMI-A-1,11

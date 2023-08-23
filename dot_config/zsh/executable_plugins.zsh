@@ -94,7 +94,7 @@ romkatv/powerlevel10k
 
 # Syntax highlight must be the last one
 # import dracula theme
-source "$ZSH/themes/dracula.zsh-theme"
+source "$ZSH/themes/dracula-theme.zsh"
 zi wait lucid for id-as="fast-highlight" \
 atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
 z-shell/F-SY-H

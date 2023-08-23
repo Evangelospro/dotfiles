@@ -255,6 +255,7 @@ kwallet-pam
 ## Eww bar
 # eww-wayland
 aur eww-tray-wayland-git
+aur gbar-git
 libevdev
 python-evdev
 ## misc

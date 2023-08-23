@@ -1,4 +1,4 @@
-
+{{- if eq .chezmoi.hostname "ELARCH" }}
 [".config/gdb/pwndbg"]
     type = "archive"
     url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"
@@ -20,12 +20,40 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+[".local/bin/c"]
+    type = "archive-file"
+    url = '{{ gitHubLatestRelease "rettier/c" | toJson | fromJson | jq ".assets[1].browser_download_url" | first}}'
+    refreshPeriod = "168h"
+    stripComponents = 1
+    path = "c"
+
+[".local/bin/capa"]
+    type = "archive-file"
+    url = '{{ gitHubLatestRelease "mandiant/capa" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+    refreshPeriod = "168h"
+    stripComponents = 0
+    path = "capa"
+
 [".config/gdb/peda-arm"]
     type = "archive"
     url = "https://github.com/alset0326/peda-arm/archive/master.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+
+{{- end }}
+
+[".config/zsh/themes/dracula-theme.zsh"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
+    refreshPeriod = "168h"
+
+[".config/zsh/utils/gitstatus/gitstatusd-linux"]
+    type = "archive-file"
+    url = '{{ gitHubLatestRelease "romkatv/gitstatus" | toJson | fromJson | jq ".assets[16].browser_download_url" | first}}'
+    refreshPeriod = "168h"
+    stripComponents = 0
+    path = "gitstatusd-linux-x86_64"
 
 [".config/hypr/hyprland-repo"]
     type = "git-repo"

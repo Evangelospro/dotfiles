@@ -214,10 +214,6 @@
 	"snyk.trustedFolders": ["/home/evangelospro/"],
 	"snyk.yesWelcomeNotification": false,
 	// EXTENSIONS
-	"remote.SSH.remotePlatform": {
-		"evangelospro.com": "linux",
-		"ewebsite": "linux"
-	},
 	"settingsSync.ignoredExtensions": ["WakaTime.vscode-wakatime"],
 	// APKLAB
 	"apklab.apkSignerPath": "/home/evangelospro/.apklab/uber-apk-signer-1.3.0.jar",
@@ -246,5 +242,10 @@
 	"[yuck]": {
 		"editor.defaultFormatter": "eww-yuck.yuck"
 	},
-	"remote.SSH.useLocalServer": false
+    // REMOTE SSH
+	"remote.SSH.useLocalServer": false,
+    "remote.SSH.remotePlatform": {
+        "ewebsite": "linux",
+        "ecsc": "linux",
+    },
 }

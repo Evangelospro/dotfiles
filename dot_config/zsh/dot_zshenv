@@ -36,7 +36,6 @@ _ZO_DATA_DIR="$ZSH/zoxide"
 
 # Hacking tools
 export HACKING_TOOLS="$HOME/HACKING/Tools"
-export HackingSetupScripts="$HOME/HACKING/Tools/Setup-Scripts"
 export C_HOST=http://c.infra
 
 # Theming manpager
