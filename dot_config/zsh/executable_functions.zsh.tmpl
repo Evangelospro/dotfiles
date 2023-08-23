@@ -177,10 +177,30 @@ function rm(){
         else
             # if flags is empty, don't pass it to rm
             if [[ -z $flags ]]; then
-                /usr/bin/rm $target
+                output=$(/usr/bin/rm $target 2>&1)
+                # echo $output
+                if [[ $? != 0 ]]; then
+                    if [[ $output == *".git/objects/pack': Directory not empty"* ]]; then
+                        echo "git repo detected, killing gitstatusd"
+                        pkill -9 gitstatusd-linu
+                        /usr/bin/rm $target
+                    else
+                        echo "Error: $output"
+                    fi
+                fi
             else
                 flags="${flags[@]}"
-                /usr/bin/rm $flags $target
+                output=$(/usr/bin/rm $flags $target 2>&1)
+                # echo $output
+                if [[ $? != 0 ]]; then
+                    if [[ $output == *".git/objects/pack': Directory not empty"* ]]; then
+                        echo "git repo detected, killing gitstatusd"
+                        pkill -9 gitstatusd-linu
+                        /usr/bin/rm $flags $target
+                    else
+                        echo "Error: $output"
+                    fi
+                fi
             fi
         fi
     done
@@ -223,8 +243,10 @@ function frida-init(){
         device=$1
         adb connect $device
     fi
-    # cleanup old frida-server
-    \rm -f /tmp/frida*
+    # cleanup old frida-server at /tmp/frida*
+    if [[ -f /tmp/frida* ]]; then
+        rm /tmp/frida*
+    fi
     adb root
     adb remount
     frida_version=$(frida --version)

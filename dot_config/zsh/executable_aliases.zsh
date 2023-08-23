@@ -130,7 +130,8 @@ alias hexdump='od -A x -t x1z -v'
 alias o='handlr open'
 # alias clear="$ZSH/scripts/utils/clear.sh"
 alias md='glow'
-alias wget="wget -c --hsts-file=$XDG_DATA_HOME/wget-hsts"
+alias wget="wget -c --hsts-file=$HOME/.cache/wget-hsts"
+
 alias timezone-update='sudo tzupdate'
 alias perms="stat --format '%a'"
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
@@ -172,6 +173,7 @@ alias clean-seafile-cache="\rm -rf $HOME/.seadrive/data/file-cache"
 alias clear-trash="sudo \rm -rf $HOME/.local/share/Trash/*"
 
 # basics/typos
+alias ..='cd ..'
 alias cd..='cd ..'
 alias pdw="pwd"
 alias sl='ls'

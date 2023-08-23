@@ -65,7 +65,7 @@ zi light o1001100/ssh-connect
 zi ice wait
 zi light MichaelAquilina/zsh-you-should-use
 
-export YSU_IGNORED_ALIASES=("l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
+export YSU_IGNORED_ALIASES=(".." "l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
 export YSU_HARDCORE=1
 
 # check that you are not in docker or a server avoid in headless installs

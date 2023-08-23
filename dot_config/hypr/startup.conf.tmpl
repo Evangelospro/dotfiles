@@ -35,7 +35,7 @@ exec-once=nm-applet --indicator
 exec-once=avizo-service
 
 exec-once=/usr/bin/flameshot
-# exec-once=$HOME/.config/eww/launch
+exec-once=$HOME/.config/eww/launch
 # OPTIONAL COMPLETELY personal stuff
 {{- if (eq .chezmoi.hostname "ELARCH") }}
 exec-once=fusermount -u $HOME/SeaDrive ; seadrive -c $HOME/.config/seadrive/seadrive.conf -l $HOME/.seadrive/logs/seadrive.log -f -d $HOME/.seadrive/data $HOME/SeaDrive -o allow_root

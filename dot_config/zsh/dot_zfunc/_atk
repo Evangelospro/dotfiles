@@ -1,0 +1,7 @@
+#compdef atk
+
+_atk_completion() {
+  eval $(env _TYPER_COMPLETE_ARGS="${words[1,$CURRENT]}" _ATK_COMPLETE=complete_zsh atk)
+}
+
+compdef _atk_completion atk
