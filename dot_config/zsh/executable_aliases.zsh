@@ -55,7 +55,7 @@ alias hyprland-logs="cat /tmp/hypr/$(\ls -t /tmp/hypr/ | head -n 1)/hyprland.log
 
 # Copy / Paste (X11 / Wayland) remove ending newline when copying
 alias copy="if [[ -z $WAYLAND_DISPLAY ]]; then tr -d '\n' | xclip -selection clipboard; else wl-copy; fi"
-alias paste='if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard -o; else wl-paste; fi'
+alias paste="if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard -o; else wl-paste; fi"
 alias copydir='pwd | copy && paste'
 
 # Listing
@@ -66,11 +66,6 @@ alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
 
 # Servers /  SSH
 # alias ssh='wezterm ssh'
-alias server='ssh ewebsite'
-alias proxmox='ssh proxmox'
-alias portainer='ssh portainer'
-alias scripter='ssh scripter'
-alias eraspberry1='ssh eraspberry1'
 
 # Command replacemnts
 alias cat='/usr/bin/bat'
@@ -80,7 +75,7 @@ alias top='btop'
 alias g=git
 alias ga='git add'
 alias gcam='git commit -a -m'
-alias git-update="find . -name .git -type d -print -prune -exec git --git-dir '{}' fetch --all ';'"
+alias git-update-recursively="find . -name .git -type d -print -prune -exec git --git-dir '{}' fetch --all ';'"
 
 # ZSH
 alias reload='exec zsh -l'
