@@ -29,7 +29,7 @@ class Workspacer(hyprland.Events):
         if re.match("^[0-9]+$", self.targetMonitor):
             self.targetMonitor = int(self.targetMonitor)
         else:
-            print("Usage: python script.py [0|1]")
+            print("Usage: workspaces [0|1]")
             sys.exit(1)
 
         self.debug = sys.argv[2] if len(sys.argv) > 2 else ""
@@ -50,12 +50,9 @@ class Workspacer(hyprland.Events):
             .splitlines()[0]
         )
         self.workspaces = {
-            i: {"status": "inactive-workspace", "classes": {}, "adresses": [], "icons": [[], []]}
+            i: {"status": "inactive-workspace", "icons": [[], []]}
             for i in self.workspaceRange
         }
-
-        self.currentWindowAdress = 0xFFFFFFFFFF
-        self.currentWindowClass = ""
 
         # set monitorMap and occupiedWorkspaces
         self.monitor_event()
@@ -139,11 +136,7 @@ class Workspacer(hyprland.Events):
     def setAppicons(self, ws):
         self.logEvent(f"Setting app icons for workspace {ws}")
         self.workspaces[ws]["icons"] = [[], []]
-        # classes = self.workspaces[ws]["classes"].values()
         classes = self.applistClass(ws)[0:4]  # only render up to 4 icons
-        self.workspaces[ws]["classes"] = {
-            f"0x{random.randint(0, 0xffffffffffff):012x}": class_name for class_name in classes
-        }
         for i, class_name in enumerate(classes):
             icon = self.getIcon(class_name)
             self.workspaces[ws]["icons"][i % 2].append(icon)
@@ -165,6 +158,9 @@ class Workspacer(hyprland.Events):
             ),
             flush=True,
         )
+
+    def updateAll(self):
+
 
     def logEvent(self, event):
         if self.debug == "debug":
@@ -226,24 +222,12 @@ class Workspacer(hyprland.Events):
             self.workspace_event(self.focusedws, 1)
         self.generateJSON()
 
-    async def on_activewindowv2(self, window_address):
-        #     if window_address not in self.workspaces[self.focusedws]["adresses"]:
-        #         self.workspaces[self.focusedws]["adresses"].append(window_address)
-        #     self.logEvent(f"window address changed to {window_address}")
-        if window_address != self.currentWindowAdress:
-            self.currentWindowAdress = window_address
-
     async def on_activewindow(self, window_class, window_title):
         self.logEvent(f"window changed to {window_class} with title {window_title}")
-        # if self.currentWindowAdress != 0xffffffffff and self.focusedMon == self.targetMonitor and self.prevFocusedws in self.workspaceRange:
-        # 	if self.currentWindowAdress not in self.workspaces[self.prevFocusedws]["adresses"]:
-        # 		self.workspaces[self.focusedws]["classes"][self.currentWindowAdress] = window_class
         self.generateJSON()
 
     async def on_closewindow(self, window_address):
         self.logEvent(f"window with address {window_address} destroyed")
-        # regenerate on destroy window or there will be a ghost icon on eww
-        # self.workspaces[self.focusedws]["classes"].pop(window_address, None)
         self.generateJSON()
 
     async def on_movewindow(self, window_address, workspace):
@@ -251,7 +235,7 @@ class Workspacer(hyprland.Events):
         self.focusedMon = 0 if workspace < 10 else 1
         self.generate()
 
-    async def om_focusedmon(self, mon, ws):
+    async def on_focusedmon(self, mon, ws):
         self.focusedMon = self.monitormap[mon]
         self.logEvent(f"monitor changed to {self.focusedMon} target: {self.targetMonitor}")
         if self.focusedMon == self.targetMonitor:
