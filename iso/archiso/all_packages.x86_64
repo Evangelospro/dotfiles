@@ -265,7 +265,7 @@ swaync-client
 swaylock-effects
 swayidle
 ## Disks / USB devices
-usbguard-applet-qt
+aut usbguard-applet-qt
 chaotic-aur/qdirstat
 udiskie
 gparted
@@ -315,7 +315,7 @@ trash-cli
 thefuck
 zoxide
 ## ascii art
-archey4
+aur archey4
 figlet
 chaotic-aur/c-lolcat
 bat
@@ -382,9 +382,8 @@ visual-studio-code-bin
 ## Autocomplete
 navi
 # Android
-aur jdk-openjdk # latest
 aur jadx-gui-desktop
-aur python-frida-tools
+aur python-frida
 aur python-androguard
 android-udev
 chaotic-aur/android-sdk-cmdline-tools-latest
