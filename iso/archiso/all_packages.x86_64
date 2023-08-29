@@ -252,10 +252,11 @@ gnome-keyring
 polkit-gnome
 polkit-qt5
 kwallet-pam
-## Eww bar
+## Top bar
 # eww-wayland
-aur eww-tray-wayland-git
-aur gbar-git
+# aur eww-tray-wayland-git
+# aur gbar-git
+waybar
 libevdev
 python-evdev
 ## misc

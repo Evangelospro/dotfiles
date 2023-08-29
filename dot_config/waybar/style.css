@@ -1,0 +1,90 @@
+
+/* @import url("/home/evangelospro/.config/themes/dracula.css"); */
+
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+#waybar {
+  background: @background;
+  color: #eeeeef;
+  font-size: 14px;
+  font-family: "Hack Nerd Font";
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: #eeeeef;
+}
+/* Fix: active workspace doesn't show up */
+/* #workspaces button.focused { */
+#workspaces button.active {
+  color: #fa5aa4;
+}
+
+#custom-powermenu,
+#cpu,
+#temperature,
+#memory,
+#workspaces,
+#clock,
+#window,
+#pulseaudio,
+#custom-updates,
+#network {
+  padding: 4px 8px;
+  background-color: #303643;
+  border-radius: 30px;
+  margin: 6px 4px;
+}
+
+#window {
+  color: #929db1;
+}
+
+#tray {
+  margin-left: 4px;
+}
+
+#custom-updates {
+  color: #1788e4;
+}
+
+#custom-powermenu {
+  color: @red;
+  padding-right: 11px;
+  margin-right: 8px;
+}
+
+#pulseaudio {
+  color: #0fb9b1;
+  padding-right: 14px;
+}
+
+#cpu {
+  color: #61afef;
+}
+
+#temperature {
+  color: #98c379;
+}
+
+#memory {
+  color: #e5c07b;
+}
+
+#network {
+  color: #c678dd;
+  min-width: 200px;
+}
+
+#clock {
+  color: #fff;
+  margin-left: 8px;
+  /* opacity: 0.7; */
+  /* font-size: 18px; */
+}

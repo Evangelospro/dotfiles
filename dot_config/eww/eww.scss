@@ -118,14 +118,14 @@ tooltip label {
 	color: $white;
 	font-size: 20px;
 	font-weight: bold;
-	margin: 0px 20px 0px 5px;
+	margin: 0px 0px 0px 0px;
 }
 
 .clock_time_class1 {
 	color: $white;
 	font-size: 16px;
 	font-weight: bold;
-	margin: 0px 20px 0px 5px;
+	margin: 0px 0px 0px 0px;
 }
 
 .caffeine-icon {
@@ -133,9 +133,9 @@ tooltip label {
 }
 
 .powermenu-icon {
-	margin: 5px 10px 5px 0px;
+  margin: 10px 10px 10px 0px;
 	font-family: Material\-Design\-Iconic\-Font;
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: bold;
 	color: $white;
 	border-radius: 6px;

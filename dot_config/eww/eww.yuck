@@ -30,46 +30,49 @@
       :space-evenly "false"
       :valign "center"
       (for workspace in {monitor == 0 ? workspaces0_json : workspaces1_json}
-        (button
-          :class "${workspace["status"]}"
-          :onclick "hyprctl dispatch split-workspace ${workspace["num"]}"
-          :tooltip "workspace ${workspace["num"]}"
-          (box
-            :orientation "v"
-            :space-evenly "false"
-            :valign "center"
-            :class "workspaces"
-            (label
-              :class "workspace-num"
-              :tooltip "Workspace ${workspace["num"]}"
-              :text "${workspace["num"]}"
-            )
-            (box
-              :orientation "h"
-              :space-evenly "false"
-              :valign "center"
-              :class "workspace-icons-left"
-              (for icon in "${workspace["icons"][0]}"
-                (image
-                  :image-width "20"
-                  :image-height "20"
-                  :path "${icon}"
+        (box
+            (button
+                :class "${workspace["status"]}"
+                :onclick "hyprctl dispatch split-workspace ${workspace["num"]}"
+                :tooltip "workspace ${workspace["num"]}"
+                (box
+                    :orientation "v"
+                    :space-evenly "false"
+                    :valign "center"
+                    :class "workspaces"
+                    (label
+                    :class "workspace-num"
+                    :tooltip "Workspace ${workspace["num"]}"
+                    :text "${workspace["num"]}"
+                    )
+                    (box
+                    :orientation "h"
+                    :space-evenly "false"
+                    :valign "center"
+                    :class "workspace-icons-left"
+                    (for icon in "${workspace["icons"][0]}"
+                        (image
+                        :image-width "20"
+                        :image-height "20"
+                        :path "${icon}"
+                        )
+                    )
+                    )
+                    (box
+                    :orientation "h"
+                    :space-evenly "false"
+                    :valign "center"
+                    :class "workspace-icons-right"
+                    (for icon in "${workspace["icons"][1]}"
+                        (image
+                        :image-width "20"
+                        :path "${icon}"
+                        )
+                    )
                 )
-              )
             )
-            (box
-              :orientation "h"
-              :space-evenly "false"
-              :valign "center"
-              :class "workspace-icons-right"
-              (for icon in "${workspace["icons"][1]}"
-                (image
-                  :image-width "20"
-                  :path "${icon}"
-                )
-              )
             )
-          )
+        (sep)
         )
       )
     )
@@ -306,6 +309,7 @@
     (mem :monitor {monitor})
     (sep)
     (clock_module :monitor {monitor})
+    (sep)
     (notification-button :monitor {monitor})
     (powermenu)
   ))

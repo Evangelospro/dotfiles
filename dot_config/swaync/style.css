@@ -2,12 +2,13 @@
 @import url("./styles/widgets.css");
 
 /* Dracula Theme */
-@define-color foreground rgb(248, 248, 242);
+/* @define-color foreground rgb(248, 248, 242);
 @define-color background rgb(40, 42, 54);
 @define-color background-alpha rgba(40, 42, 54, 0.8);
 @define-color accent rgba(189, 147, 249, 0.8);
 @define-color current-line rgb(68, 71, 90);
-@define-color comment rgb(98, 114, 164);
+@define-color comment rgb(98, 114, 164); */
+@import url("/home/evangelospro/.config/themes/dracula.css");
 
 .notification-row {
 	transition: all 200ms ease;
@@ -28,7 +29,7 @@
 .notification-row:hover .notification {
 	box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.5);
 	border: 0px solid @accent;
-	background: @current-line;
+	background: @transparent;
 }
 
 .control-center .notification {
@@ -75,7 +76,7 @@
 }
 
 .close-button {
-	background: @current-line;
+	background: @transparent;
 	color: @foreground;
 	text-shadow: none;
 	padding: 0;
@@ -100,7 +101,7 @@
 	padding: 4px;
 	margin: 0;
 	box-shadow: none;
-	background: @current-line;
+	background: @transparent;
 	border: 2px solid @accent;
 	color: @foreground;
 }
@@ -108,7 +109,7 @@
 .notification-default-action:hover,
 .notification-action:hover {
 	-gtk-icon-effect: none;
-	background: @current-line;
+	background: @transparent;
 }
 
 .notification-default-action {
