@@ -110,7 +110,7 @@ alias umount="sudo umount"
 alias mount="sudo mount"
 
 alias mkdir="mkdir -p"
-alias fetch="clear; archey4"
+alias fetch="clear && pfetch"
 alias less="less -r"
 alias tldr="tealdeer"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"

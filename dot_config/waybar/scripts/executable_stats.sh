@@ -19,7 +19,7 @@ battery(){
 
 network() {
     status=$(nmcli g | grep -oE "disconnected")
-    
+
     if [ $status ] ; then
         icon="睊"
         essid=""
@@ -27,7 +27,7 @@ network() {
         essid=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2)
         icon=""
     fi
-    
+
     case $1 in
         --essid) echo $essid;;
         --icon) echo $icon;;
@@ -37,7 +37,7 @@ network() {
 bluetooth() {
     status=$(bluetoothctl show | grep -oE "Powered: yes")
     devices=$(bluetoothctl devices | grep Device | cut -d ' ' -f 2-)
-    
+
     if [ $status ] ; then
         icon=""
         text=""
@@ -45,7 +45,7 @@ bluetooth() {
         icon=""
         text=""
     fi
-    
+
     case $1 in
         --devices) echo $devices;;
         --icon) echo $icon;;
@@ -56,7 +56,7 @@ memory() {
     total="$(free -m | grep Mem: | awk '{ print $2 }')"
     used="$(free -m | grep Mem: | awk '{ print $3 }')"
     free=$(expr $total - $used)
-    
+
     case $1 in
         --total) echo $total;;
         --used) echo $used;;
@@ -68,11 +68,11 @@ brightness() {
     max=$(brightnessctl m)
     current=$(brightnessctl g)
     percent=$(echo "scale=2; $current / $max * 100" | bc)
-    
+
     case $1 in
         --percent) echo $percent;;
     esac
-    
+
 }
 
 notifications(){
@@ -86,19 +86,20 @@ notifications(){
     case $1 in
         --icon) echo $icon;;
         --num) echo $notificationsNum;;
+        --all) echo "$icon $notificationsNum";;
     esac
 }
 
 sound() {
     status=`amixer get Master | tail -n1 | grep -wo 'on'`
-    
+
     if [[ "$status" == "on" ]]; then
         volume=`amixer get Master | tail -n1 | awk -F ' ' '{print $5}' | tr -d '[%]'`
     else
         volume=0
     fi
     current="${volume%%%}"
-    
+
     if [[ "$status" == "on" ]]; then
         if [[ "$current" -eq "0" ]]; then
             icon="ﱝ"
@@ -112,7 +113,7 @@ sound() {
     else
         icon="ﱝ"
     fi
-    
+
     case $1 in
         --icon) echo $icon;;
         --percent) echo $volume;;

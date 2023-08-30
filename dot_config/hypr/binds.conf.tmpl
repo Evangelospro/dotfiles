@@ -26,7 +26,7 @@ bind=,XF86Search,exec,eval $launcher
 bind=$MOD,V,exec,eval $clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
 bind=$MOD,E,exec,eval $fileManager
-bind=$SHIFT_MOD,R,exec,eval $ewwLaunch
+bind=$SHIFT_MOD,R,exec,killall -SIGUSR2 waybar
 
 # Close / Fullscreen / Kill Applications / Arrange monitors
 bind=ALT_L,F4,killactive

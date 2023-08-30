@@ -242,10 +242,13 @@
 	"[yuck]": {
 		"editor.defaultFormatter": "eww-yuck.yuck"
 	},
-    // REMOTE SSH
+	// REMOTE SSH
 	"remote.SSH.useLocalServer": false,
-    "remote.SSH.remotePlatform": {
-        "ewebsite": "linux",
-        "ecsc": "linux",
-    },
+	"remote.SSH.remotePlatform": {
+		"ewebsite": "linux",
+		"ecsc": "linux"
+	},
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }

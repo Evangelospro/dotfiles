@@ -28,26 +28,17 @@ class Workspacer(hyprland.Events):
         self.windowNames = json.loads(open(os.path.expanduser("~/.config/eww/scripts/windowNames.json")).read())
 
         self.monitormap = {}
+        # set monitorMap
         self.monitor_event()
 
         self.debug = sys.argv[1] if len(sys.argv) > 1 else ""
         self.accentColor = "#bd93f9"
         self.workspaceRange = range(1, self.numOfWorkspaces + 1)
-        self.startingFocusedws = int(
-            json.loads(subprocess.check_output(["hyprctl", "-j", "monitors"]).decode())[0]["activeWorkspace"]["id"]
-        )
-        self.focusedws = self.startingFocusedws if self.startingFocusedws in self.workspaceRange else 1
+        self.focusedws = 1
         self.prevFocusedws = self.focusedws
-        self.occupiedWorkspaces = {}
         self.iconSize = 32
-        self.appgridIcon = (
-            subprocess.check_output(["geticons", "--no-fallbacks", "appgrid", "-s", str(self.iconSize), "-c", "1"])
-            .decode()
-            .splitlines()[0]
-        )
+        self.appgridIcon = self.getIcon("appgrid")
 
-        # set monitorMap and occupiedWorkspaces
-        self.monitor_event()
         self.workspaces = {mon:
                     {ws:
                         {"status": "inactive-workspace",
@@ -56,14 +47,8 @@ class Workspacer(hyprland.Events):
                     for mon in self.monitormap.keys()
                     }
         self.logEvent(f"workspaces {self.workspaces}")
-        # generateWidget initial widget
+        # generate initial widget
         self.generate()
-
-    # handle workspace create/destroy
-    def workspace_event(self, workspace_num, occupied):
-        self.occupiedWorkspaces[workspace_num] = occupied
-        # self.refresh_workspace()
-        # self.generate()
 
     # handle monitor (dis)connects
     def monitor_event(self):
@@ -80,7 +65,7 @@ class Workspacer(hyprland.Events):
         classes = [
             client["class"]
             for client in clients
-            # % to take in to account the use of split-monitor-workspafes plugin
+            # % to take in to account the use of split-monitor-workspaces plugin
             if client["workspace"]["id"] % self.numOfWorkspaces == ws and int(client["monitor"]) == self.monitormap[mon]
         ]
         self.logEvent(classes)
@@ -105,22 +90,10 @@ class Workspacer(hyprland.Events):
                 icon = icon_list[0]
                 break
         else:
-            # send a notification that icon with class_name was not found
-            # subprocess.Popen(
-            # 	[
-            # 		"notify-send",
-            # 		"-u",
-            # 		"critical",
-            # 		"-t",
-            # 		"5000",
-            # 		f"Icon not found for {class_name} manually fix in windowNames.json",
-            # 	]
-            # )
             icon = self.appgridIcon
         return icon
 
     def setAppicons(self, ws, mon):
-        self.logEvent(f"Setting app icons for workspace {ws}")
         self.workspaces[mon][ws]["icons"] = [[], []]
         classes = self.applistClass(ws, mon)[0:4]  # only render up to 4 icons
         for i, class_name in enumerate(classes):
@@ -141,8 +114,6 @@ class Workspacer(hyprland.Events):
                         SVG(svg_path)
                     ).move(self.iconSize * i, self.iconSize) for i, svg_path in enumerate(self.workspaces[mon][num]["icons"][1]))
                     self.logEvent(f"Generating image for workspace {num}")
-                    # self.logEvent(f"top panels size {len(self.workspaces[mon][num]['icons'][0])}")
-                    # self.logEvent(f"bottom panels size {len(self.workspaces[mon][num]['icons'][1])}")
                     x_len = self.iconSize if len(self.workspaces[mon][num]['icons'][0]) <= 1 else self.iconSize * 2
                     y_len = self.iconSize if len(self.workspaces[mon][num]['icons'][1]) == 0 else self.iconSize * 2
                     Figure(f"{x_len}px",
@@ -151,9 +122,18 @@ class Workspacer(hyprland.Events):
                         *bottom_panels
                     ).save(f"{self.iconsDir}/workspace-{mon}-{num}.svg")
                     # set the svg background to purple if the workspace is active
-                    if num == self.focusedws:
-                        # active
-                        pass
+                    if num == self.focusedws and mon == self.focusedMon:
+                        # add <rect width="100%" height="10%" fill="self.accentColor"/>  after the <svg ...> tag
+                        with open(f"{self.iconsDir}/workspace-{mon}-{num}.svg", "r+") as f:
+                            content = f.read()
+                            f.seek(0, 0)
+                            f.write(
+                                re.sub(
+                                    r'<svg(.*?)>',
+                                    r'<svg\1>\n<rect width="100%" height="100%" fill="' + self.accentColor + '"/>',
+                                    content,
+                                )
+                            )
                     else:
                         pass
 
@@ -171,53 +151,29 @@ class Workspacer(hyprland.Events):
 
     async def on_workspace(self, ws):
         self.logEvent(f"Workspace changed to {ws}")
-        ws = int(ws)
-        inTargetMonitor = ws in self.workspaceRange
-        if inTargetMonitor:
-            self.prevFocusedws = self.focusedws
-            self.focusedws = ws
-            self.workspace_event(self.focusedws, 1)
+        self.focusedws = int(ws)
         self.generate()
 
     async def on_focusedmon(self, mon, ws):
         self.logEvent(f"Monitor changed to {mon} at workspace {ws}")
-        self.focusedMon = self.monitormap[mon]
-        ws = int(ws)
-        inTargetMonitor = ws in self.workspaceRange
-        if inTargetMonitor:
-            self.prevFocusedws = self.focusedws
-            self.focusedws = ws
-            self.workspace_event(self.focusedws, 1)
+        self.focusedMon = mon
         self.generate()
 
     async def on_createworkspace(self, ws):
         self.logEvent(f"Workspace {ws} created")
-        # ws = int(ws)
-        # inTargetMonitor = ws in self.workspaceRange
-        # if inTargetMonitor:
-        #   self.focusedws = ws
-        #   self.workspace_event(self.focusedws, 1)
+        # self.focusedws = int(ws)
         # self.generate()
         pass
 
     async def on_destroyworkspace(self, ws):
         self.logEvent(f"Workspace {ws} destroyed")
-        # ws = int(ws)
-        # inTargetMonitor = ws in self.workspaceRange
-        # if inTargetMonitor:
-        #   self.focusedws = ws
-        #   self.workspace_event(self.focusedws, 0)
+        # self.focusedws = int(ws)
         # self.generate()
         pass
 
     async def on_moveworkspace(self, ws, mon):
         self.logEvent(f"app moved to workspace {ws} on monitor {mon}")
-        ws = int(ws)
-        inTargetMonitor = ws in self.workspaceRange
-        if inTargetMonitor:
-            self.prevFocusedws = self.focusedws
-            self.focusedws = ws
-            self.workspace_event(self.focusedws, 1)
+        self.focusedws = int(ws)
         self.generate()
 
     async def on_activewindow(self, window_class, window_title):
@@ -230,11 +186,6 @@ class Workspacer(hyprland.Events):
 
     async def on_movewindow(self, window_address, workspace):
         self.logEvent(f"window with address {window_address} moved to workspace {workspace}")
-        self.focusedMon = 0 if workspace < 10 else 1
-        self.generate()
-
-    async def on_focusedmon(self, mon, ws):
-        self.focusedMon = self.monitormap[mon]
         self.generate()
 
 
@@ -244,3 +195,4 @@ try:
 except Exception as e:
     print(e)
     w.logEvent("Failed to connect to Hyprland socket")
+    w.logEvent("Manual intervention required")

@@ -1,90 +1,147 @@
-
-/* @import url("/home/evangelospro/.config/themes/dracula.css"); */
+@import url("/home/evangelospro/.config/themes/dracula.css");
 
 * {
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	font-family: "FiraCode Nerd Font", "FontAwesome 6 Free Solid";
+	font-weight: bold;
 }
 
 #waybar {
-  background: @background;
-  color: #eeeeef;
-  font-size: 14px;
-  font-family: "Hack Nerd Font";
+	background: @transparent;
+	color: #eeeeef;
 }
 
-#workspaces button {
-  padding: 0 5px;
-  color: #eeeeef;
-}
-/* Fix: active workspace doesn't show up */
-/* #workspaces button.focused { */
-#workspaces button.active {
-  color: #fa5aa4;
-}
-
-#custom-powermenu,
-#cpu,
-#temperature,
-#memory,
-#workspaces,
-#clock,
+#image,
 #window,
+#idle_inhibitor,
+#keyboard-state,
+#language,
+#custom-notifications,
+#custom-powermenu,
+#clock,
+#battery,
 #pulseaudio,
-#custom-updates,
-#network {
-  padding: 4px 8px;
-  background-color: #303643;
-  border-radius: 30px;
-  margin: 6px 4px;
+#network,
+#bluetooth,
+#temperature,
+#workspaces,
+#tray,
+#backlight {
+	background: #1e1e2e;
+    opacity: 0.8;
+    padding: 0px 10px;
+    margin: 3px 0px;
+    margin-top: 10px;
+    border: 1px solid @purple;
+}
+
+#idle_inhibitor {
+    color: @orange;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#keyboard-state {
+    color: @orange;
+    border-radius: 10px 0px 10px 0px;
+}
+
+#language {
+    color: @orange;
+    border-radius: 0px 0px 0px 0px;
 }
 
 #window {
-  color: #929db1;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
-#tray {
-  margin-left: 4px;
-}
-
-#custom-updates {
-  color: #1788e4;
-}
-
-#custom-powermenu {
-  color: @red;
-  padding-right: 11px;
-  margin-right: 8px;
-}
-
-#pulseaudio {
-  color: #0fb9b1;
-  padding-right: 14px;
-}
-
-#cpu {
-  color: #61afef;
+#image {
+    margin: 0px 0px;
+    padding: 0px 0px;
 }
 
 #temperature {
-  color: #98c379;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#backlight {
+    border-radius: 10px 0px 0px 10px;
+}
+
+#tray {
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+#custom-powermenu {
+	color: @red;
+	padding-right: 15px;
+	margin-right: 8px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+#custom-notifications {
+	color: @cyan;
+    padding-right: 10px;
+    border-radius: 0px 0px 0px 0px;
+}
+
+#cpu {
+	color: @cyan;
+    border-radius: 10px 0px 10px 0px;
 }
 
 #memory {
-  color: #e5c07b;
-}
-
-#network {
-  color: #c678dd;
-  min-width: 200px;
+	color: @orange;
+    border-radius: 10px 0px 10px 0px;
 }
 
 #clock {
-  color: #fff;
-  margin-left: 8px;
-  /* opacity: 0.7; */
-  /* font-size: 18px; */
+    color: @orange;
+    border-radius: 10px 10px 10px 10px;
+    margin: 0px 10px 0px 10px;
+    border-right: 0px;
+}
+
+#network {
+    color: @orange;
+    border-radius: 10px 0px 0px 10px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#bluetooth {
+    color: @cyan;
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 10px
+}
+
+#pulseaudio {
+    color: @orange;
+    border-radius: 10px 0px 0px 10px;
+}
+
+#pulseaudio.microphone {
+    color: @pink;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 10px;
+}
+
+#battery {
+    color: @green;
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 10px;
+    border-left: 0px;
 }
