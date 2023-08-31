@@ -4,7 +4,6 @@
 
 import json
 import os
-import random
 import re
 import subprocess
 import sys
@@ -53,23 +52,31 @@ class Workspacer(hyprland.Events):
     # handle monitor (dis)connects
     def monitor_event(self):
         with subprocess.Popen(["hyprctl", "-j", "monitors"], stdout=subprocess.PIPE) as proc:
-            output = json.loads(proc.stdout.read().decode())
-        for monitor in output:
-            id = int(monitor["id"])
-            name = monitor["name"]
-            self.monitormap[name] = id
+            try:
+                output = json.loads(proc.stdout.read().decode())
+                for monitor in output:
+                    id = int(monitor["id"])
+                    name = monitor["name"]
+                    self.monitormap[name] = id
+            except Exception as e:
+                self.logEvent(f"Failed to get monitor info with error {e}")
+                pass
 
     def applistClass(self, ws, mon):
         with subprocess.Popen(["hyprctl", "-j", "clients"], stdout=subprocess.PIPE) as proc:
-            clients = json.loads(proc.stdout.read().decode())
-        classes = [
-            client["class"]
-            for client in clients
-            # % to take in to account the use of split-monitor-workspaces plugin
-            if client["workspace"]["id"] % self.numOfWorkspaces == ws and int(client["monitor"]) == self.monitormap[mon]
-        ]
-        self.logEvent(classes)
-        return classes
+            try:
+                clients = json.loads(proc.stdout.read().decode())
+                classes = [
+                    client["class"]
+                    for client in clients
+                    # % to take in to account the use of split-monitor-workspaces plugin
+                    if client["workspace"]["id"] % self.numOfWorkspaces == ws and int(client["monitor"]) == self.monitormap[mon]
+                ]
+                self.logEvent(classes)
+                return classes
+            except Exception as e:
+                self.logEvent(f"Failed to get applist classes info for mon: {mon} on ws: {ws} with error {e}")
+                return []
 
     def getIcon(self, class_name):
         # Attempt to use any manually set icons

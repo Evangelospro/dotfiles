@@ -1,4 +1,5 @@
-@define-color background rgba(40, 41, 54, 0.8);
+@define-color background rgba(40, 41, 54, 0.9);
+@define-color background-alpha rgba(40, 41, 54, 0.7);
 @define-color foreground rgba(248, 248, 242, 1);
 @define-color transparent rgba(00, 00, 00, 0);
 @define-color shadow rgba(61, 76, 95, 1);

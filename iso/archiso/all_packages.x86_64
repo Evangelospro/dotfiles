@@ -325,6 +325,9 @@ chaotic-aur/c-lolcat
 bat
 lsd
 
+# KDEConnect
+chaotic-aur/kdeconnect-git
+
 # Password manager
 bitwarden-cli
 

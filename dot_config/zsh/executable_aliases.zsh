@@ -33,8 +33,8 @@ alias penelope="penelope --configfile $HOME/.config/penelope/penelope.conf"
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
 alias mobsf="$HOME/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
 alias burl="curl -x localhost:8080 -k "
-alias frm="\rm -rf"
-alias rmz="\rm *.zip"
+alias frm="/usr/bin/rm -rf"
+alias rmz="/usr/bin/rm *.zip"
 alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
 alias gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init"
 alias pwndbg='gdb -q -ex init-pwndbg "$@"'
@@ -160,12 +160,12 @@ alias disable-aslr='sudo sysctl -w kernel.randomize_va_space=0'
 alias enable-aslr='sudo sysctl -w kernel.randomize_va_space=2'
 
 # Cleanups
-alias clean-cache="sudo \rm -rf $HOME/.cache/*" # shows no mercy but it is cache right?
+alias clean-cache="sudo /usr/bin/rm -rf $HOME/.cache/*" # shows no mercy but it is cache right?
 alias clean-docker='docker system prune -f --volumes'
-alias clean-packages='sudo pacman -Rns $(pacman -Qtdq) && sudo \rm -rf /var/cache/pacman/pkg/*'
+alias clean-packages='sudo pacman -Rns $(pacman -Qtdq) && sudo /usr/bin/rm -rf /var/cache/pacman/pkg/*'
 alias clean-font-cache="fc-cache -f -v"
-alias clean-seafile-cache="\rm -rf $HOME/.seadrive/data/file-cache"
-alias clear-trash="sudo \rm -rf $HOME/.local/share/Trash/*"
+alias clean-seafile-cache="/usr/bin/rm -rf $HOME/.seadrive/data/file-cache"
+alias clear-trash="/usr/bin/rm -rf $HOME/.local/share/Trash/*"
 
 # basics/typos
 alias ..='cd ..'

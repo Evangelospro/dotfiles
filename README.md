@@ -36,7 +36,7 @@ chezmoi init --apply Evangelospro
 | Windows + V | Open clipboard manager (wl-clipboard) |
 | Windows + C | Select color from screen (hyprpicker) and copy it |
 | Windows + E | Open file manager(nautilus) |
-| Windows + R | Reload the bar on top (eww) |
+| Windows + R | Reload the bar on top (waybar) |
 
 ### Close / Fullscreen / Kill Applications / Arrange monitors
 | Keybinding | Action |
@@ -136,7 +136,7 @@ cd iso
 ```
 
 ## Installation and Usage
-### WARNING: The dotfiles are applied differently on the iso based on the hostanme `ELARCH-ISO`, so **whatever you do dont' change or set the hostname to** `ELARCH-ISO` or `ELARCH`(as this applies some extra configs that are very specific to me), during or after the installation! But again **I really, really recommend that you fork this repo and edit the files** to your liking before applying them!!!
+### WARNING: The dotfiles are applied differently on the iso based on the hostanme `ELARCH-ISO`, so **whatever you do dont' change or set the hostname to** `ELARCH-ISO` or `ELARCH-F15`(as this applies some extra configs that are very specific to me and my own hardware etc...), during or after the installation! But again **I really, really recommend that you fork this repo and edit the files** to your liking before applying them!!!
 ### 1) [Download](#ways-to-get-the-iso) the iso and flash it to a usb drive
 ### 2) Default user is `liveuser` and password is `liveuser` sign in with these after the iso has finished the initial downloads
 ### 3) A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically using the launcher shortcut from [above](#launch--reload-applications), you can start it manually by searching `install system` in the launcher or by running `sudo calamares -d` in a terminal, which will also give you some debug info that you should include in an issue if you encounter any problems.
@@ -154,8 +154,11 @@ cd iso
 * [ALCI](https://alci.online/)
 * [Calamares](https://calamares.io/)
 * [Hyprland](https://aur.archlinux.org/packages/hyprland-git/)
+* [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter)
+* [Waybar](https://github.com/alexays/waybar/)
 * [Eww](https://github.com/elkowar/eww/)
 * [Wezterm](https://github.com/wez/wezterm/)
+* [Lsd](https://github.com/lsd-rs/lsd)
 * [playerctl](https://github.com/altdesktop/playerctl/)
 * [swayidle](https://archlinux.org/packages/extra/x86_64/swayidle/)
 * [envycontrol](https://github.com/bayasdev/envycontrol/)

@@ -1,13 +1,3 @@
-@import url("./styles/notifications.css");
-@import url("./styles/widgets.css");
-
-/* Dracula Theme */
-/* @define-color foreground rgb(248, 248, 242);
-@define-color background rgb(40, 42, 54);
-@define-color background-alpha rgba(40, 42, 54, 0.8);
-@define-color accent rgba(189, 147, 249, 0.8);
-@define-color current-line rgb(68, 71, 90);
-@define-color comment rgb(98, 114, 164); */
 @import url("/home/evangelospro/.config/themes/dracula.css");
 
 .notification-row {
@@ -22,14 +12,14 @@
 .control-center .notification-row:focus,
 .control-center .notification-row:hover {
 	opacity: 1;
-	background: transparent;
+	background: @transparent;
 }
 
 .notification-row:focus .notification,
 .notification-row:hover .notification {
 	box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.5);
 	border: 0px solid @accent;
-	background: @transparent;
+	background: @grey;
 }
 
 .control-center .notification {
@@ -49,35 +39,34 @@
 	padding: 0;
 }
 
-/* Uncomment to enable specific urgency colors
 .low {
-  background: yellow;
-  padding: 6px;
-  border-radius: 12px;
+    background: @grey;
+    padding: 0px;
+    border-radius: 12px;
 }
 
 .normal {
-  background: green;
-  padding: 6px;
-  border-radius: 12px;
+    background: @orange;
+    padding: 0px;
+    border-radius: 12px;
 }
 
 .critical {
-  background: red;
-  padding: 6px;
-  border-radius: 12px;
+    background: @red;
+    padding: 0px;
+    border-radius: 12px;
 }
-*/
+
 
 .notification-content {
-	background: transparent;
+	background: @transparent;
 	padding: 6px;
 	border-radius: 8px;
 }
 
 .close-button {
-	background: @transparent;
-	color: @foreground;
+	background: @cyan;
+	color: @white;
 	text-shadow: none;
 	padding: 0;
 	border-radius: 100%;
@@ -91,19 +80,19 @@
 
 .close-button:hover {
 	box-shadow: none;
-	background: @comment;
+    color: @white;
+	background: @pink;
 	transition: all 0.15s ease-in-out;
 	border: none;
 }
 
 .notification-default-action,
 .notification-action {
-	padding: 4px;
 	margin: 0;
 	box-shadow: none;
 	background: @transparent;
 	border: 2px solid @accent;
-	color: @foreground;
+	color: @white;
 }
 
 .notification-default-action:hover,
@@ -136,9 +125,6 @@
 .notification-action:last-child {
 	border-bottom-right-radius: 8px;
 	border-right: 1px solid @accent;
-}
-
-.image {
 }
 
 .body-image {
@@ -219,16 +205,16 @@
 }
 
 .control-center-list {
-	background: transparent;
+	background: @transparent;
 }
 
 .floating-notifications {
-	background: transparent;
+	background: @transparent;
 }
 
 /* Window behind control center and on all other monitors */
 .blank-window {
-	background: transparent;
+	background: @transparent;
 }
 
 /*** Widgets ***/
