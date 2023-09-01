@@ -73,6 +73,14 @@
     margin-right: 5px;
 }
 
+#window.empty {
+    border: none;
+    background: none;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    opacity: 0;
+}
+
 #image {
     margin: 0px 0px;
     padding: 0px 0px;

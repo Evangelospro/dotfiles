@@ -7,12 +7,12 @@ import os
 import re
 import subprocess
 import sys
-from svgutils.compose import *
+from svgutils.compose import Panel, SVG, Figure
 import hyprland
 
 
 class Workspacer(hyprland.Events):
-    def __init__(self):
+    def __init__(self) -> None:
         self.debug = sys.argv[1] if len(sys.argv) > 1 else ""
         # make a temp dir for icons
         self.iconsDir = "/tmp/waybar-icons"
@@ -27,7 +27,7 @@ class Workspacer(hyprland.Events):
         self.numOfWorkspaces = 10
         self.windowNames = json.loads(open(os.path.expanduser("~/.config/eww/scripts/windowNames.json")).read())
 
-        self.monitormap = {}
+        self.monitormap: dict[str, int] = {}
         # set monitorMap
         self.monitor_event()
 
@@ -49,7 +49,7 @@ class Workspacer(hyprland.Events):
         self.generate()
 
     # handle monitor (dis)connects
-    def monitor_event(self):
+    def monitor_event(self) -> None:
         with subprocess.Popen(["hyprctl", "-j", "monitors"], stdout=subprocess.PIPE) as proc:
             try:
                 output = json.loads(proc.stdout.read().decode())
@@ -64,7 +64,7 @@ class Workspacer(hyprland.Events):
                 self.logEvent(f"Failed to get monitor info with error {e}")
                 pass
 
-    def applistClass(self, ws, mon):
+    def applistClass(self, ws: int, mon: str) -> list[str]:
         with subprocess.Popen(["hyprctl", "-j", "clients"], stdout=subprocess.PIPE) as proc:
             try:
                 clients = json.loads(proc.stdout.read().decode())
@@ -72,14 +72,16 @@ class Workspacer(hyprland.Events):
                     client["class"]
                     for client in clients
                     # % to take in to account the use of split-monitor-workspaces plugin
-                    if client["workspace"]["id"] % self.numOfWorkspaces == ws and int(client["monitor"]) == self.monitormap[mon]
+                    if client["workspace"]["id"] % self.numOfWorkspaces == ws
+                    and int(client["monitor"]) == self.monitormap[mon]
                 ]
                 return classes
             except Exception as e:
                 self.logEvent(f"Failed to get applist classes info for mon: {mon} on ws: {ws} with error {e}")
                 return []
 
-    def getIcon(self, class_name):
+    # make it return type any
+    def getIcon(self, class_name: str) ->
         # Attempt to use any manually set icons
         if self.windowNames.get(class_name) is not None:
             icon = self.windowNames[class_name]["icon"]
@@ -88,7 +90,7 @@ class Workspacer(hyprland.Events):
             else:
                 class_name = icon
 
-        for class_name_test in [class_name, class_name.lower()]:
+        for class_name_test in [class_name,z class_name.lower()]:
             icon_list = (
                 subprocess.check_output(["geticons", "--no-fallbacks", class_name_test, "-s", str(self.iconSize), "-c", "1"])
                 .decode()
@@ -101,7 +103,7 @@ class Workspacer(hyprland.Events):
             icon = self.appgridIcon
         return icon
 
-    def generate(self):
+    def generate(self) -> None:
         for mon in self.monitormap:
             self.logEvent(f"Fetching monitor: {mon}")
             for ws in self.workspaceRange:
@@ -144,52 +146,52 @@ class Workspacer(hyprland.Events):
                     self.logEvent(f"Failed to generate image for workspace {ws} on monitor {mon} with error {e}")
                     continue
 
-    def logEvent(self, event):
+    def logEvent(self, event:str) -> None:
         if self.debug == "debug":
             print(event)
 
-    async def on_connect(self):
+    async def on_connect(self) -> None:
         self.logEvent("Connected to Hyprland socket")
         self.generate()
 
-    async def on_workspace(self, ws):
+    async def on_workspace(self, ws:int) -> None:
         self.logEvent(f"Workspace changed to {ws}")
         self.focusedws = int(ws) % self.numOfWorkspaces
         self.generate()
 
-    async def on_focusedmon(self, mon, ws):
+    async def on_focusedmon(self, mon:str, ws:int) -> None:
         self.logEvent(f"Monitor changed to {mon} at workspace {ws}")
         self.focusedMon = mon
         self.focusedws = int(ws) % self.numOfWorkspaces
         self.generate()
 
-    async def on_createworkspace(self, ws):
+    async def on_createworkspace(self, ws:int) -> None:
         self.logEvent(f"Workspace {ws} created")
         self.focusedws = int(ws) % self.numOfWorkspaces
         # self.generate()
         pass
 
-    async def on_destroyworkspace(self, ws):
+    async def on_destroyworkspace(self, ws:int) -> None:
         self.logEvent(f"Workspace {ws} destroyed")
         self.focusedws = int(ws) % self.numOfWorkspaces
         # self.generate()
         pass
 
-    async def on_moveworkspace(self, ws, mon):
+    async def on_moveworkspace(self, ws:int, mon:str) -> None:
         self.logEvent(f"app moved to workspace {ws} on monitor {mon}")
         self.focusedMon = mon
         self.focusedws = int(ws) % self.numOfWorkspaces
         self.generate()
 
-    async def on_activewindow(self, window_class, window_title):
+    async def on_activewindow(self, window_class: str, window_title: str) -> None:
         self.logEvent(f"window changed to {window_class} with title {window_title}")
         self.generate()
 
-    async def on_closewindow(self, window_address):
+    async def on_closewindow(self, window_address: str) -> None:
         self.logEvent(f"window with address {window_address} destroyed")
         self.generate()
 
-    async def on_movewindow(self, window_address, workspace):
+    async def on_movewindow(self, window_address: str, workspace: int) -> None:
         self.logEvent(f"window with address {window_address} moved to workspace {workspace}")
         self.generate()
 

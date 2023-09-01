@@ -304,6 +304,8 @@ chaotic-aur/flameshot-git
 # Programming
 # aur python2
 python3
+mypy
+ruff
 python-pip
 python-pipx
 rustup
