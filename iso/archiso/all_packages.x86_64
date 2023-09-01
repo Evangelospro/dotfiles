@@ -1,4 +1,5 @@
 # kernel / firmware
+intel-ucode
 amd-ucode
 e2fsprogs
 efibootmgr
@@ -45,7 +46,6 @@ gptfdisk
 grub
 hdparm
 hyperv
-intel-ucode
 irssi
 iw
 iwd
@@ -81,7 +81,6 @@ open-iscsi
 open-vm-tools
 openconnect
 openssh
-openvpn
 partclone
 parted
 partimage
@@ -266,11 +265,12 @@ swaync
 swaync-client
 swaylock-effects
 swayidle
-## Disks / USB devices
+## Disks / USB devices / Cleanup
 aur usbguard-applet-qt
 chaotic-aur/qdirstat
 udiskie
 gparted
+chaotic-aur/czkawka-gui
 
 # Performace
 stacer
@@ -281,13 +281,20 @@ qt6ct
 qtkeychain-qt5
 qtkeychain-qt6
 
+
 # Fonts/text
+ttf-win10
 ttf-font-awesome
 tesseract
 tesseract-data-eng
 
-# Icon theme
+# Themes
+## Cursors
+chaotic-aur/bibata-cursor-theme
+## Icons
 aur papirus-icon-theme-git
+## grub theme
+aur grub-theme-cyberre
 
 # Screenshoting
 grim
@@ -311,6 +318,8 @@ chaotic-aur/wezterm-git
 # Shell
 zsh
 curl
+curlie
+aur fcp-bin
 wget
 progress
 trash-cli
@@ -326,7 +335,7 @@ bat
 lsd
 
 # KDEConnect
-chaotic-aur/kdeconnect-git
+kdeconnect
 
 # Password manager
 bitwarden-cli
@@ -336,6 +345,7 @@ chezmoi
 
 # File managment
 nautilus
+nautilus-sendto
 lf
 fd
 
@@ -418,12 +428,16 @@ ropgadget
 ## Web
 python-flask
 wpscan
-## Networking
+aur joomscan
+## Networking / Wi-Fi
+aircrack-ng
 nmap
 rustscan
 python-scapy
+## Shell handler
 aur penelope-git
 ## Bruteforcing
+aur hydra
 aur ffuf-bin
 aur feroxbuster
 ## hex editor
@@ -435,7 +449,12 @@ python-pycryptodome
 python-pycryptodomex
 sagemath
 python-numpy
+aur rsactftool-git
 # End Hacking Tools
+
+# VPNs
+openvpn
+wireguard-tools
 
 # Windows emulation
 # wine
@@ -453,9 +472,7 @@ spice-gtk
 chaotic-aur/paru
 ## Mirrors
 aur rate-mirrors-bin
-
-# grub theme
-aur grub-theme-cyberre
+aur pacman-cleanup-hook
 
 # Launchers
 # aur anyrun-git

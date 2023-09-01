@@ -77,7 +77,8 @@
     "format-connected": " {num_connections}",
     "tooltip-format": "{device_alias}",
     "tooltip-format-connected": " {device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}"
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "on-click": "blueman-manager",
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -126,7 +127,7 @@
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
+    "on-click": "$HOME/.config/swaync/pop",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
   },

@@ -37,7 +37,7 @@ bind=$MOD,P,exec,~/.config/hypr/scripts/monitors
 
 # Screenshot / OCR
 ## Disable animations for screenshot
-bind=,Print,exec,hyprctl keyword animation "fadeOut,0,0,default";flameshot gui;hyprctl keyword animation "fadeOut,1,4,default"
+bind=,Print,exec,flameshot gui
 ## Select area to perform OCR on
 bind=$MOD,O,exec,wl-ocr
 

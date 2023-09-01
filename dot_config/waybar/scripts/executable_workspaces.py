@@ -13,6 +13,7 @@ import hyprland
 
 class Workspacer(hyprland.Events):
     def __init__(self):
+        self.debug = sys.argv[1] if len(sys.argv) > 1 else ""
         # make a temp dir for icons
         self.iconsDir = "/tmp/waybar-icons"
         # ensure it exists and is empty
@@ -30,12 +31,10 @@ class Workspacer(hyprland.Events):
         # set monitorMap
         self.monitor_event()
 
-        self.debug = sys.argv[1] if len(sys.argv) > 1 else ""
         self.accentColor = "#bd93f9"
         self.workspaceRange = range(1, self.numOfWorkspaces + 1)
         self.focusedws = 1
-        self.prevFocusedws = self.focusedws
-        self.iconSize = 32
+        self.iconSize = 22
         self.appgridIcon = self.getIcon("appgrid")
 
         self.workspaces = {mon:
@@ -58,6 +57,9 @@ class Workspacer(hyprland.Events):
                     id = int(monitor["id"])
                     name = monitor["name"]
                     self.monitormap[name] = id
+                    focused = monitor["focused"]
+                    if focused:
+                        self.focusedMon = monitor["name"]
             except Exception as e:
                 self.logEvent(f"Failed to get monitor info with error {e}")
                 pass
@@ -72,7 +74,6 @@ class Workspacer(hyprland.Events):
                     # % to take in to account the use of split-monitor-workspaces plugin
                     if client["workspace"]["id"] % self.numOfWorkspaces == ws and int(client["monitor"]) == self.monitormap[mon]
                 ]
-                self.logEvent(classes)
                 return classes
             except Exception as e:
                 self.logEvent(f"Failed to get applist classes info for mon: {mon} on ws: {ws} with error {e}")
@@ -100,38 +101,33 @@ class Workspacer(hyprland.Events):
             icon = self.appgridIcon
         return icon
 
-    def setAppicons(self, ws, mon):
-        self.workspaces[mon][ws]["icons"] = [[], []]
-        classes = self.applistClass(ws, mon)[0:4]  # only render up to 4 icons
-        for i, class_name in enumerate(classes):
-            icon = self.getIcon(class_name)
-            # first 2 icons go in first list and the other 2 in the second list
-            self.workspaces[mon][ws]["icons"][0 if i < 2 else 1].append(icon)
-
     def generate(self):
         for mon in self.monitormap:
             self.logEvent(f"Fetching monitor: {mon}")
-            for num in self.workspaceRange:
-                self.setAppicons(num, mon)
+            for ws in self.workspaceRange:
+                classes = self.applistClass(ws, mon)[0:4]  # only render up to 4 icons
+                icons = [self.getIcon(class_name) for class_name in classes]
+                self.workspaces[mon][ws]["icons"] = [icons[0:2], icons[2:4]]
                 try:
                     top_panels = (Panel(
                         SVG(svg_path)
-                    ).move(self.iconSize * i, 0) for i, svg_path in enumerate(self.workspaces[mon][num]["icons"][0]))
+                    ).move(self.iconSize * i, 0) for i, svg_path in enumerate(self.workspaces[mon][ws]["icons"][0]))
                     bottom_panels = (Panel(
                         SVG(svg_path)
-                    ).move(self.iconSize * i, self.iconSize) for i, svg_path in enumerate(self.workspaces[mon][num]["icons"][1]))
-                    self.logEvent(f"Generating image for workspace {num}")
-                    x_len = self.iconSize if len(self.workspaces[mon][num]['icons'][0]) <= 1 else self.iconSize * 2
-                    y_len = self.iconSize if len(self.workspaces[mon][num]['icons'][1]) == 0 else self.iconSize * 2
+                    ).move(self.iconSize * i, self.iconSize) for i, svg_path in enumerate(self.workspaces[mon][ws]["icons"][1]))
+                    self.logEvent(f"Generating image for workspace {ws}")
+                    x_len = self.iconSize if len(self.workspaces[mon][ws]['icons'][0]) <= 1 else self.iconSize * 2
+                    y_len = self.iconSize if len(self.workspaces[mon][ws]['icons'][1]) == 0 else self.iconSize * 2
                     Figure(f"{x_len}px",
                         f"{y_len}px",
                         *top_panels,
                         *bottom_panels
-                    ).save(f"{self.iconsDir}/workspace-{mon}-{num}.svg")
+                    ).save(f"{self.iconsDir}/workspace-{mon}-{ws}.svg")
                     # set the svg background to purple if the workspace is active
-                    if num == self.focusedws and mon == self.focusedMon:
+                    if ws == self.focusedws and mon == self.focusedMon:
                         # add <rect width="100%" height="10%" fill="self.accentColor"/>  after the <svg ...> tag
-                        with open(f"{self.iconsDir}/workspace-{mon}-{num}.svg", "r+") as f:
+                        self.logEvent(f"Setting ws: {ws} on mon: {mon} to active")
+                        with open(f"{self.iconsDir}/workspace-{mon}-{ws}.svg", "r+") as f:
                             content = f.read()
                             f.seek(0, 0)
                             f.write(
@@ -145,7 +141,7 @@ class Workspacer(hyprland.Events):
                         pass
 
                 except Exception as e:
-                    self.logEvent(f"Failed to generate image for workspace {num} on monitor {mon} with error {e}")
+                    self.logEvent(f"Failed to generate image for workspace {ws} on monitor {mon} with error {e}")
                     continue
 
     def logEvent(self, event):
@@ -158,29 +154,31 @@ class Workspacer(hyprland.Events):
 
     async def on_workspace(self, ws):
         self.logEvent(f"Workspace changed to {ws}")
-        self.focusedws = int(ws)
+        self.focusedws = int(ws) % self.numOfWorkspaces
         self.generate()
 
     async def on_focusedmon(self, mon, ws):
         self.logEvent(f"Monitor changed to {mon} at workspace {ws}")
         self.focusedMon = mon
+        self.focusedws = int(ws) % self.numOfWorkspaces
         self.generate()
 
     async def on_createworkspace(self, ws):
         self.logEvent(f"Workspace {ws} created")
-        # self.focusedws = int(ws)
+        self.focusedws = int(ws) % self.numOfWorkspaces
         # self.generate()
         pass
 
     async def on_destroyworkspace(self, ws):
         self.logEvent(f"Workspace {ws} destroyed")
-        # self.focusedws = int(ws)
+        self.focusedws = int(ws) % self.numOfWorkspaces
         # self.generate()
         pass
 
     async def on_moveworkspace(self, ws, mon):
         self.logEvent(f"app moved to workspace {ws} on monitor {mon}")
-        self.focusedws = int(ws)
+        self.focusedMon = mon
+        self.focusedws = int(ws) % self.numOfWorkspaces
         self.generate()
 
     async def on_activewindow(self, window_class, window_title):

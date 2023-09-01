@@ -114,6 +114,7 @@ alias fetch="clear && pfetch"
 alias less="less -r"
 alias tldr="tealdeer"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias cp="fcp"
 alias nc='ncat -v'
 alias fd='fd --hidden --follow'
 alias locate='fd'
