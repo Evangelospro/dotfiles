@@ -16,10 +16,7 @@ class Workspacer(hyprland.Events):
         self.debug = sys.argv[1] if len(sys.argv) > 1 else ""
         # make a temp dir for icons
         self.iconsDir = "/tmp/waybar-icons"
-        # ensure it exists and is empty
-        os.makedirs(self.iconsDir, exist_ok=True)
-        for f in os.listdir(self.iconsDir):
-            os.remove(os.path.join(self.iconsDir, f))
+        self.clean()
         self.i = hyprland.info.Info()
         self.c = hyprland.Config()
         super().__init__()
@@ -35,18 +32,29 @@ class Workspacer(hyprland.Events):
         self.workspaceRange = range(1, self.numOfWorkspaces + 1)
         self.focusedws = 1
         self.iconSize = 22
-        self.appgridIcon = self.getIcon("appgrid")
+        self.appgridIcon = self.getIcon("appgrid", self.iconSize)
 
-        self.workspaces = {mon:
-                    {ws:
-                        {"status": "inactive-workspace",
-                        "icons": [[], []]}
-                        for ws in self.workspaceRange}
-                    for mon in self.monitormap.keys()
-                    }
+        self.reset()
         self.logEvent(f"workspaces {self.workspaces}")
         # generate initial widget
         self.generate()
+
+    def clean(self) -> None:
+        # ensure it exists and is empty
+        os.makedirs(self.iconsDir, exist_ok=True)
+        for f in os.listdir(self.iconsDir):
+            os.remove(os.path.join(self.iconsDir, f))
+
+    def reset(self) -> None:
+        self.workspaces : dict[str, dict[int, dict[str, str|list]]] = {mon:
+                    {ws:
+                        {"status": "inactive-workspace",
+                        "icons": [[], []],
+                        "classes": []
+                        }
+                        for ws in self.workspaceRange}
+                    for mon in self.monitormap.keys()
+                    }
 
     # handle monitor (dis)connects
     def monitor_event(self) -> None:
@@ -64,24 +72,39 @@ class Workspacer(hyprland.Events):
                 self.logEvent(f"Failed to get monitor info with error {e}")
                 pass
 
-    def applistClass(self, ws: int, mon: str) -> list[str]:
+    def setClasses(self) -> None:
+        self.reset()
         with subprocess.Popen(["hyprctl", "-j", "clients"], stdout=subprocess.PIPE) as proc:
             try:
                 clients = json.loads(proc.stdout.read().decode())
-                classes = [
-                    client["class"]
-                    for client in clients
-                    # % to take in to account the use of split-monitor-workspaces plugin
-                    if client["workspace"]["id"] % self.numOfWorkspaces == ws
-                    and int(client["monitor"]) == self.monitormap[mon]
-                ]
-                return classes
             except Exception as e:
-                self.logEvent(f"Failed to get applist classes info for mon: {mon} on ws: {ws} with error {e}")
-                return []
+                self.logEvent(f"Failed to get applist json with error {e}")
+            for client in clients:
+                try:
+                    mon_id = client['monitor']
+                    mon = next((key for key, value in self.monitormap.items() if value == mon_id), None)
+                    self.logEvent(f"client mon: {mon}")
+                    if mon:
+                        workspace_id = client['workspace']['id'] % self.numOfWorkspaces
+                        self.logEvent(f"client ws: {workspace_id}")
+                        class_ = client['class']
+                        self.workspaces[mon][workspace_id]["classes"].append(class_)
+                        if self.focusedws == workspace_id and self.focusedMon == mon:
+                            self.workspaces[mon][workspace_id]["status"] = "active-workspace"
+                            icon = self.getIcon(class_, self.iconSize)
+                        else:
+                            icon = self.getIcon(class_, self.iconSize)
+                            self.workspaces[mon][workspace_id]["status"] = "inactive-workspace"
+                        if len(self.workspaces[mon][workspace_id]["icons"][0]) < 2:
+                            self.workspaces[mon][workspace_id]["icons"][0].append(icon)
+                        elif len(self.workspaces[mon][workspace_id]["icons"][1]) < 2:
+                            self.workspaces[mon][workspace_id]["icons"][1].append(icon)
+                except Exception as e:
+                    self.logEvent(f"Failed to get applist classes for below client with error {e}")
+                    self.logEvent(client)
+                    pass
 
-    # make it return type any
-    def getIcon(self, class_name: str) ->
+    def getIcon(self, class_name: str, size:int) -> str:
         # Attempt to use any manually set icons
         if self.windowNames.get(class_name) is not None:
             icon = self.windowNames[class_name]["icon"]
@@ -90,9 +113,9 @@ class Workspacer(hyprland.Events):
             else:
                 class_name = icon
 
-        for class_name_test in [class_name,z class_name.lower()]:
+        for class_name_test in [class_name, class_name.lower()]:
             icon_list = (
-                subprocess.check_output(["geticons", "--no-fallbacks", class_name_test, "-s", str(self.iconSize), "-c", "1"])
+                subprocess.check_output(["geticons", "--no-fallbacks", class_name_test, "-s", str(size), "-c", "1"])
                 .decode()
                 .splitlines()
             )
@@ -104,12 +127,10 @@ class Workspacer(hyprland.Events):
         return icon
 
     def generate(self) -> None:
+        self.setClasses()
         for mon in self.monitormap:
             self.logEvent(f"Fetching monitor: {mon}")
             for ws in self.workspaceRange:
-                classes = self.applistClass(ws, mon)[0:4]  # only render up to 4 icons
-                icons = [self.getIcon(class_name) for class_name in classes]
-                self.workspaces[mon][ws]["icons"] = [icons[0:2], icons[2:4]]
                 try:
                     top_panels = (Panel(
                         SVG(svg_path)
@@ -126,21 +147,19 @@ class Workspacer(hyprland.Events):
                         *bottom_panels
                     ).save(f"{self.iconsDir}/workspace-{mon}-{ws}.svg")
                     # set the svg background to purple if the workspace is active
-                    if ws == self.focusedws and mon == self.focusedMon:
-                        # add <rect width="100%" height="10%" fill="self.accentColor"/>  after the <svg ...> tag
-                        self.logEvent(f"Setting ws: {ws} on mon: {mon} to active")
-                        with open(f"{self.iconsDir}/workspace-{mon}-{ws}.svg", "r+") as f:
-                            content = f.read()
-                            f.seek(0, 0)
-                            f.write(
-                                re.sub(
-                                    r'<svg(.*?)>',
-                                    r'<svg\1>\n<rect width="100%" height="100%" fill="' + self.accentColor + '"/>',
-                                    content,
-                                )
-                            )
-                    else:
-                        pass
+                    # if ws == self.focusedws and mon == self.focusedMon:
+                    #     # add <rect width="100%" height="10%" fill="self.accentColor"/>  after the <svg ...> tag
+                    #     self.logEvent(f"Setting ws: {ws} on mon: {mon} to active")
+                    #     with open(f"{self.iconsDir}/workspace-{mon}-{ws}.svg", "r+") as f:
+                    #         content = f.read()
+                    #         f.seek(0, 0)
+                    #         f.write(
+                    #             re.sub(
+                    #                 r'<svg(.*?)>',
+                    #                 r'<svg\1>\n<rect width="100%" height="100%" fill="' + self.accentColor + '"/>',
+                    #                 content,
+                    #             )
+                    #         )
 
                 except Exception as e:
                     self.logEvent(f"Failed to generate image for workspace {ws} on monitor {mon} with error {e}")
@@ -173,8 +192,9 @@ class Workspacer(hyprland.Events):
 
     async def on_destroyworkspace(self, ws:int) -> None:
         self.logEvent(f"Workspace {ws} destroyed")
-        self.focusedws = int(ws) % self.numOfWorkspaces
+        # self.focusedws = int(ws) % self.numOfWorkspaces
         # self.generate()
+        self.workspaces[self.focusedMon][int(ws) % self.numOfWorkspaces] = {"status": "inactive-workspace", "icons": [[], []]}
         pass
 
     async def on_moveworkspace(self, ws:int, mon:str) -> None:
@@ -202,4 +222,5 @@ try:
 except Exception as e:
     print(e)
     w.logEvent("Failed to connect to Hyprland socket")
-    w.logEvent("Manual intervention required")
+    w.logEvent("Manual intervention required cleaning up...")
+    w.clean()

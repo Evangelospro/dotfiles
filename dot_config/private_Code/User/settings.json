@@ -250,5 +250,16 @@
 	},
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	}
+	},
+    "vim.useSystemClipboard": true,
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "/home/evangelospro/.vimrc",
+    "vim.shell": "/usr/bin/zsh",
+    "vva.trustedDomain": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-w>": false,
+        "<C-s>": false,
+        "<C-z>": false
+    }
 }

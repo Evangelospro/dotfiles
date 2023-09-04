@@ -38,7 +38,7 @@ exec-once=/usr/bin/flameshot
 # exec-once=$HOME/.config/eww/launch
 # exec-once=$HOME/.local/bin/gBarLaunch
 # script to load icons on workspaces
-exec-once=$HOME/.config/waybar/scripts/workspaces.py > $HOME/.cache/workspacer.log 2>&1
+exec-once=$HOME/.config/waybar/scripts/workspaces.py debug > $HOME/.cache/workspacer.log 2>&1
 exec-once=/usr/bin/waybar
 # OPTIONAL COMPLETELY personal stuff
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
