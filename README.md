@@ -112,7 +112,6 @@ Shell: Zsh
 #### Oneliner that gets you a ready-to-use iso with my dotfiles and packages
 ```
 curl --silent https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get-iso.sh|bash
-ls iso
 ```
 #### Manual download and verification
 ##### 1) Download all the files from the latest release
