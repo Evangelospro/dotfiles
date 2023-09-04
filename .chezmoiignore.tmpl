@@ -88,7 +88,6 @@ docs/zsdoc/data
 .ssh/keys/portainer
 .ssh/keys/proxmox
 .ssh/keys/scripter
-.ssh/keys/ewebsite
 .ssh/keys/ftc
 .ssh/keys/ida
 .ssh/keys/elarch-builder
@@ -111,9 +110,6 @@ docs/zsdoc/data
 {{- end }}
 {{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/scripter") }}
 .ssh/keys/scripter
-{{- end }}
-{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/ewebsite") }}
-.ssh/keys/ewebsite
 {{- end }}
 {{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/ftc") }}
 .ssh/keys/ftc
