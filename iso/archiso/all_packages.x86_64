@@ -283,7 +283,6 @@ qtkeychain-qt6
 
 
 # Fonts/text
-ttf-win10
 ttf-font-awesome
 tesseract
 tesseract-data-eng
@@ -445,7 +444,7 @@ aur feroxbuster
 ## hex editor
 chaotic-aur/imhex
 ## wordlists
-aur seclists
+# aur seclists
 ## Crypto
 python-pycryptodome
 python-pycryptodomex
