@@ -15,6 +15,7 @@ airootfs_image_type="squashfs"
 airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86' '-b' '1M' '-Xdict-size' '1M')
 file_permissions=(
     ["/usr/local/bin/installer"]="0:0:755"
+    ["/usr/local/bin/fix-hosts"]="0:0:755"
     ["/etc/shadow"]="0:0:400"
     ["/root"]="0:0:750"
     ["/usr/local/bin/livecd-sound"]="0:0:755"
