@@ -29,7 +29,6 @@ sha256sums=('SKIP'
 prepare() {
 	cd ${srcdir}/calamares
 	sed -i -e 's/"Install configuration files" OFF/"Install configuration files" ON/' CMakeLists.txt
-	sed -i -e 's/etc\/sddm.conf/etc\/sddm.conf.d\/kde_settings.conf/' src/modules/displaymanager/main.py
 
 	# patches here
 
