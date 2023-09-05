@@ -104,8 +104,13 @@ if [ "$1" == "enable" ]; then
     echo "Failed packages: ${failed_packages[@]}"
     echo "Removing failed packages from packages.x86_64"
 
-    # Remove the aur prefix and copy to packages.x86_64 excluding failed packages
-    cat "$iso_dir/all_packages.x86_64" | sed '/^aur/d' | grep -v -F -f <(printf '%s\n' "${failed_packages[@]}") >"$iso_dir/packages.x86_64"
+    # Remove the aur prefix and copy to packages.x86_64
+    cat "$iso_dir/all_packages.x86_64" | sed '/^aur/d' >"$iso_dir/packages.x86_64"
+    # excluding failed packages one by one
+    for i in "${failed_packages[@]}"; do
+        echo "FAIL: Removing $i from packages.x86_64 because it failed to build"
+        sed -i "/$i/d" "$iso_dir/packages.x86_64"
+    done
     echo "AUR packages downloaded and built"
 else
     echo "Disabling local $repo_name repo"

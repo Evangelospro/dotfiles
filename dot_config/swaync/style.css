@@ -40,23 +40,22 @@
 }
 
 .low {
-    background: @grey;
-    padding: 0px;
-    border-radius: 12px;
+	background: @grey;
+	padding: 0px;
+	border-radius: 12px;
 }
 
 .normal {
-    background: @orange;
-    padding: 0px;
-    border-radius: 12px;
+	background: @orange;
+	padding: 0px;
+	border-radius: 12px;
 }
 
 .critical {
-    background: @red;
-    padding: 0px;
-    border-radius: 12px;
+	background: @red;
+	padding: 0px;
+	border-radius: 12px;
 }
-
 
 .notification-content {
 	background: @transparent;
@@ -80,7 +79,7 @@
 
 .close-button:hover {
 	box-shadow: none;
-    color: @white;
+	color: @white;
 	background: @pink;
 	transition: all 0.15s ease-in-out;
 	border: none;
@@ -284,4 +283,51 @@
 }
 .widget-mpris-subtitle {
 	font-size: 1.1rem;
+}
+
+/* Buttons Widget */
+.widget-buttons-grid {
+	padding: 0px;
+	margin: 8px;
+	border-radius: 0px;
+	background-color: @transparent;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+	background: @background;
+	color: @white;
+	font-size: 1em;
+	border-radius: 7px;
+	border: 2px solid @accent;
+	padding: 5px 105px 5px 10px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+	background: @accent;
+	color: @background;
+}
+
+/* Smaller buttons widget */
+.widget-menubar > box > .menu-button-bar {
+	padding: 0;
+	margin-left: 150px;
+}
+
+.widget-menubar > box > .menu-button-bar > box > button {
+	/* padding: 5px 15px; */
+	background: @background;
+	color: @white;
+	font-size: 35px;
+	border-radius: 7px;
+	border: 2px solid @accent;
+	padding: 2px 6px;
+}
+
+.widget-menubar > box > .menu-button-bar > box > button:not(:first-child) {
+	margin-left: 6px;
+}
+
+.widget-menubar > box > .menu-button-bar > box > button:hover {
+	background: @accent;
+	color: @background;
 }

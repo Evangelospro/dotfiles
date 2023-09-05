@@ -195,7 +195,6 @@ xdg-desktop-portal-gtk
 chaotic-aur/xdg-desktop-portal-hyprland-git
 # hyprsome
 ## requirements
-gdb
 ninja
 gcc
 cmake
@@ -426,6 +425,8 @@ cutter
 rz-ghidra
 rz-cutter
 ## PWN
+gdb
+strace
 python-typing_extensions
 python-tabulate
 python-pwntools

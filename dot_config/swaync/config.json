@@ -31,6 +31,7 @@
     }
   },
   "widgets": [
+    "menubar",
     "title",
     "dnd",
     "mpris",
@@ -60,6 +61,29 @@
     "mpris": {
       "image-size": 96,
       "image-radius": 13
+    },
+    "menubar": {
+      "buttons#misc": {
+        "position": "left",
+        "actions": [
+          {
+            "label": "󰌾",
+            "command": "swaync-client -t;swaylock"
+          },
+          {
+            "label": "󱄠",
+            "command": "swaync-client -t;pavucontrol"
+          },
+          {
+            "label": "󰨇",
+            "command": "swaync-client -t;wezterm -e htop"
+          },
+          {
+            "label": "󰐥",
+            "command": "swaync-client -t;wlogout -b 1 -p layer-shell"
+          }
+        ]
+      }
     }
   }
 }
