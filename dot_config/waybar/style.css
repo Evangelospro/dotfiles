@@ -136,8 +136,6 @@
 #network {
     color: @orange;
     border-radius: 10px 0px 0px 10px;
-    border-left: 0px;
-    border-right: 0px;
 }
 
 #bluetooth {
@@ -153,15 +151,13 @@
 
 #pulseaudio.microphone {
     color: @pink;
-    border-left: 0px;
-    border-right: 0px;
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
+    border-radius: 0px 0px 0px 0px;
 }
 
 #battery {
     color: @green;
-    border-radius: 10px 10px 10px 10px;
-    margin-right: 10px;
+    border-radius: 0px 10px 10px 0px;
+    padding-right: 15px;
+    margin-right: 5px;
     border-left: 0px;
 }

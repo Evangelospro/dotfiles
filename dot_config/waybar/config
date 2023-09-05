@@ -34,9 +34,9 @@
     "modules-right": [
       "network",
       "bluetooth",
-      "battery",
       "pulseaudio",
       "pulseaudio#microphone",
+      "battery",
       "tray",
       // "keyboard-state",
       "idle_inhibitor",
@@ -140,9 +140,9 @@
     "modules-right": [
       "network",
       "bluetooth",
-      "battery",
       "pulseaudio",
       "pulseaudio#microphone",
+      "battery",
       "tray",
       // "keyboard-state",
       "idle_inhibitor",
