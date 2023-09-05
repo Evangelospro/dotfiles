@@ -31,7 +31,6 @@ ZI[BIN_DIR]="$ZSH/.zi/bin"
 ZI[CACHE_DIR]="$ZSH/.zi/cache"
 ZI[ZCOMPDUMP_PATH]="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 
-export ZINIT_HOME="$ZSH/zinit/zinit.git"
 _ZO_DATA_DIR="$ZSH/zoxide"
 
 # Hacking tools

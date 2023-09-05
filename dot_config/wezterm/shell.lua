@@ -1,5 +1,5 @@
 local module = {}
 
-module.default_prog = { 'zsh' }
+module.default_prog = { '/usr/bin/zsh'}
 
 return module

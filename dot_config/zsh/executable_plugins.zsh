@@ -41,7 +41,7 @@ pick="autopair.zsh" atload="autopair-init" hlissner/zsh-autopair \
 pick="async.zsh" mafredri/zsh-async
 
 # Fuzzy Finder package (from Zsh-Packages/fzf) (ctrl + T)
-zi pack"default+keys" for fzf
+# zi pack"default+keys" for fzf #ADDS A FUCKING install command to path which messes up with arch /usr/bin/install
 
 zi ice wait
 zi snippet OMZP::dirhistory

@@ -10,6 +10,12 @@ linux-firmware-marvell
 linux-zen
 linux-zen-headers
 
+# Asus F15
+# aur asusctl-git
+# aur supergfxctl-git
+# aur rog-control-center
+# aur nvidia-exec
+
 # Base packages
 alsa-utils
 arch-install-scripts
@@ -376,7 +382,7 @@ onlyoffice-bin
 chaotic-aur/google-chrome
 ## Discord
 # aur vencord-desktop-git
-chaotic-aur/betterdiscordctl-git
+# chaotic-aur/betterdiscordctl-git
 ## Note taking
 obsidian
 ## spotify
@@ -427,6 +433,7 @@ aur python-pwnscripts
 ropper
 ropgadget
 ## Web
+python-bs4
 python-flask
 wpscan
 aur joomscan
@@ -476,7 +483,7 @@ aur rate-mirrors-bin
 aur pacman-cleanup-hook
 
 # Launchers
-# aur anyrun-git
+aur anyrun-git
 # aur ulauncher-git
 rofi
 
