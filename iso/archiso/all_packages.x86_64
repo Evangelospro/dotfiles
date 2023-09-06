@@ -434,7 +434,7 @@ aur python-pwnscripts
 ropper
 ropgadget
 ## Web
-python-bs4
+aur python-bs4
 python-flask
 wpscan
 aur joomscan
