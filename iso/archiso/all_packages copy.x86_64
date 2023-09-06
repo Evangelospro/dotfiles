@@ -11,6 +11,7 @@ linux-zen
 linux-zen-headers
 
 # Asus F15
+# intel-compute-runtime
 # vulkan-intel
 # aur asusctl-git
 # aur supergfxctl-git

@@ -26,7 +26,7 @@ module.tiling_desktop_environments = {
     'X11 dwm',
     'Wayland'
 }
-
+module.front_end = "OpenGL"
 module.enable_wayland = true
 
 return module
