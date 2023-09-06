@@ -40,6 +40,8 @@ jobs:
 
                   # Install necessary packages
                   sudo pacman -Syu go archiso gcc pkg-config zip cargo scdoc wlroots meson ninja cmake --needed --noconfirm
+
+                  rustup default nightly-x86_64-unknown-linux-gnu
             - name: Build ISO
               run: |
                   cd iso

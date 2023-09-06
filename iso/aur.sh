@@ -113,6 +113,8 @@ if [ "$1" == "enable" ]; then
         echo "FAIL: Removing $i from packages.x86_64 because it failed to build"
         sed -i "/aur $i/d" "$iso_dir/packages.x86_64"
     done
+    echo "Final package list: "
+    cat "$iso_dir/packages.x86_64"
     echo "AUR packages downloaded and built"
 else
     echo "Disabling local $repo_name repo"
