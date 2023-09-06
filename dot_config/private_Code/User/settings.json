@@ -257,6 +257,7 @@
     "vim.shell": "/usr/bin/zsh",
     "vva.trustedDomain": true,
     "vim.handleKeys": {
+        "<C-a": false,
         "<C-d>": true,
         "<C-w>": false,
         "<C-s>": false,

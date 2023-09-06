@@ -11,12 +11,14 @@ repo_name="aur_repo_x86_64"
 iso_name="archiso"
 iso_dir="$base_dir/$iso_name"
 repo_dir="$iso_dir/custom_repos/$repo_name"
+packages_dir="packages"
 makepkg_flags="-s --skipchecksums --skippgpcheck --skipinteg --noconfirm"
 failed_packages=("")
 
 build() {
     CLONE_URL=$1
     PKG_PATH=$2
+    PKG_NAME=$(basename $PKG_PATH)
     # clone each package without history to save space and time
     git clone --depth 1 $CLONE_URL $PKG_PATH
     # get the result of the above command if it failed with (fatal: destination path '...' already exists and is not an empty directory.)
@@ -25,32 +27,32 @@ build() {
         # if there is no update, then skip the build
         (cd $PKG_PATH && git pull)
         if [ $? -ne 0 ]; then
-            echo "No update for $PKG_PATH"
+            echo "No update for $PKG_NAME"
         else
-            echo "Building $PKG_PATH as there is an update"
+            echo "Building $PKG_NAME as there is an update"
             (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
             sudo mv $PKG_PATH/*.pkg.tar $repo_dir
             # check if the package was built successfully
             if [ $? -ne 0 ]; then
-                echo "Package $PKG_PATH failed to build removing from packages.x86_64"
-                failed_packages+=("$PKG_PATH")
+                echo "Package $PKG_NAME failed to build removing from packages.x86_64"
+                failed_packages+=("$PKG_NAME")
             else
-                echo "Package $PKG_PATH built successfully"
+                echo "Package $PKG_NAME built successfully"
             fi
             if [ "$conserve_space" == "conserve_space" ]; then
                 sudo rm -rf $PKG_PATH
             fi
         fi
     else
-        echo "Building $PKG_PATH as it is a new package"
+        echo "Building $PKG_NAME as it is a new package"
         (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
         sudo mv $PKG_PATH/*.pkg.tar $repo_dir
         # check if the package was built successfully
         if [ $? -ne 0 ]; then
-            echo "Package $PKG_PATH failed to build removing from packages.x86_64"
-            failed_packages+=("$PKG_PATH")
+            echo "Package $PKG_NAME failed to build removing from packages.x86_64"
+            failed_packages+=("$PKG_NAME")
         else
-            echo "Package $PKG_PATH built successfully"
+            echo "Package $PKG_NAME built successfully"
         fi
         if [ "$conserve_space" == "conserve_space" ]; then
             sudo rm -rf $PKG_PATH
@@ -79,7 +81,7 @@ if [ "$1" == "enable" ]; then
         fi
         tokens=($repo)
         CLONE_URL=""
-        PKG_PATH="packages"
+        PKG_PATH=$packages_dir
         if [ ${tokens[0]} == "#" ]; then
             # echo "skipping commented $repo"
             continue
@@ -109,7 +111,7 @@ if [ "$1" == "enable" ]; then
     # excluding failed packages one by one
     for i in "${failed_packages[@]}"; do
         echo "FAIL: Removing $i from packages.x86_64 because it failed to build"
-        sed -i "/$i/d" "$iso_dir/packages.x86_64"
+        sed -i "/aur $i/d" "$iso_dir/packages.x86_64"
     done
     echo "AUR packages downloaded and built"
 else

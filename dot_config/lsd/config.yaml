@@ -57,7 +57,7 @@ sorting:
 # == Total size ==
 # Whether to display the total size of directories.
 # Possible values: false, true
-total-size: true
+# total-size: true
 # == Layout ==
 # Which layout to use. "oneline" might be a bit confusing here and should be
 # called "one-per-line". It might be changed in the future.
