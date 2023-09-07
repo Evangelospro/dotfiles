@@ -43,7 +43,6 @@ Config(
     "libsymbols.so",
     "librink.so",
     "libshell.so",
-    "librandr.so",
     "libstdin.so",
     "libdictionary.so",
     "libwebsearch.so",

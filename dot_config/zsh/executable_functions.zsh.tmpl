@@ -1,8 +1,8 @@
 # Maintenance is hard...
 function update(){
     paru -Syu
-    zi self-update
-    zi update
+    zinit self-update
+    zinit update --parallel 40
     sudo pkgfile -u
     $HOME/.config/hypr/plugins/update.sh
     # navi-update

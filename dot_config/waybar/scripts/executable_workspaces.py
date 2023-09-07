@@ -4,7 +4,6 @@
 
 import json
 import os
-import re
 import subprocess
 import sys
 from svgutils.compose import Panel, SVG, Figure
@@ -25,8 +24,8 @@ class Workspacer(hyprland.Events):
         self.windowNames = json.loads(open(os.path.expanduser("~/.config/eww/scripts/windowNames.json")).read())
 
         self.monitormap: dict[str, int] = {}
-        # set monitorMap
-        self.monitor_event()
+        # set monitorMap and self.focusedMon
+        self.refresh_monitors()
 
         self.accentColor = "#bd93f9"
         self.workspaceRange = range(1, self.numOfWorkspaces + 1)
@@ -57,7 +56,7 @@ class Workspacer(hyprland.Events):
                     }
 
     # handle monitor (dis)connects
-    def monitor_event(self) -> None:
+    def refresh_monitors(self) -> None:
         with subprocess.Popen(["hyprctl", "-j", "monitors"], stdout=subprocess.PIPE) as proc:
             try:
                 output = json.loads(proc.stdout.read().decode())
@@ -83,11 +82,11 @@ class Workspacer(hyprland.Events):
                 try:
                     mon_id = client['monitor']
                     mon = next((key for key, value in self.monitormap.items() if value == mon_id), None)
+                    class_ = client['class']
                     self.logEvent(f"client mon: {mon}")
-                    if mon:
+                    if mon and class_:
                         workspace_id = client['workspace']['id'] % self.numOfWorkspaces
                         self.logEvent(f"client ws: {workspace_id}")
-                        class_ = client['class']
                         self.workspaces[mon][workspace_id]["classes"].append(class_)
                         if self.focusedws == workspace_id and self.focusedMon == mon:
                             self.workspaces[mon][workspace_id]["status"] = "active-workspace"
@@ -106,6 +105,7 @@ class Workspacer(hyprland.Events):
 
     def getIcon(self, class_name: str, size:int) -> str:
         # Attempt to use any manually set icons
+        self.logEvent(f"Getting icon for {class_name}")
         if self.windowNames.get(class_name) is not None:
             icon = self.windowNames[class_name]["icon"]
             if os.path.exists(os.path.expanduser(icon)):
@@ -123,6 +123,7 @@ class Workspacer(hyprland.Events):
                 icon = icon_list[0]
                 break
         else:
+            self.logEvent(f"Failed to get icon for {class_name} please fix...")
             icon = self.appgridIcon
         return icon
 
@@ -188,14 +189,12 @@ class Workspacer(hyprland.Events):
         self.logEvent(f"Workspace {ws} created")
         self.focusedws = int(ws) % self.numOfWorkspaces
         # self.generate()
-        pass
 
     async def on_destroyworkspace(self, ws:int) -> None:
         self.logEvent(f"Workspace {ws} destroyed")
         # self.focusedws = int(ws) % self.numOfWorkspaces
         # self.generate()
         self.workspaces[self.focusedMon][int(ws) % self.numOfWorkspaces] = {"status": "inactive-workspace", "icons": [[], []]}
-        pass
 
     async def on_moveworkspace(self, ws:int, mon:str) -> None:
         self.logEvent(f"app moved to workspace {ws} on monitor {mon}")

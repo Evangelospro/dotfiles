@@ -25,11 +25,11 @@ export ZSH="$XDG_CONFIG_HOME/zsh"
 
 # ZINIT
 skip_global_compinit=1
-typeset -A ZI
-ZI[HOME_DIR]="$ZSH/.zi"
-ZI[BIN_DIR]="$ZSH/.zi/bin"
-ZI[CACHE_DIR]="$ZSH/.zi/cache"
-ZI[ZCOMPDUMP_PATH]="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+typeset -A ZINIT
+ZINIT[HOME_DIR]="$ZSH/.zinit"
+ZINIT[BIN_DIR]="$ZSH/.zinit/bin"
+ZINIT[CACHE_DIR]="$ZSH/.zinit/cache"
+ZINIT[ZCOMPDUMP_PATH]="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 
 _ZO_DATA_DIR="$ZSH/zoxide"
 

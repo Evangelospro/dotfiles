@@ -1,0 +1,49 @@
+[[components]]
+workspace = "1"
+command = "anyrun"
+args = []
+
+[[components]]
+workspace = "2"
+command = "anyrun"
+args = []
+
+[[components]]
+workspace = "3"
+command = "anyrun"
+args = []
+
+[[components]]
+workspace = "4"
+command = "anyrun"
+args = []
+
+[[components]]
+workspace = "5"
+command = "anyrun"
+args = []
+
+[[components]]
+workspace = "6"
+command = "anyrun"
+args = []
+
+[[components]]
+workspace = "7"
+command = "anyrun"
+args = []
+
+[[components]]
+workspace = "8"
+command = "anyrun"
+args = []
+
+[[components]]
+workspace = "9"
+command = "anyrun"
+args = []
+
+[[components]]
+workspace = "10"
+command = "anyrun"
+args = []

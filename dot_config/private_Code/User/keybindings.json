@@ -93,5 +93,9 @@
         "key": "escape",
         "command": "extension.vim_escape",
         "when": "editorTextFocus && vim.active && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
     }
 ]

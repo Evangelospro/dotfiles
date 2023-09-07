@@ -32,7 +32,7 @@
 			"editorGroupHeader.tabsBackground": "#161925"
 		}
 	},
-	"workbench.reduceMotion": "off",
+	"workbench.reduceMotion": "on",
 	// EDITOR SETTINGS
 	"editor.acceptSuggestionOnEnter": "smart",
 	"editor.autoClosingBrackets": "always",
