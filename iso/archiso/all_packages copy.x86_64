@@ -291,6 +291,7 @@ qtkeychain-qt6
 
 # Fonts/text
 ttf-font-awesome
+otf-manrope
 tesseract
 tesseract-data-eng
 

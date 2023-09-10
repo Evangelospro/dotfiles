@@ -24,8 +24,8 @@ zinit wait lucid light-mode depth=1 for \
 pick="autopair.zsh" atload="autopair-init" hlissner/zsh-autopair \
 pick="async.zsh" mafredri/zsh-async
 
-# Fuzzy Finder package (from Zsh-Packages/fzf) (ctrl + T)
-zinit pack"default+keys" for fzf
+zinit ice wait lucid as"program" pick"bin/fzf"
+zinit snippet OMZP::fzf
 
 # history
 zinit ice wait
