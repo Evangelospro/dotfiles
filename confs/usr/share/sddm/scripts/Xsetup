@@ -6,4 +6,3 @@ for next in $monitors; do
     xrandr --output $current --auto --output $next --auto --right-of $current
     current=$next
 done
-current

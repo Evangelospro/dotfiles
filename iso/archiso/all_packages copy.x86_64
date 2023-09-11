@@ -28,8 +28,6 @@ bind
 brltty
 broadcom-wl
 btrfs-progs
-clonezilla
-cloud-init
 cryptsetup
 darkhttpd
 ddrescue
@@ -66,7 +64,6 @@ libusb-compat
 livecd-sounds
 lsscsi
 lvm2
-lynx
 man-db
 man-pages
 mc
@@ -98,7 +95,6 @@ pptpclient
 pv
 qemu-guest-agent
 refind
-reflector
 reiserfsprogs
 rp-pppoe
 rsync

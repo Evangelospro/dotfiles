@@ -20,6 +20,7 @@ bind=$MOD,M,exit
 
 # Launch / Reload Applications
 bind=,XF86Launch3,exec,rog-control-center
+# bind=,XF86Launch4,exec,cycle through ligthing effects with asusctl
 bind=$MOD,ENTER,exec,eval $TERMINAL
 bindl=$MOD,L,exec,eval $lockscreen
 bind=$MOD,SPACE,exec,eval $launcher
@@ -74,7 +75,7 @@ bind=$SHIFT_MOD,left,movewindow,mon:eDP-1
 {{- if eq .chezmoi.hostname "ELARCH-WORK" }}
 bind=$SHIFT_MOD,right,movewindow,mon:VGA-1
 {{- else }}
-bind=$SHIFT_MOD,right,movewindow,mon:HDMI-A-1
+bind=$SHIFT_MOD,right,movewindow,mon:DP-1
 {{- end }}
 
 # Move Windows Between Workspaces
