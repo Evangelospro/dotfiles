@@ -70,5 +70,10 @@
   "VencordDesktop": {
     "name": "Discord",
     "icon": "discord"
+  },
+  "jetbrains-studio":
+  {
+    "name": "Android Studio",
+    "icon": "android-studio"
   }
 }

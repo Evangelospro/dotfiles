@@ -3,7 +3,7 @@ monitor=eDP-1,preferred,0x0,1
 {{- if eq .chezmoi.hostname "ELARCH-WORK" }}
 monitor=VGA-1,preferred,1366x0,1
 {{- else }}
-monitor=DP-1,preferred,1980x0,1
+monitor=DP-1,preferred,auto,1
 {{- end }}
 
 # Workspace binds

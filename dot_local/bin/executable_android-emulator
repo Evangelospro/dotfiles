@@ -1,3 +1,8 @@
 #!/usr/bin/env zsh
+# creation commands
+# list available images
+# sdkmanager --list | grep system-images
+# sudo sdkmanager --install "system-images;android-$VERSION;google_apis_playstore;x86_64"
+# echo "no" | avdmanager create avd -n $NAME -k "system-images;android-$VERSION;google_apis_playstore;x86_64"
 default_emulator=$(emulator -list-avds | head -n 1)
 emulator @$default_emulator -no-boot-anim -noaudio -writable-system
