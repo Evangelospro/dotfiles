@@ -122,7 +122,7 @@
     // "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-      "clock",
+      // "clock",
       "image#workspace-DP-1-1",
       "image#workspace-DP-1-2",
       "image#workspace-DP-1-3",
@@ -138,11 +138,11 @@
       "hyprland/window"
     ],
     "modules-right": [
-      "network",
-      "bluetooth",
-      "pulseaudio",
-      "pulseaudio#microphone",
-      "battery",
+      // "network",
+      // "bluetooth",
+      // "pulseaudio",
+      // "pulseaudio#microphone",
+      // "battery",
       "tray",
       // "keyboard-state",
       "idle_inhibitor",
