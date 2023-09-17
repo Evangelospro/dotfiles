@@ -43,9 +43,12 @@ workspace=20,monitor:DP-1
 {{- end }}
 
 # Default workspace
+workspace=1,monitor:eDP-1,default:true
 workspace=eDP-1,1
 {{- if eq .chezmoi.hostname "ELARCH-WORK" }}
+workspace=11,monitor:VGA-1,default:true
 workspace=VGA-1,11
 {{- else }}
+workspace=11,monitor:DP-1,default:true
 workspace=DP-1,11
 {{- end }}
