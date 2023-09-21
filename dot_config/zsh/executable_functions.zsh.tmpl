@@ -79,7 +79,13 @@ function hyprland-logs {
     #     echo "You are in interactive mode, please run this command in a non-interactive shell"
     #     return 1
     # fi
-    cat $(\ls -dt /tmp/hypr/*/ | head -n 1)/hyprland.log
+    log_location=$(ls -dt /tmp/hypr/*/ | head -n 1)
+    if [[ -z $log_location ]]; then
+        echo "No logs found is hyprland running?"
+        return 1
+    else
+        cat $log_location/hyprland.log
+    fi
 }
 
 function checkContainerRunning() {
@@ -310,6 +316,18 @@ urlencode() {
 
 urldecode() {
     python3 -c "from pwn import *; print(urldecode('$1'));"
+}
+
+
+## Web
+function curl() {
+    # check if the burp proxy is running and if so use it
+    # see https://github.com/rs/curlie/issues/31, until this is fixed I need to use curl and not curlie...
+    if [[ $(ss -lnt | grep :8080) ]]; then
+        http_proxy="http://localhost:8080" https_proxy="http://localhost:8080" /usr/bin/curl -k "$@"
+    else
+        curlie --pretty "$@"
+    fi
 }
 
 ffuf-vhost() {

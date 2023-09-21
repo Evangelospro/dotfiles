@@ -132,3 +132,6 @@ bind=$SHIFT_MOD,TAB,workspace, e-1
 
 # Move Windows with Mouse
 bindm=$MOD,mouse:272,movewindow
+
+# Trigger when the switch is turning off
+bindl= , switch:on:Lid Switch, exec, swaylock && systemctl suspend

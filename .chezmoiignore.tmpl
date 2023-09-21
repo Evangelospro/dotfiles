@@ -84,12 +84,9 @@ docs/zsdoc/data
 {{- if (ne .chezmoi.hostname "ELARCH-F15") }}
 .ssh/config
 .ssh/keys/eraspberry1
-.ssh/keys/kasm
 .ssh/keys/portainer
-.ssh/keys/proxmox
-.ssh/keys/scripter
+.ssh/keys/eserverr-local
 .ssh/keys/ftc
-.ssh/keys/ida
 .ssh/keys/elarch-builder
 .ssh/keys/ecsc
 {{- else }}
@@ -99,23 +96,14 @@ docs/zsdoc/data
 {{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/eraspberry1") }}
 .ssh/keys/eraspberry1
 {{- end }}
-{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/kasm") }}
-.ssh/keys/kasm
-{{- end }}
 {{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/portainer") }}
 .ssh/keys/portainer
 {{- end }}
-{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/proxmox") }}
-.ssh/keys/proxmox
-{{- end }}
-{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/scripter") }}
-.ssh/keys/scripter
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/eserver-local") }}
+.ssh/keys/eserver-local
 {{- end }}
 {{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/ftc") }}
 .ssh/keys/ftc
-{{- end }}
-{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/ida") }}
-.ssh/keys/ida
 {{- end }}
 {{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/elarch-builder") }}
 .ssh/keys/elarch-builder

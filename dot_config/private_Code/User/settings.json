@@ -1,8 +1,8 @@
 {
- // ZEN MODE
- "zenMode.centerLayout": false,
- "zenMode.hideStatusBar": false,
- "zenMode.hideLineNumbers": false,
+    // ZEN MODE
+    "zenMode.centerLayout": false,
+    "zenMode.hideStatusBar": false,
+    "zenMode.hideLineNumbers": false,
 	// WINDOW SETTINGS
 	"window.zoomLevel": 2,
 	"window.commandCenter": false,
@@ -95,6 +95,9 @@
 		"strings": "on"
 	},
 	// TERMINAL
+    "terminal.external.linuxExec": "wezterm",
+    "terminal.explorerKind": "both",
+    "terminal.sourceControlRepositoriesKind": "both",
 	"terminal.integrated.fontFamily": "FiraCode Nerd Font",
 	"terminal.integrated.altClickMovesCursor": true,
 	"terminal.integrated.cursorBlinking": true,
@@ -229,12 +232,13 @@
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.untrustedFiles": "open",
 	// MISC / GENERAL
- "update.showReleaseNotes": false,
+    "update.showReleaseNotes": false,
 	"telemetry.telemetryLevel": "off",
 	"diffEditor.ignoreTrimWhitespace": false,
 	"debug.onTaskErrors": "showErrors",
 	"debug.openDebug": "openOnDebugBreak",
 	// "eslint.enable": true,
+    "extensions.autoUpdate":  true,
 	"extensions.ignoreRecommendations": true,
 	"files.insertFinalNewline": true,
 	"files.restoreUndoStack": true,
@@ -258,7 +262,7 @@
 	},
     "vim.useSystemClipboard": true,
     "vim.vimrc.enable": true,
-    "vim.vimrc.path": "/home/evangelospro/.vimrc",
+    "vim.vimrc.path": "/home/evangelospro/.config/vim/.vimrc",
     "vim.shell": "/usr/bin/zsh",
     "vva.trustedDomain": true,
     "vim.handleKeys": {

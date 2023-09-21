@@ -32,7 +32,6 @@ alias webserver='updog -p 8000'
 alias penelope="penelope --configfile $HOME/.config/penelope/penelope.conf"
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
 alias mobsf="$HOME/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
-alias burl="curl -x localhost:8080 -k "
 alias frm="/usr/bin/rm -rf"
 alias rmz="/usr/bin/rm *.zip"
 alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
@@ -62,6 +61,7 @@ alias tree='tree -a -I .git --dirsfirst'
 alias ls='lsd -hAFlt --group-dirs first --color=always'
 alias l='lsd -hAFlt --group-dirs first --color=always'
 alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
+alias tree='lsd -hAFlt --tree --group-dirs first --color=always'
 
 # Servers /  SSH
 # alias ssh='wezterm ssh'

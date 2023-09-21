@@ -43,6 +43,20 @@
 
 {{- end }}
 
+[".config/qt5ct/colors/Dracula.conf"]
+    type = "archive-file"
+    url = "https://github.com/dracula/qt5/archive/master.zip"
+    refreshPeriod = "168h"
+    stripComponents = 1
+    path = "Dracula.conf"
+
+[".config/qt6ct/colors/Dracula.conf"]
+    type = "archive-file"
+    url = "https://github.com/dracula/qt5/archive/master.zip"
+    refreshPeriod = "168h"
+    stripComponents = 1
+    path = "Dracula.conf"
+
 [".config/zsh/themes/dracula-theme.zsh"]
     type = "file"
     url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
