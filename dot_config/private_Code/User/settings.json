@@ -1,4 +1,8 @@
 {
+ // ZEN MODE
+ "zenMode.centerLayout": false,
+ "zenMode.hideStatusBar": false,
+ "zenMode.hideLineNumbers": false,
 	// WINDOW SETTINGS
 	"window.zoomLevel": 2,
 	"window.commandCenter": false,
@@ -225,6 +229,7 @@
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.untrustedFiles": "open",
 	// MISC / GENERAL
+ "update.showReleaseNotes": false,
 	"telemetry.telemetryLevel": "off",
 	"diffEditor.ignoreTrimWhitespace": false,
 	"debug.onTaskErrors": "showErrors",
