@@ -51,7 +51,6 @@ alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 # windows managers
 alias restart-gnome="killall -3 gnome-shell"
 alias restart-kde="killall -3 plasmashell"
-alias hyprland-logs="cat /tmp/hypr/$(\ls -t /tmp/hypr/ | head -n 1)/hyprland.log"
 
 # Copy / Paste (X11 / Wayland) remove ending newline when copying
 alias copy="if [[ -z $WAYLAND_DISPLAY ]]; then tr -d '\n' | xclip -selection clipboard; else wl-copy; fi"
@@ -68,11 +67,23 @@ alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
 # alias ssh='wezterm ssh'
 
 # Command replacemnts
+alias grep="rg --hidden --smart-case --no-heading --line-number --color=always"
+alias mkdir="mkdir -p"
+alias fetch="clear && pfetch"
+alias less="less -r"
+alias tldr="tealdeer"
+alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+alias cp="fcp"
+alias nc='ncat -v'
+alias fd='fd --hidden --follow'
+alias find='fd'
+alias locate='fd'
 alias cat='/usr/bin/bat'
 alias top='btop'
+alias dig='dog'
 
 # GIT
-alias g=git
+alias g='git'
 alias ga='git add'
 alias gcam='git commit -a -m'
 alias git-update-recursively="find . -name .git -type d -print -prune -exec git --git-dir '{}' fetch --all ';'"
@@ -109,19 +120,9 @@ alias reboot="sudo reboot"
 alias umount="sudo umount"
 alias mount="sudo mount"
 
-alias mkdir="mkdir -p"
-alias fetch="clear && pfetch"
-alias less="less -r"
-alias tldr="tealdeer"
-alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-alias cp="fcp"
-alias nc='ncat -v'
-alias fd='fd --hidden --follow'
-alias locate='fd'
 # alias jq='jaq'
 alias termbin='\ncat termbin.com 9999|copy && paste'
-alias which-command=whence
-alias find='fd'
+alias which-command='whence'
 alias hexdump='od -A x -t x1z -v'
 alias o='handlr open'
 # alias clear="$ZSH/scripts/utils/clear.sh"
@@ -146,8 +147,6 @@ alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; p
 
 # Networking
 alias ip='ip -color -brief'
-# remove the "/etc/NetworkManager/system-connections/" part
-alias wifi-pass="sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | sed 's/\/etc\/NetworkManager\/system-connections\///g' | grep $1"
 alias wmonitor-off='sudo airmon-ng stop wlp4s0f3u3'
 alias wmonitor-on='sudo airmon-ng start wlp4s0f3u3'
 alias flush-cache='sudo killall -USR1 systemd-resolved'

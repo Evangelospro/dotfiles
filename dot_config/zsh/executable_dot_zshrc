@@ -3,59 +3,6 @@ $ZSH/scripts/utils/clear
 # check message of the day
 [ ! -f /etc/motd ] || cat /etc/motd
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of $ZSHrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh' ]]; then
-    source '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh'
-fi
-
-# To customize prompt, run `p10k configure` or edit $ZSH/p10k.zsh.
-[[ ! -f $ZSH/p10k.zsh ]] || source $ZSH/p10k.zsh
-
-# evaluting some useful commands
-eval $(thefuck --alias)
-# eval "$(zoxide init zsh --no-aliases --hook pwd)"
-# eval "$($ZSH/scripts/venvs/venv_finder.sh)"
-
-# changed keyboard shortcut in navi
-source $ZSH/navi-loader.zsh
-
-ENABLE_CORRECTION="true"
-
-case ${TERM} in
-    xterm*|rxvt*|Eterm*|aterm|kterm|terminator|gnome*|alacritty|st|konsole*)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-    ;;
-    screen*)
-        PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-    ;;
-esac
-if [ "$TERM" = "linux" ]; then
-    printf %b '\e[40m' '\e[8]' # set default background to color 0 'dracula-bg'
-    printf %b '\e[37m' '\e[8]' # set default foreground to color 7 'dracula-fg'
-    printf %b '\e]P0282a36'    # redefine 'black'          as 'dracula-bg'
-    printf %b '\e]P86272a4'    # redefine 'bright-black'   as 'dracula-comment'
-    printf %b '\e]P1ff5555'    # redefine 'red'            as 'dracula-red'
-    printf %b '\e]P9ff7777'    # redefine 'bright-red'     as '#ff7777'
-    printf %b '\e]P250fa7b'    # redefine 'green'          as 'dracula-green'
-    printf %b '\e]PA70fa9b'    # redefine 'bright-green'   as '#70fa9b'
-    printf %b '\e]P3f1fa8c'    # redefine 'brown'          as 'dracula-yellow'
-    printf %b '\e]PBffb86c'    # redefine 'bright-brown'   as 'dracula-orange'
-    printf %b '\e]P4bd93f9'    # redefine 'blue'           as 'dracula-purple'
-    printf %b '\e]PCcfa9ff'    # redefine 'bright-blue'    as '#cfa9ff'
-    printf %b '\e]P5ff79c6'    # redefine 'magenta'        as 'dracula-pink'
-    printf %b '\e]PDff88e8'    # redefine 'bright-magenta' as '#ff88e8'
-    printf %b '\e]P68be9fd'    # redefine 'cyan'           as 'dracula-cyan'
-    printf %b '\e]PE97e2ff'    # redefine 'bright-cyan'    as '#97e2ff'
-    printf %b '\e]P7f8f8f2'    # redefine 'white'          as 'dracula-fg'
-    printf %b '\e]PFffffff'    # redefine 'bright-white'   as '#ffffff'
-    clear
-fi
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
 HISTFILE=$ZSH/zsh_history.zsh
 SAVEHIST=10000000
 HISTSIZE=50000
@@ -108,15 +55,74 @@ HYPHEN_INSENSITIVE="true"
 
 _comp_options+=(globdots)
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of $ZSHrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh' ]]; then
+    source '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh'
+fi
+
+# To customize prompt, run `p10k configure` or edit $ZSH/p10k.zsh.
+[[ ! -f $ZSH/p10k.zsh ]] || source $ZSH/p10k.zsh
+
+# evaluting some useful commands
+eval $(thefuck --alias)
+# eval "$(zoxide init zsh --no-aliases --hook pwd)"
+# eval "$($ZSH/scripts/venvs/venv_finder.sh)"
+
+# Mcflt great scot history search
+export MCFLY_FUZZY=2
+export MCFLY_RESULTS=25
+export MCFLY_INTERFACE_VIEW=BOTTOM
+export MCFLY_RESULTS_SORT=RANK
+export MCFLY_PROMPT="❯"
+eval "$(mcfly init zsh)"
+
+# changed keyboard shortcut in navi
+source $ZSH/navi-loader.zsh
+
+ENABLE_CORRECTION="true"
+
+case ${TERM} in
+    xterm*|rxvt*|Eterm*|aterm|kterm|terminator|gnome*|alacritty|st|konsole*)
+        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
+    ;;
+    screen*)
+        PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
+    ;;
+esac
+if [ "$TERM" = "linux" ]; then
+    printf %b '\e[40m' '\e[8]' # set default background to color 0 'dracula-bg'
+    printf %b '\e[37m' '\e[8]' # set default foreground to color 7 'dracula-fg'
+    printf %b '\e]P0282a36'    # redefine 'black'          as 'dracula-bg'
+    printf %b '\e]P86272a4'    # redefine 'bright-black'   as 'dracula-comment'
+    printf %b '\e]P1ff5555'    # redefine 'red'            as 'dracula-red'
+    printf %b '\e]P9ff7777'    # redefine 'bright-red'     as '#ff7777'
+    printf %b '\e]P250fa7b'    # redefine 'green'          as 'dracula-green'
+    printf %b '\e]PA70fa9b'    # redefine 'bright-green'   as '#70fa9b'
+    printf %b '\e]P3f1fa8c'    # redefine 'brown'          as 'dracula-yellow'
+    printf %b '\e]PBffb86c'    # redefine 'bright-brown'   as 'dracula-orange'
+    printf %b '\e]P4bd93f9'    # redefine 'blue'           as 'dracula-purple'
+    printf %b '\e]PCcfa9ff'    # redefine 'bright-blue'    as '#cfa9ff'
+    printf %b '\e]P5ff79c6'    # redefine 'magenta'        as 'dracula-pink'
+    printf %b '\e]PDff88e8'    # redefine 'bright-magenta' as '#ff88e8'
+    printf %b '\e]P68be9fd'    # redefine 'cyan'           as 'dracula-cyan'
+    printf %b '\e]PE97e2ff'    # redefine 'bright-cyan'    as '#97e2ff'
+    printf %b '\e]P7f8f8f2'    # redefine 'white'          as 'dracula-fg'
+    printf %b '\e]PFffffff'    # redefine 'bright-white'   as '#ffffff'
+    clear
+fi
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 # Sourcing zsh themes
 # source $ZSH/themes/dracula.zsh
 
 source $ZSH/binds.zsh
 
-
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
-
 
 source $ZSH/functions.zsh
 

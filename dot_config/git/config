@@ -8,7 +8,7 @@
 	helper =
 	helper = !/usr/bin/gh auth git-credential
 [safe]
-  directory = ~/.local/share/hyprload
+    directory = ~/.local/share/hyprload
 [init]
 	defaultbranch = main
 [filter "lfs"]
@@ -20,46 +20,63 @@
 # -----------
 # Alias for Dracula Org repositories
 [url "https://github.com/dracula/"]
-  insteadOf = dracula://
+    insteadOf = dracula://
 # COLORS
 # ------
 # Dracula Dark Theme
 [color]
-  ui = auto
+    ui = auto
 [color "branch"]
-  current = cyan bold reverse
-  local = white
-  plain =
-  remote = cyan
+        current = cyan bold reverse
+        local = white
+        plain =
+        remote = cyan
 [color "diff"]
-  commit =
-  func = cyan
-  plain =
-  whitespace = magenta reverse
-  meta = white
-  frag = cyan bold reverse
-  old = red
-  new = green
+    commit =
+    func = cyan
+    plain =
+    whitespace = magenta reverse
+    meta = white
+    frag = cyan bold reverse
+    old = red
+    new = green
 [color "grep"]
-  context =
-  filename =
-  function =
-  linenumber = white
-  match =
-  selected =
-  separator =
+    context =
+    filename =
+    function =
+    linenumber = white
+    match =
+    selected =
+    separator =
 [color "interactive"]
-  error =
-  header =
-  help =
-  prompt =
+    error =
+    header =
+    help =
+    prompt =
 [color "status"]
-  added = green
-  changed = yellow
-  header =
-  localBranch =
-  nobranch =
-  remoteBranch = cyan bold
-  unmerged = magenta bold reverse
-  untracked = red
-  updated = green bold
+    added = green
+    changed = yellow
+    header =
+    localBranch =
+    nobranch =
+    remoteBranch = cyan bold
+    unmerged = magenta bold reverse
+    untracked = red
+    updated = green bold
+# GIT DELTA
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    theme = Dracula
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

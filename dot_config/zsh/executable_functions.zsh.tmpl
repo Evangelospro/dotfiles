@@ -65,6 +65,23 @@ function mvs() {
     fi
 }
 
+function wifi-pass {
+    if [[ -z $1 ]]; then
+        echo "No SSID specified"
+        return 1
+    fi
+    sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | sed 's/\/etc\/NetworkManager\/system-connections\///g' | grep $1
+}
+
+function hyprland-logs {
+    # # check that we are in interactive mode
+    # if [[ $- == *i* ]]; then
+    #     echo "You are in interactive mode, please run this command in a non-interactive shell"
+    #     return 1
+    # fi
+    cat $(\ls -dt /tmp/hypr/*/ | head -n 1)/hyprland.log
+}
+
 function checkContainerRunning() {
     docker container ls -q -f name="$1"
 }
@@ -84,7 +101,7 @@ function ex {
     if [ -z "$1" ]; then
         # display usage if no parameters given
         echo "Usage: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
-        echo "       ex <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+        echo "       ex <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext] ..."
     else
         for n in "$@"
         do

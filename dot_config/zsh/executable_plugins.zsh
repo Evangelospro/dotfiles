@@ -31,8 +31,8 @@ zinit snippet OMZP::fzf
 zinit ice wait
 zinit snippet OMZP::dirhistory
 
-zinit ice wait 2
-zinit light zdharma-continuum/history-search-multi-word
+# zinit ice wait 2
+# zinit light zdharma-continuum/history-search-multi-word
 
 zinit ice wait 2
 zinit snippet $ZSH/scripts/utils/web-search.zsh

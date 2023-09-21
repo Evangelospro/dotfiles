@@ -242,6 +242,7 @@ pamixer
 ## OSD
 aur avizo
 ## Background
+chaotic-aur/azote
 swaybg
 ## Clipboard
 wl-clipboard
@@ -258,7 +259,6 @@ kwallet-pam
 # aur eww-tray-wayland-git
 # aur gbar-git
 waybar
-otf-font-awesome
 libevdev
 python-evdev
 ## misc
@@ -285,7 +285,11 @@ qtkeychain-qt6
 
 
 # Fonts/text
-ttf-font-awesome
+noto-fonts
+noto-fonts-emoji
+noto-fonts-extra
+noto-fonts-cjk
+otf-font-awesome
 otf-manrope
 tesseract
 tesseract-data-eng
@@ -337,6 +341,9 @@ figlet
 chaotic-aur/c-lolcat
 bat
 lsd
+git-delta
+mcfly
+dog
 
 # KDEConnect
 kdeconnect
