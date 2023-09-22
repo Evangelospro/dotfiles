@@ -149,7 +149,6 @@ alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; p
 alias ip='ip -color -brief'
 alias wmonitor-off='sudo airmon-ng stop wlp4s0f3u3'
 alias wmonitor-on='sudo airmon-ng start wlp4s0f3u3'
-alias flush-cache='sudo killall -USR1 systemd-resolved'
 
 # Disables / Enables
 alias enable-ping='sudo sysctl -w net.ipv4.icmp_echo_ignore_all=0'
@@ -180,4 +179,3 @@ alias sduo='sudo'
 
 # image utils
 alias icat="wezterm imgcat"
-alias rotate='jpegtran -perfect -rotate'

@@ -467,9 +467,8 @@ python-numpy
 aur rsactftool-git
 # End Hacking Tools
 
-# VPNs
+# VPNs (wireguard support is in NetworkManager so no need to install it)
 openvpn
-wireguard-tools
 
 # Windows emulation
 # wine
