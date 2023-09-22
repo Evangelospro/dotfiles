@@ -107,7 +107,6 @@ squashfs-tools
 sudo
 sshpass
 syslinux
-systemd-resolvconf
 tcpdump
 terminus-font
 testdisk
@@ -343,7 +342,7 @@ bat
 lsd
 git-delta
 mcfly
-dog
+aur doggot-bin
 
 # KDEConnect
 kdeconnect
