@@ -170,10 +170,10 @@ xf86-video-intel
 #xf86-video-amdgpu
 #xf86-video-nouveau
 
-# proprietary
-#nvidia
-#nvidia-settings
-#nvidia-utils
+# proprietary-nvidia
+# nvidia
+# nvidia-settings
+# nvidia-utils
 
 # Display manager
 sddm-git
@@ -290,7 +290,7 @@ noto-fonts-emoji
 noto-fonts-extra
 noto-fonts-cjk
 otf-font-awesome
-otf-manrope
+aur otf-manrope
 tesseract
 tesseract-data-eng
 
@@ -441,7 +441,7 @@ aur python-pwnscripts
 ropper
 ropgadget
 ## Web
-python-bs4
+python-beutifulsoup4
 python-flask
 wpscan
 aur joomscan
