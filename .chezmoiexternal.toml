@@ -73,7 +73,7 @@
     type = "git-repo"
     url = "https://github.com/hyprwm/hyprland.git"
     branch = "main"
-    refreshPeriod = "24h"
+    refreshPeriod = "6h"
     clone.args = ["--recurse-submodules", "--shallow-submodules"]
     pull.args = ["--recurse-submodules"]
 
@@ -81,4 +81,4 @@
     type = "git-repo"
     url = "https://github.com/Duckonaut/split-monitor-workspaces.git"
     branch = "main"
-    refreshPeriod = "24h"
+    refreshPeriod = "6h"

@@ -1,14 +1,15 @@
 # Maintenance is hard...
-function update(){
+function update() {
     paru -Syu
     zinit self-update
     zinit update --parallel 40
     sudo pkgfile -u
+    $HOME/.config/hypr/update.sh
     $HOME/.config/hypr/plugins/update.sh
     # navi-update
 }
 
-function upload(){
+function upload() {
     if [[ -z $1 ]]; then
         echo "No file specified for upload"
         return 1
