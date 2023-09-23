@@ -79,7 +79,7 @@ alias fd='fd --hidden --follow'
 alias find='fd'
 alias locate='fd'
 alias cat='/usr/bin/bat'
-alias top='btop'
+alias top='htop' # or btop
 alias dig='doggo'
 
 # GIT
