@@ -111,7 +111,7 @@ class Appnames(hyprland.Events):
             self.focusedws = int(ws)
             # self.generate()
 
-    async def on_activewindow(self, window_class__, window_title__):
+    async def on_activewindow(self, *args):
         try:
             activeWindow = self.getActiveWindow()
             # self.logEvent(f"activewindow JSON: {activeWindow}")
