@@ -202,7 +202,9 @@ class Workspacer(hyprland.Events):
         self.focusedws = int(ws) % self.numOfWorkspaces
         self.generate()
 
-    async def on_activewindow(self, window_class: str, window_title: str) -> None:
+    async def on_activewindow(self, *args) -> None:
+        window_class = args[0]
+        window_title = args[1:]
         self.logEvent(f"window changed to {window_class} with title {window_title}")
         self.generate()
 
