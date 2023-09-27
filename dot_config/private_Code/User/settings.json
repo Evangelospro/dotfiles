@@ -147,7 +147,7 @@
 	],
 	"java.server.launchMode": "LightWeight",
 	"[html]": {
-		"editor.tabSize": 2
+		"editor.tabSize": 4
 	},
 	"html.autoClosingTags": true,
 	"html.completion.attributeDefaultValue": "singlequotes",
@@ -157,7 +157,8 @@
 		"editor.wordBasedSuggestions": false
 	},
 	"[javascript]": {
-		"editor.tabSize": 2
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"javascript.autoClosingTags": true,
 	"javascript.suggest.autoImports": true,
@@ -166,7 +167,7 @@
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"javascript.validate.enable": false,
 	"[json]": {
-		"editor.tabSize": 2,
+		"editor.tabSize": 4,
 		"editor.defaultFormatter": "vscode.json-language-features"
 	},
 	"json.maxItemsComputed": 100000,
@@ -178,18 +179,18 @@
 		}
 	},
 	"[scss]": {
-		"editor.tabSize": 2,
+		"editor.tabSize": 4,
 		"editor.defaultFormatter": "vscode.css-language-features"
 	},
 	"[typescript]": {
-		"editor.tabSize": 2
+		"editor.tabSize": 4
 	},
 	"typescript.autoClosingTags": true,
 	"typescript.suggest.autoImports": true,
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"typescript.validate.enable": false,
 	"[typescriptreact]": {
-		"editor.tabSize": 2,
+		"editor.tabSize": 4,
 		"editor.formatOnSave": false
 	},
 	"js/ts.implicitProjectConfig.checkJs": true,
