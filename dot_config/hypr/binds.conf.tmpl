@@ -71,12 +71,8 @@ bind=$MOD,S,movewindow,d
 # bind=$SHIFT_MOD,U,hyprload,update
 
 # Move Windows Between Monitors
-bind=$SHIFT_MOD,left,movewindow,mon:eDP-1
-{{- if eq .chezmoi.hostname "ELARCH-WORK" }}
-bind=$SHIFT_MOD,right,movewindow,mon:VGA-1
-{{- else }}
-bind=$SHIFT_MOD,right,movewindow,mon:DP-1
-{{- end }}
+bind=$SHIFT_MOD,left,split-changemonitor,prev
+bind=$SHIFT_MOD,right,split-changemonitor,next
 
 # Move Windows Between Workspaces
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}
