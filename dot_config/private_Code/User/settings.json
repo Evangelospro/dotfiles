@@ -43,8 +43,7 @@
 	"editor.bracketPairColorization.enabled": true,
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": true
-	},
-	"editor.colorDecorators": false,
+    },
 	"editor.cursorBlinking": "phase",
 	"editor.cursorSmoothCaretAnimation": "on",
 	"editor.cursorStyle": "line",
@@ -272,5 +271,8 @@
         "<C-w>": false,
         "<C-s>": false,
         "<C-z>": false
-    }
+    },
+    "editor.defaultColorDecorators": true,
+    "workbench.preferredDarkColorTheme": "Sweet Dracula",
+    "workbench.preferredHighContrastColorTheme": "Dracula"
 }

@@ -22,7 +22,7 @@ window {
 #match.activatable:not(:first-child) {
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
-	border-top: 2px solid rgba(255, 255, 255, 0.1);
+	/* border-top: 2px solid rgba(255, 255, 255, 0.1); */
 }
 
 #match.activatable #match-title {
@@ -73,7 +73,7 @@ box#main {
 	background: rgba(36, 39, 58, 0.7);
 	border-radius: 16px;
 	padding: 8px;
-	box-shadow: 0px 2px 33px -5px rgba(0, 0, 0, 0.5);
+	/* box-shadow: 0px 2px 33px -5px rgba(0, 0, 0, 0.5); */
 }
 
 row:first-child {

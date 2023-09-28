@@ -126,20 +126,6 @@ dialog
 wvdial
 xfsprogs
 xl2tpd
-
-#######################################################
-###  PACKAGES THAT ARE REMOVED AFTER INSTALLATION   ###
-###             VIA CALAMARES CONFIG START          ###
-#######################################################
-
-elarch-calamares
-elarch-calamares-config
-
-#######################################################
-###  PACKAGES THAT ARE REMOVED AFTER INSTALLATION   ###
-###             VIA CALAMARES CONFIG END            ###
-#######################################################
-
 bash-completion
 os-prober
 dex
@@ -151,10 +137,10 @@ xterm
 xorg-xrdb
 mkinitcpio-openswap
 
+###  PACKAGES THAT ARE REMOVED AFTER INSTALLATION   ###
+elarch-calamares
+elarch-calamares-config
 #######################################################
-###                    EXTRAS                       ###
-#######################################################
-
 
 # Drivers for graphical cards
 ## virtualbox
@@ -184,7 +170,7 @@ base-devel
 # Docker
 docker
 
-# Desktop environment
+# Desktop environment (will be replaced by the hyprland update script)
 chaotic-aur/hyprland-git
 aur hyprpicker
 xdg-desktop-portal-gtk
@@ -342,10 +328,10 @@ bat
 lsd
 git-delta
 mcfly
-aur doggot-bin
+aur doggo-bin
 
 # KDEConnect
-kdeconnect
+valent-git
 
 # Password manager
 bitwarden-cli
@@ -355,6 +341,11 @@ chezmoi
 
 # File managment
 nautilus
+filemanager-actions
+aur nautilus-admin-gtk4
+aur nautilus-hide-git
+aur nautilus-open-any-terminal-git
+# aur nautilus-bluetooth-git # requires bluetooth-sendto...
 nautilus-sendto
 lf
 fd
@@ -378,7 +369,7 @@ xournalpp
 # zathura
 onlyoffice-bin
 ## Mail
-# aur betterbird-bin
+aur betterbird-bin
 ## Communications
 # signal-desktop
 ## Browser

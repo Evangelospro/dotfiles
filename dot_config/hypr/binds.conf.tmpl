@@ -1,7 +1,5 @@
 # Keybind environment variables
 ## Variables in caps are special variables
-env = TERMINAL, "wezterm"
-env = fileManager, "nautilus --new-window"
 env = browser, "google-chrome-stable"
 env = EDITOR, "code"
 
@@ -9,7 +7,6 @@ env = EDITOR, "code"
 env = clipMenu, "$HOME/.local/bin/clipMenu"
 env = lockscreen, "$HOME/.local/bin/lockscreen"
 env = launcher, "$HOME/.local/bin/launcher"
-env = ewwLaunch, "$HOME/.local/bin/ewwLaunch"
 
 # Control keys
 $MOD = SUPER
@@ -21,13 +18,13 @@ bind=$MOD,M,exit
 # Launch / Reload Applications
 bind=,XF86Launch3,exec,rog-control-center
 # bind=,XF86Launch4,exec,cycle through ligthing effects with asusctl
-bind=$MOD,ENTER,exec,eval $TERMINAL
+bind=$MOD,Return,exec,wezterm start --always-new-process
 bindl=$MOD,L,exec,eval $lockscreen
 bind=$MOD,SPACE,exec,eval $launcher
 bind=,XF86Search,exec,eval $launcher
 bind=$MOD,V,exec,eval $clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
-bind=$MOD,E,exec,eval $fileManager
+bind=$MOD,E,exec,nautilus --no-desktop --new-window &
 bind=$SHIFT_MOD,R,exec,pkill -9 waybar ; waybar
 
 # Close / Fullscreen / Kill Applications / Arrange monitors
