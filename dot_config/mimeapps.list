@@ -84,3 +84,5 @@ x-scheme-handler/http=chromium.desktop;
 x-scheme-handler/https=chromium.desktop;
 x-scheme-handler/spotify=spotify.desktop;
 x-scheme-handler/terminal=org.wezfurlong.wezterm.desktop;
+inode/directory=nemo.desktop
+application/x-gnome-saved-search=nemo.desktop

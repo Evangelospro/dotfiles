@@ -67,7 +67,7 @@ alias tree='lsd -hAFlt --tree --group-dirs first --color=always'
 # alias ssh='wezterm ssh'
 
 # Command replacemnts
-alias grep="rg --hidden --smart-case --no-heading --line-number --color=always"
+alias rg="rg --hidden --smart-case --no-heading --line-number --color=always"
 alias mkdir="mkdir -p"
 alias fetch="clear && pfetch"
 alias less="less -r"
@@ -77,7 +77,7 @@ alias cp="fcp"
 alias nc='ncat -v'
 alias fd='fd --hidden --follow'
 alias find='fd'
-alias locate='fd'
+alias locate='plocate'
 alias cat='/usr/bin/bat'
 alias top='htop' # or btop
 alias dig='doggo'

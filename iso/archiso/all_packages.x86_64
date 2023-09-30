@@ -170,6 +170,9 @@ base-devel
 # Docker
 docker
 
+# IMPORTANT PACKAGES
+appmenu-gtk-module
+
 # Desktop environment (will be replaced by the hyprland update script)
 chaotic-aur/hyprland-git
 aur hyprpicker
@@ -313,6 +316,7 @@ zsh
 curl
 curlie
 aur fcp-bin
+plocate
 wget
 progress
 trash-cli
@@ -340,13 +344,20 @@ bitwarden-cli
 chezmoi
 
 # File managment
-nautilus
-filemanager-actions
-aur nautilus-admin-gtk4
-aur nautilus-hide-git
-aur nautilus-open-any-terminal-git
-# aur nautilus-bluetooth-git # requires bluetooth-sendto...
-nautilus-sendto
+# nautilus
+# filemanager-actions
+# aur nautilus-admin-gtk4
+# aur nautilus-hide-git
+# aur nautilus-open-any-terminal-git
+# # aur nautilus-bluetooth-git # requires bluetooth-sendto...
+# nautilus-sendto
+nemo
+nemo-fileroller
+aur nemo-compare
+nemo-preview
+# nemo-terminal
+nemo-image-converter
+aur nemo-media-columns
 lf
 fd
 

@@ -20,6 +20,13 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+[".local/bin/gtk4themeadapter"]
+    type = "archive-file"
+    url = "https://github.com/Cornul11/GTK4ThemeAdapter/archive/main.tar.gz"
+    refreshPeriod = "168h"
+    stripComponents = 1
+    path = "gtk4_theme_adapter.py"
+
 [".local/bin/c"]
     type = "archive-file"
     url = '{{ gitHubLatestRelease "rettier/c" | toJson | fromJson | jq ".assets[1].browser_download_url" | first}}'
@@ -61,6 +68,14 @@
     type = "file"
     url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
     refreshPeriod = "168h"
+
+[".themes/Dracula"]
+    type = "archive"
+    url = "https://github.com/dracula/gtk/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
 
 [".config/zsh/utils/gitstatus/gitstatusd-linux"]
     type = "archive-file"
