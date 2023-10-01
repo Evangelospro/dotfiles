@@ -111,7 +111,7 @@ if [ "$1" == "enable" ]; then
     # excluding failed packages one by one
     for i in "${failed_packages[@]}"; do
         echo "FAIL: Removing $i from packages.x86_64 because it failed to build"
-        sed -i "/aur $i/d" "$iso_dir/packages.x86_64"
+        sed -i "/aur/$i/d" "$iso_dir/packages.x86_64"
     done
     echo "Final package list: "
     cat "$iso_dir/packages.x86_64"
@@ -123,5 +123,5 @@ else
         sed -i "/\[$repo_name\]/,/Server = file:\/\/$iso_name\/custom_repos\/$repo_name/d" "$iso_dir/pacman.conf"
     fi
     # Remove any aur packages from packages.x86_64 by removing any line that starts with aur
-    cat "$iso_dir/all_packages.x86_64" | sed '/^aur/d' >"$iso_dir/packages.x86_64"
+    cat "$iso_dir/all_packages.x86_64" | sed '/^aur//d' >"$iso_dir/packages.x86_64"
 fi

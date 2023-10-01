@@ -13,9 +13,9 @@ linux-zen-headers
 # Asus F15
 # intel-compute-runtime
 # vulkan-intel
-# aur asusctl-git
-# aur supergfxctl-git
-# aur rog-control-center
+# aur/asusctl-git
+# aur/supergfxctl-git
+# aur/rog-control-center
 
 # Base packages
 alsa-utils
@@ -175,7 +175,7 @@ appmenu-gtk-module
 
 # Desktop environment (will be replaced by the hyprland update script)
 chaotic-aur/hyprland-git
-aur hyprpicker
+aur/hyprpicker
 xdg-desktop-portal-gtk
 chaotic-aur/xdg-desktop-portal-hyprland-git
 # hyprsome
@@ -212,8 +212,8 @@ chaotic-keyring
 
 # XDG standard
 chaotic-aur/xdg-ninja-git
-aur handlr-regex-bin
-# aur pistol-git
+aur/handlr-regex-bin
+# aur/pistol-git
 
 # System utils
 ## Networking
@@ -228,7 +228,7 @@ pipewire-pulse
 pavucontrol
 pamixer
 ## OSD
-aur avizo
+aur/avizo
 ## Background
 chaotic-aur/azote
 swaybg
@@ -244,8 +244,8 @@ polkit-qt5
 kwallet-pam
 ## Top bar
 # eww-wayland
-# aur eww-tray-wayland-git
-# aur gbar-git
+# aur/eww-tray-wayland-git
+# aur/gbar-git
 waybar
 libevdev
 python-evdev
@@ -256,7 +256,7 @@ swaync-client
 swaylock-effects
 swayidle
 ## Disks / USB devices / Cleanup
-aur usbguard-applet-qt
+aur/usbguard-applet-qt
 chaotic-aur/qdirstat
 udiskie
 gparted
@@ -278,7 +278,7 @@ noto-fonts-emoji
 noto-fonts-extra
 noto-fonts-cjk
 otf-font-awesome
-aur otf-manrope
+aur/otf-manrope
 tesseract
 tesseract-data-eng
 
@@ -286,9 +286,9 @@ tesseract-data-eng
 ## Cursors
 chaotic-aur/bibata-cursor-theme
 ## Icons
-aur papirus-icon-theme-git
+aur/papirus-icon-theme-git
 ## grub theme
-aur grub-theme-cyberre
+aur/grub-theme-cyberre
 
 # Screenshoting
 grim
@@ -296,7 +296,7 @@ slurp
 chaotic-aur/flameshot-git
 
 # Programming
-# aur python2
+# aur/python2
 python3
 mypy
 ruff
@@ -315,7 +315,7 @@ chaotic-aur/wezterm-git
 zsh
 curl
 curlie
-aur fcp-bin
+aur/fcp-bin
 plocate
 wget
 progress
@@ -324,15 +324,15 @@ thefuck
 zoxide
 ## ascii art
 # neofetch
-# aur archey5
-aur pfetch
+# aur/archey5
+aur/pfetch
 figlet
 chaotic-aur/c-lolcat
 bat
 lsd
 git-delta
 mcfly
-aur doggo-bin
+aur/doggo-bin
 
 # KDEConnect
 valent-git
@@ -346,18 +346,18 @@ chezmoi
 # File managment
 # nautilus
 # filemanager-actions
-# aur nautilus-admin-gtk4
-# aur nautilus-hide-git
-# aur nautilus-open-any-terminal-git
-# # aur nautilus-bluetooth-git # requires bluetooth-sendto...
+# aur/nautilus-admin-gtk4
+# aur/nautilus-hide-git
+# aur/nautilus-open-any-terminal-git
+# # aur/nautilus-bluetooth-git # requires bluetooth-sendto...
 # nautilus-sendto
 nemo
 nemo-fileroller
-aur nemo-compare
+aur/nemo-compare
 nemo-preview
 # nemo-terminal
 nemo-image-converter
-aur nemo-media-columns
+aur/nemo-media-columns
 lf
 fd
 
@@ -368,9 +368,9 @@ glow
 tealdeer
 ffmpeg
 btop
-aur geticons
+aur/geticons
 moreutils
-aur batify
+aur/batify
 wev
 onefetch
 
@@ -380,20 +380,21 @@ xournalpp
 # zathura
 onlyoffice-bin
 ## Mail
-aur betterbird-bin
+aur/betterbird-bin
 ## Communications
 # signal-desktop
 ## Browser
 chaotic-aur/google-chrome
 ## Discord
-# aur vencord-desktop-git
+# aur/vencord-desktop-git
 # chaotic-aur/betterdiscordctl-git
 ## Note taking
 obsidian
 ## spotify
-chaotic-aur/spotify
-# spotify-player
-aur spotifywm-git
+spotify-launcher
+chaotic-aur/spicetify-cli
+aur/spicetify-theme-dracula-git
+aur/spotifywm-git
 
 # Video
 vlc
@@ -411,9 +412,9 @@ visual-studio-code-bin
 ## Autocomplete
 navi
 # Android
-aur jadx-gui-desktop
-aur python-frida
-aur python-androguard
+aur/jadx-gui-desktop
+aur/python-frida
+aur/python-androguard
 android-udev
 chaotic-aur/android-sdk
 chaotic-aur/android-emulator
@@ -426,7 +427,7 @@ metasploit
 ## Reverse engineering
 python-z3-solver
 python-claripy
-# aur python-angr-git
+# aur/python-angr-git
 rlwrap
 ghidra
 cutter
@@ -438,35 +439,35 @@ strace
 python-typing_extensions
 python-tabulate
 python-pwntools
-aur python-pwnscripts
+aur/python-pwnscripts
 ropper
 ropgadget
 ## Web
 python-beautifulsoup4
 python-flask
 wpscan
-aur joomscan
+aur/joomscan
 ## Networking / Wi-Fi
 aircrack-ng
 nmap
 rustscan
 python-scapy
 ## Shell handler
-aur penelope-git
+aur/penelope-git
 ## Bruteforcing
-aur hydra
-aur ffuf-bin
-aur feroxbuster
+aur/hydra
+aur/ffuf-bin
+aur/feroxbuster
 ## hex editor
 chaotic-aur/imhex
 ## wordlists
-# aur seclists
+# aur/seclists
 ## Crypto
 python-pycryptodome
 python-pycryptodomex
 sagemath
 python-numpy
-aur rsactftool-git
+aur/rsactftool-git
 # End Hacking Tools
 
 # VPNs (wireguard support is in NetworkManager so no need to install it)
@@ -484,18 +485,18 @@ libvncserver
 spice-gtk
 
 # Packaging
-## Paru (AUR helper)
+## Paru (aur/helper)
 chaotic-aur/paru
 ## Mirrors
-aur rate-mirrors-bin
-aur pacman-cleanup-hook
+aur/rate-mirrors-bin
+aur/pacman-cleanup-hook
 
 # Launchers
-aur anyrun-git
-# aur ulauncher-git
+aur/anyrun-git
+# aur/ulauncher-git
 rofi
 
 # parsers
-aur jaq
+aur/jaq
 # jq
-aur ripgrep
+aur/ripgrep
