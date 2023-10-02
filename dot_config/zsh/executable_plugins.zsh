@@ -27,6 +27,9 @@ pick="async.zsh" mafredri/zsh-async
 zinit ice wait lucid as"program" pick"bin/fzf"
 zinit snippet OMZP::fzf
 
+# FZF tab completion
+zinit light Aloxaf/fzf-tab
+
 # history
 zinit ice wait
 zinit snippet OMZP::dirhistory

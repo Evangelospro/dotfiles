@@ -392,7 +392,7 @@ chaotic-aur/google-chrome
 obsidian
 ## spotify
 spotify-launcher
-chaotic-aur/spicetify-cli
+# chaotic-aur/spicetify-cli -> curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
 aur/spicetify-theme-dracula-git
 aur/spotifywm-git
 

@@ -76,6 +76,20 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+[".config/spicetify/Themes/Dracula"]
+    type = "archive"
+    url = "https://github.com/dracula/spicetify/archive/master.zip"
+    exact = true
+    include = ["spicetify-main/Dracula/*"]
+    stripComponents = 2
+    refreshPeriod = "168h"
+
+[".config/spicetify/CustomApps/marketplace"]
+    type = "archive"
+    url = '{{ gitHubLatestRelease "spicetify/spicetify-marketplace" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
 
 [".config/zsh/utils/gitstatus/gitstatusd-linux"]
     type = "archive-file"
