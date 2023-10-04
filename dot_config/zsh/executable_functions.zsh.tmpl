@@ -1,3 +1,12 @@
+fucntion e() {
+    # check if the file is writable by the user, if not then use sudoedit
+    if [[ -w $1 ]]; then
+        $EDITOR $1
+    else
+        sudoedit $1 &
+    fi
+}
+
 # Maintenance is hard...
 function update() {
     paru -Syu
