@@ -7,7 +7,7 @@ alias please='sudo $(fc -ln -1)'
 alias pls='please'
 
 # alias chrome to the first found chromium based browser
-alias chrome='browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome" | head -n 1) && $browser'
+alias chrome='browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome" | head -n 1) && $browser  --enable-logging --v=1'
 
 # HACKING TOOLS
 ## web

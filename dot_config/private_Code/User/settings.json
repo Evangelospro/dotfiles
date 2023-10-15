@@ -274,5 +274,6 @@
     },
     "editor.defaultColorDecorators": true,
     "workbench.preferredDarkColorTheme": "Sweet Dracula",
-    "workbench.preferredHighContrastColorTheme": "Dracula"
+    "workbench.preferredHighContrastColorTheme": "Dracula",
+    "workbench.editor.empty.hint": "hidden"
 }
