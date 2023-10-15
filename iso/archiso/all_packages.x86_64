@@ -239,6 +239,7 @@ cliphist
 ## Brightness
 brightnessctl
 ## Authentication
+seahorse
 gnome-keyring
 polkit-gnome
 polkit-qt5

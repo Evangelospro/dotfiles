@@ -47,8 +47,7 @@
     opacity: 0.8;
     padding: 0px 10px;
     margin: 3px 0px;
-    margin-top: 10px;
-    border: 1px solid @purple;
+    border: 2px solid @purple;
 }
 
 #idle_inhibitor {
@@ -84,6 +83,7 @@
 #image {
     margin: 0px 0px;
     padding: 0px 0px;
+    border-radius: 5px;
 }
 
 #temperature {
@@ -130,7 +130,6 @@
     color: @orange;
     border-radius: 10px 10px 10px 10px;
     margin: 0px 10px 0px 10px;
-    border-right: 0px;
 }
 
 #network {

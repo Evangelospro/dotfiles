@@ -1,11 +1,15 @@
-fucntion e() {
-    # check if the file is writable by the user, if not then use sudoedit
-    if [[ -w $1 ]]; then
-        $EDITOR $1
+function e() {
+    local target_file="$1"
+    if [[ -z "$target_file" ]]; then
+        # echo "No file specified opening last session"
+        $EDITOR
+    elif [[ -e "$target_file" || -w "$(dirname "$target_file")" ]]; then
+        $EDITOR "$target_file"
     else
-        sudoedit $1 &
+        sudoedit "$target_file" &
     fi
 }
+
 
 # Maintenance is hard...
 function update() {
