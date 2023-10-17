@@ -4,48 +4,10 @@
 # Loading ZINIT
 source "$ZINIT[HOME_DIR]/zinit.zsh"
 
-zinit ice as'null' from"gh-r" sbin
-zinit light ajeetdsouza/zoxide
-zinit has'zoxide' wait lucid for \
-z-shell/zsh-zoxide
-
 ## Plugins
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1"
-zinit ice id-as="autosuggestions"; zinit light zsh-users/zsh-autosuggestions
-
-# Completions
-zinit ice wait lucid blockf id-as="zsh-completions"
-zinit light zsh-users/zsh-completions
-
-zinit snippet PZT::modules/completion
-zstyle ':completion:*' completer _complete _match _expand
-
-zinit wait lucid light-mode depth=1 for \
-pick="autopair.zsh" atload="autopair-init" hlissner/zsh-autopair \
-pick="async.zsh" mafredri/zsh-async
-
-zinit ice wait lucid as"program" pick"bin/fzf"
-zinit snippet OMZP::fzf
-
-# FZF tab completion
-zinit light Aloxaf/fzf-tab
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
-# set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -hAFt --group-dirs first --color=always $realpath'
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
-
-# history
 zinit ice wait
-zinit snippet OMZP::dirhistory
+zinit light mroth/evalcache
 
-# zinit ice wait 2
-# zinit light zdharma-continuum/history-search-multi-word
 
 zinit ice wait 2
 zinit snippet $ZSH/scripts/utils/web-search.zsh
@@ -53,9 +15,6 @@ zinit snippet $ZSH/scripts/utils/web-search.zsh
 # bitwarden auto export session
 zinit ice wait
 zinit light Game4Move78/zsh-bitwarden
-
-# zinit ice wait
-# zinit light tom-auger/cmdtime
 
 zinit ice wait
 zinit light jgogstad/passwordless-history
@@ -74,11 +33,64 @@ else
     zinit light MichaelAquilina/zsh-auto-notify
 fi
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1"
+zinit ice id-as="autosuggestions"; zinit light zsh-users/zsh-autosuggestions
+
+# evaluting some useful commands and aliases
+eval $(thefuck --alias)
+# eval "$($ZSH/scripts/venvs/venv_finder.sh)"
+
+# Mcfly great scot history search
+export MCFLY_FUZZY=2
+export MCFLY_RESULTS=25
+export MCFLY_INTERFACE_VIEW=BOTTOM
+export MCFLY_RESULTS_SORT=RANK
+export MCFLY_PROMPT="❯"
+eval "$(mcfly init zsh)"
+
+# Completions
+zinit ice as'null' from"gh-r" sbin
+zinit light ajeetdsouza/zoxide
+zinit has'zoxide' wait lucid for \
+z-shell/zsh-zoxide
+
+zinit ice wait lucid blockf id-as="zsh-completions"
+zinit light zsh-users/zsh-completions
+
+zinit snippet PZT::modules/completion
+zstyle ':completion:*' completer _complete _match _expand
+
+zinit wait lucid light-mode depth=1 for \
+pick="autopair.zsh" atload="autopair-init" hlissner/zsh-autopair \
+pick="async.zsh" mafredri/zsh-async
+
+zinit ice wait lucid as"program" pick"bin/fzf"
+zinit snippet OMZP::fzf
+
+## FZF tab completion
+zinit light Aloxaf/fzf-tab
+### disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+### set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+### set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+### preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -hAFt --group-dirs first --color=always $realpath'
+### switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+# history
+zinit ice wait
+zinit snippet OMZP::dirhistory
+
+# zinit ice wait 2
+# zinit light zdharma-continuum/history-search-multi-word
+
+# zinit ice wait
+# zinit light tom-auger/cmdtime
+
 ## History search
-# ctrl-r
-zinit light-mode for \
-z-shell/H-S-MW \
-zsh-users/zsh-history-substring-search
 
 # ZINIT plugin for diff-so-fancy https://github.com/z-shell/zsh-diff-so-fancy
 zinit ice wait lucid as'program' pick'bin/git-dsf'

@@ -1,3 +1,6 @@
+# Measure performance
+zmodload zsh/zprof
+
 $ZSH/scripts/utils/clear
 
 # check message of the day
@@ -64,19 +67,6 @@ fi
 
 # To customize prompt, run `p10k configure` or edit $ZSH/p10k.zsh.
 [[ ! -f $ZSH/p10k.zsh ]] || source $ZSH/p10k.zsh
-
-# evaluting some useful commands
-eval $(thefuck --alias)
-# eval "$(zoxide init zsh --no-aliases --hook pwd)"
-# eval "$($ZSH/scripts/venvs/venv_finder.sh)"
-
-# Mcflt great scot history search
-export MCFLY_FUZZY=2
-export MCFLY_RESULTS=25
-export MCFLY_INTERFACE_VIEW=BOTTOM
-export MCFLY_RESULTS_SORT=RANK
-export MCFLY_PROMPT="❯"
-eval "$(mcfly init zsh)"
 
 # changed keyboard shortcut in navi
 source $ZSH/navi-loader.zsh

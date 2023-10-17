@@ -386,7 +386,8 @@ aur/betterbird-bin
 ## Communications
 # signal-desktop
 ## Browser
-chaotic-aur/google-chrome
+chaotic-aur/thorium-browser-bin
+# chaotic-aur/google-chrome
 ## Discord
 # aur/vencord-desktop-git
 # chaotic-aur/betterdiscordctl-git
