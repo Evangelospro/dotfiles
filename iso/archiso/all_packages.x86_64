@@ -315,6 +315,7 @@ chaotic-aur/wezterm-git
 
 # Shell
 zsh
+direnv
 curl
 curlie
 aur/fcp-bin

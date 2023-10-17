@@ -118,10 +118,9 @@ source $ZSH/functions.zsh
 
 fpath+=$ZSH/.zfunc
 
-autoload -U +X compinit && compinit -u
-autoload -U +X bashcompinit && bashcompinit
-eval "$(register-python-argcomplete pipx)"
-compinit -i -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+autoload -U +X compinit && compinit -u -i -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+autoload -Uz _zinit
+autoload -U +X bashcompinit && bashcompinit # needed for pipx to load
 
 # load aliases at the end to overwrite "framework" set aliases
 source $ZSH/aliases.zsh
@@ -130,5 +129,5 @@ source $ZSH/aliases.zsh
 # Plugins (at the end of the file)
 source "$ZSH/plugins.zsh"
 
-autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
+zinit cdreplay -q

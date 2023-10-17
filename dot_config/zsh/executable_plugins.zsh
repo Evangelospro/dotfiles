@@ -5,9 +5,11 @@
 source "$ZINIT[HOME_DIR]/zinit.zsh"
 
 ## Plugins
-zinit ice wait
-zinit light mroth/evalcache
-
+export ZSH_EVALCACHE_DISABLE=false
+export ZSH_EVALCACHE_DIR="$XDG_CACHE_HOME/zsh/evalcache"
+# load mroth/evalcache
+# zinit ice wait
+zinit load mroth/evalcache
 
 zinit ice wait 2
 zinit snippet $ZSH/scripts/utils/web-search.zsh
@@ -19,11 +21,10 @@ zinit light Game4Move78/zsh-bitwarden
 zinit ice wait
 zinit light jgogstad/passwordless-history
 
-zinit ice wait
-zinit light MichaelAquilina/zsh-you-should-use
-
 export YSU_IGNORED_ALIASES=(".." "l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
 export YSU_HARDCORE=1
+zinit ice wait
+zinit light MichaelAquilina/zsh-you-should-use
 
 # check that you are not in docker or a server avoid in headless installs
 if [ -z "$DISPLAY" ] && [ -z "$SSH_CLIENT" ]; then
@@ -37,7 +38,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1"
 zinit ice id-as="autosuggestions"; zinit light zsh-users/zsh-autosuggestions
 
 # evaluting some useful commands and aliases
-eval $(thefuck --alias)
+_evalcache register-python-argcomplete pipx
+_evalcache thefuck --alias
+_evalcache direnv hook zsh
 # eval "$($ZSH/scripts/venvs/venv_finder.sh)"
 
 # Mcfly great scot history search
@@ -46,13 +49,17 @@ export MCFLY_RESULTS=25
 export MCFLY_INTERFACE_VIEW=BOTTOM
 export MCFLY_RESULTS_SORT=RANK
 export MCFLY_PROMPT="❯"
-eval "$(mcfly init zsh)"
+# eval "$(mcfly init zsh)"
+_evalcache mcfly init zsh
 
 # Completions
+# export _ZO_CMD_PREFIX="asjdkadd" # just disable the zi alias
 zinit ice as'null' from"gh-r" sbin
 zinit light ajeetdsouza/zoxide
 zinit has'zoxide' wait lucid for \
 z-shell/zsh-zoxide
+# drop the zi alias
+unalias zi
 
 zinit ice wait lucid blockf id-as="zsh-completions"
 zinit light zsh-users/zsh-completions
