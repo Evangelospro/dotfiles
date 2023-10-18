@@ -24,8 +24,7 @@
 	"workbench.colorTheme": "Sweet Dracula",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.layoutControl.type": "menu",
-	"workbench.list.smoothScrolling": true,
-	"workbench.panel.defaultLocation": "right",
+    "workbench.list.smoothScrolling": true,
 	"workbench.startupEditor": "none",
 	"workbench.statusBar.visible": true,
 	"workbench.editorAssociations": {
@@ -196,11 +195,12 @@
 	// GIT SETTINGS
 	"github.copilot.inlineSuggest.enable": true,
 	"github.copilot.enable": {
-		"*": true,
-		"yaml": true,
-		"plaintext": true,
-		"markdown": true
-	},
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "yaml": true
+    },
 	"git.enableSmartCommit": true,
 	"git.autofetch": true,
 	"github.copilot.advanced": {},

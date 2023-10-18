@@ -1,5 +1,5 @@
 [remmina]
-password=
+password=DockerWineIDA
 gateway_username=
 notes_text=
 vc=
@@ -20,7 +20,7 @@ postcommand=ida stop
 left-handed=0
 multitransport=0
 group=
-server=127.0.0.1
+server=127.0.0.1:3389
 ssh_tunnel_certfile=
 glyph-cache=0
 ssh_tunnel_enabled=0

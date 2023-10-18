@@ -53,13 +53,11 @@ export MCFLY_PROMPT="❯"
 _evalcache mcfly init zsh
 
 # Completions
-# export _ZO_CMD_PREFIX="asjdkadd" # just disable the zi alias
+export _ZO_CMD_PREFIX="asjdkadd" # just disable the zi alias
 zinit ice as'null' from"gh-r" sbin
 zinit light ajeetdsouza/zoxide
 zinit has'zoxide' wait lucid for \
 z-shell/zsh-zoxide
-# drop the zi alias
-unalias zi
 
 zinit ice wait lucid blockf id-as="zsh-completions"
 zinit light zsh-users/zsh-completions

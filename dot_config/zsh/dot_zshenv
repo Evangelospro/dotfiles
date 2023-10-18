@@ -32,6 +32,7 @@ ZINIT[HOME_DIR]="$ZSH/.zinit"
 ZINIT[BIN_DIR]="$ZSH/.zinit/bin"
 ZINIT[CACHE_DIR]="$ZSH/.zinit/cache"
 ZINIT[ZCOMPDUMP_PATH]="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+ZINIT[NO_ALIASES]=1
 
 _ZO_DATA_DIR="$ZSH/zoxide"
 

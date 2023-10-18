@@ -446,6 +446,20 @@ python-pwntools
 aur/python-pwnscripts
 ropper
 ropgadget
+## Forensics
+aur/volatility3-git
+# aur/python2-volatility-git
+foremost
+aur/python-oletools
+chaotic-aur/powershell
+## Steganography
+aur/stegsolve
+aur/steghide
+aur/stegseek
+aur/zsteg
+perl-image-exiftool
+## Active Directory
+python-impacket
 ## Web
 python-beautifulsoup4
 python-flask
