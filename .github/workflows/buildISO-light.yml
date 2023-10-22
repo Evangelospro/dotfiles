@@ -30,16 +30,15 @@ jobs:
                   # echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
             - name: Check dependencies
               run: |
+                  # Install necessary packages
+                  sudo pacman -Syu go archiso gcc pkg-config zip scdoc wlroots meson ninja cmake --needed --noconfirm
+
+                  rustup default nightly-x86_64-unknown-linux-gnu
+
                   # Speedup package building with some custom options
                   cp dot_config/pacman/makepkg.conf /etc/makepkg.conf
                   # Only do this in a container not when building locally, building with root is DANGEROUS!!!(I removed ther root check on this copy)
                   cp iso/makepkg /usr/bin/makepkg
-
-                  cd iso
-                  # MUST RUN ./setup.sh on new systems to add chaotic-aur and multilib already done in the used docker container no need to redo
-
-                  # Install necessary packages
-                  sudo pacman -Syu go archiso gcc pkg-config zip scdoc wlroots meson ninja cmake --needed --noconfirm
             - name: Build ISO
               run: |
                   cd iso

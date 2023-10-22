@@ -30,15 +30,15 @@ jobs:
                   # echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
             - name: Check dependencies
               run: |
-                  # Speedup package building with some custom options
-                  cp dot_config/pacman/makepkg.conf /etc/makepkg.conf
-                  # Only do this in a container not when building locally, building with root is DANGEROUS!!!(I removed ther root check on this copy)
-                  cp iso/makepkg /usr/bin/makepkg
-
                   # Install necessary packages
                   sudo pacman -Syu go archiso gcc pkg-config zip cargo scdoc wlroots meson ninja cmake --needed --noconfirm
 
                   rustup default nightly-x86_64-unknown-linux-gnu
+
+                  # Speedup package building with some custom options
+                  cp dot_config/pacman/makepkg.conf /etc/makepkg.conf
+                  # Only do this in a container not when building locally, building with root is DANGEROUS!!!(I removed ther root check on this copy)
+                  cp iso/makepkg /usr/bin/makepkg
             - name: Build ISO
               run: |
                   cd iso
