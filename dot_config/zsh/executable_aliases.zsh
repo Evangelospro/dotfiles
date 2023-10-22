@@ -2,7 +2,6 @@
 alias config="chezmoi cd && $VISUAL ."
 alias zshconfig="$VISUAL $ZSH"
 
-alias sudo='nocorrect sudo -E' # keep env hopefully its not a security issue
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
 

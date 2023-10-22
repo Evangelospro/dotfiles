@@ -30,7 +30,7 @@ build() {
             echo "No update for $PKG_NAME"
         else
             echo "Building $PKG_NAME as there is an update"
-            (cd $PKG_PATH && sudo -u nobody makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
+            (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
             mv $PKG_PATH/*.pkg.tar $repo_dir
             # check if the package was built successfully
             if [ $? -ne 0 ]; then
