@@ -98,7 +98,7 @@ function hyprland-logs {
         echo "No logs found is hyprland running?"
         return 1
     else
-        bat $log_location/hyprland.log
+        tail -f $log_location/hyprland.log
     fi
 }
 

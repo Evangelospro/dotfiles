@@ -34,7 +34,6 @@
 ##
 ## You may wish to keep some of the following environment variables
 ## when running commands via sudo.
-Defaults env_keep += "QTDIR PATH QT_PLUGIN_PATH QT_INCLUDE_PATH QML2_IMPORT_PATH KDE_SESSION_VERSION KDE_FULL_SESSION"
 ##
 ## Locale settings
 # Defaults env_keep += "LANG LANGUAGE LINGUAS LC_* _XKB_CHARSET"
