@@ -31,7 +31,7 @@ build() {
         else
             echo "Building $PKG_NAME as there is an update"
             (cd $PKG_PATH && sudo -u nobody makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
-            sudo mv $PKG_PATH/*.pkg.tar $repo_dir
+            mv $PKG_PATH/*.pkg.tar $repo_dir
             # check if the package was built successfully
             if [ $? -ne 0 ]; then
                 echo "Package $PKG_NAME failed to build removing from packages.x86_64"
@@ -40,13 +40,13 @@ build() {
                 echo "Package $PKG_NAME built successfully"
             fi
             if [ "$conserve_space" == "conserve_space" ]; then
-                sudo rm -rf $PKG_PATH
+                rm -rf $PKG_PATH
             fi
         fi
     else
         echo "Building $PKG_NAME as it is a new package"
         (cd $PKG_PATH && makepkg $makepkg_flags && repo-add "$repo_dir/$repo_name.db.tar.gz" *.pkg.tar)
-        sudo mv $PKG_PATH/*.pkg.tar $repo_dir
+        mv $PKG_PATH/*.pkg.tar $repo_dir
         # check if the package was built successfully
         if [ $? -ne 0 ]; then
             echo "Package $PKG_NAME failed to build removing from packages.x86_64"
@@ -55,7 +55,7 @@ build() {
             echo "Package $PKG_NAME built successfully"
         fi
         if [ "$conserve_space" == "conserve_space" ]; then
-            sudo rm -rf $PKG_PATH
+            rm -rf $PKG_PATH
         fi
     fi
 }
@@ -66,7 +66,7 @@ if [ "$1" == "enable" ]; then
     # Initialization
     mkdir -p $repo_dir
     # ensure packages directory is writable by anybody
-    sudo chmod -R 777 $repo_dir
+    chmod -R 777 $repo_dir
     cd $repo_dir
 
     echo "Enabling local $repo_name repo"
