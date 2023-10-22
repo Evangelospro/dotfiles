@@ -127,10 +127,12 @@ class Workspacer(hyprland.Events):
             icon = self.appgridIcon
         return icon
 
+
+
     def generate(self) -> None:
         self.setClasses()
         for mon in self.monitormap:
-            self.logEvent(f"Fetching monitor: {mon}")
+            self.logEvent(f"Generating monitor: {mon}")
             for ws in self.workspaceRange:
                 try:
                     top_panels = (Panel(
@@ -216,6 +218,10 @@ class Workspacer(hyprland.Events):
         self.logEvent(f"window with address {window_address} moved to workspace {workspace}")
         self.generate()
 
+    async def on_monitoradded(self, mon:str) -> None:
+        self.logEvent(f"Monitor {mon} added")
+        self.refresh_monitors()
+        self.generate()
 
 w = Workspacer()
 try:

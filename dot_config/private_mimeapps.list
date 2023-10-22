@@ -1,4 +1,5 @@
 [Added Associations]
+text/html=thorium-browser.desktop;
 
 [Default Applications]
 application/eps=com.github.xournalpp.xournalpp.desktop;
@@ -57,7 +58,7 @@ image/pjpeg=org.gnome.gThumb.desktop;
 image/png=org.gnome.gThumb.desktop;
 image/svg+xml=org.gnome.gThumb.desktop;
 text/*=code.desktop;
-text/html=google-chrome.desktop
+text/html=thorium-browser.desktop
 video/mp4=vlc.desktop;
 video/mpeg=vlc.desktop;
 video/msvideo=vlc.desktop;

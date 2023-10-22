@@ -304,6 +304,7 @@ mypy
 ruff
 python-pip
 python-pipx
+python-termcolor
 rustup
 go
 
@@ -437,6 +438,7 @@ ghidra
 cutter
 rz-ghidra
 rz-cutter
+dotnet-runtime-6.0
 ## PWN
 gdb
 strace
@@ -447,6 +449,8 @@ aur/python-pwnscripts
 ropper
 ropgadget
 ## Forensics
+aur/pycdc-git
+aur/python-pyshark
 aur/volatility3-git
 # aur/python2-volatility-git
 foremost

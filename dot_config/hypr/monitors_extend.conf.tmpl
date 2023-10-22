@@ -1,10 +1,6 @@
 # Monitors
-monitor=eDP-1,preferred,0x0,1
-{{- if eq .chezmoi.hostname "ELARCH-WORK" }}
-monitor=VGA-1,preferred,1366x0,1
-{{- else }}
-monitor=DP-1,preferred,auto,1
-{{- end }}
+monitor=eDP-1, 1920x1080@144, 0x0, 1
+monitor=DP-1, 1360x768@60.0150, 1920x0, 1
 
 # Workspace binds
 workspace=1,monitor:eDP-1
@@ -18,37 +14,8 @@ workspace=8,monitor:eDP-1
 workspace=9,monitor:eDP-1
 workspace=10,monitor:eDP-1
 
-{{- if eq .chezmoi.hostname "ELARCH-WORK" }}
-workspace=11,monitor:VGA-1
-workspace=12,monitor:VGA-1
-workspace=13,monitor:VGA-1
-workspace=14,monitor:VGA-1
-workspace=15,monitor:VGA-1
-workspace=16,monitor:VGA-1
-workspace=17,monitor:VGA-1
-workspace=18,monitor:VGA-1
-workspace=19,monitor:VGA-1
-workspace=20,monitor:VGA-1
-{{- else }}
-workspace=11,monitor:DP-1
-workspace=12,monitor:DP-1
-workspace=13,monitor:DP-1
-workspace=14,monitor:DP-1
-workspace=15,monitor:DP-1
-workspace=16,monitor:DP-1
-workspace=17,monitor:DP-1
-workspace=18,monitor:DP-1
-workspace=19,monitor:DP-1
-workspace=20,monitor:DP-1
-{{- end }}
-
 # Default workspace
 workspace=1,monitor:eDP-1,default:true
 workspace=eDP-1,1
-{{- if eq .chezmoi.hostname "ELARCH-WORK" }}
-workspace=11,monitor:VGA-1,default:true
-workspace=VGA-1,11
-{{- else }}
 workspace=11,monitor:DP-1,default:true
 workspace=DP-1,11
-{{- end }}

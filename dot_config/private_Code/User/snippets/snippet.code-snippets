@@ -143,6 +143,31 @@
             "#io.interactive()",
         ],
     },
+    "competitive programming python template": {
+        "scope": "python",
+        "prefix": "cp temp",
+        "body": [
+            "import sys",
+            "import math",
+            "import bisect",
+            "import heapq",
+            "import time",
+            "",
+            "from collections import defaultdict, Counter, deque",
+            "from itertools import combinations, permutations, product, accumulate",
+            "from functools import reduce",
+            "",
+            "input = sys.stdin.readline",
+            "",
+            "gi = lambda: int(input())",
+            "gis = lambda: list(map(int, input().split()))",
+            "gs = lambda: input().rstrip()",
+            "gl = lambda: list(input().rstrip())"
+            "",
+            ""
+        ],
+        "description": ""
+    }
     "if name is main": {
         "scope": "python",
         "prefix": "ifn",
