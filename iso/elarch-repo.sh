@@ -21,6 +21,8 @@ build() {
 
 if [ "$1" == "enable" ]; then
     echo "Enabling local $repo_name repo"
+    # ensure packages directory is writable by anybody
+    sudo chmod -R 777 "$iso_dir/custom_repos/$repo_name/packages"
     # if repo is not defined in pacman.conf then add it
     if ! grep -q "$repo_name" "$iso_dir/pacman.conf"; then
         echo -ne "\n\n[$repo_name]\n" >> "$iso_dir/pacman.conf"

@@ -65,6 +65,8 @@ if [ "$1" == "enable" ]; then
 
     # Initialization
     mkdir -p $repo_dir
+    # ensure packages directory is writable by anybody
+    sudo chmod -R 777 $repo_dir
     cd $repo_dir
 
     echo "Enabling local $repo_name repo"
