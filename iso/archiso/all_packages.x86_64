@@ -169,6 +169,8 @@ base-devel
 
 # Docker
 docker
+aur/docker-rootless-extras
+fuse-overlayfs
 
 # IMPORTANT PACKAGES
 appmenu-gtk-module
@@ -391,7 +393,7 @@ aur/betterbird-bin
 chaotic-aur/thorium-browser-bin
 # chaotic-aur/google-chrome
 ## Discord
-# aur/vencord-desktop-git
+aur/vencord-desktop-bin
 # chaotic-aur/betterdiscordctl-git
 ## Note taking
 obsidian

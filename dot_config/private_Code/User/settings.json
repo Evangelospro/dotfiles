@@ -254,9 +254,10 @@
 	// REMOTE SSH
 	"remote.SSH.useLocalServer": false,
 	"remote.SSH.remotePlatform": {
-		"ewebsite": "linux",
-		"ecsc": "linux"
-	},
+        "ewebsite": "linux",
+        "ecsc": "linux",
+        "ftc13906.com": "linux"
+    },
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},

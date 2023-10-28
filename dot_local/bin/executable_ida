@@ -5,26 +5,28 @@
 
 
 function outputInfo(){
-    echo "Start remmina and connect to localhost:3389"
+    echo "Connect to docker_ip:3389 via RDP"
     echo "RUN \`ida{arch}\` to start IDA"
     echo "Remember to stop the container when you are done with \`ida stop\`"
 }
 
-function startRemmina(){
-    if ! pgrep -x "remmina" > /dev/null
+function startRDP(){
+    if ! pgrep -x "rdesktop" > /dev/null
     then
-        remmina -c $HOME/.local/share/remmina/group_rdp_ida-docker_127-0-0-1.remmina &
+        # find the ip of the container
+        # ipaddr=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docker-ida)
+        rdesktop -u root -p DockerWineIDA 127.0.0.1:7878 -g 1920x1080
     fi
 }
 
-startup_command="echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida64.exe' > /usr/bin/ida64 && echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida.exe' > /usr/bin/ida32 && chmod +x /usr/bin/ida* && /bin/bash"
+startup_command="echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida64.exe' > /usr/bin/ida64 && echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida.exe' > /usr/bin/ida32 && chmod +x /usr/bin/ida*"
 
 # if the first parameter is start
 if [ "$1" == "start" ]; then
     if [ ! "$(docker ps -q -a -f name=docker-ida)" ]; then
         # Create container
         echo "Creating container..."
-        docker run -d --name docker-ida -p 8080:8484 -v "$HOME/HACKING:/root/HACKING" -p "3389:3389/tcp" --hostname="$(hostname)" --env="RDP_SERVER=yes" -it ghcr.io/nyamisty/docker-wine-ida:7.6sp1
+        docker run -d --name docker-ida -v "$HOME/HACKING:/root/HACKING" -p "7878:3389/tcp" --hostname="DockerWine" --env="RDP_SERVER=yes" -it ghcr.io/nyamisty/docker-wine-ida:7.6sp1
         echo "Container created"
     else
         # if status is exited or created, start it
@@ -37,8 +39,8 @@ if [ "$1" == "start" ]; then
     sleep 2
     echo "Entering container..."
     outputInfo
-    startRemmina
     docker exec -it docker-ida /bin/bash -c "$startup_command"
+    startRDP
 elif [ "$1" == "stop" ]; then
     if [ "$(docker ps -aq -f name=docker-ida)" ]; then
         echo "Stopping container..."

@@ -319,7 +319,7 @@ getWorlist() {
     modifiedWordlist="/tmp/modifiedWordlist.txt"
     if [[ $1 == "dir" ]]; then
         cp $defaultDirWordlist $modifiedWordlist
-        sed -i '1s/^/.git\n/' $modifiedWordlist
+        sed -i '1s/^/.git\n.git/head\n.svn\n.svn/entries\n/' $modifiedWordlist
         echo $modifiedWordlist
         elif [[ $1 == "dns" ]]; then
         cp $defaultDnsWordlist $modifiedWordlist
@@ -346,8 +346,8 @@ urldecode() {
 function curl() {
     # check if the burp proxy is running and if so use it
     # see https://github.com/rs/curlie/issues/31, until this is fixed I need to use curl and not curlie...
-    if [[ $(ss -lnt | grep :8080) ]]; then
-        http_proxy="http://localhost:8080" https_proxy="http://localhost:8080" /usr/bin/curl -k "$@"
+    if [[ $(ss -lnt | grep :9000) ]]; then
+        http_proxy="http://localhost:9000" https_proxy="http://localhost:9000" /usr/bin/curl -k "$@"
     else
         curlie --pretty "$@"
     fi
