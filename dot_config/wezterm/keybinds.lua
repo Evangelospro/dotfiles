@@ -32,15 +32,21 @@ local keys = {
     mods = "CTRL|SHIFT",
     action = action.ReloadConfiguration,
   },
-  -- {
-  --   key = "q",
-  --   mods = "CTRL|SHIFT",
-  --   action = action.QuitApplication,
-  -- },
   {
-    key = "t",
+    key = "f",
     mods = "CTRL|SHIFT",
-    action = action{SpawnTab = "CurrentPaneDomain"},
+    action = action.Search{CaseInSensitiveString = ""},
+  },
+  -- CaseInSensitive search...
+  {
+    key="f",
+    mods="CTRL|SHIFT",
+    action=wezterm.action_callback(
+        function(window, pane)
+            local selection = window:get_selection_text_for_pane(pane)
+            window:perform_action(action{Search={CaseInSensitiveString=selection}}, pane)
+        end
+    )
   },
   -- {
   --   key = "n",

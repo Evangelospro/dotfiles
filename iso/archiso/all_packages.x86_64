@@ -262,7 +262,6 @@ swayidle
 ## Disks / USB devices / Cleanup
 aur/usbguard-applet-qt
 chaotic-aur/qdirstat
-udiskie
 gparted
 chaotic-aur/czkawka-gui
 
@@ -294,12 +293,16 @@ aur/papirus-icon-theme-git
 ## grub theme
 aur/grub-theme-cyberre
 
-# Screenshoting
+# Screenshoting and recording
 grim
 slurp
 chaotic-aur/flameshot-git
+obs-studio
 
 # Programming
+## Java (also needed for Burp)
+jre-openjdk
+## Python
 # aur/python2
 python3
 mypy
@@ -307,7 +310,9 @@ ruff
 python-pip
 python-pipx
 python-termcolor
+## Rust
 rustup
+## Golang
 go
 
 # Music

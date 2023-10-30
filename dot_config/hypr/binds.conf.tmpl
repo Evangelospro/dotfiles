@@ -1,6 +1,6 @@
 # Keybind environment variables
 ## Variables in caps are special variables
-env = browser, "google-chrome-stable"
+env = browser, "thorium-browser"
 env = EDITOR, "code"
 
 ## located in $HOME/.local/bin ($PATH)
@@ -19,6 +19,7 @@ bind=$MOD,M,exit
 bind=,XF86Launch3,exec,rog-control-center
 # bind=,XF86Launch4,exec,cycle through ligthing effects with asusctl
 bind=$MOD,Return,exec,wezterm start --always-new-process
+bind=$MOD,B,exec,eval $browser
 bindl=$MOD,L,exec,eval $lockscreen
 bind=$MOD,SPACE,exec,eval $launcher
 bind=,XF86Search,exec,eval $launcher
@@ -71,6 +72,16 @@ bind=$MOD,S,movewindow,d
 bind=$SHIFT_MOD,left,split-changemonitor,prev
 bind=$SHIFT_MOD,right,split-changemonitor,next
 
+# Cycle through workspaces
+bind=$MOD,TAB,workspace, e+1
+bind=$SHIFT_MOD,TAB,workspace, e-1
+
+# Move Windows with Mouse
+bindm=$MOD,mouse:272,movewindow
+
+# swaylock when the switch is turning off and then suspend
+bindl=,switch:off:Lid Switch,exec,/usr/bin/systemctl suspend
+
 # Move Windows Between Workspaces
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}
 # split-workspaces hyprland plugin
@@ -118,13 +129,3 @@ bind=$SHIFT_MOD,8,movetoworkspace, 8
 bind=$SHIFT_MOD,9,movetoworkspace, 9
 bind=$SHIFT_MOD,0,movetoworkspace, 10
 {{- end }}
-
-# Cycle through workspaces
-bind=$MOD,TAB,workspace, e+1
-bind=$SHIFT_MOD,TAB,workspace, e-1
-
-# Move Windows with Mouse
-bindm=$MOD,mouse:272,movewindow
-
-# Trigger when the switch is turning off
-bindl= , switch:on:Lid Switch, exec, swaylock && systemctl suspend

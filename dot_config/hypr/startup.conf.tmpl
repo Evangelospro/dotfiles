@@ -9,9 +9,6 @@ exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
-# Auto/mounting drives
-exec-once=udiskie
-
 {{- if (ne .chezmoi.hostname "ELARCH-ISO") }}
 # exec-once=$HOME/.local/share/hyprload/hyprload.sh
 # exec-once=hyprctl dispatch hyprload update # needs sudo for now

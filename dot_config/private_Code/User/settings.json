@@ -256,7 +256,8 @@
 	"remote.SSH.remotePlatform": {
         "ewebsite": "linux",
         "ecsc": "linux",
-        "ftc13906.com": "linux"
+        "ftc13906.com": "linux",
+        "portainer": "linux"
     },
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"

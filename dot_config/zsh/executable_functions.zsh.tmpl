@@ -20,6 +20,22 @@ function update() {
     $HOME/.config/hypr/update.sh
     # $HOME/.config/hypr/plugins/update.sh
     # navi-update
+    # Update burp pro if a Burp/Burp-Loader directory exists in the home directory
+    if [ -d $HOME/Burp/Burp-Loader ]; then
+        current_burp_version=$(realpath $HOME/Burp/Burp-Loader/burpsuite_pro.jar | grep -Po '(?<=/burpsuite_pro_v)[0-9]+\-[0-9]+\-[0-9]+\-[0-9]+')
+        burp_releases_html=$(curl -s https://portswigger.net/burp/releases)
+        latest_burp_version=$(echo $burp_releases_html | grep -Po '(?<=/burp/releases/professional-community-)[0-9]+\-[0-9]+\-[0-9]+\-[0-9]+' | head -n 1)
+        if [[ $current_burp_version != $latest_burp_version ]]; then
+            echo "Updating Burp Pro from $current_burp_version to $latest_burp_version"
+            wget -q --show-progress "https://portswigger-cdn.net/burp/releases/download?product=pro&version=&type=jar" -O $HOME/Burp/Burp-Loader/burpsuite_pro_v$latest_burp_version.jar
+            echo "Removing old Burp Pro version"
+            rm $HOME/Burp/Burp-Loader/burpsuite_pro_v$current_burp_version.jar
+            echo "Symlinking new Burp Pro version"
+            ln -f -s $HOME/Burp/Burp-Loader/burpsuite_pro_v$latest_burp_version.jar $HOME/Burp/Burp-Loader/burpsuite_pro.jar
+        else
+            echo "Burp Pro is already up to (date current version: $current_burp_version == latest version: $latest_burp_version)"
+        fi
+    fi
 }
 
 function upload() {
