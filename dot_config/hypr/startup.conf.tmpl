@@ -14,36 +14,33 @@ exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTO
 # exec-once=hyprctl dispatch hyprload update # needs sudo for now
 {{- end }}
 
+# Theming
 exec-once=$HOME/.config/hypr/scripts/import_themes
-
-# exec-once=swaybg -o \* -i $HOME/Pictures/backgrounds/background.png -m fill
 exec-once=~/.azotebg-hyprland
-exec-once=swaync # or dunst notification daemon
-exec-once=wl-paste --watch cliphist store
 # script to load icons on workspaces
 exec-once=$HOME/.config/waybar/scripts/workspaces.py > $HOME/.cache/workspacer.log 2>&1
 exec-once=/usr/bin/waybar
-# exec-once=$HOME/.config/eww/launch
-# exec-once=$HOME/.local/bin/gBarLaunch
 
 exec-once=swayidle
 
-# Applets / OSD
+# Applets / OSD / Notifications
+exec-once=swaync
+exec-once=wl-paste --watch cliphist store
 exec-once=usbguard-applet-qt &
 exec-once=XDG_CURRENT_DESKTOP=Unity blueman-applet
 exec-once=nm-applet --indicator
 exec-once=avizo-service
 
+# Utilities & Background apps
 exec-once=/usr/bin/flameshot
-# open runner upon new workspace creation
-# exec-once=hypr-empty #cargo install --git=https://github.com/nate-sys/hypr-empty
+
 # OPTIONAL COMPLETELY personal stuff
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
+exec-once=[workspace special:backgroundapps silent] /usr/bin/valent
 exec-once=fusermount -u $HOME/SeaDrive ; seadrive -c $HOME/.config/seadrive/seadrive.conf -l $HOME/.seadrive/logs/seadrive.log -f -d $HOME/.seadrive/data $HOME/SeaDrive -o default_permissions,allow_root,exec
 exec-once=/usr/bin/betterbird --headless &
 {{- end }}
-exec-once=$HOME/.local/bin/keyboard_backlight
-exec-once=notify-send "Hyprland is fully loaded!"
 {{- if (eq .chezmoi.hostname "ELARCH-ISO") }}
 exec-once=/usr/bin/calamares_polkit
 {{- end }}
+exec-once=notify-send "Hyprland is fully loaded!"

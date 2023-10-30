@@ -83,9 +83,11 @@ class Workspacer(hyprland.Events):
                     mon_id = client['monitor']
                     mon = next((key for key, value in self.monitormap.items() if value == mon_id), None)
                     class_ = client['class']
-                    self.logEvent(f"client mon: {mon}")
-                    if mon and class_:
-                        workspace_id = client['workspace']['id'] % self.numOfWorkspaces
+                    workspace_id = client['workspace']['id']
+                    if mon and class_ and workspace_id > 0: # if workspace_id is negative then it is a special workspace
+                        workspace_id = workspace_id % self.numOfWorkspaces
+                        self.logEvent(f"client mon: {mon}")
+                        self.logEvent(f"client class: {class_}")
                         self.logEvent(f"client ws: {workspace_id}")
                         self.workspaces[mon][workspace_id]["classes"].append(class_)
                         if self.focusedws == workspace_id and self.focusedMon == mon:
@@ -178,30 +180,50 @@ class Workspacer(hyprland.Events):
 
     async def on_workspace(self, ws:int) -> None:
         self.logEvent(f"Workspace changed to {ws}")
-        self.focusedws = int(ws) % self.numOfWorkspaces
+        try:
+            ws = int(ws)
+            self.logEvent(f"Failed to convert {ws} to int")
+        except ValueError:
+            return
+        self.focusedws = ws % self.numOfWorkspaces
         self.generate()
 
     async def on_focusedmon(self, mon:str, ws:int) -> None:
         self.logEvent(f"Monitor changed to {mon} at workspace {ws}")
         self.focusedMon = mon
-        self.focusedws = int(ws) % self.numOfWorkspaces
+        try:
+            ws = int(ws)
+            self.focusedws = ws % self.numOfWorkspaces
+        except ValueError:
+            self.logEvent(f"Failed to convert {ws} to int")
         self.generate()
 
     async def on_createworkspace(self, ws:int) -> None:
         self.logEvent(f"Workspace {ws} created")
-        self.focusedws = int(ws) % self.numOfWorkspaces
+        try:
+            ws = int(ws)
+            self.focusedws = ws % self.numOfWorkspaces
+        except ValueError:
+            self.logEvent(f"Failed to convert {ws} to int")
         # self.generate()
 
     async def on_destroyworkspace(self, ws:int) -> None:
         self.logEvent(f"Workspace {ws} destroyed")
-        # self.focusedws = int(ws) % self.numOfWorkspaces
+        try:
+            ws = int(ws)
+            self.workspaces[self.focusedMon][int(ws) % self.numOfWorkspaces] = {"status": "inactive-workspace", "icons": [[], []]}
+        except ValueError:
+            self.logEvent(f"Failed to convert {ws} to int")
         # self.generate()
-        self.workspaces[self.focusedMon][int(ws) % self.numOfWorkspaces] = {"status": "inactive-workspace", "icons": [[], []]}
 
     async def on_moveworkspace(self, ws:int, mon:str) -> None:
         self.logEvent(f"app moved to workspace {ws} on monitor {mon}")
         self.focusedMon = mon
-        self.focusedws = int(ws) % self.numOfWorkspaces
+        try:
+            ws = int(ws)
+            self.focusedws = int(ws) % self.numOfWorkspaces
+        except ValueError:
+            self.logEvent(f"Failed to convert {ws} to int")
         self.generate()
 
     async def on_activewindow(self, *args) -> None:
