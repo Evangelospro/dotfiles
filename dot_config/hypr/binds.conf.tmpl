@@ -1,12 +1,12 @@
 # Keybind environment variables
 ## Variables in caps are special variables
-env = browser, "thorium-browser"
 env = EDITOR, "code"
 
 ## located in $HOME/.local/bin ($PATH)
 env = clipMenu, "$HOME/.local/bin/clipMenu"
 env = lockscreen, "$HOME/.local/bin/lockscreen"
 env = launcher, "$HOME/.local/bin/launcher"
+env = browser, "thorium-browser"
 
 # Control keys
 $MOD = SUPER
@@ -27,6 +27,7 @@ bind=$MOD,V,exec,eval $clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
 bind=$MOD,E,exec,nemo
 bind=$SHIFT_MOD,R,exec,pkill -9 waybar ; waybar
+bind=$MOD,R,exec,$HOME/.config/hypr/scripts/resize
 
 # Close / Fullscreen / Kill Applications / Arrange monitors
 bind=ALT_L,F4,killactive

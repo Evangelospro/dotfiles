@@ -95,7 +95,7 @@ function mvs() {
     fi
 }
 
-function wifi-pass {
+function wifi-pass() {
     if [[ -z $1 ]]; then
         echo "No SSID specified"
         return 1
@@ -103,7 +103,7 @@ function wifi-pass {
     sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | sed 's/\/etc\/NetworkManager\/system-connections\///g' | grep $1
 }
 
-function hyprland-logs {
+function hyprland-logs() {
     # # check that we are in interactive mode
     # if [[ $- == *i* ]]; then
     #     echo "You are in interactive mode, please run this command in a non-interactive shell"
@@ -133,7 +133,7 @@ function pwnenv() {
 }
 
 # An all in one extract function for all archive types
-function ex {
+function ex() {
     if [ -z "$1" ]; then
         # display usage if no parameters given
         echo "Usage: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
@@ -171,7 +171,7 @@ function ex {
 }
 
 # colorized man pages
-man() {
+function man() {
     env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
     LESS_TERMCAP_md=$(printf "\e[1;35m") \
@@ -182,12 +182,11 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[3;34m") \
     PAGER="${commands[less]:-$PAGER}" \
     _NROFF_U=1 \
-    PATH="$HOME/bin:$PATH" \
     man "$@"
 }
 
 # navigation
-up () {
+function up () {
     local d=""
     local limit="$1"
 
@@ -328,14 +327,17 @@ function frida-kill(){
     adb shell 'killall frida-server'
 }
 
-getWorlist() {
+extraWordlist="$HOME/Burp/extraWordlist.txt"
+
+function getWordlist() {
     # because seclists gets updated a lot and I really want .git to be in my preferred wordlist
     defaultDirWordlist="/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt"
     defaultDnsWordlist="/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt"
     modifiedWordlist="/tmp/modifiedWordlist.txt"
     if [[ $1 == "dir" ]]; then
         cp $defaultDirWordlist $modifiedWordlist
-        sed -i '1s/^/.git\n.git/head\n.svn\n.svn/entries\n/' $modifiedWordlist
+        extraWordlistContent=$(cat $extraWordlist)
+        echo $extraWordlistContent >> $modifiedWordlist
         echo $modifiedWordlist
         elif [[ $1 == "dns" ]]; then
         cp $defaultDnsWordlist $modifiedWordlist
@@ -345,15 +347,15 @@ getWorlist() {
     fi
 }
 
-scan() {
+function scan() {
     \rustscan --ulimit 5000 -b 3000 -a $1 -- -sC -sV
 }
 
-urlencode() {
+function urlencode() {
     python3 -c "from pwn import *; print(urlencode('$1'));"
 }
 
-urldecode() {
+function urldecode() {
     python3 -c "from pwn import *; print(urldecode('$1'));"
 }
 
@@ -374,7 +376,7 @@ ffuf-vhost() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist=$(getWorlist dns)
+        wordlist=$(getWordlist dns)
         arg_count=2
     fi
     ffuf -c -H "Host: FUZZ.$1" -u http://$1 -w $wordlist ${@: $arg_count};
@@ -385,7 +387,7 @@ ferox-dir() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist=$(getWorlist dir)
+        wordlist=$(getWordlist dir)
         arg_count=2
     fi
     feroxbuster -u $1 -w $wordlist ${@: $arg_count};
@@ -396,7 +398,7 @@ ffuf-dir() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist=$(getWorlist dir)
+        wordlist=$(getWordlist dir)
         arg_count=2
     fi
     ffuf -c -u $1FUZZ -w $wordlist ${@: $arg_count};
@@ -409,7 +411,7 @@ ffuf-ext() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist=$(getWorlist dir)
+        wordlist=$(getWordlist dir)
         arg_count=2
     fi
     ffuf -c -u $1FUZZ -w $wordlist ${@: $arg_count} -x ${exts[@]};
@@ -421,7 +423,7 @@ ferox-ext() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist=$(getWorlist dir)
+        wordlist=$(getWordlist dir)
         arg_count=2
     fi
     feroxbuster -u $1 -w $wordlist -x ${exts[@]} ${@: $arg_count};
@@ -432,7 +434,7 @@ ffuf-req-dir() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist=$(getWorlist dir)
+        wordlist=$(getWordlist dir)
         arg_count=2
     fi
     ffuf -c -ic -request $1 -request-proto http -w $wordlist ${@: $arg_count};
@@ -444,7 +446,7 @@ ffuf-req-ext() {
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
     else
-        wordlist=$(getWorlist dir)
+        wordlist=$(getWordlist dir)
         arg_count=2
     fi
     ffuf -c -ic -request $1 -request-proto http -w $wordlist -x ${exts[@]} ${@: $arg_count};

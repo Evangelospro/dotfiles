@@ -1,13 +1,10 @@
-# SYSTEM STARTUPS
+# XDG portals(long up startup fix)
+exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once=dbus-update-activation-environment --all
+#exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
 
 # scale apps
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
-
-# Theming
-exec-once = /usr/bin/gnome-keyring-daemon --start --components=secrets &
-exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 {{- if (ne .chezmoi.hostname "ELARCH-ISO") }}
 # exec-once=$HOME/.local/share/hyprload/hyprload.sh
@@ -16,11 +13,14 @@ exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTO
 
 # Theming
 exec-once=$HOME/.config/hypr/scripts/import_themes
-exec-once=~/.azotebg-hyprland
-# script to load icons on workspaces
+exec-once=$HOME/.azotebg-hyprland
+
+# Bar
+## script to load icons on workspaces
 exec-once=$HOME/.config/waybar/scripts/workspaces.py > $HOME/.cache/workspacer.log 2>&1
 exec-once=/usr/bin/waybar
 
+# IDLE management
 exec-once=swayidle
 
 # Applets / OSD / Notifications
@@ -37,7 +37,7 @@ exec-once=/usr/bin/flameshot
 # OPTIONAL COMPLETELY personal stuff
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
 exec-once=[workspace special:backgroundapps silent] /usr/bin/valent
-exec-once=fusermount -u $HOME/SeaDrive ; seadrive -c $HOME/.config/seadrive/seadrive.conf -l $HOME/.seadrive/logs/seadrive.log -f -d $HOME/.seadrive/data $HOME/SeaDrive -o default_permissions,allow_root,exec
+exec-once=fusermount -u $HOME/SeaDrive ; seadrive -o default_permissions,allow_root,exec -c $HOME/.config/seadrive/seadrive.conf -l $HOME/.seadrive/logs/seadrive.log -f -d $HOME/.seadrive/data $HOME/SeaDrive
 exec-once=/usr/bin/betterbird --headless &
 {{- end }}
 {{- if (eq .chezmoi.hostname "ELARCH-ISO") }}

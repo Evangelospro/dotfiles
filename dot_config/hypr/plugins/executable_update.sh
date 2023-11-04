@@ -2,7 +2,6 @@
 export HYPRLAND_HEADERS="$HOME/.config/hypr/hyprland-repo"
 cd $HYPRLAND_HEADERS
 git pull --recurse-submodules # git submodule update --init --recursive must be run on the first time
-sudo make pluginenv
 cd ~/.config/hypr/plugins/split-monitor-workspaces
 git pull
 # if any .so files exist, delete them

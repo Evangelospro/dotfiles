@@ -1,8 +1,8 @@
 {
-    // ZEN MODE
-    "zenMode.centerLayout": false,
-    "zenMode.hideStatusBar": false,
-    "zenMode.hideLineNumbers": false,
+	// ZEN MODE
+	"zenMode.centerLayout": false,
+	"zenMode.hideStatusBar": false,
+	"zenMode.hideLineNumbers": false,
 	// WINDOW SETTINGS
 	"window.zoomLevel": 2,
 	"window.commandCenter": false,
@@ -16,15 +16,14 @@
 	"workbench.editor.highlightModifiedTabs": true,
 	"workbench.editor.restoreViewState": true,
 	"workbench.editor.sharedViewState": false,
-	"workbench.editor.showTabs": true,
+	"workbench.editor.showTabs": "multiple",
 	"workbench.editor.tabCloseButton": "right",
 	"workbench.editor.tabSizing": "shrink",
-	"workbench.editor.untitled.hint": "hidden",
 	"workbench.editor.enablePreview": false,
 	"workbench.colorTheme": "Sweet Dracula",
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.layoutControl.type": "menu",
-    "workbench.list.smoothScrolling": true,
+	"workbench.list.smoothScrolling": true,
 	"workbench.startupEditor": "none",
 	"workbench.statusBar.visible": true,
 	"workbench.editorAssociations": {
@@ -42,7 +41,7 @@
 	"editor.bracketPairColorization.enabled": true,
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": true
-    },
+	},
 	"editor.cursorBlinking": "phase",
 	"editor.cursorSmoothCaretAnimation": "on",
 	"editor.cursorStyle": "line",
@@ -93,9 +92,9 @@
 		"strings": "on"
 	},
 	// TERMINAL
-    "terminal.external.linuxExec": "wezterm",
-    "terminal.explorerKind": "both",
-    "terminal.sourceControlRepositoriesKind": "both",
+	"terminal.external.linuxExec": "wezterm",
+	"terminal.explorerKind": "both",
+	"terminal.sourceControlRepositoriesKind": "both",
 	"terminal.integrated.fontFamily": "FiraCode Nerd Font",
 	"terminal.integrated.altClickMovesCursor": true,
 	"terminal.integrated.cursorBlinking": true,
@@ -155,8 +154,8 @@
 		"editor.wordBasedSuggestions": false
 	},
 	"[javascript]": {
-        "editor.tabSize": 4,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.tabSize": 4,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"javascript.autoClosingTags": true,
 	"javascript.suggest.autoImports": true,
@@ -195,12 +194,12 @@
 	// GIT SETTINGS
 	"github.copilot.inlineSuggest.enable": true,
 	"github.copilot.enable": {
-        "*": true,
-        "plaintext": true,
-        "markdown": true,
-        "scminput": false,
-        "yaml": true
-    },
+		"*": true,
+		"plaintext": true,
+		"markdown": true,
+		"scminput": false,
+		"yaml": true
+	},
 	"git.enableSmartCommit": true,
 	"git.autofetch": true,
 	"github.copilot.advanced": {},
@@ -232,13 +231,13 @@
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.untrustedFiles": "open",
 	// MISC / GENERAL
-    "update.showReleaseNotes": false,
+	"update.showReleaseNotes": false,
 	"telemetry.telemetryLevel": "off",
 	"diffEditor.ignoreTrimWhitespace": false,
 	"debug.onTaskErrors": "showErrors",
 	"debug.openDebug": "openOnDebugBreak",
 	// "eslint.enable": true,
-    "extensions.autoUpdate":  true,
+	"extensions.autoUpdate": true,
 	"extensions.ignoreRecommendations": true,
 	"files.insertFinalNewline": true,
 	"files.restoreUndoStack": true,
@@ -254,28 +253,28 @@
 	// REMOTE SSH
 	"remote.SSH.useLocalServer": false,
 	"remote.SSH.remotePlatform": {
-        "ewebsite": "linux",
-        "ecsc": "linux",
-        "ftc13906.com": "linux",
-        "portainer": "linux"
-    },
+		"ewebsite": "linux",
+		"ecsc": "linux",
+		"ftc13906.com": "linux",
+		"portainer": "linux"
+	},
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-    "vim.useSystemClipboard": true,
-    "vim.vimrc.enable": true,
-    "vim.vimrc.path": "/home/evangelospro/.config/vim/.vimrc",
-    "vim.shell": "/usr/bin/zsh",
-    "vva.trustedDomain": true,
-    "vim.handleKeys": {
-        "<C-a": false,
-        "<C-d>": true,
-        "<C-w>": false,
-        "<C-s>": false,
-        "<C-z>": false
-    },
-    "editor.defaultColorDecorators": true,
-    "workbench.preferredDarkColorTheme": "Sweet Dracula",
-    "workbench.preferredHighContrastColorTheme": "Dracula",
-    "workbench.editor.empty.hint": "hidden"
+	"vim.useSystemClipboard": true,
+	"vim.vimrc.enable": true,
+	"vim.vimrc.path": "/home/evangelospro/.config/vim/.vimrc",
+	"vim.shell": "/usr/bin/zsh",
+	"vva.trustedDomain": true,
+	"vim.handleKeys": {
+		"<C-a": false,
+		"<C-d>": true,
+		"<C-w>": false,
+		"<C-s>": false,
+		"<C-z>": false
+	},
+	"editor.defaultColorDecorators": true,
+	"workbench.preferredDarkColorTheme": "Sweet Dracula",
+	"workbench.preferredHighContrastColorTheme": "Dracula",
+	"workbench.editor.empty.hint": "hidden"
 }

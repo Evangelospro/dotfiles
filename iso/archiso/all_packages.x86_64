@@ -181,7 +181,8 @@ aur/hyprpicker
 xdg-desktop-portal-gtk
 chaotic-aur/xdg-desktop-portal-hyprland-git
 # hyprsome
-## requirements
+## requirements (VERY IMPORTANT)
+sdbus-cpp
 ninja
 gcc
 cmake

@@ -1,0 +1,49 @@
+#!/bin/bash
+
+set_timezone() {
+    # Get the current timezone from the system
+    current_tz=$(/usr/bin/timedatectl | /usr/bin/grep "Time zone" | /usr/bin/awk '{print $3}')
+
+    # Get the timezone of the current location based on the IP address
+    location_tz=$(/usr/bin/curl -s "http://ip-api.com/line/?fields=timezone")
+
+    # Check if the current timezone and location timezone are the same
+    if [ "$current_tz" != "$location_tz" ]; then
+        # If they're different, set the system timezone to the location timezone using pkexec
+        # sudo timedatectl set-timezone "$location_tz"
+        if ! /usr/bin/command -v zenity &> /dev/null; then
+            /usr/bin/notify-send "Zenity is not installed. Please install it to use sync-timezone."
+            exit 1
+        fi
+        password=$(/usr/bin/zenity --password --title="Sudo Authentication" --text="Enter your password to change the timezone to $location_tz")
+        if [ -n "$password" ]; then
+            # Use the entered password to execute a sudo command
+            /usr/bin/echo "$password" | /usr/bin/sudo -S timedatectl set-timezone "$location_tz"
+            if [ $? -eq 0 ]; then
+                /usr/bin/notify-send "System timezone set to $location_tz"
+            fi
+        else
+            /usr/bin/notify-send "No password provided."
+        fi
+        return 0
+    else
+        # If they're the same, notify the user
+        # notify-send "System timezone is already set to $location_tz"
+        return 1
+    fi
+}
+
+# try at max 5 times to get internet
+wait_for_internet() {
+    for i in {1..5}; do
+        if /usr/bin/ping -c 1 archlinux.org &> /dev/null; then
+            return 0
+        else
+            /usr/bin/sleep 1
+        fi
+    done
+    return 1
+}
+
+wait_for_internet && set_timezone && /usr/bin/rate-mirrors --allow-root arch | /usr/bin/sudo tee /etc/pacman.d/mirrorlist
+exit 0
