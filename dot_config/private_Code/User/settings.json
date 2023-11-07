@@ -236,6 +236,7 @@
 	"diffEditor.ignoreTrimWhitespace": false,
 	"debug.onTaskErrors": "showErrors",
 	"debug.openDebug": "openOnDebugBreak",
+ "debug.toolBarLocation": "commandCenter",
 	// "eslint.enable": true,
 	"extensions.autoUpdate": true,
 	"extensions.ignoreRecommendations": true,
