@@ -9,7 +9,8 @@
 	"window.newWindowDimensions": "maximized",
 	"window.restoreWindows": "preserve",
 	"window.title": "${activeEditorShort}${separator}${rootName}",
-	"window.titleBarStyle": "native",
+ "windows.nativeTabs": false,
+	"window.titleBarStyle": "custom",
 	"window.titleSeparator": " | ",
 	// WORKBENCH SETTINGS
 	"workbench.editor.enablePreviewFromQuickOpen": false,
@@ -236,6 +237,7 @@
 	"diffEditor.ignoreTrimWhitespace": false,
 	"debug.onTaskErrors": "showErrors",
 	"debug.openDebug": "openOnDebugBreak",
+ "debug.toolBarLocation": "commandCenter",
 	// "eslint.enable": true,
 	"extensions.autoUpdate": true,
 	"extensions.ignoreRecommendations": true,
