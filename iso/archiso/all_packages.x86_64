@@ -136,6 +136,7 @@ xorg-xhost
 xterm
 xorg-xrdb
 mkinitcpio-openswap
+preload
 
 ###  PACKAGES THAT ARE REMOVED AFTER INSTALLATION   ###
 elarch-calamares
@@ -302,7 +303,7 @@ obs-studio
 
 # Programming
 ## Java (also needed for Burp)
-jre-openjdk
+jdk-openjdk
 ## Python
 # aur/python2
 python3
@@ -396,7 +397,7 @@ aur/betterbird-bin
 ## Communications
 # signal-desktop
 ## Browser
-chaotic-aur/thorium-browser-bin
+chaotic-aur/thorium-browser-avx-bin
 # chaotic-aur/google-chrome
 ## Discord
 aur/vencord-desktop-bin
@@ -447,6 +448,8 @@ cutter
 rz-ghidra
 rz-cutter
 dotnet-runtime-6.0
+aur/jd-gui
+aur/recaf-bin
 ## PWN
 gdb
 strace

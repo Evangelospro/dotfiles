@@ -36,7 +36,8 @@ chezmoi init --apply Evangelospro
 | Windows + V | Open clipboard manager (wl-clipboard) |
 | Windows + C | Select color from screen (hyprpicker) and copy it |
 | Windows + E | Open file manager(Nemo) |
-| Windows + R | Reload the bar on top (waybar) |
+| Windows + R | Resize window with slurp |
+| Windows + Shift + R | Reload the bar on top (waybar) |
 
 ### Close / Fullscreen / Kill Applications / Arrange monitors
 | Keybinding | Action |

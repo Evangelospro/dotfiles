@@ -1,5 +1,8 @@
 {
     "user_options":{
+        "bchecks":{
+            "imported_scripts":[]
+        },
         "connections":{
             "platform_authentication":{
                 "credentials":[],
@@ -71,16 +74,6 @@
                     "output":"ui"
                 },
                 {
-                    "bapp_serial_version":22,
-                    "bapp_uuid":"f154175126a04bfe8edc6056f340f52e",
-                    "errors":"ui",
-                    "extension_file":"bapps/f154175126a04bfe8edc6056f340f52e/SQLiPy.py",
-                    "extension_type":"python",
-                    "loaded":true,
-                    "name":"SQLiPy Sqlmap Integration",
-                    "output":"ui"
-                },
-                {
                     "bapp_serial_version":1,
                     "bapp_uuid":"8e8f6bb313db46ba9e0a7539d3726651",
                     "errors":"ui",
@@ -101,26 +94,6 @@
                     "output":"ui"
                 },
                 {
-                    "bapp_serial_version":3,
-                    "bapp_uuid":"dcf7c44cdc7b4698bba86d94c692fb7f",
-                    "errors":"ui",
-                    "extension_file":"bapps/dcf7c44cdc7b4698bba86d94c692fb7f/target/HandyCollaborator-0.2-jar-with-dependencies.jar",
-                    "extension_type":"java",
-                    "loaded":true,
-                    "name":"Handy Collaborator",
-                    "output":"ui"
-                },
-                {
-                    "bapp_serial_version":1,
-                    "bapp_uuid":"4265b6220a524d0da966e64e94fa9b26",
-                    "errors":"ui",
-                    "extension_file":"bapps/4265b6220a524d0da966e64e94fa9b26/releases/BurpCustomizer.jar",
-                    "extension_type":"java",
-                    "loaded":false,
-                    "name":"Customizer",
-                    "output":"ui"
-                },
-                {
                     "bapp_serial_version":26,
                     "bapp_uuid":"17d2949a985c4b7ca092728dba871943",
                     "errors":"ui",
@@ -128,6 +101,26 @@
                     "extension_type":"java",
                     "loaded":true,
                     "name":"Param Miner",
+                    "output":"ui"
+                },
+                {
+                    "bapp_serial_version":5,
+                    "bapp_uuid":"b89968942a3e4cab916b6c761beb2003",
+                    "errors":"ui",
+                    "extension_file":"bapps/b89968942a3e4cab916b6c761beb2003/target/autowasp-1.0-SNAPSHOT-jar-with-dependencies.jar",
+                    "extension_type":"java",
+                    "loaded":true,
+                    "name":"Autowasp",
+                    "output":"ui"
+                },
+                {
+                    "bapp_serial_version":43,
+                    "bapp_uuid":"3c5025b0e19d419a8f339ee0c30391dd",
+                    "errors":"ui",
+                    "extension_file":"bapps/3c5025b0e19d419a8f339ee0c30391dd/releases/sharpener.jar",
+                    "extension_type":"java",
+                    "loaded":true,
+                    "name":"Sharpener",
                     "output":"ui"
                 }
             ],
@@ -181,6 +174,10 @@
                     "hotkey":"Ctrl+I"
                 },
                 {
+                    "action":"send_to_organizer",
+                    "hotkey":"Ctrl+O"
+                },
+                {
                     "action":"delete_items",
                     "hotkey":"Ctrl+Delete"
                 },
@@ -219,6 +216,10 @@
                 {
                     "action":"switch_to_logger",
                     "hotkey":"Ctrl+Shift+L"
+                },
+                {
+                    "action":"switch_to_organizer",
+                    "hotkey":"Ctrl+Shift+O"
                 },
                 {
                     "action":"go_to_previous_tab",
@@ -460,7 +461,8 @@
             "out_of_scope_history_logging_action":"disable",
             "pause_tasks_at_startup_default":true,
             "show_learn_tab":false,
-            "submit_anonymous_feedback":true,
+            "submit_feedback":true,
+            "suppress_confirm_on_close":false,
             "temporary_files_location":"/tmp/burp"
         },
         "proxy":{

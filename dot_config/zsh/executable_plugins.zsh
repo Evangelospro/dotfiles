@@ -41,7 +41,6 @@ zinit ice id-as="autosuggestions"; zinit light zsh-users/zsh-autosuggestions
 _evalcache register-python-argcomplete pipx
 _evalcache thefuck --alias
 _evalcache direnv hook zsh
-# eval "$($ZSH/scripts/venvs/venv_finder.sh)"
 
 # Mcfly great scot history search
 export MCFLY_FUZZY=2
@@ -69,9 +68,6 @@ zinit wait lucid light-mode depth=1 for \
 pick="autopair.zsh" atload="autopair-init" hlissner/zsh-autopair \
 pick="async.zsh" mafredri/zsh-async
 
-zinit ice wait lucid as"program" pick"bin/fzf"
-zinit snippet OMZP::fzf
-
 ## FZF tab completion
 zinit light Aloxaf/fzf-tab
 ### disable sort when completing `git checkout`
@@ -84,6 +80,9 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd -hAFt --group-dirs first --color=always $realpath'
 ### switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
+# zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
+# zstyle ':fzf-tab:*' accept-line enter
+zstyle ':completion:complete:*:options' sort false
 
 # history
 zinit ice wait

@@ -1,3 +1,12 @@
+function Hyprland() {
+    # if running in a tty ensure that Hyprland replaces the current shell
+    if [[ -t 0 ]]; then
+        exec /usr/local/bin/Hyprland "$@"
+    else
+        /usr/local/bin/Hyprland "$@"
+    fi
+}
+
 function e() {
     local target_file="$1"
     if [[ -z "$target_file" ]]; then
@@ -23,11 +32,12 @@ function update() {
     # Update burp pro if a Burp/Burp-Loader directory exists in the home directory
     if [ -d $HOME/Burp/Burp-Loader ]; then
         current_burp_version=$(realpath $HOME/Burp/Burp-Loader/burpsuite_pro.jar | grep -Po '(?<=/burpsuite_pro_v)[0-9]+\-[0-9]+\-[0-9]+\-[0-9]+')
-        burp_releases_html=$(curl -s https://portswigger.net/burp/releases)
+        burp_releases_html=$(curl -s "https://portswigger.net/burp/releases")
         latest_burp_version=$(echo $burp_releases_html | grep -Po '(?<=/burp/releases/professional-community-)[0-9]+\-[0-9]+\-[0-9]+\-[0-9]+' | head -n 1)
         if [[ $current_burp_version != $latest_burp_version ]]; then
-            echo "Updating Burp Pro from $current_burp_version to $latest_burp_version"
-            wget -q --show-progress "https://portswigger-cdn.net/burp/releases/download?product=pro&version=&type=jar" -O $HOME/Burp/Burp-Loader/burpsuite_pro_v$latest_burp_version.jar
+            burp_update_url="https://portswigger-cdn.net/burp/releases/download?product=pro&version=$(echo $latest_burp_version | sed 's/-/./g')&type=Jar"
+            echo "Updating Burp Pro from $current_burp_version to $latest_burp_version from $burp_update_url"
+            wget -q --show-progress $burp_update_url -O $HOME/Burp/Burp-Loader/burpsuite_pro_v$latest_burp_version.jar
             echo "Removing old Burp Pro version"
             rm $HOME/Burp/Burp-Loader/burpsuite_pro_v$current_burp_version.jar
             echo "Symlinking new Burp Pro version"
@@ -279,6 +289,10 @@ timeshell() {
 }
 
 # Hacking
+
+function angr() {
+    docker run --rm -it -v "$(pwd)":/home/angr/work --privileged --cap-add=SYS_PTRACE angrpypy
+}
 
 # windows strings utf16-le
 function wstrings() {
