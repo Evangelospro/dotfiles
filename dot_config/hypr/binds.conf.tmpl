@@ -65,8 +65,9 @@ bind=$MOD,D,movewindow,r
 bind=$MOD,W,movewindow,u
 bind=$MOD,S,movewindow,d
 
-# Valent (KDEConnect) special scratchpad workspace
-bind=$MOD,K,togglespecialworkspace,backgroundapps
+# Scratchpads
+## Valent (KDEConnect) special scratchpad workspace
+bind=$MOD,K,togglespecialworkspace,backgroundappsvalent
 
 # Hyprload
 # bind=$SHIFT_MOD,R,hyprload,reload
@@ -76,9 +77,9 @@ bind=$MOD,K,togglespecialworkspace,backgroundapps
 bind=$SHIFT_MOD,left,split-changemonitor,prev
 bind=$SHIFT_MOD,right,split-changemonitor,next
 
-# Cycle through workspaces
-bind=$MOD,TAB,workspace, e+1
-bind=$SHIFT_MOD,TAB,workspace, e-1
+# Cycle through workspaces using pypr
+bind=$MOD,TAB,exec,pypr change_workspace +1
+bind=$SHIFT_MOD,TAB,exec,pypr change_workspace -1
 
 # Move Windows with Mouse
 bindm=$MOD,mouse:272,movewindow

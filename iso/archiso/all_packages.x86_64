@@ -145,11 +145,8 @@ elarch-calamares-config
 
 # Drivers for graphical cards
 ## virtualbox
-#driver for virtualbox - xf86-video-vmware is dependency
-#systemctl enable vboxservice
-#systemctl start vboxservice
-#to have fullscreen
-#virtualbox-guest-utils
+virtualbox-guest-utils
+# systemctl enable --now vboxservice #to have fullscreen
 
 # opensource
 xf86-video-intel

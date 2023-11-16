@@ -9,8 +9,7 @@
 	"window.newWindowDimensions": "maximized",
 	"window.restoreWindows": "preserve",
 	"window.title": "${activeEditorShort}${separator}${rootName}",
- "windows.nativeTabs": false,
-	"window.titleBarStyle": "custom",
+	"window.titleBarStyle": "native",
 	"window.titleSeparator": " | ",
 	// WORKBENCH SETTINGS
 	"workbench.editor.enablePreviewFromQuickOpen": false,
@@ -27,6 +26,7 @@
 	"workbench.list.smoothScrolling": true,
 	"workbench.startupEditor": "none",
 	"workbench.statusBar.visible": true,
+    "workbench.panel.defaultLocation": "bottom",
 	"workbench.editorAssociations": {
 		"*.ipynb": "jupyter-notebook"
 	},
@@ -93,7 +93,7 @@
 		"strings": "on"
 	},
 	// TERMINAL
-	"terminal.external.linuxExec": "wezterm",
+	"terminal.external.linuxExec": "wezterm -e",
 	"terminal.explorerKind": "both",
 	"terminal.sourceControlRepositoriesKind": "both",
 	"terminal.integrated.fontFamily": "FiraCode Nerd Font",
@@ -113,7 +113,7 @@
 			"path": "/usr/bin/zsh"
 		}
 	},
-	"terminal.integrated.shellIntegration.enabled": false,
+	"terminal.integrated.shellIntegration.enabled": true,
 	// FORMATTING
 	"prettier.tabWidth": 4,
 	"prettier.useTabs": true,
@@ -237,7 +237,6 @@
 	"diffEditor.ignoreTrimWhitespace": false,
 	"debug.onTaskErrors": "showErrors",
 	"debug.openDebug": "openOnDebugBreak",
- "debug.toolBarLocation": "commandCenter",
 	// "eslint.enable": true,
 	"extensions.autoUpdate": true,
 	"extensions.ignoreRecommendations": true,
