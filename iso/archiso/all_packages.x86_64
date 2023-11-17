@@ -10,11 +10,22 @@ linux-firmware-marvell
 linux-zen
 linux-zen-headers
 
+# Drivers for graphics cards
+## virtualbox
+virtualbox-guest-utils # systemctl enable --now vboxservice #to have fullscreen
+## opensource
+xf86-video-intel
+#xf86-video-amdgpu
+#xf86-video-nouveau
+## NVIDIA (proprietary)
+# nvidia-dkms # or nvidia-open-dkms (if lucky)
+# aur/libva-nvidia-driver-git
+# nvidia-utils
+
 # Asus F15
 # intel-compute-runtime
 # vulkan-intel
 # aur/asusctl-git
-# aur/supergfxctl-git
 # aur/rog-control-center
 
 # Base packages
@@ -142,21 +153,6 @@ preload
 elarch-calamares
 elarch-calamares-config
 #######################################################
-
-# Drivers for graphical cards
-## virtualbox
-virtualbox-guest-utils
-# systemctl enable --now vboxservice #to have fullscreen
-
-# opensource
-xf86-video-intel
-#xf86-video-amdgpu
-#xf86-video-nouveau
-
-# proprietary-nvidia
-# nvidia
-# nvidia-settings
-# nvidia-utils
 
 # Display manager
 sddm-git

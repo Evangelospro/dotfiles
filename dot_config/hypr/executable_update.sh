@@ -18,8 +18,20 @@ latest_hyprland_version=$(git rev-parse HEAD)
 current_hyprland_version=$(hyprctl version -j | jq -r '.commit')
 # Disallow upgrading if already upgraded in this session
 if [[ "$latest_hyprland_version" != "$current_hyprland_version" ]] && [[ ! -f /tmp/hypr/hyprland_already_upgraded ]]; then
+    # Apply NVIDIA patch if applicable
+    if [[ $(nvidia-smi &> /dev/null; echo $?) -eq 0 ]]; then
+        echo "Applying NVIDIA patch"
+        sed -E -i -e 's/(soversion = 12)([^032]|$$)/soversion = 12032/g' ./subprojects/wlroots/meson.build
+        rm -rf ./subprojects/wlroots/build
+        sed -i -e '/^release:/{n;s/-D/-DCMAKE_SKIP_RPATH=ON -D/}' Makefile
+        cd subprojects/wlroots
+        patch -Np1 < ../../nix/patches/wlroots-nvidia.patch
+        cd ../..
+    fi
+    # Build and install
     make all && sudo make install
-    # copy the examples/session file to /usr/share/wayland-sessions
+    echo "Copy wlroots.so to /usr/lib"
+    sudo cp ./subprojects/wlroots/build/libwlroots.so.* /usr/lib
     echo "Adding wayland-session"
     sudo mkdir -p /usr/share/wayland-sessions
     sudo cp example/hyprland.desktop /usr/share/wayland-sessions

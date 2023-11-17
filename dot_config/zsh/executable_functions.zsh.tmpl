@@ -1,5 +1,12 @@
 function Hyprland() {
     # if running in a tty ensure that Hyprland replaces the current shell
+    # Check if nvidia-smi is installed and if so run Hyprland with the nvidia runtime
+    mkdir -p /tmp/hypr
+    if [[ -x "$(command -v nvidia-smi)" ]]; then
+        cp $HOME/.config/hypr/nvidia.conf /tmp/hypr/extraEnv.conf
+    else
+        touch /tmp/hypr/extraEnv.conf
+    fi
     if [[ -t 0 ]]; then
         exec /usr/local/bin/Hyprland "$@"
     else

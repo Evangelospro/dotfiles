@@ -3,6 +3,9 @@ exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTO
 exec-once=dbus-update-activation-environment --all
 #exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
 
+# Polkit
+exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
 # scale apps
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
