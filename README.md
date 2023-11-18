@@ -10,11 +10,14 @@
 
 # ELARCH<a name="top"></a>
 1. [How to apply?](#applying)
-2. [Dependencies](#dependencies)
-3. [Packages](#packages)
-4. [Custom Arch Linux ISO with AUR packages batteries included](#custom-arch-linux-iso-with-aur-packages-batteries-included)
-5. [Installation and Usage](#installation-and-usage)
-6. [Sources / Inspiration](#sources-and-inspiration)
+2. [Keybindings](#keybindings)
+3. [Dependencies](#dependencies)
+4. [Linux Setup](#linux-setup)
+5. [Development Setup](#development-setup)
+6. [Hacking Setup](#hacking-setup)
+7. [Custom Arch Linux ISO with AUR packages batteries included](#custom-arch-linux-iso-with-aur-packages-batteries-included)
+8. [Installation and Usage](#installation-and-usage)
+9. [Sources / Inspiration](#sources-and-inspiration)
 
 ### My dotfiles can be applied with the below oneliner. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for evangelospro and replace with your username`. <a name="applying"></a>
 ```
@@ -88,14 +91,14 @@ chezmoi init --apply Evangelospro
 
 ## Dependencies<a name="dependencies"></a>
 ### Packages
-#### [Arch packages](iso/archiso/all_packages.x86_64) file
+#### [Arch packages](iso/archiso/all_packages.x86_64)
 #### [Hacking packages](iso/archiso/all_packages.x86_64#L418)
 #### [Python packages](requirements.txt)
 ```
 pip install -r requirements.txt
 ```
 
-# Linux Stuff
+# Linux Setup
 ## OS: [Arch Linux](https://archlinux.org/)
 ## Kernel: [Linux-zen](https://archlinux.org/packages/?name=linux-zen)
 ## Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
