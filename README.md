@@ -18,8 +18,9 @@
 7. [Custom Arch Linux ISO with AUR packages batteries included](#custom-arch-linux-iso-with-aur-packages-batteries-included)
 8. [Installation and Usage](#installation-and-usage)
 9. [Sources / Inspiration](#sources-and-inspiration)
+10. [Contributing](#contributing)
 
-### My dotfiles can be applied with the below oneliner. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for evangelospro and replace with your username`. <a name="applying"></a>
+## My dotfiles can be applied with the below oneliner. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for evangelospro and replace with your username`. <a name="applying"></a>
 ```
 chezmoi init --apply Evangelospro
 ```
@@ -98,28 +99,28 @@ chezmoi init --apply Evangelospro
 pip install -r requirements.txt
 ```
 
-# Linux Setup
-## OS: [Arch Linux](https://archlinux.org/)
-## Kernel: [Linux-zen](https://archlinux.org/packages/?name=linux-zen)
-## Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
-## Window Manager: [Hyprland](https://wiki.hyprland.org)
-## Terminal: [Wezterm](https://github.com/wez/wezterm/)
-## Shell [ZSH](https://wiki.archlinux.org/title/Zsh)
-### Bindings: [binds.zsh](dot_config/zsh/executable_binds.zsh)
-### Aliases: [aliases.zsh](dot_config/zsh/executable_aliases.zsh)
-### Functions: [functions.zsh](dot_config/zsh/executable_functions.zsh)
-### Plugin Manager: [Zinit](https://github.com/zdharma-continuum/zinit)
-### [Plugins config](dot_config/zsh/executable_plugins.zsh)
-### Theme: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-### Font: [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
-### Color Scheme: [Dracula](https://draculatheme.com/zsh)
+## Linux Setup
+### OS: [Arch Linux](https://archlinux.org/)
+### Kernel: [Linux-zen](https://archlinux.org/packages/?name=linux-zen)
+### Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
+### Window Manager: [Hyprland](https://wiki.hyprland.org)
+### Terminal: [Wezterm](https://github.com/wez/wezterm/)
+### Shell [ZSH](https://wiki.archlinux.org/title/Zsh)
+#### Bindings: [binds.zsh](dot_config/zsh/executable_binds.zsh)
+#### Aliases: [aliases.zsh](dot_config/zsh/executable_aliases.zsh)
+#### Functions: [functions.zsh](dot_config/zsh/executable_functions.zsh)
+#### Plugin Manager: [Zinit](https://github.com/zdharma-continuum/zinit)
+#### [Plugins config](dot_config/zsh/executable_plugins.zsh)
+#### Theme: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+#### Font: [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
+#### Color Scheme: [Dracula](https://draculatheme.com/zsh)
 
-# Development Setup
-## [Docker-rootless](https://docs.docker.com/engine/security/rootless)
-## [Visual Studio Code](https://code.visualstudio.com/) [configuration](dot_config/private_Code/User/settings.json)
+## Development Setup
+### [Docker-rootless](https://docs.docker.com/engine/security/rootless)
+### [Visual Studio Code](https://code.visualstudio.com/) [configuration](dot_config/private_Code/User/settings.json)
 
-# Hacking Setup
-## Shell functions
+## Hacking Setup
+### Shell functions
 | Function | Action |
 | --- | --- |
 | update-burp | Update burp to the latest version |
@@ -135,25 +136,25 @@ pip install -r requirements.txt
 | ferox-* | Feroxbust a host with a specific wordlist |
 | ffuf-* | Fuzz a host with a specific wordlist |
 | getWordlist | Return a wordlist of either dns or dir according to the argument passed |
-## Burp
-### Installation and updates
+### Burp
+#### Installation and updates
 Burp is setup to auto update with the update zsh function above. As I like to use the jar file with my own loaders for obvious reasons, the latest jar file is fetched and placed in $HOME/.config/Burp/Burp-Loader and symlinked to burpsuite_pro.jar
-### Config
+#### Config
 [project-options.json](dot_config/Burp/project-options.json)
 [user-options.json](dot_config/Burp/user-options.json)
-## IDA [DockerWineIDA](https://github.com/NyaMisty/docker-wine-ida)
+### IDA [DockerWineIDA](https://github.com/NyaMisty/docker-wine-ida)
 IDA essentially runs in docker(running xfce and wine) and rdesktop auto connects
 It can be started via the IDA [desktop file](dot_local/private_share/private_applications/burp.desktop) it can be launched from the launcher
-## Android Emulator
+### Android Emulator
 A setup android emulator can be started from the launcher using the [android_emulator](dot_local/private_share/private_applications/android-emulator.desktop) desktop file
 
-# Custom Arch Linux ISO with AUR packages batteries included
-## Ways to get the ISO
-### From the releases tab (automated builds)
-## Two self-explainatory isos (full and light)
+## Custom Arch Linux ISO with AUR packages batteries included
+### Ways to get the ISO
+#### From the releases tab (automated builds)
+##### Two self-explainatory isos (full and light)
 [![full version](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-full.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-full.yml)
 [![light version](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-light.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-light.yml)
-#### Oneliner that gets you a ready-to-use iso with my dotfiles and packages
+##### Oneliner that gets you a ready-to-use iso with my dotfiles and packages
 ```
 curl --silent https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get-iso.sh|bash
 ```
@@ -185,6 +186,14 @@ cd iso
 ### 3) A nice calamares installer is also included to guide you through the installation process, in case it didn't start automatically using the launcher shortcut from [above](#launch--reload-applications), you can start it manually by searching `install system` in the launcher or by running `sudo calamares -d` in a terminal, which will also give you some debug info that you should include in an issue if you encounter any problems.
 ### 4) After the installation is complete, you can login with your just created user and password and enjoy your new system!
 
+## Contributing
+### Bug Reports, Feature Requests and questions
+- Please use the [issue tracker](https://github.com/evangelospro/dotfiles/issues) to report any bugs, file feature requests or ask questions.
+### Pull Requests
+- Feel free to fork and contribute to this project. If you feel like you can add something to it or fix a bug, go for it.
+- If you want to contribute to the project, please open a pull request.
+- If you want to add a new feature, please create an issue first to discuss if it is a good idea or not.
+- If you want to fix a bug, please also create an issue first.
 
 ## 🌟 Stars 🌟
 - _Consider leaving a star if you liked the project! Thanks!_
