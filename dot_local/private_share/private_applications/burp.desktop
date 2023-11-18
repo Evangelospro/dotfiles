@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Burp
 Comment=Burp
-Exec=/usr/bin/java --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$HOME/Burp/Burp-Loader/loader.jar -noverify -jar $HOME/Burp/Burp-Loader/burpsuite_pro.jar
+Exec=/usr/bin/java --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$HOME/.config/Burp/Burp-Loader/loader.jar -noverify -jar $HOME/.config/Burp/Burp-Loader/burpsuite_pro.jar
 Icon=burp
 Terminal=false
 Type=Application

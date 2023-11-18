@@ -1,3 +1,5 @@
+source $ZSH/aliases/hacking.zsh
+
 # Dotfiles
 alias config="chezmoi cd && $VISUAL ."
 alias zshconfig="$VISUAL $ZSH"
@@ -5,43 +7,8 @@ alias zshconfig="$VISUAL $ZSH"
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
 
-# alias chrome to the first found chromium based browser
-alias chrome='browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome|thorium" | head -n 1) && $browser  --enable-logging --v=1'
-
-# HACKING TOOLS
-## web
-### check if /opt/sqlmap-bin/sqlmap.py exists
-if [ -f /opt/sqlmap-bin/sqlmap.py ]; then
-    alias sqlmap="/opt/sqlmap-bin/sqlmap.py"
-fi
-alias cme='crackmapexec'
-alias villain="python3 $HACKING_TOOLS/Villain/Villain.py"
-alias pwnsetup="python3 $HACKING_TOOLS/pwn/pwnenv/pwnsetup/pwnsetup.py"
-alias jwt-tool="python3 $HACKING_TOOLS/Web/jwt_tool/jwt_tool.py"
-alias shellz="bash $HACKING_TOOLS/shells/shells.sh"
-alias stego-toolkit='docker run -it --rm -v $(pwd)/data:/data dominicbreuker/stego-toolkit /bin/bash'
-alias cerbrutus="python3 ~/.local/bin/cerbrutus/cerbrutus.py"
-alias autorecon="autorecon --only-scans-dir --single-target"
-alias rot13='tr '\''A-Za-z'\'' '\''N-ZA-Mn-za-m'\'
-alias rot47='tr '\''\!-~'\'' '\''P-~\!-O'\'
-alias webserver='updog -p 8000'
-alias penelope="penelope --configfile $HOME/.config/penelope/penelope.conf"
-alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
-alias mobsf="$HOME/Desktop/HACKING/HACKING-TOOLS/Mobile/Mobile-Security-Framework-MobSF/run.sh"
-alias frm="/usr/bin/rm -rf"
-alias rmz="/usr/bin/rm *.zip"
-alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
-alias gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init"
-alias pwndbg='gdb -q -ex init-pwndbg "$@"'
-alias peda='gdb -q -ex init-peda "$@"'
-alias gef='gdb -q -ex init-gef "$@"'
-alias hosts='sudo $HOME/SCRIPTS/hosts.sh'
-alias chosts='echo "127.0.0.1 localhost"|sudo tee /etc/hosts'
-alias navi-update="$ZSH/scripts/updaters/navi-updater.sh"
-alias wpscan='wpscan -e ap,t,u --plugins-detection aggressive'
-
 # Grub
-alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 # windows managers
 alias restart-gnome="killall -3 gnome-shell"
@@ -62,7 +29,10 @@ alias tree='lsd -hAFlt --tree --group-dirs first --color=always'
 # Servers /  SSH
 # alias ssh='wezterm ssh'
 
-# Command replacemnts
+# Command replacemnts and GNU utils
+# alias clear="$ZSH/scripts/utils/clear.sh"
+alias frm="/usr/bin/rm -rf"
+alias rmz="/usr/bin/rm *.zip"
 alias rg="rg --hidden --smart-case --no-heading --line-number --color=always"
 alias mkdir="mkdir -p"
 alias fetch="clear && pfetch"
@@ -77,6 +47,16 @@ alias locate='plocate'
 alias cat='/usr/bin/bat'
 alias top='htop' # or btop
 alias dig='doggo'
+alias termbin='\ncat termbin.com 9999|copy && paste'
+alias which-command='whence'
+alias hexdump='od -A x -t x1z -v'
+alias o='handlr open'
+alias md='glow'
+alias wget="wget -c --hsts-file=$HOME/.cache/wget-hsts"
+alias update-timezone='sudo tzupdate'
+alias perms="stat --format '%a'"
+alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
+alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 # GIT
 alias g='git'
@@ -115,20 +95,6 @@ alias shutdown="sudo shutdown"
 alias reboot="sudo reboot"
 alias umount="sudo umount"
 alias mount="sudo mount"
-
-# alias jq='jaq'
-alias termbin='\ncat termbin.com 9999|copy && paste'
-alias which-command='whence'
-alias hexdump='od -A x -t x1z -v'
-alias o='handlr open'
-# alias clear="$ZSH/scripts/utils/clear.sh"
-alias md='glow'
-alias wget="wget -c --hsts-file=$HOME/.cache/wget-hsts"
-
-alias timezone-update='sudo tzupdate'
-alias perms="stat --format '%a'"
-alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
-alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 # kdeconnect
 if type kdeconnect-cli &>/dev/null; then

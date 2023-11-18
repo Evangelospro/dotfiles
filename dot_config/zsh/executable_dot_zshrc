@@ -118,6 +118,8 @@ source $ZSH/functions.zsh
 
 fpath+=$ZSH/.zfunc
 
+autoload -U select-word-style
+select-word-style bash # alt+backspaces now deletes to previous / when working with paths
 autoload -U +X compinit && compinit -u -i -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 autoload -Uz _zinit
 autoload -U +X bashcompinit && bashcompinit # needed for pipx to load
