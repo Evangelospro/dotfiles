@@ -140,8 +140,8 @@ pip install -r requirements.txt
 #### Installation and updates
 Burp is setup to auto update with the update zsh function above. As I like to use the jar file with my own loaders for obvious reasons, the latest jar file is fetched and placed in $HOME/.config/Burp/Burp-Loader and symlinked to burpsuite_pro.jar
 #### Config
-[project-options.json](dot_config/Burp/project-options.json)
-[user-options.json](dot_config/Burp/user-options.json)
+- [project-options.json](dot_config/Burp/project-options.json)
+- [user-options.json](dot_config/Burp/user-options.json)
 ### IDA [DockerWineIDA](https://github.com/NyaMisty/docker-wine-ida)
 IDA essentially runs in docker(running xfce and wine) and rdesktop auto connects
 It can be started via the IDA [desktop file](dot_local/private_share/private_applications/burp.desktop) it can be launched from the launcher
