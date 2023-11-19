@@ -1,8 +1,8 @@
-source $ZSH/aliases/hacking.zsh
+source $ZDOTDIR/aliases/hacking.zsh
 
 # Dotfiles
 alias config="chezmoi cd && $VISUAL ."
-alias zshconfig="$VISUAL $ZSH"
+alias zshconfig="$VISUAL $ZDOTDIR"
 
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
@@ -20,31 +20,26 @@ alias paste="if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard -o; e
 alias copydir='pwd | copy && paste'
 
 # Listing
-alias tree='tree -a -I .git --dirsfirst'
-alias ls='lsd -hAFlt --group-dirs first --color=always'
-alias l='lsd -hAFlt --group-dirs first --color=always'
-alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
-alias tree='lsd -hAFlt --tree --group-dirs first --color=always'
+# alias tree='tree -a -I .git --dirsfirst'
+# alias ls='lsd -hAFlt --group-dirs first --color=always'
+# alias l='lsd -hAFlt --group-dirs first --color=always'
+# alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
+# alias tree='lsd -hAFlt --tree --group-dirs first --color=always'
 
 # Servers /  SSH
 # alias ssh='wezterm ssh'
 
 # Command replacemnts and GNU utils
-# alias clear="$ZSH/scripts/utils/clear.sh"
+# alias clear="$ZDOTDIR/scripts/utils/clear.sh"
 alias frm="/usr/bin/rm -rf"
 alias rmz="/usr/bin/rm *.zip"
-alias rg="rg --hidden --smart-case --no-heading --line-number --color=always"
 alias mkdir="mkdir -p"
 alias fetch="clear && pfetch"
 alias less="less -r"
-alias tldr="tealdeer"
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias cp="fcp"
 alias nc='ncat -v'
-alias fd='fd --hidden --follow'
-alias find='fd'
 alias locate='plocate'
-alias cat='/usr/bin/bat'
 alias top='htop' # or btop
 alias dig='doggo'
 alias termbin='\ncat termbin.com 9999|copy && paste'
@@ -68,11 +63,6 @@ alias git-update-recursively="find . -name .git -type d -print -prune -exec git 
 alias reload='exec zsh -l'
 alias tobash='sudo chsh evangelospro -s /bin/bash && echo '\''Now log out.'\'
 alias tozsh='sudo chsh evangelospro -s /bin/zsh && echo '\''Now log out.'\'
-
-# Storage / Memory
-alias df='df -h'
-alias diff='diff --color'
-alias free='free -m'
 
 # python / pip / pipx
 alias p='python3'

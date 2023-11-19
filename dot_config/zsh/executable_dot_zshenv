@@ -1,3 +1,5 @@
+skip_global_compinit=1
+
 # Autonotify when a long command has been completed
 export AUTO_NOTIFY_THRESHOLD=450
 export AUTO_NOTIFY_TITLE="Boss! the command: %command has just finished"
@@ -5,36 +7,37 @@ export AUTO_NOTIFY_BODY="Time taken: %elapsed seconds exit code: %exit_code, hav
 export AUTO_NOTIFY_IGNORE=("vpn", "htb", "thm", "ipython", "docker", "man", "nano", "vim", "ssh", "less", "e", "openvpn", "ping", "nc", "penelope", 'code', 'crontab', 'watch')
 export AUTO_NOTIFY_EXPIRE_TIME=4
 
+
+XDG_CACHE_HOME=$HOME/.cache
+XDG_CONFIG_HOME=$HOME/.config
+XDG_DATA_HOME=$HOME/.local/share
+XDG_STATE_HOME=$HOME/.local/state
 # Set locale
-source $HOME/.config/environment.d/10-locale.conf
+source $XDG_CONFIG_HOME/environment.d/10-locale.conf
 
 # XDG Base Directories
-source $HOME/.config/environment.d/20-xdg.conf
+source $XDG_CONFIG_HOME/environment.d/20-xdg.conf
 
 # Clean $HOME
-source $HOME/.config/environment.d/30-clean-home.conf
+source $XDG_CONFIG_HOME/environment.d/30-clean-home.conf
 
 # Set PATH
-source $HOME/.config/environment.d/40-path.conf
+source $XDG_CONFIG_HOME/environment.d/40-path.conf
 
 # Program definitions
-source $HOME/.config/environment.d/50-programs.conf
+source $XDG_CONFIG_HOME/environment.d/50-programs.conf
 
 export SUDO_EDITOR="/usr/bin/code --wait"
 
-# ZSH
-export ZSH="$XDG_CONFIG_HOME/zsh"
-
 # ZINIT
-skip_global_compinit=1
 typeset -A ZINIT
-ZINIT[HOME_DIR]="$ZSH/.zinit"
-ZINIT[BIN_DIR]="$ZSH/.zinit/bin"
-ZINIT[CACHE_DIR]="$ZSH/.zinit/cache"
+ZINIT[HOME_DIR]="$ZDOTDIR/.zinit"
+ZINIT[BIN_DIR]="$ZDOTDIR/.zinit/bin"
+ZINIT[CACHE_DIR]="$ZDOTDIR/.zinit/cache"
 ZINIT[ZCOMPDUMP_PATH]="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 ZINIT[NO_ALIASES]=1
 
-_ZO_DATA_DIR="$ZSH/zoxide"
+_ZO_DATA_DIR="$ZDOTDIR/zoxide"
 
 # Hacking tools
 export HACKING_TOOLS="$HOME/HACKING/Tools"

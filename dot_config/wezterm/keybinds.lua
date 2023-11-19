@@ -48,11 +48,6 @@ local keys = {
         end
     )
   },
-  -- {
-  --   key = "n",
-  --   mods = "CTRL",
-  --   action = action(SpawnCommand = "navi"),
-  -- },
   {
     key = "n",
     mods = "CTRL|SHIFT",

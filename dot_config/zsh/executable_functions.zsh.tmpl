@@ -1,6 +1,6 @@
-source $ZSH/functions/hyprland.zsh
-source $ZSH/functions/updaters.zsh
-source $ZSH/functions/hacking.zsh
+source $ZDOTDIR/functions/hyprland.zsh
+source $ZDOTDIR/functions/updaters.zsh
+source $ZDOTDIR/functions/hacking.zsh
 
 function chrome() {
     browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome|thorium" | head -n 1)
@@ -242,5 +242,5 @@ cd () {
 # Time shell loading time
 timeshell() {
     shell=${1-$SHELL}
-    for i in $(seq 1 10); do time $shell -i -c exit; done
+    for i in $(seq 1 10); do time ZSH_PROFILE=1 $shell -i -c exit; done
 }

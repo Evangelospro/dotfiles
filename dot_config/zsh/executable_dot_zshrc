@@ -1,12 +1,19 @@
-# Measure performance
-zmodload zsh/zprof
+# Start profiler
+if [[ "${ZSH_PROFILE}" == 1 ]]; then
+    zmodload zsh/zprof
+else
+    ZSH_PROFILE=0
+    $ZDOTDIR/scripts/utils/clear
+fi
 
-$ZSH/scripts/utils/clear
 
 # check message of the day
-[ ! -f /etc/motd ] || cat /etc/motd
+[ -f /etc/motd ] && /usr/bin/cat /etc/motd
 
-HISTFILE=$ZSH/zsh_history.zsh
+HYPHEN_INSENSITIVE="true"
+ENABLE_CORRECTION="true"
+
+HISTFILE=$ZDOTDIR/zsh_history.zsh
 SAVEHIST=10000000
 HISTSIZE=50000
 
@@ -29,52 +36,25 @@ setopt always_to_end
 
 setopt INTERACTIVE_COMMENTS
 
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*:options' description 'yes'
-zstyle ':completion:*:options' auto-description '%d'
-zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
-zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
-zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
-zstyle ':completion:*' use-cache true
-zstyle ':completion:*' rehash true
-
-zstyle ':completion:*' menu select
-
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-# Speed up completions
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' cache-path ~/.cache1
-zstyle ':completion:*' use-cache on
-
-HYPHEN_INSENSITIVE="true"
+# Styling
+source $ZDOTDIR/zstyle.zsh
 
 _comp_options+=(globdots)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of $ZSHrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh' ]]; then
-    source '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh'
+if [[ $(tput colors) == 256 ]]; then
+    if [[ -r '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh' ]]; then
+        source '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh'
+    fi
+
+    # To customize prompt, run `p10k configure` or edit $ZDOTDIR/p10k.zsh.
+    # [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
 fi
 
-# To customize prompt, run `p10k configure` or edit $ZSH/p10k.zsh.
-[[ ! -f $ZSH/p10k.zsh ]] || source $ZSH/p10k.zsh
-
-# changed keyboard shortcut in navi
-source $ZSH/navi-loader.zsh
-
-ENABLE_CORRECTION="true"
-
 case ${TERM} in
-    xterm*|rxvt*|Eterm*|aterm|kterm|terminator|gnome*|alacritty|st|konsole*)
+    xterm*|rxvt*|Eterm*|aterm|kterm|terminator|gnome*|alacritty|st|konsole*|warp|linux)
         PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
     ;;
     screen*)
@@ -107,29 +87,37 @@ fi
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # Sourcing zsh themes
-# source $ZSH/themes/dracula.zsh
+# source $ZDOTDIR/themes/dracula.zsh
 
-source $ZSH/binds.zsh
+source $ZDOTDIR/binds.zsh
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 
-source $ZSH/functions.zsh
+source $ZDOTDIR/functions.zsh
 
-fpath+=$ZSH/.zfunc
+fpath+=$ZDOTDIR/.zfunc
 
 autoload -U select-word-style
 select-word-style bash # alt+backspaces now deletes to previous / when working with paths
-autoload -U +X compinit && compinit -u -i -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+
+# COMPLETIONS
+autoload -Uz compinit
+# check if zcompdump file exists and if it is older than a day
+if [ ! -s "$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION" ] || [ $(date +'%j') != $(date -d "@`/usr/bin/stat -c '%Y' $XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION`" '+%j') ]; then
+    compinit -u -i -d "$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION"
+else
+    compinit -C -d "$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION"
+fi
 autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
 autoload -U +X bashcompinit && bashcompinit # needed for pipx to load
 
 # load aliases at the end to overwrite "framework" set aliases
-source $ZSH/aliases.zsh
-# source $ZSH/ecsc/aliases.zsh commented out hopefully next year...
+source $ZDOTDIR/aliases.zsh
 
 # Plugins (at the end of the file)
-source "$ZSH/plugins.zsh"
+source "$ZDOTDIR/plugins.zsh"
 
-(( ${+_comps} )) && _comps[zinit]=_zinit
 zinit cdreplay -q

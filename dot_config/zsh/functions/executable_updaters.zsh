@@ -1,7 +1,6 @@
 # Maintenance is hard...
 function update() {
     paru -Syu
-    sudo pkgfile -u
     update-zsh
     $HOME/.config/hypr/update.sh
     # navi-update
