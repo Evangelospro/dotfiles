@@ -27,6 +27,12 @@ source $XDG_CONFIG_HOME/environment.d/40-path.conf
 # Program definitions
 source $XDG_CONFIG_HOME/environment.d/50-programs.conf
 
+# Wayland
+source $XDG_CONFIG_HOME/environment.d/60-wayland.conf
+
+# Xwayland
+source $XDG_CONFIG_HOME/environment.d/70-xwayland.conf
+
 export SUDO_EDITOR="/usr/bin/code --wait"
 
 # ZINIT

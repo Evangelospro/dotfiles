@@ -2,23 +2,30 @@ function Hyprland() {
     # if running in a tty ensure that Hyprland replaces the current shell
     # Check if nvidia-smi returns a 0 status code and if so run Hyprland with the nvidia runtime unless igpu is given as a second argument
     mkdir -p /tmp/hypr
-    touch /tmp/hypr/extraEnv.conf
-    if [[ -z $2 ]]; then
-        nvidia-smi > /dev/null 2>&1
-        if [[ $? -eq 0 ]]; then
-            echo "Nvidia GPU detected, running Hyprland with nvidia runtime"
-            cp $HOME/.config/hypr/nvidia.conf /tmp/hypr/extraEnv.conf
-        else
-            echo "No Nvidia GPU detected, running Hyprland with igpu runtime"
-        fi
-    elif [[ $2 == "igpu" ]]; then
-        echo "Running Hyprland with igpu runtime (explicitly specified)"
-    fi
+    # touch /tmp/hypr/extraEnv.conf
+    # if [[ -z $2 ]]; then
+    #     nvidia-smi > /dev/null 2>&1
+    #     if [[ $? -eq 0 ]]; then
+    #         echo "Nvidia GPU detected, running Hyprland with nvidia runtime"
+    #         cp $HOME/.config/hypr/nvidia.conf /tmp/hypr/extraEnv.conf
+    #     else
+    #         echo "No Nvidia GPU detected, running Hyprland with igpu runtime"
+    #     fi
+    # elif [[ $2 == "igpu" ]]; then
+    #     echo "Running Hyprland with igpu runtime (explicitly specified)"
+    #     # remove second argument so that it doesn't get passed to Hyprland
+    #     shift
+    # fi
+    # else
+    # LOAD ENV
+    # go from A=B to env A,B
+    cat $HOME/.config/environment.d/* | grep -E '^[^=]+=' | sed -E 's/([^=]+)=(.*)/env \1,\2/g' > /tmp/hypr/env.conf
     if [[ -t 0 ]]; then
         exec /usr/local/bin/Hyprland "$@"
     else
         /usr/local/bin/Hyprland "$@"
     fi
+    # fi
 }
 
 function Hyprland-logs() {
@@ -34,4 +41,9 @@ function Hyprland-logs() {
     else
         tail -f $log_location/hyprland.log
     fi
+}
+
+
+function update-Hyprland() {
+    $HOME/.config/hypr/update.sh
 }

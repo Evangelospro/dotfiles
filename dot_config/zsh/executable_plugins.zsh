@@ -25,8 +25,8 @@ zinit light jgogstad/passwordless-history
 zinit ice wait lucid nocd
 zinit light icatalina/zsh-navi-plugin
 
-export ZSH_FAST_ALIAS_TIPS_EXCLUDES=".. l s ls ll cd.. pdw sudo fd locate"
-export ZSH_FAST_ALIAS_TIPS_PREFIX="💡 $(tput bold)"
+export ZSH_FAST_ALIAS_TIPS_EXCLUDES=".. l s ls ll cd.. pdw sduo fd locate"
+export ZSH_FAST_ALIAS_TIPS_PREFIX="💡💡💡 $(tput bold)"
 export ZSH_FAST_ALIAS_TIPS_SUFFIX="$(tput sgr0)"
 zinit ice from'gh-r'
 zinit light decayofmind/zsh-fast-alias-tips
@@ -43,15 +43,6 @@ fi
 # smartcache comp register-python-argcomplete pipx
 smartcache eval thefuck --alias
 smartcache eval direnv hook zsh
-
-# Mcfly great scot history search
-# export MCFLY_FUZZY=2
-# export MCFLY_RESULTS=25
-# export MCFLY_INTERFACE_VIEW=BOTTOM
-# export MCFLY_RESULTS_SORT=RANK
-# export MCFLY_PROMPT="❯"
-# # eval "$(mcfly init zsh)"
-# smartcache eval mcfly init zsh
 
 zinit light zsh-users/zsh-history-substring-search
     zmodload zsh/terminfo
@@ -101,7 +92,6 @@ zinit wait as"null" lucid from"gh-r" for \
         atload"alias top=btm" completions sbin"**/btm" ClementTsang/bottom \
         atload"alias help=tldr" mv"tealdeer* -> tldr" dl'https://github.com/dbrgn/tealdeer/releases/latest/download/completions_zsh -> _tldr;' completions sbin"tldr" dbrgn/tealdeer \
         atload"alias diff=delta" sbin"**/delta" dandavison/delta \
-        atload"alias df=duf" bpick"*(.zip|tar.gz)" sbin muesli/duf \
         atload"alias du=dust" sbin"**/dust" bootandy/dust \
         atload"alias ping=gping" sbin"**/gping" orf/gping \
         bpick"*.zip" sbin"**/procs" if'(( $+commands[unzip] )) && [[ $CPUTYPE != aarch* ]]' dalance/procs

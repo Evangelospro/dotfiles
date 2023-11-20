@@ -20,7 +20,7 @@ function update-zsh() {
 function update-burp() {
     current_burp_version=$(realpath $HOME/.config/Burp/Burp-Loader/burpsuite_pro.jar | grep -Po '(?<=/burpsuite_pro_v)[0-9]+\-[0-9]+\-[0-9]+\-[0-9]+')
     burp_releases_html=$(curl -s "https://portswigger.net/burp/releases")
-    latest_burp_version=$(echo $burp_releases_html | grep -Po '(?<=/burp/releases/professional-community-)[0-9]+\-[0-9]+\-[0-9]+\-[0-9]+' | head -n 1)
+    latest_burp_version=$(echo $burp_releases_html | grep -Po '(?<=/burp/releases/professional-community-)[0-9]+\-[0-9]+\-[0-9]+\-[0-9]+' | sort -r |head -n 1)
     if [[ $current_burp_version != $latest_burp_version ]]; then
         burp_update_url="https://portswigger-cdn.net/burp/releases/download?product=pro&version=$(echo $latest_burp_version | sed 's/-/./g')&type=Jar"
         echo "Updating Burp Pro from $current_burp_version to $latest_burp_version from $burp_update_url"

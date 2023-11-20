@@ -1,7 +1,7 @@
 # XDG portals(long up startup fix)
 exec-once=systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once=dbus-update-activation-environment --all
-#exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
+exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
 
 # Polkit
 exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -15,6 +15,7 @@ exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOB
 {{- end }}
 
 # Theming
+exec-once=xsettingsd &
 exec-once=$HOME/.config/hypr/scripts/import_themes
 exec-once=$HOME/.azotebg-hyprland
 
@@ -40,7 +41,6 @@ exec-once=/usr/bin/flameshot
 # OPTIONAL COMPLETELY personal stuff
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
 exec-once=[workspace special:backgroundappsvalent silent] /usr/bin/valent
-exec-once=[workspace special:backgroundappspavucontrol silent] /usr/bin/pavucontrol
 exec-once=fusermount -u $HOME/SeaDrive ; seadrive -o default_permissions,allow_root,exec -c $HOME/.config/seadrive/seadrive.conf -l $HOME/.seadrive/logs/seadrive.log -f -d $HOME/.seadrive/data $HOME/SeaDrive
 exec-once=/usr/bin/betterbird --headless &
 {{- end }}

@@ -49,7 +49,7 @@
                     "errors":"ui",
                     "extension_file":"bapps/3123d5b5f25c4128894d97ea1acc4976/activeScan++.py",
                     "extension_type":"python",
-                    "loaded":true,
+                    "loaded":false,
                     "name":"Active Scan++",
                     "output":"ui"
                 },
@@ -74,6 +74,16 @@
                     "output":"ui"
                 },
                 {
+                    "bapp_serial_version":22,
+                    "bapp_uuid":"f154175126a04bfe8edc6056f340f52e",
+                    "errors":"ui",
+                    "extension_file":"bapps/f154175126a04bfe8edc6056f340f52e/SQLiPy.py",
+                    "extension_type":"python",
+                    "loaded":false,
+                    "name":"SQLiPy Sqlmap Integration",
+                    "output":"ui"
+                },
+                {
                     "bapp_serial_version":1,
                     "bapp_uuid":"8e8f6bb313db46ba9e0a7539d3726651",
                     "errors":"ui",
@@ -89,8 +99,28 @@
                     "errors":"ui",
                     "extension_file":"bapps/cc16f37549ff416b990d4312490f5fd1/minimizer.py",
                     "extension_type":"python",
-                    "loaded":true,
+                    "loaded":false,
                     "name":"Request Minimizer",
+                    "output":"ui"
+                },
+                {
+                    "bapp_serial_version":3,
+                    "bapp_uuid":"dcf7c44cdc7b4698bba86d94c692fb7f",
+                    "errors":"ui",
+                    "extension_file":"bapps/dcf7c44cdc7b4698bba86d94c692fb7f/target/HandyCollaborator-0.2-jar-with-dependencies.jar",
+                    "extension_type":"java",
+                    "loaded":true,
+                    "name":"Handy Collaborator",
+                    "output":"ui"
+                },
+                {
+                    "bapp_serial_version":1,
+                    "bapp_uuid":"4265b6220a524d0da966e64e94fa9b26",
+                    "errors":"ui",
+                    "extension_file":"bapps/4265b6220a524d0da966e64e94fa9b26/releases/BurpCustomizer.jar",
+                    "extension_type":"java",
+                    "loaded":false,
+                    "name":"Customizer",
                     "output":"ui"
                 },
                 {

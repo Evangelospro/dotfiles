@@ -198,6 +198,7 @@ seatd
 libxkbcommon
 xcb-util-wm
 xorg-xwayland
+xsettingsd
 libinput
 libliftoff
 libdisplay-info

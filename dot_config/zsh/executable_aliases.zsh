@@ -36,11 +36,9 @@ alias rmz="/usr/bin/rm *.zip"
 alias mkdir="mkdir -p"
 alias fetch="clear && pfetch"
 alias less="less -r"
-alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias cp="fcp"
 alias nc='ncat -v'
 alias locate='plocate'
-alias top='htop' # or btop
 alias dig='doggo'
 alias termbin='\ncat termbin.com 9999|copy && paste'
 alias which-command='whence'
