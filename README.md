@@ -1,10 +1,10 @@
 <div align="center">
-    <h1>【 Evangelospro's dotfiles 】</h1>
+    <h1>【 BallowTK's dotfiles 】</h1>
 </div>
 
-![](https://img.shields.io/github/last-commit/evangelospro/dotfiles?&style=for-the-badge&color=FFB1C8&logoColor=D9E0EE&labelColor=292324)
-![](https://img.shields.io/github/stars/evangelospro/dotfiles?style=for-the-badge&logo=andela&color=FFB686&logoColor=D9E0EE&labelColor=292324)
-![](https://img.shields.io/github/repo-size/evangelospro/dotfiles?color=CAC992&label=SIZE&logo=googledrive&style=for-the-badge&logoColor=D9E0EE&labelColor=292324)
+![](https://img.shields.io/github/last-commit/BallowTK/dotfiles?&style=for-the-badge&color=FFB1C8&logoColor=D9E0EE&labelColor=292324)
+![](https://img.shields.io/github/stars/BallowTK/dotfiles?style=for-the-badge&logo=andela&color=FFB686&logoColor=D9E0EE&labelColor=292324)
+![](https://img.shields.io/github/repo-size/BallowTK/dotfiles?color=CAC992&label=SIZE&logo=googledrive&style=for-the-badge&logoColor=D9E0EE&labelColor=292324)
 
 ![1.png](Pictures/showcase/1.png)
 
@@ -20,9 +20,9 @@
 9. [Sources / Inspiration](#sources-and-inspiration)
 10. [Contributing](#contributing)
 
-## My dotfiles can be applied with the below oneliner. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for evangelospro and replace with your username`. <a name="applying"></a>
+## My dotfiles can be applied with the below oneliner. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for BallowTK and replace with your username`. <a name="applying"></a>
 ```
-chezmoi init --apply Evangelospro
+chezmoi init --apply BallowTK
 ```
 
 ## Keybindings
@@ -152,11 +152,11 @@ A setup android emulator can be started from the launcher using the [android_emu
 ### Ways to get the ISO
 #### From the releases tab (automated builds)
 ##### Two self-explainatory isos (full and light)
-[![full version](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-full.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-full.yml)
-[![light version](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-light.yml/badge.svg)](https://github.com/Evangelospro/dotfiles/actions/workflows/buildISO-light.yml)
+[![full version](https://github.com/BallowTK/dotfiles/actions/workflows/buildISO-full.yml/badge.svg)](https://github.com/BallowTK/dotfiles/actions/workflows/buildISO-full.yml)
+[![light version](https://github.com/BallowTK/dotfiles/actions/workflows/buildISO-light.yml/badge.svg)](https://github.com/BallowTK/dotfiles/actions/workflows/buildISO-light.yml)
 ##### Oneliner that gets you a ready-to-use iso with my dotfiles and packages
 ```
-curl --silent https://raw.githubusercontent.com/Evangelospro/dotfiles/main/iso/get-iso.sh|bash
+curl --silent https://raw.githubusercontent.com/BallowTK/dotfiles/main/iso/get-iso.sh|bash
 ```
 #### Manual download and verification
 ##### 1) Download all the files from the latest release
@@ -188,7 +188,7 @@ cd iso
 
 ## Contributing
 ### Bug Reports, Feature Requests and questions
-- Please use the [issue tracker](https://github.com/evangelospro/dotfiles/issues) to report any bugs, file feature requests or ask questions.
+- Please use the [issue tracker](https://github.com/BallowTK/dotfiles/issues) to report any bugs, file feature requests or ask questions.
 ### Pull Requests
 - Feel free to fork and contribute to this project. If you feel like you can add something to it or fix a bug, go for it.
 - If you want to contribute to the project, please open a pull request.
@@ -198,7 +198,7 @@ cd iso
 ## 🌟 Stars 🌟
 - _Consider leaving a star if you liked the project! Thanks!_
 
-[![Stars](https://starchart.cc/evangelospro/dotfiles.svg)](https://starchart.cc/evangelospro/dotfiles)
+[![Stars](https://starchart.cc/BallowTK/dotfiles.svg)](https://starchart.cc/BallowTK/dotfiles)
 
 ## Thanks to these awesome projects and many more!!! <a name="sources-and-inspiration"></a>
 * [Arch Linux](https://archlinux.org/)

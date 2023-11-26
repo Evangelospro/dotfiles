@@ -7,7 +7,7 @@ if ! ping -c 1 archlinux.org &> /dev/null; then
     nmtui
 fi
 # No need to clone the external/submodule repos for the live environment
-chezmoi init Evangelospro --apply --exclude externals,encrypted -R
+chezmoi init BallowTK --apply --exclude externals,encrypted -R
 cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
 sudo cp $HOME/.local/share/chezmoi/confs/etc/* /etc/ -r
 sudo cp $HOME/.local/share/chezmoi/confs/opt/* /opt/ -r

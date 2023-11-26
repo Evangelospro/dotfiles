@@ -368,7 +368,7 @@
   (button
     :class {monitor == 0 ? "notification-button0" : "notification-button1"}
     :tooltip "${notificationNum} Notifications}"
-    :onclick "/home/evangelospro/.config/swaync/pop &"
+    :onclick "/home/BallowTK/.config/swaync/pop &"
     :onrightclick "swaync-client -d"
     "${notificationIcon}${notificationNum} "
   )

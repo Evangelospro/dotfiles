@@ -19,7 +19,7 @@ matches:
           - name: output
             type: shell
             params:
-                cmd: echo "I am your shell. What can I do for you today Evangelospro?"
+                cmd: echo "I am your shell. What can I do for you today BallowTK?"
     - trigger: "::P"
       replace: "#!/usr/bin/python3"
     - trigger: "::B"

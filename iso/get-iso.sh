@@ -19,7 +19,7 @@ fi
 mkdir -p isoOUT
 cd isoOUT
 # curl for the latest release of the chosen iso
-links=$(script -q -c '\curl --silent "https://api.github.com/repos/evangelospro/dotfiles/releases"' | grep -i -B 1 $iso_version | grep -o 'browser_download_url.*' | cut -d : -f 2,3 | tr -d \")
+links=$(script -q -c '\curl --silent "https://api.github.com/repos/BallowTK/dotfiles/releases"' | grep -i -B 1 $iso_version | grep -o 'browser_download_url.*' | cut -d : -f 2,3 | tr -d \")
 latest_date=$(echo $links | cut -d _-f 3)
 # verify the checksums for each part
 sha256sum --check *.part*.sha256

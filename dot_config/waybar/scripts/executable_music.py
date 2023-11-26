@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Author: https://github.com/Evangelospro
+# Author: https://github.com/BallowTK
 
 import json
 import os

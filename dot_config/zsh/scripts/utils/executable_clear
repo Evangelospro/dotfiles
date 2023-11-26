@@ -7,5 +7,5 @@ if [ $((randomNum % 2)) -eq 0 ]; then
     pfetch | lolcat
 else
     width=$(tput cols)
-    figlet -w $width -f Bloody Evangelospro | lolcat
+    figlet -w $width -f Bloody BallowTK | lolcat
 fi

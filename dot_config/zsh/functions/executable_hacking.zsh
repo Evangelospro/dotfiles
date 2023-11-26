@@ -4,7 +4,7 @@ function pwnenv() {
         docker exec -it pwnenv zsh
     else
         echo "Starting container..."
-        docker run --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v "$(pwd)":/root/data --name pwnenv ghcr.io/evangelospro/pwnenv:latest
+        docker run --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v "$(pwd)":/root/data --name pwnenv ghcr.io/BallowTK/pwnenv:latest
     fi
 }
 

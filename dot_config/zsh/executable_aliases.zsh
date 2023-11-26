@@ -61,8 +61,8 @@ alias git-update-recursively="find . -name .git -type d -print -prune -exec git 
 
 # ZSH
 alias reload='exec zsh -l'
-alias tobash='sudo chsh evangelospro -s /bin/bash && echo '\''Now log out.'\'
-alias tozsh='sudo chsh evangelospro -s /bin/zsh && echo '\''Now log out.'\'
+alias tobash='sudo chsh BallowTK -s /bin/bash && echo '\''Now log out.'\'
+alias tozsh='sudo chsh BallowTK -s /bin/zsh && echo '\''Now log out.'\'
 
 # python / pip / pipx
 alias p='python3'

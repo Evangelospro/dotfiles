@@ -15,9 +15,9 @@ strings:
     versionedName:       elarch
     shortVersionedName:  elarch
     bootloaderEntryName: elarch
-    productUrl:          https://github.com/evangelospro/dotfiles
-    supportUrl:          https://github.com/evangelospro/dotfiles
-    knownIssuesUrl:      https://github.com/evangelospro/dotfiles/issues
+    productUrl:          https://github.com/BallowTK/dotfiles
+    supportUrl:          https://github.com/BallowTK/dotfiles
+    knownIssuesUrl:      https://github.com/BallowTK/dotfiles/issues
 
 
 images:

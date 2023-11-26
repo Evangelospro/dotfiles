@@ -16,7 +16,7 @@ jobs:
         permissions:
             contents: write
         container:
-            image: ghcr.io/evangelospro/archbase:latest
+            image: ghcr.io/BallowTK/archbase:latest
             options: --privileged
         steps:
             - name: Cleanup
