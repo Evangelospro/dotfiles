@@ -277,5 +277,8 @@
 	"editor.defaultColorDecorators": true,
 	"workbench.preferredDarkColorTheme": "Sweet Dracula",
 	"workbench.preferredHighContrastColorTheme": "Dracula",
-	"workbench.editor.empty.hint": "hidden"
+    "workbench.editor.empty.hint": "hidden",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    }
 }

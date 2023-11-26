@@ -1,6 +1,8 @@
 # mainly for vms without gpu
 WLR_RENDERER_ALLOW_SOFTWARE=1
 WLR_DRM_NO_MODIFIERS=1
+# shows the cursor on duplicated displays
+WLR_NO_HARDWARE_CURSOR=1
 
 # Log WLR errors and logs to the hyprland log. Recommended(but it litters the logs)
 {{- if eq .chezmoi.hostname "ELARCH-ISO" }}
