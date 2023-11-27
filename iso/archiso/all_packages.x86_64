@@ -11,10 +11,12 @@ linux-zen
 linux-zen-headers
 
 # Drivers for graphics cards
+libva
 ## virtualbox
 virtualbox-guest-utils # systemctl enable --now vboxservice #to have fullscreen
 ## opensource
 xf86-video-intel
+intel-gpu-tools
 #xf86-video-amdgpu
 #xf86-video-nouveau
 ## NVIDIA (proprietary)
@@ -127,7 +129,7 @@ upower
 usb_modeswitch
 usbmuxd
 usbutils
-vim
+nvim #vim
 virtualbox-guest-utils-nox
 vpnc
 wireless-regdb
@@ -229,8 +231,9 @@ pamixer
 ## OSD
 aur/avizo
 ## Background
-chaotic-aur/azote
-swaybg
+# chaotic-aur/azote
+# swaybg
+hyprpaper-git
 ## Clipboard
 wl-clipboard
 cliphist

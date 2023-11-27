@@ -91,3 +91,4 @@ inode/directory=nemo.desktop
 inode/mount-point=nemo.desktop
 application/x-gnome-saved-search=nemo.desktop
 x-scheme-handler/viber=viber.desktop
+x-scheme-handler/mailto=thorium-browser.desktop
