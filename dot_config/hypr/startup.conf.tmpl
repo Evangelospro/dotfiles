@@ -22,7 +22,7 @@ exec-once=/usr/bin/hyprpaper
 
 # Bar
 ## script to load icons on workspaces
-exec-once=$HOME/.config/waybar/launch &
+exec-once=/usr/bin/sleep 2 && $HOME/.config/waybar/launch 2>&1 > /tmp/waybar-launch.log
 
 # IDLE management
 exec-once=swayidle
@@ -41,13 +41,15 @@ exec-once=/usr/bin/flameshot
 # Overclock igpu
 #exec-once=/usr/bin/intel_gpu_frequency -m
 
+# Speed up browser startup
+exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-browser
+
 # OPTIONAL COMPLETELY personal stuff
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
 exec-once=[workspace special:backgroundappsvalent silent] /usr/bin/valent
-exec-once=[workspace special:backgroundappsrogcontrolcenter silent] WINIT_UNIX_BACKEND=x11 /usr/bin/rog-control-center
+exec-once=[workspace special:backgroundappsrogcontrolcenter silent] /usr/bin/rog-control-center
 exec-once=fusermount -u $HOME/SeaDrive ; seadrive -o default_permissions,allow_root,exec -c $HOME/.config/seadrive/seadrive.conf -l $HOME/.seadrive/logs/seadrive.log -f -d $HOME/.seadrive/data $HOME/SeaDrive
 {{- end }}
 {{- if (eq .chezmoi.hostname "ELARCH-ISO") }}
 exec-once=/usr/bin/calamares_polkit
 {{- end }}
-exec-once=notify-send "Hyprland is fully loaded!"

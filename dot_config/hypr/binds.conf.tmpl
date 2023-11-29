@@ -77,9 +77,8 @@ bind=,XF86Launch3,togglespecialworkspace,backgroundappsrogcontrolcenter
 bind=$SHIFT_MOD,left,split-changemonitor,prev
 bind=$SHIFT_MOD,right,split-changemonitor,next
 
-# Cycle through workspaces using pypr
-bind=$MOD,TAB,exec,pypr change_workspace +1
-bind=$SHIFT_MOD,TAB,exec,pypr change_workspace -1
+bind=ALT,TAB,workspace, e+1
+bind=$MOD,TAB,workspace, e-1
 
 # Move Windows with Mouse
 bindm=$MOD,mouse:272,movewindow
@@ -90,13 +89,17 @@ bindl=,switch:off:Lid Switch,exec,/usr/bin/systemctl suspend
 # Move Windows Between Workspaces
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}
 # split-workspaces hyprland plugin
-{{- range $i := untilStep 1 11 1 }}
+{{- range $i := untilStep 1 10 1 }}
 bind=$MOD,{{$i}},split-workspace, {{$i}}
 bind=$SHIFT_MOD,{{$i}},split-movetoworkspace, {{$i}}
 {{- end }}
+bind=$MOD,0,split-workspace, 10
+bind=$SHIFT_MOD,0,split-movetoworkspace, 10
 {{- else }}
-{{- range $i := untilStep 1 11 1 }}
-bind=$MOD,{{$i}},workspace,
+{{- range $i := untilStep 1 10 1 }}
+bind=$MOD,{{$i}},workspace, {{$i}}
 bind=$SHIFT_MOD,{{$i}},movetoworkspace, {{$i}}
 {{- end}}
+bind=$MOD,0,workspace, 10
+bind=$SHIFT_MOD,0,movetoworkspace, 10
 {{- end }}
