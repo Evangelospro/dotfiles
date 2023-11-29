@@ -41,8 +41,3 @@ function Hyprland-logs() {
         tail -f $log_location/hyprland.log
     fi
 }
-
-
-function update-Hyprland() {
-    $HOME/.config/hypr/update.sh
-}

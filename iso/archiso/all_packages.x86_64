@@ -17,17 +17,23 @@ virtualbox-guest-utils # systemctl enable --now vboxservice #to have fullscreen
 ## opensource
 xf86-video-intel
 intel-gpu-tools
+### Overclocking
+intel-undervolt
 #xf86-video-amdgpu
 #xf86-video-nouveau
 ## NVIDIA (proprietary)
 # nvidia-dkms # or nvidia-open-dkms (if lucky)
 # aur/libva-nvidia-driver-git
 # nvidia-utils
+# nvidia-settings
 
 # Asus F15
+# linux-g14
+# linux-g14-headers
 # intel-compute-runtime
 # vulkan-intel
 # aur/asusctl-git
+# aur/supergfxctl-git
 # aur/rog-control-center
 
 # Base packages
@@ -172,6 +178,7 @@ fuse-overlayfs
 appmenu-gtk-module
 
 # Desktop environment (will be replaced by the hyprland update script)
+wlroots
 chaotic-aur/hyprland-git
 aur/hyprpicker
 xdg-desktop-portal-gtk
@@ -256,7 +263,7 @@ python-evdev
 wlogout
 swaync
 swaync-client
-swaylock-effects
+aur/swaylock-effects-git # need -git as swaylock-effects is unmaintained
 swayidle
 ## Disks / USB devices / Cleanup
 aur/usbguard-applet-qt
@@ -336,6 +343,7 @@ zoxide
 # neofetch
 # aur/archey5
 aur/pfetch
+ack
 figlet
 chaotic-aur/c-lolcat
 bat
@@ -380,7 +388,7 @@ ffmpeg
 btop
 aur/geticons
 moreutils
-aur/batify
+# aur/batify
 wev
 onefetch
 
@@ -389,8 +397,6 @@ onefetch
 xournalpp
 # zathura
 onlyoffice-bin
-## Mail
-aur/betterbird-bin
 ## Communications
 # signal-desktop
 ## Browser

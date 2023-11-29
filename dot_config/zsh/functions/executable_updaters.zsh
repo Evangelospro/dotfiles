@@ -2,7 +2,7 @@
 function update() {
     paru -Syu
     update-zsh
-    $HOME/.config/hypr/update.sh
+    update-Hyprland
     # navi-update
     # Update burp pro if a Burp/Burp-Loader directory exists in the home directory
     if [ -d $HOME/.config/Burp/Burp-Loader ]; then

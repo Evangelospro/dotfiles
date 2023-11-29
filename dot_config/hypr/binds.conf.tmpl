@@ -12,8 +12,9 @@ $SHIFT_MOD = $MOD_SHIFT
 bind=$MOD,M,exit
 
 # Launch / Reload Applications
-bind=,XF86Launch3,exec,rog-control-center
-# bind=,XF86Launch4,exec,cycle through ligthing effects with asusctl
+{{- if (eq .chezmoi.hostname "ELARCH-F15") }}
+bind=,XF86Launch4,exec,asusctl led-mode -n
+{{- end }}
 bind=$MOD,Return,exec,wezterm start --always-new-process
 bind=$MOD,B,exec,eval $browser
 bindl=$MOD,L,exec,eval $lockscreen
@@ -22,7 +23,7 @@ bind=,XF86Search,exec,eval $launcher
 bind=$MOD,V,exec,eval $clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
 bind=$MOD,E,exec,nemo
-bind=$SHIFT_MOD,R,exec,pkill -9 waybar ; waybar
+bind=$SHIFT_MOD,R,exec,$HOME/.config/waybar/launch
 bind=$MOD,R,exec,$HOME/.config/hypr/scripts/resize
 
 # Close / Fullscreen / Kill Applications / Arrange monitors
@@ -30,7 +31,7 @@ bind=ALT_L,F4,killactive
 bind=CTRL_SHIFT,ESC,exec,hyprctl kill # xkill like functionality
 bind=$MOD,F,fullscreen,0
 bind=$MOD_SHIFT,F,togglefloating
-bind=$MOD,P,exec,~/.config/hypr/scripts/monitors
+bind=$MOD,P,exec,$HOME/.config/hypr/scripts/monitors
 
 # Screenshot / OCR
 ## Disable animations for screenshot
@@ -39,7 +40,7 @@ bind=,Print,exec,flameshot gui
 bind=$MOD,O,exec,wl-ocr
 
 # Function keys
-bind=,XF86RFKill,exec,~/.config/hypr/scripts/rfkill
+bind=,XF86RFKill,exec,$HOME/.config/hypr/scripts/rfkill
 binde=,XF86AudioRaiseVolume,exec,volumectl -b up
 binde=,XF86AudioLowerVolume,exec,volumectl -b down
 bind=,XF86AudioMute,exec,volumectl toggle-mute
@@ -64,6 +65,9 @@ bind=$MOD,S,movewindow,d
 # Scratchpads
 ## Valent (KDEConnect) special scratchpad workspace
 bind=$MOD,K,togglespecialworkspace,backgroundappsvalent
+{{- if (eq .chezmoi.hostname "ELARCH-F15") }}
+bind=,XF86Launch3,togglespecialworkspace,backgroundappsrogcontrolcenter
+{{- end }}
 
 # Hyprload
 # bind=$SHIFT_MOD,R,hyprload,reload
@@ -86,47 +90,13 @@ bindl=,switch:off:Lid Switch,exec,/usr/bin/systemctl suspend
 # Move Windows Between Workspaces
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}
 # split-workspaces hyprland plugin
-bind=$MOD,1,split-workspace,1
-bind=$MOD,2,split-workspace,2
-bind=$MOD,3,split-workspace,3
-bind=$MOD,4,split-workspace,4
-bind=$MOD,5,split-workspace,5
-bind=$MOD,6,split-workspace,6
-bind=$MOD,7,split-workspace,7
-bind=$MOD,8,split-workspace,8
-bind=$MOD,9,split-workspace,9
-bind=$MOD,0,split-workspace,10
-
-bind=$SHIFT_MOD,1,split-movetoworkspace, 1
-bind=$SHIFT_MOD,2,split-movetoworkspace, 2
-bind=$SHIFT_MOD,3,split-movetoworkspace, 3
-bind=$SHIFT_MOD,4,split-movetoworkspace, 4
-bind=$SHIFT_MOD,5,split-movetoworkspace, 5
-bind=$SHIFT_MOD,6,split-movetoworkspace, 6
-bind=$SHIFT_MOD,7,split-movetoworkspace, 7
-bind=$SHIFT_MOD,8,split-movetoworkspace, 8
-bind=$SHIFT_MOD,9,split-movetoworkspace, 9
-bind=$SHIFT_MOD,0,split-movetoworkspace, 10
+{{- range $i := untilStep 1 11 1 }}
+bind=$MOD,{{$i}},split-workspace, {{$i}}
+bind=$SHIFT_MOD,{{$i}},split-movetoworkspace, {{$i}}
+{{- end }}
 {{- else }}
-bind=$MOD,1,workspace,1
-bind=$MOD,2,workspace,2
-bind=$MOD,3,workspace,3
-bind=$MOD,4,workspace,4
-bind=$MOD,5,workspace,5
-bind=$MOD,6,workspace,6
-bind=$MOD,7,workspace,7
-bind=$MOD,8,workspace,8
-bind=$MOD,9,workspace,9
-bind=$MOD,0,workspace,10
-
-bind=$SHIFT_MOD,1,movetoworkspace, 1
-bind=$SHIFT_MOD,2,movetoworkspace, 2
-bind=$SHIFT_MOD,3,movetoworkspace, 3
-bind=$SHIFT_MOD,4,movetoworkspace, 4
-bind=$SHIFT_MOD,5,movetoworkspace, 5
-bind=$SHIFT_MOD,6,movetoworkspace, 6
-bind=$SHIFT_MOD,7,movetoworkspace, 7
-bind=$SHIFT_MOD,8,movetoworkspace, 8
-bind=$SHIFT_MOD,9,movetoworkspace, 9
-bind=$SHIFT_MOD,0,movetoworkspace, 10
+{{- range $i := untilStep 1 11 1 }}
+bind=$MOD,{{$i}},workspace,
+bind=$SHIFT_MOD,{{$i}},movetoworkspace, {{$i}}
+{{- end}}
 {{- end }}

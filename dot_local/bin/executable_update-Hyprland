@@ -1,14 +1,16 @@
 #!/bin/bash
-if sudo pacman -Qi hyprland-git &> /dev/null; then
+echo "Updating HYPRLAND with args: $@"
+
+if paru -Qi hyprland-git &> /dev/null; then
     echo "You have hyprland-git installed. It will be removed."
     echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
     sleep 10
-    sudo pacman -R hyprland-git
-elif sudo pacman -Qi hyprland &> /dev/null; then
+    paru -R hyprland-git
+elif paru -Qi hyprland &> /dev/null; then
     echo "You have hyprland installed. It will be removed."
     echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
     sleep 10
-    sudo pacman -R hyprland
+    paru -R hyprland
 fi
 
 cd $HOME/.config/hypr/hyprland-repo
@@ -17,7 +19,7 @@ git pull
 latest_hyprland_version=$(git rev-parse HEAD)
 current_hyprland_version=$(hyprctl version -j | jq -r '.commit')
 # Disallow upgrading if already upgraded in this session
-if [[ "$latest_hyprland_version" != "$current_hyprland_version" ]] && [[ ! -f /tmp/hypr/hyprland_already_upgraded ]]; then
+if [[ "$latest_hyprland_version" != "$current_hyprland_version" ]] && [[ ! -f /tmp/hypr/hyprland_already_upgraded ]] || [[ "$1" == "-f" ]]; then
     # Apply NVIDIA patch if applicable
     # if [[ $(nvidia-smi &> /dev/null; echo $?) -eq 0 ]]; then
     #     echo "Applying NVIDIA patch"
@@ -31,7 +33,7 @@ if [[ "$latest_hyprland_version" != "$current_hyprland_version" ]] && [[ ! -f /t
     # Build and install
     make all && sudo make install
     echo "Copy wlroots.so to /usr/lib"
-    sudo cp ./subprojects/wlroots/build/libwlroots.so.* /usr/lib
+    sudo cp ./subprojects/wlroots/build/libwlroots.so.* /usr/lib/libwlroots.so
     echo "Adding wayland-session"
     sudo mkdir -p /usr/share/wayland-sessions
     sudo cp example/hyprland.desktop /usr/share/wayland-sessions
@@ -41,8 +43,8 @@ if [[ "$latest_hyprland_version" != "$current_hyprland_version" ]] && [[ ! -f /t
     touch /tmp/hypr/hyprland_already_upgraded
 else
     if [[ -f /tmp/hypr/hyprland_already_upgraded ]]; then
-        echo "HYPRLAND has already been upgraded in this session, restart to receive further updates."
+        echo "HYPRLAND has already been upgraded in this session, restart to receive further updates. Use -f to force upgrade."
     else
-        echo "HYPRLAND is already latest version."
+        echo "HYPRLAND is already latest version. Use -f to force upgrade."
     fi
 fi
