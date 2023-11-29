@@ -23,7 +23,7 @@ function chosts(){
     echo -ne """# Static table lookup for hostnames.
 # See hosts(5) for details.
 127.0.0.1 localhost
-127.0.0.1 ELARCH-F15
+127.0.0.1 {{.chezmoi.hostname}}
 
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
