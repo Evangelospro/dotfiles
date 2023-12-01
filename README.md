@@ -91,12 +91,19 @@ chezmoi init --apply Evangelospro
 | Windows + Click and drag | Move window with mouse |
 
 ## Dependencies<a name="dependencies"></a>
-### Packages
+### Packages (ALL come ready to use in the iso)
 #### [Arch packages](iso/archiso/all_packages.x86_64)
-#### [Hacking packages](iso/archiso/all_packages.x86_64#L418)
-#### [Python packages](requirements.txt)
 ```
-pip install -r requirements.txt
+paru -S --needed - < iso/archiso/all_packages.x86_64
+```
+##### [Hacking packages](iso/archiso/all_packages.x86_64#L418) Only in the Hacking ISO
+#### [Python pip packages](pip-requirements.txt)
+```
+pip install -r pip-requirements.txt
+```
+#### [Python pipx packages](pipx-requirements.txt)
+```
+pipx install -r pipx-requirements.txt
 ```
 
 ## Linux Setup

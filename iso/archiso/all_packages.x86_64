@@ -353,7 +353,7 @@ mcfly
 aur/doggo-bin
 
 # KDEConnect
-valent-git
+chaotic-aur/valent-git
 
 # Password manager
 bitwarden-cli
@@ -363,13 +363,7 @@ chezmoi
 aur/chezmoi_modify_manager-git
 
 # File managment
-# nautilus
 # filemanager-actions
-# aur/nautilus-admin-gtk4
-# aur/nautilus-hide-git
-# aur/nautilus-open-any-terminal-git
-# # aur/nautilus-bluetooth-git # requires bluetooth-sendto...
-# nautilus-sendto
 nemo
 nemo-fileroller
 aur/nemo-compare

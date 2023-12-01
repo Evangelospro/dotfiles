@@ -70,7 +70,6 @@ alias pipi='pip install'
 alias pipir='pip install -r'
 alias pipreq='pip freeze > requirements.txt'
 alias pipua='pip list | cut -d " " -f1 | tail +3 | xargs pip install -U'
-alias pipxua='pipx list | cut -d " " -f1 | tail +3 | xargs pipx install -U'
 
 # PS
 alias psa='ps auxf'
