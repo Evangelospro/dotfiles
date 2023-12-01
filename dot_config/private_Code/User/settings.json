@@ -64,7 +64,7 @@
 	"editor.hover.above": true,
 	"editor.inlayHints.enabled": "on",
 	"editor.linkedEditing": true,
-    "editor.lineNumbers": "relative",
+    "editor.lineNumbers": "on",
 	"editor.matchBrackets": "always",
 	"editor.maxTokenizationLineLength": 99999999,
 	"editor.mouseWheelScrollSensitivity": 1.5,
