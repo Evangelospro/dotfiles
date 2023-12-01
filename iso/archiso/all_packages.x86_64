@@ -360,6 +360,7 @@ bitwarden-cli
 
 # Dotfiles
 chezmoi
+aur/chezmoi_modify_manager-git
 
 # File managment
 # nautilus

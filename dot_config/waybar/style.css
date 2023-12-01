@@ -103,6 +103,19 @@
     margin-right: 10px;
 }
 
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
 #custom-powermenu {
 	color: @red;
 	padding-right: 15px;

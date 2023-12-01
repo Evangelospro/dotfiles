@@ -44,6 +44,12 @@ function mkcd(){
     cd $1
 }
 
+# Copy with progress
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/cp
+cpv() {
+    rsync -pogbr -hhh --backup-dir="/tmp/rsync-${USERNAME}" -e /dev/null --progress "$@"
+}
+
 # Move latest Download to current directory
 function mvd() {
     local fileName

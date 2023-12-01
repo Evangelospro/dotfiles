@@ -245,6 +245,19 @@ class Workspacer(hyprland.Events):
         self.refresh_monitors()
         self.generate()
 
+    async def on_monitordisconnected(self, mon:str) -> None:
+        self.logEvent(f"Monitor {mon} disconnected")
+        self.refresh_monitors()
+        self.generate()
+
+    async def on_closelayer(self, layer:str) -> None:
+        self.logEvent(f"Layer {layer} closed")
+        self.refresh_monitors()
+
+    async def on_openlayer(self, layer:str) -> None:
+        self.logEvent(f"Layer {layer} opened")
+        self.refresh_monitors()
+
 w = Workspacer()
 try:
     w.async_connect()

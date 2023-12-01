@@ -214,6 +214,7 @@
 	"gitlens.codeLens.enabled": false,
 	"gitlens.statusBar.enabled": true,
 	// FILE EXPLORER
+    "explorer.autoReveal": false,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmDelete": false,
 	"files.autoSave": "afterDelay",

@@ -16,6 +16,7 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
 # URL ALIASES
 # -----------
 # Alias for Dracula Org repositories
@@ -63,6 +64,7 @@
     unmerged = magenta bold reverse
     untracked = red
     updated = green bold
+
 # GIT DELTA
 [core]
     pager = delta
