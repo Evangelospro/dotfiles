@@ -30,7 +30,6 @@ jobs:
                   # echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
             - name: Check dependencies
               run: |
-                  pacman -T fakepkname # test
                   # Install necessary packages
                   sudo pacman -Syu go archiso gcc pkg-config zip cargo scdoc wlroots meson ninja cmake --needed --noconfirm
 
