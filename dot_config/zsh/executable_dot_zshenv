@@ -1,3 +1,5 @@
+eval $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+
 skip_global_compinit=1
 
 export LS_COLORS=$(vivid generate dracula)

@@ -1,10 +1,12 @@
 # XDG portals(long up startup fix)
 exec-once=/usr/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once=/usr/bin/dbus-update-activation-environment --all
-exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
+# exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
 
-# Polkit
+# Polkit and keyring
 exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec-once=/usr/bin/gnome-keyring-daemon --start --components=secrets
+
 
 # scale apps
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2

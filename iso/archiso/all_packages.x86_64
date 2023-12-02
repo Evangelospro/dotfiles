@@ -171,6 +171,7 @@ base-devel
 
 # Docker
 docker
+docker-buildx
 aur/docker-rootless-extras
 fuse-overlayfs
 

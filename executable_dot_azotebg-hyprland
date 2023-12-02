@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-pkill swaybg
-swaybg -o 'DP-1' -i "/home/evangelospro/Pictures/backgrounds/austronaut-dark.jpg" -m fill &
-swaybg -o 'eDP-1' -i "/home/evangelospro/Pictures/backgrounds/austronaut-dark.jpg" -m fill &
-swaybg -o 'DP-2' -i "/home/evangelospro/Pictures/backgrounds/austronaut-dark.jpg" -m fill &
-swaybg -o 'eDP-2' -i "/home/evangelospro/Pictures/backgrounds/austronaut-dark.jpg" -m fill &

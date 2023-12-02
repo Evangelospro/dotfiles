@@ -62,13 +62,6 @@
     url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
     refreshPeriod = "168h"
 
-[".themes/Dracula"]
-    type = "archive"
-    url = "https://github.com/dracula/gtk/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
 [".config/spicetify/Themes/Dracula"]
     type = "archive"
     url = "https://github.com/dracula/spicetify/archive/master.zip"

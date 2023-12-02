@@ -48,6 +48,7 @@ alias md='glow'
 alias wget="wget -c --hsts-file=$HOME/.cache/wget-hsts"
 alias update-timezone='sudo tzupdate'
 alias perms="stat --format '%a'"
+alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
