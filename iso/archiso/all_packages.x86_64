@@ -329,6 +329,7 @@ chaotic-aur/wezterm-git
 
 # Shell
 zsh
+vivid $LS_COLORS
 direnv
 curl
 curlie

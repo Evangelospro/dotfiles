@@ -91,9 +91,6 @@ fi
 
 source $ZDOTDIR/binds.zsh
 
-# The following lines were added by compinstall
-zstyle :compinstall filename '~/.zshrc'
-
 source $ZDOTDIR/functions.zsh
 
 fpath+=$ZDOTDIR/.zfunc

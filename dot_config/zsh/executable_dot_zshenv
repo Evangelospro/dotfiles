@@ -1,38 +1,13 @@
 skip_global_compinit=1
 
+export LS_COLORS=$(vivid generate dracula)
+
 # Autonotify when a long command has been completed
 export AUTO_NOTIFY_THRESHOLD=450
 export AUTO_NOTIFY_TITLE="Boss! the command: %command has just finished"
 export AUTO_NOTIFY_BODY="Time taken: %elapsed seconds exit code: %exit_code, have a look"
 export AUTO_NOTIFY_IGNORE=("vpn", "htb", "thm", "ipython", "docker", "man", "nano", "vim", "ssh", "less", "e", "openvpn", "ping", "nc", "penelope", 'code', 'crontab', 'watch')
 export AUTO_NOTIFY_EXPIRE_TIME=4
-
-
-XDG_CACHE_HOME=$HOME/.cache
-XDG_CONFIG_HOME=$HOME/.config
-XDG_DATA_HOME=$HOME/.local/share
-XDG_STATE_HOME=$HOME/.local/state
-
-# Set locale
-# source $XDG_CONFIG_HOME/environment.d/10-locale.conf
-
-# # XDG Base Directories
-# source $XDG_CONFIG_HOME/environment.d/20-xdg.conf
-
-# # Clean $HOME
-# source $XDG_CONFIG_HOME/environment.d/30-clean-home.conf
-
-# # Set PATH
-# source $XDG_CONFIG_HOME/environment.d/40-path.conf
-
-# # Program definitions
-# source $XDG_CONFIG_HOME/environment.d/50-programs.conf
-
-# # Wayland
-# source $XDG_CONFIG_HOME/environment.d/60-wayland.conf
-
-# # Xwayland
-# source $XDG_CONFIG_HOME/environment.d/70-xwayland.conf
 
 export SUDO_EDITOR="/usr/bin/code --wait"
 

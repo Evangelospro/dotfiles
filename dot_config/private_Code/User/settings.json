@@ -196,12 +196,12 @@
 	// GIT SETTINGS
 	"github.copilot.inlineSuggest.enable": true,
 	"github.copilot.enable": {
-		"*": true,
-		"plaintext": true,
-		"markdown": true,
-		"scminput": false,
-		"yaml": true
-	},
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "yaml": true
+    },
 	"git.enableSmartCommit": true,
 	"git.autofetch": true,
 	"github.copilot.advanced": {},

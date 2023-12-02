@@ -1,35 +1,25 @@
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
-zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
-zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
-zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
-zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
+
+# Speed up completions
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' cache-path ~/.cache/zsh
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' rehash true
 
 zstyle ':completion:*' menu select
 
+
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-# Speed up completions
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' cache-path ~/.cache/zsh
-zstyle ':completion:*' use-cache on
-
-zstyle ':fzf-tab:*' switch-group ',' '.'
 
 zstyle ':completion:*:descriptions' format '[%d]'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:complete:*:options' sort false
-zstyle ':fzf-tab:complete:(cd|ls|exa|eza|bat|cat|emacs|nano|vi|vim):*' \
-       fzf-preview 'lsd -1 --color=always $realpath 2>/dev/null || ls -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:(cd|ls|cat|nano|vi|vim):*' \
+       fzf-preview 'ls -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
 	   fzf-preview 'echo ${(P)word}'
 
@@ -42,7 +32,6 @@ zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
         elif [[ $OSTYPE == linux* ]]; then
            ps --pid=$word -o cmd --no-headers -w -w
         fi'
-zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags '--preview-window=down:3:wrap'
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 
 # Preview `git` commands

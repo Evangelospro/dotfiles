@@ -31,11 +31,10 @@ zinit light jgogstad/passwordless-history
 zinit ice wait lucid nocd
 zinit light icatalina/zsh-navi-plugin
 
-export ZSH_FAST_ALIAS_TIPS_EXCLUDES=".. l s sl ll cd.. pdw sduo fd locate"
-export ZSH_FAST_ALIAS_TIPS_PREFIX="💡💡💡 $(tput bold)"
-export ZSH_FAST_ALIAS_TIPS_SUFFIX="$(tput sgr0)"
+export YSU_IGNORED_ALIASES=(".." "l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
+export YSU_HARDCORE=1
 zinit ice wait lucid nocd
-zinit light decayofmind/zsh-fast-alias-tips
+zinit light MichaelAquilina/zsh-you-should-use
 
 # check that you are not in docker or a server avoid in headless installs
 if [ -z "$DISPLAY" ] && [ -z "$SSH_CLIENT" ]; then
@@ -45,12 +44,6 @@ else
     zinit light MichaelAquilina/zsh-auto-notify
 fi
 
-zinit light zsh-users/zsh-history-substring-search
-zmodload zsh/terminfo
-[ -n "${terminfo[kcuu1]}" ] && bindkey "${terminfo[kcuu1]}" history-substring-search-up
-[ -n "${terminfo[kcud1]}" ] && bindkey "${terminfo[kcud1]}" history-substring-search-down
-bindkey -M emacs '^U' history-substring-search-up
-
 zinit ice wait lucid nocd
 zinit snippet OMZP::dirhistory
 
@@ -59,12 +52,8 @@ zinit has'zoxide' wait lucid for \
 
 ## FZF tab completion
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --files --hidden --follow --glob '!.git' || find ."
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_DEFAULT_OPTS='--height 40% --border'
-export FZF_CTRL_T_OPTS="--preview '(bat --style=numbers --color=always {} || cat {} || tree -NC {}) 2> /dev/null | head -200'"
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview' --exact"
-export FZF_ALT_C_OPTS="--preview 'tree -NC {} | head -200'"
-zinit ice wait lucid depth"1" blockf # atload"zicompinit; zicdreplay"
+export FZF_DEFAULT_OPTS=''
+zinit ice wait lucid depth"1" blockf atload"zicompinit; zicdreplay" # needs to do compinit as it provides completions
 zinit light Aloxaf/fzf-tab
 zinit wait lucid light-mode depth=1 for \
     pick="autopair.zsh" atload="autopair-init" hlissner/zsh-autopair \
