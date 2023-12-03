@@ -43,6 +43,13 @@
 
 {{- end }}
 
+[".local/share/themes/Dracula"]
+    type = "archive"
+    url = "https://github.com/dracula/gtk/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
 [".config/qt5ct/colors/Dracula.conf"]
     type = "archive-file"
     url = "https://github.com/dracula/qt5/archive/master.zip"

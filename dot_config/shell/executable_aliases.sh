@@ -1,4 +1,4 @@
-source $ZDOTDIR/aliases/hacking.zsh
+source $XDG_CONFIG_HOME/shell/aliases/hacking.zsh
 
 # Dotfiles
 alias config="chezmoi cd && $VISUAL ."
@@ -30,7 +30,7 @@ alias copydir='pwd | copy && paste'
 # alias ssh='wezterm ssh'
 
 # Command replacemnts and GNU utils
-# alias clear="$ZDOTDIR/scripts/utils/clear.sh"
+# alias clear="$XDG_CONFIG_HOME/shell/scripts/utils/clear.sh"
 alias frm="/usr/bin/rm -rf"
 alias rmz="/usr/bin/rm *.zip"
 alias mkdir="mkdir -p"
@@ -49,6 +49,7 @@ alias wget="wget -c --hsts-file=$HOME/.cache/wget-hsts"
 alias update-timezone='sudo tzupdate'
 alias perms="stat --format '%a'"
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
+alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 

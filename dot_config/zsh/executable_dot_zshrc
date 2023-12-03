@@ -91,7 +91,7 @@ fi
 
 source $ZDOTDIR/binds.zsh
 
-source $ZDOTDIR/functions.zsh
+source $XDG_CONFIG_HOME/shell/functions.sh
 
 fpath+=$ZDOTDIR/.zfunc
 
@@ -112,7 +112,7 @@ autoload -Uz _zinit
 autoload -U +X bashcompinit && bashcompinit # needed for pipx to load
 
 # load aliases at the end to overwrite "framework" set aliases
-source $ZDOTDIR/aliases.zsh
+source $XDG_CONFIG_HOME/shell/aliases.sh
 
 # Plugins (at the end of the file)
 source "$ZDOTDIR/plugins.zsh"
