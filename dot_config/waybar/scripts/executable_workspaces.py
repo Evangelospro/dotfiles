@@ -21,7 +21,7 @@ class Workspacer(hyprland.Events):
         super().__init__()
 
         self.numOfWorkspaces = 10
-        self.windowNames = json.loads(open(os.path.expanduser("~/.config/eww/scripts/windowNames.json")).read())
+        self.windowNames = json.loads(open(os.path.expanduser("~/.config/waybar/scripts/windowNames.json")).read())
 
         self.monitormap: dict[str, int] = {}
         # set monitorMap and self.focusedMon

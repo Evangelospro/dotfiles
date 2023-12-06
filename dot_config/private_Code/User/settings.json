@@ -120,6 +120,7 @@
 	"prettier.useTabs": true,
 	// LANGUAGE SPECIFIC
 	"[python]": {
+        "editor.tabSize": 4,
 		"editor.semanticHighlighting.enabled": false,
 		"editor.formatOnType": true,
 		"editor.defaultFormatter": "ms-python.black-formatter"

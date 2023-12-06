@@ -1,79 +1,78 @@
 {
-  "burp-StartBurp": {
-    "name": "BurpSuite",
-    "icon": "burp"
-  },
-  "yad-icon-browser": {
-    "name": "Icon Browser",
-    "icon": "yad"
-  },
-  "org.kde.kdeconnect-settings": {
-    "name": "KDEConnect Settings",
-    "icon": "kdeconnect"
-  },
-  "Microsoft Teams - Preview": {
-    "name": "Microsoft Teams",
-    "icon": "teams"
-  },
-  "imv": {
-    "name": "Image Viewer",
-    "icon": "image-viewer"
-  },
-  "ONLYOFFICE Desktop Editors": {
-    "name": "onlyoffice",
-    "icon": "onlyoffice-desktopeditors"
-  },
-  "Rofi": {
-    "name": "Rofi",
-    "icon": "/usr/share/icons/hicolor/scalable/apps/rofi.svg"
-  },
-  "Gimp-2.10": {
-    "name": "Gimp",
-    "icon": "gimp"
-  },
-  "org.gnome.Nautilus": {
-    "name": "Files",
-    "icon": "nautilus"
-  },
-  "org.wezfurlong.wezterm": {
-    "name": "WezTerm",
-    "icon": "org.wezfurlong.wezterm"
-  },
-  "xournalpp": {
-    "name": "Xournal++",
-    "icon": "xournalpp"
-  },
-  "org.kde.polkit-kde-authentication-agent-1": {
-    "name": "Polkit-KDE",
-    "icon": "password-manager"
-  },
-  "blueman-manager": {
-    "name": "Bluetooth Manager",
-    "icon": "blueman"
-  },
-  "ghidra-Ghidra": {
-    "name": "Ghidra",
-    "icon": "ghidra"
-  },
-  "com.usebottles.bottles": {
-    "name": "Bottles",
-    "icon": "com.usebottles.bottles"
-  },
-  "eww": {
-    "name": "eww",
-    "icon": "~/.config/eww/images/EwwLogo.svg"
-  },
-  "czkawka_gui": {
-    "name": "Czkawka",
-    "icon": "com.github.qarmin.czkawka"
-  },
-  "VencordDesktop": {
-    "name": "Discord",
-    "icon": "discord"
-  },
-  "jetbrains-studio":
-  {
-    "name": "Android Studio",
-    "icon": "android-studio"
-  }
+    "burp-StartBurp": {
+        "name": "BurpSuite",
+        "icon": "burp"
+    },
+    "yad-icon-browser": {
+        "name": "Icon Browser",
+        "icon": "yad"
+    },
+    "org.kde.kdeconnect-settings": {
+        "name": "KDEConnect Settings",
+        "icon": "kdeconnect"
+    },
+    "Microsoft Teams - Preview": {
+        "name": "Microsoft Teams",
+        "icon": "teams"
+    },
+    "imv": {
+        "name": "Image Viewer",
+        "icon": "image-viewer"
+    },
+    "ONLYOFFICE Desktop Editors": {
+        "name": "onlyoffice",
+        "icon": "onlyoffice-desktopeditors"
+    },
+    "Rofi": {
+        "name": "Rofi",
+        "icon": "/usr/share/icons/hicolor/scalable/apps/rofi.svg"
+    },
+    "Gimp-2.10": {
+        "name": "Gimp",
+        "icon": "gimp"
+    },
+    "org.gnome.Nautilus": {
+        "name": "Files",
+        "icon": "nautilus"
+    },
+    "org.wezfurlong.wezterm": {
+        "name": "WezTerm",
+        "icon": "org.wezfurlong.wezterm"
+    },
+    "xournalpp": {
+        "name": "Xournal++",
+        "icon": "xournalpp"
+    },
+    "org.kde.polkit-kde-authentication-agent-1": {
+        "name": "Polkit-KDE",
+        "icon": "password-manager"
+    },
+    "blueman-manager": {
+        "name": "Bluetooth Manager",
+        "icon": "blueman"
+    },
+    "ghidra-Ghidra": {
+        "name": "Ghidra",
+        "icon": "ghidra"
+    },
+    "com.usebottles.bottles": {
+        "name": "Bottles",
+        "icon": "com.usebottles.bottles"
+    },
+    "eww": {
+        "name": "eww",
+        "icon": "~/.config/eww/images/EwwLogo.svg"
+    },
+    "czkawka_gui": {
+        "name": "Czkawka",
+        "icon": "com.github.qarmin.czkawka"
+    },
+    "VencordDesktop": {
+        "name": "Discord",
+        "icon": "discord"
+    },
+    "jetbrains-studio": {
+        "name": "Android Studio",
+        "icon": "android-studio"
+    }
 }

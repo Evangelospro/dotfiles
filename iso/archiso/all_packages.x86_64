@@ -501,6 +501,13 @@ python-pycryptodomex
 sagemath
 python-numpy
 aur/rsactftool-git
+## Password cracking
+hashcat
+hashcat-utils
+john
+aur/cewl-git
+aur/crunch
+hydra
 # End Hacking Tools
 
 # VPNs (wireguard support is in NetworkManager so no need to install it)
