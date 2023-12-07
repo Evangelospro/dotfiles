@@ -213,6 +213,7 @@ libinput
 libliftoff
 libdisplay-info
 cpio
+tomlplusplus
 
 # Chaotic repo
 chaotic-mirrorlist

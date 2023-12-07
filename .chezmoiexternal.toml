@@ -1,48 +1,3 @@
-{{- if eq .chezmoi.hostname "ELARCH-F15" }}
-[".config/gdb/pwndbg"]
-    type = "archive"
-    url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
-[".config/gdb/gef"]
-    type = "archive"
-    url = "https://github.com/hugsy/gef/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
-[".config/gdb/peda"]
-    type = "archive"
-    url = "https://github.com/longld/peda/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
-[".local/bin/c"]
-    type = "archive-file"
-    url = '{{ gitHubLatestRelease "rettier/c" | toJson | fromJson | jq ".assets[1].browser_download_url" | first}}'
-    refreshPeriod = "168h"
-    stripComponents = 1
-    path = "c"
-
-[".local/bin/capa"]
-    type = "archive-file"
-    url = '{{ gitHubLatestRelease "mandiant/capa" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
-    refreshPeriod = "168h"
-    stripComponents = 0
-    path = "capa"
-
-[".config/gdb/peda-arm"]
-    type = "archive"
-    url = "https://github.com/alset0326/peda-arm/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
-{{- end }}
-
 [".local/share/themes/Dracula"]
     type = "archive"
     url = "https://github.com/dracula/gtk/archive/master.tar.gz"
@@ -99,8 +54,55 @@
     clone.args = ["--recurse-submodules", "--shallow-submodules"]
     pull.args = ["--recurse-submodules"]
 
-[".config/hypr/plugins/split-monitor-workspaces"]
-    type = "git-repo"
-    url = "https://github.com/Duckonaut/split-monitor-workspaces.git"
-    branch = "main"
-    refreshPeriod = "6h"
+[".local/bin/hdrop"]
+    type = "file"
+    executable = true
+    url = "https://raw.githubusercontent.com/hyprwm/contrib/main/hdrop/hdrop"
+    refreshPeriod = "168h"
+
+
+{{- if eq .chezmoi.hostname "ELARCH-F15" }}
+[".config/gdb/pwndbg"]
+    type = "archive"
+    url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".config/gdb/gef"]
+    type = "archive"
+    url = "https://github.com/hugsy/gef/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".config/gdb/peda"]
+    type = "archive"
+    url = "https://github.com/longld/peda/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".local/bin/c"]
+    type = "archive-file"
+    executable = true
+    url = '{{ gitHubLatestRelease "rettier/c" | toJson | fromJson | jq ".assets[1].browser_download_url" | first}}'
+    refreshPeriod = "168h"
+    stripComponents = 1
+    path = "c"
+
+[".local/bin/capa"]
+    type = "archive-file"
+    executable = true
+    url = '{{ gitHubLatestRelease "mandiant/capa" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+    refreshPeriod = "168h"
+    stripComponents = 0
+    path = "capa"
+
+[".config/gdb/peda-arm"]
+    type = "archive"
+    url = "https://github.com/alset0326/peda-arm/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+{{- end }}

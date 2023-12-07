@@ -38,7 +38,7 @@ if [[ "$latest_hyprland_version" != "$current_hyprland_version" ]] && [[ ! -f /t
     sudo mkdir -p /usr/share/wayland-sessions
     sudo cp example/hyprland.desktop /usr/share/wayland-sessions
     echo "Updating plugins"
-    $HOME/.config/hypr/plugins/update.sh
+    hyprpm update
     echo "Please logout and log back in to use the latest version of HYPRLAND."
     touch /tmp/hypr/hyprland_already_upgraded
 else
