@@ -26,7 +26,7 @@
 	"workbench.list.smoothScrolling": true,
 	"workbench.startupEditor": "none",
 	"workbench.statusBar.visible": true,
-    "workbench.panel.defaultLocation": "bottom",
+	"workbench.panel.defaultLocation": "bottom",
 	"workbench.editorAssociations": {
 		"*.ipynb": "jupyter-notebook"
 	},
@@ -41,7 +41,7 @@
 	"editor.autoClosingBrackets": "always",
 	"editor.bracketPairColorization.enabled": true,
 	"editor.codeActionsOnSave": {
-		"source.organizeImports": true
+		"source.organizeImports": "explicit"
 	},
 	"editor.cursorBlinking": "solid",
 	"editor.cursorSmoothCaretAnimation": "on",
@@ -64,11 +64,11 @@
 	"editor.hover.above": true,
 	"editor.inlayHints.enabled": "on",
 	"editor.linkedEditing": true,
-    "editor.lineNumbers": "on",
+	"editor.lineNumbers": "on",
 	"editor.matchBrackets": "always",
 	"editor.maxTokenizationLineLength": 99999999,
 	"editor.mouseWheelScrollSensitivity": 1.5,
-	"editor.occurrencesHighlight": true,
+	"editor.occurrencesHighlight": "singleFile",
 	"editor.renderControlCharacters": true,
 	"editor.renderFinalNewline": "on",
 	"editor.renderLineHighlight": "all",
@@ -85,7 +85,7 @@
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
 	"editor.tabCompletion": "on",
 	"editor.tabSize": 4,
-	"editor.wordBasedSuggestions": true,
+	"editor.wordBasedSuggestions": "matchingDocuments",
 	"editor.wordBasedSuggestionsMode": "matchingDocuments",
 	"editor.wordWrap": "on",
 	"editor.quickSuggestions": {
@@ -120,7 +120,7 @@
 	"prettier.useTabs": true,
 	// LANGUAGE SPECIFIC
 	"[python]": {
-        "editor.tabSize": 4,
+		"editor.tabSize": 4,
 		"editor.semanticHighlighting.enabled": false,
 		"editor.formatOnType": true,
 		"editor.defaultFormatter": "ms-python.black-formatter"
@@ -154,7 +154,7 @@
 	"[dart]": {
 		"editor.suggestSelection": "first",
 		"editor.tabCompletion": "onlySnippets",
-		"editor.wordBasedSuggestions": false
+		"editor.wordBasedSuggestions": "off"
 	},
 	"[javascript]": {
 		"editor.tabSize": 4,
@@ -197,12 +197,12 @@
 	// GIT SETTINGS
 	"github.copilot.inlineSuggest.enable": true,
 	"github.copilot.enable": {
-        "*": true,
-        "plaintext": true,
-        "markdown": true,
-        "scminput": false,
-        "yaml": true
-    },
+		"*": true,
+		"plaintext": true,
+		"markdown": true,
+		"scminput": false,
+		"yaml": true
+	},
 	"git.enableSmartCommit": true,
 	"git.autofetch": true,
 	"github.copilot.advanced": {},
@@ -215,7 +215,7 @@
 	"gitlens.codeLens.enabled": false,
 	"gitlens.statusBar.enabled": true,
 	// FILE EXPLORER
-    "explorer.autoReveal": false,
+	"explorer.autoReveal": false,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmDelete": false,
 	"files.autoSave": "afterDelay",
@@ -279,41 +279,34 @@
 	},
 	"editor.defaultColorDecorators": true,
 	"workbench.preferredDarkColorTheme": "Sweet Dracula",
-    "workbench.editor.empty.hint": "hidden",
-    "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
-    },
-    "vscode-neovim.ctrlKeysForInsertMode": [
-        "d",
-        "h",
-        "j",
-        "o",
-        "r",
-        "t",
-        "u"
-    ],
-    "vscode-neovim.ctrlKeysForNormalMode": [
-        "b",
-        "d",
-        "e",
-        "h",
-        "i",
-        "j",
-        "k",
-        "l",
-        "r",
-        "t",
-        "u",
-        "x",
-        "y",
-        "/",
-        "]",
-        "right",
-        "left",
-        "up",
-        "down",
-        "backspace",
-        "delete"
-    ],
-    "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
+	"workbench.editor.empty.hint": "hidden",
+	"extensions.experimental.affinity": {
+		"asvetliakov.vscode-neovim": 1
+	},
+	"vscode-neovim.ctrlKeysForInsertMode": ["d", "h", "j", "o", "r", "t", "u"],
+	"vscode-neovim.ctrlKeysForNormalMode": [
+		"b",
+		"d",
+		"e",
+		"h",
+		"i",
+		"j",
+		"k",
+		"l",
+		"r",
+		"t",
+		"u",
+		"x",
+		"y",
+		"/",
+		"]",
+		"right",
+		"left",
+		"up",
+		"down",
+		"backspace",
+		"delete"
+	],
+	"vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
+	"workbench.editor.tabActionLocation": "right"
 }

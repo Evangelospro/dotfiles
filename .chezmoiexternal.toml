@@ -54,14 +54,14 @@
     clone.args = ["--recurse-submodules", "--shallow-submodules"]
     pull.args = ["--recurse-submodules"]
 
-[".local/bin/hdrop"]
-    type = "file"
-    executable = true
-    url = "https://raw.githubusercontent.com/hyprwm/contrib/main/hdrop/hdrop"
+{{- if (or (eq .chezmoi.hostname "ELARCH-F15") (eq .chezmoi.hostname "PWNENV")) }}
+[".local/bin/pwndbg"]
+    type = "archive"
+    url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
     refreshPeriod = "168h"
 
-
-{{- if eq .chezmoi.hostname "ELARCH-F15" }}
 [".config/gdb/pwndbg"]
     type = "archive"
     url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"

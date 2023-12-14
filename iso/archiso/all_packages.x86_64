@@ -309,6 +309,8 @@ obs-studio
 
 # Programming
 ## Java (also needed for Burp)
+jdk
+jre
 jdk-openjdk
 ## Python
 # aur/python2
@@ -476,6 +478,7 @@ aur/zsteg
 perl-image-exiftool
 ## Active Directory
 python-impacket
+aur/ruby-evil-winrm
 ## Web
 python-beautifulsoup4
 python-flask
