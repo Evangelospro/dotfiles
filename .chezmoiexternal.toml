@@ -55,8 +55,8 @@
     pull.args = ["--recurse-submodules"]
 
 {{- if (or (eq .chezmoi.hostname "ELARCH-F15") (eq .chezmoi.hostname "PWNENV")) }}
-[".local/bin/pwndbg"]
-    type = "archive"
+[".local/bin/pwnsetup"]
+    type = "file"
     url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"
     exact = true
     stripComponents = 1

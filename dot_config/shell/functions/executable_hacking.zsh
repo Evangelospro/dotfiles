@@ -4,7 +4,7 @@ function pwnenv() {
         docker exec -it pwnenv zsh
     else
         echo "Starting container..."
-        docker run --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v "$(pwd)":/root/data --name pwnenv ghcr.io/evangelospro/pwnenv:latest
+        docker run --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --rm -it -v "$(pwd)":/root/data -h PWNENV --name pwnenv ghcr.io/evangelospro/pwnenv:latest
     fi
 }
 
@@ -187,25 +187,6 @@ ffuf-req-ext() {
         arg_count=2
     fi
     ffuf -c -ic -request $1 -request-proto http -w $wordlist -x ${exts[@]} ${@: $arg_count};
-}
-
-listener() {
-    if [[ $1 ]]; then
-        port=$1
-    else
-        port=9001
-    fi
-    # check if penelope exists and if so use it
-    if [[ $(which penelope) ]]; then
-        penelope -p $port
-    else
-        # check if rlwrap exists and if so use it
-        if [[ $(which rlwrap) ]]; then
-            stty raw -echo; (echo export TERM=xterm;echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python -c "import pty;pty.spawn(\"/bin/bash\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | rlwrap nc -lvnp $port && reset
-        else
-            stty raw -echo; (echo export TERM=xterm;echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python -c "import pty;pty.spawn(\"/bin/bash\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | nc -lvnp $port && reset
-        fi
-    fi
 }
 
 # sshp username password host extr_args

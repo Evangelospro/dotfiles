@@ -320,6 +320,12 @@ ruff
 python-pip
 python-pipx
 python-termcolor
+### AI / ML / Data Science
+python-scikit-learn
+python-pandas
+python-numpy
+python-matplotlib
+
 ## Rust
 rustup
 ## Golang
