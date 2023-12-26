@@ -37,9 +37,6 @@ exec-once=/usr/bin/avizo-service
 # Utilities & Background apps
 exec-once=/usr/bin/flameshot
 
-# Overclock igpu
-# exec-once=/usr/bin/intel_gpu_frequency -m
-
 # Speed up browser startup
 exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-browser
 
@@ -47,7 +44,7 @@ exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-brow
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
 exec-once=[workspace special:backgroundappsvalent silent] /usr/bin/valent
 exec-once=[workspace special:backgroundappsrogcontrolcenter silent] /usr/bin/rog-control-center
-exec-once=/usr/bin/fusermount -u $HOME/SeaDrive ; /usr/bin/seadrive -o default_permissions,allow_root,exec -c $HOME/.config/seadrive/seadrive.conf -l $HOME/.seadrive/logs/seadrive.log -f -d $HOME/.seadrive/data $HOME/SeaDrive
+exec-once=/usr/bin/seadrive-gui
 {{- end }}
 {{- if (eq .chezmoi.hostname "ELARCH-ISO") }}
 exec-once=/usr/bin/calamares_polkit

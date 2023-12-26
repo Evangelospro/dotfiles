@@ -261,12 +261,14 @@ kwallet-pam
 waybar
 libevdev
 python-evdev
-## misc
-wlogout
-swaync
-swaync-client
+## Logout / Lock screen
 aur/swaylock-effects-git # need -git as swaylock-effects is unmaintained
 swayidle
+wlogout
+## Notifications
+swaync
+swaync-client
+aur/deadd-notification-center
 ## Disks / USB devices / Cleanup
 aur/usbguard-applet-qt
 chaotic-aur/qdirstat
@@ -384,11 +386,12 @@ nemo-image-converter
 aur/nemo-media-columns
 lf
 fd
+## File sync
+aur/celeste
 
 # Additional utils
 unzip
 glow
-# tldr
 tealdeer
 ffmpeg
 btop
