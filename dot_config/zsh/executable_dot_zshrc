@@ -3,7 +3,7 @@ if [[ "${ZSH_PROFILE}" == 1 ]]; then
     zmodload zsh/zprof
 else
     ZSH_PROFILE=0
-    $ZDOTDIR/scripts/utils/clear
+    zsh $XDG_CONFIG_HOME/shell/scripts/utils/clear
 fi
 
 

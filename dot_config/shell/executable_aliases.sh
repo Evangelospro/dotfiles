@@ -30,11 +30,10 @@ alias copydir='pwd | copy && paste'
 # alias ssh='wezterm ssh'
 
 # Command replacemnts and GNU utils
-# alias clear="$XDG_CONFIG_HOME/shell/scripts/utils/clear.sh"
 alias frm="/usr/bin/rm -rf"
 alias rmz="/usr/bin/rm *.zip"
 alias mkdir="mkdir -p"
-alias fetch="clear && pfetch"
+alias fetch="clear && fastfetch"
 alias less="less -r"
 alias cp="fcp"
 alias nc='ncat -v'
