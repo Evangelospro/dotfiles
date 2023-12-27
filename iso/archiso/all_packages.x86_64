@@ -341,7 +341,7 @@ chaotic-aur/wezterm-git
 
 # Shell
 zsh
-vivid $LS_COLORS
+vivid # for $LS_COLORS
 direnv
 curl
 curlie
@@ -354,7 +354,6 @@ thefuck
 zoxide
 ## ascii art
 # neofetch
-# aur/archey5
 fastfetch
 ack
 figlet
@@ -454,7 +453,6 @@ metasploit
 python-z3-solver
 python-claripy
 # aur/python-angr-git
-rlwrap
 ghidra
 cutter
 rz-ghidra
@@ -499,6 +497,7 @@ nmap
 rustscan
 python-scapy
 ## Shell handler
+rlwrap
 aur/penelope-git
 ## Bruteforcing
 aur/hydra
@@ -507,19 +506,19 @@ aur/feroxbuster
 ## hex editor
 chaotic-aur/imhex
 ## wordlists
-# aur/seclists
+aur/seclists
+aur/crunch
 ## Crypto
 python-pycryptodome
 python-pycryptodomex
 sagemath
 python-numpy
 aur/rsactftool-git
-## Password cracking
+## Password cracking / Bruteforcing
 hashcat
 hashcat-utils
 john
 aur/cewl-git
-aur/crunch
 hydra
 # End Hacking Tools
 
@@ -550,6 +549,5 @@ aur/anyrun-git
 rofi
 
 # parsers
-aur/jaq
-# jq
+aur/jaq # faster than jq
 aur/ripgrep

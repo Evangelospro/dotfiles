@@ -64,7 +64,7 @@ alias tobash='sudo chsh evangelospro -s /bin/bash && echo '\''Now log out.'\'
 alias tozsh='sudo chsh evangelospro -s /bin/zsh && echo '\''Now log out.'\'
 
 # python / pip / pipx
-alias p='python3'
+alias p='ipython' #'python3'
 alias pip='noglob pip'
 alias pipx='noglob pipx'
 alias pipi='pip install'
