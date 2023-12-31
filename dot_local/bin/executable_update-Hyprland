@@ -32,8 +32,6 @@ if [[ "$latest_hyprland_version" != "$current_hyprland_version" ]] && [[ ! -f /t
     # fi
     # Build and install
     make all && sudo make install
-    echo "Copy wlroots.so to /usr/lib"
-    sudo cp ./subprojects/wlroots/build/libwlroots.so.* /usr/lib/libwlroots.so
     echo "Adding wayland-session"
     sudo mkdir -p /usr/share/wayland-sessions
     sudo cp example/hyprland.desktop /usr/share/wayland-sessions

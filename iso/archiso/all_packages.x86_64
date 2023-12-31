@@ -20,7 +20,7 @@ intel-gpu-tools
 ### Overclocking
 intel-undervolt
 #xf86-video-amdgpu
-#xf86-video-nouveau
+#xf86-video-nouvea
 ## NVIDIA (proprietary)
 # nvidia-dkms # or nvidia-open-dkms (if lucky)
 # aur/libva-nvidia-driver-git
@@ -266,9 +266,9 @@ aur/swaylock-effects-git # need -git as swaylock-effects is unmaintained
 swayidle
 wlogout
 ## Notifications
-swaync
-swaync-client
-aur/deadd-notification-center
+# swaync
+# swaync-client
+aur/notify-send-py
 ## Disks / USB devices / Cleanup
 aur/usbguard-applet-qt
 chaotic-aur/qdirstat

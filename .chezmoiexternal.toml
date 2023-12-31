@@ -55,13 +55,6 @@
     pull.args = ["--recurse-submodules"]
 
 {{- if (or (eq .chezmoi.hostname "ELARCH-F15") (eq .chezmoi.hostname "PWNENV")) }}
-[".local/bin/pwnsetup"]
-    type = "file"
-    url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
 [".config/gdb/pwndbg"]
     type = "archive"
     url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"
@@ -105,4 +98,13 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+
+[".local/bin/gtfobins"]
+    type = "file"
+    executable = true
+    url = '{{ gitHubLatestRelease "CristinaSolana/ggtfobins" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
 {{- end }}
