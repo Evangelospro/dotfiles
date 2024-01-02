@@ -11,4 +11,4 @@ set +a
 
 /usr/bin/dbus-update-activation-environment --all
 
-/usr/local/bin/Hyprland "$@"
+/usr/local/bin/hyprland "$@"

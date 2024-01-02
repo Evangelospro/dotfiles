@@ -26,7 +26,7 @@ if [ "$1" == "start" ]; then
     if [ ! "$(docker ps -q -a -f name=docker-ida)" ]; then
         # Create container
         echo "Creating container..."
-        docker run -d --name docker-ida -v "$HOME/HACKING:/root/HACKING" -p "7878:3389/tcp" --hostname="DockerWine" --env="RDP_SERVER=yes" -it ghcr.io/nyamisty/docker-wine-ida:7.6sp1
+        (cd $HOME/.local/bin/docker-ida && docker compose up -d)
         echo "Container created"
     else
         # if status is exited or created, start it

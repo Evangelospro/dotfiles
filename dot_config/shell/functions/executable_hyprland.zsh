@@ -1,4 +1,4 @@
-function Hyprland-logs() {
+function hyprland-logs() {
     # # check that we are in interactive mode
     # if [[ $- == *i* ]]; then
     #     echo "You are in interactive mode, please run this command in a non-interactive shell"

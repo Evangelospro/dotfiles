@@ -181,6 +181,7 @@ appmenu-gtk-module
 # Desktop environment (will be replaced by the hyprland update script)
 wlroots
 chaotic-aur/hyprland-git
+aur/hyprlang
 aur/hyprpicker
 xdg-desktop-portal-gtk
 chaotic-aur/xdg-desktop-portal-hyprland-git
