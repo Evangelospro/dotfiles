@@ -2,7 +2,6 @@
 Name=Android Emulator
 StartupWMClass=Android Emulator
 Comment=Android Emulator
-GenericName=Internet Messenger
 Exec=android-emulator
 Icon=android-sdk
 Terminal=false

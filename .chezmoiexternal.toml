@@ -107,4 +107,12 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+[".local/bin/pc-bio-unlock.jar"]
+    type = "file"
+    executable = true
+    url = "https://meis-apps.com/download?product=PCBioUnlock&platform=any"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
 {{- end }}

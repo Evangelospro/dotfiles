@@ -6,8 +6,8 @@
   <property name="pressureMultiplier" value="1"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Dracula"/>
-  <property name="lastSavePath" value=""/>
-  <property name="lastOpenPath" value=""/>
+  <property name="lastSavePath" value="/home/evangelospro/School/Clubs/AQA/Books"/>
+  <property name="lastOpenPath" value="/home/evangelospro/School/Clubs/AQA/Books"/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20"/>
   <property name="edgePanMaxMult" value="5"/>
@@ -80,9 +80,9 @@
   <property name="touchDrawing" value="false"/>
   <property name="gtkTouchInertialScrolling" value="true"/>
   <property name="pressureGuessing" value="false"/>
-  <property name="selectionBorderColor" value="16711680"/>
-  <property name="backgroundColor" value="14473941"/>
-  <property name="selectionMarkerColor" value="7512015"/>
+  <property name="selectionBorderColor" value="4294901760"/>
+  <property name="backgroundColor" value="4292664021"/>
+  <property name="selectionMarkerColor" value="4285702095"/>
   <property name="touchZoomStartThreshold" value="0"/>
   <property name="pageRerenderThreshold" value="5"/>
   <!--The count of rendered PDF pages which will be cached.-->
@@ -136,7 +136,7 @@
   <property name="font" font="Sans" size="12"/>
   <data name="buttonConfig">
     <data name="default">
-      <attribute name="color" type="hex" value="000000"/>
+      <attribute name="color" type="hex" value="ff000000"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="size" type="string" value="thin"/>
       <attribute name="tool" type="string" value="pen"/>
@@ -153,10 +153,14 @@
       <attribute name="tool" type="string" value="none"/>
     </data>
     <data name="stylus">
-      <attribute name="tool" type="string" value="none"/>
+      <attribute name="eraserMode" type="string" value="none"/>
+      <attribute name="size" type="string" value="none"/>
+      <attribute name="tool" type="string" value="eraser"/>
     </data>
     <data name="stylus2">
-      <attribute name="tool" type="string" value="none"/>
+      <attribute name="eraserMode" type="string" value="none"/>
+      <attribute name="size" type="string" value="none"/>
+      <attribute name="tool" type="string" value="eraser"/>
     </data>
     <data name="touch">
       <attribute name="device" type="string" value=""/>
@@ -165,6 +169,14 @@
     </data>
   </data>
   <data name="deviceClasses">
+    <data name="GAOMON Gaomon Tablet Pen">
+      <attribute name="deviceClass" type="int" value="2"/>
+      <attribute name="deviceSource" type="int" value="1"/>
+    </data>
+    <data name="GAOMON Gaomon Tablet Pen (Eraser)">
+      <attribute name="deviceClass" type="int" value="3"/>
+      <attribute name="deviceSource" type="int" value="2"/>
+    </data>
     <data name="Wayland Finger Scrolling">
       <attribute name="deviceClass" type="int" value="1"/>
       <attribute name="deviceSource" type="int" value="6"/>
@@ -273,5 +285,11 @@
       <attribute name="drawingType" type="string" value="default"/>
     </data>
   </data>
-  <data name="touch"/>
+  <data name="touch">
+    <attribute name="cmdDisable" type="string" value=""/>
+    <attribute name="cmdEnable" type="string" value=""/>
+    <attribute name="disableTouch" type="boolean" value="false"/>
+    <attribute name="method" type="string" value="auto"/>
+    <attribute name="timeout" type="int" value="1000"/>
+  </data>
 </settings>
