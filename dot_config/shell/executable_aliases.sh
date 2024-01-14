@@ -85,12 +85,7 @@ alias umount="sudo umount"
 alias mount="sudo mount"
 
 # kdeconnect
-if type kdeconnect-cli &>/dev/null; then
-    # don't echo anything
-    current_device=$(kdeconnect-cli -a --id-name-only 2>/dev/null | cut -d ' ' -f 1)
-    alias share-clip="kdeconnect-cli -d $current_device --share-text $@"
-    alias share="kdeconnect-cli -d $current_device --share $@"
-fi
+alias share="gapplication launch ca.andyholmes.Valent $@"
 
 # get fastest mirrors
 alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu'

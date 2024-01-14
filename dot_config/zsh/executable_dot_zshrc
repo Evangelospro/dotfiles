@@ -14,7 +14,7 @@ fi
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
-HISTFILE=$ZDOTDIR/zsh_history.zsh
+export HISTFILE=$ZDOTDIR/zsh_history.zsh
 SAVEHIST=10000000
 HISTSIZE=50000
 
@@ -74,8 +74,6 @@ fi
 # Sourcing zsh themes
 # source $ZDOTDIR/themes/dracula.zsh
 
-source $ZDOTDIR/binds.zsh
-
 source $XDG_CONFIG_HOME/shell/functions.sh
 
 fpath+=$ZDOTDIR/.zfunc
@@ -96,10 +94,13 @@ autoload -Uz _zinit
 
 autoload -U +X bashcompinit && bashcompinit # needed for pipx to load
 
-# load aliases at the end to overwrite "framework" set aliases
+# Aliases (at the end of the file to overwrite "framework" set aliases)
 source $XDG_CONFIG_HOME/shell/aliases.sh
 
-# Plugins (at the end of the file)
+# Plugins (at the end of the file to overwrite "framework" set plugins)
 source "$ZDOTDIR/plugins.zsh"
+
+# Bindings (at the end of the file to overwrite "framework" set bindings)
+source $ZDOTDIR/binds.zsh
 
 zinit cdreplay -q

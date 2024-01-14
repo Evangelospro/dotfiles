@@ -7,7 +7,8 @@
 default_emulator=$(emulator -list-avds | head -n 1)
 # if there is no emulator, create one
 if [ -z "$default_emulator" ]; then
-    echo "No emulator found, creating one..."
+    echo "No emulator found, creating one... with android-29"
+    echo "Y" | sdkmanager --install "system-images;android-29;google_apis_playstore;x86_64"
     default_emulator="android-29-emulator"
     echo "no" | avdmanager create avd -n $default_emulator -k "system-images;android-29;google_apis_playstore;x86_64"
 fi

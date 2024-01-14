@@ -14,6 +14,7 @@ zinit load QuarticCat/zsh-smartcache
 # smartcache comp register-python-argcomplete pipx
 smartcache eval thefuck --alias
 smartcache eval direnv hook zsh
+smartcache eval atuin init zsh 2>&1 >/dev/null
 
 # Plugins for annex speedups
 zinit light-mode for \

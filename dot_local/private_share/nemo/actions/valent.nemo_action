@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Send to Valent device
+Comment=Send to Valent device
+Exec=gapplication launch ca.andyholmes.Valent %F
+Icon-Name=mail-attachment-symbolic
+Selection=notnone
+Extensions=any;
+Separator=,
+Dependencies=valent;

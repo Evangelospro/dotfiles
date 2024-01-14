@@ -179,14 +179,9 @@ fuse-overlayfs
 appmenu-gtk-module
 
 # Desktop environment (will be replaced by the hyprland update script)
-wlroots
+## requirements HYPRLAND (VERY IMPORTANT)
 chaotic-aur/hyprland-git
-aur/hyprlang
-aur/hyprpicker
-xdg-desktop-portal-gtk
-chaotic-aur/xdg-desktop-portal-hyprland-git
-# hyprsome
-## requirements (VERY IMPORTANT)
+wlroots
 sdbus-cpp
 ninja
 gcc
@@ -215,6 +210,21 @@ libliftoff
 libdisplay-info
 cpio
 tomlplusplus
+aur/hyprlang-git
+# requirements HYPRLAND-XDG-PORTAL (VERY IMPORTANT)
+chaotic-aur/xdg-desktop-portal-hyprland-git
+xdg-desktop-portal-gtk
+gbm
+hyprland-protocols
+aur/hyprlang-git
+libdrm
+libpipewire-0.3
+libspa-0.2
+sdbus-cpp
+wayland-client
+wayland-protocols
+# Tools for HYPRLAND
+aur/hyprpicker
 
 # Chaotic repo
 chaotic-mirrorlist
@@ -364,6 +374,7 @@ lsd
 git-delta
 mcfly
 aur/doggo-bin
+atuin
 
 # KDEConnect
 chaotic-aur/valent-git
@@ -413,7 +424,6 @@ chaotic-aur/thorium-browser-avx-bin
 # chaotic-aur/google-chrome
 ## Discord
 aur/vencord-desktop-bin
-# chaotic-aur/betterdiscordctl-git
 ## Note taking
 obsidian
 ## spotify
@@ -442,7 +452,7 @@ aur/jadx-gui-desktop
 aur/python-frida
 aur/python-androguard
 android-udev
-chaotic-aur/android-sdk
+# chaotic-aur/android-sdk <- OLD and outdated use android-sdk-cmdline-tools-latest instead
 chaotic-aur/android-emulator
 chaotic-aur/android-sdk-cmdline-tools-latest
 chaotic-aur/android-sdk-platform-tools
