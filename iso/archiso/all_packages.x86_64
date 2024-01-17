@@ -135,7 +135,7 @@ upower
 usb_modeswitch
 usbmuxd
 usbutils
-nvim #vim
+#neovim #vim
 virtualbox-guest-utils-nox
 vpnc
 wireless-regdb
@@ -423,7 +423,7 @@ onlyoffice-bin
 chaotic-aur/thorium-browser-avx-bin
 # chaotic-aur/google-chrome
 ## Discord
-aur/vencord-desktop-bin
+aur/vencord-bin
 ## Note taking
 obsidian
 ## spotify
