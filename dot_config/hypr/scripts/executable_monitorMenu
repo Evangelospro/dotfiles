@@ -1,14 +1,6 @@
 #!/bin/bash
 
 clean(){
-    # reapply the background
-    # pkill -9 swaybg && swaybg -o \* -i $HOME/Pictures/backgrounds/background.png -m fill &
-    # $HOME/.azotebg-hyprland
-    # check if waybar is running
-    # if pgrep -x "waybar" > /dev/null
-    # then
-    #     waybar &
-    # fi
     $HOME/.config/waybar/launch
     hyprctl reload
 }

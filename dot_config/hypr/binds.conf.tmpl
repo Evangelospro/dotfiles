@@ -1,9 +1,3 @@
-## located in $HOME/.local/bin ($PATH)
-env = clipMenu, "$HOME/.local/bin/clipMenu"
-env = lockscreen, "$HOME/.local/bin/lockscreen"
-env = launcher, "$HOME/.local/bin/launcher"
-env = browser, "thorium-browser"
-
 # Control keys
 $MOD = SUPER
 $SHIFT_MOD = $MOD_SHIFT
@@ -16,23 +10,23 @@ bind=$MOD,M,exit
 bind=,XF86Launch4,exec,asusctl led-mode -n
 {{- end }}
 bind=$MOD,Return,exec,wezterm start --always-new-process
-bind=$MOD,B,exec,eval $browser
+bind=$MOD,B,exec,/usr/bin/thorium-browser
 bind=$MOD,D,exec,/usr/bin/vencord-desktop
-bindl=$MOD,L,exec,eval $lockscreen
-bind=$MOD,SPACE,exec,eval $launcher
-bind=,XF86Search,exec,eval $launcher
-bind=$MOD,V,exec,eval $clipMenu
+bindl=$MOD,L,exec,lockscreen
+bind=$MOD,SPACE,exec,launcher
+bind=,XF86Search,exec,launcher
+bind=$MOD,V,exec,clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
 bind=$MOD,E,exec,nemo
 bind=$SHIFT_MOD,R,exec,$HOME/.config/waybar/launch
-bind=$MOD,R,exec,$HOME/.config/hypr/scripts/resize
+bind=$MOD,R,exec,dynamic-resize
 
 # Close / Fullscreen / Kill Applications / Arrange monitors
 bind=ALT_L,F4,killactive
 bindr=CTRL_SHIFT,ESCAPE,exec, hyprctl kill # xkill like functionality
 bind=$MOD,F,fullscreen,0
 bind=$MOD_SHIFT,F,togglefloating
-bind=$MOD,P,exec,$HOME/.config/hypr/scripts/monitors
+bind=$MOD,P,exec,monitorMenu
 
 # Screenshot / OCR
 ## Disable animations for screenshot
@@ -41,7 +35,7 @@ bind=,Print,exec,hyprctl keyword animation "fadeOut,0,0,default" && flameshot gu
 bind=$MOD,O,exec,wl-ocr
 
 # Function keys
-bind=,XF86RFKill,exec,$HOME/.config/hypr/scripts/rfkill
+bind=,XF86RFKill,exec,rfkill
 binde=,XF86AudioRaiseVolume,exec,volumectl -b up
 binde=,XF86AudioLowerVolume,exec,volumectl -b down
 bind=,XF86AudioMute,exec,volumectl toggle-mute
@@ -76,8 +70,8 @@ bind=,XF86Launch3,togglespecialworkspace,backgroundappsrogcontrolcenter
 # bind=$SHIFT_MOD,U,hyprload,update
 
 # Move Windows Between Monitors
-bind=$SHIFT_MOD,left,split-changemonitor,prev
-bind=$SHIFT_MOD,right,split-changemonitor,next
+# bind=$SHIFT_MOD,left,split-changemonitor,prev
+# bind=$SHIFT_MOD,right,split-changemonitor,next
 
 bind=ALT,TAB,workspace, e+1
 bind=$MOD,TAB,workspace, e-1
@@ -90,13 +84,13 @@ bindl=,switch:off:Lid Switch,exec,/usr/bin/systemctl suspend
 
 # Move Windows Between Workspaces
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}
-# split-workspaces hyprland plugin
+# split-monitor-workspaces hyprland plugin
 {{- range $i := untilStep 1 10 1 }}
-bind=$MOD,{{$i}},split-workspace, {{$i}}
-bind=$SHIFT_MOD,{{$i}},split-movetoworkspace, {{$i}}
+bind=$MOD,{{$i}},exec, split-monitor-workspaces workspace {{$i}}
+bind=$SHIFT_MOD,{{$i}},exec, split-monitor-workspaces movetoworkspace {{$i}}
 {{- end }}
-bind=$MOD,0,split-workspace, 10
-bind=$SHIFT_MOD,0,split-movetoworkspace, 10
+bind=$MOD,0,exec, split-monitor-workspaces workspace 10
+bind=$SHIFT_MOD,0,exec, split-monitor-workspaces movetoworkspace 10
 {{- else }}
 {{- range $i := untilStep 1 10 1 }}
 bind=$MOD,{{$i}},workspace, {{$i}}

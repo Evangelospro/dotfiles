@@ -4,7 +4,7 @@ exec-once=/usr/bin/dbus-update-activation-environment --all
 # exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
 
 # Hyprland plugins
-exec-once=/usr/local/bin/hyprpm reload -n
+# exec-once=/usr/local/bin/hyprpm reload -n
 
 # Polkit and keyring
 exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -16,7 +16,6 @@ exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOB
 # Theming
 exec-once=/usr/bin/xsettingsd &
 exec-once=$HOME/.config/hypr/scripts/import_themes
-# exec-once=$HOME/.azotebg-hyprland
 exec-once=/usr/bin/hyprpaper
 
 # Bar
