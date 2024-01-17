@@ -49,61 +49,61 @@
         "image#workspace-eDP-1-1": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-1.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 1",
+            "on-click": "workspace 1",
             "size": 44
         },
         "image#workspace-eDP-1-2": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-2.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 2",
+            "on-click": "workspace 2",
             "size": 44
         },
         "image#workspace-eDP-1-3": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-3.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 3",
+            "on-click": "workspace 3",
             "size": 44
         },
         "image#workspace-eDP-1-4": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-4.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 4",
+            "on-click": "workspace 4",
             "size": 44
         },
         "image#workspace-eDP-1-5": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-5.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 5",
+            "on-click": "workspace 5",
             "size": 44
         },
         "image#workspace-eDP-1-6": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-6.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 6",
+            "on-click": "workspace 6",
             "size": 44
         },
         "image#workspace-eDP-1-7": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-7.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 7",
+            "on-click": "workspace 7",
             "size": 44
         },
         "image#workspace-eDP-1-8": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-8.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 8",
+            "on-click": "workspace 8",
             "size": 44
         },
         "image#workspace-eDP-1-9": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-9.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 9",
+            "on-click": "workspace 9",
             "size": 44
         },
         "image#workspace-eDP-1-10": {
             "path": "/tmp/waybar-icons/workspace-eDP-1-10.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 10",
+            "on-click": "workspace 10",
             "size": 44
         }
     },
@@ -157,61 +157,61 @@
         "image#workspace-eDP-2-1": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-1.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 1",
+            "on-click": "workspace 1",
             "size": 44
         },
         "image#workspace-eDP-2-2": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-2.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 2",
+            "on-click": "workspace 2",
             "size": 44
         },
         "image#workspace-eDP-2-3": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-3.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 3",
+            "on-click": "workspace 3",
             "size": 44
         },
         "image#workspace-eDP-2-4": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-4.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 4",
+            "on-click": "workspace 4",
             "size": 44
         },
         "image#workspace-eDP-2-5": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-5.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 5",
+            "on-click": "workspace 5",
             "size": 44
         },
         "image#workspace-eDP-2-6": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-6.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 6",
+            "on-click": "workspace 6",
             "size": 44
         },
         "image#workspace-eDP-2-7": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-7.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 7",
+            "on-click": "workspace 7",
             "size": 44
         },
         "image#workspace-eDP-2-8": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-8.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 8",
+            "on-click": "workspace 8",
             "size": 44
         },
         "image#workspace-eDP-2-9": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-9.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 9",
+            "on-click": "workspace 9",
             "size": 44
         },
         "image#workspace-eDP-2-10": {
             "path": "/tmp/waybar-icons/workspace-eDP-2-10.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 10",
+            "on-click": "workspace 10",
             "size": 44
         }
     },
@@ -265,61 +265,61 @@
         "image#workspace-DP-1-1": {
             "path": "/tmp/waybar-icons/workspace-DP-1-1.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 1",
+            "on-click": "workspace 1",
             "size": 44
         },
         "image#workspace-DP-1-2": {
             "path": "/tmp/waybar-icons/workspace-DP-1-2.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 2",
+            "on-click": "workspace 2",
             "size": 44
         },
         "image#workspace-DP-1-3": {
             "path": "/tmp/waybar-icons/workspace-DP-1-3.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 3",
+            "on-click": "workspace 3",
             "size": 44
         },
         "image#workspace-DP-1-4": {
             "path": "/tmp/waybar-icons/workspace-DP-1-4.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 4",
+            "on-click": "workspace 4",
             "size": 44
         },
         "image#workspace-DP-1-5": {
             "path": "/tmp/waybar-icons/workspace-DP-1-5.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 5",
+            "on-click": "workspace 5",
             "size": 44
         },
         "image#workspace-DP-1-6": {
             "path": "/tmp/waybar-icons/workspace-DP-1-6.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 6",
+            "on-click": "workspace 6",
             "size": 44
         },
         "image#workspace-DP-1-7": {
             "path": "/tmp/waybar-icons/workspace-DP-1-7.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 7",
+            "on-click": "workspace 7",
             "size": 44
         },
         "image#workspace-DP-1-8": {
             "path": "/tmp/waybar-icons/workspace-DP-1-8.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 8",
+            "on-click": "workspace 8",
             "size": 44
         },
         "image#workspace-DP-1-9": {
             "path": "/tmp/waybar-icons/workspace-DP-1-9.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 9",
+            "on-click": "workspace 9",
             "size": 44
         },
         "image#workspace-DP-1-10": {
             "path": "/tmp/waybar-icons/workspace-DP-1-10.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 10",
+            "on-click": "workspace 10",
             "size": 44
         },
     },
@@ -373,61 +373,61 @@
         "image#workspace-DP-2-1": {
             "path": "/tmp/waybar-icons/workspace-DP-2-1.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 1",
+            "on-click": "workspace 1",
             "size": 44
         },
         "image#workspace-DP-2-2": {
             "path": "/tmp/waybar-icons/workspace-DP-2-2.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 2",
+            "on-click": "workspace 2",
             "size": 44
         },
         "image#workspace-DP-2-3": {
             "path": "/tmp/waybar-icons/workspace-DP-2-3.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 3",
+            "on-click": "workspace 3",
             "size": 44
         },
         "image#workspace-DP-2-4": {
             "path": "/tmp/waybar-icons/workspace-DP-2-4.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 4",
+            "on-click": "workspace 4",
             "size": 44
         },
         "image#workspace-DP-2-5": {
             "path": "/tmp/waybar-icons/workspace-DP-2-5.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 5",
+            "on-click": "workspace 5",
             "size": 44
         },
         "image#workspace-DP-2-6": {
             "path": "/tmp/waybar-icons/workspace-DP-2-6.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 6",
+            "on-click": "workspace 6",
             "size": 44
         },
         "image#workspace-DP-2-7": {
             "path": "/tmp/waybar-icons/workspace-DP-2-7.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 7",
+            "on-click": "workspace 7",
             "size": 44
         },
         "image#workspace-DP-2-8": {
             "path": "/tmp/waybar-icons/workspace-DP-2-8.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 8",
+            "on-click": "workspace 8",
             "size": 44
         },
         "image#workspace-DP-2-9": {
             "path": "/tmp/waybar-icons/workspace-DP-2-9.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 9",
+            "on-click": "workspace 9",
             "size": 44
         },
         "image#workspace-DP-2-10": {
             "path": "/tmp/waybar-icons/workspace-DP-2-10.svg",
             "interval": 1,
-            "on-click": "hyprctl dispatch split-workspace 10",
+            "on-click": "workspace 10",
             "size": 44
         },
     }

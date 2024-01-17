@@ -23,7 +23,7 @@
 )
 
 (defwidget workspaces [?monitor]
-  (eventbox :onscroll "echo {{}} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch split-workspace"
+  (eventbox :onscroll "echo {{}} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs workspace"
     (box
       :orientation "h"
       :spacing 3
@@ -33,7 +33,7 @@
         (box
             (button
                 :class "${workspace["status"]}"
-                :onclick "hyprctl dispatch split-workspace ${workspace["num"]}"
+                :onclick "workspace ${workspace["num"]}"
                 :tooltip "workspace ${workspace["num"]}"
                 (box
                     :orientation "v"

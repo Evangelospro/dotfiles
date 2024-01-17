@@ -84,13 +84,13 @@ bindl=,switch:off:Lid Switch,exec,/usr/bin/systemctl suspend
 
 # Move Windows Between Workspaces
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}
-# split-monitor-workspaces hyprland plugin
+# Use the quick bash scripts emulating the split-monitor-wosrkpace plugin functionality
 {{- range $i := untilStep 1 10 1 }}
-bind=$MOD,{{$i}},exec, split-monitor-workspaces workspace {{$i}}
-bind=$SHIFT_MOD,{{$i}},exec, split-monitor-workspaces movetoworkspace {{$i}}
+bind=$MOD,{{$i}},exec, workspace {{$i}}
+bind=$SHIFT_MOD,{{$i}},exec, movetoworkspace {{$i}}
 {{- end }}
-bind=$MOD,0,exec, split-monitor-workspaces workspace 10
-bind=$SHIFT_MOD,0,exec, split-monitor-workspaces movetoworkspace 10
+bind=$MOD,0,exec, workspace 10
+bind=$SHIFT_MOD,0,exec, movetoworkspace 10
 {{- else }}
 {{- range $i := untilStep 1 10 1 }}
 bind=$MOD,{{$i}},workspace, {{$i}}

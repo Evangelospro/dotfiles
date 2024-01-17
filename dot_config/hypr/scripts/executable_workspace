@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+WORKSPACES_COUNT_PER_MONITOR=10
+if [ -z "$1" ]; then
+    echo "Usage: $0 <workspace> [workspace]"
+    exit 1
+fi
+
+activeMonitorNumber=$(hyprctl monitors -j | jaq -r '.[] | select(.focused == true) | .id')
+if [ -z "$activeMonitorNumber" ]; then
+    echo "No active monitor found"
+    exit 1
+fi
+
+# actual workspace number is as activeMonitorNumber * WORKSPACES_COUNT_PER_MONITOR + workspaceNumber
+workspaceNumber="$1"
+workspaceNumber=$((activeMonitorNumber * WORKSPACES_COUNT_PER_MONITOR + workspaceNumber))
+hyprctl dispatch workspace "$workspaceNumber"

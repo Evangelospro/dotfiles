@@ -8,6 +8,8 @@ function update() {
     if [ -d $HOME/.config/Burp/Burp-Loader ]; then
         update-burp
     fi
+    spicetify upgrade
+    spicetify backup apply
 }
 
 function update-zsh() {
