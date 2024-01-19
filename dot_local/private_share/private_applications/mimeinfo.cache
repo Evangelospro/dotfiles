@@ -2,7 +2,6 @@
 application/x-ipynb+json=jupyter-nbclassic.desktop;jupyter-notebook.desktop;
 application/x-zoom=zoom-pwa.desktop;
 x-scheme-handler/callto=zoom-pwa.desktop;
-x-scheme-handler/etcher=appimagekit_e6091a9af975ec13d56355018a4e84fe-balenaEtcher.desktop;
 x-scheme-handler/msteams=teams-pwa.desktop;
 x-scheme-handler/tel=zoom-pwa.desktop;
 x-scheme-handler/zoommtg=zoom-pwa.desktop;

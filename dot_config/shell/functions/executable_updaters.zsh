@@ -8,8 +8,7 @@ function update() {
     if [ -d $HOME/.config/Burp/Burp-Loader ]; then
         update-burp
     fi
-    spicetify upgrade
-    spicetify backup apply
+    update-spicetify
 }
 
 function update-zsh() {
@@ -17,6 +16,12 @@ function update-zsh() {
     zinit update --parallel 40
     # Update zinit
     zinit self-update
+}
+
+function update-spicetify(){
+    spicetify upgrade
+    spicetify restore backup
+    spicetify backup apply
 }
 
 function update-burp() {
