@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+X=$(hyprctl cursorpos | cut -d',' -f1)
+Y=$(hyprctl cursorpos | cut -d',' -f2)
+
+hyprctl dispatch movecursor 0 0
+
+# execute command as argument
+$@
+
+hyprctl dispatch movecursor $X $Y

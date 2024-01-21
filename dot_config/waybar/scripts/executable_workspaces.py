@@ -189,7 +189,7 @@ class Workspacer(hyprland.Events):
         self.focusedMon = mon_id
         try:
             ws = int(ws)
-            self.focusedws = ws % self.numOfWorkspaces
+            self.focusedws = ws % self.NUM_OF_WORKSPACES
         except ValueError:
             self.log_event(f"Failed to convert {ws} to int")
         self.generate()
@@ -198,7 +198,7 @@ class Workspacer(hyprland.Events):
         self.log_event(f"Workspace {ws} created")
         try:
             ws = int(ws)
-            self.focusedws = ws % self.numOfWorkspaces
+            self.focusedws = ws % self.NUM_OF_WORKSPACES
         except ValueError:
             self.log_event(f"Failed to convert {ws} to int")
         # self.generate()
@@ -207,7 +207,7 @@ class Workspacer(hyprland.Events):
         self.log_event(f"Workspace {ws} destroyed")
         try:
             ws = int(ws)
-            self.workspaces[self.focusedMon][int(ws) % self.numOfWorkspaces] = {"status": "inactive-workspace", "icons": [[], []]}
+            self.workspaces[self.focusedMon][int(ws) % self.NUM_OF_WORKSPACES] = {"status": "inactive-workspace", "icons": [[], []]}
         except ValueError:
             self.log_event(f"Failed to convert {ws} to int")
         # self.generate()
@@ -218,7 +218,7 @@ class Workspacer(hyprland.Events):
         self.focusedMon = mon_id
         try:
             ws = int(ws)
-            self.focusedws = int(ws) % self.numOfWorkspaces
+            self.focusedws = int(ws) % self.NUM_OF_WORKSPACES
         except ValueError:
             self.log_event(f"Failed to convert {ws} to int")
         self.generate()

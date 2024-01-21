@@ -18,7 +18,7 @@ bind=,XF86Search,exec,launcher
 bind=$MOD,V,exec,clipMenu
 bind=$MOD,C,exec,hyprpicker | wl-copy
 bind=$MOD,E,exec,nemo
-bind=$SHIFT_MOD,R,exec,$HOME/.config/waybar/launch
+bind=$SHIFT_MOD,R,exec,reload-hyprland
 bind=$MOD,R,exec,dynamic-resize
 
 # Close / Fullscreen / Kill Applications / Arrange monitors
@@ -26,7 +26,7 @@ bind=ALT_L,F4,killactive
 bindr=CTRL_SHIFT,ESCAPE,exec, hyprctl kill # xkill like functionality
 bind=$MOD,F,fullscreen,0
 bind=$MOD_SHIFT,F,togglefloating
-bind=$MOD,P,exec,monitorMenu
+bind=$MOD,P,exec,project-menu
 
 # Screenshot / OCR
 ## Disable animations for screenshot
