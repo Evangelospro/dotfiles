@@ -184,7 +184,7 @@ class Workspacer(hyprland.Events):
         self.generate()
 
     async def on_focusedmon(self, mon:str, ws:int) -> None:
-        mon_id = self.getMonitorId(mon)
+        mon_id = self.get_monitor_id(mon)
         self.log_event(f"Monitor changed to {mon_id} at workspace {ws}")
         self.focusedMon = mon_id
         try:
@@ -213,7 +213,7 @@ class Workspacer(hyprland.Events):
         # self.generate()
 
     async def on_moveworkspace(self, ws:int, mon:str) -> None:
-        mon_id = self.getMonitorId(mon)
+        mon_id = self.get_monitor_id(mon)
         self.log_event(f"app moved to workspace {ws} on monitor {mon_id}")
         self.focusedMon = mon_id
         try:

@@ -2,9 +2,7 @@
 	// ZEN MODE
 	"zenMode.centerLayout": false,
 	"zenMode.hideStatusBar": false,
-	"zenMode.hideLineNumbers": false,
-	// WINDOW SETTINGS
-	"window.zoomLevel": 2,
+    "zenMode.hideLineNumbers": false,
 	"window.commandCenter": false,
 	"window.newWindowDimensions": "maximized",
 	"window.restoreWindows": "one",

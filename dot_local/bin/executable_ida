@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-# check if the container(docker-ida) exists on the system
-# if it does not exist, create it
-
-
 
 function outputInfo(){
     echo "Connect to docker_ip:3389 via RDP"
@@ -15,7 +11,7 @@ function startRDP(){
     then
         # find the ip of the container
         # ipaddr=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docker-ida)
-        rdesktop -u root -p DockerWineIDA 127.0.0.1:7878 -g 1920x1080
+        rdesktop -u root -p DockerWineIDA 127.0.0.1:3389 -g 1920x1080
     fi
 }
 
@@ -23,19 +19,9 @@ startup_command="echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida
 
 # if the first parameter is start
 if [ "$1" == "start" ]; then
-    if [ ! "$(docker ps -q -a -f name=docker-ida)" ]; then
-        # Create container
-        echo "Creating container..."
-        (cd $HOME/.local/bin/docker-ida && docker compose up -d)
-        echo "Container created"
-    else
-        # if status is exited or created, start it
-        status=$(docker inspect -f '{{.State.Status}}' docker-ida)
-        if [ "$status" == "exited" ] || [ "$status" == "created" ]; then
-            echo "Starting container..."
-            docker start docker-ida
-        fi
-    fi
+    echo "Creating/starting container..."
+    (cd $HOME/.local/bin/docker-ida && docker compose up -d)
+    echo "Container created/started"
     sleep 2
     echo "Entering container..."
     outputInfo
@@ -44,7 +30,7 @@ if [ "$1" == "start" ]; then
 elif [ "$1" == "stop" ]; then
     if [ "$(docker ps -aq -f name=docker-ida)" ]; then
         echo "Stopping container..."
-        docker stop docker-ida
+        (cd $HOME/.local/bin/docker-ida && docker compose down)
         echo "Container stopped"
     else
         echo "Container does not exist, nothing to stop"

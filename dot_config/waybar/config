@@ -102,7 +102,7 @@
             "size": 44
         },
         "image#workspace-0-10": {
-            "path": "/tmp/waybar-icons/workspace-1-10.svg",
+            "path": "/tmp/waybar-icons/workspace-0-10.svg",
             "interval": 1,
             "on-click": "workspace 10",
             "size": 44
