@@ -1,4 +1,8 @@
 {
+    "code-insiders-url-handler": {
+        "name": "Visual Studio Code Insiders",
+        "icon": "visual-studio-code-insiders"
+    },
     "burp-StartBurp": {
         "name": "BurpSuite",
         "icon": "burp"
@@ -70,5 +74,13 @@
     "vesktop": {
         "name": "Discord",
         "icon": "discord"
+    },
+    "jetbrains-studio": {
+        "name": "Android Studio",
+        "icon": "android-studio"
+    },
+    "xyz.chatboxapp.app": {
+        "name": "ChatBox AI",
+        "icon": "google-chat"
     }
 }

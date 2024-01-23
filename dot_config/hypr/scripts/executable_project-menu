@@ -1,10 +1,5 @@
 #!/bin/bash
 
-clean(){
-    $HOME/.config/waybar/launch
-    hyprctl reload
-}
-
 # Define the options for the Rofi menu
 options=("Extend Monitors
 Duplicate Monitors")
@@ -14,12 +9,12 @@ choice=$(printf '%s
 
 # Run the appropriate script
 case $choice in
-    "Extend Monitors")
-        cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
-        clean
+"Extend Monitors")
+    cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
+    reload-hyprland
     ;;
-    "Duplicate Monitors")
-        cp $HOME/.config/hypr/monitors_duplicate.conf $HOME/.config/hypr/monitors.conf
-        clean
+"Duplicate Monitors")
+    cp $HOME/.config/hypr/monitors_duplicate.conf $HOME/.config/hypr/monitors.conf
+    reload-hyprland
     ;;
 esac

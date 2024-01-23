@@ -21,8 +21,6 @@ class Workspacer(hyprland.Events):
         self.c = hyprland.Config()
         super().__init__()
 
-        self.window_names = self.load_window_names()
-
         self.monitormap: dict[int, str] = {}
         # set monitorMap and self.focusedMon
         self.refresh_monitors()
@@ -36,17 +34,6 @@ class Workspacer(hyprland.Events):
         self.log_event(f"workspaces {self.workspaces}")
         # generate initial widget
         self.generate()
-
-    def load_window_names(self) -> dict:
-        try:
-            window_names_path = os.path.join(
-                os.path.dirname(os.path.realpath(__file__)), "window_names.json"
-            )
-            with open(window_names_path, "r") as f:
-                return json.load(f)
-        except (FileNotFoundError, json.JSONDecodeError) as e:
-            self.log_event(f"Failed to load window names with error: {e}")
-            return {}
 
     def get_monitor_id(self, mon: str) -> int:
         for id, name in self.monitormap.items():
@@ -122,21 +109,13 @@ class Workspacer(hyprland.Events):
     def get_icon(self, class_name: str, size: int) -> str:
         # Attempt to use any manually set icons
         self.log_event(f"Getting icon for {class_name}")
-        if self.window_names.get(class_name) is not None:
-            icon = self.window_names[class_name]["icon"]
-            if os.path.exists(os.path.expanduser(icon)):
-                return os.path.expanduser(icon)
-            else:
-                class_name = icon
-
-        for class_name_test in [class_name, class_name.lower()]:
-            icon_list = (
+        icon_list = (
                 subprocess.check_output(
-                    ["geticons", "--no-fallbacks", class_name_test, "-s", str(size), "-c", "1"]
+                    ["geticon", class_name, "-s", str(size), "-c", "1"]
                 ).decode().splitlines()
             )
-            if icon_list:
-                return icon_list[0]
+        if icon_list:
+            return icon_list[0]
         else:
             self.log_event(f"Failed to get icon for {class_name} please fix...")
             return self.appgridIcon
