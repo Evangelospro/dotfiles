@@ -306,5 +306,7 @@
 		"delete"
 	],
 	"vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
-	"workbench.editor.tabActionLocation": "right"
+    "workbench.editor.tabActionLocation": "right",
+    "breadcrumbs.enabled": false,
+    "editor.stickyScroll.enabled": false
 }

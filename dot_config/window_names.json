@@ -3,6 +3,10 @@
         "name": "Visual Studio Code Insiders",
         "icon": "visual-studio-code-insiders"
     },
+    "Code - Insiders": {
+        "name": "Visual Studio Code Insiders",
+        "icon": "visual-studio-code-insiders"
+    },
     "burp-StartBurp": {
         "name": "BurpSuite",
         "icon": "burp"

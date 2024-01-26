@@ -23,22 +23,22 @@ def getIcon(class_name, size):
                 ["/usr/bin/geticons", "--no-fallbacks", class_name_test, "-s", str(size), "-c", "1"]
             )
             .decode()
-            .splitlines()
+            .strip()
         )
-        return "\n".join(icon_list)
-    else:
-        print(f"Failed to get icon for {class_name} please fix...")
-        subprocess.Popen(
-            [
-                "notify-send",
-                "-u",
-                "critical",
-                "-t",
-                "5000",
-                f"Icon not found for {class_name} manually fix in windowNames.json",
-            ]
-        )
-        return DEFAULT_ICON
+        if icon_list:
+            return icon_list
+    print(f"Failed to get icon for {class_name} please fix...")
+    subprocess.Popen(
+        [
+            "notify-send",
+            "-u",
+            "critical",
+            "-t",
+            "5000",
+            f"Icon not found for {class_name} manually fix in windowNames.json",
+        ]
+    )
+    return DEFAULT_ICON
 
 
 if __name__ == "__main__":
