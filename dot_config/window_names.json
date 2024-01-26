@@ -7,6 +7,10 @@
         "name": "Visual Studio Code Insiders",
         "icon": "visual-studio-code-insiders"
     },
+    "xdg-desktop-portal-gtk": {
+        "name": "XDG Desktop Portal GTK",
+        "icon": "nemo"
+    },
     "burp-StartBurp": {
         "name": "BurpSuite",
         "icon": "burp"
