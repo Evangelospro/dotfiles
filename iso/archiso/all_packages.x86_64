@@ -498,6 +498,7 @@ perl-image-exiftool
 python-impacket
 aur/ruby-evil-winrm
 ## Web
+aur/nodejs-localtunnel
 python-beautifulsoup4
 python-flask
 wpscan
@@ -557,7 +558,7 @@ aur/pacman-cleanup-hook
 # Launchers
 aur/anyrun-git
 # aur/ulauncher-git
-rofi
+rofi-lbonn-wayland
 
 # parsers
 aur/jaq # faster than jq

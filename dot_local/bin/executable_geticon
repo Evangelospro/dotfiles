@@ -3,20 +3,27 @@ import subprocess
 import sys
 import json
 import os
+import re
 
 DEFAULT_ICON = "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"
 ICON_SIZE = 22
 
 WINDOW_NAMES = json.loads(open(os.path.expanduser("~/.config/window_names.json")).read())
 
+def failed(class_name):
+    print(f"Failed to get icon for {class_name} please fix...")
+    return DEFAULT_ICON
+
 
 def getIcon(class_name, size):
-    if WINDOW_NAMES.get(class_name):
-        icon = WINDOW_NAMES[class_name]["icon"]
-        if os.path.exists(os.path.expanduser(icon)):
-            return os.path.expanduser(icon)
-        else:
-            class_name = icon
+    for regx in WINDOW_NAMES.keys():
+        if re.search(regx, class_name):
+            icon_class_name = WINDOW_NAMES[regx]["icon"]
+            if os.path.exists(os.path.expanduser(icon_class_name)):
+                return os.path.expanduser(icon_class_name)
+            else:
+                class_name = icon_class_name
+            break
     for class_name_test in [class_name, class_name.lower()]:
         icon_list = (
             subprocess.check_output(
@@ -27,18 +34,17 @@ def getIcon(class_name, size):
         )
         if icon_list:
             return icon_list
-    print(f"Failed to get icon for {class_name} please fix...")
-    subprocess.Popen(
-        [
-            "notify-send",
-            "-u",
-            "critical",
-            "-t",
-            "5000",
-            f"Icon not found for {class_name} manually fix in windowNames.json",
-        ]
-    )
-    return DEFAULT_ICON
+    # subprocess.Popen(
+    #     [
+    #         "notify-send",
+    #         "-u",
+    #         "critical",
+    #         "-t",
+    #         "5000",
+    #         f"Icon not found for {class_name} manually fix in window_names.json",
+    #     ]
+    # )
+    return failed(class_name)
 
 
 if __name__ == "__main__":

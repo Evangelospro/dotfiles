@@ -11,6 +11,10 @@
         "name": "XDG Desktop Portal GTK",
         "icon": "nemo"
     },
+    "thorium*": {
+        "name": "Thorium",
+        "icon": "thorium-browser"
+    },
     "burp-StartBurp": {
         "name": "BurpSuite",
         "icon": "burp"
@@ -34,10 +38,6 @@
     "ONLYOFFICE Desktop Editors": {
         "name": "onlyoffice",
         "icon": "onlyoffice-desktopeditors"
-    },
-    "Rofi": {
-        "name": "Rofi",
-        "icon": "/usr/share/icons/hicolor/scalable/apps/rofi.svg"
     },
     "Gimp-2.10": {
         "name": "Gimp",
@@ -86,6 +86,10 @@
     "jetbrains-studio": {
         "name": "Android Studio",
         "icon": "android-studio"
+    },
+    "usbguard-applet-qt": {
+        "name": "USB Guard",
+        "icon": "usbguard-icon"
     },
     "xyz.chatboxapp.app": {
         "name": "ChatBox AI",

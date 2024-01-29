@@ -52,7 +52,6 @@
     branch = "main"
     refreshPeriod = "6h"
     clone.args = ["--recursive", "--depth=20"]
-    pull.args = ["--recurse-submodules"]
 
 {{- if (or (eq .chezmoi.hostname "ELARCH-F15") (eq .chezmoi.hostname "PWNENV")) }}
 [".config/gdb/pwndbg"]
