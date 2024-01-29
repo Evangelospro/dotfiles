@@ -95,8 +95,8 @@ docs/zsdoc/data
 .ssh/keys/portainer
 .ssh/keys/eserver-local
 .ssh/keys/ftc
-.ssh/keys/elarch-builder
 .ssh/keys/ecsc
+.ssh/keys/c2
 {{- else }}
 {{- if  stat (joinPath .chezmoi.homeDir ".ssh/config") }}
 .ssh/config
@@ -118,6 +118,9 @@ docs/zsdoc/data
 {{- end }}
 {{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/ecsc") }}
 .ssh/keys/ecsc
+{{- end }}
+{{- if  stat (joinPath .chezmoi.homeDir ".ssh/keys/c2") }}
+.ssh/keys/c2
 {{- end }}
 {{- end }}
 # The below are to be manually updated, if needed(the usually store files that change with timestamps...)

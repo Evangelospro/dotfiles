@@ -1,8 +1,16 @@
 bindkey -e
+# CTRL + A
 bindkey '^[[s' beginning-of-line
+# CTRL + E
 bindkey '^[[e' end-of-line
+# ALT + Delete
 bindkey '^[[3~' delete-char
+# ALT + Backspace
 bindkey '^[[3;3~' kill-word
+# ALT + A
+bindkey '^[a' backward-word
+# ALT + D
+bindkey '^[d' forward-word
 
 # bind ctrl + t to fzf fuzzy finder
 bindkey '^t' fzf-file-widget

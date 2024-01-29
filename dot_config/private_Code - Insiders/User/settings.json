@@ -328,5 +328,6 @@
     "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
     "workbench.editor.tabActionLocation": "right",
     "breadcrumbs.enabled": false,
-    "editor.stickyScroll.enabled": false
+    "editor.stickyScroll.enabled": false,
+    "update.mode": "none"
 }
