@@ -44,6 +44,16 @@
         "extender":{
             "extensions":[
                 {
+                    "bapp_serial_version":31,
+                    "bapp_uuid":"3123d5b5f25c4128894d97ea1acc4976",
+                    "errors":"ui",
+                    "extension_file":"bapps/3123d5b5f25c4128894d97ea1acc4976/activeScan++.py",
+                    "extension_type":"python",
+                    "loaded":false,
+                    "name":"Active Scan++",
+                    "output":"ui"
+                },
+                {
                     "bapp_serial_version":5,
                     "bapp_uuid":"b324647b6efa4b6a8f346389730df160",
                     "errors":"ui",
@@ -54,13 +64,13 @@
                     "output":"ui"
                 },
                 {
-                    "bapp_serial_version":23,
-                    "bapp_uuid":"f923cbf91698420890354c1d8958fee6",
+                    "bapp_serial_version":22,
+                    "bapp_uuid":"f154175126a04bfe8edc6056f340f52e",
                     "errors":"ui",
-                    "extension_file":"bapps/f923cbf91698420890354c1d8958fee6/target/JWT4B-jar-with-dependencies.jar",
-                    "extension_type":"java",
-                    "loaded":true,
-                    "name":"JSON Web Tokens",
+                    "extension_file":"bapps/f154175126a04bfe8edc6056f340f52e/SQLiPy.py",
+                    "extension_type":"python",
+                    "loaded":false,
+                    "name":"SQLiPy Sqlmap Integration",
                     "output":"ui"
                 },
                 {
@@ -79,7 +89,7 @@
                     "errors":"ui",
                     "extension_file":"bapps/cc16f37549ff416b990d4312490f5fd1/minimizer.py",
                     "extension_type":"python",
-                    "loaded":true,
+                    "loaded":false,
                     "name":"Request Minimizer",
                     "output":"ui"
                 },
@@ -104,13 +114,33 @@
                     "output":"ui"
                 },
                 {
+                    "bapp_serial_version":5,
+                    "bapp_uuid":"b89968942a3e4cab916b6c761beb2003",
+                    "errors":"ui",
+                    "extension_file":"bapps/b89968942a3e4cab916b6c761beb2003/target/autowasp-1.0-SNAPSHOT-jar-with-dependencies.jar",
+                    "extension_type":"java",
+                    "loaded":true,
+                    "name":"Autowasp",
+                    "output":"ui"
+                },
+                {
                     "bapp_serial_version":43,
                     "bapp_uuid":"3c5025b0e19d419a8f339ee0c30391dd",
                     "errors":"ui",
                     "extension_file":"bapps/3c5025b0e19d419a8f339ee0c30391dd/releases/sharpener.jar",
                     "extension_type":"java",
-                    "loaded":true,
+                    "loaded":false,
                     "name":"Sharpener",
+                    "output":"ui"
+                },
+                {
+                    "bapp_serial_version":10,
+                    "bapp_uuid":"26aaa5ded2f74beea19e2ed8345a93dd",
+                    "errors":"ui",
+                    "extension_file":"bapps/26aaa5ded2f74beea19e2ed8345a93dd/build/libs/jwt-editor-2.1.1.jar",
+                    "extension_type":"java",
+                    "loaded":true,
+                    "name":"JWT Editor",
                     "output":"ui"
                 }
             ],
@@ -119,7 +149,7 @@
             },
             "python":{
                 "folder_for_loading_modules":"",
-                "location_of_jython_standalone_jar_file":"/home/evangelospro/.config/Burp/Burp-Loader/jython-standalone.jar"
+                "location_of_jython_standalone_jar_file":"/home/evangelospro/Burp/Burp-Loader/jython-standalone.jar"
             },
             "ruby":{
                 "location_of_jruby_jar_file":""

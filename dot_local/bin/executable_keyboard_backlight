@@ -1,9 +1,0 @@
-#!/bin/bash
-
-max_brightness=$(cat /sys/class/leds/tpacpi::kbd_backlight/max_brightness)
-if [ "$max_brightness" == "" ]; then
-    echo "Keyboard backlight not found"
-    exit 1
-else
-    brightnessctl --device='tpacpi::kbd_backlight' set $max_brightness
-fi
