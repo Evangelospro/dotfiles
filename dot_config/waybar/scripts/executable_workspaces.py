@@ -2,12 +2,15 @@
 
 # Author: https://github.com/Evangelospro
 
-import json
+import asyncio
 import os
-import subprocess
 import sys
-from svgutils.compose import Panel, SVG, Figure
 import hyprland
+from svgutils.compose import SVG, Figure, Panel
+
+sys.path.append(os.path.expanduser("~/.local/bin"))
+from geticon import generate_icon_list
+
 
 class Workspacer(hyprland.Events):
     ICONS_DIR = "/tmp/waybar-icons"
@@ -23,17 +26,29 @@ class Workspacer(hyprland.Events):
 
         self.monitormap: dict[int, str] = {}
         # set monitorMap and self.focusedMon
-        self.refresh_monitors()
 
         self.accentColor = "#bd93f9"
         self.focusedws = 1
         self.iconSize = 22
-        self.appgridIcon = self.get_icon("appgrid", self.iconSize)
 
         self.reset()
         self.log_event(f"workspaces {self.workspaces}")
+
+    @classmethod
+    async def create(cls):
+        self = cls()
+        try:
+            await self.async_connect()
+        except Exception as e:
+            print(e)
+            self.log_event("Failed to connect to Hyprland socket")
+            self.log_event("Manual intervention required cleaning up...")
+            self.clean()
+        # await self.async_connect()
+        await self.refresh_monitors()
         # generate initial widget
-        self.generate()
+        await self.generate()
+        return self
 
     def get_monitor_id(self, mon: str) -> int:
         for id, name in self.monitormap.items():
@@ -50,20 +65,17 @@ class Workspacer(hyprland.Events):
     def reset(self) -> None:
         self.workspaces: dict[int, dict[int, dict[str, str | list]]] = {
             mon: {
-                ws: {
-                    "status": "inactive-workspace",
-                    "icons": [[], []],
-                    "classes": []
-                } for ws in range(1, self.NUM_OF_WORKSPACES + 1)
-            } for mon in self.monitormap.keys()
+                ws: {"status": "inactive-workspace", "icons": [[], []], "classes": []}
+                for ws in range(1, self.NUM_OF_WORKSPACES + 1)
+            }
+            for mon in self.monitormap.keys()
         }
         self.log_event(f"reset workspaces to {self.workspaces}")
 
     # handle monitor (dis)connects
-    def refresh_monitors(self) -> None:
+    async def refresh_monitors(self) -> None:
         try:
-            output = subprocess.check_output(["hyprctl", "-j", "monitors"])
-            monitors_info = json.loads(output.decode())
+            monitors_info = await self.i.monitors()
             for monitor in monitors_info:
                 mon_id = int(monitor["id"])
                 name = monitor["name"]
@@ -74,19 +86,21 @@ class Workspacer(hyprland.Events):
         except Exception as e:
             self.log_event(f"Failed to get monitor info with error {e}")
 
-    def set_classes(self) -> None:
+    async def set_classes(self) -> None:
         self.reset()
         try:
-            clients = json.loads(subprocess.check_output(["hyprctl", "-j", "clients"]).decode())
+            clients = await self.i.clients()
         except Exception as e:
             self.log_event(f"Failed to get applist json with error {e}")
         for client in clients:
             try:
-                mon_id = int(client['monitor'])
-                class_ = client['class']
-                workspace_id = client['workspace']['id']
+                mon_id = int(client["monitor"])
+                class_ = client["class"]
+                workspace_id = client["workspace"]["id"]
                 self.log_event(f"adding client {class_} to workspace {workspace_id} on monitor {mon_id}")
-                if mon_id is not None and class_ and workspace_id > 0:  # if workspace_id is negative then it is a special workspace
+                if (
+                    mon_id is not None and class_ and workspace_id > 0
+                ):  # if workspace_id is negative then it is a special workspace
                     workspace_id = workspace_id % self.NUM_OF_WORKSPACES
                     self.log_event(f"client mon: {mon_id}")
                     self.log_event(f"client class: {class_}")
@@ -96,7 +110,7 @@ class Workspacer(hyprland.Events):
                         self.workspaces[mon_id][workspace_id]["status"] = "active-workspace"
                     else:
                         self.workspaces[mon_id][workspace_id]["status"] = "inactive-workspace"
-                    icon = self.get_icon(class_, self.iconSize)
+                    icon = generate_icon_list(class_, self.iconSize)[0]
                     if len(self.workspaces[mon_id][workspace_id]["icons"][0]) < 2:
                         self.workspaces[mon_id][workspace_id]["icons"][0].append(icon)
                     elif len(self.workspaces[mon_id][workspace_id]["icons"][1]) < 2:
@@ -106,38 +120,24 @@ class Workspacer(hyprland.Events):
                 self.log_event(client)
                 pass
 
-    def get_icon(self, class_name: str, size: int) -> str:
-        # Attempt to use any manually set icons
-        self.log_event(f"Getting icon for {class_name}")
-        icon_list = (
-                subprocess.check_output(
-                    ["geticon", class_name, "-s", str(size), "-c", "1"]
-                ).decode().splitlines()
-            )
-        if icon_list:
-            return icon_list[0]
-        else:
-            self.log_event(f"Failed to get icon for {class_name} please fix...")
-            return self.appgridIcon
-
-    def generate(self) -> None:
-        self.set_classes()
+    async def generate(self) -> None:
+        await self.set_classes()
         for mon_id in self.monitormap.keys():
             self.log_event(f"Generating for monitor {mon_id}")
             for ws in range(1, self.NUM_OF_WORKSPACES + 1):
                 try:
                     self.log_event(self.workspaces[mon_id][ws])
                     top_panels = (
-                        Panel(SVG(svg_path)).move(self.iconSize * i, 0) for i, svg_path in enumerate(
-                            self.workspaces[mon_id][ws]["icons"][0])
+                        Panel(SVG(svg_path)).move(self.iconSize * i, 0)
+                        for i, svg_path in enumerate(self.workspaces[mon_id][ws]["icons"][0])
                     )
                     bottom_panels = (
-                        Panel(SVG(svg_path)).move(self.iconSize * i, self.iconSize) for i, svg_path in enumerate(
-                            self.workspaces[mon_id][ws]["icons"][1])
+                        Panel(SVG(svg_path)).move(self.iconSize * i, self.iconSize)
+                        for i, svg_path in enumerate(self.workspaces[mon_id][ws]["icons"][1])
                     )
                     self.log_event(f"Generating image for workspace {ws}")
-                    x_len = self.iconSize if len(self.workspaces[mon_id][ws]['icons'][0]) <= 1 else self.iconSize * 2
-                    y_len = self.iconSize if len(self.workspaces[mon_id][ws]['icons'][1]) == 0 else self.iconSize * 2
+                    x_len = self.iconSize if len(self.workspaces[mon_id][ws]["icons"][0]) <= 1 else self.iconSize * 2
+                    y_len = self.iconSize if len(self.workspaces[mon_id][ws]["icons"][1]) == 0 else self.iconSize * 2
                     Figure(f"{x_len}px", f"{y_len}px", *top_panels, *bottom_panels).save(
                         f"{self.ICONS_DIR}/workspace-{mon_id}-{ws}.svg"
                     )
@@ -151,7 +151,7 @@ class Workspacer(hyprland.Events):
 
     async def on_connect(self) -> None:
         self.log_event("Connected to Hyprland socket")
-        self.generate()
+        await self.generate()
 
     async def on_workspace(self, ws: int) -> None:
         self.log_event(f"Workspace changed to {ws}")
@@ -160,9 +160,9 @@ class Workspacer(hyprland.Events):
         except ValueError:
             return
         self.focusedws = ws % self.NUM_OF_WORKSPACES
-        self.generate()
+        await self.generate()
 
-    async def on_focusedmon(self, mon:str, ws:int) -> None:
+    async def on_focusedmon(self, mon: str, ws: int) -> None:
         mon_id = self.get_monitor_id(mon)
         self.log_event(f"Monitor changed to {mon_id} at workspace {ws}")
         self.focusedMon = mon_id
@@ -171,9 +171,9 @@ class Workspacer(hyprland.Events):
             self.focusedws = ws % self.NUM_OF_WORKSPACES
         except ValueError:
             self.log_event(f"Failed to convert {ws} to int")
-        self.generate()
+        await self.generate()
 
-    async def on_createworkspace(self, ws:int) -> None:
+    async def on_createworkspace(self, ws: int) -> None:
         self.log_event(f"Workspace {ws} created")
         try:
             ws = int(ws)
@@ -182,16 +182,19 @@ class Workspacer(hyprland.Events):
             self.log_event(f"Failed to convert {ws} to int")
         # self.generate()
 
-    async def on_destroyworkspace(self, ws:int) -> None:
+    async def on_destroyworkspace(self, ws: int) -> None:
         self.log_event(f"Workspace {ws} destroyed")
         try:
             ws = int(ws)
-            self.workspaces[self.focusedMon][int(ws) % self.NUM_OF_WORKSPACES] = {"status": "inactive-workspace", "icons": [[], []]}
+            self.workspaces[self.focusedMon][int(ws) % self.NUM_OF_WORKSPACES] = {
+                "status": "inactive-workspace",
+                "icons": [[], []],
+            }
         except ValueError:
             self.log_event(f"Failed to convert {ws} to int")
         # self.generate()
 
-    async def on_moveworkspace(self, ws:int, mon:str) -> None:
+    async def on_moveworkspace(self, ws: int, mon: str) -> None:
         mon_id = self.get_monitor_id(mon)
         self.log_event(f"app moved to workspace {ws} on monitor {mon_id}")
         self.focusedMon = mon_id
@@ -200,45 +203,43 @@ class Workspacer(hyprland.Events):
             self.focusedws = int(ws) % self.NUM_OF_WORKSPACES
         except ValueError:
             self.log_event(f"Failed to convert {ws} to int")
-        self.generate()
+        await self.generate()
 
     async def on_activewindow(self, *args) -> None:
         window_class = args[0]
         window_title = args[1:]
         self.log_event(f"window changed to {window_class} with title {window_title}")
-        self.generate()
+        await self.generate()
 
     async def on_closewindow(self, window_address: str) -> None:
         self.log_event(f"window with address {window_address} destroyed")
-        self.generate()
+        await self.generate()
 
     async def on_movewindow(self, window_address: str, workspace: int) -> None:
         self.log_event(f"window with address {window_address} moved to workspace {workspace}")
-        self.generate()
+        await self.generate()
 
-    async def on_monitoradded(self, mon:str) -> None:
+    async def on_monitoradded(self, mon: str) -> None:
         self.log_event(f"Monitor {mon} added")
-        self.refresh_monitors()
-        self.generate()
+        await self.refresh_monitors()
+        await self.generate()
 
-    async def on_monitordisconnected(self, mon:str) -> None:
+    async def on_monitordisconnected(self, mon: str) -> None:
         self.log_event(f"Monitor {mon} disconnected")
-        self.refresh_monitors()
-        self.generate()
+        await self.refresh_monitors()
+        await self.generate()
 
-    async def on_closelayer(self, layer:str) -> None:
+    async def on_closelayer(self, layer: str) -> None:
         self.log_event(f"Layer {layer} closed")
-        self.refresh_monitors()
+        await self.refresh_monitors()
 
-    async def on_openlayer(self, layer:str) -> None:
+    async def on_openlayer(self, layer: str) -> None:
         self.log_event(f"Layer {layer} opened")
-        self.refresh_monitors()
+        await self.refresh_monitors()
 
-w = Workspacer()
-try:
-    w.async_connect()
-except Exception as e:
-    print(e)
-    w.log_event("Failed to connect to Hyprland socket")
-    w.log_event("Manual intervention required cleaning up...")
-    w.clean()
+
+async def main():
+    w = await Workspacer().create()
+
+
+asyncio.run(main())

@@ -272,6 +272,7 @@ kwallet-pam
 waybar
 libevdev
 python-evdev
+python-filetype
 ## Logout / Lock screen
 aur/swaylock-effects-git # need -git as swaylock-effects is unmaintained
 swayidle
