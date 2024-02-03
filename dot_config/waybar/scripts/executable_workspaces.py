@@ -13,42 +13,28 @@ from geticon import generate_icon_list
 
 
 class Workspacer(hyprland.Events):
-    ICONS_DIR = "/tmp/waybar-icons"
-    NUM_OF_WORKSPACES = 10
 
     def __init__(self) -> None:
         self.debug = sys.argv[1] if len(sys.argv) > 1 else ""
-        # make a temp dir for icons
-        self.clean()
         self.i = hyprland.info.Info()
         self.c = hyprland.Config()
         super().__init__()
 
-        self.monitormap: dict[int, str] = {}
+        # will populate with monitor info later on
+        self.monitormap: dict[int, str] = {0: "eDP-1"}
         # set monitorMap and self.focusedMon
 
+        # INIT VARS
+        self.ICONS_DIR = "/tmp/waybar-icons"
+        self.NUM_OF_WORKSPACES = 10
+        self.focusedMon = 0
         self.accentColor = "#bd93f9"
         self.focusedws = 1
         self.iconSize = 22
 
         self.reset()
+        self.clean()
         self.log_event(f"workspaces {self.workspaces}")
-
-    @classmethod
-    async def create(cls):
-        self = cls()
-        try:
-            await self.async_connect()
-        except Exception as e:
-            print(e)
-            self.log_event("Failed to connect to Hyprland socket")
-            self.log_event("Manual intervention required cleaning up...")
-            self.clean()
-        # await self.async_connect()
-        await self.refresh_monitors()
-        # generate initial widget
-        await self.generate()
-        return self
 
     def get_monitor_id(self, mon: str) -> int:
         for id, name in self.monitormap.items():
@@ -238,8 +224,5 @@ class Workspacer(hyprland.Events):
         await self.refresh_monitors()
 
 
-async def main():
-    w = await Workspacer().create()
-
-
-asyncio.run(main())
+w = Workspacer()
+w.async_connect()

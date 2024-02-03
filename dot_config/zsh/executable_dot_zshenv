@@ -8,7 +8,7 @@ export LS_COLORS=$(vivid generate dracula)
 export AUTO_NOTIFY_THRESHOLD=450
 export AUTO_NOTIFY_TITLE="Boss! the command: %command has just finished"
 export AUTO_NOTIFY_BODY="Time taken: %elapsed seconds exit code: %exit_code, have a look"
-export AUTO_NOTIFY_IGNORE=("vpn", "htb", "thm", "ipython", "docker", "man", "nano", "vim", "ssh", "less", "e", "openvpn", "ping", "nc", "penelope", 'code', 'crontab', 'watch')
+export AUTO_NOTIFY_IGNORE=("vpn", "htb", "thm", "ipython", "docker", "man", "nano", "vim", "ssh", "less", "e", "openvpn", "ping", "nc", "penelope", 'code', 'crontab', 'watch' 'tail' 'head' 'cat')
 export AUTO_NOTIFY_EXPIRE_TIME=4
 
 export SUDO_EDITOR="/usr/bin/code --wait"
