@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+code-insiders --enable-features=UseOzonePlatform --ozone-platform=wayland "$@"

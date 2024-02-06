@@ -8,7 +8,7 @@
     "window.newWindowDimensions": "maximized",
     "window.restoreWindows": "one",
     "window.title": "${activeEditorShort}${separator}${rootName}",
-    "window.titleBarStyle": "native",
+    "window.titleBarStyle": "custom", //MUST BE CUSTOM for wayland support to work
     "window.titleSeparator": " | ",
     // WORKBENCH SETTINGS
     "workbench.editor.enablePreviewFromQuickOpen": false,

@@ -242,8 +242,9 @@ networkmanager
 network-manager-applet
 ## Bluetooth
 blueman
-## Audio / Sound
+## Audio / Sound / Screensharing
 audacity
+wireplumber
 pipewire
 pipewire-pulse
 pavucontrol

@@ -7,7 +7,7 @@ local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 module.hide_tab_bar_if_only_one_tab = false
 module.window_close_confirmation = 'NeverPrompt'
 module.tab_bar_at_bottom = true
-module.window_decorations = "RESIZE"
+module.window_decorations = "NONE"
 module.scrollback_lines = 10000
 
 module.bidi_enabled = true

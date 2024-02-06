@@ -12,7 +12,7 @@ bind=,XF86Launch4,exec,asusctl led-mode -n
 bind=$MOD,Return,exec,wezterm start --always-new-process
 bind=$MOD,B,exec,thorium-browser
 bind=$SHIFT_MOD,B,exec,burp
-bind=$MOD,D,exec,vesktop
+bind=$MOD_SHIFT,D,exec,vesktop
 bind=$MOD,S,exec,spotify-launcher
 bindl=$MOD,L,exec,lockscreen
 bind=$MOD,SPACE,exec,launcher
@@ -48,16 +48,22 @@ binde=,XF86MonBrightnessUp,exec,lightctl up
 binde=,XF86MonBrightnessDown,exec,lightctl down
 
 # Move focus between windows in the current workspace
-bind=$MOD,left,movefocus,l
-bind=$MOD,right,movefocus,r
-bind=$MOD,up,movefocus,u
-bind=$MOD,down,movefocus,d
+bind=$MOD,left,movewindow,l
+bind=$MOD,right,movewindow,r
+bind=$MOD,up,movewindow,u
+bind=$MOD,down,movewindow,d
 
 # Rearrange windows in the current workspace
-bind=$MOD,A,movewindow,l
-bind=$MOD,D,movewindow,r
-bind=$MOD,W,movewindow,u
-bind=$MOD,S,movewindow,d
+bind=$MOD,A,movefocus,l
+bind=$MOD,D,movefocus,r
+bind=$MOD,W,movefocus,u
+bind=$MOD,S,movefocus,d
+
+# Resize windows in the current workspace
+binde=$MOD_SHIFT,A,resizeactive, -10 0
+binde=$MOD_SHIFT,D,resizeactive, 10 0
+binde=$MOD_SHIFT,W,resizeactive, 0 -10
+binde=$MOD_SHIFT,S,resizeactive, 0 10
 
 # Scratchpads
 ## Valent (KDEConnect) special scratchpad workspace
@@ -86,7 +92,6 @@ bindl=,switch:off:Lid Switch,exec,systemctl suspend
 
 # Move Windows Between Workspaces
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}
-# Use the quick bash scripts emulating the split-monitor-wosrkpace plugin functionality
 {{- range $i := untilStep 1 10 1 }}
 bind=$MOD,{{$i}},exec, workspace {{$i}}
 bind=$SHIFT_MOD,{{$i}},exec, movetoworkspace {{$i}}

@@ -2,11 +2,12 @@
 
 # Author: https://github.com/Evangelospro
 
-import asyncio
 import os
 import sys
 import hyprland
 from svgutils.compose import SVG, Figure, Panel
+import subprocess
+import json
 
 sys.path.append(os.path.expanduser("~/.local/bin"))
 from geticon import generate_icon_list
@@ -20,9 +21,10 @@ class Workspacer(hyprland.Events):
         self.c = hyprland.Config()
         super().__init__()
 
-        # will populate with monitor info later on
-        self.monitormap: dict[int, str] = {0: "eDP-1"}
-        # set monitorMap and self.focusedMon
+        self.monitormap: dict[int, str] = {
+            monitor["id"]: monitor["name"]
+            for monitor in json.loads(subprocess.check_output(["hyprctl", "monitors", "-j"]))
+        }
 
         # INIT VARS
         self.ICONS_DIR = "/tmp/waybar-icons"
@@ -81,9 +83,14 @@ class Workspacer(hyprland.Events):
         for client in clients:
             try:
                 mon_id = int(client["monitor"])
-                class_ = client["class"]
-                workspace_id = client["workspace"]["id"]
-                self.log_event(f"adding client {class_} to workspace {workspace_id} on monitor {mon_id}")
+                class_ = (
+                    client["class"]
+                    if client["class"]
+                    else client["initialTitle"].split(" ")[0] if client["initialTitle"] else ""
+                )
+                workspace_id = int(client["workspace"]["id"])
+                if workspace_id > 0:
+                    self.log_event(f"adding client {class_} to workspace {workspace_id} on monitor {mon_id}")
                 if (
                     mon_id is not None and class_ and workspace_id > 0
                 ):  # if workspace_id is negative then it is a special workspace
@@ -104,7 +111,7 @@ class Workspacer(hyprland.Events):
             except Exception as e:
                 self.log_event(f"Failed to get applist classes for below client with error {e}")
                 self.log_event(client)
-                pass
+                self.log_event(self.workspaces[mon_id][workspace_id]["icons"])
 
     async def generate(self) -> None:
         await self.set_classes()
