@@ -83,6 +83,8 @@ class Workspacer(hyprland.Events):
         for client in clients:
             try:
                 mon_id = int(client["monitor"])
+                if client['pid'] == -1:
+                    continue
                 class_ = (
                     client["class"]
                     if client["class"]

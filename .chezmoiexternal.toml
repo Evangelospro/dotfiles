@@ -46,6 +46,12 @@
     stripComponents = 0
     path = "gitstatusd-linux-x86_64"
 
+[".local/bin/fix-keys"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/arcolinux/arcolinux-system-config/master/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+    executable = true
+    refreshPeriod = "500h"
+
 [".config/hypr/hyprland-repo"]
     type = "git-repo"
     url = "https://github.com/hyprwm/hyprland"

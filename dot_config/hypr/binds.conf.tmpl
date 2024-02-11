@@ -5,30 +5,33 @@ $SHIFT_MOD = $MOD_SHIFT
 # Exit Hyprland
 bind=$MOD,M,exit
 
-# Launch / Reload Applications
-{{- if (eq .chezmoi.hostname "ELARCH-F15") }}
-bind=,XF86Launch4,exec,asusctl led-mode -n
-{{- end }}
-bind=$MOD,Return,exec,wezterm start --always-new-process
-bind=$MOD,B,exec,thorium-browser
-bind=$SHIFT_MOD,B,exec,burp
-bind=$MOD_SHIFT,D,exec,vesktop
-bind=$MOD,S,exec,spotify-launcher
+# Utilities
 bindl=$MOD,L,exec,lockscreen
 bind=$MOD,SPACE,exec,launcher
 bind=,XF86Search,exec,launcher
 bind=$MOD,V,exec,clip-menu
 bind=$MOD,C,exec,hyprpicker | wl-copy
-bind=$MOD,E,exec,nemo
-bind=$SHIFT_MOD,R,exec,reload-hyprland
+bind=$MOD_SHIFT,R,exec,reload-hyprland
 bind=$MOD,R,exec,dynamic-resize
+bind=$MOD,P,exec,project-menu
 
-# Close / Fullscreen / Kill Applications / Arrange monitors
+
+# Applications
+{{- if (eq .chezmoi.hostname "ELARCH-F15") }}
+bind=,XF86Launch4,exec,asusctl led-mode -n
+{{- end }}
+bind=$MOD,Return,exec,wezterm start --always-new-process
+bind=$MOD,B,exec,thorium-browser
+bind=$MOD_SHIFT,B,exec,burp
+# bind=$MOD_SHIFT,D,exec,vesktop
+# bind=$MOD,S,exec,spotify-launcher
+bind=$MOD,E,exec,nemo
+
+# Close / Fullscreen / Kill Applications
 bind=ALT_L,F4,killactive
 bindr=CTRL_SHIFT,ESCAPE,exec, hyprctl kill # xkill like functionality
 bind=$MOD,F,fullscreen,0
 bind=$MOD_SHIFT,F,togglefloating
-bind=$MOD,P,exec,project-menu
 
 # Screenshot / OCR
 ## Disable animations for screenshot
@@ -73,13 +76,9 @@ bind=$MOD,K,togglespecialworkspace,backgroundappsvalent
 bind=,XF86Launch3,togglespecialworkspace,backgroundappsrogcontrolcenter
 {{- end }}
 
-# Hyprload
-# bind=$SHIFT_MOD,R,hyprload,reload
-# bind=$SHIFT_MOD,U,hyprload,update
-
 # Move Windows Between Monitors
-# bind=$SHIFT_MOD,left,split-changemonitor,prev
-# bind=$SHIFT_MOD,right,split-changemonitor,next
+bind=$MOD_SHIFT,left,movewindow, mon:l
+bind=$MOD_SHIFT,right,movewindow, mon:r
 
 bind=ALT,TAB,workspace, e+1
 bind=$MOD,TAB,workspace, e-1
@@ -94,15 +93,15 @@ bindl=,switch:off:Lid Switch,exec,systemctl suspend
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}
 {{- range $i := untilStep 1 10 1 }}
 bind=$MOD,{{$i}},exec, workspace {{$i}}
-bind=$SHIFT_MOD,{{$i}},exec, movetoworkspace {{$i}}
+bind=$MOD_SHIFT,{{$i}},exec, movetoworkspace {{$i}}
 {{- end }}
 bind=$MOD,0,exec, workspace 10
-bind=$SHIFT_MOD,0,exec, movetoworkspace 10
+bind=$MOD_SHIFT,0,exec, movetoworkspace 10
 {{- else }}
 {{- range $i := untilStep 1 10 1 }}
 bind=$MOD,{{$i}},workspace, {{$i}}
-bind=$SHIFT_MOD,{{$i}},movetoworkspace, {{$i}}
+bind=$MOD_SHIFT,{{$i}},movetoworkspace, {{$i}}
 {{- end}}
 bind=$MOD,0,workspace, 10
-bind=$SHIFT_MOD,0,movetoworkspace, 10
+bind=$MOD_SHIFT,0,movetoworkspace, 10
 {{- end }}

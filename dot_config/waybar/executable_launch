@@ -1,5 +1,5 @@
 #!/bin/bash
 /usr/bin/pkill -9 waybar
 /usr/bin/pkill -9 -f workspaces.py
-/usr/bin/python3 $HOME/.config/waybar/scripts/workspaces.py debug 2>&1 >$HOME/.cache/workspacer.log &
+/usr/bin/python3 $HOME/.config/waybar/scripts/workspaces.py & #debug 2>&1 >$HOME/.cache/workspacer.log &
 /usr/bin/waybar
