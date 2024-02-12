@@ -7,10 +7,10 @@ bindkey '^[[e' end-of-line
 bindkey '^[[3~' delete-char
 # ALT + Backspace
 bindkey '^[[3;3~' kill-word
-# ALT + A
-bindkey '^[a' backward-word
-# ALT + D
-bindkey '^[d' forward-word
+# CTRL + LEFT ARROW -> Move to the previous word
+bindkey '^[[1;5D' backward-word
+# CTRL + RIGHT ARROW -> Move to the next word
+bindkey '^[[1;5C' forward-word
 
 # bind ctrl + t to fzf fuzzy finder
 bindkey '^t' fzf-file-widget

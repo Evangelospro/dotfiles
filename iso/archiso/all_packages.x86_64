@@ -32,6 +32,7 @@ intel-undervolt
 # linux-g14-headers
 # intel-compute-runtime
 # vulkan-intel
+power-profiles-daemon
 # aur/asusctl-git
 # aur/supergfxctl-git
 # aur/rog-control-center
