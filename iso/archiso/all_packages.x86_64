@@ -7,8 +7,6 @@ linux
 linux-atm
 linux-firmware
 linux-firmware-marvell
-linux-zen
-linux-zen-headers
 
 # Drivers for graphics cards
 libva

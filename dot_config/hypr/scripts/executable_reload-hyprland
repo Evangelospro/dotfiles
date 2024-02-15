@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-hyprctl reload
-$HOME/.config/waybar/launch
+$HOME/.config/waybar/scripts/launch # will reload hyprland also
+# hyprctl reload
 # restart portals
 systemctl restart --user xdg-desktop-portal-hyprland
 notify-send "Hyprland reloaded"

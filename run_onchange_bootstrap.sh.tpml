@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# .config/bootstrap/setup.yml hash: {{ include "dot_config/bootstrap/setup.yml" | sha256sum }}
+
+quote() {
+    local quoted=${1//\'/\'\\\'\'}
+    printf "'%s'" "$quoted"
+}
+
+if command -v ansible-playbook &>/dev/null; then
+    ansible-playbook {{ joinPath .chezmoi.sourceDir "dot_config/bootstrap/setup.yml" | quote }} --ask-become-pass
+fi

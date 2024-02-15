@@ -3,24 +3,24 @@ exec-once=/usr/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRE
 exec-once=/usr/bin/dbus-update-activation-environment --all
 # exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
 
-# Hyprland plugins
-# exec-once=/usr/local/bin/hyprpm reload -n
-
-# Polkit and keyring
-exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec-once=/usr/bin/gnome-keyring-daemon --start --components=secrets
-
 # scale apps
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
 # Theming
 exec-once=/usr/bin/xsettingsd &
 exec-once=$HOME/.config/hypr/scripts/import_themes
-exec-once=/usr/bin/hyprpaper
+exec=/usr/bin/hyprpaper
+
+# Polkit and keyring
+exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec-once=/usr/bin/gnome-keyring-daemon --start --components=secrets
+
+# Hyprland plugins
+# exec-once=/usr/local/bin/hyprpm reload -n
 
 # Bar
-## script to load icons on workspaces
-exec-once=$HOME/.config/waybar/launch
+exec=pkill -9 waybar; /usr/bin/waybar
+exec-once=$HOME/.config/waybar/scripts/launch # Use reload-hyprland to ever restart the workspace icons
 
 # IDLE management
 exec-once=swayidle
