@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if pacman -Qs virt-manager >/dev/null 2>&1; then
-    rebos api echo "Setting up libvirt"
+    rebos api echo info "Setting up libvirt"
     sudo usermod -aG libvirt $USER
     sudo usermod -aG kvm $USER
     sudo usermod -aG video $USER
@@ -13,7 +13,11 @@ fi
 
 # COPY SYSTEM CONFIGURATIONS
 
-rebos api echo "Copying system configurations"
+rebos api echo info "Copying system configurations"
 sudo cp -r ~/.local/share/chezmoi/confs/etc/* /etc/
 sudo cp -r ~/.local/share/chezmoi/confs/usr/* /usr/
 
+# ENABLE SERVICES
+rebos api echo info "Enabling services"
+sudo systemctl enable --now NetworkManager.service
+sudo systemctl enable --now bluetooth.service

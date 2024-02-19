@@ -4,7 +4,7 @@ pkgs = [
     "noto-fonts-extra",
     "noto-fonts-cjk",
     "otf-font-awesome",
-    "aur/otf-manrope",
+    #"aur/otf-manrope",
     "tesseract",
     "tesseract-data-eng"
 ]

@@ -23,3 +23,9 @@ if ! pacman -Qs rebos >/dev/null 2>&1; then
     # use ~/.local/share/chezmoi/confs/etc/pacman.conf
     paru -S --noconfirm rebos --config ~/.local/share/chezmoi/confs/etc/pacman.conf
 fi
+
+rm -rf ~/.rebos-base
+rebos setup
+rebos gen commit "Install sync"
+rebos gen current build
+rebos gen tidy-up
