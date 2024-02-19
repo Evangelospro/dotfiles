@@ -21,3 +21,9 @@ sudo cp -r ~/.local/share/chezmoi/confs/usr/* /usr/
 rebos api echo info "Enabling services"
 sudo systemctl enable --now NetworkManager.service
 sudo systemctl enable --now bluetooth.service
+
+# UPDATE using the update binary in ~/.local/bin
+rebos api echo info "Updating all packages and installing any source-only packages"
+update
+
+rebos api echo sucess "Please reboot to ensure everything was sucessfully applied"
