@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Refresh everything
-sudo pacman -Syu
+sudo pacman -Syu --needed base-devel
 
 # Install git, paru, chezmoi and rebos
 if ! pacman -Qs git >/dev/null 2>&1; then
