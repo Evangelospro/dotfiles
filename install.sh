@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Refresh everything
+sudo pacman -Syu
+
 # Install git, paru, chezmoi and rebos
 if ! pacman -Qs git >/dev/null 2>&1; then
     sudo pacman -Sy --noconfirm git
