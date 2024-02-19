@@ -1,0 +1,6 @@
+pkgs = [
+    "qt5ct",
+    "qt6ct",
+    "qtkeychain-qt5",
+    "qtkeychain-qt6"
+]

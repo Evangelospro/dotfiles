@@ -1,0 +1,7 @@
+pkgs = [
+    "seahorse",
+    "gnome-keyring",
+    "polkit-gnome",
+    "polkit-qt5",
+    "kwallet-pam"
+]

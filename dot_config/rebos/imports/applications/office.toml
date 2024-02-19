@@ -1,0 +1,5 @@
+pkgs = [
+    "xournalpp",
+    # "zathura",
+    "onlyoffice-bin",
+]

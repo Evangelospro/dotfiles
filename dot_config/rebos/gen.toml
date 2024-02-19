@@ -1,0 +1,20 @@
+imports = [
+    "core_packages",
+    "applications",
+    "programming_languages",
+    "toolkits",
+    "utils",
+    "chaotic-aur",
+    "docker",
+    "dotfiles",
+    "file_managment",
+    "fonts",
+    "git",
+    "hyprland_dependencies",
+    "packaging",
+    "rdp",
+    "shell",
+    "themes",
+    "vpns",
+    "xdg"
+]

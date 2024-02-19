@@ -94,5 +94,9 @@
     "xyz.chatboxapp.app": {
         "name": "ChatBox AI",
         "icon": "google-chat"
+    },
+    "scrcpy": {
+        "name": "Scrcpy",
+        "icon": "android-sdk"
     }
 }

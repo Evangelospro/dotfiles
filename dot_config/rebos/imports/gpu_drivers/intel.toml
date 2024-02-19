@@ -1,0 +1,12 @@
+pkgs = [
+    "xf86-video-intel",
+    "vulkan-intel",
+    "lib32-vulkan-intel",
+    "intel-media-driver",
+    "intel-gmmlib",
+    "intel-compute-runtime",
+    "intel-graphics-compiler",
+    "intel-gpu-tools",
+    # Overclocking
+    "intel-undervolt"
+]

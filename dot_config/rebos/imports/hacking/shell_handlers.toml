@@ -1,0 +1,4 @@
+pkgs = [
+    "rlwrap",
+    "aur/penelope-git"
+]

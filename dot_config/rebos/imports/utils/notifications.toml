@@ -1,0 +1,5 @@
+pkgs = [
+    "swaync",
+    "swaync-client",
+    "aur/notify-send-py"
+]

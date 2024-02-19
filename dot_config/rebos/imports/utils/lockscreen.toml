@@ -1,0 +1,6 @@
+pkgs = [
+    "aur/hyprlock-git",
+    "aur/swaylock-effects-git", # need -git as swaylock-effects is unmaintained
+    "aur/hypridle",
+    "wlogout"
+]

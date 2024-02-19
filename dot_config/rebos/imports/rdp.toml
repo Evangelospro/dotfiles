@@ -1,0 +1,6 @@
+pkgs = [
+    "remmina",
+    "freerdp",
+    "libvncserver",
+    "spice-gtk"
+]

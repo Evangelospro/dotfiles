@@ -1,0 +1,18 @@
+imports = [
+    "hacking/web",
+    "hacking/active_directory",
+    "hacking/bruteforcing",
+    "hacking/cracking",
+    "hacking/forensics",
+    "hacking/crypto",
+    "hacking/networking",
+    "hacking/pwn",
+    "hacking/reverse_engineering",
+    "hacking/shell_handlers",
+    "hacking/wordlists",
+    "hacking/stego"
+]
+
+pkgs = [
+    "metasploit",
+]

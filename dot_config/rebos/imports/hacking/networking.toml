@@ -1,0 +1,6 @@
+pkgs = [
+    "aircrack-ng",
+    "nmap",
+    "rustscan",
+    "python-scapy"
+]

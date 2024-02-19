@@ -1,0 +1,6 @@
+pkgs = [
+    "aur/usbguard-applet-qt",
+    "chaotic-aur/qdirstat",
+    "gparted",
+    "chaotic-aur/czkawka-gui"
+]

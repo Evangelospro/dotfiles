@@ -1,0 +1,5 @@
+pkgs = [
+  "rustup",
+  "rust-analyzer",
+  "rust-src",
+]

@@ -1,0 +1,11 @@
+pkgs = [
+    "nemo",
+    "nemo-fileroller",
+    "aur/nemo-compare",
+    "nemo-preview",
+    # "nemo-terminal",
+    "nemo-image-converter",
+    "aur/nemo-media-columns",
+    "lf",
+    "fd"
+]

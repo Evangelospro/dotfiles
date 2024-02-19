@@ -21,10 +21,11 @@
 9. [Sources / Inspiration](#sources-and-inspiration)
 10. [Contributing](#contributing)
 
-## My dotfiles can be applied with the below oneliner. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for evangelospro and replace with your username`. <a name="applying"></a>
+## My dotfiles can be applied with the below oneliners. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for evangelospro and replace with your username`. <a name="applying"></a>
 
-```
-chezmoi init --apply Evangelospro
+```bash
+export GITHUB_USERNAME=Evangelospro
+curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/install.sh|bash
 ```
 
 ## Keybindings

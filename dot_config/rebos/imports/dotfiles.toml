@@ -1,0 +1,4 @@
+pkgs = [
+    "chezmoi",
+    "aur/chezmoi_modify_manager-git"
+]

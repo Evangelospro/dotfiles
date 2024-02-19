@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# install git if not installed
+if ! pacman -Qs git >/dev/null 2>&1; then
+    sudo pacman -Sy --noconfirm git
+fi
+
+# Inastall paru if not installed
+if ! pacman -Qs paru >/dev/null 2>&1; then
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si
+    cd ..
+    rm -rf paru
+fi

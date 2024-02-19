@@ -1,0 +1,7 @@
+pkgs = [
+  "qemu-full",
+  "virt-manager",
+  "virt-viewer",
+  "dnsmasq",
+  "bridge-utils",
+]

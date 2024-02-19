@@ -1,0 +1,5 @@
+pkgs = [
+    "aur/anyrun-git",
+    # "aur/ulauncher-git",
+    "rofi-lbonn-wayland"
+]

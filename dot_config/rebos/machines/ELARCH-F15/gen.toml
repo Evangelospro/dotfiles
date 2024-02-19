@@ -1,0 +1,12 @@
+# --------------------- #
+#    Generation File    #
+# --------------------- #
+
+# Other generation files to import. (Example: intensive_apps -> ~/.config/rebos/imports/intensive_apps.toml)
+imports = [
+    "asus",
+    "gpu_drivers/intel",
+    "gpu_drivers/nvidia",
+    "hacking",
+    "applications/password_manager"
+]

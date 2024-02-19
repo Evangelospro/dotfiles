@@ -1,0 +1,11 @@
+pkgs = [
+    "aur/jadx-gui-desktop",
+    "aur/python-frida",
+    "aur/python-androguard",
+    "android-udev",
+    "chaotic-aur/android-emulator",
+    "chaotic-aur/android-sdk-cmdline-tools-latest",
+    "chaotic-aur/android-sdk-platform-tools",
+    "android-tools",
+    "chaotic-aur/android-studio"
+]

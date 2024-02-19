@@ -1,0 +1,7 @@
+pkgs = [
+    "aur/stegsolve",
+    "aur/steghide",
+    "aur/stegseek",
+    "aur/zsteg",
+    "perl-image-exiftool"
+]

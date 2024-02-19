@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if pacman -Qs virt-manager >/dev/null 2>&1; then
+    rebos api echo "Setting up libvirt"
+    sudo usermod -aG libvirt $USER
+    sudo usermod -aG kvm $USER
+    sudo usermod -aG video $USER
+
+    sudo systemctl enable libvirtd.service --now
+
+    sudo virsh net-autostart default >/dev/null
+fi
+
+# COPY SYSTEM CONFIGURATIONS
+
+rebos api echo "Copying system configurations"
+sudo cp -r ~/.local/share/chezmoi/confs/etc/* /etc/
+sudo cp -r ~/.local/share/chezmoi/confs/usr/* /usr/
+

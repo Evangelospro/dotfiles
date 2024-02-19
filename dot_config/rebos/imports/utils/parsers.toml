@@ -1,0 +1,4 @@
+pkgs = [
+    "aur/jaq", # faster than jq
+    "aur/ripgrep"
+]

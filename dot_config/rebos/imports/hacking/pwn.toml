@@ -1,0 +1,10 @@
+pkgs = [
+    "gdb",
+    "strace",
+    "python-typing_extensions",
+    "python-tabulate",
+    "python-pwntools",
+    "aur/python-pwnscripts",
+    "ropper",
+    "ropgadget"
+]

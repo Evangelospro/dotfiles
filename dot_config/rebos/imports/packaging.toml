@@ -1,0 +1,4 @@
+pkgs = [
+    "aur/rate-mirrors-bin",
+    "aur/pacman-cleanup-hook"
+]

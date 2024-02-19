@@ -1,0 +1,9 @@
+pkgs = [
+    "aur/pycdc-git",
+    "aur/python-pyshark",
+    "aur/volatility3-git",
+    # aur/python2-volatility-git,
+    "foremost",
+    "aur/python-oletools",
+    "chaotic-aur/powershell"
+]

@@ -1,0 +1,5 @@
+pkgs = [
+    "grim",
+    "slurp",
+    "chaotic-aur/flameshot-git",
+]

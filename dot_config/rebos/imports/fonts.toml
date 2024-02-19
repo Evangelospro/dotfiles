@@ -1,0 +1,10 @@
+pkgs = [
+    "noto-fonts",
+    "noto-fonts-emoji",
+    "noto-fonts-extra",
+    "noto-fonts-cjk",
+    "otf-font-awesome",
+    "aur/otf-manrope",
+    "tesseract",
+    "tesseract-data-eng"
+]

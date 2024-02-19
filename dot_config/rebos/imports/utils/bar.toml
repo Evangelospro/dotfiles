@@ -1,0 +1,6 @@
+pkgs = [
+    "waybar",
+    "libevdev",
+    "python-evdev",
+    "python-filetype"
+]

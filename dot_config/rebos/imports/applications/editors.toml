@@ -1,0 +1,4 @@
+pkgs = [
+    "chaotic-aur/imhex",
+    "chaotic-aur/visual-studio-code-insiders-bin",
+]

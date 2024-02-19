@@ -1,0 +1,7 @@
+pkgs = [
+    "hashcat",
+    "hashcat-utils",
+    "john",
+    "aur/cewl-git",
+    "hydra"
+]

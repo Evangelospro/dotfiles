@@ -1,0 +1,5 @@
+pkgs = [
+    "aur/hydra",
+    "aur/ffuf-bin",
+    "aur/feroxbuster"
+]

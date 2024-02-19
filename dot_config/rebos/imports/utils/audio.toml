@@ -1,0 +1,8 @@
+pkgs = [
+    "audacity",
+    "wireplumber",
+    "pipewire",
+    "pipewire-pulse",
+    "pavucontrol",
+    "pamixer"
+]

@@ -1,0 +1,13 @@
+imports = [
+    "applications/browser",
+    "applications/communications",
+    "applications/editors",
+    "applications/image",
+    "applications/music",
+    "applications/note_taking",
+    "applications/office",
+    "applications/recording",
+    "applications/screenshoting",
+    "applications/terminal",
+    "applications/video",
+]

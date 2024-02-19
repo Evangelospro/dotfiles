@@ -1,0 +1,4 @@
+pkgs = [
+    "networkmanager",
+    "network-manager-applet"
+]

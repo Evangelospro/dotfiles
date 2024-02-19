@@ -1,0 +1,6 @@
+pkgs = [
+    "docker",
+    "docker-buildx",
+    "aur/docker-rootless-extras",
+    "fuse-overlayfs",
+]

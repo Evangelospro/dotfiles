@@ -1,0 +1,4 @@
+pkgs = [
+    "aur/seclists",
+    "aur/crunch"
+]

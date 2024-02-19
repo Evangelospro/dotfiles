@@ -1,0 +1,7 @@
+pkgs = [
+    "python-pycryptodome",
+    "python-pycryptodomex",
+    "sagemath",
+    "python-numpy",
+    "aur/rsactftool-git"
+]

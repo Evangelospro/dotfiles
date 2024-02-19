@@ -1,0 +1,12 @@
+pkgs = [
+    "python3",
+    "python-pip",
+    "python-pipx",
+    "mypy",
+    "ruff",
+    "python-termcolor",
+    "python-scikit-learn",
+    "python-pandas",
+    "python-numpy",
+    "python-matplotlib"
+]

@@ -161,10 +161,6 @@ elarch-calamares
 elarch-calamares-config
 #######################################################
 
-# Display manager
-sddm-git
-sddm-theme-astronaut
-
 # Base-devel group
 base-devel
 
@@ -215,6 +211,7 @@ chaotic-aur/xdg-desktop-portal-hyprland-git
 xdg-desktop-portal-gtk
 gbm
 hyprland-protocols
+aur/hypridle-git
 aur/hyprlang-git
 libdrm
 libpipewire-0.3
@@ -223,7 +220,7 @@ sdbus-cpp
 wayland-client
 wayland-protocols
 # Tools for HYPRLAND
-aur/hyprpicker
+aur/hyprpicker-git
 
 # Chaotic repo
 chaotic-mirrorlist
@@ -253,7 +250,7 @@ aur/avizo
 ## Background
 # chaotic-aur/azote
 # swaybg
-hyprpaper-git
+aur/hyprpaper-git
 ## Clipboard
 wl-clipboard
 cliphist
@@ -412,7 +409,6 @@ aur/geticons
 moreutils
 # aur/batify
 wev
-onefetch
 
 # Applications
 ## Office

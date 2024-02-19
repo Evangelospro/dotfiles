@@ -1,0 +1,4 @@
+pkgs = [
+    "chaotic-aur/thorium-browser-avx-bin",
+    # "chaotic-aur/google-chrome"
+]
