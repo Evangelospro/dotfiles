@@ -12,14 +12,8 @@
 
 1. [How to apply?](#applying)
 2. [Keybindings](#keybindings)
-3. [Dependencies](#dependencies)
-4. [Linux Setup](#linux-setup)
-5. [Development Setup](#development-setup)
-6. [Hacking Setup](#hacking-setup)
-7. [Custom Arch Linux ISO with AUR packages batteries included](#custom-arch-linux-iso-with-aur-packages-batteries-included)
-8. [Installation and Usage](#installation-and-usage)
-9. [Sources / Inspiration](#sources-and-inspiration)
-10. [Contributing](#contributing)
+3. [Contributing](#contributing)
+4. [Sources / Inspiration](#sources-and-inspiration)
 
 ## My dotfiles can be applied with the below oneliners. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for evangelospro and replace with your username`. <a name="applying"></a>
 
@@ -104,8 +98,6 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 | ------------------------ | ---------------------- |
 | Windows + Click and drag | Move window with mouse |
 
-
-### 4) After the installation is complete, you can login with your just created user and password and enjoy your new system!
 
 ## Contributing
 

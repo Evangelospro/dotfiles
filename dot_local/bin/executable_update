@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+paru -Syu
+update-hyprland
+# navi-update
+# Update burp pro if a Burp/Burp-Loader directory exists in the home directory
+if [ -d $HOME/.config/Burp/Burp-Loader ]; then
+    update-burp
+fi
+update-spicetify
