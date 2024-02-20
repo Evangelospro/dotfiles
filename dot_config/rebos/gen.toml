@@ -1,7 +1,7 @@
 imports = [
     "core_packages",
     "applications",
-    "programming_languages",
+    "programming",
     "toolkits",
     "utils",
     "chaotic-aur",

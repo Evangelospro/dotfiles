@@ -1,4 +1,0 @@
-imports = [
-  "programming_languages/rust",
-  "programming_languages/python"
-]

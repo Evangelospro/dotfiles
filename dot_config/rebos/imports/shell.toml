@@ -17,7 +17,6 @@ pkgs = [
     "chaotic-aur/c-lolcat",
     "bat",
     "lsd",
-    "git-delta",
     "mcfly",
     "aur/doggo-bin",
     "aur/tgpt-bin", # AI copilot with no api keys

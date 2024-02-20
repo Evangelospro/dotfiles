@@ -1,7 +1,0 @@
-# EWW bar
-hyprland
-# Hacking
-## PWN tools
-ptrlib
-## Reverse
-angr
