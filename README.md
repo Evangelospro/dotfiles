@@ -10,12 +10,23 @@
 
 # ELARCH<a name="top"></a>
 
-1. [How to apply?](#applying)
-2. [Keybindings](#keybindings)
-3. [Contributing](#contributing)
-4. [Sources / Inspiration](#sources-and-inspiration)
+1. [Breakdown](#breakdown)
+2. [How to apply?](#applying)
+3. [Keybindings](#keybindings)
+4. [Linux Setup](#linux-setup)
+5. [Contributing](#contributing)
+6. [Sources / Inspiration](#sources-and-inspiration)
 
-## My dotfiles can be applied with the below oneliners. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). Remember to `grep for evangelospro and replace with your username`. <a name="applying"></a>
+## Breakdown <a name="breakdown"></a>
+There are a few main components to this project:
+
+- [chezmoi](https://www.chezmoi.io/) - Chezmoi takes cares of the dotfiles and the configuration of the system. It is a tool that helps you manage your personal configuration files across multiple machines.
+Chezmoi is needed to apply the dotfiles and this repo follows chezmois structure
+
+- [rebos](https://gitlab.com/Oglo12/rebos) - Rebos (Re)(B)uild(Os) is a neat command line tool that essentially adds nix-like reproduction to arch-based systems. It is a tool that helps you manage your system and install packages.
+To see the full list of packages that are installed and managed by rebos, you can check the [packages](https://https://github.com/Evangelospro/dotfiles/tree/main/dot_config/rebos)
+
+## My dotfiles can be applied with the below oneliners. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). <a name="applying"></a>
 
 ```bash
 export GITHUB_USERNAME=Evangelospro
@@ -64,13 +75,13 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 
 | Keybinding           | Action                                       |
 | -------------------- | -------------------------------------------- |
-| Windows + Arrow keys | Move focus to the direction of the arrow key |
+| Windows + AWSD | Move focus to the direction of the arrow key |
 
 ### Rearrange windows in the current workspace
 
 | Keybinding     | Action                                                |
 | -------------- | ----------------------------------------------------- |
-| Windows + AWSD | Move focused window to the direction of the AWSD keys |
+| Windows + Arrow keys | Move focused window to the direction of the AWSD keys |
 
 ### Move Windows Between Monitors
 
@@ -99,6 +110,83 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 | Windows + Click and drag | Move window with mouse |
 
 
+## Linux Setup
+
+### OS: [Arch Linux](https://archlinux.org/)
+
+### Kernel: [Linux-zen](https://archlinux.org/packages/?name=linux-zen)
+
+### Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
+
+### Window Manager: [Hyprland](https://wiki.hyprland.org)
+
+### Terminal: [Wezterm](https://github.com/wez/wezterm/)
+
+### Shell [ZSH](https://wiki.archlinux.org/title/Zsh)
+
+#### Bindings: [binds.zsh](dot_config/zsh/executable_binds.zsh)
+
+#### Aliases: [aliases.zsh](dot_config/zsh/executable_aliases.zsh)
+
+#### Functions: [functions.zsh](dot_config/zsh/executable_functions.zsh)
+
+#### Plugin Manager: [Zinit](https://github.com/zdharma-continuum/zinit)
+
+#### [Plugins config](dot_config/zsh/executable_plugins.zsh)
+
+#### Theme: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
+#### Font: [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
+
+#### Color Scheme: [Dracula](https://draculatheme.com/zsh)
+
+## Development Setup
+
+### [Docker-rootless](https://docs.docker.com/engine/security/rootless)
+
+### [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/)
+- [configuration](dot_config/private_Code%20-%20Insiders)
+
+## Hacking Setup
+
+### Shell functions
+
+| Function              | Action                                                                  |
+| --------------------- | ----------------------------------------------------------------------- |
+| update-burp           | Update burp to the latest version                                       |
+| angr                  | Run angr in a docker container                                          |
+| extract-base64-string | Extract base64 encoded strings from a file                              |
+| extract-urls          | Extract urls from a file                                                |
+| frida-init            | Initialize frida server on android device                               |
+| frida-kill            | Kill frida server on android device                                     |
+| pwnenv                | Create a pwn environment in a docker container                          |
+| pwnsetup              | Setup a pwn template in the current directory                           |
+| scan                  | Use rustscan to scan a host                                             |
+| curl                  | Normal curl but uses the burp proxy if it's running                     |
+| ferox-\*              | Feroxbust a host with a specific wordlist                               |
+| ffuf-\*               | Fuzz a host with a specific wordlist                                    |
+| getWordlist           | Return a wordlist of either dns or dir according to the argument passed |
+
+### Burp
+
+#### Installation and updates
+
+Burp is setup to auto update with the update zsh function above. As I like to use the jar file with my own loaders for obvious reasons, the latest jar file is fetched and placed in $HOME/.config/Burp/Burp-Loader and symlinked to burpsuite_pro.jar
+
+#### Config
+
+-   [project-options.json](dot_config/Burp/project-options.json)
+-   [user-options.json](dot_config/Burp/user-options.json)
+
+### IDA [DockerWineIDA](https://github.com/NyaMisty/docker-wine-ida)
+
+IDA essentially runs in docker(running xfce and wine) and rdesktop auto connects
+It can be started via the IDA [desktop file](dot_local/private_share/private_applications/burp.desktop) it can be launched from the launcher
+
+### Android Emulator
+
+A setup android emulator can be started from the launcher using the [android_emulator](dot_local/private_share/private_applications/android-emulator.desktop) desktop file
+
 ## Contributing
 
 ### Bug Reports, Feature Requests and questions
@@ -120,17 +208,16 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 
 ## Thanks to these awesome projects and many more!!! <a name="sources-and-inspiration"></a>
 
+-   [Chezmoi](https://www.chezmoi.io/)
+-   [Rebos](https://gitlab.com/Oglo12/rebos)
+
 -   [Arch Linux](https://archlinux.org/)
--   [Archiso](https://wiki.archlinux.org/title/Archiso)
--   [ALCI](https://alci.online/)
--   [Calamares](https://calamares.io/)
--   [Hyprland](https://aur.archlinux.org/packages/hyprland-git/)
+-   [Hyprland](https://github.com/hyprwm/Hyprland)
+-   [hypridle](https://github.com/hyprwm/hypridle)
 -   [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter)
 -   [Waybar](https://github.com/alexays/waybar/)
--   [Eww](https://github.com/elkowar/eww/)
 -   [Wezterm](https://github.com/wez/wezterm/)
 -   [Lsd](https://github.com/lsd-rs/lsd)
 -   [playerctl](https://github.com/altdesktop/playerctl/)
--   [swayidle](https://archlinux.org/packages/extra/x86_64/swayidle/)
--   [envycontrol](https://github.com/bayasdev/envycontrol/)
+-   [Asusctl](https://gitlab.com/asus-linux/asusctl/)
 -   [swaylock-effects](https://github.com/mortie/swaylock-effects/)

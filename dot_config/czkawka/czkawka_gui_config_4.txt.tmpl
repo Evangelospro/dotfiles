@@ -10,12 +10,12 @@ false
 /sys
 /run
 /snap
-/home/evangelospro/SeaDrive
-/home/evangelospro/Documents
-/home/evangelospro/HACKING
-/home/evangelospro/School
-/home/evangelospro/.seadrive
-/home/evangelospro/.local/share/chezmoi
+{{ .chezmoi.homeDir }}/SeaDrive
+{{ .chezmoi.homeDir }}/Documents
+{{ .chezmoi.homeDir }}/HACKING
+{{ .chezmoi.homeDir }}/School
+{{ .chezmoi.homeDir }}/.seadrive
+{{ .chezmoi.homeDir }}/.local/share/chezmoi
 --language
 en
 --combo_box_big_files_mode
@@ -29,7 +29,7 @@ false
 --thread_number
 0
 --included_directories
-/home/evangelospro
+{{ .chezmoi.homeDir }}
 --duplicate_name_case_sensitive
 false
 --maximal_file_size

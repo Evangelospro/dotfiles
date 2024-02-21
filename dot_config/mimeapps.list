@@ -67,6 +67,7 @@ video/quicktime=vlc.desktop;
 video/vnd.rn-realvideo=vlc.desktop;
 video/webm=vlc.desktop;
 video/x-avi=vlc.desktop;
+video/vnd.avi=vlc.desktop;
 video/x-fli=vlc.desktop;
 video/x-flv=vlc.desktop;
 video/x-matroska=vlc.desktop;

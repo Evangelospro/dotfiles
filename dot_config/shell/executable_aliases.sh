@@ -4,6 +4,10 @@ source $XDG_CONFIG_HOME/shell/aliases/hacking.zsh
 alias config="chezmoi cd && $VISUAL ."
 alias zshconfig="$VISUAL $ZDOTDIR"
 
+# REBOS
+alias rebuild='rebos gen current build'
+alias recommit="rebos gen current commit $@"
+
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
 

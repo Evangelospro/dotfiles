@@ -10,3 +10,7 @@ imports = [
     "hacking",
     "applications/password_manager"
 ]
+
+pkgs = [
+    "chaotic-aur/seadrive-gui"
+]

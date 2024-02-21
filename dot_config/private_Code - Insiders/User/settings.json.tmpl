@@ -222,9 +222,9 @@
     "explorer.confirmDelete": false,
     "files.autoSave": "afterDelay",
     // SNYK
-    "snyk.advanced.cliPath": "/home/evangelospro/.local/share/snyk-ls/snyk-linux",
+    "snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}/.local/share/snyk-ls/snyk-linux",
     "snyk.trustedFolders": [
-        "/home/evangelospro/"
+        "{{ .chezmoi.homeDir }}/"
     ],
     "snyk.yesWelcomeNotification": false,
     // EXTENSIONS
@@ -232,9 +232,9 @@
         "WakaTime.vscode-wakatime"
     ],
     // APKLAB
-    "apklab.apkSignerPath": "/home/evangelospro/.apklab/uber-apk-signer-1.3.0.jar",
-    "apklab.apktoolPath": "/home/evangelospro/.apklab/apktool_2.8.1.jar",
-    "apklab.jadxDirPath": "/home/evangelospro/.apklab/jadx-1.4.7",
+    "apklab.apkSignerPath": "{{ .chezmoi.homeDir }}/.apklab/uber-apk-signer-1.3.0.jar",
+    "apklab.apktoolPath": "{{ .chezmoi.homeDir }}/.apklab/apktool_2.8.1.jar",
+    "apklab.jadxDirPath": "{{ .chezmoi.homeDir }}/.apklab/jadx-1.4.7",
     "apklab.initProjectDirAsGit": false,
     // SECURITY
     "security.workspace.trust.banner": "always",
@@ -277,7 +277,7 @@
     },
     "vim.useSystemClipboard": true,
     "vim.vimrc.enable": true,
-    "vim.vimrc.path": "/home/evangelospro/.config/vim/.vimrc",
+    "vim.vimrc.path": "{{ .chezmoi.homeDir }}/.config/vim/.vimrc",
     "vim.shell": "/usr/bin/zsh",
     "vva.trustedDomain": true,
     "vim.handleKeys": {

@@ -1,11 +1,11 @@
 {
     "code-insiders-url-handler": {
         "name": "Visual Studio Code Insiders",
-        "icon": "visual-studio-code-insiders"
+        "icon": "visual-studio-code"
     },
     "Code - Insiders": {
         "name": "Visual Studio Code Insiders",
-        "icon": "visual-studio-code-insiders"
+        "icon": "visual-studio-code"
     },
     "xdg-desktop-portal-gtk": {
         "name": "XDG Desktop Portal GTK",
