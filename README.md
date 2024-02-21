@@ -138,7 +138,7 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 
 #### Font: [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
-#### Color Scheme: [Dracula](https://draculatheme.com/zsh)
+#### Color Scheme: [Dracula](https://draculatheme.com)
 
 ## Development Setup
 
