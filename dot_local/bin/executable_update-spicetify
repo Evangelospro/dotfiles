@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
-
-spicetify upgrade
-spicetify restore backup
-spicetify backup apply
+# check if spotify was just updated
+last_launched_version=$(cat ~/.config/spotify/prefs | grep 'app.last-launched-version="' | cut -d'=' -f2 | tr -d '"')
+last_version=$(spicetify config | grep "version" | cut -d' ' -f24)
+if [ -z "$last_launched_version" ]; then
+    echo "Spotify was not launched yet"
+    exit 0
+fi
+if [ "$last_launched_version" != "$last_version" ]; then
+    echo "Spotify was updated from $last_launched_version to $last_version restoring spicetify"
+    spicetify upgrade
+    spicetify restore backup
+    spicetify backup apply
+    exit 0
+else
+    echo "Spotify was not updated, no need to restore spicetify"
+    exit 0
+fi

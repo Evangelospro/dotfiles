@@ -98,5 +98,9 @@
     "scrcpy": {
         "name": "Scrcpy",
         "icon": "android-sdk"
+    },
+    "dev.warp.Warp": {
+        "name": "Warp",
+        "icon": "/home/evangelospro/.local/icons/dev.warp.Warp.svg"
     }
 }

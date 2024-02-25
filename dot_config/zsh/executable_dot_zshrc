@@ -4,8 +4,10 @@ source $XDG_CONFIG_HOME/shell/wm_startup.sh
 if [[ "${ZSH_PROFILE}" == 1 ]]; then
     zmodload zsh/zprof
 else
-    ZSH_PROFILE=0
-    source $XDG_CONFIG_HOME/shell/scripts/utils/clear
+    if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # warp...
+        ZSH_PROFILE=0
+        source $XDG_CONFIG_HOME/shell/scripts/utils/clear
+    fi
 fi
 
 # check message of the day

@@ -4,7 +4,6 @@ import sys
 import json
 import os
 import re
-import filetype
 
 DEFAULT_ICON = "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"
 ICON_SIZE = 22
@@ -23,7 +22,8 @@ def generate_icon_list(class_name, size):
             icon_class_name = WINDOW_NAMES[regx]["icon"]
             # check if the icon is a path to an image
             exp_dir = os.path.expanduser(icon_class_name)
-            if os.path.exists(exp_dir) and filetype.is_image(exp_dir):
+            # print(exp_dir, os.path.exists(exp_dir), exp_dir.endswith(".svg"))
+            if exp_dir and os.path.exists(exp_dir):
                 return [str(exp_dir)]
             else:
                 class_name = icon_class_name

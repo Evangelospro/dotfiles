@@ -38,11 +38,13 @@ zinit ice wait lucid nocd
 zinit light MichaelAquilina/zsh-you-should-use
 
 # check that you are not in docker or a server avoid in headless installs
-if [ -z "$DISPLAY" ] && [ -z "$SSH_CLIENT" ]; then
-    echo "Not in a gui server"
-else
-    zinit ice wait lucid nocd
-    zinit light MichaelAquilina/zsh-auto-notify
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # natively supported in warp
+    if [ -z "$DISPLAY" ] && [ -z "$SSH_CLIENT" ]; then
+        echo "Not in a gui server"
+    else
+        zinit ice wait lucid nocd
+        zinit light MichaelAquilina/zsh-auto-notify
+    fi
 fi
 
 zinit ice wait lucid nocd
@@ -56,11 +58,15 @@ export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git || git 
 export FZF_DEFAULT_OPTS=''
 zinit ice wait lucid depth"1" blockf atload"zicompinit; zicdreplay" # needs to do compinit as it provides completions
 zinit light Aloxaf/fzf-tab
-zinit wait lucid light-mode depth=1 for \
-    pick="autopair.zsh" atload="autopair-init" hlissner/zsh-autopair \
-    pick="async.zsh" mafredri/zsh-async
 
-if [[ $(tput colors) == 256 ]]; then
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # natively supported in warp
+    zinit ice wait lucid depth=1 pick="autopair.zsh" atload="autopair-init"
+    zinit light hlissner/zsh-autopair
+fi
+zinit ice wait lucid depth=1 pick="async.zsh"
+zinit light mafredri/zsh-async
+
+if [[ $(tput colors) == 256 && $TERM_PROGRAM != "WarpTerminal" ]]; then # warp still has issues with PS1
     zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/p10k.zsh'
     zinit light romkatv/powerlevel10k
 fi

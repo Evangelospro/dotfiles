@@ -1,12 +1,12 @@
 [MIME Cache]
 application/x-ipynb+json=jupyter-nbclassic.desktop;jupyter-notebook.desktop;
-application/x-zoom=zoom-pwa.desktop;
+application/x-zoom=Zoom.desktop.desktop;
 inode/directory=code.desktop;
 text/plain=code.desktop;
-x-scheme-handler/callto=zoom-pwa.desktop;
+x-scheme-handler/callto=Zoom.desktop.desktop;
 x-scheme-handler/msteams=teams-pwa.desktop;
 x-scheme-handler/obsidian=obsidian.desktop;
-x-scheme-handler/tel=zoom-pwa.desktop;
-x-scheme-handler/zoommtg=zoom-pwa.desktop;
-x-scheme-handler/zoomphonecall=zoom-pwa.desktop;
-x-scheme-handler/zoomus=zoom-pwa.desktop;
+x-scheme-handler/tel=Zoom.desktop.desktop;
+x-scheme-handler/zoommtg=Zoom.desktop.desktop;
+x-scheme-handler/zoomphonecall=Zoom.desktop.desktop;
+x-scheme-handler/zoomus=Zoom.desktop.desktop;

@@ -1,8 +1,10 @@
 # HACKING TOOLS
 ## web
-### check if /opt/sqlmap-bin/sqlmap.py exists
+### check if /opt/sqlmap-bin/sqlmap.py or /opt/sqlmap/sqlmap.py exists
 if [ -f /opt/sqlmap-bin/sqlmap.py ]; then
     alias sqlmap="/opt/sqlmap-bin/sqlmap.py"
+elif [ -f /opt/sqlmap/sqlmap.py ]; then
+    alias sqlmap="/opt/sqlmap/sqlmap.py"
 fi
 alias wpscan='wpscan -e ap,t,u --plugins-detection aggressive'
 alias jwt-tool="python3 $HACKING_TOOLS/Web/jwt_tool/jwt_tool.py"
