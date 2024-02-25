@@ -18,11 +18,11 @@ bindkey '^t' fzf-file-widget
 source "$ZDOTDIR/binds/fzf-binds.zsh"
 
 # use ctrl-n for navi cheatsheets
-bindkey '^n' navi_widget
+[[ $TERM_PROGRAM != "WarpTerminal" ]] && bindkey '^n' navi_widget
 
 # re-register the up arrow to previous command just use ctrl + R when the fancy gui is needed
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
 # use ctrl + r for history search
-bindkey '^r' _atuin_up_search_widget
+[[ $TERM_PROGRAM != "WarpTerminal" ]] && bindkey '^r' _atuin_up_search_widget

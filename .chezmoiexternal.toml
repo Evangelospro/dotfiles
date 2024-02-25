@@ -1,3 +1,11 @@
+[".config/anyrun/plugins/libanyrun_hyprland.so"]
+    type = "file"
+    url = '{{ gitHubLatestRelease "auctumnus/anyrun-hyprland" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+    exact = true
+    stripComponents = 1
+    executable = true
+    refreshPeriod = "168h"
+
 [".local/share/themes/Dracula"]
     type = "archive"
     url = "https://github.com/dracula/gtk/archive/master.tar.gz"

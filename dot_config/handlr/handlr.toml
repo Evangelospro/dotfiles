@@ -1,6 +1,6 @@
 enable_selector = true
 selector = "rofi -dmenu -theme ~/.config/rofi/colors/dracula.rasi -p 'Open With: '"
-terminal_emulator = "wezterm"
+terminal_emulator = "warp-terminal"
 term_exec_args = ''
 
 # [[handlers]]

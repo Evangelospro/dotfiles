@@ -1,10 +1,11 @@
-# HAS TO HAVE THE TERMINAL NAME FOR FETCH TO WORK CORRECTLY
-# /usr/bin/clear
-randomNum=$RANDOM
-# if divisible by 2
-if [ $((randomNum % 2)) -eq 0 ]; then
-    fastfetch
-else
-    width=$(tput cols)
-    figlet -w $width -f Bloody Evangelospro | lolcat
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # warp...
+    # /usr/bin/clear
+    randomNum=$RANDOM
+    # if divisible by 2
+    if [ $((randomNum % 2)) -eq 0 ]; then
+        fastfetch
+    else
+        width=$(tput cols)
+        figlet -w $width -f Bloody Evangelospro | lolcat
+    fi
 fi

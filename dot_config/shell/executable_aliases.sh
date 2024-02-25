@@ -30,9 +30,6 @@ alias copydir='pwd | copy && paste'
 # alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
 # alias tree='lsd -hAFlt --tree --group-dirs first --color=always'
 
-# Servers /  SSH
-# alias ssh='wezterm ssh'
-
 # Command replacemnts and GNU utils
 alias frm="/usr/bin/rm -rf"
 alias rmz="/usr/bin/rm *.zip"
@@ -125,6 +122,3 @@ alias l='ls'
 alias q='exit'
 alias qq='exit'
 alias sduo='sudo'
-
-# image utils
-alias icat="wezterm imgcat"

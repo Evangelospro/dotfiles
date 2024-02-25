@@ -20,7 +20,7 @@ bind=$MOD,P,exec,project-menu
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
 bind=,XF86Launch4,exec,asusctl led-mode -n
 {{- end }}
-bind=$MOD,Return,exec,wezterm start --always-new-process
+bind=$MOD,Return,exec,$TERMINAL
 bind=$MOD,B,exec,thorium-browser
 bind=$MOD_SHIFT,B,exec,burp
 # bind=$MOD_SHIFT,D,exec,vesktop

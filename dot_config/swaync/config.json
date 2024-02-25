@@ -76,7 +76,7 @@
                     },
                     {
                         "label": "󰨇",
-                        "command": "swaync-client -t;wezterm -e htop"
+                        "command": "swaync-client -t;$TERMINAL -e htop"
                     },
                     {
                         "label": "󰐥",

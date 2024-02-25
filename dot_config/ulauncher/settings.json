@@ -9,6 +9,6 @@
     "raise_if_started": false,
     "render_on_screen": "mouse-pointer-monitor",
     "show_indicator_icon": true,
-    "terminal_command": "wezterm -e",
+    "terminal_command": "warp-terminal -e",
     "theme_name": "dracula"
 }

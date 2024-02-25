@@ -124,7 +124,7 @@
             "    return remote(host, port)",
             "",
             "def pwn_gdb():",
-            "    context.terminal = ['wezterm', '-e']",
+            "    context.terminal = ['warp-terminal', '-e']",
             "    gdbscript = '''\ninit-pwndbg\n    continue'''",
             "    return gdb.debug(elf.path, gdbscript)",
             "",

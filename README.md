@@ -120,7 +120,7 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 
 ### Window Manager: [Hyprland](https://wiki.hyprland.org)
 
-### Terminal: [Wezterm](https://github.com/wez/wezterm/)
+### Terminal: [Warp](https://warp.dev)
 
 ### Shell [ZSH](https://wiki.archlinux.org/title/Zsh)
 
@@ -216,7 +216,6 @@ A setup android emulator can be started from the launcher using the [android_emu
 -   [hypridle](https://github.com/hyprwm/hypridle)
 -   [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter)
 -   [Waybar](https://github.com/alexays/waybar/)
--   [Wezterm](https://github.com/wez/wezterm/)
 -   [Lsd](https://github.com/lsd-rs/lsd)
 -   [playerctl](https://github.com/altdesktop/playerctl/)
 -   [Asusctl](https://gitlab.com/asus-linux/asusctl/)
