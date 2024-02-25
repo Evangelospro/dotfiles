@@ -8,6 +8,7 @@ import hyprland
 from svgutils.compose import SVG, Figure, Panel
 import subprocess
 import json
+import traceback
 
 sys.path.append(os.path.expanduser("~/.local/bin"))
 from geticon import generate_icon_list
@@ -106,6 +107,7 @@ class Workspacer(hyprland.Events):
                     else:
                         self.workspaces[mon_id][workspace_id]["status"] = "inactive-workspace"
                     icon = generate_icon_list(class_, self.iconSize)[0]
+                    self.log_event(f"icon for {class_} is {icon}")
                     if len(self.workspaces[mon_id][workspace_id]["icons"][0]) < 2:
                         self.workspaces[mon_id][workspace_id]["icons"][0].append(icon)
                     elif len(self.workspaces[mon_id][workspace_id]["icons"][1]) < 2:
@@ -138,6 +140,8 @@ class Workspacer(hyprland.Events):
                     )
                 except Exception as e:
                     self.log_event(f"Failed to generate image for workspace {ws} on monitor {mon_id} with error {e}")
+                    # print traceback
+                    self.log_event(traceback.format_exc())
                     continue
 
     def log_event(self, event: str) -> None:

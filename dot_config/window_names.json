@@ -73,7 +73,7 @@
     },
     "eww": {
         "name": "eww",
-        "icon": "~/.config/eww/images/EwwLogo.svg"
+        "icon": "~/.local/icons/EwwLogo.svg"
     },
     "czkawka_gui": {
         "name": "Czkawka",
