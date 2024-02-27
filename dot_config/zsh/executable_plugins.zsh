@@ -22,6 +22,9 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node \
     NICHOLAS85/z-a-eval
 
+zinit ice wait lucid depth=1 pick="async.zsh"
+zinit light mafredri/zsh-async
+
 # bitwarden auto export session
 zinit ice wait lucid nocd
 zinit light Game4Move78/zsh-bitwarden
@@ -29,16 +32,21 @@ zinit light Game4Move78/zsh-bitwarden
 zinit ice wait lucid nocd
 zinit light jgogstad/passwordless-history
 
-zinit ice wait lucid nocd
-zinit light icatalina/zsh-navi-plugin
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # natively supported in warp
+    zinit ice wait lucid depth=1 pick="autopair.zsh" atload="autopair-init"
+    zinit light hlissner/zsh-autopair
 
-export YSU_IGNORED_ALIASES=(".." "l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
-export YSU_HARDCORE=1
-zinit ice wait lucid nocd
-zinit light MichaelAquilina/zsh-you-should-use
+    zinit ice wait lucid nocd
+    zinit light icatalina/zsh-navi-plugin
+fi
 
 # check that you are not in docker or a server avoid in headless installs
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # natively supported in warp
+    export YSU_IGNORED_ALIASES=(".." "l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
+    export YSU_HARDCORE=1
+    zinit ice wait lucid nocd
+    zinit light MichaelAquilina/zsh-you-should-use
+
     if [ -z "$DISPLAY" ] && [ -z "$SSH_CLIENT" ]; then
         echo "Not in a gui server"
     else
@@ -59,14 +67,7 @@ export FZF_DEFAULT_OPTS=''
 zinit ice wait lucid depth"1" blockf atload"zicompinit; zicdreplay" # needs to do compinit as it provides completions
 zinit light Aloxaf/fzf-tab
 
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # natively supported in warp
-    zinit ice wait lucid depth=1 pick="autopair.zsh" atload="autopair-init"
-    zinit light hlissner/zsh-autopair
-fi
-zinit ice wait lucid depth=1 pick="async.zsh"
-zinit light mafredri/zsh-async
-
-if [[ $(tput colors) == 256 && $TERM_PROGRAM != "WarpTerminal" ]]; then # warp still has issues with PS1
+if [[ $(tput colors) == 256 ]]; then # warp still has issues with PS1
     zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/p10k.zsh'
     zinit light romkatv/powerlevel10k
 fi

@@ -6,7 +6,7 @@ alias zshconfig="$VISUAL $ZDOTDIR"
 
 # REBOS
 alias rebuild='rebos gen current build'
-alias recommit="rebos gen current commit $@"
+alias recommit="rebos gen commit $@"
 
 alias please='sudo $(fc -ln -1)'
 alias pls='please'

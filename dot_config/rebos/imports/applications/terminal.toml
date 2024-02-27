@@ -1,4 +1,3 @@
 pkgs = [
-    // "chaotic-aur/wezterm-git",
-    "warp-terminal",
+    "warp-terminal"
 ]
