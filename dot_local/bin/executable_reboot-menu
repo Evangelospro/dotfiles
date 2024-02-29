@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+wleave -k -p layer-shell -l ~/.config/wleave/reboot -C ~/.config/wleave/reboot.css

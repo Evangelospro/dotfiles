@@ -80,7 +80,7 @@
                     },
                     {
                         "label": "󰐥",
-                        "command": "swaync-client -t;wleave -b 1 -p layer-shell"
+                        "command": "swaync-client -t;power-menu"
                     }
                 ]
             }

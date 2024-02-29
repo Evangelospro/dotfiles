@@ -234,12 +234,16 @@ function rm(){
 # Adding onefetch to every cd you do with a .git dir
 cd () {
     __zoxide_z "$@"
-    git rev-parse 2> /dev/null
-    if [ $? -eq 0 ]
-    then
-        if [ "$OLDPWD" != $(basename "$(git rev-parse --show-toplevel)") ]
-        then
-            onefetch
+    if [ -d .git ]; then
+        git_base_dir=$(git rev-parse --show-toplevel)
+        # check if dirhistory(OMZP modified) is enabled
+        if [ -n "$dirhistory_past" ]; then
+            # check if this directory was not visited before in this session(does not exist in dirhistory_past)
+            if [ -z "$(echo $dirhistory_past | grep -o $git_base_dir)" ]; then
+                onefetch
+            fi
+        elif [ "$OLDPWD" != "$(basename "$git_base_dir")"]; then
+                onefetch
         fi
     fi
 }

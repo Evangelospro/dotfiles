@@ -32,21 +32,20 @@ zinit light Game4Move78/zsh-bitwarden
 zinit ice wait lucid nocd
 zinit light jgogstad/passwordless-history
 
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # natively supported in warp
+# natively supported in warp
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     zinit ice wait lucid depth=1 pick="autopair.zsh" atload="autopair-init"
     zinit light hlissner/zsh-autopair
 
     zinit ice wait lucid nocd
     zinit light icatalina/zsh-navi-plugin
-fi
 
-# check that you are not in docker or a server avoid in headless installs
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # natively supported in warp
     export YSU_IGNORED_ALIASES=(".." "l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
     export YSU_HARDCORE=1
     zinit ice wait lucid nocd
     zinit light MichaelAquilina/zsh-you-should-use
 
+    # check that you are not in docker or a server avoid in headless installs
     if [ -z "$DISPLAY" ] && [ -z "$SSH_CLIENT" ]; then
         echo "Not in a gui server"
     else
@@ -56,7 +55,7 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # natively supported in warp
 fi
 
 zinit ice wait lucid nocd
-zinit snippet OMZP::dirhistory
+zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
 
 zinit has'zoxide' wait lucid for \
     z-shell/zsh-zoxide
@@ -67,7 +66,7 @@ export FZF_DEFAULT_OPTS=''
 zinit ice wait lucid depth"1" blockf atload"zicompinit; zicdreplay" # needs to do compinit as it provides completions
 zinit light Aloxaf/fzf-tab
 
-if [[ $(tput colors) == 256 ]]; then # warp still has issues with PS1
+if [[ $(tput colors) == 256 ]]; then
     zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/p10k.zsh'
     zinit light romkatv/powerlevel10k
 fi

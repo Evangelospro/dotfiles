@@ -134,6 +134,6 @@
     "custom/powermenu": {
         "format": "",
         "tooltip": false,
-        "on-click": "exec /usr/bin/wleave -p layer-shell"
+        "on-click": "exec power-menu"
     },
 }
