@@ -1,4 +1,4 @@
-pkgs = [
+pkg_managers.system.pkgs = [
   "aur/vencord-bin",
   "signal-desktop",
   "chaotic-aur/valent-git",

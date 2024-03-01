@@ -1,4 +1,4 @@
-pkgs = [
+pkg_managers.system.pkgs = [
     "spotify-launcher",
     # chaotic-aur/spicetify-cli -> curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-cli/master/install.sh | sh
     "aur/spicetify-theme-dracula-git",

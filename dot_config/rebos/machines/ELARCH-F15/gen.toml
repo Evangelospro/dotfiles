@@ -11,6 +11,6 @@ imports = [
     "applications/password_manager"
 ]
 
-pkgs = [
+pkg_managers.system.pkgs = [
     "chaotic-aur/seadrive-gui"
 ]

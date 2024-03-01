@@ -1,4 +1,4 @@
-pkgs = [
+pkg_managers.system.pkgs = [
     "noto-fonts",
     "noto-fonts-emoji",
     "noto-fonts-extra",

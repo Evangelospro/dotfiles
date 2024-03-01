@@ -1,4 +1,4 @@
-pkgs = [
+pkg_managers.system.pkgs = [
     "chaotic-aur/thorium-browser-avx-bin",
     # "chaotic-aur/google-chrome"
 ]

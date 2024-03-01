@@ -4,24 +4,6 @@ skip_global_compinit=1
 
 export LS_COLORS=$(vivid generate dracula)
 
-# Autonotify when a long command has been completed
-export AUTO_NOTIFY_THRESHOLD=450
-export AUTO_NOTIFY_TITLE="Boss! the command: %command has just finished"
-export AUTO_NOTIFY_BODY="Time taken: %elapsed seconds exit code: %exit_code, have a look"
-export AUTO_NOTIFY_IGNORE=("vpn", "htb", "thm", "ipython", "docker", "man", "nano", "vim", "ssh", "less", "e", "openvpn", "ping", "nc", "penelope", 'code', 'crontab', 'watch' 'tail' 'head' 'cat')
-export AUTO_NOTIFY_EXPIRE_TIME=4
-
-# ZINIT
-typeset -A ZINIT
-ZINIT[HOME_DIR]="$ZDOTDIR/.zinit"
-ZINIT[BIN_DIR]="$ZDOTDIR/.zinit/bin"
-ZINIT[CACHE_DIR]="$ZDOTDIR/.zinit/cache"
-ZINIT[ZCOMPDUMP_PATH]="$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
-ZINIT[NO_ALIASES]=1
-
-_ZO_DATA_DIR="$ZDOTDIR/zoxide"
-_ZO_RESOLVE_SYMLINKS=1
-
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
 # Hacking tools
 export HACKING_TOOLS="$HOME/HACKING/Tools"

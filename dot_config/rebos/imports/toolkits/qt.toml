@@ -1,4 +1,4 @@
-pkgs = [
+pkg_managers.system.pkgs = [
     "qt5ct",
     "qt6ct",
     "qtkeychain-qt5",

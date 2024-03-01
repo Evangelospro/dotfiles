@@ -19,13 +19,6 @@ if pacman -Qs virt-manager >/dev/null 2>&1; then
     sudo virsh net-autostart default >/dev/null
 fi
 
-if pacman -Qs pipx >/dev/null 2>&1; then
-    rebos api echo info "Setting up pipx"
-    pipx ensurepath
-    rebos api echo info "Installing pipx packages"
-    cat ~/.local/share/chezmoi/pipx-requirements.txt | sed -e 's/#.*//' | xargs -I {} sh -c 'pipx install {} || true'
-fi
-
 # COPY SYSTEM CONFIGURATIONS
 rebos api echo info "Copying system configurations"
 sudo cp -r ~/.local/share/chezmoi/confs/* /

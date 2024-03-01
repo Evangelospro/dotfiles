@@ -1,4 +1,4 @@
-pkgs = [
+pkg_managers.system.pkgs = [
     "virtualbox",
     "virtualbox-guest-iso",
     "virtualbox-guest-utils",

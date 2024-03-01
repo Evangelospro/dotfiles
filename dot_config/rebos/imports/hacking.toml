@@ -6,13 +6,10 @@ imports = [
     "hacking/forensics",
     "hacking/crypto",
     "hacking/networking",
+    "hacking/osint",
     "hacking/pwn",
     "hacking/reverse_engineering",
     "hacking/shell_handlers",
     "hacking/wordlists",
     "hacking/stego"
-]
-
-pkgs = [
-    "metasploit",
 ]

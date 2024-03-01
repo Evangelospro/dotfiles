@@ -1,4 +1,4 @@
-pkgs = [
+pkg_managers.system.pkgs = [
     "docker",
     "docker-buildx",
     "aur/docker-rootless-extras",

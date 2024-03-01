@@ -31,3 +31,10 @@ button:focus {
 #windows {
 	background-image: image(url("./windows.png"));
 }
+
+#reboot {
+	background-image: image(url("./restart.png"));
+}
+#reboot:focus {
+	background-image: image(url("./restart-hover.png"));
+}

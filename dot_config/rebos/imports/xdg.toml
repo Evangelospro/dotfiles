@@ -1,6 +1,5 @@
-pkgs = [
+pkg_managers.system.pkgs = [
     "chaotic-aur/xdg-ninja-git",
-    "aur/selectdefaultapplication-fork-git",
     "aur/handlr-regex-bin",
     "# aur/pistol-git",
 ]

@@ -1,4 +1,4 @@
-pkgs = [
+pkg_managers.system.pkgs = [
     "linux-g14",
     "linux-g14-headers",
     "intel-compute-runtime",

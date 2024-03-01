@@ -1,0 +1,9 @@
+# Flatpak
+
+install = "flatpak install #:?"
+remove = "flatpak uninstall #:?"
+upgrade = "flatpak upgrade"
+
+plural_name = "flatpaks"
+
+config = { many_pkg_args = true }
