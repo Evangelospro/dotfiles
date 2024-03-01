@@ -1,52 +1,55 @@
 #!/bin/bash
-echo "Updating HYPRLAND with args: $@"
 
-if paru -Qi hyprland-git &>/dev/null; then
-    echo "You have hyprland-git installed. It will be removed."
-    echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
-    sleep 10
-    paru -R hyprland-git
-elif paru -Qi hyprland &>/dev/null; then
-    echo "You have hyprland installed. It will be removed."
-    echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
-    sleep 10
-    paru -R hyprland
-fi
+force_upgrade=false
 
-cd $HOME/.config/hypr/hyprland-repo
-# if git pull has changes then build and install git pull even if there are changes
-git fetch
-git pull
-latest_hyprland_version=$(git rev-parse HEAD)
-current_hyprland_version=$(hyprctl version -j | jq -r '.commit')
-# Disallow upgrading if already upgraded in this session
-if [[ "$latest_hyprland_version" != "$current_hyprland_version" ]] && [[ ! -f /tmp/hypr/hyprland_already_upgraded ]] || [[ "$1" == "-f" ]]; then
-    # Apply NVIDIA patch if applicable
-    # if [[ $(nvidia-smi &> /dev/null; echo $?) -eq 0 ]]; then
-    #     echo "Applying NVIDIA patch"
-    #     sed -E -i -e 's/(soversion = 12)([^032]|$$)/soversion = 12032/g' ./subprojects/wlroots/meson.build
-    #     rm -rf ./subprojects/wlroots/build
-    #     sed -i -e '/^release:/{n;s/-D/-DCMAKE_SKIP_RPATH=ON -D/}' Makefile
-    #     cd subprojects/wlroots
-    #     patch -Np1 < ../../nix/patches/wlroots-nvidia.patch
-    #     cd ../..
-    # fi
-    # Build and install
-    # echo "Changing prefix to $PREFIX"
-    # sed -i -e 's/PREFIX = .*/PREFIX = \/usr/g' Makefile
-    echo "Removing old wlroots"
-    sudo rm -rf /usr/local/lib/libwlroots* /usr/lib/libwlroots* /usr/lib64/libwlroots*
-    make all && sudo make install && touch /tmp/hypr/hyprland_already_upgraded
-    echo "Adding back wlroots"
-    sudo ln -s /usr/local/lib/libwlroots* /usr/lib/
-    echo "Adding wayland-session"
-    sudo mkdir -p /usr/share/wayland-sessions
-    sudo cp example/hyprland.desktop /usr/share/wayland-sessions
-    echo "Please logout and log back in to use the latest version of HYPRLAND."
-else
-    if [[ -f /tmp/hypr/hyprland_already_upgraded ]]; then
-        echo "HYPRLAND has already been upgraded in this session, restart to receive further updates. Use -f to force upgrade."
-    else
-        echo "HYPRLAND is already latest version. Use -f to force upgrade."
+while getopts ":f" opt; do
+    case $opt in
+    f)
+        force_upgrade=true
+        ;;
+    \?)
+        echo "Invalid option: -$OPTARG" >&2
+        ;;
+    esac
+done
+
+if [[ $force_upgrade == true || ! -e /tmp/hypr/hyprland_already_upgraded ]]; then
+    if paru -Qi hyprland-git &>/dev/null; then
+        echo "You have hyprland-git installed. It will be removed."
+        echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
+        sleep 10
+        paru -R hyprland-git
+    elif paru -Qi hyprland &>/dev/null; then
+        echo "You have hyprland installed. It will be removed."
+        echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
+        sleep 10
+        paru -R hyprland
     fi
+
+    cd $HOME/.config/hypr/hyprland-repo
+
+    # if git pull has changes then build and install git pull even if there are changes
+    git fetch
+    git pull
+
+    latest_hyprland_version=$(git rev-parse HEAD)
+    current_hyprland_version=$(hyprctl version -j | jq -r '.commit')
+
+    if [[ $force_upgrade == true || "$latest_hyprland_version" != "$current_hyprland_version" ]]; then
+        echo "Forcing upgrade"
+
+        echo "Removing old wlroots"
+        sudo rm -rf /usr/local/lib/libwlroots* /usr/lib/libwlroots* /usr/lib64/libwlroots*
+        make all && sudo make install && touch /tmp/hypr/hyprland_already_upgraded
+        echo "Adding back wlroots"
+        sudo ln -s /usr/local/lib/libwlroots* /usr/lib/
+        echo "Adding wayland-session"
+        sudo mkdir -p /usr/share/wayland-sessions
+        sudo cp example/hyprland.desktop /usr/share/wayland-sessions
+        echo "Please logout and log back in to use the latest version of HYPRLAND."
+    else
+        echo "Already latest version, no need to upgrade. Use -f option to force upgrade."
+    fi
+else
+    echo "Already upgraded in this session. Use -f option to force upgrade."
 fi
