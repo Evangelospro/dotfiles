@@ -2,6 +2,8 @@
 # ~/.bashrc
 #
 
+source $XDG_CONFIG_HOME/shell/wm_startup.sh
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

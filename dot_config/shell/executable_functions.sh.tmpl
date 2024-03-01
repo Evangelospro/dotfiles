@@ -248,8 +248,19 @@ cd () {
     fi
 }
 
-# Time shell loading time
+# Time shell loading time takes shell and number of times to run
 timeshell() {
     shell=${1-$SHELL}
-    for i in $(seq 1 10); do time ZSH_PROFILE=1 $shell -i -c exit; done
+    times=${2-10}
+    echo "Running $shell $times times"
+    for ((i=1; i<=$times; i++))
+    do
+        time SHELL_PROFILE=0 $shell -i -c exit
+    done
+}
+
+profileshell() {
+    shell=${1-$SHELL}
+    echo "Profiling $shell"
+    SHELL_PROFILE=1 $shell -i -c exit
 }

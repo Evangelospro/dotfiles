@@ -1,10 +1,10 @@
 source $XDG_CONFIG_HOME/shell/wm_startup.sh
 
-# Start profiler
-if [[ "${ZSH_PROFILE}" == 1 ]]; then
+# Start profiler if SHELL_PROFILE not empty
+if [[ "${SHELL_PROFILE}" == 1 ]]; then
+    echo "Starting profiler"
     zmodload zsh/zprof
 else
-    ZSH_PROFILE=0
     source $XDG_CONFIG_HOME/shell/scripts/utils/clear
 fi
 
@@ -23,8 +23,6 @@ source $ZDOTDIR/options.zsh
 
 # Styling
 source $ZDOTDIR/zstyle.zsh
-
-_comp_options+=(globdots)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of $ZSHrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -81,19 +79,6 @@ fpath+=$ZDOTDIR/.zfunc
 autoload -U select-word-style
 select-word-style bash # alt+backspaces now deletes to previous / when working with paths
 
-# COMPLETIONS
-autoload -Uz compinit
-# check if zcompdump file exists and if it is older than a day
-if [ ! -s "$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION" ] || [ $(date +'%j') != $(date -d "@`/usr/bin/stat -c '%Y' $XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION`" '+%j') ]; then
-    compinit -u -i -d "$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION"
-else
-    compinit -C -d "$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION"
-fi
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-autoload -U +X bashcompinit && bashcompinit # needed for pipx to load
-
 # Aliases (at the end of the file to overwrite "framework" set aliases)
 source $XDG_CONFIG_HOME/shell/aliases.sh
 
@@ -103,4 +88,29 @@ source "$ZDOTDIR/plugins.zsh"
 # Bindings (at the end of the file to overwrite "framework" set bindings)
 source $ZDOTDIR/binds.zsh
 
+# COMPLETIONS
+_comp_options+=(globdots)
+
+autoload -Uz compinit
+zcompdump_file="$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION"
+
+# Check if zcompdump file exists and if it is older than a day
+if [ ! -s "$zcompdump_file" ] || [ "$(date +'%j')" != "$(date -d "@$(/usr/bin/stat -c '%Y' "$zcompdump_file")" '+%j')" ]; then
+    compinit -u -i -d "$zcompdump_file"
+else
+    compinit -C -d "$zcompdump_file"
+fi
+
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+autoload -U +X bashcompinit && bashcompinit # needed for pipx to load
+
 zinit cdreplay -q
+
+# end profiler check that it is not already running
+if [[ "${SHELL_PROFILE}" == 1 ]]; then
+    zprof
+    echo "Stopping profiler"
+    exit
+fi
