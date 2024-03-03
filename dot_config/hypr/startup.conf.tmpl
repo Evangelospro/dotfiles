@@ -43,7 +43,7 @@ exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-brow
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
 exec-once=[workspace special:backgroundappsvalent silent] /usr/bin/valent
 exec-once=[workspace special:backgroundappsrogcontrolcenter silent] /usr/bin/rog-control-center
-exec-once=/usr/bin/rm -rf $HOME/SeaDrive && /usr/bin/seadrive-gui
+exec=/usr/bin/pkill -9 seadrive-gui ; /usr/bin/fusermount -u $HOME/SeaDrive ; /usr/bin/seadrive-gui
 {{- else if (eq .chezmoi.hostname "ELARCH-ISO") }}
 exec-once=/usr/bin/calamares_polkit
 {{- end }}

@@ -1,7 +1,6 @@
 source $XDG_CONFIG_HOME/shell/aliases/hacking.zsh
 
 # Dotfiles
-alias chezmoi="chezmoi -R=auto $@"
 alias config="chezmoi cd && $VISUAL ."
 alias zshconfig="$VISUAL $ZDOTDIR"
 

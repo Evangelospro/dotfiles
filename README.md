@@ -181,7 +181,7 @@ Burp is setup to auto update with the update zsh function above. As I like to us
 ### IDA [DockerWineIDA](https://github.com/NyaMisty/docker-wine-ida)
 
 IDA essentially runs in docker(running xfce and wine) and rdesktop auto connects
-It can be started via the IDA [desktop file](dot_local/private_share/private_applications/burp.desktop) it can be launched from the launcher
+It can be started via the IDA [desktop file](dot_local/private_share/private_applications/ida.desktop.tmpl) it can be launched from the launcher
 
 ### Android Emulator
 

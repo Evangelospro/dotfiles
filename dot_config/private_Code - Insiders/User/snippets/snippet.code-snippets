@@ -112,6 +112,7 @@
             "sa = lambda x, y: io.sendafter(x.encode() if type(x) == str else x, y.encode() if type(y) == str else y)",
             "",
             "binary_dir = './$1'",
+            "elf = ELF(binary_dir, checksec=False)",
             "",
             "host = '$2'",
             "port = $3",
