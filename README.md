@@ -8,7 +8,8 @@
 
 # ELARCH<a name="top"></a>
 ## Showcase (may be outdated) <a name="showcase"></a>
-[![Showcase Video](Pictures/showcase/submission.mp4)](Pictures/showcase/submission.mp4)
+
+https://github.com/Evangelospro/dotfiles/assets/68608623/a00cad72-12a5-4858-8acd-fbfce8b6c3d2
 ![1.png](Pictures/showcase/1.png)
 ![2.png](Pictures/showcase/2.png)
 
