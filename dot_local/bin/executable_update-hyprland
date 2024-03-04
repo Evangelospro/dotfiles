@@ -13,43 +13,60 @@ while getopts ":f" opt; do
     esac
 done
 
-if [[ $force_upgrade == true || ! -e /tmp/hypr/hyprland_already_upgraded ]]; then
-    if paru -Qi hyprland-git &>/dev/null; then
-        echo "You have hyprland-git installed. It will be removed."
-        echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
-        sleep 10
-        paru -R hyprland-git
-    elif paru -Qi hyprland &>/dev/null; then
-        echo "You have hyprland installed. It will be removed."
-        echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
-        sleep 10
-        paru -R hyprland
-    fi
-
-    cd $HOME/.config/hypr/hyprland-repo
-
-    # if git pull has changes then build and install git pull even if there are changes
-    git fetch
-    git pull
-
-    latest_hyprland_version=$(git rev-parse HEAD)
-    current_hyprland_version=$(hyprctl version -j | jq -r '.commit')
-
-    if [[ $force_upgrade == true || "$latest_hyprland_version" != "$current_hyprland_version" ]]; then
-        echo "Forcing upgrade"
+function cleanup() {
 
         echo "Removing old wlroots"
         sudo rm -rf /usr/local/lib/libwlroots* /usr/lib/libwlroots* /usr/lib64/libwlroots*
+}
+
+function build() {
         make all && sudo make install && touch /tmp/hypr/hyprland_already_upgraded
         echo "Adding back wlroots"
         sudo ln -s /usr/local/lib/libwlroots* /usr/lib/
         echo "Adding wayland-session"
         sudo mkdir -p /usr/share/wayland-sessions
         sudo cp example/hyprland.desktop /usr/share/wayland-sessions
-        echo "Please logout and log back in to use the latest version of HYPRLAND."
-    else
-        echo "Already latest version, no need to upgrade. Use -f option to force upgrade."
-    fi
-else
+        echo "Please logout and log back in to use the latest version of Hyprland."
+}
+
+echo "This script will upgrade hyprland to the latest version from the git repository. Any installations from other sources will be removed. Press Ctrl+C to abort"
+if paru -Qi hyprland-git &>/dev/null; then
+    echo "You have hyprland-git installed. It will be removed."
+    echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
+    sleep 10
+    paru -R hyprland-git
+elif paru -Qi hyprland &>/dev/null; then
+    echo "You have hyprland installed. It will be removed."
+    echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
+    sleep 10
+    paru -R hyprland
+fi
+
+cd $HOME/.config/hypr/hyprland-repo
+
+# if git pull has changes then build and install git pull even if there are changes
+git fetch
+git pull
+
+latest_hyprland_version=$(git rev-parse HEAD)
+current_hyprland_version=$(hyprctl version -j | jq -r '.commit')
+
+echo "Latest hyprland version: $latest_hyprland_version"
+echo "Current hyprland version: $current_hyprland_version"
+if [[ $latest_hyprland_version == $current_hyprland_version && $force_upgrade == false ]]; then
+    echo "Already latest version, no need to upgrade. Use -f option to force upgrade."
+    exit 0
+# versions are different
+elif [[ ! -e /tmp/hypr/hyprland_already_upgraded ]]; then
+    cleanup
+    build
+# already upgraded in this session and force_upgrade is false
+elif [[ -e /tmp/hypr/hyprland_already_upgraded && $force_upgrade == false ]]; then
     echo "Already upgraded in this session. Use -f option to force upgrade."
+    exit 0
+# already upgraded in this session and force_upgrade is true
+elif [[ $force_upgrade == true ]]; then
+    echo "Forcing upgrade"
+    cleanup
+    build
 fi

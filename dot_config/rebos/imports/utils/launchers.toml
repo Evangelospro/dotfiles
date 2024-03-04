@@ -1,5 +1,6 @@
 pkg_managers.system.pkgs = [
+    "aur/onagre-git",
     "aur/anyrun-git",
-    # "aur/ulauncher-git",
+    # "aur/ulauncher-it",
     "rofi-lbonn-wayland"
 ]

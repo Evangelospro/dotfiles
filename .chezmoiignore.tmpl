@@ -8,10 +8,6 @@ README.md
 install.sh
 *requirements.txt
 
-# custom ISO
-iso/
-release-config.js
-
 # notes
 *.notes
 
@@ -85,9 +81,12 @@ docs/zsdoc/data
 # Mypy
 **/.mypy_cache
 
-# Only create ssh keys if they don't exist
 
-{{- if (ne .chezmoi.hostname "ELARCH-F15") }}
+# SPECIFIC TO ME AS EVANGELOSPRO NOT ONLY ELARCH-F15
+{{- if (or (ne .chezmoi.hostname "ELARCH-F15") (ne .chezmoi.username "evangelospro")) }}
+Courses
+HACKING
+School
 .ssh/config
 .ssh/keys/eraspberry1
 .ssh/keys/portainer
@@ -96,6 +95,7 @@ docs/zsdoc/data
 .ssh/keys/ecsc
 .ssh/keys/c2
 {{- else }}
+# Only create ssh keys if they don't exist
 {{- if  stat (joinPath .chezmoi.homeDir ".ssh/config") }}
 .ssh/config
 {{- end }}

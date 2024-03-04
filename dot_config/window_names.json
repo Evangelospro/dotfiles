@@ -101,10 +101,14 @@
     },
     "dev.warp.Warp": {
         "name": "Warp",
-        "icon": "/home/evangelospro/.local/icons/dev.warp.Warp.svg"
+        "icon": "~/.local/icons/dev.warp.Warp.svg"
     },
     "zoom": {
         "name": "Zoom Meeting",
         "icon": "Zoom"
+    },
+    "rdesktop": {
+        "name": "Remote Desktop",
+        "icon": "~/.local/icons/rdesktop.svg"
     }
 }
