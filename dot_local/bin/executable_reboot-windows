@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+windows_title=$(grep -i windows /boot/grub/grub.cfg | cut -d "'" -f 2)
+pkexec grub-reboot "$windows_title"
+systemctl reboot

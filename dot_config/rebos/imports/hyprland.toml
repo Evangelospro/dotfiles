@@ -43,5 +43,6 @@ pkg_managers.system.pkgs = [
     "wayland-protocols",
     "aur/hyprpicker-git",
     "aur/hyprlock-git",
-    "aur/hyprpaper-git"
+    "aur/hyprpaper-git",
+    "aur/hyprcursor-git",
 ]
