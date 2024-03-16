@@ -1,0 +1,7 @@
+resize_algorithm = none
+hotspot_x = 0.88
+hotspot_y = 0.50
+
+define_size = 24, right_side_000.png, 30
+
+define_override = e-resize

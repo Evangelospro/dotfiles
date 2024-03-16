@@ -1,0 +1,11 @@
+resize_algorithm = none
+hotspot_x = 0.12
+hotspot_y = 0.33
+
+define_size = 24, question_arrow_000.png, 30
+
+define_override = d9ce0ab605698f320427677b458ad60b
+define_override = help
+define_override = left_ptr_help
+define_override = whats_this
+define_override = 5c6cd98b3f3ebcb1f9c7f1c204630408

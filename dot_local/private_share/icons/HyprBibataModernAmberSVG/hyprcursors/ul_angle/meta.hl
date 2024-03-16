@@ -1,0 +1,6 @@
+resize_algorithm = none
+hotspot_x = 0.12
+hotspot_y = 0.12
+
+define_size = 24, ul_angle_000.png, 30
+

@@ -45,4 +45,5 @@ pkg_managers.system.pkgs = [
     "aur/hyprlock-git",
     "aur/hyprpaper-git",
     "aur/hyprcursor-git",
+    "xcur2png",
 ]

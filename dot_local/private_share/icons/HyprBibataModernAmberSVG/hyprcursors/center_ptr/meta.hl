@@ -1,0 +1,6 @@
+resize_algorithm = none
+hotspot_x = 0.46
+hotspot_y = 0.04
+
+define_size = 24, center_ptr_000.png, 30
+

@@ -1,0 +1,8 @@
+resize_algorithm = none
+hotspot_x = 0.54
+hotspot_y = 0.29
+
+define_size = 24, hand1_000.png, 30
+
+define_override = grab
+define_override = openhand

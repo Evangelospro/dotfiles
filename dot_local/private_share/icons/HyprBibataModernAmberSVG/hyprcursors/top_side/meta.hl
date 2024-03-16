@@ -1,0 +1,7 @@
+resize_algorithm = none
+hotspot_x = 0.50
+hotspot_y = 0.08
+
+define_size = 24, top_side_000.png, 30
+
+define_override = n-resize

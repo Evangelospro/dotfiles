@@ -1,0 +1,6 @@
+resize_algorithm = none
+hotspot_x = 0.50
+hotspot_y = 0.08
+
+define_size = 24, top_tee_000.png, 30
+
