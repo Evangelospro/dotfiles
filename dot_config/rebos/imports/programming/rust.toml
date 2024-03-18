@@ -1,5 +1,5 @@
 pkg_managers.system.pkgs = [
-  "rustup",
+  "rust",
   "rust-analyzer",
   "rust-src",
 ]

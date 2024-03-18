@@ -16,6 +16,13 @@ smartcache eval thefuck --alias
 smartcache eval direnv hook zsh
 smartcache eval atuin init zsh 2>&1 >/dev/null
 
+
+zinit ice wait lucid nocd
+zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
+
+zinit ice wait lucid nocd
+zinit light z-shell/zsh-zoxide
+
 # Plugins for annex speedups
 zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
@@ -53,12 +60,6 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
         zinit light MichaelAquilina/zsh-auto-notify
     fi
 fi
-
-zinit ice wait lucid nocd
-zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
-
-zinit has'zoxide' wait lucid for \
-    z-shell/zsh-zoxide
 
 ## FZF tab completion
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --files --hidden --follow --glob '!.git' || find ."

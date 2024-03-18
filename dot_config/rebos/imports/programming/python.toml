@@ -8,5 +8,5 @@ pkg_managers.system.pkgs = [
     "python-scikit-learn",
     "python-pandas",
     "python-numpy",
-    "python-matplotlib"
+    "python-matplotlib",
 ]

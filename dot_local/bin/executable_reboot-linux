@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-kernal_name = "linux-g14"
-linux_title=$(grep -i $kernal_name /boot/grub/grub.cfg | cut -d "'" -f 2)
+kernel_name="linux-g14"
+linux_title=$(grep -i $kernel_name /boot/grub/grub.cfg | cut -d "'" -f 2)
 pkexec grub-reboot "$linux_title"
 systemctl reboot

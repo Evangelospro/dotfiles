@@ -28,7 +28,7 @@
         "spacing": 3
     },
     "clock": {
-        "format": "{: %R  %a,%b%e}",
+        "format": " {:%R  %a,%b%e}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "backlight": {
