@@ -65,9 +65,10 @@
     untracked = red
     updated = green bold
 
-# GIT DELTA
 [core]
+    # GIT DELTA
     pager = delta
+    excludesfile = ~/.config/git/ignore
 
 [interactive]
     diffFilter = delta --color-only

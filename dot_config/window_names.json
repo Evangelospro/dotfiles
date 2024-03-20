@@ -110,5 +110,9 @@
     "rdesktop": {
         "name": "Remote Desktop",
         "icon": "~/.local/icons/rdesktop.svg"
+    },
+    "ROG Control": {
+        "name": "ROG Control Center",
+        "icon": "rog-control-center"
     }
 }

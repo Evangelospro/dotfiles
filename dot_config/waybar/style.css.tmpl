@@ -37,11 +37,9 @@
 #clock,
 #battery,
 #pulseaudio,
-#network,
 #bluetooth,
 #temperature,
 #workspaces,
-#tray,
 #pulseaudio.microphone,
 #backlight {
 	background: #1e1e2e;
@@ -100,8 +98,15 @@
 }
 
 #tray {
-    border-radius: 10px;
+    background: #1e1e2e;
+    opacity: 0.8;
+    margin: 3px 0px;
+    border-top: 2px solid @purple;
+    border-bottom: 2px solid @purple;
+    border-right: 2px solid @purple;
+    border-radius: 0px 10px 10px 0px;
     margin-right: 10px;
+    padding: 0px 3px;
 }
 
 #tray > .passive {
@@ -147,8 +152,15 @@ label:focus {
 }
 
 #network {
+    background: #1e1e2e;
+    opacity: 0.8;
+    margin: 3px 0px;
+    border-top: 2px solid @purple;
+    border-left: 2px solid @purple;
+    border-bottom: 2px solid @purple;
     color: @orange;
     border-radius: 10px 0px 0px 10px;
+    padding: 0px 3px;
 }
 
 #bluetooth {

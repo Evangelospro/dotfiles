@@ -1,0 +1,11 @@
+**/.dccache
+**/node-modules/
+**/__tests__/
+**/coverage/
+**/build/
+**/dist/
+**/__pycache__/
+**/.pytest_cache/
+**/.vscode/
+**/.idea/
+**/.DS_Store

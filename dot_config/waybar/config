@@ -35,11 +35,11 @@
             "hyprland/window"
         ],
         "modules-right": [
-            "network",
-            "bluetooth",
             "pulseaudio",
             "pulseaudio#microphone",
             "battery",
+            "network",
+            // "bluetooth",
             "tray",
             // "keyboard-state",
             "idle_inhibitor",
@@ -144,11 +144,11 @@
             "hyprland/window"
         ],
         "modules-right": [
-            // "network",
-            // "bluetooth",
             // "pulseaudio",
             // "pulseaudio#microphone",
             // "battery",
+            // "network",
+            // "bluetooth",
             "tray",
             // "keyboard-state",
             "idle_inhibitor",

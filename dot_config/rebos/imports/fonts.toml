@@ -4,7 +4,7 @@ pkg_managers.system.pkgs = [
     "noto-fonts-extra",
     "noto-fonts-cjk",
     "otf-font-awesome",
-    #"aur/otf-manrope",
+    "aur/ttf-material-design-icons-extended",
     "tesseract",
     "tesseract-data-eng"
 ]
