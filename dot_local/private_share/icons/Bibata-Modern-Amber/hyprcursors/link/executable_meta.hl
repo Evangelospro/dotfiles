@@ -1,0 +1,9 @@
+resize_algorithm = none
+hotspot_x = 0.19
+hotspot_y = 0.06
+
+define_size = 0, link.svg
+
+define_override = 3085a0e285430894940527032f8b26df
+define_override = 640fb0e74195791501fd1ed57b41487f
+define_override = a2a266d0498c3104214a47bd64ab0fc8

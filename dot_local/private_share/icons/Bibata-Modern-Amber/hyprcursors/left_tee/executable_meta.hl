@@ -1,0 +1,6 @@
+resize_algorithm = none
+hotspot_x = 0.88
+hotspot_y = 0.50
+
+define_size = 0, left_tee.svg
+

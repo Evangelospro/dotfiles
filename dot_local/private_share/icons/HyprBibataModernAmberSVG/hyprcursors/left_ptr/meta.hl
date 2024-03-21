@@ -1,9 +1,0 @@
-resize_algorithm = none
-hotspot_x = 0.21
-hotspot_y = 0.04
-
-define_size = 24, left_ptr_000.png, 30
-
-define_override = arrow
-define_override = top_left_arrow
-define_override = default

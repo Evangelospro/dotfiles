@@ -1,0 +1,6 @@
+resize_algorithm = none
+hotspot_x = 0.44
+hotspot_y = 0.44
+
+define_size = 0, zoom-in.svg
+

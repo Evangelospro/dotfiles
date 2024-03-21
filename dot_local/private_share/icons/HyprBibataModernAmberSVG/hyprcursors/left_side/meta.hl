@@ -1,7 +1,0 @@
-resize_algorithm = none
-hotspot_x = 0.04
-hotspot_y = 0.50
-
-define_size = 24, left_side_000.png, 30
-
-define_override = w-resize

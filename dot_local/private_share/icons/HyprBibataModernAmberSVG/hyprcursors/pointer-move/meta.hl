@@ -1,6 +1,0 @@
-resize_algorithm = none
-hotspot_x = 0.21
-hotspot_y = 0.04
-
-define_size = 24, pointer-move_000.png, 30
-

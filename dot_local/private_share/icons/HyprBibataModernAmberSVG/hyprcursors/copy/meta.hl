@@ -1,9 +1,0 @@
-resize_algorithm = none
-hotspot_x = 0.21
-hotspot_y = 0.04
-
-define_size = 24, copy_000.png, 30
-
-define_override = b66166c04f8c3109214a4fbd64a50fc8
-define_override = 1081e37283d90000800003c07f3ef6bf
-define_override = 6407b0e94181790501fd1e167b474872

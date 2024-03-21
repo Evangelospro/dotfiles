@@ -1,0 +1,9 @@
+resize_algorithm = none
+hotspot_x = 0.50
+hotspot_y = 0.50
+
+define_size = 0, bd_double_arrow.svg
+
+define_override = c7088f0f3e6c8088236ef8e1e3e70000
+define_override = nwse-resize
+define_override = size_fdiag

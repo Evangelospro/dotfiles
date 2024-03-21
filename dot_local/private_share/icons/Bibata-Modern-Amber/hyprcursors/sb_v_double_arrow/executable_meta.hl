@@ -1,0 +1,15 @@
+resize_algorithm = none
+hotspot_x = 0.50
+hotspot_y = 0.50
+
+define_size = 0, sb_v_double_arrow.svg
+
+define_override = 00008160000006810000408080010102
+define_override = 2870a09082c103050810ffdffffe0204
+define_override = double_arrow
+define_override = ns-resize
+define_override = row-resize
+define_override = size-ver
+define_override = size_ver
+define_override = split_v
+define_override = v_double_arrow

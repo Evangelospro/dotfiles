@@ -1,0 +1,10 @@
+resize_algorithm = none
+hotspot_x = 0.50
+hotspot_y = 0.25
+
+define_size = 0, grabbing.svg
+
+define_override = closedhand
+define_override = dnd-move
+define_override = dnd-none
+define_override = fcf21c00b30f7e3f83fe0dfd12e71cff

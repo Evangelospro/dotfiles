@@ -1,0 +1,8 @@
+resize_algorithm = none
+hotspot_x = 0.56
+hotspot_y = 0.25
+
+define_size = 0, hand1.svg
+
+define_override = grab
+define_override = openhand

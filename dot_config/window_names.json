@@ -73,7 +73,7 @@
     },
     "eww": {
         "name": "eww",
-        "icon": "~/.local/icons/EwwLogo.svg"
+        "icon": "~/.local/share/icons/EwwLogo.svg"
     },
     "czkawka_gui": {
         "name": "Czkawka",
@@ -101,7 +101,7 @@
     },
     "dev.warp.Warp": {
         "name": "Warp",
-        "icon": "~/.local/icons/dev.warp.Warp.svg"
+        "icon": "~/.local/share/icons/dev.warp.Warp.svg"
     },
     "zoom": {
         "name": "Zoom Meeting",
@@ -109,7 +109,7 @@
     },
     "rdesktop": {
         "name": "Remote Desktop",
-        "icon": "~/.local/icons/rdesktop.svg"
+        "icon": "~/.local/share/icons/rdesktop.svg"
     },
     "ROG Control": {
         "name": "ROG Control Center",

@@ -5,8 +5,8 @@ import json
 import os
 import re
 
-DEFAULT_ICON = "/usr/share/icons/Papirus/24x24/apps/appgrid.svg"
 ICON_SIZE = 22
+DEFAULT_ICON = f"/usr/share/icons/Papirus/{ICON_SIZE}x{ICON_SIZE}/apps/appgrid.svg"
 
 WINDOW_NAMES = json.loads(open(os.path.expanduser("~/.config/window_names.json")).read())
 

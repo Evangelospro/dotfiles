@@ -1,5 +1,5 @@
 pkg_managers.system.pkgs = [
-    "chaotic-aur/bibata-cursor-theme",
+    "aur/bibata-cursor-theme-bin",
     "aur/papirus-icon-theme-git",
     "aur/grub-theme-cyberre"
 ]

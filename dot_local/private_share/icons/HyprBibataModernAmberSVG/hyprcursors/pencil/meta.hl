@@ -1,7 +1,0 @@
-resize_algorithm = none
-hotspot_x = 0.17
-hotspot_y = 0.79
-
-define_size = 24, pencil_000.png, 30
-
-define_override = draft

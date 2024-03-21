@@ -1,0 +1,11 @@
+resize_algorithm = none
+hotspot_x = 0.50
+hotspot_y = 0.50
+
+define_size = 0, move.svg
+
+define_override = 4498f0e0c1937ffe01fd06f973665830
+define_override = 9081237383d90e509aa00f00170e968f
+define_override = all-scroll
+define_override = fleur
+define_override = size_all

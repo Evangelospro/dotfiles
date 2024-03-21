@@ -89,7 +89,7 @@ class Workspacer(hyprland.Events):
                 class_ = (
                     client["class"]
                     if client["class"]
-                    else client["initialTitle"].split(" ")[0] if client["initialTitle"] else ""
+                    else client["initialTitle"]
                 )
                 workspace_id = int(client["workspace"]["id"])
                 if workspace_id > 0:

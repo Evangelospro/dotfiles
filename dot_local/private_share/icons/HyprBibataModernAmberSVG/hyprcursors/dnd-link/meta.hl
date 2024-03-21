@@ -1,7 +1,0 @@
-resize_algorithm = none
-hotspot_x = 0.38
-hotspot_y = 0.25
-
-define_size = 24, dnd-link_000.png, 30
-
-define_override = alias
