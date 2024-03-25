@@ -1,0 +1,12 @@
+pkg_managers.system.pkgs = [
+    "python-scikit-learn",
+    "python-pandas",
+    "python-numpy",
+    "python-matplotlib",
+    "python-seaborn",
+    "python-tensorflow-opt-cuda",
+    "python-keras",
+    "python-pytorch-opt-cuda",
+    "python-torchvision-cuda",
+    "python-ultralytics",
+]

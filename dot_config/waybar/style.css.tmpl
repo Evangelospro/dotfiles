@@ -1,6 +1,6 @@
 @import url("{{ .chezmoi.homeDir }}/.config/themes/dracula.css");
 
-.laptop-1920x1080 {
+window.laptop-1920x1080 {
 	border: none;
 	border-radius: 0;
 	min-height: 0;
@@ -11,7 +11,7 @@
 	font-weight: bold;
 }
 
-.external-1360x768 {
+window.external-1360x768 {
 	border: none;
 	border-radius: 0;
 	min-height: 0;
@@ -109,6 +109,11 @@
     padding: 0px 3px;
 }
 
+window.external-1360x768 #tray {
+    border: 2px solid @purple;
+    border-radius: 10px 0px 0px 10px;
+}
+
 #tray > .passive {
     -gtk-icon-effect: dim;
 }
@@ -161,11 +166,6 @@ label:focus {
     color: @orange;
     border-radius: 10px 0px 0px 10px;
     padding: 0px 3px;
-}
-
-.external-1360x768 #network {
-    border: 2px solid @purple;
-    border-radius: 10px 0px 0px 10px;
 }
 
 #bluetooth {

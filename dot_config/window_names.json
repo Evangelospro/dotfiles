@@ -114,5 +114,9 @@
     "ROG Control": {
         "name": "ROG Control Center",
         "icon": "rog-control-center"
+    },
+    "Spotify*": {
+        "name": "Spotify",
+        "icon": "spotify"
     }
 }

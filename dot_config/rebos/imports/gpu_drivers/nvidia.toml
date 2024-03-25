@@ -4,5 +4,6 @@ pkg_managers.system.pkgs = [
     "nvidia-utils",
     "nvidia-settings",
     "cuda",
-    "cudnn"
+    "cudnn",
+    "cuda-tools",
 ]

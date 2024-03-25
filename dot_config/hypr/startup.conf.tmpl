@@ -4,11 +4,11 @@ exec-once=/usr/bin/dbus-update-activation-environment --all
 # exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
 
 # scale apps
-exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+exec = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
 # Theming
 exec-once=/usr/bin/xsettingsd &
-exec-once=$HOME/.config/hypr/scripts/import_themes
+exec=$HOME/.config/hypr/scripts/import_themes
 exec=/usr/bin/hyprpaper
 
 # Polkit and keyring
@@ -26,18 +26,18 @@ exec-once=$HOME/.config/waybar/scripts/launch # Use reload-hyprland to ever rest
 exec-once=/usr/bin/hypridle
 
 # Applets / OSD / Notifications
-exec-once=/usr/bin/swaync
-exec-once=/usr/bin/wl-paste --watch cliphist store
-exec-once=/usr/bin/usbguard-applet-qt &
-exec-once=XDG_CURRENT_DESKTOP=Unity /usr/bin/blueman-applet
-exec-once=/usr/bin/nm-applet --indicator
-exec-once=/usr/bin/avizo-service
+exec=pidof swaync || /usr/bin/swaync
+exec=pidof wl-paste || /usr/bin/wl-paste --watch cliphist store
+exec=pidof usbguard-applet-qt || /usr/bin/usbguard-applet-qt &
+exec=pidof blueman-applet || XDG_CURRENT_DESKTOP=Unity /usr/bin/blueman-applet
+exec=pidof nm-applet || /usr/bin/nm-applet --indicator
+exec=pidof avizo-service || /usr/bin/avizo-service
 
 # Utilities & Background apps
-exec-once=/usr/bin/flameshot
+exec-once=pidof flameshot || /usr/bin/flameshot
 
 # Speed up browser startup
-# exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-browser
+exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-browser
 
 # OPTIONAL COMPLETELY personal stuff
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}

@@ -1,7 +1,7 @@
 imports = [
-    "programming/rust",
-    "programming/python",
-    "programming/go",
-    "programming/java",
-    "programming/android",
+    "programming/rust/base",
+    "programming/python/base",
+    "programming/go/base",
+    "programming/java/base",
+    "programming/android/base",
 ]

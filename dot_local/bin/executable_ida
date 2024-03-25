@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
-function outputInfo(){
+function outputInfo() {
     echo "Connect to docker_ip:3389 via RDP"
     echo "RUN \`ida{arch}\` to start IDA"
     echo "Remember to stop the container when you are done with \`ida stop\`"
 }
 
-function startRDP(){
-    if ! pgrep -x "rdesktop" > /dev/null
-    then
+function startRDP() {
+    if ! pgrep -x "rdesktop" >/dev/null; then
         # find the ip of the container
         # ipaddr=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docker-ida)
-        rdesktop -u root -p DockerWineIDA 127.0.0.1:3389 -g 1920x1080
+        rdesktop -u root -p DockerWineIDA 127.0.0.1:3389 -g 1920x1080 -r clipboard:CLIPBOARD
     fi
 }
 
@@ -20,7 +19,7 @@ startup_command="echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida
 # if the first parameter is start
 if [ "$1" == "start" ]; then
     echo "Creating/starting container..."
-    (cd $HOME/.local/bin/docker-ida && docker compose up -d)
+    (cd $HOME/.local/bin/docker-ida && docker compose up --build -d)
     echo "Container created/started"
     sleep 2
     echo "Entering container..."

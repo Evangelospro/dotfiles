@@ -3,12 +3,15 @@ monitor=desc:Najing CEC Panda FPD Technology CO. ltd 0x004D, 1920x1080@144, 0x0,
 monitor=desc:XMD Mi TV 0x00000001, 1360x768@60.0150, 1920x0, 1
 
 # Workspace binds
-workspace=r[1-10],monitor:desc:Najing CEC Panda FPD Technology CO. ltd 0x004D
-
-workspace=r[11-20],monitor:desc:XMD Mi TV 0x00000001
+# workspace=r[1-10],monitor:desc:Najing CEC Panda FPD Technology CO. ltd 0x004D
+# workspace=r[11-20],monitor:desc:XMD Mi TV 0x00000001
+{{- range $i := untilStep 1 11 1 }}
+workspace={{$i}},monitor:desc:Najing CEC Panda FPD Technology CO. ltd 0x004D
+{{- end}}
+{{- range $i := untilStep 11 21 1 }}
+workspace={{$i}},monitor:desc:XMD Mi TV 0x00000001
+{{- end}}
 
 # Default workspace
 workspace=1,monitor:desc:Najing CEC Panda FPD Technology CO. ltd 0x004D,default:true
-workspace=1,monitor:desc:Najing CEC Panda FPD Technology CO. ltd 0x004D
 workspace=11,monitor:desc:XMD Mi TV 0x00000001,default:true
-workspace=11,monitor:desc:XMD Mi TV 0x00000001
