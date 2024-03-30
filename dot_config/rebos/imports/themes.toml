@@ -1,5 +1,6 @@
 pkg_managers.system.pkgs = [
     "aur/bibata-cursor-theme-bin",
     "aur/papirus-icon-theme-git",
-    "aur/grub-theme-cyberre"
+    "aur/grub-theme-cyberre",
+    "kvantum"
 ]
