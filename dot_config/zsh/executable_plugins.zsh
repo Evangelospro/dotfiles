@@ -79,7 +79,7 @@ zinit wait as"null" lucid from"gh-r" for \
     atload"alias cat='bat -p --wrap character'" cp"**/bat.1 -> $ZPFX/share/man/man1" mv"**/autocomplete/bat.zsh -> _bat" completions sbin"**/bat" @sharkdp/bat \
     cp"**/fd.1 -> $ZPFX/share/man/man1" completions sbin"**/fd" @sharkdp/fd \
     cp"**/hyperfine.1 -> $ZPFX/share/man/man1" completions sbin"**/hyperfine" @sharkdp/hyperfine \
-    cp"**/doc/rg.1 -> $ZPFX/share/man/man1" completions sbin"**/rg" BurntSushi/ripgrep \
+    cp"**/doc/rg.1 -> $ZPFX/share/man/man1" sbin"**/rg" BurntSushi/ripgrep \
     atload"alias top=btm" completions sbin"**/btm" ClementTsang/bottom \
     atload"alias help=tldr" mv"tealdeer* -> tldr" dl'https://github.com/dbrgn/tealdeer/releases/latest/download/completions_zsh -> _tldr;' completions sbin"tldr" dbrgn/tealdeer \
     atload"alias du=dust" sbin"**/dust" bootandy/dust \
@@ -89,6 +89,19 @@ zinit wait as"null" lucid from"gh-r" for \
 zinit ice pick"h.sh"
 zinit light paoloantinori/hhighlighter
 
+zinit wait'0b' lucid \
+	atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh" \
+	light-mode for @zsh-users/zsh-autosuggestions
+
+zinit wait'0a' lucid \
+	atinit"source $ZDOTDIR/plugins/zsh-autocomplete_atinit.zsh" \
+	atload"source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh" \
+	light-mode for @marlonrichert/zsh-autocomplete
+
+zinit wait'0b' lucid as"completion" \
+	atload"source $ZDOTDIR/plugins/zsh-completions_atload.zsh; zicompinit; zicdreplay" \
+	light-mode for @zsh-users/zsh-completions
+
 # Syntax highlight must be the last one
 # import dracula theme
 source "$ZDOTDIR/themes/dracula-theme.zsh"
@@ -96,7 +109,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1"
 zinit wait lucid light-mode for \
     atinit"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
-    atload"_zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions \
     blockf atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions

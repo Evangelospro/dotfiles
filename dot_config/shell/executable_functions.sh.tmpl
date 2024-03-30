@@ -2,6 +2,8 @@ source $XDG_CONFIG_HOME/shell/functions/hyprland.zsh
 source $XDG_CONFIG_HOME/shell/functions/updaters.zsh
 source $XDG_CONFIG_HOME/shell/functions/hacking.zsh
 
+source-safe() { if [ -f "$1" ]; then source "$1"; fi }
+
 function chrome() {
     browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome|thorium" | head -n 1)
     $browser --enable-logging --v=1
