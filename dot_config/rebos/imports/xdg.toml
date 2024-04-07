@@ -1,5 +1,6 @@
-pkg_managers.system.pkgs = [
-    "chaotic-aur/xdg-ninja-git",
-    "aur/handlr-regex-bin",
+[managers.system]
+items = [
+    "aur/xdg-ninja-git",
+    "handlr-regex",
     "# aur/pistol-git",
 ]

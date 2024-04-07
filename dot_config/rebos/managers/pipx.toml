@@ -1,0 +1,9 @@
+# pipx
+
+add = "pipx install #:?"
+remove = "pipx uninstall #:?"
+
+plural_name = "pipx"
+
+[config]
+many_args = true

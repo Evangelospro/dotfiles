@@ -1,3 +1,4 @@
-pkg_managers.pipx.pkgs = [
+[managers.pipx]
+items = [
     "ghunt"
 ]

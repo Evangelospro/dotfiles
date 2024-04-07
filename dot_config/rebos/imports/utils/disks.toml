@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "aur/usbguard-applet-qt",
     "chaotic-aur/qdirstat",
     "gparted",

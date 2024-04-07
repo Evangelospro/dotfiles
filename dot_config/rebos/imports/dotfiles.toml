@@ -1,3 +1,4 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "chezmoi",
 ]

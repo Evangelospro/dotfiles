@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "nvidia-dkms", # or nvidia-open-dkms (if lucky)
     "aur/libva-nvidia-driver-git",
     "nvidia-utils",

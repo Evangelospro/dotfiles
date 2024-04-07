@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "python-z3-solver",
     "python-claripy",
     # "aur/python-angr-git",

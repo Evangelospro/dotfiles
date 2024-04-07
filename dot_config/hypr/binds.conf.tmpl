@@ -5,6 +5,8 @@ $SHIFT_MOD = $MOD_SHIFT
 # Exit Hyprland
 bind=$MOD,M,exit
 
+bind = $MOD, grave, hyprexpo:expo, toggle # can be: toggle, off/disable or on/enable
+
 # Utilities
 bindl=$MOD,L,exec,lockscreen
 bind=$MOD,SPACE,exec,launcher
@@ -98,7 +100,7 @@ bind=$MOD_SHIFT,{{$i}},exec, movetoworkspace {{$i}}
 bind=$MOD,0,exec, workspace 10
 bind=$MOD_SHIFT,0,exec, movetoworkspace 10
 {{- else }}
-{{- range $i := untilStep 1 10 1 }}
+{{- range $i := untilStep 0 10 1 }}
 bind=$MOD,{{$i}},workspace, {{$i}}
 bind=$MOD_SHIFT,{{$i}},movetoworkspace, {{$i}}
 {{- end}}

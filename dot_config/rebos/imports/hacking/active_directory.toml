@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "python-impacket",
     "aur/ruby-evil-winrm"
 ]

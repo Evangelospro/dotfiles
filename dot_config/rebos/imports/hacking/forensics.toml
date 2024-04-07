@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "aur/pycdc-git",
     "aur/python-pyshark",
     "aur/volatility3-git",

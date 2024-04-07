@@ -2,7 +2,6 @@
 #    Generation File    #
 # --------------------- #
 
-# Other generation files to import. (Example: intensive_apps -> ~/.config/rebos/imports/intensive_apps.toml)
 imports = [
     "asus",
     "gpu_drivers/intel",
@@ -12,6 +11,13 @@ imports = [
     "programming/python/data_science",
 ]
 
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "chaotic-aur/seadrive-gui"
+]
+
+[managers.systemd]
+items = [
+    "NetworkManager",
+    "bluetooth"
 ]

@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "qt5ct",
     "qt6ct",
     "qtkeychain-qt5",

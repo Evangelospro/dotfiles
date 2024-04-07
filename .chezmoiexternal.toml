@@ -47,12 +47,12 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
-[".config/zsh/utils/gitstatus/gitstatusd-linux"]
-    type = "archive-file"
-    url = '{{ gitHubLatestRelease "romkatv/gitstatus" | toJson | fromJson | jq ".assets[16].browser_download_url" | first}}'
-    refreshPeriod = "168h"
-    stripComponents = 0
-    path = "gitstatusd-linux-x86_64"
+# [".config/zsh/utils/gitstatus/gitstatusd-linux"]
+#    type = "archive-file"
+#    url = '{{ gitHubLatestRelease "romkatv/gitstatus" | toJson | fromJson | jq ".assets[16].browser_download_url" | first}}'
+#    refreshPeriod = "168h"
+#    stripComponents = 0
+#    path = "gitstatusd-linux-x86_64"
 
 [".local/bin/fix-keys"]
     type = "file"

@@ -1,6 +1,8 @@
-pkg_managers.system.pkgs = [
-    "aur/onagre-git",
+[managers.system]
+items = [
+    "rofi-lbonn-wayland",
     "aur/anyrun-git",
+    "aur/walker",
     # "aur/ulauncher-it",
-    "rofi-lbonn-wayland"
+    "aur/onagre-git",
 ]

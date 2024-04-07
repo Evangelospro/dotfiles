@@ -1,9 +1,10 @@
 # Flatpak
 
-install = "flatpak install #:?"
+add = "flatpak install #:?"
 remove = "flatpak uninstall #:?"
 upgrade = "flatpak upgrade"
 
 plural_name = "flatpaks"
 
-config = { many_pkg_args = true }
+[config]
+many_args = true

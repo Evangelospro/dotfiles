@@ -1,6 +1,8 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
   "aur/vencord-bin",
   "signal-desktop",
   "chaotic-aur/valent-git",
-  "chaotic-aur/zoom"
+  "chaotic-aur/zoom",
+  "caprine"
 ]

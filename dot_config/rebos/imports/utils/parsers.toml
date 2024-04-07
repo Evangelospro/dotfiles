@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "aur/jnv",
     "aur/jaq", # faster than jq
     "aur/ripgrep"

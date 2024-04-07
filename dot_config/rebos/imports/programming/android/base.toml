@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "aur/jadx-gui-desktop",
     "aur/python-frida",
     "android-udev",

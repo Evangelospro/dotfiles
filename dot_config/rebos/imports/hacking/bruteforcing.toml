@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "aur/hydra",
     "aur/ffuf-bin",
     "aur/feroxbuster"

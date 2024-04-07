@@ -16,7 +16,7 @@ exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec-once=/usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # Hyprland plugins
-# exec-once=/usr/local/bin/hyprpm reload -n
+exec=/usr/local/bin/hyprpm reload -n
 
 # Bar
 exec=pkill -9 waybar; /usr/bin/waybar
@@ -41,8 +41,8 @@ exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-brow
 
 # OPTIONAL COMPLETELY personal stuff
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
-exec=pidof valent |  /usr/bin/valent
-exec=pidof rog-control-center | /usr/bin/rog-control-center
+exec=[workspace special:backgroundappsvalent silent] pidof valent |  /usr/bin/valent
+exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center | /usr/bin/rog-control-center
 exec=/usr/bin/pkill -9 seadrive-gui ; /usr/bin/fusermount -cuk $HOME/SeaDrive ; /usr/bin/seadrive-gui
 {{- else if (eq .chezmoi.hostname "ELARCH-ISO") }}
 exec-once=/usr/bin/calamares_polkit

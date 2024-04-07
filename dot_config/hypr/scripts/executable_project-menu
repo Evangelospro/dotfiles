@@ -11,13 +11,13 @@ choice=$(printf '%s
 # Run the appropriate script
 case $choice in
 "Laptop Screen")
-    cp $HOME/.config/hypr/monitors_default.conf $HOME/.config/hypr/monitors.conf
+    cp $HOME/.config/hypr/monitors/monitors_default.conf $HOME/.config/hypr/monitors.conf
     ;;
 "Extend Monitors")
-    cp $HOME/.config/hypr/monitors_extend.conf $HOME/.config/hypr/monitors.conf
+    cp $HOME/.config/hypr/monitors/monitors_extend.conf $HOME/.config/hypr/monitors.conf
     ;;
 "Duplicate Monitors")
-    cp $HOME/.config/hypr/monitors_duplicate.conf $HOME/.config/hypr/monitors.conf
+    cp $HOME/.config/hypr/monitors/monitors_duplicate.conf $HOME/.config/hypr/monitors.conf
     ;;
 esac
 reload-hyprland

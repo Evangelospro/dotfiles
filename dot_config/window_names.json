@@ -115,8 +115,12 @@
         "name": "ROG Control Center",
         "icon": "rog-control-center"
     },
-    "Spotify*": {
+    "Spotify.*": {
         "name": "Spotify",
         "icon": "spotify"
+    },
+    ".*seadrive.*": {
+        "name": "SeaDrive",
+        "icon": "~/.local/share/icons/seadrive.svg"
     }
 }

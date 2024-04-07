@@ -5,6 +5,7 @@
 import os
 import sys
 import hyprland
+from regex import F
 from svgutils.compose import SVG, Figure, Panel
 import subprocess
 import json
@@ -84,29 +85,30 @@ class Workspacer(hyprland.Events):
         for client in clients:
             try:
                 mon_id = int(client["monitor"])
-                if client['pid'] == -1:
+                if client["pid"] == -1:
                     continue
-                class_ = (
-                    client["class"]
-                    if client["class"]
-                    else client["initialTitle"]
-                )
+                class_ = client["class"] if client["class"] else client["initialTitle"]
                 workspace_id = int(client["workspace"]["id"])
-                if workspace_id > 0:
-                    self.log_event(f"adding client {class_} to workspace {workspace_id} on monitor {mon_id}")
+                self.log_event(f"actual client ws id: {workspace_id}")
                 if (
                     mon_id is not None and class_ and workspace_id > 0
                 ):  # if workspace_id is negative then it is a special workspace
-                    workspace_id = workspace_id % self.NUM_OF_WORKSPACES
+                    workspace_id = (
+                        workspace_id % self.NUM_OF_WORKSPACES
+                        if workspace_id % self.NUM_OF_WORKSPACES != 0
+                        else self.NUM_OF_WORKSPACES
+                    )
                     self.log_event(f"client mon: {mon_id}")
                     self.log_event(f"client class: {class_}")
-                    self.log_event(f"client ws: {workspace_id}")
+                    self.log_event(f"transformed client ws id: {workspace_id}")
                     self.workspaces[mon_id][workspace_id]["classes"].append(class_)
                     if self.focusedws == workspace_id and self.focusedMon == mon_id:
                         self.workspaces[mon_id][workspace_id]["status"] = "active-workspace"
                     else:
                         self.workspaces[mon_id][workspace_id]["status"] = "inactive-workspace"
-                    icon = generate_icon_list(class_, self.iconSize)[0]
+                    icon_list = generate_icon_list(class_, self.iconSize)
+                    self.log_event(f"icon list for {class_} is {icon_list}")
+                    icon = icon_list[0]
                     self.log_event(f"icon for {class_} is {icon}")
                     if len(self.workspaces[mon_id][workspace_id]["icons"][0]) < 2:
                         self.workspaces[mon_id][workspace_id]["icons"][0].append(icon)

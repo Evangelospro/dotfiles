@@ -1,9 +1,11 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "rlwrap",
     "aur/penelope-git",
     "metasploit"
 ]
 
-pkg_managers.pipx.pkgs = [
+[managers.pipx]
+items = [
     "shellcat",
 ]

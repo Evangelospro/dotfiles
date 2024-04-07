@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "waybar",
     "libevdev",
     "python-evdev",

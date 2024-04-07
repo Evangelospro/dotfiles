@@ -1,11 +1,14 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "aur/nodejs-localtunnel",
     "python-beautifulsoup4",
     "python-flask",
     "wpscan",
-    "aur/joomscan"
+    "aur/joomscan",
+    "sqlmap",
 ]
 
-pkg_managers.pipx.pkgs = [
+[managers.pipx]
+items = [
     "updog"
 ]

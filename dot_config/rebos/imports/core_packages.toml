@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "intel-ucode",
     "amd-ucode",
     "e2fsprogs",

@@ -1,4 +1,5 @@
-pkg_managers.system.pkgs = [
+[managers.system]
+items = [
     "xf86-video-intel",
     "vulkan-intel",
     "lib32-vulkan-intel",

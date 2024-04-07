@@ -6,9 +6,9 @@
 # That means including 'sudo' or 'doas' or whatever if the command needs it.
 # Where you would put packages, enter '#:?'.
 
-# Example: install = "sudo apt install #:?"
+# Example: add = "sudo apt install #:?"
 
-install = "paru --needed -S #:?"
+add = "paru --needed -S #:?"
 remove = "paru -Rns #:?"
 sync = "paru -Syy"
 upgrade = "paru -Syyu"
@@ -21,4 +21,5 @@ plural_name = "system packages"
 
 # many_pkg_args = BOOL: Can you supply many packages as an argument? Example: 'sudo apt install git vim wget'
 
-config = { many_pkg_args = true }
+[config]
+many_args = true
