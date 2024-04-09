@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+hyprpm_output="$(hyprpm reload -n 2>&1)"
+# if headers are not up-to-date in output then hyprpm update
+if [[ $hyprpm_output == *"headers are not up-to-date"* ]]; then
+    notify-send "Hyprpm: Headers updating, please wait..."
+    hyprpm update
+    hyprpm reload -n
+fi
