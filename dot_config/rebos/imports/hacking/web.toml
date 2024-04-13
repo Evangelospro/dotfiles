@@ -10,5 +10,6 @@ items = [
 
 [managers.pipx]
 items = [
-    "updog"
+    "updog",
+    "scoutsuite",
 ]

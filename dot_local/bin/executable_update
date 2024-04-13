@@ -1,6 +1,14 @@
 #!/usr/bin/env zsh
 
-paru -Syu
+if command -v rebos &> /dev/null; then
+    rebos managers upgrade --sync
+elif command -v paru &> /dev/null; then
+    paru -Syu
+elif command -v yay &> /dev/null; then
+    yay -Syu
+elif command -v pacman &> /dev/null; then
+    sudo pacman -Syu
+fi
 update-hyprland
 # navi-update
 # Update burp pro if a Burp/Burp-Loader directory exists in the home directory

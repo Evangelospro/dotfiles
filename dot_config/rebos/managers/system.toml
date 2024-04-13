@@ -3,7 +3,7 @@
 add = "paru --needed -S #:?"
 remove = "paru -Rns #:?"
 sync = "paru -Syy"
-upgrade = "paru -Syyu"
+upgrade = "paru -Syu"
 
 plural_name = "system packages"
 

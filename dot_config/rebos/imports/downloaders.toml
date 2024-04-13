@@ -1,4 +1,4 @@
 [managers.pipx]
 items = [
-    "ghunt",
+    "yt-dlp",
 ]

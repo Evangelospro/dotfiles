@@ -16,5 +16,6 @@ imports = [
     "shell",
     "themes",
     "vpns",
-    "xdg"
+    "xdg",
+    "downloaders",
 ]

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 if ! pacman -Qs base-devel >/dev/null 2>&1; then
     sudo pacman -Sy --noconfirm base-devel
@@ -18,11 +19,9 @@ if ! pacman -Qs git >/dev/null 2>&1; then
 fi
 
 if ! pacman -Qs paru >/dev/null 2>&1; then
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
-    makepkg -si
-    cd ..
-    rm -rf paru
+    git clone https://aur.archlinux.org/paru.git /tmp/paru
+    (cd /tmp/paru && makepkg -si --noconfirm)
+    rm -rf /tmp/paru
 fi
 
 if ! pacman -Qs rebos >/dev/null 2>&1; then
