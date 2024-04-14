@@ -16,7 +16,6 @@ smartcache eval thefuck --alias
 smartcache eval direnv hook zsh
 smartcache eval atuin init zsh 2>&1 >/dev/null
 
-
 zinit ice wait lucid nocd
 zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
 
@@ -52,13 +51,10 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     zinit ice wait lucid nocd
     zinit light MichaelAquilina/zsh-you-should-use
 
-    # check that you are not in docker or a server avoid in headless installs
-    if [ -z "$DISPLAY" ] && [ -z "$SSH_CLIENT" ]; then
-        echo "Not in a gui server"
-    else
-        zinit ice wait lucid nocd
-        zinit light MichaelAquilina/zsh-auto-notify
-    fi
+    {{ if (not .headless) -}}
+    zinit ice wait lucid nocd
+    zinit light MichaelAquilina/zsh-auto-notify
+    {{ end -}}
 fi
 
 ## FZF tab completion
@@ -90,17 +86,17 @@ zinit ice pick"h.sh"
 zinit light paoloantinori/hhighlighter
 
 zinit wait'0b' lucid \
-	atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh" \
-	light-mode for @zsh-users/zsh-autosuggestions
+    atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh" \
+    light-mode for @zsh-users/zsh-autosuggestions
 
 zinit wait'0a' lucid \
-	atinit"source $ZDOTDIR/plugins/zsh-autocomplete_atinit.zsh" \
-	atload"source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh" \
-	light-mode for @marlonrichert/zsh-autocomplete
+    atinit"source $ZDOTDIR/plugins/zsh-autocomplete_atinit.zsh" \
+    atload"source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh" \
+    light-mode for @marlonrichert/zsh-autocomplete
 
 zinit wait'0b' lucid as"completion" \
-	atload"source $ZDOTDIR/plugins/zsh-completions_atload.zsh; zicompinit; zicdreplay" \
-	light-mode for @zsh-users/zsh-completions
+    atload"source $ZDOTDIR/plugins/zsh-completions_atload.zsh; zicompinit; zicdreplay" \
+    light-mode for @zsh-users/zsh-completions
 
 # Syntax highlight must be the last one
 # import dracula theme

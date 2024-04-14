@@ -40,13 +40,3 @@ matches:
             type: shell
             params:
                 cmd: "ip a s tun0 | grep inet | cut -d '/' -f 1 | cut -d ' ' -f 6|head -n 1"
-    - trigger: ":revshell"
-      replace: "{{output}}"
-      vars:
-          - name: output
-            type: script
-            params:
-                inject args: true
-                args:
-                    - python3
-                    - "~/HACKING/ctfAutomation/reverse_shells_generator.py"

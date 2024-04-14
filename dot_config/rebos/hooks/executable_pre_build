@@ -13,18 +13,3 @@ if ! pacman -Qs chaotic-keyring >/dev/null 2>&1; then
     sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
     sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 fi
-
-if ! pacman -Qs git >/dev/null 2>&1; then
-    sudo pacman -Sy --noconfirm git
-fi
-
-if ! pacman -Qs paru >/dev/null 2>&1; then
-    git clone https://aur.archlinux.org/paru.git /tmp/paru
-    (cd /tmp/paru && makepkg -si --noconfirm)
-    rm -rf /tmp/paru
-fi
-
-if ! pacman -Qs rebos >/dev/null 2>&1; then
-    # use ~/.local/share/chezmoi/confs/etc/pacman.conf
-    paru -S --noconfirm rebos --config ~/.local/share/chezmoi/confs/etc/pacman.conf
-fi

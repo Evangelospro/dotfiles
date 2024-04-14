@@ -27,5 +27,6 @@ items = [
     "libdisplay-info",
     "cpio",
     "tomlplusplus",
+    "xcur2png",
     "aur/hyprlang-git",
 ]
