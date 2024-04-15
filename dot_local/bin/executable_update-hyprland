@@ -29,8 +29,8 @@ function build() {
         sudo mkdir -p /usr/share/wayland-sessions
         sudo cp example/hyprland.desktop /usr/share/wayland-sessions
         echo "Please logout and log back in to use the latest version of Hyprland."
-        echo "Updating hyprpm headers and plugins"
-        hyprpm update
+        # echo "Updating hyprpm headers and plugins"
+        # hyprpm update
 }
 
 echo "This script will upgrade hyprland to the latest version from the git repository. Any installations from other sources will be removed. Press Ctrl+C to abort"
