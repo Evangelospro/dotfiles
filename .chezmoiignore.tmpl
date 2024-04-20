@@ -5,17 +5,16 @@
 **/*.ps1
 Documents
 AppData
-scoop
+.glaze-wm
 {{ end }}
 
 {{ if and ( ne .chezmoi.os "linux" ) ( ne .chezmoi.os "darwin" )}}
 **/*.sh
-.config/zsh
-.local/bin/**
+.local/share/*
+.local/bin/*
 .bash_history
 .bashrc
-.profile
-.zshenv
+symlink*
 {{ end }}
 
 # I anyways populate manually so don't litter $HOME

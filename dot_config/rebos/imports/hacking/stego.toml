@@ -4,5 +4,6 @@ items = [
     "aur/steghide",
     "aur/stegseek",
     "aur/zsteg",
-    "perl-image-exiftool"
+    "perl-image-exiftool",
+    "sonic-visualiser",
 ]

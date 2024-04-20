@@ -1,11 +1,13 @@
 [managers.system]
 items = [
     "gdb",
+    "pwndbg",
+    "gef",
     "strace",
     "python-typing_extensions",
     "python-tabulate",
     "python-pwntools",
     "aur/python-pwnscripts",
     "ropper",
-    "ropgadget"
+    "ropgadget",
 ]

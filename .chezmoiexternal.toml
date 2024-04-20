@@ -1,3 +1,4 @@
+{{ if ne .chezmoi.os "windows" }}
 [".config/anyrun/plugins/libanyrun_hyprland.so"]
     type = "file"
     url = '{{ gitHubLatestRelease "auctumnus/anyrun-hyprland" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
@@ -68,27 +69,6 @@
     clone.args = ["--recursive", "--depth=20"]
 
 {{- if (or (eq .chezmoi.hostname "ELARCH-F15") (eq .chezmoi.hostname "PWNENV")) }}
-[".config/gdb/pwndbg"]
-    type = "archive"
-    url = "https://github.com/pwndbg/pwndbg/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
-[".config/gdb/gef"]
-    type = "archive"
-    url = "https://github.com/hugsy/gef/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
-[".config/gdb/peda"]
-    type = "archive"
-    url = "https://github.com/longld/peda/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-
 [".local/bin/c"]
     type = "archive-file"
     executable = true
@@ -104,13 +84,6 @@
     refreshPeriod = "168h"
     stripComponents = 0
     path = "capa"
-
-[".config/gdb/peda-arm"]
-    type = "archive"
-    url = "https://github.com/alset0326/peda-arm/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
 
 [".local/bin/gtfobins"]
     type = "file"
@@ -128,4 +101,5 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+{{- end }}
 {{- end }}
