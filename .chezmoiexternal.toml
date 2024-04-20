@@ -1,4 +1,5 @@
 {{ if ne .chezmoi.os "windows" }}
+{{ if ne .chezmoi.os "windows" }}
 [".config/anyrun/plugins/libanyrun_hyprland.so"]
     type = "file"
     url = '{{ gitHubLatestRelease "auctumnus/anyrun-hyprland" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
@@ -101,5 +102,6 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+{{- end }}
 {{- end }}
 {{- end }}

@@ -1,3 +1,5 @@
+.git*
+
 **/*.src.ini
 
 {{ if ne .chezmoi.os "windows" }}
@@ -12,8 +14,11 @@ AppData
 **/*.sh
 .local/share/*
 .local/bin/*
+.local/share/*
+.local/bin/*
 .bash_history
 .bashrc
+symlink*
 symlink*
 {{ end }}
 
