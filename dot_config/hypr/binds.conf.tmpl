@@ -10,7 +10,7 @@ bind=$MOD,M,exit
 #bind = $MOD, grave, hyprexpo:expo toggle
 
 # Utilities
-bindl=$MOD,L,exec,lockscreen
+bindl={{.keybindings.utilities.lockscreen }},exec,lockscreen
 bind=$MOD,SPACE,exec,launcher
 bind=,XF86Search,exec,launcher
 bind=$MOD,V,exec,clip-menu
@@ -25,7 +25,7 @@ bind=$MOD,P,exec,project-menu
 bind=,XF86Launch4,exec,asusctl led-mode -n
 {{- end }}
 bind=$MOD,Return,exec,$TERMINAL
-bind=$MOD,B,exec,thorium-browser
+bind={{ .keybindings.applications.browser }},exec,thorium-browser
 bind=$MOD_SHIFT,B,exec,burp
 # bind=$MOD_SHIFT,D,exec,vesktop
 # bind=$MOD,S,exec,spotify-launcher

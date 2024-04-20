@@ -1,0 +1,59 @@
+{
+{{- $ephemeral := false }}
+{{- $headless := false }}
+{{- $personal := false }}
+{{- $is_windows := eq .chezmoi.os "windows" }}
+{{- $is_mac := eq .chezmoi.os "darwin" }}
+{{- $is_linux := eq .chezmoi.os "linux" }}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) }}
+{{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id }}
+{{- end }}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "ubuntu" "vagrant" "vscode") }}
+{{-   $ephemeral = true }}
+{{-   $headless = true }}
+{{- end }}
+
+{{- $MOD_HYPRLAND := "Win" }}
+{{- $SHIFT_MOD_HYPRLAND := "Shift_Win" }}
+{{- $SEP_HYPRLAND := "," }}
+
+{{- $MOD_GLAZE := "LWin" }}
+{{- $SHIFT_MOD_GLAZE := "LShiftKey+LWin" }}
+{{- $SEP_GLAZE := "+" }}
+
+{{- $MOD := "" }}
+{{- $SHIFT_MOD := "" }}
+{{- $SEP := "" }}
+
+{{- if $is_windows }}
+{{- $MOD = $MOD_GLAZE }}
+{{- $SHIFT_MOD = $SHIFT_MOD_GLAZE }}
+{{- $SEP = $SEP_GLAZE }}
+{{- else if $is_linux }}
+{{- $MOD = $MOD_HYPRLAND }}
+{{- $SHIFT_MOD = $SHIFT_MOD_HYPRLAND }}
+{{- $SEP = $SEP_HYPRLAND }}
+{{- end }}
+
+    "data": {
+        "ephemeral": {{ $ephemeral }},
+        "headless": {{ $headless }},
+        "is_windows": {{ $is_windows }},
+        "is_mac": {{ $is_mac }},
+        "is_linux": {{ $is_linux }},
+        "username": "Evangelospro",
+        "fullname": "Evangelos Lioudakis",
+        "email": "elioudakis123@gmail.com",
+        "keybindings": {
+            "utilities":{
+                "lockscreen": "{{$MOD}}{{$SEP}}L",
+            },
+            "applications":{
+                "browser" : "{{$MOD}}{{$SEP}}B",
+            }
+        }
+    },
+    "github": {
+        "refreshPeriod": "12h"
+    }
+}
