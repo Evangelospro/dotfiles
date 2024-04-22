@@ -29,4 +29,5 @@ items = [
     "tomlplusplus",
     "xcur2png",
     "aur/hyprlang-git",
+    "aur/hyprwayland-scanner-git"
 ]

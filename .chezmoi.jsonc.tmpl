@@ -5,6 +5,7 @@
 {{- $is_windows := eq .chezmoi.os "windows" }}
 {{- $is_mac := eq .chezmoi.os "darwin" }}
 {{- $is_linux := eq .chezmoi.os "linux" }}
+{{- $osID := "" }}
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) }}
 {{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id }}
 {{- end }}

@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
-checksec $1
+echo "Running file..."
+file $1
 
-capa $1
+echo "Running checksec..."
+checksec --file=$1
+
+if [ -z "$2" ]; then
+    echo "no flag format provided cant check for flag"
+else
+    echo "Running strings..."
+    strings $1 | grep $2
+    echo "Running stringcheese..."
+    stringcheese --file $1 "$2"
+fi
+
+echo "Running capa..."
+capa --color=always $1
+
+echo "Running binwalk..."
+binwalk $1

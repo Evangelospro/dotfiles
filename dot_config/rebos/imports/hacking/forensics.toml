@@ -6,5 +6,10 @@ items = [
     # aur/python2-volatility-git,
     "foremost",
     "aur/python-oletools",
-    "chaotic-aur/powershell"
+    "chaotic-aur/powershell",
+]
+
+[managers.pipx]
+items = [
+    "stringcheese",
 ]

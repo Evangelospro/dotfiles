@@ -1,5 +1,10 @@
 source $XDG_CONFIG_HOME/shell/aliases/hacking.zsh
 
+# Copy / Paste (X11 / Wayland) remove ending newline when copying
+alias copy="if [[ -z $WAYLAND_DISPLAY ]]; then tr -d '\n' | xclip -selection clipboard; else wl-copy; fi"
+alias paste="if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard -o; else wl-paste; fi"
+alias copydir='pwd | copy && paste'
+
 # Dotfiles
 alias config="chezmoi cd && $VISUAL ."
 alias zshconfig="$VISUAL $ZDOTDIR"
@@ -18,10 +23,6 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias restart-gnome="killall -3 gnome-shell"
 alias restart-kde="killall -3 plasmashell"
 
-# Copy / Paste (X11 / Wayland) remove ending newline when copying
-alias copy="if [[ -z $WAYLAND_DISPLAY ]]; then tr -d '\n' | xclip -selection clipboard; else wl-copy; fi"
-alias paste="if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard -o; else wl-paste; fi"
-alias copydir='pwd | copy && paste'
 
 # Listing
 # alias tree='tree -a -I .git --dirsfirst'
@@ -48,6 +49,7 @@ alias md='glow'
 alias wget="wget -c --hsts-file=$HOME/.cache/wget-hsts"
 alias update-timezone='sudo tzupdate'
 alias perms="stat --format '%a'"
+alias ffmpeg="ffpb"
 alias adb='HOME="$XDG_DATA_HOME"/android adb'
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
