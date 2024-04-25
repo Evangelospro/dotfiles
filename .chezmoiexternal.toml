@@ -1,5 +1,4 @@
-{{ if ne .chezmoi.os "windows" }}
-{{ if ne .chezmoi.os "windows" }}
+{{ if eq .chezmoi.os "linux" }}
 [".config/anyrun/plugins/libanyrun_hyprland.so"]
     type = "file"
     url = '{{ gitHubLatestRelease "auctumnus/anyrun-hyprland" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
@@ -31,6 +30,7 @@
 
 [".config/zsh/themes/dracula-theme.zsh"]
     type = "file"
+    executable = true
     url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
     refreshPeriod = "168h"
 
@@ -103,5 +103,15 @@
     refreshPeriod = "168h"
 
 {{- end }}
+
+{{- else if eq .chezmoi.os "windows" }}
+{{- if eq .chezmoi.hostname "EWIN-F15" }}
+[".local/bin/samsungnotes-v2.bat"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/iknothing/galaxybook_mask_but_better/main/samsungnotes-betterv2.bat"
+    executable = true
+    refreshPeriod = "168h"
+    
 {{- end }}
+
 {{- end }}

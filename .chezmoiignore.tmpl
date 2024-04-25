@@ -2,20 +2,17 @@
 
 **/*.src.ini
 
-{{ if ne .chezmoi.os "windows" }}
+{{- if ne .chezmoi.os "windows" }}
+**/*.lnk
 **/*.bat
 **/*.ps1
 Documents
 AppData
 .glaze-wm
-{{ end }}
 
-{{ if and ( ne .chezmoi.os "linux" ) ( ne .chezmoi.os "darwin" )}}
+{{- else if and ( ne .chezmoi.os "linux" ) ( ne .chezmoi.os "darwin" )}}
 **/*.sh
 .local/share/*
-.local/bin/*
-.local/share/*
-.local/bin/*
 .bash_history
 .bashrc
 symlink*
