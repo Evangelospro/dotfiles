@@ -57,3 +57,6 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 # Privew help
 zstyle ':fzf-tab:complete:(\\|)run-help:*' fzf-preview 'run-help $word'
 zstyle ':fzf-tab:complete:(\\|*/|)man:*' fzf-preview 'man $word'
+
+# kill command
+zstyle ':completion:*:*:kill:*:processes' command 'ps xo pid,user:10,cmd'

@@ -16,35 +16,44 @@ while getopts ":f" opt; do
 done
 
 function cleanup() {
-
-        echo "Removing old wlroots"
-        sudo rm -rf /usr/local/lib/libwlroots* /usr/lib/libwlroots* /usr/lib64/libwlroots*
+    echo "Removing old wlroots"
+    sudo rm -rf /usr/local/lib/libwlroots* /usr/lib/libwlroots* /usr/lib64/libwlroots*
 }
 
-function build() {
-        make all && sudo make install && touch /tmp/hypr/hyprland_already_upgraded
-        echo "Adding back wlroots"
-        sudo ln -s /usr/local/lib/libwlroots* /usr/lib/
-        echo "Adding wayland-session"
-        sudo mkdir -p /usr/share/wayland-sessions
-        sudo cp example/hyprland.desktop /usr/share/wayland-sessions
-        echo "Please logout and log back in to use the latest version of Hyprland."
-        # echo "Updating hyprpm headers and plugins"
-        # hyprpm update
+function build-auto() {
+    # use paru without cache to update dependencies
+    paru -Syu --devel --needed --noconfirm --cleanafter hyprland-git
 }
 
-echo "This script will upgrade hyprland to the latest version from the git repository. Any installations from other sources will be removed. Press Ctrl+C to abort"
-if paru -Qi hyprland-git &>/dev/null; then
-    echo "You have hyprland-git installed. It will be removed."
-    echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
-    sleep 10
-    paru -R hyprland-git
-elif paru -Qi hyprland &>/dev/null; then
-    echo "You have hyprland installed. It will be removed."
-    echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
-    sleep 10
-    paru -R hyprland
-fi
+function build-manual() {
+    make all && sudo make install && touch /tmp/hypr/hyprland_already_upgraded
+    echo "Adding back wlroots"
+    sudo ln -s /usr/local/lib/libwlroots* /usr/lib/
+    echo "Adding wayland-session"
+    sudo mkdir -p /usr/share/wayland-sessions
+    sudo cp example/hyprland.desktop /usr/share/wayland-sessions
+    echo "Please logout and log back in to use the latest version of Hyprland."
+    # echo "Updating hyprpm headers and plugins"
+    # hyprpm update
+}
+
+function clean-installs() {
+    echo "Any installations from other sources will be removed. Press Ctrl+C to abort"
+    if paru -Qi hyprland-git &>/dev/null; then
+        echo "You have hyprland-git installed. It will be removed."
+        echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
+        sleep 10
+        paru -R hyprland-git
+    elif paru -Qi hyprland &>/dev/null; then
+        echo "You have hyprland installed. It will be removed."
+        echo "Press Ctrl+C to abort or in 10 seconds this script will continue."
+        sleep 10
+        paru -R hyprland
+    fi
+}
+
+echo "This script will upgrade hyprland to the latest version from the git repository."
+# clean-installs
 
 cd $HOME/.config/hypr/hyprland-repo
 
@@ -63,7 +72,7 @@ if [[ $latest_hyprland_version == $current_hyprland_version && $force_upgrade ==
 # versions are different
 elif [[ ! -e /tmp/hypr/hyprland_already_upgraded ]]; then
     cleanup
-    build
+    build-manual
 # already upgraded in this session and force_upgrade is false
 elif [[ -e /tmp/hypr/hyprland_already_upgraded && $force_upgrade == false ]]; then
     echo "Already upgraded in this session. Use -f option to force upgrade."
@@ -72,5 +81,5 @@ elif [[ -e /tmp/hypr/hyprland_already_upgraded && $force_upgrade == false ]]; th
 elif [[ $force_upgrade == true ]]; then
     echo "Forcing upgrade"
     cleanup
-    build
+    build-manual
 fi
