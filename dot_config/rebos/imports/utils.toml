@@ -15,4 +15,5 @@ imports = [
     "utils/osd",
     "utils/parsers",
     "utils/portals",
+    "utils/theming",
 ]

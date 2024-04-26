@@ -16,3 +16,6 @@ if [ -d $HOME/.config/Burp/Burp-Loader ]; then
     update-burp
 fi
 update-spicetify
+if command -v papirus-folders &> /dev/null; then
+    papirus-folders -Ru
+fi

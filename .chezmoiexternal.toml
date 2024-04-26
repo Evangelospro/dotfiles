@@ -56,18 +56,18 @@
 #    stripComponents = 0
 #    path = "gitstatusd-linux-x86_64"
 
-[".local/bin/fix-keys"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/arcolinux/arcolinux-system-config/master/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
-    executable = true
-    refreshPeriod = "500h"
-
 [".config/hypr/hyprland-repo"]
     type = "git-repo"
     url = "https://github.com/hyprwm/hyprland"
     branch = "main"
     refreshPeriod = "6h"
     clone.args = ["--recursive", "--depth=20"]
+
+[".local/bin/fix-keys"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/arcolinux/arcolinux-system-config/master/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
+    executable = true
+    refreshPeriod = "500h"
 
 {{- if (or (eq .chezmoi.hostname "ELARCH-F15") (eq .chezmoi.hostname "PWNENV")) }}
 [".local/bin/c"]
@@ -111,7 +111,7 @@
     url = "https://raw.githubusercontent.com/iknothing/galaxybook_mask_but_better/main/samsungnotes-betterv2.bat"
     executable = true
     refreshPeriod = "168h"
-    
+
 {{- end }}
 
 {{- end }}
