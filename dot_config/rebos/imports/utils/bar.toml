@@ -1,6 +1,7 @@
 [managers.system]
 items = [
     "waybar",
+    "dart-sass",
     "libevdev",
     "python-evdev",
     "python-filetype"

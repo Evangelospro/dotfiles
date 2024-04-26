@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # everything.conf hash: {{ include "dot_config/private_dconf/user.d/everything.conf" | sha256sum }}
-dconf load / < {{ joinPath .chezmoi.sourceDir "dot_config/private_dconf/user.d/everything.conf" | quote }}
+dconf load / joinPath .chezmoi.sourceDir "dot_config/private_dconf/user.d/everything.conf" <{{ | quote }}
 echo "Dconf settings reload complete."

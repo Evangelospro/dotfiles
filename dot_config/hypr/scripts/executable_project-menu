@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define the options for the Rofi menu
 options=("Laptop Screen

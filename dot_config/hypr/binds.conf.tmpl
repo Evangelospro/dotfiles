@@ -90,8 +90,8 @@ bind=$MOD,TAB,workspace, e-1
 # Move Windows with Mouse
 bindm=$MOD,mouse:272,movewindow
 
-# swaylock when the switch is turning off and then suspend
-bindl=,switch:off:Lid Switch,exec,systemctl suspend
+# screen lock when the switch is turning off and then suspend
+bindl=,switch:on:Lid Switch,exec,lock-suspend
 
 # Move Windows Between Workspaces
 {{- if ne .chezmoi.hostname "ELARCH-ISO" }}

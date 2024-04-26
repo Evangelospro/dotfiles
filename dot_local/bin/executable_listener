@@ -1,4 +1,4 @@
-#!/bin/bash --noediting
+#!/usr/bin/env bash --noediting
 # set default values
 PORT=9001
 FORCE_OLD=false

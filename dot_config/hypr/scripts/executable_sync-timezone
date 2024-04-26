@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set_timezone() {
     # Get the current timezone from the system
@@ -11,7 +11,7 @@ set_timezone() {
     if [ "$current_tz" != "$location_tz" ]; then
         # If they're different, set the system timezone to the location timezone using pkexec
         # sudo timedatectl set-timezone "$location_tz"
-        if ! /usr/bin/command -v zenity &> /dev/null; then
+        if ! /usr/bin/command -v zenity &>/dev/null; then
             /usr/bin/notify-send "Zenity is not installed. Please install it to use sync-timezone."
             exit 1
         fi
@@ -36,7 +36,7 @@ set_timezone() {
 # try at max 5 times to get internet
 wait_for_internet() {
     for i in {1..5}; do
-        if /usr/bin/ping -c 1 archlinux.org &> /dev/null; then
+        if /usr/bin/ping -c 1 archlinux.org &>/dev/null; then
             return 0
         else
             /usr/bin/sleep 1

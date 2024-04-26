@@ -21,6 +21,7 @@
             "activated": " ",
             "deactivated": " "
         }
+        
     },
     "tray": {
         "icon-size": 22,

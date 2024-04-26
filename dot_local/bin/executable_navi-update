@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 CHEATS_PATH=$(navi info cheats-path)
 
 cd $CHEATS_PATH
@@ -11,7 +11,7 @@ for REPO_PATH in $(ls -d *); do
         echo $DEFAULT_BRANCH
         git pull -q origin $DEFAULT_BRANCH
     else
-        repo_details=($(echo $REPO_PATH | sed  's/__/ /g'))
+        repo_details=($(echo $REPO_PATH | sed 's/__/ /g'))
         repo_user=${repo_details[0]}
         repo_name=$(echo ${repo_details[1]} | cut -d'/' -f1)
         rm *

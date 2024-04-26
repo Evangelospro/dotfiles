@@ -23,7 +23,7 @@ matches:
     - trigger: "::P"
       replace: "#!/usr/bin/python3"
     - trigger: "::B"
-      replace: "#!/bin/bash"
+      replace: "#!/usr/bin/env bash"
     - trigger: stabilizeshell
       replace: 'python3 -c "import pty; pty.spawn(''/bin/bash'')"'
     - trigger: ":ip"

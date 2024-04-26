@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 sleep 2
 pkill -9 xdg-desktop-portal-hyprland
 pkill -9 xdg-desktop-portal

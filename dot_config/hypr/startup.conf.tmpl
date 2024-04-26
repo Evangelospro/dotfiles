@@ -8,7 +8,7 @@ exec = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OU
 
 # Theming
 exec-once=/usr/bin/xsettingsd &
-exec=$HOME/.config/hypr/scripts/import_themes
+exec=$HOME/.config/hypr/scripts/import-themes
 exec=/usr/bin/hyprpaper
 
 # Polkit and keyring
@@ -16,14 +16,11 @@ exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec-once=/usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # Hyprland plugins
-# exec=$HOME/.config/hypr/scripts/plugin_startup
+# exec=$HOME/.config/hypr/scripts/plugin-startup
 
 # Bar
 exec=pkill -9 waybar; /usr/bin/waybar
 exec-once=$HOME/.config/waybar/scripts/launch # Use reload-hyprland to ever restart the workspace icons
-
-# IDLE management
-exec-once=/usr/bin/hypridle
 
 # Applets / OSD / Notifications
 exec=pidof swaync || /usr/bin/swaync
@@ -32,6 +29,9 @@ exec=pidof usbguard-applet-qt || /usr/bin/usbguard-applet-qt &
 exec=pidof blueman-applet || XDG_CURRENT_DESKTOP=Unity /usr/bin/blueman-applet
 exec=pidof nm-applet || /usr/bin/nm-applet --indicator
 exec=pidof avizo-service || /usr/bin/avizo-service
+
+# IDLE management
+exec-once=/usr/bin/hypridle
 
 # Utilities & Background apps
 exec-once=pidof flameshot || /usr/bin/flameshot
