@@ -118,7 +118,7 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 
 ### OS: [Arch Linux](https://archlinux.org/)
 
-### Kernel: [Linux-zen](https://archlinux.org/packages/?name=linux-zen)
+### Kernel: [Linux-zen](https://archlinux.org/packages/?name=linux-zen) or [Linux-g14](https://archlinux.org/packages/?name=linux-g14)
 
 ### Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
 

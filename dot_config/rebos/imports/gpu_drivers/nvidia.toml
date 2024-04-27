@@ -4,6 +4,7 @@ items = [
     "aur/libva-nvidia-driver-git",
     "nvidia-utils",
     "nvidia-settings",
+    "opencl-nvidia",
     "cuda",
     "cudnn",
     "cuda-tools",

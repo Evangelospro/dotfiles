@@ -4,7 +4,7 @@ Operation=Upgrade
 Operation=Remove
 Type=Package
 Target=nvidia-dkms
-Target=linux-zen
+Target=linux-g14
 # Change the linux part above if a different kernel is used
 
 [Action]

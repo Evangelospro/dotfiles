@@ -95,6 +95,10 @@
         "name": "ChatBox AI",
         "icon": "google-chat"
     },
+    "Emulator": {
+        "name": "Android Emulator",
+        "icon": "android-sdk"
+    },
     "scrcpy": {
         "name": "Scrcpy",
         "icon": "android-sdk"

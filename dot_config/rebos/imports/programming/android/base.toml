@@ -1,7 +1,5 @@
 [managers.system]
 items = [
-    "aur/jadx-gui-desktop",
-    "aur/python-frida",
     "android-udev",
     "chaotic-aur/android-emulator",
     "chaotic-aur/android-sdk-cmdline-tools-latest",

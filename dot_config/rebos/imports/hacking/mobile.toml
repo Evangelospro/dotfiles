@@ -1,0 +1,13 @@
+[managers.system]
+items = [
+    "aur/jadx-gui-desktop",
+    "aur/python-frida",
+    "aur/python-frida-tools",
+    "aur/android-backup-extractor",
+    "aur/python-androguard",
+]
+
+[managers.pipx]
+items = [
+    "objection",
+]

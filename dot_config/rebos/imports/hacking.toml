@@ -11,5 +11,6 @@ imports = [
     "hacking/reverse_engineering",
     "hacking/shell_handlers",
     "hacking/wordlists",
-    "hacking/stego"
+    "hacking/stego",
+    "hacking/mobile",
 ]
