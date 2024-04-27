@@ -1,0 +1,10 @@
+# pipx
+
+add = "pip install --break-system #:?"
+remove = "pip uninstall #:?"
+# upgrade = "pip install --break-system -U #:?"
+
+plural_name = "pip"
+
+[config]
+many_args = true

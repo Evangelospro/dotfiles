@@ -31,3 +31,8 @@ items = [
     "aur/hyprlang-git",
     "aur/hyprwayland-scanner-git"
 ]
+
+[managers.pip]
+items = [
+    "git+https://github.com/hyprland-community/hyprland-py",
+]

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+
 $HOME/.config/waybar/scripts/launch # will reload hyprland also
 # hyprctl reload
 # restart portals

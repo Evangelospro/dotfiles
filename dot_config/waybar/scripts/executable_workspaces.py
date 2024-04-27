@@ -5,7 +5,6 @@
 import os
 import sys
 import hyprland
-from regex import F
 from svgutils.compose import SVG, Figure, Panel
 import subprocess
 import json

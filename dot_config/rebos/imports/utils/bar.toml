@@ -6,3 +6,8 @@ items = [
     "python-evdev",
     "python-filetype"
 ]
+
+[managers.pip]
+items = [
+    "svgutils",
+]
