@@ -4,10 +4,10 @@ file://{{ .chezmoi.homeDir }}/Music
 file://{{ .chezmoi.homeDir }}/Pictures
 file://{{ .chezmoi.homeDir }}/Videos
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
-file://{{ .chezmoi.homeDir }}/Notes/Evangelos/School
+file://{{ .chezmoi.homeDir }}/School
 file://{{ .chezmoi.homeDir }}/HACKING
 file://{{ .chezmoi.homeDir }}/HACKING/Tools
 file://{{ .chezmoi.homeDir }}/HACKING/CTFs
-file://{{ .chezmoi.homeDir }}/HACKING/CTFs/2024
+file://{{ .chezmoi.homeDir }}/HACKING/CTFs/{{ now | date "2006" }}
 file://{{ .chezmoi.homeDir }}/Courses
 {{- end }}
