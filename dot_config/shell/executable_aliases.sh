@@ -58,10 +58,14 @@ alias ga='git add'
 alias gcam='git commit -a -m'
 alias git-update-recursively="find . -name .git -type d -print -prune -exec git --git-dir '{}' fetch --all ';'"
 
-# ZSH
-alias reload='exec zsh -l'
-alias tobash='sudo chsh evangelospro -s /bin/bash && echo '\''Now log out.'\'
-alias tozsh='sudo chsh evangelospro -s /bin/zsh && echo '\''Now log out.'\'
+# Shell
+alias reload-shell="exec $SHELL -l"
+alias tobash="sudo chsh evangelospro -s /bin/bash && echo 'Now log out.'"
+alias tozsh="sudo chsh evangelospro -s /bin/zsh && echo ''Now log out.'"
+
+# Compression
+alias compress="ouch compress"
+alias extract="ouch decompress"
 
 # python / pip / pipx
 alias p='ipython' #'python3'

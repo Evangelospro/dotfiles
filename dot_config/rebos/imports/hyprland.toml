@@ -8,4 +8,5 @@ items = [
     "aur/hyprlock-git",
     "aur/hyprpaper-git",
     "aur/hyprcursor-git",
+    "aur/hyprswitch",
 ]

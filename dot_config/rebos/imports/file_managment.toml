@@ -8,5 +8,6 @@ items = [
     "nemo-image-converter",
     "aur/nemo-media-columns",
     "lf",
-    "fd"
+    "fd",
+    "ouch",
 ]

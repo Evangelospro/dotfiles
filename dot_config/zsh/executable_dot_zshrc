@@ -37,13 +37,14 @@ if [[ $(tput colors) == 256 ]]; then
 fi
 
 case ${TERM} in
-    xterm*|rxvt*|Eterm*|aterm|kterm|terminator|gnome*|alacritty|st|konsole*|warp|linux)
-        PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
+xterm* | rxvt* | Eterm* | aterm | kterm | terminator | gnome* | alacritty | st | konsole* | warp | linux)
+    PROMPT_COMMAND="set_tab_title '${USER}@$(hostname):${PWD/#$HOME/~}'"
     ;;
-    screen*)
-        PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
+screen*)
+    PROMPT_COMMAND="set_tab_title '${USER}@$(hostname):${PWD/#$HOME/~}'"
     ;;
 esac
+precmd_functions+=(${PROMPT_COMMAND})
 if [ "$TERM" = "linux" ]; then
     printf %b '\e[40m' '\e[8]' # set default background to color 0 'dracula-bg'
     printf %b '\e[37m' '\e[8]' # set default foreground to color 7 'dracula-fg'

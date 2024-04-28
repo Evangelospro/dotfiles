@@ -91,8 +91,9 @@ binde={{$map.key}},{{$map.command.linux}}
 bind=$MOD_SHIFT,left,movewindow, mon:l
 bind=$MOD_SHIFT,right,movewindow, mon:r
 
-bind=ALT,TAB,workspace, e+1
-bind=$MOD,TAB,workspace, e-1
+# Cycle between workspaces and windows
+bind=ALT,TAB,exec,hyprswitch --daemon --filter-current-monitor --sort-recent --switch-ws-on-hover --hide-special-workspaces=true
+# bind=SHIFT_ALT,TAB,exec,hyprswitch --reverse --daemon --filter-current-monitor --sort-recent --switch-ws-on-hover --hide-special-workspaces=true
 
 # Move Windows with Mouse
 bindm=$MOD,mouse:272,movewindow

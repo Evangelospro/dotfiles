@@ -4,6 +4,11 @@ source $XDG_CONFIG_HOME/shell/functions/hacking.zsh
 
 source-safe() { if [ -f "$1" ]; then source "$1"; fi }
 
+function set_tab_title() {
+    name=$1
+    echo -ne "\033]0;$name\007"
+}
+
 function chrome() {
     browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome|thorium" | head -n 1)
     $browser --enable-logging --v=1
@@ -48,8 +53,12 @@ function mkcd(){
 
 # Copy with progress
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/cp
-cpv() {
-    rsync -pogbr -hhh --backup-dir="/tmp/rsync-${USERNAME}" -e /dev/null --progress "$@"
+function cp() {
+    if command -v rsync &> /dev/null; then
+        rsync -pogbr -hhh --backup-dir="/tmp/rsync-${USERNAME}" -e /dev/null --progress "$@"
+    else
+        /bin/cp "$@"
+    fi
 }
 
 # Move latest Download to current directory
@@ -105,44 +114,6 @@ function wifi-pass() {
 
 function checkContainerRunning() {
     docker container ls -q -f name="$1"
-}
-
-# An all in one extract function for all archive types
-function ex() {
-    if [ -z "$1" ]; then
-        # display usage if no parameters given
-        echo "Usage: ex <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
-        echo "       ex <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext] ..."
-    else
-        for n in "$@"
-        do
-            if [ -f "$n" ] ; then
-                case "${n%,}" in
-                    *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
-                    tar xvf "$n"       ;;
-                    *.lzma)      unlzma ./"$n"      ;;
-                    *.bz2)       bunzip2 ./"$n"     ;;
-                    *.cbr|*.rar)       unrar x -ad ./"$n" ;;
-                    *.gz)        gunzip ./"$n"      ;;
-                    *.cbz|*.epub|*.zip)       unzip ./"$n"       ;;
-                    *.z)         uncompress ./"$n"  ;;
-                    *.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
-                    7z x ./"$n"        ;;
-                    *.xz)        unxz ./"$n"        ;;
-                    *.exe)       cabextract ./"$n"  ;;
-                    *.cpio)      cpio -id < ./"$n"  ;;
-                    *.cba|*.ace)      unace x ./"$n"      ;;
-                    *)
-                        echo "ex: '$n' - unknown archive method"
-                        return 1
-                    ;;
-                esac
-            else
-                echo "'$n' - file does not exist"
-                return 1
-            fi
-        done
-    fi
 }
 
 # colorized man pages
@@ -233,8 +204,14 @@ function rm(){
     done
 }
 
+function gitfetch() {
+    if command -v onefetch &> /dev/null; then
+        onefetch
+    fi
+}
+
 # Adding onefetch to every cd you do with a .git dir
-cd () {
+function cd() {
     __zoxide_z "$@"
     if [ -d .git ]; then
         git_base_dir=$(git rev-parse --show-toplevel)
@@ -242,16 +219,16 @@ cd () {
         if [ -n "$dirhistory_past" ]; then
             # check if this directory was not visited before in this session(does not exist in dirhistory_past)
             if [ -z "$(echo $dirhistory_past | grep -o $git_base_dir)" ]; then
-                onefetch
+                gitfetch
             fi
         elif [ "$OLDPWD" != "$(basename "$git_base_dir")"]; then
-                onefetch
+                gitfetch
         fi
     fi
 }
 
 # Time shell loading time takes shell and number of times to run
-timeshell() {
+function timeshell() {
     shell=${1-$SHELL}
     times=${2-10}
     echo "Running $shell $times times"
@@ -261,7 +238,7 @@ timeshell() {
     done
 }
 
-profileshell() {
+function profileshell() {
     shell=${1-$SHELL}
     echo "Profiling $shell"
     SHELL_PROFILE=1 $shell -i -c exit
