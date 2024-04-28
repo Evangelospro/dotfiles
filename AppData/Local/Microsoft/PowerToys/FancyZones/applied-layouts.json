@@ -1,0 +1,38 @@
+{
+  "applied-layouts": [
+    {
+      "device": {
+        "monitor": "NCP004D",
+        "monitor-instance": "4\u002631f8983a\u00260\u0026UID8388688",
+        "monitor-number": 2,
+        "serial-number": "0",
+        "virtual-desktop": "{00000000-0000-0000-0000-000000000000}"
+      },
+      "applied-layout": {
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "type": "priority-grid",
+        "show-spacing": true,
+        "spacing": 16,
+        "zone-count": 3,
+        "sensitivity-radius": 20
+      }
+    },
+    {
+      "device": {
+        "monitor": "XMD00E1",
+        "monitor-instance": "4\u002631f8983a\u00260\u0026UID4165",
+        "monitor-number": 1,
+        "serial-number": "1",
+        "virtual-desktop": "{00000000-0000-0000-0000-000000000000}"
+      },
+      "applied-layout": {
+        "uuid": "{00000000-0000-0000-0000-000000000000}",
+        "type": "priority-grid",
+        "show-spacing": true,
+        "spacing": 16,
+        "zone-count": 3,
+        "sensitivity-radius": 20
+      }
+    }
+  ]
+}
