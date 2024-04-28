@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# pass stdin to the appropriate clipboard
+
+if [[ -z $WAYLAND_DISPLAY ]]; then
+    tr -d '\n' | xclip -selection clipboard
+else
+    wl-copy
+fi

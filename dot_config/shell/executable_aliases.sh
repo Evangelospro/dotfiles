@@ -1,9 +1,7 @@
 source $XDG_CONFIG_HOME/shell/aliases/hacking.zsh
 
-# Copy / Paste (X11 / Wayland) remove ending newline when copying
-alias copy="if [[ -z $WAYLAND_DISPLAY ]]; then tr -d '\n' | xclip -selection clipboard; else wl-copy; fi"
-alias paste="if [[ -z $WAYLAND_DISPLAY ]]; then xclip -selection clipboard -o; else wl-paste; fi"
-alias copydir='pwd | copy && paste'
+# Copy / Paste
+alias copydir='pwd | copy'
 
 # Dotfiles
 alias config="chezmoi cd && $VISUAL ."
@@ -22,7 +20,6 @@ alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 # windows managers
 alias restart-gnome="killall -3 gnome-shell"
 alias restart-kde="killall -3 plasmashell"
-
 
 # Listing
 # alias tree='tree -a -I .git --dirsfirst'

@@ -2,6 +2,8 @@
 {{- $ephemeral := false }}
 {{- $headless := false }}
 {{- $personal := false }}
+{{- $isAsus := true }}
+{{- $isNvidia := true }}
 {{- $is_windows := eq .chezmoi.os "windows" }}
 {{- $is_mac := eq .chezmoi.os "darwin" }}
 {{- $is_linux := eq .chezmoi.os "linux" }}
@@ -14,43 +16,69 @@
 {{-   $headless = true }}
 {{- end }}
 
-{{- $MOD_HYPRLAND := "Win" }}
-{{- $SHIFT_MOD_HYPRLAND := "Shift_Win" }}
 {{- $SEP_HYPRLAND := "," }}
-
-{{- $MOD_GLAZE := "LWin" }}
-{{- $SHIFT_MOD_GLAZE := "LShiftKey+LWin" }}
 {{- $SEP_GLAZE := "+" }}
-
-{{- $MOD := "" }}
-{{- $SHIFT_MOD := "" }}
 {{- $SEP := "" }}
 
 {{- if $is_windows }}
-{{- $MOD = $MOD_GLAZE }}
-{{- $SHIFT_MOD = $SHIFT_MOD_GLAZE }}
 {{- $SEP = $SEP_GLAZE }}
 {{- else if $is_linux }}
-{{- $MOD = $MOD_HYPRLAND }}
-{{- $SHIFT_MOD = $SHIFT_MOD_HYPRLAND }}
 {{- $SEP = $SEP_HYPRLAND }}
 {{- end }}
 
     "data": {
         "ephemeral": {{ $ephemeral }},
         "headless": {{ $headless }},
+        "personal": {{ $personal }},
+        "isAsus": {{ $isAsus }},
+        "isNvidia": {{ $isNvidia }},
         "is_windows": {{ $is_windows }},
         "is_mac": {{ $is_mac }},
         "is_linux": {{ $is_linux }},
-        "username": "Evangelospro",
+        "username": "evangelospro",
         "fullname": "Evangelos Lioudakis",
         "email": "elioudakis123@gmail.com",
         "keybindings": {
+            "wm":{
+                "movewindows": {
+                    "left": {"description": "Move window to the left", "key": "$MOD{{$SEP}}left", "command": {"linux":"movewindow,l","windows":""}},
+                    "right": {"description": "Move window to the right", "key": "$MOD{{$SEP}}right", "command": {"linux":"movewindow,r","windows":""}},
+                    "up": {"description": "Move window upwards", "key": "$MOD{{$SEP}}up", "command": {"linux":"movewindow,t","windows":""}},
+                    "down": {"description": "Move window downwards", "key": "$MOD{{$SEP}}down", "command": {"linux":"movewindow,b","windows":""}},
+                },
+                "movefocus": {
+                    "left": {"description": "Move focus to the left", "key": "$MOD{{$SEP}}A", "command": {"linux":"movefocus,l","windows":""}},
+                    "right": {"description": "Move focus to the right", "key": "$MOD{{$SEP}}D", "command": {"linux":"movefocus,r","windows":""}},
+                    "up": {"description": "Move focus to the top", "key": "$MOD{{$SEP}}W", "command": {"linux":"movefocus,u","windows":""}},
+                    "down": {"description": "Move focus to the bottom", "key": "$MOD{{$SEP}}S", "command": {"linux":"movefocus,d","windows":""}},
+                },
+                "resize":{
+                    "left": {"description": "Resize window to the left", "key": "$SHIFT_MOD{{$SEP}}A", "command": {"linux":"resizeactive, -10 0","windows":""}},
+                    "right": {"description": "Resize window to the right", "key": "$SHIFT_MOD{{$SEP}}D", "command": {"linux":"resizeactive, 10 0","windows":""}},
+                    "up": {"description": "Resize window to the top", "key": "$SHIFT_MOD{{$SEP}}W", "command": {"linux":"resizeactive, 0 -10","windows":""}},
+                    "down": {"description": "Resize window to the bottom", "key": "$SHIFT_MOD{{$SEP}}S", "command": {"linux":"resizeactive, 0 10","windows":""}},
+                },
+                "exit": {"description": "Exit the window manager", "key": "$MOD{{$SEP}}M", "command": {"linux":"exit","windows":""}},
+                "reload": {"description": "Reload the window manager", "key": "$SHIFT_MOD{{$SEP}}R", "command": {"linux":"reload-hyprland","windows":""}},
+            },
             "utilities":{
-                "lockscreen": "{{$MOD}}{{$SEP}}L",
+                "lockscreen": {"description": "Lock the screen", "key": "$MOD{{$SEP}}L", "command": {"linux":"lockscreen","windows":""}},
+                "launcher": {"description": "Open the launcher", "key": "$MOD{{$SEP}}SPACE", "command": {"linux":"launcher","windows":""}},
+                "clipboard": {"description": "Open the clipboard manager", "key": "$MOD{{$SEP}}V", "command": {"linux":"clip-menu","windows":""}},
+                "emoji": {"description": "Open the emoji picker", "key": "$SHIFT_MOD{{$SEP}}E", "command": {"linux":"emoji-menu","windows":""}},
+                "colorpicker": {"description": "Open the color picker", "key": "$MOD{{$SEP}}C", "command": {"linux":"hyprpicker | wl-copy","windows":""}},
+            },
+            "screenshot":{
+                "screenshot": {"description": "Take an interactive screenshot", "key": "{{$SEP}}Print", "command": {"linux":"flameshot gui","windows":"flameshot gui"}},
+                "ocr": {"description": "Perform OCR on a screen selection", "key": "$MOD{{$SEP}}O", "command": {"linux":"wl-ocr","windows":""}},
             },
             "applications":{
-                "browser" : "{{$MOD}}{{$SEP}}B",
+                "browser" : {"description": "Launch the default browser", "key": "$MOD{{$SEP}}B", "command": {"linux":"thorium-browser","windows":""}},
+                "filemanager" : {"description": "Launch the file manager", "key": "$MOD{{$SEP}}E", "command": {"linux":"nemo","windows":"explorer.exe"}},
+                "terminal" : {"description": "Launch the terminal", "key": "$MOD{{$SEP}}Return", "command": {"linux":"$TERMINAL","windows":"wt"}},
+                "burp" : {"description": "Launch Burp Suite", "key": "$SHIFT_MOD{{$SEP}}B", "command": {"linux":"burp","windows":"burpsuite"}},
+                "discord" : {"description": "Launch Discord", "key": "$SHIFT_MOD{{$SEP}}D", "command": {"linux":"vesktop","windows":"vesktop"}},
+                "spotify" : {"description": "Launch Spotify", "key": "$SHIFT_MOD{{$SEP}}S", "command": {"linux":"spotify-launcher","windows":"spotify"}},
             }
         }
     },

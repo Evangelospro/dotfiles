@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# fetch clipboard from the appropriate clipboard manager
+
+if [[ -z $WAYLAND_DISPLAY ]]; then
+    xclip -selection clipboard -o
+else
+    wl-paste
+fi

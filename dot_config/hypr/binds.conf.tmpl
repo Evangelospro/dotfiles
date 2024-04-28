@@ -1,35 +1,43 @@
-# Control keys
+# Modifiers
 $MOD = SUPER
 $SHIFT_MOD = $MOD_SHIFT
 
-# Exit Hyprland
-bind=$MOD,M,exit
+# Exit / Reload
+bind={{.keybindings.wm.exit.key }},{{.keybindings.wm.exit.command.linux }}
+bind={{.keybindings.wm.reload.key }},exec,{{.keybindings.wm.reload.command.linux }}
 
 # Plugins
 # Hyprexpo
 #bind = $MOD, grave, hyprexpo:expo toggle
 
+
 # Utilities
-bindl={{.keybindings.utilities.lockscreen }},exec,lockscreen
-bind=$MOD,SPACE,exec,launcher
+bindl={{.keybindings.utilities.lockscreen.key}},exec,{{.keybindings.utilities.lockscreen.command.linux }}
+bind={{.keybindings.utilities.launcher.key}},exec,{{.keybindings.utilities.launcher.command.linux}}
 bind=,XF86Search,exec,launcher
-bind=$MOD,V,exec,clip-menu
-bind=$MOD,C,exec,hyprpicker | wl-copy
-bind=$MOD_SHIFT,R,exec,reload-hyprland
+bind={{.keybindings.utilities.lockscreen.key}},exec,{{.keybindings.utilities.lockscreen.command.linux}}
+bind={{.keybindings.utilities.colorpicker.key}},exec,{{.keybindings.utilities.colorpicker.command.linux}}
+bind={{.keybindings.utilities.clipboard.key}},exec,{{.keybindings.utilities.clipboard.command.linux}}
+bind={{.keybindings.utilities.emoji.key}},exec,{{.keybindings.utilities.emoji.command.linux}}
 bind=$MOD,R,exec,dynamic-resize
 bind=$MOD,P,exec,project-menu
 
+# Screenshot / OCR
+bind={{.keybindings.screenshot.screenshot.key }},exec,{{.keybindings.screenshot.screenshot.command.linux }}
+# Select area to perform OCR on
+bind={{.keybindings.screenshot.ocr.key }},exec,{{.keybindings.screenshot.ocr.command.linux }}
 
 # Applications
-{{- if (eq .chezmoi.hostname "ELARCH-F15") }}
+{{- if .isAsus }}
 bind=,XF86Launch4,exec,asusctl led-mode -n
 {{- end }}
-bind=$MOD,Return,exec,$TERMINAL
-bind={{ .keybindings.applications.browser }},exec,thorium-browser
-bind=$MOD_SHIFT,B,exec,burp
-# bind=$MOD_SHIFT,D,exec,vesktop
-# bind=$MOD,S,exec,spotify-launcher
-bind=$MOD,E,exec,nemo
+bind={{ .keybindings.applications.browser.key }},exec,{{ .keybindings.applications.browser.command.linux }}
+bind={{ .keybindings.applications.burp.key }},exec,{{ .keybindings.applications.burp.command.linux }}
+bind={{ .keybindings.applications.terminal.key }},exec,{{ .keybindings.applications.terminal.command.linux }}
+# temporarily disabled as SHIFT_MOD WASD is used for resizing windows
+# bind={{.keybindings.applications.discord.key}},exec,{{.keybindings.applications.discord.command.linux}}
+# bind={{.keybindings.applications.spotify.key}},exec,{{.keybindings.applications.spotify.command.linux}}
+bind={{.keybindings.applications.filemanager.key}},exec,{{.keybindings.applications.filemanager.command.linux}}
 
 # Close / Fullscreen / Kill Applications
 bind=ALT_L,F4,killactive
@@ -37,11 +45,6 @@ bindr=CTRL_SHIFT,ESCAPE,exec, hyprctl kill # xkill like functionality
 bind=$MOD,F,fullscreen,0
 bind=$MOD_SHIFT,F,togglefloating
 
-# Screenshot / OCR
-# Disable animations for screenshot
-bind=,Print,exec,flameshot gui
-# Select area to perform OCR on
-bind=$MOD,O,exec,wl-ocr
 
 # Function keys
 bind=,XF86RFKill,exec,rfkill
@@ -54,30 +57,35 @@ bind=,XF86AudioPrev,exec,playerctl previous
 binde=,XF86MonBrightnessUp,exec,lightctl up
 binde=,XF86MonBrightnessDown,exec,lightctl down
 
-# Move focus between windows in the current workspace
-bind=$MOD,left,movewindow,l
-bind=$MOD,right,movewindow,r
-bind=$MOD,up,movewindow,u
-bind=$MOD,down,movewindow,d
-
-# Rearrange windows in the current workspace
-bind=$MOD,A,movefocus,l
-bind=$MOD,D,movefocus,r
-bind=$MOD,W,movefocus,u
-bind=$MOD,S,movefocus,d
-
-# Resize windows in the current workspace
-binde=$MOD_SHIFT,A,resizeactive, -10 0
-binde=$MOD_SHIFT,D,resizeactive, 10 0
-binde=$MOD_SHIFT,W,resizeactive, 0 -10
-binde=$MOD_SHIFT,S,resizeactive, 0 10
-
 # Scratchpads
 # Valent (KDEConnect) special scratchpad workspace
 bind=$MOD,K,togglespecialworkspace,backgroundappsvalent
-{{- if (eq .chezmoi.hostname "ELARCH-F15") }}
+{{- if .isAsus }}
 # Rog Control Center special scratchpad workspace
 bind=,XF86Launch3,togglespecialworkspace,backgroundappsrogcontrolcenter
+{{- end }}
+
+# Rearrange windows in the current workspace
+{{- range $entry, $map := .keybindings.wm.movewindows}}
+bind={{$map.key}},{{$map.command.linux}}
+{{- end }}
+
+# Move Windows Between Workspaces
+bind=$MOD,0,workspace, 10
+bind=$MOD_SHIFT,0,movetoworkspace, 10
+{{- range $i := untilStep 0 10 1 }}
+bind=$MOD,{{$i}},workspace, {{$i}}
+bind=$MOD_SHIFT,{{$i}},movetoworkspace, {{$i}}
+{{- end }}
+
+# Move focus between windows in the current workspace
+{{- range $entry, $map := .keybindings.wm.movefocus }}
+bind={{$map.key}},{{$map.command.linux}}
+{{- end }}
+
+# Resize windows in the current workspace
+{{- range $entry, $map := .keybindings.wm.resize }}
+binde={{$map.key}},{{$map.command.linux}}
 {{- end }}
 
 # Move Windows Between Monitors
@@ -92,20 +100,3 @@ bindm=$MOD,mouse:272,movewindow
 
 # screen lock when the switch is turning off and then suspend
 bindl=,switch:on:Lid Switch,exec,lock-suspend
-
-# Move Windows Between Workspaces
-{{- if ne .chezmoi.hostname "ELARCH-ISO" }}
-{{- range $i := untilStep 1 10 1 }}
-bind=$MOD,{{$i}},exec, workspace {{$i}}
-bind=$MOD_SHIFT,{{$i}},exec, movetoworkspace {{$i}}
-{{- end }}
-bind=$MOD,0,exec, workspace 10
-bind=$MOD_SHIFT,0,exec, movetoworkspace 10
-{{- else }}
-{{- range $i := untilStep 0 10 1 }}
-bind=$MOD,{{$i}},workspace, {{$i}}
-bind=$MOD_SHIFT,{{$i}},movetoworkspace, {{$i}}
-{{- end}}
-bind=$MOD,0,workspace, 10
-bind=$MOD_SHIFT,0,movetoworkspace, 10
-{{- end }}

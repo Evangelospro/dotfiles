@@ -31,7 +31,6 @@
         }
     },
     "widgets": [
-        "menubar",
         "title",
         "dnd",
         "mpris",
