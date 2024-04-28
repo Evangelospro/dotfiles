@@ -17,6 +17,9 @@ https://github.com/Evangelospro/dotfiles/assets/68608623/a00cad72-12a5-4858-8acd
 2. [How to apply?](#applying)
 3. [Keybindings](#keybindings)
 4. [Linux Setup](#linux-setup)
+4. [Windows Setup](#windows-setup)
+4. [Hacking Setup](#hacking-setup)
+
 5. [Contributing](#contributing)
 6. [Sources / Inspiration](#sources-and-inspiration)
 
@@ -150,6 +153,16 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 
 ### [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/)
 - [configuration](dot_config/private_Code%20-%20Insiders)
+
+## Windows Setup
+
+On windows I use GlazeWM with the Win key remapped using [PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/install)
+```
+winget install Microsoft.PowerToys --source winget
+```
+SO
+WIN -> ALT
+ALT -> WIN
 
 ## Hacking Setup
 
