@@ -83,8 +83,8 @@ alias psgrep='ps aux | grep -v grep | grep -i -e VSZ -e'
 alias psmem='ps auxf | sort -nr -k 4'
 
 # Always need sudo, don't even bother
-alias shutdown="sudo shutdown"
-alias reboot="sudo reboot"
+alias shutdown="systemctl poweroff"
+alias reboot="systemctl reboot"
 alias umount="sudo umount"
 alias mount="sudo mount"
 

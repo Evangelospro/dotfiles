@@ -9,4 +9,6 @@ items = [
     "aur/hyprpaper-git",
     "aur/hyprcursor-git",
     "aur/hyprswitch",
+    "aur/pyprland-git",
+    "aur/wlr-layout-ui-git",
 ]

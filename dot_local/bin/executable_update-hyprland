@@ -26,7 +26,7 @@ function build-auto() {
 }
 
 function build-manual() {
-    make all && sudo make install && touch /tmp/hypr/hyprland_already_upgraded
+    make all && sudo make install && touch /tmp/hyprland_already_upgraded
     echo "Adding back wlroots"
     sudo ln -s /usr/local/lib/libwlroots* /usr/lib/
     echo "Adding wayland-session"
@@ -70,11 +70,11 @@ if [[ $latest_hyprland_version == $current_hyprland_version && $force_upgrade ==
     echo "Already latest version, no need to upgrade. Use -f option to force upgrade."
     exit 0
 # versions are different
-elif [[ ! -e /tmp/hypr/hyprland_already_upgraded ]]; then
+elif [[ ! -e /tmp/hyprland_already_upgraded ]]; then
     cleanup
     build-manual
 # already upgraded in this session and force_upgrade is false
-elif [[ -e /tmp/hypr/hyprland_already_upgraded && $force_upgrade == false ]]; then
+elif [[ -e /tmp/hyprland_already_upgraded && $force_upgrade == false ]]; then
     echo "Already upgraded in this session. Use -f option to force upgrade."
     exit 0
 # already upgraded in this session and force_upgrade is true

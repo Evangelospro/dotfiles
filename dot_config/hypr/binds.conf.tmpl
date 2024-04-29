@@ -9,6 +9,9 @@ bind={{.keybindings.wm.reload.key }},exec,{{.keybindings.wm.reload.command.linux
 # Plugins
 # Hyprexpo
 #bind = $MOD, grave, hyprexpo:expo toggle
+# Pyprland
+bind = $MOD , Z, exec, pypr zoom ++0.5
+bind = $MOD SHIFT, Z, exec, pypr zoom
 
 
 # Utilities
@@ -19,7 +22,7 @@ bind={{.keybindings.utilities.colorpicker.key}},exec,{{.keybindings.utilities.co
 bind={{.keybindings.utilities.clipboard.key}},exec,{{.keybindings.utilities.clipboard.command.linux}}
 bind={{.keybindings.utilities.emoji.key}},exec,{{.keybindings.utilities.emoji.command.linux}}
 bind=$MOD,R,exec,dynamic-resize
-bind=$MOD,P,exec,project-menu
+bind=$MOD,P,exec,project-menu #/usr/bin/wlrlui
 
 # Screenshot / OCR
 bind={{.keybindings.screenshot.screenshot.key }},exec,{{.keybindings.screenshot.screenshot.command.linux }}

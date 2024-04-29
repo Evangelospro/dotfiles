@@ -34,5 +34,5 @@ items = [
 
 [managers.pip]
 items = [
-    "git+https://github.com/hyprland-community/hyprland-py",
+    "git+https://github.com/Evangelospro/hyprland-py@fix-socket-dir",
 ]

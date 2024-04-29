@@ -16,6 +16,7 @@ exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec-once=/usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # Hyprland plugins
+exec=ps aux|grep -v grep| grep -q pypr && pypr reload || pypr
 # exec=$HOME/.config/hypr/scripts/plugin-startup
 
 # Bar

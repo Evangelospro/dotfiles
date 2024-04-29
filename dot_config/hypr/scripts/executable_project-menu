@@ -9,6 +9,9 @@ choice=$(printf '%s
 ' "${options[@]}" | rofi -dmenu -i -p "Monitor configuration")
 
 # Run the appropriate script
+if [ -z "$choice" ]; then
+    exit 0
+fi
 case $choice in
 "Laptop Screen")
     cp $HOME/.config/hypr/monitors/monitors_default.conf $HOME/.config/hypr/monitors.conf

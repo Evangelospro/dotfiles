@@ -1,0 +1,5 @@
+[pyprland]
+plugins = [
+    "magnify",
+    "shortcuts_menu"
+]
