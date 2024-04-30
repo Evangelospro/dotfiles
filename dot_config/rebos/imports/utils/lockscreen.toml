@@ -1,7 +1,6 @@
 [managers.system]
 items = [
-    "aur/hyprlock-git",
-    "aur/swaylock-effects-git", # need -git as swaylock-effects is unmaintained
-    "aur/hypridle",
-    "aur/wleave-git"
+    "hyprlock-git",
+    "swaylock-effects-git", # need -git as swaylock-effects is unmaintained
+    "wleave-git"
 ]

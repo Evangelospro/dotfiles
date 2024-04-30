@@ -1,4 +1,4 @@
 [managers.system]
 items = [
-    "aur/hyprpicker-git",
+    "hyprpicker-git",
 ]

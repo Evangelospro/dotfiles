@@ -1,4 +1,4 @@
 [managers.system]
 items = [
-    "aur/hyprpaper-git",
+    "hyprpaper-git",
 ]

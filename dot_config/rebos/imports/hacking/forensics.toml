@@ -1,12 +1,12 @@
 [managers.system]
 items = [
-    "aur/pycdc-git",
-    "aur/python-pyshark",
-    "aur/volatility3-git",
+    "pycdc-git",
+    "python-pyshark",
+    "volatility3-git",
     # aur/python2-volatility-git,
     "foremost",
-    "aur/python-oletools",
-    "chaotic-aur/powershell",
+    "python-oletools",
+    "powershell",
 ]
 
 [managers.pipx]

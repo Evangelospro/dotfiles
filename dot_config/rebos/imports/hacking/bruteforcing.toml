@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-    "aur/hydra",
-    "aur/ffuf-bin",
-    "aur/feroxbuster"
+    "hydra",
+    "ffuf-bin",
+    "feroxbuster"
 ]

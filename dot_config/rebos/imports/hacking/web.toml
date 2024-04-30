@@ -1,10 +1,10 @@
 [managers.system]
 items = [
-    "aur/nodejs-localtunnel",
+    "nodejs-localtunnel",
     "python-beautifulsoup4",
     "python-flask",
     "wpscan",
-    "aur/joomscan",
+    "joomscan",
     "sqlmap",
 ]
 

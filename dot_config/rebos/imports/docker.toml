@@ -2,6 +2,6 @@
 items = [
     "docker",
     "docker-buildx",
-    "aur/docker-rootless-extras",
+    "docker-rootless-extras",
     "fuse-overlayfs",
 ]

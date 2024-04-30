@@ -1,7 +1,7 @@
 [managers.system]
 items = [
-    "aur/usbguard-applet-qt",
-    "chaotic-aur/qdirstat",
+    "usbguard",
+    "qdirstat",
     "gparted",
-    "chaotic-aur/czkawka-gui"
+    "czkawka-gui"
 ]

@@ -1,14 +1,14 @@
 [managers.system]
 items = [
-    "aur/hyprland-git", # will be installed from source via update-hyprland script
-    "chaotic-aur/xdg-desktop-portal-hyprland-git",
+    "hyprland-git", # will be installed from source via update-hyprland script
+    "xdg-desktop-portal-hyprland-git",
     "xdg-desktop-portal-gtk",
-    "aur/hypridle-git",
-    "aur/hyprpicker-git",
-    "aur/hyprlock-git",
-    "aur/hyprpaper-git",
-    "aur/hyprcursor-git",
-    "aur/hyprswitch",
-    "aur/pyprland-git",
-    "aur/wlr-layout-ui-git",
+    "hypridle-git",
+    "hyprpicker-git",
+    "hyprlock-git",
+    "hyprpaper-git",
+    "hyprcursor-git",
+    "hyprswitch",
+    "pyprland-git",
+    "wlr-layout-ui-git",
 ]

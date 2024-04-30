@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-    "aur/jnv",
-    "aur/jaq", # faster than jq
-    "aur/ripgrep"
+    "jnv",
+    "jaq", # faster than jq
+    "ripgrep"
 ]

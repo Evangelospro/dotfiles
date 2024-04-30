@@ -2,5 +2,5 @@
 items = [
     "swaync",
     "swaync-client",
-    "aur/notify-send-py"
+    "notify-send-py"
 ]

@@ -2,11 +2,11 @@
 items = [
     "nemo",
     "nemo-fileroller",
-    "aur/nemo-compare",
+    "nemo-compare",
     "nemo-preview",
     # "nemo-terminal",
     "nemo-image-converter",
-    "aur/nemo-media-columns",
+    "nemo-media-columns",
     "lf",
     "fd",
     "ouch",

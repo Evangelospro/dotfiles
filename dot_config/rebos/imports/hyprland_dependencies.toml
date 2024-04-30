@@ -28,8 +28,8 @@ items = [
     "cpio",
     "tomlplusplus",
     "xcur2png",
-    "aur/hyprlang-git",
-    "aur/hyprwayland-scanner-git"
+    "hyprlang-git",
+    "hyprwayland-scanner-git"
 ]
 
 [managers.pip]

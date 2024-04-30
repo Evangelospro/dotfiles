@@ -1,8 +1,8 @@
 [managers.system]
 items = [
-  "aur/vencord-bin",
+  "vesktop-bin",
   "signal-desktop",
-  "chaotic-aur/valent-git",
-  "chaotic-aur/zoom",
+  "valent-git",
+  "zoom",
   "caprine"
 ]

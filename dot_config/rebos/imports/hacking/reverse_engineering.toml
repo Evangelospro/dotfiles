@@ -2,12 +2,12 @@
 items = [
     "python-z3-solver",
     "python-claripy",
-    # "aur/python-angr-git",
+    # "python-angr-git",
     "ghidra",
     "cutter",
     "rz-ghidra",
     "rz-cutter",
     "dotnet-runtime-6.0",
-    "aur/jd-gui",
-    "aur/recaf-bin"
+    "jd-gui",
+    "recaf-bin"
 ]

@@ -13,7 +13,7 @@ imports = [
 
 [managers.system]
 items = [
-    "chaotic-aur/seadrive-gui"
+    "seadrive-gui"
 ]
 
 [managers.systemd]

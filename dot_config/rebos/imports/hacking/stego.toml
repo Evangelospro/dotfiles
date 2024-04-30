@@ -1,9 +1,9 @@
 [managers.system]
 items = [
-    "aur/stegsolve",
-    "aur/steghide",
-    "aur/stegseek",
-    "aur/zsteg",
+    "stegsolve",
+    "steghide",
+    "stegseek",
+    "zsteg",
     "perl-image-exiftool",
     "sonic-visualiser",
 ]

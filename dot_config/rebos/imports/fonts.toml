@@ -5,7 +5,7 @@ items = [
     "noto-fonts-extra",
     "noto-fonts-cjk",
     "otf-font-awesome",
-    "aur/ttf-material-design-icons-extended",
+    "ttf-material-design-icons-extended",
     "tesseract",
     "tesseract-data-eng"
 ]

@@ -1,9 +1,9 @@
 [managers.system]
 items = [
     "android-udev",
-    "chaotic-aur/android-emulator",
-    "chaotic-aur/android-sdk-cmdline-tools-latest",
-    "chaotic-aur/android-sdk-platform-tools",
+    "android-emulator",
+    "android-sdk-cmdline-tools-latest",
+    "android-sdk-platform-tools",
     "android-tools",
-    "chaotic-aur/android-studio"
+    "android-studio"
 ]

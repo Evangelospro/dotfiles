@@ -1,8 +1,8 @@
 [managers.system]
 items = [
-    "aur/bibata-cursor-theme-bin",
-    "aur/papirus-icon-theme-git",
-    "aur/grub-theme-cyberre",
+    "bibata-cursor-theme-bin",
+    "papirus-icon-theme-git",
+    "grub-theme-cyberre",
     "kvantum",
     "--mflags '--nocheck' gtk4-layer-shell",
 ]

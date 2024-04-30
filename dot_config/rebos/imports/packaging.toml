@@ -1,5 +1,5 @@
 [managers.system]
 items = [
-    "aur/rate-mirrors-bin",
-    "aur/pacman-cleanup-hook"
+    "rate-mirrors-bin",
+    "pacman-cleanup-hook"
 ]

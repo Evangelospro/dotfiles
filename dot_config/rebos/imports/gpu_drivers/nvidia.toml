@@ -1,7 +1,7 @@
 [managers.system]
 items = [
     "nvidia-dkms", # or nvidia-open-dkms (if lucky)
-    "aur/libva-nvidia-driver-git",
+    "libva-nvidia-driver-git",
     "nvidia-utils",
     "nvidia-settings",
     "opencl-nvidia",

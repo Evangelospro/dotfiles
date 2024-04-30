@@ -1,5 +1,5 @@
 [managers.system]
 items = [
-    "aur/seclists",
-    "aur/crunch"
+    "seclists",
+    "crunch"
 ]

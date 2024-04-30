@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-    "aur/xdg-ninja-git",
+    "xdg-ninja-git",
     "handlr-regex",
     "# aur/pistol-git",
 ]

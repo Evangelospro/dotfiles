@@ -1,5 +1,5 @@
 [managers.system]
 items = [
-    "chaotic-aur/imhex",
-    "chaotic-aur/visual-studio-code-insiders-bin",
+    "imhex",
+    "visual-studio-code-insiders-bin",
 ]

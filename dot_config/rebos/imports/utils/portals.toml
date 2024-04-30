@@ -1,5 +1,5 @@
 [managers.system]
 items = [
-    "chaotic-aur/xdg-desktop-portal-hyprland-git",
+    "xdg-desktop-portal-hyprland-git",
     "xdg-desktop-portal-gtk",
 ]

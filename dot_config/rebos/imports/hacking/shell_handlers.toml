@@ -1,7 +1,7 @@
 [managers.system]
 items = [
     "rlwrap",
-    "aur/penelope-git",
+    "penelope-git",
     "metasploit"
 ]
 

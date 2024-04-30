@@ -3,6 +3,6 @@ items = [
     "hashcat",
     "hashcat-utils",
     "john",
-    "aur/cewl-git",
+    "cewl-git",
     "hydra"
 ]

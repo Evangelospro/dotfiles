@@ -1,10 +1,10 @@
 [managers.system]
 items = [
-    "aur/jadx-gui-desktop",
-    "aur/python-frida",
-    "aur/python-frida-tools",
-    "aur/android-backup-extractor",
-    "aur/python-androguard",
+    "jadx-gui-desktop",
+    "python-frida",
+    "python-frida-tools",
+    "android-backup-extractor",
+    "python-androguard",
 ]
 
 [managers.pipx]

@@ -1,4 +1,4 @@
 [managers.system]
 items = [
-    "aur/papirus-folders-git",
+    "papirus-folders-git",
 ]
