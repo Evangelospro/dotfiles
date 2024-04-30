@@ -73,11 +73,11 @@ bind={{$map.key}},{{$map.command.linux}}
 {{- end }}
 
 # Move Windows Between Workspaces
-bind=$MOD,0,workspace, 10
-bind=$MOD_SHIFT,0,movetoworkspace, 10
-{{- range $i := untilStep 0 10 1 }}
-bind=$MOD,{{$i}},workspace, {{$i}}
-bind=$MOD_SHIFT,{{$i}},movetoworkspace, {{$i}}
+bind=$MOD,0,exec,workspace change 10
+bind=$MOD_SHIFT,0,exec,workspace movewindow 10
+{{- range $i := untilStep 1 10 1 }}
+bind=$MOD,{{$i}},exec,workspace change {{$i}}
+bind=$MOD_SHIFT,{{$i}},exec,workspace movewindow {{$i}}
 {{- end }}
 
 # Move focus between windows in the current workspace

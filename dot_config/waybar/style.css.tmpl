@@ -24,7 +24,8 @@ window.external-1360x768 {
 
 #waybar {
 	background: @transparent;
-	color: #eeeeef;
+	color: @black;
+    font-weight: bold;
 }
 
 #image,
@@ -40,32 +41,31 @@ window.external-1360x768 {
 #bluetooth,
 #temperature,
 #workspaces,
-#pulseaudio.microphone,
+#pulseaudio.input,
+#pulseaudio.output,
 #backlight {
-	background: #1e1e2e;
-    opacity: 0.8;
     padding: 0px 10px;
     margin: 3px 0px;
-    border: 2px solid @purple;
 }
 
 #idle_inhibitor {
-    color: @orange;
+    background: @yellow;
+    font-weight: bold;
     border-radius: 10px 0px 0px 10px;
 }
 
 #keyboard-state {
-    color: @orange;
+    background: @orange;
     border-radius: 10px 0px 10px 0px;
 }
 
 #language {
-    color: @orange;
+    background: @orange;
     border-radius: 0px 0px 0px 0px;
 }
 
 #window {
-    color: @purple;
+    background: @purple;
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -83,6 +83,7 @@ window.external-1360x768 {
     margin: 0px 0px;
     padding: 0px 0px;
     border-radius: 5px;
+    border: 2px solid @purple;
 }
 
 #temperature {
@@ -98,21 +99,13 @@ window.external-1360x768 {
 }
 
 #tray {
-    background: #1e1e2e;
-    opacity: 0.8;
+    background: @pink;
     margin: 3px 0px;
-    border-top: 2px solid @purple;
-    border-bottom: 2px solid @purple;
-    border-right: 2px solid @purple;
     border-radius: 0px 10px 10px 0px;
     margin-right: 10px;
     padding: 0px 3px;
 }
 
-window.external-1360x768 #tray {
-    border: 2px solid @purple;
-    border-radius: 10px 0px 0px 10px;
-}
 
 #tray > .passive {
     -gtk-icon-effect: dim;
@@ -127,65 +120,44 @@ label:focus {
     background-color: #000000;
 }
 
+#network {
+    background: @pink;
+    margin: 3px 0px;
+    border-radius: 10px 0px 0px 10px;
+    padding: 0px 5px;
+}
+
 #custom-powermenu {
-	color: @red;
+    background: @red;
 	padding-right: 15px;
 	margin-right: 8px;
     border-radius: 0px 10px 10px 0px;
 }
 
 #custom-notifications {
-	color: @cyan;
+    background: @cyan;
     padding-right: 10px;
     border-radius: 0px 0px 0px 0px;
 }
 
-#cpu {
-	color: @cyan;
-    border-radius: 10px 0px 10px 0px;
-}
-
-#memory {
-	color: @orange;
-    border-radius: 10px 0px 10px 0px;
-}
-
 #clock {
-    color: @orange;
+    background: @orange;
     border-radius: 10px 10px 10px 10px;
     margin: 0px 10px 0px 10px;
 }
 
-#network {
-    background: #1e1e2e;
-    opacity: 0.8;
-    margin: 3px 0px;
-    border-top: 2px solid @purple;
-    border-left: 2px solid @purple;
-    border-bottom: 2px solid @purple;
-    color: @orange;
-    border-radius: 10px 0px 0px 10px;
-    padding: 0px 3px;
-}
 
-#bluetooth {
-    color: @cyan;
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px
-}
-
-#pulseaudio {
-    color: @orange;
+#pulseaudio.input {
+    background: @red;
     border-radius: 10px 0px 0px 10px;
 }
 
-#pulseaudio.microphone {
-    color: @pink;
-    border-radius: 0px 0px 0px 0px;
+#pulseaudio.output {
+    background: @cyan;
 }
 
 #battery {
-    color: @green;
+    background: @green;
     border-radius: 0px 10px 10px 0px;
     padding-right: 15px;
     margin-right: 5px;

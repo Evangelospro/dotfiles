@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 WORKSPACES_COUNT_PER_MONITOR=10
-if [ -z "$1" ]; then
-    echo "Usage: $0 <workspace> [workspace]"
+if [ "$#" -lt 1 ]; then
+    echo "Usage: $0 <workspace> [action](movewindow|change) [workspace](1-$WORKSPACES_COUNT_PER_MONITOR)"
     exit 1
 fi
 
@@ -12,6 +12,16 @@ if [ -z "$activeMonitorNumber" ]; then
 fi
 
 # actual workspace number is as activeMonitorNumber * WORKSPACES_COUNT_PER_MONITOR + workspaceNumber
-workspaceNumber="$1"
+action="$1"
+workspaceNumber="$2"
+echo "activeMonitorNumber: $activeMonitorNumber"
+echo "workspaceNumber: $workspaceNumber"
+echo "action: $action"
 workspaceNumber=$((activeMonitorNumber * WORKSPACES_COUNT_PER_MONITOR + workspaceNumber))
-hyprctl dispatch workspace "$workspaceNumber"
+if [ "$action" == "movewindow" ]; then
+    hyprctl dispatch movetoworkspace "$workspaceNumber"
+    exit 0
+elif [ "$action" == "change" ]; then
+    hyprctl dispatch workspace "$workspaceNumber"
+    exit 0
+fi

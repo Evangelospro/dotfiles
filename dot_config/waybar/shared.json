@@ -21,7 +21,7 @@
             "activated": " ",
             "deactivated": " "
         }
-        
+
     },
     "tray": {
         "icon-size": 22,
@@ -82,8 +82,9 @@
         "tooltip-format-enumerate-connected": "{device_alias}",
         "on-click": "blueman-manager",
     },
-    "pulseaudio": {
+    "pulseaudio#output": {
         "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon}",
         "tooltip": false,
         "format-muted": " Muted",
         "on-click": "pamixer -t",
@@ -104,7 +105,7 @@
             ]
         }
     },
-    "pulseaudio#microphone": {
+    "pulseaudio#input": {
         "format": "{format_source}",
         "format-source": " {volume}%",
         "format-source-muted": " Muted",
