@@ -126,5 +126,9 @@
     ".*seadrive.*": {
         "name": "SeaDrive",
         "icon": "~/.local/share/icons/seadrive.svg"
+    },
+    "spotube": {
+        "name": "Spotube",
+        "icon": "~/.local/share/icons/spotube-logo.svg"
     }
 }

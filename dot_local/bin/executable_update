@@ -9,7 +9,6 @@ elif command -v yay &> /dev/null; then
 elif command -v pacman &> /dev/null; then
     sudo pacman -Syu
 fi
-update-hyprland
 # navi-update
 # Update burp pro if a Burp/Burp-Loader directory exists in the home directory
 if [ -d $HOME/.config/Burp/Burp-Loader ]; then
@@ -19,3 +18,4 @@ update-spicetify
 if command -v papirus-folders &> /dev/null; then
     papirus-folders -Ru
 fi
+update-hyprland
