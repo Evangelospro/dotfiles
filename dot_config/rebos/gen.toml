@@ -19,3 +19,8 @@ imports = [
     "xdg",
     "downloaders",
 ]
+
+[managers.system]
+items = [
+    
+]

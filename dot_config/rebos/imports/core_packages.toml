@@ -64,6 +64,7 @@ items = [
     "lsscsi",
     "lvm2",
     "man-db",
+    "inetutils",
     "preload",
     "base-devel",
     "appmenu-gtk-module"

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# check if spotify was just updated
+# check if spotify is installed and was just updated
+if ! command -v spotify-launcher &> /dev/null; then
+    echo "Spotify is not installed"
+    exit 0
+fi
 last_launched_version=$(cat ~/.config/spotify/prefs | grep 'app.last-launched-version="' | cut -d'=' -f2 | tr -d '"')
 last_version=$(spicetify config | grep "version" | cut -d' ' -f24)
 if [ -z "$last_launched_version" ]; then

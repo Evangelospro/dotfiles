@@ -33,4 +33,11 @@ else
     fi
 fi
 
+# WM SPECIFIC CONFIGURATIONS
+# Hyprland check if ~/.config/hypr/monitors.conf doesn't exist
+if [[ ! -f ~/.config/hypr/monitors.conf ]]; then
+    rebos api echo info "Setting up Hyprland monitors"
+    cp ~/.config/hypr/monitors/monitors_default.conf ~/.config/hypr/monitors.conf
+fi
+
 rebos api echo success "Please reboot to ensure everything was successfully applied"

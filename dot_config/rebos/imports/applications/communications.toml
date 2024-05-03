@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-  "vesktop-bin",
+  "vesktop",
   "signal-desktop",
   "valent-git",
   "zoom",
