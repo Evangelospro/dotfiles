@@ -3,7 +3,7 @@ items = [
     "pycdc-git",
     "python-pyshark",
     "volatility3-git",
-    # aur/python2-volatility-git,
+    # "python2-volatility-git",
     "foremost",
     "python-oletools",
     "powershell",

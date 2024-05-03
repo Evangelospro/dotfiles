@@ -2,5 +2,5 @@
 items = [
     "xdg-ninja-git",
     "handlr-regex",
-    "# aur/pistol-git",
+    # "pistol-git",
 ]
