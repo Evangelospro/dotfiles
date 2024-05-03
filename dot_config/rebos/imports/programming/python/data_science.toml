@@ -9,5 +9,4 @@ items = [
     "python-keras",
     "python-pytorch-opt-cuda",
     "python-torchvision-cuda",
-    "python-ultralytics",
 ]

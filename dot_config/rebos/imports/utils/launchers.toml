@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-    "rofi-lbonn-wayland",
+    "rofi-lbonn-wayland-git",
     "anyrun-git",
     "walker",
     # "ulauncher-it",

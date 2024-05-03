@@ -61,4 +61,4 @@ GRUB_DISABLE_SUBMENU="y"
 # functionality install os-prober and uncomment to detect and include other
 # operating systems.
 GRUB_DISABLE_OS_PROBER="false"
-GRUB_THEME="/boot/grub/themes/CyberRe/theme.txt"
+GRUB_THEME="/usr/share/grub/themes/CyberRe/theme.txt"

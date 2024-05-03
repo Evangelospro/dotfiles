@@ -12,9 +12,17 @@ if pacman -Qs virt-manager >/dev/null 2>&1; then
     sudo virsh net-autostart default >/dev/null
 fi
 
+# Ensure XDG directories are created
+rebos api echo info "Creating XDG user directories"
+xdg-user-dirs-update
+
 # COPY SYSTEM CONFIGURATIONS
 rebos api echo info "Copying system configurations (/etc, /usr, /var)"
 sudo cp -r ~/.local/share/chezmoi/confs/* /
+
+# Set java to latest java installed
+rebos api echo info "Setting java to the latest installed version"
+sudo archlinux-java set $(archlinux-java status | head -n 2|tail -n 1|cut -d ' ' -f 3)
 
 # UPDATE using the update binary in ~/.local/bin
 rebos api echo info "Updating all packages and installing any source-only packages"

@@ -1,6 +1,5 @@
 [managers.system]
 items = [
     "jdk",
-    "jre",
     "jdk-openjdk"
 ]

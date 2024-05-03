@@ -64,8 +64,11 @@ items = [
     "lsscsi",
     "lvm2",
     "man-db",
+    "os-prober",
     "inetutils",
     "preload",
     "base-devel",
-    "appmenu-gtk-module"
+    "appmenu-gtk-module",
+    "tinyxxd",
+    "xdg-user-dirs"
 ]

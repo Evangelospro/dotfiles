@@ -3,5 +3,6 @@ items = [
     "docker",
     "docker-buildx",
     "docker-rootless-extras",
+    "docker-compose",
     "fuse-overlayfs",
 ]

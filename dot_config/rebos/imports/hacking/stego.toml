@@ -3,7 +3,11 @@ items = [
     "stegsolve",
     "steghide",
     "stegseek",
-    "zsteg",
     "perl-image-exiftool",
     "sonic-visualiser",
+]
+
+[managers.gem]
+items = [
+    "zsteg"
 ]

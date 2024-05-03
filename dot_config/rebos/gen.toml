@@ -20,7 +20,7 @@ imports = [
     "downloaders",
 ]
 
-[managers.system]
+[managers.systemd]
 items = [
-    
+    "docker",
 ]

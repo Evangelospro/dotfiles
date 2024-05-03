@@ -1,5 +1,5 @@
 [managers.system]
 items = [
-    "python-impacket",
+    "python-impacket-git",
     "ruby-evil-winrm"
 ]

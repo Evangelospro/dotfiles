@@ -28,12 +28,6 @@
     stripComponents = 1
     path = "Dracula.conf"
 
-[".config/zsh/themes/dracula-theme.zsh"]
-    type = "file"
-    executable = true
-    url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
-    refreshPeriod = "168h"
-
 [".config/spicetify/Themes/Dracula"]
     type = "archive"
     url = "https://github.com/dracula/spicetify/archive/master.zip"

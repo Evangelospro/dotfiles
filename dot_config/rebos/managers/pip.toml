@@ -1,4 +1,4 @@
-# pipx
+# pip
 
 add = "pip install --break-system #:?"
 remove = "pip uninstall #:?"

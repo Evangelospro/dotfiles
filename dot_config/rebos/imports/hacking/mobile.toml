@@ -4,7 +4,6 @@ items = [
     "python-frida",
     "python-frida-tools",
     "android-backup-extractor",
-    "python-androguard",
 ]
 
 [managers.pipx]
