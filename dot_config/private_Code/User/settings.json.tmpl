@@ -3,7 +3,7 @@
 	"zenMode.centerLayout": false,
 	"zenMode.hideStatusBar": false,
 	"zenMode.hideLineNumbers": false,
-    {{- if eq .chezmoi.os "linux" }}
+	{{- if eq .chezmoi.os "linux" }}
 	"window.zoomLevel": 2,
     {{- else }}
     "window.zoomLevel": 1,
@@ -15,7 +15,7 @@
 	"window.titleBarStyle": "custom", //MUST BE CUSTOM for wayland support to work
 	"window.titleSeparator": " | ",
 	// WORKBENCH SETTINGS
-    "workbench.activityBar.location": "top",
+	"workbench.activityBar.location": "top",
 	"workbench.editor.enablePreviewFromQuickOpen": false,
 	"workbench.editor.highlightModifiedTabs": true,
 	"workbench.editor.restoreViewState": true,
@@ -260,11 +260,11 @@
 	"[shellscript]": {
 		"editor.defaultFormatter": "foxundermoon.shell-format"
 	},
-    "[c]": {
+	"[c]": {
 		"editor.defaultFormatter": "ms-vscode.cpptools"
-    },
-    "jupyter.askForKernelRestart": false,
-    "liveshare.notebooks.allowGuestExecuteCells": true,
+	},
+	"jupyter.askForKernelRestart": false,
+	"liveshare.notebooks.allowGuestExecuteCells": true,
 	"[yuck]": {
 		"editor.defaultFormatter": "eww-yuck.yuck"
 	},
@@ -281,7 +281,7 @@
 	},
 	"vim.useSystemClipboard": true,
 	"vim.vimrc.enable": true,
-	"vim.vimrc.path": "{{ .chezmoi.homeDir }}/.config/vim/.vimrc",
+    "vim.vimrc.path": "{{ .chezmoi.homeDir }}/.config/vim/.vimrc",
 	"vim.shell": "/usr/bin/zsh",
 	"vva.trustedDomain": true,
 	"vim.handleKeys": {

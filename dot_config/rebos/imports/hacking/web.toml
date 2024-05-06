@@ -6,6 +6,14 @@ items = [
     "wpscan",
     "joomscan",
     "sqlmap",
+    "python-pyjwt",
+    "python-websockets",
+    "python-httpx",
+]
+
+[managers.pip]
+items = [
+    "requestrepo",
 ]
 
 [managers.pipx]

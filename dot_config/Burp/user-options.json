@@ -29,12 +29,15 @@
                 "allow_http_requests":true
             },
             "http_message_display":{
-                "font_name":"Fira Code Nerd Font",
+                "font_name":"Monospaced",
                 "font_size":14,
                 "font_smoothing":true,
                 "highlight_requests":true,
                 "highlight_responses":true,
                 "pretty_print_by_default":true
+            },
+            "table_appearance":{
+                "zebra_striping":true
             },
             "user_interface":{
                 "font_size":14,
@@ -49,38 +52,38 @@
                     "errors":"ui",
                     "extension_file":"bapps/3123d5b5f25c4128894d97ea1acc4976/activeScan++.py",
                     "extension_type":"python",
-                    "loaded":false,
+                    "loaded":true,
                     "name":"Active Scan++",
                     "output":"ui"
                 },
                 {
-                    "bapp_serial_version":5,
+                    "bapp_serial_version":8,
                     "bapp_uuid":"b324647b6efa4b6a8f346389730df160",
                     "errors":"ui",
-                    "extension_file":"bapps/b324647b6efa4b6a8f346389730df160/burp-requests.jar",
+                    "extension_file":"bapps/b324647b6efa4b6a8f346389730df160/build/libs/copy-as-python-requests.jar",
                     "extension_type":"java",
                     "loaded":true,
                     "name":"Copy As Python-Requests",
                     "output":"ui"
                 },
                 {
-                    "bapp_serial_version":1,
-                    "bapp_uuid":"8e8f6bb313db46ba9e0a7539d3726651",
+                    "bapp_serial_version":2,
+                    "bapp_uuid":"c1c32424fb8a4843a5404aa5ed5d711a",
                     "errors":"ui",
-                    "extension_file":"bapps/8e8f6bb313db46ba9e0a7539d3726651/reflected_parameters_monitor.jar",
+                    "extension_file":"bapps/c1c32424fb8a4843a5404aa5ed5d711a/build/libs/HackBar-2.0.jar",
                     "extension_type":"java",
                     "loaded":true,
-                    "name":"Reflected Parameters",
+                    "name":"HackBar, Payload Bucket",
                     "output":"ui"
                 },
                 {
-                    "bapp_serial_version":9,
-                    "bapp_uuid":"cc16f37549ff416b990d4312490f5fd1",
+                    "bapp_serial_version":12,
+                    "bapp_uuid":"26aaa5ded2f74beea19e2ed8345a93dd",
                     "errors":"ui",
-                    "extension_file":"bapps/cc16f37549ff416b990d4312490f5fd1/minimizer.py",
-                    "extension_type":"python",
+                    "extension_file":"bapps/26aaa5ded2f74beea19e2ed8345a93dd/build/libs/jwt-editor-2.2.jar",
+                    "extension_type":"java",
                     "loaded":true,
-                    "name":"Request Minimizer",
+                    "name":"JWT Editor",
                     "output":"ui"
                 },
                 {
@@ -94,23 +97,13 @@
                     "output":"ui"
                 },
                 {
-                    "bapp_serial_version":10,
-                    "bapp_uuid":"26aaa5ded2f74beea19e2ed8345a93dd",
+                    "bapp_serial_version":1,
+                    "bapp_uuid":"8e8f6bb313db46ba9e0a7539d3726651",
                     "errors":"ui",
-                    "extension_file":"bapps/26aaa5ded2f74beea19e2ed8345a93dd/build/libs/jwt-editor-2.1.1.jar",
+                    "extension_file":"bapps/8e8f6bb313db46ba9e0a7539d3726651/reflected_parameters_monitor.jar",
                     "extension_type":"java",
                     "loaded":true,
-                    "name":"JWT Editor",
-                    "output":"ui"
-                },
-                {
-                    "bapp_serial_version":2,
-                    "bapp_uuid":"c1c32424fb8a4843a5404aa5ed5d711a",
-                    "errors":"ui",
-                    "extension_file":"bapps/c1c32424fb8a4843a5404aa5ed5d711a/build/libs/HackBar-2.0.jar",
-                    "extension_type":"java",
-                    "loaded":true,
-                    "name":"HackBar, Payload Bucket",
+                    "name":"Reflected Parameters",
                     "output":"ui"
                 }
             ],
@@ -147,6 +140,12 @@
                 "in_scope_only":false,
                 "interval":30,
                 "show_progress":true
+            },
+            "collaborator_server":{
+                "location":"",
+                "poll_over_unencrypted_http":false,
+                "polling_location":"",
+                "type":"default"
             },
             "embedded_browser":{
                 "allow_saving_browser_settings":true,
@@ -453,16 +452,9 @@
             "show_learn_tab":false,
             "submit_feedback":true,
             "suppress_confirm_on_close":false,
-            "temporary_files_location":"/tmp/burp"
-        },
-        "proxy":{
-            "http_history":{
-                "sort_column":"time",
-                "sort_order":"descending"
-            },
-            "websockets_history":{
-                "sort_column":"#",
-                "sort_order":"ascending"
+            "temporary_files_location":"/tmp/burp",
+            "uninteresting_headers":{
+                "hide_uninteresting_headers_by_default":false
             }
         },
         "repeater":{

@@ -1,5 +1,6 @@
 [managers.system]
 items = [
+    "checksec",
     "gdb",
     "pwndbg",
     "gef",

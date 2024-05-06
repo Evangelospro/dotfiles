@@ -34,6 +34,7 @@ elif [ "$1" == "stop" ]; then
     else
         echo "Container does not exist, nothing to stop"
     fi
+    pkill -9 rdesktop
 else
     echo "Usage: ida start|stop"
 fi

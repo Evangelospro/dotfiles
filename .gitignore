@@ -12,3 +12,6 @@ iso/archiso/packages.x86_64
 iso/archiso/custom_repos/calamares_repo/packages/**/*.pkg.tar
 iso/archiso/custom_repos/calamares_repo/packages/elarch-calamares/calamares
 **/.mypy_cache
+
+PKGBUILDS/*
+!PKGBUILDS/*/PKGBUILD

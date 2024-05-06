@@ -1,5 +1,6 @@
 [managers.system]
 items = [
     "git",
+    "git-lfs",
     "github-cli",
 ]
