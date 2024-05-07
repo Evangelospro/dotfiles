@@ -133,7 +133,7 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 
 #### Bindings: [binds.zsh](dot_config/zsh/executable_binds.zsh)
 
-#### Aliases: [aliases.zsh](dot_config/zsh/executable_aliases.zsh)
+#### Aliases: [aliases.sh](dot_config/shell/executable_aliases.sh)
 
 #### Functions: [functions.zsh](dot_config/zsh/executable_functions.zsh)
 

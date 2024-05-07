@@ -1,6 +1,23 @@
-source $XDG_CONFIG_HOME/shell/functions/hyprland.zsh
-source $XDG_CONFIG_HOME/shell/functions/updaters.zsh
-source $XDG_CONFIG_HOME/shell/functions/hacking.zsh
+function source-all() {
+    dir=$1
+    if [ -z "$dir" ]; then
+        echo "No directory specified"
+        return 1
+    fi
+    # clear $@ so that it doesn't get passed to the files sourced as it will expand to the files in the directory before the file is sourced, essentially hardcoding $@ = dir in the sourced files
+    shift
+    for file in $dir/*; do
+        if [ -d "$file" ]; then
+            source-all "$file"
+        elif [ -f "$file" ] && [[ $file == *.sh ]]; then
+            # echo "Sourcing $file"
+            source "$file"
+        fi
+    done
+}
+
+source-all "$XDG_CONFIG_HOME/shell/functions"
+
 
 source-safe() { if [ -f "$1" ]; then source "$1"; fi }
 
@@ -24,6 +41,12 @@ function e() {
     else
         sudoedit "$target_file" &
     fi
+}
+
+# sshp username password host extr_args
+sshp() {
+    echo "Using sshpass to ssh into $3 as $1 with password $2 and extra args ${@: 4}"
+    sshpass -p $2 ssh -o StrictHostKeyChecking=no $1@$3 ${@: 4};
 }
 
 function chosts(){

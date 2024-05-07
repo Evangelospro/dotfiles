@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-    "nodejs-localtunnel",
+    "autorecon-git",
     "python-beautifulsoup4",
     "python-flask",
     "wpscan",

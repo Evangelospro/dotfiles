@@ -1,0 +1,23 @@
+{
+	"web template": {
+		"scope": "python",
+		"prefix": "web temp",
+		"body": [
+			"import httpx as requests",
+			"",
+			"BURP_HOST = 'localhost'",
+			"BURP_PORT = 9000",
+			"# Check is proxy is working",
+			"if requests.get(f'http://{BURP_HOST}:{BURP_PORT}').status_code == 200:",
+			"\tproxies = {",
+			"\t\t'http://': f'http://{BURP_HOST}:{BURP_PORT}',",
+			"\t\t'https://': f'http://{BURP_HOST}:{BURP_PORT}'",
+			"\t}",
+			"\ts = requests.Client(proxies=proxies, verify=False)",
+			"else :",
+			"\ts = requests.Client()",
+			"",
+			""
+		]
+	}
+}

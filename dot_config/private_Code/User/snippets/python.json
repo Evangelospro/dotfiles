@@ -1,0 +1,45 @@
+{
+    "if name is main": {
+        "scope": "python",
+        "prefix": "ifn",
+        "body": [
+            "if __name__ == '__main__':",
+            "\t$0"
+        ],
+        "description": ""
+    },
+    "for in": {
+        "scope": "python",
+        "prefix": "fori",
+        "body": [
+            "for ${1:item} in ${2:items}:",
+            "\t$0"
+        ],
+        "description": ""
+    },
+    "for in range": {
+        "scope": "python",
+        "prefix": "forr",
+        "body": [
+            "for ${1:i} in range($2):",
+            "\t$0"
+        ],
+        "description": ""
+    },
+    "lambda": {
+        "scope": "python",
+        "prefix": "lamb",
+        "body": [
+            "lambda ${1:arg} : $0",
+        ],
+        "description": ""
+    },
+    "map input": {
+        "scope": "python",
+        "prefix": "mapi",
+        "body": [
+            "map(${1:func}, input($2).split())"
+        ],
+        "description": ""
+    }
+}
