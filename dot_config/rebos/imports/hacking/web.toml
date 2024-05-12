@@ -1,6 +1,5 @@
 [managers.system]
 items = [
-    "autorecon-git",
     "python-beautifulsoup4",
     "python-flask",
     "wpscan",

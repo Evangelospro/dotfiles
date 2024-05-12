@@ -22,11 +22,17 @@ sudo cp -r ~/.local/share/chezmoi/confs/* /
 
 # Set java to latest java installed
 rebos api echo info "Setting java to the latest installed version"
-sudo archlinux-java set $(archlinux-java status | head -n 2|tail -n 1|cut -d ' ' -f 3)
+sudo archlinux-java set $(archlinux-java status |head -n 2|tail -n 1|cut -d ' ' -f 3)
 
 # UPDATE using the update binary in ~/.local/bin
 rebos api echo info "Updating all packages and installing any source-only packages"
 ~/.local/bin/update
+
+# fix rockyou location on archlinux
+if [[ ! -f /usr/share/wordlists/rockyou.txt && $(pacman -Qs seclists) == "" ]]; then
+    sudo mkdir -p /usr/share/wordlists/
+    sudo ln -s /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt /usr/share/wordlists/rockyou.txt
+fi
 
 # Change shell to zsh
 # check if zsh is installed and that it is not the users default shell

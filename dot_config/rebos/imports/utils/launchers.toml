@@ -2,6 +2,11 @@
 items = [
     "rofi-lbonn-wayland-git",
     "anyrun-git",
-    "walker",
+    # "anyrun-plugin-rink-git",
+    # "anyrun-plugin-applications-git",
+    # "anyrun-plugin-shell-git",
+    # "anyrun-plugin-symbols-git",
+    # "anyrun-plugin-websearch-git",
+    # "anyrun-plugin-dictionary-git",
     # "ulauncher-it",
 ]

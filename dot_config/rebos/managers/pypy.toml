@@ -1,0 +1,10 @@
+# pypy
+
+add = "pypy3 -m pip install #:?"
+remove = "pypy3 -m pip uninstall #:?"
+# upgrade = "pypy3 -m pip install -U #:?"
+
+plural_name = "pypy"
+
+[config]
+many_args = true

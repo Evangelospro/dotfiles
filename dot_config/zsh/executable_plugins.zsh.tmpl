@@ -71,7 +71,7 @@ fi
 # Modern Unix commands
 # See https://github.com/ibraheemdev/modern-unix
 zinit wait as"null" lucid from"gh-r" for \
-    atload"alias ls='lsd -hAFlt --group-dirs first --color=always'; alias la='lsd -laFh'" sbin"**/lsd" lsd-rs/lsd \
+    atload"alias ls='lsd -hAFlt --group-dirs first --color=always'; alias la='lsd -laFh'; alias tree='lsd -haFlt --group-dirs first --tree'" sbin"**/lsd" lsd-rs/lsd \
     atload"alias cat='bat -p --wrap character'" cp"**/bat.1 -> $ZPFX/share/man/man1" mv"**/autocomplete/bat.zsh -> _bat" completions sbin"**/bat" @sharkdp/bat \
     cp"**/fd.1 -> $ZPFX/share/man/man1" completions sbin"**/fd" @sharkdp/fd \
     cp"**/hyperfine.1 -> $ZPFX/share/man/man1" completions sbin"**/hyperfine" @sharkdp/hyperfine \

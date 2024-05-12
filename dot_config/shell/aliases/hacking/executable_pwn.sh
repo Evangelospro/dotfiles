@@ -4,3 +4,7 @@ alias pwndbg='gdb -q -ex init-pwndbg "$@"'
 alias peda='gdb -q -ex init-peda "$@"'
 alias gef='gdb -q -ex init-gef "$@"'
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
+
+# Pwntools
+alias cyclic="pwn cyclic $@"
+alias dis="pwn disasm $@"

@@ -1,3 +1,19 @@
+function enable-proxy() {
+    source $HOME/.config/burp/scripts/env.sh
+    openssl x509 -inform der -in "$BURP_CERTIFICATE_DIR/cert.der" -out "$BURP_CERTIFICATE_DIR/cert.pem"
+    export REQUESTS_CA_BUNDLE="$BURP_CERTIFICATE_DIR/cert.pem"
+    export HTTP_PROXY="http://$BURP_IP:$BURP_PORT"
+    export HTTPS_PROXY="http://$BURP_IP:$BURP_PORT"
+    echo "Proxy enabled"
+}
+
+function disable-proxy() {
+    unset REQUESTS_CA_BUNDLE
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
+    echo "Proxy disabled"
+}
+
 function urlencode() {
     python3 -c "from pwn import *; print(urlencode('$1'));"
 }
@@ -6,7 +22,7 @@ function urldecode() {
     python3 -c "from pwn import *; print(urldecode('$1'));"
 }
 
-extraWordlist="$HOME/.config/Burp/extraWordlist.txt"
+extraWordlist="$HOME/.config/burp/wordlists/extraWordlist.txt"
 function getWordlist() {
     # because seclists gets updated a lot and I really want .git to be in my preferred wordlist
     defaultDirWordlist="/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt"

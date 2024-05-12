@@ -10,8 +10,7 @@ elif command -v pacman &> /dev/null; then
     sudo pacman -Syu
 fi
 # navi-update
-# Update burp pro if a Burp/Burp-Loader directory exists in the home directory
-if [ -d $HOME/.config/Burp/Burp-Loader ]; then
+if [ -d $HOME/.config/burp/loader ]; then
     update-burp
 fi
 update-spicetify

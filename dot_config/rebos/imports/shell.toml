@@ -12,6 +12,7 @@ items = [
     "trash-cli",
     "thefuck",
     "zoxide",
+    "onefetch",
     "fastfetch",
     "ack",
     "figlet",
