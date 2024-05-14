@@ -60,7 +60,7 @@ fi
 ## FZF tab completion
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --files --hidden --follow --glob '!.git' || find ."
 export FZF_DEFAULT_OPTS=''
-zinit ice wait lucid depth"1" blockf atload"zicompinit; zicdreplay" # needs to do compinit as it provides completions
+zinit ice wait lucid depth"1" blockf
 zinit light Aloxaf/fzf-tab
 
 if [[ $(tput colors) == 256 ]]; then
@@ -85,23 +85,14 @@ zinit wait as"null" lucid from"gh-r" for \
 zinit ice pick"h.sh"
 zinit light paoloantinori/hhighlighter
 
+zinit wait'0b' lucid as"completion" blockf atpull'zinit creinstall -q .' \
+    atload"source $ZDOTDIR/plugins/zsh-completions_atload.zsh"  \
+    light-mode for @zsh-users/zsh-completions
+
 zinit wait'0b' lucid \
     atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh" \
     light-mode for @zsh-users/zsh-autosuggestions
 
-zinit wait'0a' lucid \
-    atinit"source $ZDOTDIR/plugins/zsh-autocomplete_atinit.zsh" \
-    atload"source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh" \
-    light-mode for @marlonrichert/zsh-autocomplete
-
-zinit wait'0b' lucid as"completion" \
-    atload"source $ZDOTDIR/plugins/zsh-completions_atload.zsh; zicompinit; zicdreplay" \
-    light-mode for @zsh-users/zsh-completions
-
 # Syntax highlight must be the last one
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=1"
-zinit wait lucid light-mode for \
-    atinit"zicompinit; zicdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
-    blockf atpull'zinit creinstall -q .' \
-    zsh-users/zsh-completions
+zinit ice depth=1 lucid nocd
+zinit light @zsh-users/zsh-syntax-highlighting

@@ -78,7 +78,7 @@ source $XDG_CONFIG_HOME/shell/functions.sh
 fpath+=$ZDOTDIR/.zfunc
 
 autoload -U select-word-style
-select-word-style bash # alt+backspaces now deletes to previous / when working with paths
+select-word-style bash # ctrl+backspaces now deletes to previous / when working with paths
 
 # Aliases (at the end of the file to overwrite "framework" set aliases)
 source $XDG_CONFIG_HOME/shell/aliases.sh
@@ -91,8 +91,5 @@ source $ZDOTDIR/binds.zsh
 
 # COMPLETIONS
 _comp_options+=(globdots)
-
-autoload -Uz compinit
-zcompdump_file="$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION"
 
 source $ZDOTDIR/post_load.zsh

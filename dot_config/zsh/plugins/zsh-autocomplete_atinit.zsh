@@ -54,5 +54,3 @@ zstyle ':completion:*:warnings' format
 zstyle ':completion:*:descriptions' format
 zstyle ':completion:*:corrections' format
 zstyle ':completion:*:default' menu
-
-source $ZDOTDIR/post_load.zsh

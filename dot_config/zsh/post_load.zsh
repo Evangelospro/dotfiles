@@ -1,3 +1,6 @@
+autoload -Uz compinit
+zcompdump_file="$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION"
+
 # Check if zcompdump file exists and if it is older than a day
 if [ ! -s "$zcompdump_file" ] || [ "$(date +'%j')" != "$(date -d "@$(/usr/bin/stat -c '%Y' "$zcompdump_file")" '+%j')" ]; then
     compinit -u -i -d "$zcompdump_file"

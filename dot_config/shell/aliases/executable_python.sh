@@ -1,6 +1,6 @@
 # python / pip / pipx
 alias p='ipython' #'python3'
-alias p3='pypy3'
+alias pp='pypy3'
 alias pip='noglob pip'
 alias pipx='noglob pipx'
 

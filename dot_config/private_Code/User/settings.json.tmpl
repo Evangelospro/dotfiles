@@ -209,6 +209,7 @@
 		"yaml": true
 	},
 	"git.enableSmartCommit": true,
+    "git.allowForcePush": true,
 	"git.autofetch": true,
 	"github.copilot.advanced": {},
 	"git.confirmSync": false,
@@ -219,6 +220,10 @@
 	"gitlens.hovers.currentLine.over": "line",
 	"gitlens.codeLens.enabled": false,
 	"gitlens.statusBar.enabled": true,
+    "gitlens.blame.highlight.enabled": false,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "gitlens.currentLine.scrollable": false,
 	// FILE EXPLORER
     "explorer.openEditors.visible": 0,
 	"explorer.autoReveal": false,
@@ -244,9 +249,12 @@
 	"security.workspace.trust.banner": "always",
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.untrustedFiles": "open",
+    // Disable telemetry
+    "telemetry.telemetryLevel": "off",
+    "redhat.telemetry.enabled": false,
+    "gitlens.telemetry.enabled": false,
 	// MISC / GENERAL
 	"update.showReleaseNotes": false,
-	"telemetry.telemetryLevel": "off",
 	"diffEditor.ignoreTrimWhitespace": false,
 	"debug.onTaskErrors": "showErrors",
 	"debug.openDebug": "openOnDebugBreak",
