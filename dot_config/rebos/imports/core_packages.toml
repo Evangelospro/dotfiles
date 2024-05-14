@@ -70,5 +70,6 @@ items = [
     "base-devel",
     "appmenu-gtk-module",
     "tinyxxd",
+    "parallel",
     "xdg-user-dirs"
 ]

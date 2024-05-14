@@ -4,5 +4,5 @@ items = [
     "papirus-icon-theme-git",
     "grub-theme-cyberre",
     "kvantum",
-    "--mflags '--nocheck' gtk4-layer-shell",
+    "gtk4-layer-shell",
 ]

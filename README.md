@@ -10,8 +10,9 @@
 ## Showcase (may be outdated) <a name="showcase"></a>
 
 https://github.com/Evangelospro/dotfiles/assets/68608623/a00cad72-12a5-4858-8acd-fbfce8b6c3d2
-![1.png](Pictures/showcase/1.png)
+![3.png](Pictures/showcase/3.png)
 ![2.png](Pictures/showcase/2.png)
+![1.png](Pictures/showcase/1.png)
 
 1. [Breakdown](#breakdown)
 2. [How to apply?](#applying)

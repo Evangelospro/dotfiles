@@ -1,6 +1,7 @@
 # system
 
-add = "paru --needed -S #:?"
+# skip tests not needed make it go Brrr
+add = "paru --needed -S --mflags '--nocheck' --noconfirm #:?"
 remove = "paru -Rns #:?"
 sync = "paru -Syy"
 upgrade = "paru -Syu"

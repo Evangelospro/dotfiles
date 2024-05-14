@@ -32,5 +32,7 @@ items = [
     "moreutils",
     # "batify",
     "wev",
-    "navi"
+    "navi",
+    "cmatrix",
+    "cava"
 ]

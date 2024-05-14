@@ -1,6 +1,7 @@
 {
     "hyprland/window": {
-        "separate-outputs": true
+        "separate-outputs": true,
+        "max-length": 50,
     },
     "hyprland/language": {
         "format-en": "US",

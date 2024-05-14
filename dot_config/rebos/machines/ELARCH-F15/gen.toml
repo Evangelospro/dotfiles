@@ -13,7 +13,8 @@ imports = [
 
 [managers.system]
 items = [
-    "seadrive-gui"
+    "seadrive-gui",
+    "ocrmypdf",
 ]
 
 [managers.systemd]

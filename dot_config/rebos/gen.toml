@@ -10,7 +10,7 @@ imports = [
     "file_managment",
     "fonts",
     "git",
-    "hyprland_dependencies",
+    "hyprland",
     "packaging",
     "rdp",
     "shell",
