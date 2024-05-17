@@ -22,3 +22,8 @@ fi
 if ! pacman -Qs pipx >/dev/null 2>&1; then
     sudo pacman -S --noconfirm pipx
 fi
+
+# Ensure systemd services are reloaded
+sudo systemctl daemon-reload
+systemctl --user daemon-reload
+echo "Systemd services reloaded"

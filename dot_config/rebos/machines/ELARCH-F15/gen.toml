@@ -17,8 +17,13 @@ items = [
     "ocrmypdf",
 ]
 
-[managers.systemd]
+[managers.systemd-system]
 items = [
     "NetworkManager",
     "bluetooth"
+]
+
+[managers.systemd-user]
+items = [
+    "seadrive",
 ]

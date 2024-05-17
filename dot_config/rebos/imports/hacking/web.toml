@@ -8,7 +8,7 @@ items = [
     "python-pyjwt",
     "python-websockets",
     "python-httpx",
-    "grpcurl",
+    "grpcurl-bin",
 ]
 
 [managers.pip]

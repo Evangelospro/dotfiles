@@ -1,4 +1,4 @@
-# XDG portals(long up startup fix)
+# XDG portals (long up startup fix)
 exec-once=/usr/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once=/usr/bin/dbus-update-activation-environment --all
 # exec-once=$HOME/.config/hypr/scripts/default/fix-xdg-portals
@@ -11,10 +11,6 @@ exec-once=/usr/bin/xsettingsd &
 exec=$HOME/.config/hypr/scripts/import-themes
 exec=/usr/bin/hyprpaper
 
-# Polkit and keyring
-exec-once=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec-once=/usr/bin/gnome-keyring-daemon --start --components=secrets
-
 # Hyprland plugins
 exec=ps aux|grep -v grep| grep -q pypr && pypr reload || pypr
 # exec=$HOME/.config/hypr/scripts/plugin-startup
@@ -25,6 +21,7 @@ exec-once=$HOME/.config/waybar/scripts/launch # Use reload-hyprland to ever rest
 
 # Applets / OSD / Notifications
 exec=pidof swaync || /usr/bin/swaync
+exec=pidof wl-clip-persist || /usr/bin/wl-clip-persist --clipboard regular # both breaks some apps
 exec=pidof wl-paste || /usr/bin/wl-paste --watch cliphist store
 exec=pidof usbguard-applet-qt || /usr/bin/usbguard-applet-qt &
 exec=pidof blueman-applet || XDG_CURRENT_DESKTOP=Unity /usr/bin/blueman-applet
@@ -44,5 +41,4 @@ exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-brow
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
 exec=[workspace special:backgroundappsvalent silent] pidof valent |  /usr/bin/valent
 exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center | /usr/bin/rog-control-center
-exec=/usr/bin/pkill -9 seadrive-gui ; /usr/bin/fusermount -cuk $HOME/SeaDrive ; /usr/bin/seadrive-gui
 {{- end }}

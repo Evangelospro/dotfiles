@@ -1,5 +1,6 @@
 [managers.system]
 items = [
     "wl-clipboard",
-    "cliphist"
+    "cliphist",
+    "wl-clip-persist-git",
 ]

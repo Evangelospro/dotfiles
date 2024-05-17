@@ -1,9 +1,0 @@
-# systemd
-
-add = "sudo systemctl enable --now #:?"
-remove = "sudo systemctl disable #:?"
-
-plural_name = "systemd"
-
-[config]
-many_args = true

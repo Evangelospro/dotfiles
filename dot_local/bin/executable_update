@@ -13,8 +13,16 @@ fi
 if [ -d $HOME/.config/burp/loader ]; then
     update-burp
 fi
-update-spicetify
-if command -v papirus-folders &> /dev/null; then
-    papirus-folders -Ru
+if [ "$1" = "-f" ]; then
+    update-spicetify -f
+    if command -v papirus-folders &> /dev/null; then
+        papirus-folders -Ru
+    fi
+    update-hyprland
+else
+    update-spicetify
+    if command -v papirus-folders &> /dev/null; then
+        papirus-folders -Ru
+    fi
+    update-hyprland
 fi
-update-hyprland
