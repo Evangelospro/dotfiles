@@ -3,6 +3,8 @@ set -euo pipefail
 
 # Export all variables
 set -a
+export $(dbus-launch)
+
 # Call the systemd generator that reads all files in environment.d
 source /dev/fd/0 <<EOF
 $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)

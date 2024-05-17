@@ -1,5 +1,7 @@
 [managers.system]
 items = [
+    "feroxbuster-bin",
+    "ffuf-bin",
     "python-beautifulsoup4",
     "python-flask",
     "wpscan",

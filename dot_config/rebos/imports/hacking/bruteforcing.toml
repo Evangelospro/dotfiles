@@ -1,6 +1,4 @@
 [managers.system]
 items = [
     "hydra",
-    "ffuf-bin",
-    "feroxbuster"
 ]

@@ -26,3 +26,8 @@ items = [
     "polkit-gnome-authentication-agent-1",
     "gnome-keyring-daemon"
 ]
+
+[managers.groups]
+items = [
+    "seat",
+]

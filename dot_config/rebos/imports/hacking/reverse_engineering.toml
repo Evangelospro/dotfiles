@@ -1,14 +1,12 @@
 [managers.system]
 items = [
     "python-z3-solver",
-    "python-claripy",
-    "python-angr",
     "ghidra",
     "cutter",
     "rz-ghidra",
     "rz-cutter",
     "dotnet-runtime-6.0",
-    "jd-gui",
+    "jd-gui-bin",
     "recaf-bin"
 ]
 

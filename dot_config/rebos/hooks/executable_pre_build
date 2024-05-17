@@ -24,6 +24,8 @@ if ! pacman -Qs pipx >/dev/null 2>&1; then
 fi
 
 # Ensure systemd services are reloaded
-sudo systemctl daemon-reload
-systemctl --user daemon-reload
-echo "Systemd services reloaded"
+if [ -n "$DBUS_SESSION_BUS_ADDRESS" ]; then
+    sudo systemctl daemon-reload
+    systemctl --user daemon-reload
+    echo "Systemd services reloaded"
+fi
