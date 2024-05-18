@@ -1,0 +1,10 @@
+# systemd-system
+
+sync = "sudo systemctl daemon-reload"
+add = "sudo systemctl enable --now #:?"
+remove = "sudo systemctl disable #:?"
+
+plural_name = "systemd-system"
+
+[config]
+many_args = true

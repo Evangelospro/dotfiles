@@ -15,8 +15,8 @@ HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 
 export HISTFILE=$ZDOTDIR/zsh_history.zsh
-SAVEHIST=10000000
-HISTSIZE=50000
+export SAVEHIST=10000000
+export HISTSIZE=50000
 
 # Setopts
 source $ZDOTDIR/options.zsh
@@ -69,9 +69,6 @@ fi
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# Sourcing zsh themes
-# source $ZDOTDIR/themes/dracula.zsh
 
 source $XDG_CONFIG_HOME/shell/functions.sh
 

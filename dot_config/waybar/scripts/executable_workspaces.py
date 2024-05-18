@@ -35,8 +35,8 @@ class Workspacer(hyprland.Events):
         self.focusedws = 1
         self.iconSize = 22
 
-        self.reset()
         self.clean()
+        self.reset()
         self.log_event(f"workspaces {self.workspaces}")
 
     def get_monitor_id(self, mon: str) -> int:
@@ -50,6 +50,7 @@ class Workspacer(hyprland.Events):
         os.makedirs(self.ICONS_DIR, exist_ok=True)
         for f in os.listdir(self.ICONS_DIR):
             os.remove(os.path.join(self.ICONS_DIR, f))
+        self.log_event(f"cleaned {self.ICONS_DIR}")
 
     def reset(self) -> None:
         self.workspaces: dict[int, dict[int, dict[str, str | list]]] = {

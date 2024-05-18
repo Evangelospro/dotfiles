@@ -21,7 +21,6 @@ items = [
     "lsd",
     "mcfly",
     "doggo-bin",
-    "tgpt-bin", # AI copilot with no api keys
     "atuin",
     "unzip",
     "glow",

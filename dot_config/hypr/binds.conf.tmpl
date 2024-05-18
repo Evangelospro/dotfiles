@@ -13,7 +13,6 @@ bind={{.keybindings.wm.reload.key }},exec,{{.keybindings.wm.reload.command.linux
 bind = $MOD , Z, exec, pypr zoom ++0.5
 bind = $MOD SHIFT, Z, exec, pypr zoom
 
-
 # Utilities
 bindl={{.keybindings.utilities.lockscreen.key}},exec,{{.keybindings.utilities.lockscreen.command.linux }}
 bind={{.keybindings.utilities.launcher.key}},exec,{{.keybindings.utilities.launcher.command.linux}}
@@ -22,7 +21,7 @@ bind={{.keybindings.utilities.colorpicker.key}},exec,{{.keybindings.utilities.co
 bind={{.keybindings.utilities.clipboard.key}},exec,{{.keybindings.utilities.clipboard.command.linux}}
 bind={{.keybindings.utilities.emoji.key}},exec,{{.keybindings.utilities.emoji.command.linux}}
 bind=$MOD,R,exec,dynamic-resize
-bind=$MOD,P,exec,project-menu #/usr/bin/wlrlui
+bind=$MOD,P,exec,project-menu
 
 # Screenshot / OCR
 bind={{.keybindings.screenshot.screenshot.key }},exec,{{.keybindings.screenshot.screenshot.command.linux }}
@@ -46,7 +45,6 @@ bind=ALT_L,F4,killactive
 bindr=CTRL_SHIFT,ESCAPE,exec, hyprctl kill # xkill like functionality
 bind=$MOD,F,fullscreen,0
 bind=$MOD_SHIFT,F,togglefloating
-
 
 # Function keys
 bind=,XF86RFKill,exec,rfkill

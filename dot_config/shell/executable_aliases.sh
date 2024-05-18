@@ -9,9 +9,10 @@ alias pls='please'
 # Grub
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
-# windows managers
+# Restart stuff
 alias restart-gnome="killall -3 gnome-shell"
 alias restart-kde="killall -3 plasmashell"
+alias restart-seadrive="systemctl --user restart seadrive"
 
 # Listing
 # alias tree='tree -a -I .git --dirsfirst'
@@ -31,3 +32,14 @@ alias share="gapplication launch ca.andyholmes.Valent $@"
 
 # get fastest mirrors
 alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu'
+
+# alias chmod commands
+alias mx='chmod a+x'
+alias 000='chmod -R 000'
+alias 644='chmod -R 644'
+alias 666='chmod -R 666'
+alias 755='chmod -R 755'
+alias 777='chmod -R 777'
+
+# Hashing
+alias sha1='openssl sha1'

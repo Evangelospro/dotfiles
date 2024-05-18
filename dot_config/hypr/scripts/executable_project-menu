@@ -1,26 +1,28 @@
 #!/usr/bin/env bash
 
-# Define the options for the Rofi menu
-options=("Laptop Screen
-Extend Monitors
-Duplicate Monitors")
-choice=$(printf '%s
+/usr/bin/wlrlui
 
-' "${options[@]}" | rofi -dmenu -i -p "Monitor configuration")
+# # Define the options for the Rofi menu
+# options=("Laptop Screen
+# Extend Monitors
+# Duplicate Monitors")
+# choice=$(printf '%s
 
-# Run the appropriate script
-if [ -z "$choice" ]; then
-    exit 0
-fi
-case $choice in
-"Laptop Screen")
-    cp $HOME/.config/hypr/monitors/monitors_default.conf $HOME/.config/hypr/monitors.conf
-    ;;
-"Extend Monitors")
-    cp $HOME/.config/hypr/monitors/monitors_extend.conf $HOME/.config/hypr/monitors.conf
-    ;;
-"Duplicate Monitors")
-    cp $HOME/.config/hypr/monitors/monitors_duplicate.conf $HOME/.config/hypr/monitors.conf
-    ;;
-esac
-reload-hyprland
+# ' "${options[@]}" | rofi -dmenu -i -p "Monitor configuration")
+
+# # Run the appropriate script
+# if [ -z "$choice" ]; then
+#     exit 0
+# fi
+# case $choice in
+# "Laptop Screen")
+#     cp $HOME/.config/hypr/monitors/monitors_default.conf $HOME/.config/hypr/monitors.conf
+#     ;;
+# "Extend Monitors")
+#     cp $HOME/.config/hypr/monitors/monitors_extend.conf $HOME/.config/hypr/monitors.conf
+#     ;;
+# "Duplicate Monitors")
+#     cp $HOME/.config/hypr/monitors/monitors_duplicate.conf $HOME/.config/hypr/monitors.conf
+#     ;;
+# esac
+# reload-hyprland

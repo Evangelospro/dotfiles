@@ -130,5 +130,9 @@
     "spotube": {
         "name": "Spotube",
         "icon": "~/.local/share/icons/spotube-logo.svg"
+    },
+    "valent": {
+        "name": "Valent",
+        "icon": "ca.andyholmes.Valent"
     }
 }

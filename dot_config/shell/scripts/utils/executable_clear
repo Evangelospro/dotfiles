@@ -1,11 +1,9 @@
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then # warp...
-    # /usr/bin/clear
-    randomNum=$RANDOM
-    # if divisible by 2
-    if [ $((randomNum % 2)) -eq 0 ]; then
-        fastfetch
-    else
-        width=$(tput cols)
-        figlet -w $width -f Bloody Evangelospro | lolcat
-    fi
+# /usr/bin/clear
+randomNum=$RANDOM
+# if divisible by 2 and terminal not warp
+if [ $((randomNum % 2)) -eq 0 ] && [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+    fastfetch
+else
+    width=$(tput cols)
+    figlet -w $width -f Bloody Evangelospro | lolcat
 fi

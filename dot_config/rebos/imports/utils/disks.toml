@@ -3,5 +3,6 @@ items = [
     "usbguard",
     "qdirstat",
     "gparted",
-    "czkawka-gui"
+    "czkawka-gui",
+    "udiskie",
 ]

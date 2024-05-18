@@ -1,0 +1,10 @@
+# systemd-user
+
+sync = "systemctl --user daemon-reload"
+add = "systemctl --user enable --now #:?"
+remove = "systemctl --user disable #:?"
+
+plural_name = "systemd-user"
+
+[config]
+many_args = true

@@ -227,6 +227,14 @@ function rm(){
     done
 }
 
+function restore() {
+    if [[ -z $1 ]]; then
+        echo "No file specified for restore"
+        return 1
+    fi
+    trash-restore $1
+}
+
 function gitfetch() {
     if command -v onefetch &> /dev/null; then
         onefetch

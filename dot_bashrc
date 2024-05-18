@@ -1,17 +1,13 @@
 #
 # ~/.bashrc
 #
-
-source $XDG_CONFIG_HOME/shell/wm_startup.sh
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export HISTFILE="${XDG_STATE_HOME}"/bash/history
+source "${XDG_CONFIG_HOME}"/shell/wm_startup.sh
 
-alias ls='ls --color=auto'
-alias ll='ls -lav --ignore=..'   # show long listing of all except ".."
-alias l='ls -lav --ignore=.?*'   # show long listing but no hidden dotfiles except "."
+
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
 
 [[ -z "$FUNCNEST" ]] && export FUNCNEST=100          # limits recursive functions, see 'man bash'
 

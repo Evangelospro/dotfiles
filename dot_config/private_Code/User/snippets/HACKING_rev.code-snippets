@@ -57,7 +57,7 @@
 			"# ARGUMENTS",
 			"# state = project.factory.full_init_state(args=[binary_path, inp], add_options=options)",
             "# FILE I/O",
-            "input_file = angr.storage.file.SimFile(name='input.txt', content=inp, has_end=True)",
+            "# input_file = angr.storage.file.SimFile(name='input.txt', content=inp, has_end=True)",
             "# state = project.factory.full_init_state(args=[binary_path, inp], add_options=options, fs={'input.txt': input_file})",
             "",
 			"simgr = project.factory.simulation_manager(state)",

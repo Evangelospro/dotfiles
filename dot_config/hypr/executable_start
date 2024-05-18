@@ -11,6 +11,9 @@ $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generato
 EOF
 set +a
 
+# Ensure that any previous sytemd sessions are stoppped
+/usr/bin/systemctl --user stop hyprland-session.target
+
 /usr/bin/dbus-update-activation-environment --all
 
 /usr/local/bin/hyprland "$@"
