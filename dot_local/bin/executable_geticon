@@ -18,7 +18,7 @@ def failed(class_name):
 
 def generate_icon_list(class_name, size):
     for regx in WINDOW_NAMES.keys():
-        if re.search(regx, class_name):
+        if re.search(regx, class_name, re.IGNORECASE):
             icon_class_name = WINDOW_NAMES[regx]["icon"]
             # check if the icon is a path to an image
             exp_location = os.path.expanduser(icon_class_name)

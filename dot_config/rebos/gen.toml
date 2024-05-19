@@ -28,17 +28,17 @@ items = [
 [managers.systemd-user]
 items = [
     "docker",
-    # "gnome-keyring-daemon",
+    "gnome-keyring-daemon",
     "polkit-gnome",
     "avizo",
     "swaync",
     "idle",
-    "udiskie",
+    # "udiskie",
     "waybar",
-    "waybar-icons",
-    "blueman-applet",
-    "nm-applet",
-    "usbguard-applet",
+    # "waybar-icons",
+    # "blueman-applet",
+    # "nm-applet",
+    # "usbguard-applet",
     "wl-clip-persist",
     "wl-paste",
 ]

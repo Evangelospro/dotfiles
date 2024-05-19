@@ -1,243 +1,160 @@
 #!/usr/bin/env python3
 
-# Author: https://github.com/Evangelospro
-
 import os
 import sys
-import hyprland
 from svgutils.compose import SVG, Figure, Panel
-import subprocess
-import json
 import traceback
+from hyprpy import Hyprland
 
 sys.path.append(os.path.expanduser("~/.local/bin"))
 from geticon import generate_icon_list
 
+instance = Hyprland()
 
-class Workspacer(hyprland.Events):
+# INIT VARS
+DATA_DIR = "/tmp/waybar-icons"
+NUM_OF_WORKSPACES = 10
+ACCENT_COLOR = "#bd93f9"
+ICON_SIZE = 22
+WORKSPACES = {}
 
-    def __init__(self) -> None:
-        self.debug = sys.argv[1] if len(sys.argv) > 1 else ""
-        self.i = hyprland.info.Info()
-        self.c = hyprland.Config()
-        super().__init__()
+MONITOR_MAP = instance.get_monitors()
 
-        self.monitormap: dict[int, str] = {
-            monitor["id"]: monitor["name"]
-            for monitor in json.loads(subprocess.check_output(["hyprctl", "monitors", "-j"]))
+DEBUG = sys.argv[1] if len(sys.argv) > 1 else ""
+
+def get_focused_monitor():
+    monitor_map = instance.get_monitors()
+    for mon in monitor_map:
+        if mon.is_focused:
+            return mon.id
+    return 0
+
+def get_focused_workspace():
+    active_workspace_id = instance.get_active_workspace().id
+    return active_workspace_id % NUM_OF_WORKSPACES
+
+def log_event(event: str):
+    if DEBUG == "debug":
+        print(event)
+    with open(f"{DATA_DIR}/log.txt", "a") as f:
+        f.write(f"{event}\n")
+
+def clean():
+    # ensure it exists and is empty
+    os.makedirs(DATA_DIR, exist_ok=True)
+    for f in os.listdir(DATA_DIR):
+        os.remove(os.path.join(DATA_DIR, f))
+    log_event(f"cleaned {DATA_DIR}")
+
+def get_workspaces(focused_mon, focused_ws):
+    workspaces = {
+        mon.id: {
+            ws: {"status": "inactive-workspace", "icons": [[], []], "classes": []}
+            for ws in range(1, NUM_OF_WORKSPACES + 1)
         }
-
-        # INIT VARS
-        self.ICONS_DIR = "/tmp/waybar-icons"
-        self.NUM_OF_WORKSPACES = 10
-        self.focusedMon = 0
-        self.accentColor = "#bd93f9"
-        self.focusedws = 1
-        self.iconSize = 22
-
-        self.clean()
-        self.reset()
-        self.log_event(f"workspaces {self.workspaces}")
-
-    def get_monitor_id(self, mon: str) -> int:
-        for id, name in self.monitormap.items():
-            if name == mon:
-                return id
-        return -1
-
-    def clean(self) -> None:
-        # ensure it exists and is empty
-        os.makedirs(self.ICONS_DIR, exist_ok=True)
-        for f in os.listdir(self.ICONS_DIR):
-            os.remove(os.path.join(self.ICONS_DIR, f))
-        self.log_event(f"cleaned {self.ICONS_DIR}")
-
-    def reset(self) -> None:
-        self.workspaces: dict[int, dict[int, dict[str, str | list]]] = {
-            mon: {
-                ws: {"status": "inactive-workspace", "icons": [[], []], "classes": []}
-                for ws in range(1, self.NUM_OF_WORKSPACES + 1)
-            }
-            for mon in self.monitormap.keys()
-        }
-        self.log_event(f"reset workspaces to {self.workspaces}")
-
-    # handle monitor (dis)connects
-    async def refresh_monitors(self) -> None:
+        for mon in MONITOR_MAP
+    }
+    try:
+        clients = instance.get_windows()
+    except Exception as e:
+        log_event(f"Failed to get clients with error {e}")
+    for client in clients:
         try:
-            monitors_info = await self.i.monitors()
-            for monitor in monitors_info:
-                mon_id = int(monitor["id"])
-                name = monitor["name"]
-                self.monitormap[mon_id] = name
-                focused = monitor["focused"]
-                if focused:
-                    self.focusedMon = mon_id
+            if client.pid == -1:
+                continue
+            class_ = client.wm_class if client.wm_class else client.initial_title
+            log_event(f"actual client ws id: {client.workspace_id}")
+            if (
+                client.monitor_id is not None and class_ and client.workspace_id > 0
+            ):  # if client.workspace_id is negative then it is a special workspace
+                client.workspace_id = (
+                    client.workspace_id % NUM_OF_WORKSPACES
+                    if client.workspace_id % NUM_OF_WORKSPACES != 0
+                    else NUM_OF_WORKSPACES
+                )
+                log_event(f"client mon: {client.monitor_id}")
+                log_event(f"client class: {class_}")
+                log_event(f"transformed client ws id: {client.workspace_id}")
+                workspaces[client.monitor_id][client.workspace_id]["classes"].append(class_)
+                if focused_ws == client.workspace_id and focused_mon == client.monitor_id:
+                    workspaces[client.monitor_id][client.workspace_id]["status"] = "active-workspace"
+                else:
+                    workspaces[client.monitor_id][client.workspace_id]["status"] = "inactive-workspace"
+                icon_list = generate_icon_list(class_, ICON_SIZE)
+                log_event(f"icon list for {class_} is {icon_list}")
+                icon = icon_list[0]
+                log_event(f"icon for {class_} is {icon}")
+                if len(workspaces[client.monitor_id][client.workspace_id]["icons"][0]) < 2:
+                    workspaces[client.monitor_id][client.workspace_id]["icons"][0].append(icon)
+                elif len(workspaces[client.monitor_id][client.workspace_id]["icons"][1]) < 2:
+                    workspaces[client.monitor_id][client.workspace_id]["icons"][1].append(icon)
         except Exception as e:
-            self.log_event(f"Failed to get monitor info with error {e}")
+            log_event(f"Failed to get applist classes for below client with error {e}")
+            log_event(client)
+            log_event(workspaces[client.monitor_id][client.workspace_id]["icons"])
 
-    async def set_classes(self) -> None:
-        self.reset()
-        try:
-            clients = await self.i.clients()
-        except Exception as e:
-            self.log_event(f"Failed to get applist json with error {e}")
-        for client in clients:
+    return workspaces
+
+def generate(focused_mon=get_focused_monitor(), focused_ws=get_focused_workspace()):
+    workspaces = get_workspaces(focused_mon, focused_ws)
+    for monitor in MONITOR_MAP:
+        log_event(f"Generating for monitor {monitor.id}")
+        for ws in range(1, NUM_OF_WORKSPACES + 1):
             try:
-                mon_id = int(client["monitor"])
-                if client["pid"] == -1:
-                    continue
-                class_ = client["class"] if client["class"] else client["initialTitle"]
-                workspace_id = int(client["workspace"]["id"])
-                self.log_event(f"actual client ws id: {workspace_id}")
-                if (
-                    mon_id is not None and class_ and workspace_id > 0
-                ):  # if workspace_id is negative then it is a special workspace
-                    workspace_id = (
-                        workspace_id % self.NUM_OF_WORKSPACES
-                        if workspace_id % self.NUM_OF_WORKSPACES != 0
-                        else self.NUM_OF_WORKSPACES
-                    )
-                    self.log_event(f"client mon: {mon_id}")
-                    self.log_event(f"client class: {class_}")
-                    self.log_event(f"transformed client ws id: {workspace_id}")
-                    self.workspaces[mon_id][workspace_id]["classes"].append(class_)
-                    if self.focusedws == workspace_id and self.focusedMon == mon_id:
-                        self.workspaces[mon_id][workspace_id]["status"] = "active-workspace"
-                    else:
-                        self.workspaces[mon_id][workspace_id]["status"] = "inactive-workspace"
-                    icon_list = generate_icon_list(class_, self.iconSize)
-                    self.log_event(f"icon list for {class_} is {icon_list}")
-                    icon = icon_list[0]
-                    self.log_event(f"icon for {class_} is {icon}")
-                    if len(self.workspaces[mon_id][workspace_id]["icons"][0]) < 2:
-                        self.workspaces[mon_id][workspace_id]["icons"][0].append(icon)
-                    elif len(self.workspaces[mon_id][workspace_id]["icons"][1]) < 2:
-                        self.workspaces[mon_id][workspace_id]["icons"][1].append(icon)
+                log_event(workspaces[monitor.id][ws])
+                top_panels = (
+                    Panel(SVG(svg_path)).move(ICON_SIZE * i, 0)
+                    for i, svg_path in enumerate(workspaces[monitor.id][ws]["icons"][0])
+                )
+                bottom_panels = (
+                    Panel(SVG(svg_path)).move(ICON_SIZE * i, ICON_SIZE)
+                    for i, svg_path in enumerate(workspaces[monitor.id][ws]["icons"][1])
+                )
+                log_event(f"Generating image for workspace {ws}")
+                x_len = ICON_SIZE if len(workspaces[monitor.id][ws]["icons"][0]) <= 1 else ICON_SIZE * 2
+                y_len = ICON_SIZE if len(workspaces[monitor.id][ws]["icons"][1]) == 0 else ICON_SIZE * 2
+                Figure(f"{x_len}px", f"{y_len}px", *top_panels, *bottom_panels).save(
+                    f"{DATA_DIR}/workspace-{monitor.id}-{ws}.svg"
+                )
             except Exception as e:
-                self.log_event(f"Failed to get applist classes for below client with error {e}")
-                self.log_event(client)
-                self.log_event(self.workspaces[mon_id][workspace_id]["icons"])
-
-    async def generate(self) -> None:
-        await self.set_classes()
-        for mon_id in self.monitormap.keys():
-            self.log_event(f"Generating for monitor {mon_id}")
-            for ws in range(1, self.NUM_OF_WORKSPACES + 1):
-                try:
-                    self.log_event(self.workspaces[mon_id][ws])
-                    top_panels = (
-                        Panel(SVG(svg_path)).move(self.iconSize * i, 0)
-                        for i, svg_path in enumerate(self.workspaces[mon_id][ws]["icons"][0])
-                    )
-                    bottom_panels = (
-                        Panel(SVG(svg_path)).move(self.iconSize * i, self.iconSize)
-                        for i, svg_path in enumerate(self.workspaces[mon_id][ws]["icons"][1])
-                    )
-                    self.log_event(f"Generating image for workspace {ws}")
-                    x_len = self.iconSize if len(self.workspaces[mon_id][ws]["icons"][0]) <= 1 else self.iconSize * 2
-                    y_len = self.iconSize if len(self.workspaces[mon_id][ws]["icons"][1]) == 0 else self.iconSize * 2
-                    Figure(f"{x_len}px", f"{y_len}px", *top_panels, *bottom_panels).save(
-                        f"{self.ICONS_DIR}/workspace-{mon_id}-{ws}.svg"
-                    )
-                except Exception as e:
-                    self.log_event(f"Failed to generate image for workspace {ws} on monitor {mon_id} with error {e}")
-                    # print traceback
-                    self.log_event(traceback.format_exc())
-                    continue
-
-    def log_event(self, event: str) -> None:
-        if self.debug == "debug":
-            print(event)
-
-    async def on_connect(self) -> None:
-        self.log_event("Connected to Hyprland socket")
-        await self.generate()
-
-    async def on_workspace(self, ws: int) -> None:
-        self.log_event(f"Workspace changed to {ws}")
-        try:
-            ws = int(ws)
-        except ValueError:
-            return
-        self.focusedws = ws % self.NUM_OF_WORKSPACES
-        await self.generate()
-
-    async def on_focusedmon(self, mon: str, ws: int) -> None:
-        mon_id = self.get_monitor_id(mon)
-        self.log_event(f"Monitor changed to {mon_id} at workspace {ws}")
-        self.focusedMon = mon_id
-        try:
-            ws = int(ws)
-            self.focusedws = ws % self.NUM_OF_WORKSPACES
-        except ValueError:
-            self.log_event(f"Failed to convert {ws} to int")
-        await self.generate()
-
-    async def on_createworkspace(self, ws: int) -> None:
-        self.log_event(f"Workspace {ws} created")
-        try:
-            ws = int(ws)
-            self.focusedws = ws % self.NUM_OF_WORKSPACES
-        except ValueError:
-            self.log_event(f"Failed to convert {ws} to int")
-        # self.generate()
-
-    async def on_destroyworkspace(self, ws: int) -> None:
-        self.log_event(f"Workspace {ws} destroyed")
-        try:
-            ws = int(ws)
-            self.workspaces[self.focusedMon][int(ws) % self.NUM_OF_WORKSPACES] = {
-                "status": "inactive-workspace",
-                "icons": [[], []],
-            }
-        except ValueError:
-            self.log_event(f"Failed to convert {ws} to int")
-        # self.generate()
-
-    async def on_moveworkspace(self, ws: int, mon: str) -> None:
-        mon_id = self.get_monitor_id(mon)
-        self.log_event(f"app moved to workspace {ws} on monitor {mon_id}")
-        self.focusedMon = mon_id
-        try:
-            ws = int(ws)
-            self.focusedws = int(ws) % self.NUM_OF_WORKSPACES
-        except ValueError:
-            self.log_event(f"Failed to convert {ws} to int")
-        await self.generate()
-
-    async def on_activewindow(self, *args) -> None:
-        window_class = args[0]
-        window_title = args[1:]
-        self.log_event(f"window changed to {window_class} with title {window_title}")
-        await self.generate()
-
-    async def on_closewindow(self, window_address: str) -> None:
-        self.log_event(f"window with address {window_address} destroyed")
-        await self.generate()
-
-    async def on_movewindow(self, window_address: str, workspace: int) -> None:
-        self.log_event(f"window with address {window_address} moved to workspace {workspace}")
-        await self.generate()
-
-    async def on_monitoradded(self, mon: str) -> None:
-        self.log_event(f"Monitor {mon} added")
-        await self.refresh_monitors()
-        await self.generate()
-
-    async def on_monitordisconnected(self, mon: str) -> None:
-        self.log_event(f"Monitor {mon} disconnected")
-        await self.refresh_monitors()
-        await self.generate()
-
-    async def on_closelayer(self, layer: str) -> None:
-        self.log_event(f"Layer {layer} closed")
-        await self.refresh_monitors()
-
-    async def on_openlayer(self, layer: str) -> None:
-        self.log_event(f"Layer {layer} opened")
-        await self.refresh_monitors()
+                log_event(f"Failed to generate image for workspace {ws} on monitor {monitor.id} with error {e}")
+                # print traceback
+                log_event(traceback.format_exc())
+                continue
 
 
-w = Workspacer()
-w.async_connect()
+def on_workspace_created(sender, **kwargs):
+    log_event(f"on_workspace_created: {kwargs}")
+    generate()
+
+def on_workspace_destroyed(sender, **kwargs):
+    log_event(f"on_workspace_destroyed: {kwargs}")
+    generate()
+
+def on_window_created(sender, **kwargs):
+    log_event(f"on_window_created: {kwargs}")
+    generate()
+
+def on_window_changed(sender, **kwargs):
+    log_event(f"on_window_changed: {kwargs}")
+    generate()
+
+def on_window_destroyed(sender, **kwargs):
+    log_event(f"on_window_destroyed: {kwargs}")
+    generate()
+
+def on_workspace_changed(sender, **kwargs):
+    log_event(f"on_workspace_changed: {kwargs}")
+    generate()
+
+clean()
+generate()
+
+instance.signal_workspace_created.connect(on_workspace_created)
+instance.signal_workspace_destroyed.connect(on_workspace_destroyed)
+instance.signal_active_workspace_changed.connect(on_workspace_changed)
+
+instance.signal_window_created.connect(on_window_created)
+instance.signal_window_destroyed.connect(on_window_destroyed)
+instance.signal_active_window_changed.connect(on_window_changed)
+instance.watch()

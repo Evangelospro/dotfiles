@@ -7,6 +7,11 @@ exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOB
 
 # SIGNAL SYSTEMD SERVICES
 exec=/usr/bin/systemctl --user start hyprland-session.target
+exec=/usr/bin/systemctl --user start blueman-applet
+exec=/usr/bin/systemctl --user start nm-applet
+exec=/usr/bin/systemctl --user start usbguard-applet
+exec=/usr/bin/systemctl --user start udiskie
+exec=/usr/bin/systemctl --user restart waybar-icons
 
 # Theming
 exec-once=/usr/bin/xsettingsd &
@@ -27,5 +32,5 @@ exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-brow
 {{- if (eq .chezmoi.hostname "ELARCH-F15") }}
 exec=[workspace special:backgroundappsvalent silent] pidof valent |  /usr/bin/valent
 exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center | /usr/bin/rog-control-center
-# exec=/usr/bin/pkill -9 seadrive-gui ; /usr/bin/fusermount -cuk $HOME/SeaDrive ; /usr/bin/seadrive-gui
+exec=/usr/bin/systemctl --user restart seadrive
 {{- end }}

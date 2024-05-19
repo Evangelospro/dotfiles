@@ -1,6 +1,6 @@
 [Unit]
 Description=Blutooth Manager Applet
-After=bluetooth.service waybar.service
+After=bluetooth.service graphical-session.target waybar.service
 Wants=waybar.service
 
 [Service]
@@ -13,4 +13,4 @@ RestartSec=1
 TimeoutStopSec=10
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

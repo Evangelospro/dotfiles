@@ -1,7 +1,7 @@
 [Unit]
 Description=Udiskie automount daemon
 Documentation=man:udiskie(1)
-After=waybar.service
+After=graphical-session.target waybar.service
 Wants=waybar.service
 
 [Service]
@@ -13,4 +13,4 @@ RestartSec=1
 TimeoutStopSec=10
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
