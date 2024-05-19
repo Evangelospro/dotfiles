@@ -1,7 +1,7 @@
 [Unit]
 Description=Blutooth Manager Applet
-PartOf=hyprland-session.target
-After=hyprland-session.target
+After=bluetooth.service waybar.service
+Wants=waybar.service
 
 [Service]
 Type=simple
@@ -13,4 +13,4 @@ RestartSec=1
 TimeoutStopSec=10
 
 [Install]
-WantedBy=hyprland-session.target
+WantedBy=multi-user.target

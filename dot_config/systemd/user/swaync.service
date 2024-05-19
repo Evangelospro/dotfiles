@@ -1,8 +1,8 @@
 [Unit]
 Description=Lightweight Wayland notification daemon
 Documentation=man:swaync(1)
-PartOf=hyprland-session.target
-After=hyprland-session.target
+After=graphical-session.target
+PartOf=graphical-session.target
 
 [Service]
 Type=dbus
@@ -14,4 +14,4 @@ RestartSec=1
 TimeoutStopSec=10
 
 [Install]
-WantedBy=hyprland-session.target
+WantedBy=graphical-session.target

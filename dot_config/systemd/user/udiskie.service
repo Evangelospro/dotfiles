@@ -1,7 +1,8 @@
 [Unit]
 Description=Udiskie automount daemon
 Documentation=man:udiskie(1)
-PartOf=hyprland-session.target
+After=waybar.service
+Wants=waybar.service
 
 [Service]
 Type=simple
@@ -12,4 +13,4 @@ RestartSec=1
 TimeoutStopSec=10
 
 [Install]
-WantedBy=hyprland-session.target
+WantedBy=multi-user.target

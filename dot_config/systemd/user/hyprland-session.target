@@ -1,5 +1,7 @@
 [Unit]
 Description=Hyprland user session
-BindsTo=hyprland-session.target
-Wants=graphical-session-pre.target
+Documentation=man:systemd.special
+Requires=basic.target
+BindsTo=graphical-session.target
 After=graphical-session-pre.target
+Wants=graphical-session-pre.target

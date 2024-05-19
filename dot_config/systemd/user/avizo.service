@@ -1,7 +1,7 @@
 [Unit]
 Description=A Wayland notification daemon to be used for multimedia keys
-PartOf=hyprland-session.target
-After=hyprland-session.target
+After=graphical-session.target
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
@@ -12,4 +12,4 @@ RestartSec=1
 TimeoutStopSec=10
 
 [Install]
-WantedBy=hyprland-session.target
+WantedBy=graphical-session.target

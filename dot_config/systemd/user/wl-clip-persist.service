@@ -1,7 +1,7 @@
 [Unit]
 Description=Keeps the clipboard content of closed applications
-PartOf=hyprland-session.target
-After=hyprland-session.target
+After=graphical-session.target
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
@@ -13,4 +13,4 @@ RestartSec=1
 TimeoutStopSec=10
 
 [Install]
-WantedBy=hyprland-session.target
+WantedBy=graphical-session.target

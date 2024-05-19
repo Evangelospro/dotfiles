@@ -1,7 +1,7 @@
 [Unit]
 Description=USB Guard Applet
-PartOf=hyprland-session.target
-After=hyprland-session.target
+After=waybar.service
+Wants=waybar.service
 
 [Service]
 Type=simple
@@ -12,4 +12,4 @@ RestartSec=1
 TimeoutStopSec=10
 
 [Install]
-WantedBy=hyprland-session.target
+WantedBy=multi-user.target

@@ -1,11 +1,11 @@
 [Unit]
 Description=Seadrive Gui Client
-PartOf=hyprland-session.target
-After=hyprland-session.target
+After=network.target waybar.service
+Wants=waybar.service
 
 [Service]
 ExecStart=/usr/bin/seadrive-gui
 Restart=on-failure
 
 [Install]
-WantedBy=hyprland-session.target
+WantedBy=graphical-session.target

@@ -1,8 +1,8 @@
 [Unit]
 Description=A lightweight Wayland statusbar
 Documentation=man:waybar(1)
-PartOf=hyprland-session.target
-After=hyprland-session.target
+PartOf=graphical-session.target
+After=graphical-session.target
 
 [Service]
 Type=simple
@@ -14,4 +14,4 @@ RestartSec=1
 TimeoutStopSec=10
 
 [Install]
-WantedBy=hyprland-session.target
+WantedBy=graphical-session.target
