@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Check if the system is a laptop
+is_laptop() {
+    if [ -d /sys/class/power_supply/ ]; then
+        for supply in /sys/class/power_supply/*; do
+            if [ -e "$supply/type" ]; then
+                type=$(cat "$supply/type")
+                if [ "$type" == "Battery" ]; then
+                    return 0  # It's a laptop
+                fi
+            fi
+        done
+    fi
+    return 1  # It's not a laptop
+}
+
+# Function to send notifications
+notify() {
+    urgency=$1
+    title=$2
+    message=$3
+
+    echo "$urgency: $message"
+
+    if [ -x "$(command -v notify-send)" ]; then
+        notify-send -u "$urgency" "$title" "$message"
+    fi
+}
+
+# Main logic
+if is_laptop; then
+    prev_battery_status=""
+    while true; do
+        battery=$(ls /sys/class/power_supply/ | grep BAT)
+        battery_status=$(cat /sys/class/power_supply/$battery/status)
+        battery_percentage=$(cat /sys/class/power_supply/$battery/capacity)
+
+        echo "Battery Status: $battery_status"
+
+        if [ "$battery_status" == "Discharging" ] && [ "$battery_percentage" -le 20 ]; then
+            notify CRITICAL "Battery Low" "Battery is at $battery_percentage%. Connect the charger."
+        # if it is full and was not full before
+        elif [ "$battery_status" == "Full" ] && [ "$prev_battery_status" != "Full" ]; then
+            notify NORMAL "Battery Full" "Battery is fully charged. "
+        fi
+        prev_battery_status=$battery_status
+
+        sleep 300  # Sleep for 5 minutes before checking again
+    done
+fi

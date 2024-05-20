@@ -6,7 +6,7 @@ exec=/usr/bin/systemctl restart --user xdg-desktop-portal-hyprland
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
 # SIGNAL SYSTEMD SERVICES
-exec=/usr/bin/systemctl --user start hyprland-session.target
+# exec=/usr/bin/systemctl --user stop hyprland-session.target && /usr/bin/systemctl --user start hyprland-session.target
 exec=/usr/bin/systemctl --user start blueman-applet
 exec=/usr/bin/systemctl --user start nm-applet
 exec=/usr/bin/systemctl --user start usbguard-applet
@@ -19,7 +19,6 @@ exec=$HOME/.config/hypr/scripts/import-themes
 exec=/usr/bin/hyprpaper
 
 # Hyprland plugins
-exec=ps aux|grep -v grep| grep -q pypr && pypr reload || pypr
 # exec=$HOME/.config/hypr/scripts/plugin-startup
 
 # Utilities & Background apps

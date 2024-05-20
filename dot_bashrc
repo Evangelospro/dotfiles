@@ -4,8 +4,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source "${XDG_CONFIG_HOME}"/shell/wm_startup.sh
-
+source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/env.sh"
 
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 

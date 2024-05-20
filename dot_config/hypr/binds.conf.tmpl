@@ -9,11 +9,10 @@ bind={{.keybindings.wm.reload.key }},exec,{{.keybindings.wm.reload.command.linux
 # Plugins
 # Hyprexpo
 #bind = $MOD, grave, hyprexpo:expo toggle
-# Pyprland
-bind = $MOD , Z, exec, pypr zoom ++0.5
-bind = $MOD SHIFT, Z, exec, pypr zoom
 
 # Utilities
+bind = $MOD , Z, exec, magnify +0.5
+bind = $MOD SHIFT, Z, exec, magnify 1.0
 bindl={{.keybindings.utilities.lockscreen.key}},exec,{{.keybindings.utilities.lockscreen.command.linux }}
 bind={{.keybindings.utilities.launcher.key}},exec,{{.keybindings.utilities.launcher.command.linux}}
 bind=,XF86Search,exec,launcher

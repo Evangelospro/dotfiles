@@ -1,4 +1,4 @@
-source ~/.config/shell/env.sh
+source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/env.sh"
 
 # Autonotify when a long command has been completed
 export AUTO_NOTIFY_THRESHOLD=450

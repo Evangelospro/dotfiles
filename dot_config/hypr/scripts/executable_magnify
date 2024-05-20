@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+current_zoom=$(hyprctl -j getoption cursor:zoom_factor | jq -r '.float')
+
+if [[ -z $1 ]]; then
+    echo "Please provide a zoom factor"
+    exit 1
+fi
+
+# if the argument is prefixed with + or -, then we're zooming in or out
+if [[ $1 == +* ]] || [[ $1 == -* ]]; then
+    new_zoom=$(echo "$current_zoom $1" | bc)
+else
+    new_zoom=$1
+fi
+
+echo "Zooming from $current_zoom to $new_zoom"
+hyprctl keyword cursor:zoom_factor $new_zoom

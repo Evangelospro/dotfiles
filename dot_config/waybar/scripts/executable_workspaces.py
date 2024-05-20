@@ -16,7 +16,6 @@ DATA_DIR = "/tmp/waybar-icons"
 NUM_OF_WORKSPACES = 10
 ACCENT_COLOR = "#bd93f9"
 ICON_SIZE = 22
-WORKSPACES = {}
 
 MONITOR_MAP = instance.get_monitors()
 
@@ -46,14 +45,16 @@ def clean():
         os.remove(os.path.join(DATA_DIR, f))
     log_event(f"cleaned {DATA_DIR}")
 
-def get_workspaces(focused_mon, focused_ws):
+def generate():
+
     workspaces = {
         mon.id: {
-            ws: {"status": "inactive-workspace", "icons": [[], []], "classes": []}
+            ws: {"icons": [], "classes": []}
             for ws in range(1, NUM_OF_WORKSPACES + 1)
         }
         for mon in MONITOR_MAP
     }
+
     try:
         clients = instance.get_windows()
     except Exception as e:
@@ -72,31 +73,17 @@ def get_workspaces(focused_mon, focused_ws):
                     if client.workspace_id % NUM_OF_WORKSPACES != 0
                     else NUM_OF_WORKSPACES
                 )
-                log_event(f"client mon: {client.monitor_id}")
-                log_event(f"client class: {class_}")
-                log_event(f"transformed client ws id: {client.workspace_id}")
                 workspaces[client.monitor_id][client.workspace_id]["classes"].append(class_)
-                if focused_ws == client.workspace_id and focused_mon == client.monitor_id:
-                    workspaces[client.monitor_id][client.workspace_id]["status"] = "active-workspace"
-                else:
-                    workspaces[client.monitor_id][client.workspace_id]["status"] = "inactive-workspace"
                 icon_list = generate_icon_list(class_, ICON_SIZE)
                 log_event(f"icon list for {class_} is {icon_list}")
                 icon = icon_list[0]
                 log_event(f"icon for {class_} is {icon}")
-                if len(workspaces[client.monitor_id][client.workspace_id]["icons"][0]) < 2:
-                    workspaces[client.monitor_id][client.workspace_id]["icons"][0].append(icon)
-                elif len(workspaces[client.monitor_id][client.workspace_id]["icons"][1]) < 2:
-                    workspaces[client.monitor_id][client.workspace_id]["icons"][1].append(icon)
+                workspaces[client.monitor_id][client.workspace_id]["icons"].append(icon)
         except Exception as e:
             log_event(f"Failed to get applist classes for below client with error {e}")
             log_event(client)
             log_event(workspaces[client.monitor_id][client.workspace_id]["icons"])
 
-    return workspaces
-
-def generate(focused_mon=get_focused_monitor(), focused_ws=get_focused_workspace()):
-    workspaces = get_workspaces(focused_mon, focused_ws)
     for monitor in MONITOR_MAP:
         log_event(f"Generating for monitor {monitor.id}")
         for ws in range(1, NUM_OF_WORKSPACES + 1):
@@ -104,21 +91,25 @@ def generate(focused_mon=get_focused_monitor(), focused_ws=get_focused_workspace
                 log_event(workspaces[monitor.id][ws])
                 top_panels = (
                     Panel(SVG(svg_path)).move(ICON_SIZE * i, 0)
-                    for i, svg_path in enumerate(workspaces[monitor.id][ws]["icons"][0])
+                    for i, svg_path in enumerate(workspaces[monitor.id][ws]["icons"][:2])
                 )
                 bottom_panels = (
                     Panel(SVG(svg_path)).move(ICON_SIZE * i, ICON_SIZE)
-                    for i, svg_path in enumerate(workspaces[monitor.id][ws]["icons"][1])
+                    for i, svg_path in enumerate(workspaces[monitor.id][ws]["icons"][2:4])
                 )
-                log_event(f"Generating image for workspace {ws}")
-                x_len = ICON_SIZE if len(workspaces[monitor.id][ws]["icons"][0]) <= 1 else ICON_SIZE * 2
-                y_len = ICON_SIZE if len(workspaces[monitor.id][ws]["icons"][1]) == 0 else ICON_SIZE * 2
+                log_event(f"Generating image for workspace {ws} has {len(workspaces[monitor.id][ws]['icons'])} icons")
+                if len(workspaces[monitor.id][ws]["icons"]) <= 1:
+                    # if there is only one icon, make it bigger
+                    x_len = ICON_SIZE
+                    y_len = ICON_SIZE
+                else:
+                    x_len = ICON_SIZE * 2
+                    y_len = ICON_SIZE * 2
                 Figure(f"{x_len}px", f"{y_len}px", *top_panels, *bottom_panels).save(
                     f"{DATA_DIR}/workspace-{monitor.id}-{ws}.svg"
                 )
             except Exception as e:
                 log_event(f"Failed to generate image for workspace {ws} on monitor {monitor.id} with error {e}")
-                # print traceback
                 log_event(traceback.format_exc())
                 continue
 
@@ -133,6 +124,9 @@ def on_workspace_destroyed(sender, **kwargs):
 
 def on_window_created(sender, **kwargs):
     log_event(f"on_window_created: {kwargs}")
+    window_address = kwargs["created_window_address"]
+    window = instance.get_window_by_address(window_address)
+
     generate()
 
 def on_window_changed(sender, **kwargs):

@@ -1,19 +1,4 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-# Export all variables
-set -a
-export $(dbus-launch)
-
-# Call the systemd generator that reads all files in environment.d
-source /dev/fd/0 <<EOF
-$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
-EOF
-set +a
-
-# Ensure that any previous sytemd sessions are stoppped
-/usr/bin/systemctl --user stop hyprland-session.target
-
-/usr/bin/dbus-update-activation-environment --all
-
 /usr/local/bin/hyprland "$@"

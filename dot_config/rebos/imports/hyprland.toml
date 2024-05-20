@@ -13,6 +13,5 @@ items = [
     "hyprpaper-git",
     "hyprcursor-git",
     # "hyprswitch",
-    "pyprland-git",
     "wlr-layout-ui-git",
 ]

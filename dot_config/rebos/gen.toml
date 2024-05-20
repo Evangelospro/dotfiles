@@ -29,6 +29,7 @@ items = [
 items = [
     "docker",
     "gnome-keyring-daemon",
+    "battery_notifier",
     "polkit-gnome",
     "avizo",
     "swaync",

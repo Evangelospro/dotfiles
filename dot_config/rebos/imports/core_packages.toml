@@ -2,6 +2,7 @@
 items = [
     "intel-ucode",
     "amd-ucode",
+    "mesa-utils",
     "e2fsprogs",
     "efibootmgr",
     "linux",
