@@ -34,14 +34,15 @@ items = [
     "avizo",
     "swaync",
     "idle",
-    # "udiskie",
+    "wl-clip-persist",
+    "wl-paste",
+    "battery_notifier",
     "waybar",
     # "waybar-icons",
     # "blueman-applet",
     # "nm-applet",
     # "usbguard-applet",
-    "wl-clip-persist",
-    "wl-paste",
+    # "udiskie",
 ]
 
 [managers.groups]

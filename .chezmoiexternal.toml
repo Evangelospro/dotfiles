@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "linux" }}
+{{ if .isLinux }}
 [".config/anyrun/plugins/libanyrun_hyprland.so"]
     type = "file"
     url = '{{ gitHubLatestRelease "auctumnus/anyrun-hyprland" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
@@ -30,7 +30,7 @@
 
 # [".config/zsh/utils/gitstatus/gitstatusd-linux"]
 #    type = "archive-file"
-#    url = '{{ gitHubLatestRelease "romkatv/gitstatus" | toJson | fromJson | jq ".assets[16].browser_download_url" | first}}'
+#    url = '{{ gitHubLatestRelease "romkatv/gitstatus" | toJson | fromJson | jq ".assets[2].browser_download_url" | first}}'
 #    refreshPeriod = "168h"
 #    stripComponents = 0
 #    path = "gitstatusd-linux-x86_64"
@@ -42,30 +42,42 @@
     refreshPeriod = "6h"
     clone.args = ["--recursive", "--depth=20"]
 
+[".local/bin/raise"]
+    type = "archive-file"
+    url = '{{ gitHubLatestRelease "knarkzel/raise" | toJson | fromJson | jq ".assets[2].browser_download_url" | first}}'
+    executable = true
+    refreshPeriod = "168h"
+    path = "raise"
+
 [".local/bin/fix-keys"]
     type = "file"
     url = "https://raw.githubusercontent.com/arcolinux/arcolinux-system-config/master/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
     executable = true
     refreshPeriod = "500h"
 
-{{- if (or (eq .chezmoi.hostname "ELARCH-F15") (eq .chezmoi.hostname "PWNENV")) }}
+{{- end }}
+
+{{- if (and .personal .isLinux) }}
 # Personal
 [".local/bin/pc-bio-unlock.jar"]
     type = "file"
     executable = true
-    url = "https://meis-apps.com/download?product=PCBioUnlock&platform=any"
-    exact = true
+    url = "https://meis-apps.com/download?product=PCBioUnlock&platform=Linux"
     stripComponents = 1
+    exact = true
     refreshPeriod = "168h"
 
 [".local/bin/c"]
     type = "archive-file"
-    executable = true
     url = '{{ gitHubLatestRelease "rettier/c" | toJson | fromJson | jq ".assets[1].browser_download_url" | first}}'
-    refreshPeriod = "250h"
     stripComponents = 1
+    executable = true
     path = "c"
+    refreshPeriod = "250h"
 
+{{- end }}
+
+{{- if (and .hacking .personal .isLinux) }}
 # Hacking tools
 ## Web
 # ["HACKING/Tools/Web/jwt_tool"]
@@ -108,14 +120,11 @@
 
 {{- end }}
 
-{{- else if eq .chezmoi.os "windows" }}
-{{- if eq .chezmoi.hostname "EWIN-F15" }}
+{{- if (and .isWindows .personal) }}
 [".local/bin/samsungnotes-v2.bat"]
     type = "file"
     url = "https://raw.githubusercontent.com/iknothing/galaxybook_mask_but_better/main/samsungnotes-betterv2.bat"
     executable = true
     refreshPeriod = "168h"
-
-{{- end }}
 
 {{- end }}

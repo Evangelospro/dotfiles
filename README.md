@@ -35,9 +35,9 @@ To see the full list of packages that are installed and managed by rebos, you ca
 
 ## My dotfiles can be applied with the below oneliners. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). <a name="applying"></a>
 
-In addition please ensure that yourr username is not `evangelospro` as that will copy some of my private files to your system. That are propably useless to you. Furthemore if you want to apply my hacking setup you will need to change every instance of `ELARCH-F15` to your machine's hostname.
+Please before applying review and change the [config file] to your liking. E.g username, email, change personal to false, as it will install very personal configurations that you might not want, etc...
 ```bash
-export GITHUB_USERNAME=Evangelospro
+export GITHUB_USERNAME=Evangelospro # Preferably used your forked repo
 curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/install.sh|bash
 ```
 

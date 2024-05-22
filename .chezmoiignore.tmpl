@@ -109,8 +109,8 @@ docs/zsdoc/data
 **/.mypy_cache
 
 
-# SPECIFIC TO ME AS EVANGELOSPRO NOT ONLY ELARCH-F15
-{{- if (or (ne .chezmoi.hostname "ELARCH-F15") (ne .chezmoi.username "evangelospro")) }}
+# Personal
+{{- if .personal }}
 Courses
 HACKING
 Notes

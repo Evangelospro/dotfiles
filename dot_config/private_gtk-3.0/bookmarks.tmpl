@@ -3,7 +3,7 @@ file://{{ .chezmoi.homeDir }}/Downloads
 file://{{ .chezmoi.homeDir }}/Music
 file://{{ .chezmoi.homeDir }}/Pictures
 file://{{ .chezmoi.homeDir }}/Videos
-{{- if (eq .chezmoi.hostname "ELARCH-F15") }}
+{{- if .personal }}
 file://{{ .chezmoi.homeDir }}/School
 file://{{ .chezmoi.homeDir }}/HACKING
 file://{{ .chezmoi.homeDir }}/HACKING/Tools
