@@ -7,6 +7,7 @@ function rebuild-clean(){
     echo "Removing ~/.local/state/rebos"
     rm -rf ~/.local/state/rebos
     rebos setup
+    recommit "Rebuild clean"
     rebuild
 }
 

@@ -51,7 +51,7 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     zinit ice wait lucid nocd
     zinit light MichaelAquilina/zsh-you-should-use
 
-    {{ if (not .headless) -}}
+    {{ if (not .isHeadless) -}}
     zinit ice wait lucid nocd
     zinit light MichaelAquilina/zsh-auto-notify
     {{ end -}}

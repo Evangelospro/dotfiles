@@ -34,5 +34,5 @@ items = [
 
 [managers.pip]
 items = [
-    "git+https://github.com/hyprland-community/hyprland-py",
+    "hyprpy",
 ]

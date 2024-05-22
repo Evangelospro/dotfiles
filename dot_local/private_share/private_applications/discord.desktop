@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Discord
+Comment=Vencord Desktop is a free/libre cross platform desktop app aiming to give you a snappier Discord experience with Vencord pre-installed
+GenericName=Internet Messenger
+Type=Application
+Exec=/usr/bin/vesktop --ignore-gpu-blocklist --enable-features=UseOzonePlatform,VaapiVideoDecoder --ozone-platform=wayland --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy
+Icon=discord
+Categories=Network;InstantMessaging;
+StartupWMClass=vesktop
+Keywords=discord;vencord;

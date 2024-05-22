@@ -34,6 +34,11 @@ if [[ ! -f /usr/share/wordlists/rockyou.txt && $(pacman -Qs seclists) == "" ]]; 
     sudo ln -s /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt /usr/share/wordlists/rockyou.txt
 fi
 
+# fix aur/viber wrong icon name
+if [[ -f /usr/share/applications/viber.desktop ]]; then
+    sudo sed -i 's/Icon=viber.png/Icon=viber/' /usr/share/applications/viber.desktop
+fi
+
 # Change shell to zsh
 # check if zsh is installed and that it is not the users default shell
 if [[ $SHELL == "/bin/zsh" ]]; then

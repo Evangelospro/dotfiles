@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-  "vesktop",
+  "vencord-desktop-git",
   "signal-desktop",
   "valent-git",
   "zoom",

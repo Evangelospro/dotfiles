@@ -6,7 +6,7 @@ exec=/usr/bin/systemctl restart --user xdg-desktop-portal-hyprland
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
 # SIGNAL SYSTEMD SERVICES
-# exec=/usr/bin/systemctl --user stop hyprland-session.target && /usr/bin/systemctl --user start hyprland-session.target
+exec=hyprland-systemd
 exec=/usr/bin/systemctl --user start blueman-applet
 exec=/usr/bin/systemctl --user start nm-applet
 exec=/usr/bin/systemctl --user start usbguard-applet
@@ -27,8 +27,8 @@ exec-once=pidof flameshot || /usr/bin/flameshot
 # Speed up browser startup
 exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-browser
 
-# personal stuff
-{{- if .personal }}
+# isPersonal stuff
+{{- if .isPersonal }}
 exec=[workspace special:backgroundappsvalent silent] pidof valent |  /usr/bin/valent
 exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center | /usr/bin/rog-control-center
 exec=/usr/bin/systemctl --user restart seadrive

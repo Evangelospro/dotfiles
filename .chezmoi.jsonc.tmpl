@@ -1,9 +1,12 @@
 {
-{{- $headless := false }}
-{{- $personal := true }}
-{{- $hacking := true }}
+{{- $isHeadless := false }}
+{{- $isPersonal := true }}
+{{- $isLaptop := true }}
+{{- $isHacking := true }}
 {{- $isAsus := true }}
 {{- $isNvidia := true }}
+{{- $isIntel := true }}
+{{- $isAmd := false }}
 
 {{- $isWindows := eq .chezmoi.os "windows" }}
 {{- $isMac := eq .chezmoi.os "darwin" }}
@@ -14,7 +17,7 @@
 {{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id }}
 {{- end }}
 {{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "ubuntu" "vagrant" "vscode") }}
-{{-   $headless = true }}
+{{-   $isHeadless = true }}
 {{- end }}
 
 {{- $MOD_HYPRLAND := "$MOD" }}
@@ -40,11 +43,14 @@
 {{- end }}
 
     "data": {
-        "headless": {{ $headless }},
-        "personal": {{ $personal }},
-        "hacking": {{ $hacking }},
+        "isHeadless": {{ $isHeadless }},
+        "isPersonal": {{ $isPersonal }},
+        "isLaptop": {{ $isLaptop }},
+        "isHacking": {{ $isHacking }},
         "isAsus": {{ $isAsus }},
         "isNvidia": {{ $isNvidia }},
+        "isIntel": {{ $isIntel }},
+        "isAmd": {{ $isAmd }},
         "isWindows": {{ $isWindows }},
         "isMac": {{ $isMac }},
         "isLinux": {{ $isLinux }},

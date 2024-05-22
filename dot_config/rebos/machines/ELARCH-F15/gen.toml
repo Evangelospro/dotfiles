@@ -3,10 +3,6 @@
 # --------------------- #
 
 imports = [
-    "asus",
-    "gpu_drivers/intel",
-    "gpu_drivers/nvidia",
-    "hacking",
     "applications/password_manager",
     "programming/python/data_science",
 ]
@@ -15,12 +11,6 @@ imports = [
 items = [
     "seadrive-gui",
     "ocrmypdf",
-]
-
-[managers.systemd-system]
-items = [
-    "NetworkManager",
-    "bluetooth"
 ]
 
 [managers.systemd-user]

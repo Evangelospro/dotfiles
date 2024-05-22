@@ -18,11 +18,36 @@ imports = [
     "vpns",
     "xdg",
     "downloaders",
+    {{- if .isAsus }}
+    "asus",
+    {{- end }}
+    {{- if .isIntel }}
+    "gpu_drivers/intel",
+    {{- end }}
+    {{- if .isAmd }}
+    "gpu_drivers/amd",
+    {{- end }}
+    {{- if .isNvidia }}
+    "gpu_drivers/nvidia",
+    {{- end }}
+    {{- if .isHacking }}
+    "hacking",
+    {{- end }}
 ]
 
 [managers.systemd-system]
 items = [
+    "docker",
     "plocate-updatedb.timer",
+    {{- if .isLaptop }}
+    "NetworkManager",
+    "bluetooth",
+    {{- end }}
+    {{- if .isNvidia }}
+    # "nvidia-suspend",
+    # "nvidia-hibernate",
+    # "nvidia-resume",
+    {{- end }}
 ]
 
 [managers.systemd-user]

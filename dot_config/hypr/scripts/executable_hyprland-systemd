@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# if hyprland-session.target is not active, start it
+if ! systemctl --user is-active --quiet hyprland-session.target; then
+    systemctl --user start hyprland-session.target
+fi
