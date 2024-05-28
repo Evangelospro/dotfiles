@@ -41,8 +41,8 @@
             "󰃟",
             "󰃠"
         ],
-        "on-scroll-up": "brightnessctl set 1%+",
-        "on-scroll-down": "brightnessctl set 1%-",
+        "on-scroll-up": "brightnessctl set 3%+",
+        "on-scroll-down": "brightnessctl set 3%-",
         "min-length": 6
     },
     "battery": {
@@ -114,6 +114,11 @@
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "scroll-step": 5
+    },
+    "custom/colorpicker": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "hyprpicker | wl-copy"
     },
     "custom/notifications": {
         "tooltip": false,

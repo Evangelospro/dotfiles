@@ -6,7 +6,8 @@ remove = "paru -Rns #:?"
 sync = "paru -Syy"
 upgrade = "paru -Syu"
 
-plural_name = "system packages"
+plural_name = "system-packages"
+hook_name = "system-packages"
 
 [config]
 many_args = true

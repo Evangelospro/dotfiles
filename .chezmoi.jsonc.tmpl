@@ -21,7 +21,7 @@
 {{- end }}
 
 {{- $MOD_HYPRLAND := "$MOD" }}
-{{- $SHIFT_MOD_HYPRLAND := "SHIFT_$MOD" }}
+{{- $SHIFT_MOD_HYPRLAND := "$SHIFT_MOD" }}
 {{- $SEP_HYPRLAND := "," }}
 
 {{- $MOD_GLAZE := "LWin" }}
@@ -72,10 +72,10 @@
                     "down": {"description": "Move focus to the bottom", "key": "{{$MOD}}{{$SEP}}S", "command": {"linux":"movefocus,d","windows":""}},
                 },
                 "resize":{
-                    "left": {"description": "Resize window to the left", "key": "$SHIFT_MOD{{$SEP}}A", "command": {"linux":"resizeactive, -10 0","windows":""}},
-                    "right": {"description": "Resize window to the right", "key": "$SHIFT_MOD{{$SEP}}D", "command": {"linux":"resizeactive, 10 0","windows":""}},
+                    "left": {"description": "Resize window to the left", "key": "{{$SHIFT_MOD}}{{$SEP}}A", "command": {"linux":"resizeactive, -10 0","windows":""}},
+                    "right": {"description": "Resize window to the right", "key": "{{$SHIFT_MOD}}{{$SEP}}D", "command": {"linux":"resizeactive, 10 0","windows":""}},
                     "up": {"description": "Resize window to the top", "key": "$SHIFT_MOD{{$SEP}}W", "command": {"linux":"resizeactive, 0 -10","windows":""}},
-                    "down": {"description": "Resize window to the bottom", "key": "$SHIFT_MOD{{$SEP}}S", "command": {"linux":"resizeactive, 0 10","windows":""}},
+                    "down": {"description": "Resize window to the bottom", "key": "{{$SHIFT_MOD}}{{$SEP}}S", "command": {"linux":"resizeactive, 0 10","windows":""}},
                 },
                 "exit": {"description": "Exit the window manager", "key": "{{$MOD}}{{$SEP}}M", "command": {"linux":"exit","windows":""}},
                 "reload": {"description": "Reload the window manager", "key": "$SHIFT_MOD{{$SEP}}R", "command": {"linux":"reload-hyprland","windows":""}},
@@ -84,20 +84,26 @@
                 "lockscreen": {"description": "Lock the screen", "key": "{{$MOD}}{{$SEP}}L", "command": {"linux":"lockscreen","windows":""}},
                 "launcher": {"description": "Open the launcher", "key": "{{$MOD}}{{$SEP}}SPACE", "command": {"linux":"launcher","windows":""}},
                 "clipboard": {"description": "Open the clipboard manager", "key": "{{$MOD}}{{$SEP}}V", "command": {"linux":"clip-menu","windows":""}},
-                "emoji": {"description": "Open the emoji picker", "key": "$SHIFT_MOD{{$SEP}}E", "command": {"linux":"emoji-menu","windows":""}},
-                "colorpicker": {"description": "Open the color picker", "key": "{{$MOD}}{{$SEP}}C", "command": {"linux":"hyprpicker | wl-copy","windows":""}},
+                "emoji": {"description": "Open the emoji picker", "key": "{{$SHIFT_MOD}}{{$SEP}}E", "command": {"linux":"emoji-menu","windows":""}}
             },
             "screenshot":{
                 "screenshot": {"description": "Take an interactive screenshot", "key": "{{$SEP}}Print", "command": {"linux":"flameshot gui","windows":"flameshot gui"}},
                 "ocr": {"description": "Perform OCR on a screen selection", "key": "{{$MOD}}{{$SEP}}O", "command": {"linux":"wl-ocr","windows":""}},
             },
             "applications":{
-                "browser" : {"description": "Launch the default browser", "key": "{{$MOD}}{{$SEP}}B", "command": {"linux":"thorium-browser","windows":""}},
-                "filemanager" : {"description": "Launch the file manager", "key": "{{$MOD}}{{$SEP}}E", "command": {"linux":"nemo","windows":"explorer.exe"}},
-                "terminal" : {"description": "Launch the terminal", "key": "{{$MOD}}{{$SEP}}Return", "command": {"linux":"$TERMINAL","windows":"wt"}},
-                "burp" : {"description": "Launch Burp Suite", "key": "$SHIFT_MOD{{$SEP}}B", "command": {"linux":"burp","windows":"burpsuite"}},
-                "discord" : {"description": "Launch Discord", "key": "$SHIFT_MOD{{$SEP}}D", "command": {"linux":"vesktop","windows":"vesktop"}},
-                "spotify" : {"description": "Launch Spotify", "key": "$SHIFT_MOD{{$SEP}}S", "command": {"linux":"spotify-launcher","windows":"spotify"}},
+                "browser" : {"description": "Launch browser", "key": "{{$MOD}}{{$SEP}}B", "command": {"linux":"raise --launch thorium-browser --class 'thorium-browser'","windows":""}},
+                "browser_new" : {"description": "Launch (new) browser", "key": "{{$SHIFT_MOD}}{{$SEP}}B", "command": {"linux":"thorium-browser","windows":""}},
+
+                "burp" : {"description": "Launch  Burp", "key": "{{$MOD}}{{$SEP}}X", "command": {"linux":"raise --launch burp --class burp-StartBurp","windows":"burpsuite"}},
+
+                "terminal" : {"description": "Launch terminal", "key": "{{$MOD}}{{$SEP}}T", "command": {"linux":"raise --launch $TERMINAL --class 'dev.warp.Warp'","windows":"wt"}},
+                "terminal_new" : {"description": "Launch a new terminal", "key": "{{$SHIFT_MOD}}{{$SEP}}T", "command": {"linux":"$TERMINAL","windows":"wt"}},
+
+                "filemanager" : {"description": "Launch file manager", "key": "{{$MOD}}{{$SEP}}E", "command": {"linux":"raise --launch nemo --class nemo","windows":"explorer.exe"}},
+                "filemanager_new" : {"description": "Launch (new) file manager", "key": "{{$SHIFT_MOD}}{{$SEP}}E", "command": {"linux":"nemo","windows":""}},
+
+                "editor" : {"description": "Launch editor", "key": "{{$MOD}}{{$SEP}}C", "command": {"linux":"raise --launch $EDITOR --class code-insiders-url-handler","windows":"code.exe"}},
+                "editor_new" : {"description": "Launch (new) editor", "key": "{{$SHIFT_MOD}}{{$SEP}}C", "command": {"linux":"$EDITOR","windows":""}},
             }
         }
     },

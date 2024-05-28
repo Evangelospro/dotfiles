@@ -15,7 +15,7 @@
         "name": "Thorium",
         "icon": "thorium-browser"
     },
-    "burp-StartBurp": {
+    ".*Burp.*": {
         "name": "BurpSuite",
         "icon": "burp"
     },

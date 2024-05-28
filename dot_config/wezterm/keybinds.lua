@@ -13,6 +13,11 @@ local keys = {
     action = action{PasteFrom = "Clipboard"},
   },
   {
+    key = "t",
+    mods = "CTRL",
+    action = action{SpawnTab = "CurrentPaneDomain"},
+  },
+  {
     key = "LeftArrow",
     mods = "CTRL|SHIFT",
     action = action{ActivateTabRelative = -1},
@@ -23,19 +28,9 @@ local keys = {
     action = action{ActivateTabRelative = 1},
   },
   {
-    key = "Enter",
-    mods = "CTRL|SHIFT",
-    action = action{SpawnTab = "CurrentPaneDomain"},
-  },
-  {
     key = "r",
     mods = "CTRL|SHIFT",
     action = action.ReloadConfiguration,
-  },
-  {
-    key = "f",
-    mods = "CTRL|SHIFT",
-    action = action.Search{CaseInSensitiveString = ""},
   },
   -- CaseInSensitive search...
   {

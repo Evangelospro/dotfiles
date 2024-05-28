@@ -16,6 +16,8 @@ items = [
 [managers.pip]
 items = [
     "requestrepo",
+    "flask-unsign",
+    "wconsole_extractor",
 ]
 
 [managers.pipx]

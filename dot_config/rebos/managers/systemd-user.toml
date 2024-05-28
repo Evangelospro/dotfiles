@@ -5,6 +5,7 @@ add = "systemctl --user enable --now #:?"
 remove = "systemctl --user disable #:?"
 
 plural_name = "systemd-user"
+hook_name = "systemd-user"
 
 [config]
 many_args = true

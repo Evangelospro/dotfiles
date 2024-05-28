@@ -13,7 +13,7 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 
 # bind ctrl + t to fzf fuzzy finder
-bindkey '^t' fzf-file-widget
+# bindkey '^t' fzf-file-widget
 
 source "$ZDOTDIR/binds/fzf-binds.zsh"
 

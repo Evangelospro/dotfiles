@@ -2,34 +2,34 @@
 
 function outputInfo() {
     echo "Connect to docker_ip:3389 via RDP"
-    echo "RUN \`ida{arch}\` to start IDA"
     echo "Remember to stop the container when you are done with \`ida stop\`"
 }
 
 function startRDP() {
-    if ! pgrep -x "rdesktop" >/dev/null; then
-        # find the ip of the container
-        # ipaddr=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docker-ida)
-        rdesktop -u root -p DockerWineIDA 127.0.0.1:3389 -g 1920x1080 -r clipboard:CLIPBOARD
-    fi
+    # find the ip of the container
+    # ipaddr=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docker-ida)
+    pkill -9 remmina
+    remmina -c ~/.local/share/remmina/group_rdp_dockerwineida_127-0-0-1-3389.remmina
 }
-
-startup_command="echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida64.exe' > /usr/bin/ida64 && echo -ne '#!/usr/bin/env bash\nwine /root/.wine/drive_c/IDA/ida.exe' > /usr/bin/ida32 && chmod +x /usr/bin/ida*"
 
 # if the first parameter is start
 if [ "$1" == "start" ]; then
     echo "Creating/starting container..."
-    (cd $HOME/.local/bin/docker-ida && docker compose up --build -d)
+    (cd $HACKING_TOOLS/Reverse/docker-ida && docker compose up --build -d)
     echo "Container created/started"
     sleep 2
     echo "Entering container..."
     outputInfo
-    docker exec -it docker-ida /bin/bash -c "$startup_command"
+    # wait until the container is running before starting rdesktop
+    while [ "$(docker inspect -f '{{.State.Running}}' docker-ida)" != "true" ]; do
+        sleep 1
+        echo "Waiting for container to start..."
+    done
     startRDP
 elif [ "$1" == "stop" ]; then
     if [ "$(docker ps -aq -f name=docker-ida)" ]; then
         echo "Stopping container..."
-        (cd $HOME/.local/bin/docker-ida && docker compose down)
+        (cd $HACKING_TOOLS/Reverse/docker-ida && docker compose down)
         echo "Container stopped"
     else
         echo "Container does not exist, nothing to stop"

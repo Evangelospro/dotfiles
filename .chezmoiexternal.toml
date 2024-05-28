@@ -84,14 +84,20 @@
 # type = "git-repo"
 #     url = "https://github.com/ticarpi/jwt_tool"
 #     branch = "master"
-#     refreshPeriod = "250h"
+#     refreshPeriod = "500h"
 
 # ## Mobile
 # ["HACKING/Tools/Mobile/rootAVD"]
 # type = "git-repo"
-#     url = "https://gitlab.com/newbit/rootAVD.git"
+#     url = "https://gitlab.com/newbit/rootAVD"
 #     branch = "master"
-#     refreshPeriod = "250h"
+#     refreshPeriod = "500h"
+
+# ["HACKING/Tools/Mobile/waydroid_script"]
+# type = "git-repo"
+#     url = "https://github.com/casualsnek/waydroid_script"
+#     branch = "main"
+#     refreshPeriod = "500h"
 
 # ## PWN
 # ["HACKING/Tools/PWN/libc-database"]
@@ -105,9 +111,17 @@
     type = "archive-file"
     executable = true
     url = '{{ gitHubLatestRelease "mandiant/capa" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
-    refreshPeriod = "168h"
+    refreshPeriod = "500h"
     stripComponents = 0
     path = "capa"
+
+[".local/bin/goresym"]
+    type = "archive-file"
+    executable = true
+    url = '{{ gitHubLatestRelease "mandiant/GoReSym" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+    refreshPeriod = "500h"
+    stripComponents = 0
+    path = "GoReSym"
 
 ## Privesc
 [".local/bin/gtfobins"]
@@ -116,7 +130,7 @@
     url = '{{ gitHubLatestRelease "CristinaSolana/ggtfobins" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
     exact = true
     stripComponents = 1
-    refreshPeriod = "168h"
+    refreshPeriod = "1000h"
 
 {{- end }}
 

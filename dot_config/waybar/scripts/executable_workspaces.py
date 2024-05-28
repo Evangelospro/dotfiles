@@ -49,7 +49,7 @@ def generate():
 
     workspaces = {
         mon.id: {
-            ws: {"icons": [], "classes": []}
+            ws: {"icons": []}
             for ws in range(1, NUM_OF_WORKSPACES + 1)
         }
         for mon in MONITOR_MAP
@@ -61,24 +61,26 @@ def generate():
         log_event(f"Failed to get clients with error {e}")
     for client in clients:
         try:
-            if client.pid == -1:
+            # if client.workspace_id is negative then it is a special workspace
+            # if client.pid is -1 then it is a window stuck in cleanup
+            if client.pid == -1 or client.workspace_id < 0:
                 continue
             class_ = client.wm_class if client.wm_class else client.initial_title
             log_event(f"actual client ws id: {client.workspace_id}")
-            if (
-                client.monitor_id is not None and class_ and client.workspace_id > 0
-            ):  # if client.workspace_id is negative then it is a special workspace
+            if class_:
                 client.workspace_id = (
                     client.workspace_id % NUM_OF_WORKSPACES
                     if client.workspace_id % NUM_OF_WORKSPACES != 0
                     else NUM_OF_WORKSPACES
                 )
-                workspaces[client.monitor_id][client.workspace_id]["classes"].append(class_)
                 icon_list = generate_icon_list(class_, ICON_SIZE)
                 log_event(f"icon list for {class_} is {icon_list}")
                 icon = icon_list[0]
                 log_event(f"icon for {class_} is {icon}")
                 workspaces[client.monitor_id][client.workspace_id]["icons"].append(icon)
+            else:
+                log_event("Failed to get wm_class for below client")
+                log_event(client)
         except Exception as e:
             log_event(f"Failed to get applist classes for below client with error {e}")
             log_event(client)

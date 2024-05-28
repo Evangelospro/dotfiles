@@ -5,6 +5,7 @@ remove = "pipx uninstall #:?"
 upgrade = "pipx upgrade-all"
 
 plural_name = "pipx"
+hook_name = "pipx"
 
 [config]
 many_args = true

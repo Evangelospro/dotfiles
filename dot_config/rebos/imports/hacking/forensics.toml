@@ -13,4 +13,10 @@ items = [
 [managers.pipx]
 items = [
     "stringcheese",
+
+]
+
+[managers.pip]
+items = [
+    "git+https://github.com/Hedroed/png-parser",
 ]

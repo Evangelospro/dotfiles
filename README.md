@@ -173,7 +173,7 @@ ALT -> WIN
 | --------------------- | ----------------------------------------------------------------------- |
 | update-burp           | Update burp to the latest version                                       |
 | angr                  | Run angr in a docker container                                          |
-| extract-base64-string | Extract base64 encoded strings from a file                              |
+| extract-base64        | Extract base64 encoded strings from a file                              |
 | extract-urls          | Extract urls from a file                                                |
 | frida-init            | Initialize frida server on android device                               |
 | frida-kill            | Kill frida server on android device                                     |

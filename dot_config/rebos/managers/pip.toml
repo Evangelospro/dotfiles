@@ -5,6 +5,7 @@ remove = "pip uninstall #:?"
 # upgrade = "pip install --break-system -U #:?"
 
 plural_name = "pip"
+hook_name = "pip"
 
 [config]
 many_args = true

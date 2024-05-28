@@ -9,6 +9,7 @@ items = [
     "linux-atm",
     "linux-firmware",
     "linux-firmware-marvell",
+    "binder_linux-dkms",
     "lld",
     "llvm",
     "gvfs",

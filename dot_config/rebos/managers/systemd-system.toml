@@ -5,6 +5,7 @@ add = "sudo systemctl enable --now #:?"
 remove = "sudo systemctl disable #:?"
 
 plural_name = "systemd-system"
+hook_name = "systemd-system"
 
 [config]
 many_args = true

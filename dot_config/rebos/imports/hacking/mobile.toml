@@ -1,5 +1,7 @@
 [managers.system]
 items = [
+    "python-inquirerpy",
+    "waydroid",
     "jadx-gui-desktop",
     "python-frida",
     "python-frida-tools",
@@ -9,4 +11,9 @@ items = [
 [managers.pipx]
 items = [
     "objection",
+]
+
+[managers.systemd-system]
+items = [
+    "waydroid-container",
 ]

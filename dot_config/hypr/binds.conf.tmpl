@@ -16,9 +16,8 @@ bind = $MOD SHIFT, Z, exec, magnify 1.0
 bindl={{.keybindings.utilities.lockscreen.key}},exec,{{.keybindings.utilities.lockscreen.command.linux }}
 bind={{.keybindings.utilities.launcher.key}},exec,{{.keybindings.utilities.launcher.command.linux}}
 bind=,XF86Search,exec,launcher
-bind={{.keybindings.utilities.colorpicker.key}},exec,{{.keybindings.utilities.colorpicker.command.linux}}
 bind={{.keybindings.utilities.clipboard.key}},exec,{{.keybindings.utilities.clipboard.command.linux}}
-bind={{.keybindings.utilities.emoji.key}},exec,{{.keybindings.utilities.emoji.command.linux}}
+# bind={{.keybindings.utilities.emoji.key}},exec,{{.keybindings.utilities.emoji.command.linux}}
 bind=$MOD,R,exec,dynamic-resize
 bind=$MOD,P,exec,project-menu
 
@@ -32,9 +31,19 @@ bind={{.keybindings.screenshot.ocr.key }},exec,{{.keybindings.screenshot.ocr.com
 bind=,XF86Launch4,exec,asusctl led-mode -n
 {{- end }}
 bind={{ .keybindings.applications.browser.key }},exec,{{ .keybindings.applications.browser.command.linux }}
+bind={{ .keybindings.applications.browser_new.key }},exec,{{ .keybindings.applications.browser_new.command.linux }}
+
 bind={{ .keybindings.applications.burp.key }},exec,{{ .keybindings.applications.burp.command.linux }}
+
 bind={{ .keybindings.applications.terminal.key }},exec,{{ .keybindings.applications.terminal.command.linux }}
+bind={{ .keybindings.applications.terminal_new.key }},exec,{{ .keybindings.applications.terminal_new.command.linux }}
+
 bind={{.keybindings.applications.filemanager.key}},exec,{{.keybindings.applications.filemanager.command.linux}}
+bind={{.keybindings.applications.filemanager_new.key}},exec,{{.keybindings.applications.filemanager_new.command.linux}}
+
+bind={{.keybindings.applications.editor.key}},exec,{{.keybindings.applications.editor.command.linux}}
+bind={{.keybindings.applications.editor_new.key}},exec,{{.keybindings.applications.editor_new.command.linux}}
+
 
 # Close / Fullscreen / Kill Applications
 bind=ALT_L,F4,killactive

@@ -4,6 +4,7 @@ add = "sudo usermod -a -G #:? $USER"
 remove = "sudo gpasswd -d $USER #:?"
 
 plural_name = "groups"
+hook_name = "groups"
 
 [config]
 many_args = false

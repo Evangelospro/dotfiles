@@ -1,18 +1,28 @@
-function enable-proxy() {
+function enable-proxy-system() {
     source $HOME/.config/burp/scripts/env.sh
     openssl x509 -inform der -in "$BURP_CERTIFICATE_DIR/cert.der" -out "$BURP_CERTIFICATE_DIR/cert.pem"
     export REQUESTS_CA_BUNDLE="$BURP_CERTIFICATE_DIR/cert.pem"
+    export SSL_CERT_FILE="$BURP_CERTIFICATE_DIR/cert.pem"
     export HTTP_PROXY="http://$BURP_IP:$BURP_PORT"
     export HTTPS_PROXY="http://$BURP_IP:$BURP_PORT"
     echo "Proxy enabled"
 }
 
-function disable-proxy() {
+function disable-proxy-system() {
     unset REQUESTS_CA_BUNDLE
     unset HTTP_PROXY
     unset HTTPS_PROXY
     echo "Proxy disabled"
 }
+
+function enable-proxy-mobile() {
+    $HOME/.config/burp/scripts/mobile-proxy.sh start
+}
+
+function disable-proxy-mobile() {
+    $HOME/.config/burp/scripts/mobile-proxy.sh stop
+}
+
 
 function urlencode() {
     python3 -c "from pwn import *; print(urlencode('$1'));"

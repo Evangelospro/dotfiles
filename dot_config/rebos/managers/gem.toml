@@ -4,6 +4,7 @@ add = "gem install #:?"
 remove = "yes| gem uninstall #:?"
 
 plural_name = "gem"
+hook_name = "gem"
 
 [config]
 many_args = true

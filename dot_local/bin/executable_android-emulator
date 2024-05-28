@@ -6,18 +6,23 @@
 # echo "no" | avdmanager create avd -n $NAME -k "system-images;android-$VERSION;google_apis_playstore;x86_64"
 # NOTE : Make sure that you always use system-images with "Google API's" rather than "Google Play Store" images as they are production builds and google doesn't like that to be rooted 🤷‍♂️🤷‍♂️😈😈
 # PLEASE BUILD THE AVD MANUALLY FIRST
-# SELECT THE x86 Images not the recommended ones
-default_sdk_version=30
+# SELECT THE ARM64 IMAGE NOT the recommended
+default_sdk_version=27 # ARM is supported up to 27
 default_platform="platforms;android-$default_sdk_version"
-default_image="system-images;android-$default_sdk_version;default;x86_64"
+default_image="system-images;android-$default_sdk_version;google_apis;arm64-v8a"
 # default_emulator_name="android-$default_sdk_version-emulator"
-default_emulator_name="Pixel_6_Pro_API_30_-_PENTEST"
+default_emulator_name="Pentest"
 available_emulators=$(avdmanager list avd | grep Name | awk '{print $2}')
 if [[ ! $available_emulators =~ $default_emulator_name ]]; then
     echo "No emulator found, creating one... with android-$default_sdk_version"
-    echo "Y" | sdkmanager --install $default_platform $default_image
+    # check if /opt/android-sdk is writable
+    if [[ ! -w /opt/android-sdk ]]; then
+        echo "Fixing permissions on /opt/android-sdk"
+        sudo chown -R $USER /opt/android-sdk
+    fi
+    echo "Y\nY" | sdkmanager --install $default_platform $default_image
     echo "no" | avdmanager create avd -n $default_emulator_name -k $default_image
 fi
 echo "Starting emulator $default_emulator_name"
-emulator -avd $default_emulator_name -no-metrics -no-snapshot -noaudio -writable-system -gpu host -accel on -verbose -qemu -enable-kvm &
+emulator -avd $default_emulator_name -no-metrics -no-snapshot -noaudio -writable-system &
 hyprctl dispatch movewindowpixel 100 100,title:Emulator # hacky way to bring the emulator to focus...
