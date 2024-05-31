@@ -31,12 +31,12 @@ function getWordlist() {
     randomSuffix=$(date +%s | sha256sum | base64 | head -c 6)
     if [[ $1 == "dir" ]]; then
         modifiedWordlist="$modifiedWordlistBaseName-dir-$randomSuffix.txt"
-        cp $extraWordlistDiscovery $modifiedWordlist >/dev/null 2>&1
+        /usr/bin/cp  $extraWordlistDiscovery $modifiedWordlist >/dev/null 2>&1
         cat $defaultDirWordlist >> $modifiedWordlist
         echo $modifiedWordlist
     elif [[ $1 == "dns" ]]; then
         modifiedWordlist="$modifiedWordlistBaseName-dns-$randomSuffix.txt"
-        cp $defaultDnsWordlist $modifiedWordlist >/dev/null  2>&1
+        /usr/bin/cp  $defaultDnsWordlist $modifiedWordlist >/dev/null  2>&1
         echo $modifiedWordlist
     else
         echo "Usage: getWordlist <dir|dns>"
@@ -53,61 +53,74 @@ function curl() {
     fi
 }
 
+EXTENSIONS=(php html phps bak)
+
+# clean the url to have no trailing slashes
+function clean_url() {
+    echo $1 | sed 's/\/$//g'
+}
+
 ferox-dir() {
-    arg_count=3
+    url=$(clean_url $1)
+    shift
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
+        shift
     else
         wordlist=$(getWordlist dir)
-        arg_count=2
     fi
-    feroxbuster -u $1 -w $wordlist ${@:$arg_count}
+    feroxbuster -u $url -w $wordlist "$@"
 }
 
 ferox-ext() {
-    exts=(php html phps asp bak)
-    arg_count=3
+    url=$(clean_url $1)
+    shift
+    exts=${EXTENSIONS[@]}
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
+        shift
     else
         wordlist=$(getWordlist dir)
-        arg_count=2
     fi
-    feroxbuster -u $1 -w $wordlist -x ${exts[@]} ${@:$arg_count}
+    feroxbuster -u $url -w $wordlist -x $exts "$@"
 }
 
 ffuf-dir() {
-    arg_count=3
+    url=$(clean_url $1)
+    shift
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
+        shift
     else
         wordlist=$(getWordlist dir)
-        arg_count=2
     fi
-    ffuf -c -u $1FUZZ -w $wordlist ${@:$arg_count}
+    ffuf -c -u $url/FUZZ -w $wordlist "$@"
 }
 
 ffuf-vhost() {
-    arg_count=3
+    url=$(clean_url $1)
+    shift
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
+        shift
     else
         wordlist=$(getWordlist dns)
-        arg_count=2
     fi
     # remove the protocol http:// or https:// and any trailing slashes
-    host=$(echo $1 | sed 's/http[s]*:\/\///g' | sed 's/\/$//g')
-    ffuf -c -H "Host: FUZZ.$host" -u $1 -w $wordlist ${@:$arg_count}
+    host=$(echo $url | sed 's/http[s]*:\/\///g' | sed 's/\/$//g')
+    ffuf -c -H "Host: FUZZ.$host" -u $url -w $wordlist "$@"
 }
 
 ffuf-ext() {
-    exts=(php html phps asp bak)
-    arg_count=3
+    url=$(clean_url $1)
+    shift
+    # make extensions a comma separated list with . at the beginning of each extension
+    exts=$(printf ".%s," "${EXTENSIONS[@]}" | sed 's/,$//')
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
+        shift
     else
         wordlist=$(getWordlist dir)
-        arg_count=2
     fi
-    ffuf -c -u $1FUZZ -w $wordlist ${@:$arg_count} -x ${exts[@]}
+    ffuf -c -u $url/FUZZ -w $wordlist -e $exts "$@"
 }

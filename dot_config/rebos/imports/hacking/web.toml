@@ -11,6 +11,7 @@ items = [
     "python-websockets",
     "python-httpx",
     "grpcurl-bin",
+    "socat",
 ]
 
 [managers.pip]

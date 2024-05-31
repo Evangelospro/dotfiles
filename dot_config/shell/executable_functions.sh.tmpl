@@ -49,7 +49,7 @@ sshp() {
     sshpass -p $2 ssh -o StrictHostKeyChecking=no $1@$3 ${@: 4};
 }
 
-function chosts(){
+function clear-hosts(){
     echo -ne """# Static table lookup for hostnames.
 # See hosts(5) for details.
 127.0.0.1 localhost
@@ -74,15 +74,16 @@ function mkcd(){
     cd $1
 }
 
-# Copy with progress
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/cp
+# Use the faster fcp version (no progress bar though...)
 function cp() {
-    if command -v rsync &> /dev/null; then
-        rsync -pogbr -hhh --backup-dir="/tmp/rsync-${USERNAME}" -e /dev/null --progress "$@"
-    else
-        /bin/cp "$@"
-    fi
+    fcp "$@" & progress -mp $!
 }
+
+# Enable progress bar
+function mv() {
+    mv "$@" & progress -mp $!
+}
+
 
 # Move latest Download to current directory
 function mvd() {

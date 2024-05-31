@@ -73,5 +73,6 @@ items = [
     "appmenu-gtk-module",
     "tinyxxd",
     "parallel",
-    "xdg-user-dirs"
+    "xdg-user-dirs",
+    "rsync",
 ]
