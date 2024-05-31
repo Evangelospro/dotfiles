@@ -3,7 +3,7 @@
 current_zoom=$(hyprctl -j getoption cursor:zoom_factor | jq -r '.float')
 
 if [[ -z $1 ]]; then
-    echo "Please provide a zoom factor"
+    echo "Please provide a zoom factor current_zoom: $current_zoom"
     exit 1
 fi
 

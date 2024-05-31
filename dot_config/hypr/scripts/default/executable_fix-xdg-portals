@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+
+$HOME/.config/hypr/scripts/dbus-activate
+
 sleep 2
-pkill -9 xdg-desktop-portal-hyprland
-pkill -9 xdg-desktop-portal
-/usr/lib/xdg-desktop-portal-hyprland &
+systemctl --user restart xdg-desktop-portal-hyprland
 sleep 2
-/usr/lib/xdg-desktop-portal &
+systemctl --user restart xdg-desktop-portal-gtk

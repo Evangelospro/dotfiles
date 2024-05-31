@@ -8,3 +8,4 @@ hook_name = "gem"
 
 [config]
 many_args = true
+arg_sep = " "

@@ -81,20 +81,20 @@
 # Hacking tools
 ## Web
 # ["HACKING/Tools/Web/jwt_tool"]
-# type = "git-repo"
+#     type = "git-repo"
 #     url = "https://github.com/ticarpi/jwt_tool"
 #     branch = "master"
 #     refreshPeriod = "500h"
 
 # ## Mobile
 # ["HACKING/Tools/Mobile/rootAVD"]
-# type = "git-repo"
+#     type = "git-repo"
 #     url = "https://gitlab.com/newbit/rootAVD"
 #     branch = "master"
 #     refreshPeriod = "500h"
 
 # ["HACKING/Tools/Mobile/waydroid_script"]
-# type = "git-repo"
+#     type = "git-repo"
 #     url = "https://github.com/casualsnek/waydroid_script"
 #     branch = "main"
 #     refreshPeriod = "500h"

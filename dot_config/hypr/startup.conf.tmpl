@@ -1,7 +1,6 @@
 # BASICS
-exec-once=/usr/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec-once=/usr/bin/dbus-update-activation-environment --all
-exec=/usr/bin/systemctl restart --user xdg-desktop-portal-hyprland
+exec-once=$HOME/.config/hypr/scripts/default/systemd-user
+exec=$HOME/.config/hypr/scripts/default/fix-xdg-portals
 # scale apps
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
@@ -24,12 +23,12 @@ exec=/usr/bin/hyprpaper
 # Utilities & Background apps
 exec-once=pidof flameshot || /usr/bin/flameshot
 
-# Speed up browser startup
-exec-once=[workspace special:backgroundappsbrowser silent] /usr/bin/thorium-browser
+{{- if .isAsus }}
+exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center | /usr/bin/rog-control-center
+{{- end }}
 
 # isPersonal stuff
 {{- if .isPersonal }}
-exec=[workspace special:backgroundappsvalent silent] pidof valent |  /usr/bin/valent
-exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center | /usr/bin/rog-control-center
+exec=[workspace special:backgroundappsvalent silent] pidof valent |  /usr/bin/valent # --gapplication-service
 exec=/usr/bin/systemctl --user restart seadrive
 {{- end }}

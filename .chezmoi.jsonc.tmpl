@@ -78,7 +78,7 @@
                     "down": {"description": "Resize window to the bottom", "key": "{{$SHIFT_MOD}}{{$SEP}}S", "command": {"linux":"resizeactive, 0 10","windows":""}},
                 },
                 "exit": {"description": "Exit the window manager", "key": "{{$MOD}}{{$SEP}}M", "command": {"linux":"exit","windows":""}},
-                "reload": {"description": "Reload the window manager", "key": "$SHIFT_MOD{{$SEP}}R", "command": {"linux":"reload-hyprland","windows":""}},
+                "reload": {"description": "Reload the window manager", "key": "$SHIFT_MOD{{$SEP}}R", "command": {"linux":"hyprctl reload","windows":""}},
             },
             "utilities":{
                 "lockscreen": {"description": "Lock the screen", "key": "{{$MOD}}{{$SEP}}L", "command": {"linux":"lockscreen","windows":""}},
@@ -91,12 +91,12 @@
                 "ocr": {"description": "Perform OCR on a screen selection", "key": "{{$MOD}}{{$SEP}}O", "command": {"linux":"wl-ocr","windows":""}},
             },
             "applications":{
-                "browser" : {"description": "Launch browser", "key": "{{$MOD}}{{$SEP}}B", "command": {"linux":"raise --launch thorium-browser --class 'thorium-browser'","windows":""}},
+                "browser" : {"description": "Launch browser", "key": "{{$MOD}}{{$SEP}}B", "command": {"linux":"raise --launch thorium-browser --class thorium-browser","windows":""}},
                 "browser_new" : {"description": "Launch (new) browser", "key": "{{$SHIFT_MOD}}{{$SEP}}B", "command": {"linux":"thorium-browser","windows":""}},
 
                 "burp" : {"description": "Launch  Burp", "key": "{{$MOD}}{{$SEP}}X", "command": {"linux":"raise --launch burp --class burp-StartBurp","windows":"burpsuite"}},
 
-                "terminal" : {"description": "Launch terminal", "key": "{{$MOD}}{{$SEP}}T", "command": {"linux":"raise --launch $TERMINAL --class 'dev.warp.Warp'","windows":"wt"}},
+                "terminal" : {"description": "Launch terminal", "key": "{{$MOD}}{{$SEP}}T", "command": {"linux":"raise --launch $TERMINAL --class dev.warp.Warp","windows":"wt"}},
                 "terminal_new" : {"description": "Launch a new terminal", "key": "{{$SHIFT_MOD}}{{$SEP}}T", "command": {"linux":"$TERMINAL","windows":"wt"}},
 
                 "filemanager" : {"description": "Launch file manager", "key": "{{$MOD}}{{$SEP}}E", "command": {"linux":"raise --launch nemo --class nemo","windows":"explorer.exe"}},
@@ -104,6 +104,8 @@
 
                 "editor" : {"description": "Launch editor", "key": "{{$MOD}}{{$SEP}}C", "command": {"linux":"raise --launch $EDITOR --class code-insiders-url-handler","windows":"code.exe"}},
                 "editor_new" : {"description": "Launch (new) editor", "key": "{{$SHIFT_MOD}}{{$SEP}}C", "command": {"linux":"$EDITOR","windows":""}},
+
+                "notes" : {"description": "Launch (new) editor", "key": "{{$MOD}}{{$SEP}}N", "command": {"linux":"raise --launch obsidian --class obsidian","windows":""}},
             }
         }
     },

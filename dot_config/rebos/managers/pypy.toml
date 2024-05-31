@@ -9,3 +9,4 @@ hook_name = "pypy"
 
 [config]
 many_args = true
+arg_sep = " "

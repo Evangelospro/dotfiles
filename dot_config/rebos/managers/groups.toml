@@ -7,4 +7,5 @@ plural_name = "groups"
 hook_name = "groups"
 
 [config]
-many_args = false
+many_args = true
+arg_sep = ","

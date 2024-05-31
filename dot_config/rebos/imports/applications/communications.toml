@@ -2,7 +2,9 @@
 items = [
   "vencord-desktop-git",
   "signal-desktop",
+  {{- if .isPersonal }}
   "valent-git",
+  {{- end }}
   "zoom",
   "caprine",
   "viber",

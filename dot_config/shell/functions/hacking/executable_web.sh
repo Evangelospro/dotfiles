@@ -23,53 +23,34 @@ function disable-proxy-mobile() {
     $HOME/.config/burp/scripts/mobile-proxy.sh stop
 }
 
-
-function urlencode() {
-    python3 -c "from pwn import *; print(urlencode('$1'));"
-}
-
-function urldecode() {
-    python3 -c "from pwn import *; print(urldecode('$1'));"
-}
-
-extraWordlist="$HOME/.config/burp/wordlists/extraWordlist.txt"
+extraWordlistDiscovery="$HOME/.config/burp/wordlists/extraWordlistDiscovery.txt"
 function getWordlist() {
-    # because seclists gets updated a lot and I really want .git to be in my preferred wordlist
     defaultDirWordlist="/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt"
     defaultDnsWordlist="/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt"
-    modifiedWordlist="/tmp/modifiedWordlist.txt"
+    modifiedWordlistBaseName="/tmp/modifiedWordlist"
+    randomSuffix=$(date +%s | sha256sum | base64 | head -c 6)
     if [[ $1 == "dir" ]]; then
-        cp $extraWordlist $modifiedWordlist
+        modifiedWordlist="$modifiedWordlistBaseName-dir-$randomSuffix.txt"
+        cp $extraWordlistDiscovery $modifiedWordlist >/dev/null 2>&1
         cat $defaultDirWordlist >> $modifiedWordlist
         echo $modifiedWordlist
     elif [[ $1 == "dns" ]]; then
-        cp $defaultDnsWordlist $modifiedWordlist
+        modifiedWordlist="$modifiedWordlistBaseName-dns-$randomSuffix.txt"
+        cp $defaultDnsWordlist $modifiedWordlist >/dev/null  2>&1
         echo $modifiedWordlist
     else
         echo "Usage: getWordlist <dir|dns>"
     fi
 }
 
-## Web
 function curl() {
     # check if the burp proxy is running and if so use it
     # see https://github.com/rs/curlie/issues/31, until this is fixed I need to use curl and not curlie...
-    if [[ $(ss -lnt | grep :9000) ]]; then
-        http_proxy="http://localhost:9000" https_proxy="http://localhost:9000" /usr/bin/curl -k "$@"
+    if [[ $(ss -lnt | grep :$BURP_PORT) ]]; then
+        http_proxy="http://$BURP_IP:$BURP_PORT" https_proxy="http://$BURP_IP:$BURP_PORT" /usr/bin/curl -k "$@"
     else
         curlie --pretty "$@"
     fi
-}
-
-ffuf-vhost() {
-    arg_count=3
-    if [[ $2 && $2 != -* ]]; then
-        wordlist=$2
-    else
-        wordlist=$(getWordlist dns)
-        arg_count=2
-    fi
-    ffuf -c -H "Host: FUZZ.$1" -u http://$1 -w $wordlist ${@:$arg_count}
 }
 
 ferox-dir() {
@@ -81,29 +62,6 @@ ferox-dir() {
         arg_count=2
     fi
     feroxbuster -u $1 -w $wordlist ${@:$arg_count}
-}
-
-ffuf-dir() {
-    arg_count=3
-    if [[ $2 && $2 != -* ]]; then
-        wordlist=$2
-    else
-        wordlist=$(getWordlist dir)
-        arg_count=2
-    fi
-    ffuf -c -u $1FUZZ -w $wordlist ${@:$arg_count}
-}
-
-ffuf-ext() {
-    exts=(php html phps asp bak)
-    arg_count=3
-    if [[ $2 && $2 != -* ]]; then
-        wordlist=$2
-    else
-        wordlist=$(getWordlist dir)
-        arg_count=2
-    fi
-    ffuf -c -u $1FUZZ -w $wordlist ${@:$arg_count} -x ${exts[@]}
 }
 
 ferox-ext() {
@@ -118,7 +76,7 @@ ferox-ext() {
     feroxbuster -u $1 -w $wordlist -x ${exts[@]} ${@:$arg_count}
 }
 
-ffuf-req-dir() {
+ffuf-dir() {
     arg_count=3
     if [[ $2 && $2 != -* ]]; then
         wordlist=$2
@@ -126,10 +84,23 @@ ffuf-req-dir() {
         wordlist=$(getWordlist dir)
         arg_count=2
     fi
-    ffuf -c -ic -request $1 -request-proto http -w $wordlist ${@:$arg_count}
+    ffuf -c -u $1FUZZ -w $wordlist ${@:$arg_count}
 }
 
-ffuf-req-ext() {
+ffuf-vhost() {
+    arg_count=3
+    if [[ $2 && $2 != -* ]]; then
+        wordlist=$2
+    else
+        wordlist=$(getWordlist dns)
+        arg_count=2
+    fi
+    # remove the protocol http:// or https:// and any trailing slashes
+    host=$(echo $1 | sed 's/http[s]*:\/\///g' | sed 's/\/$//g')
+    ffuf -c -H "Host: FUZZ.$host" -u $1 -w $wordlist ${@:$arg_count}
+}
+
+ffuf-ext() {
     exts=(php html phps asp bak)
     arg_count=3
     if [[ $2 && $2 != -* ]]; then
@@ -138,5 +109,5 @@ ffuf-req-ext() {
         wordlist=$(getWordlist dir)
         arg_count=2
     fi
-    ffuf -c -ic -request $1 -request-proto http -w $wordlist -x ${exts[@]} ${@:$arg_count}
+    ffuf -c -u $1FUZZ -w $wordlist ${@:$arg_count} -x ${exts[@]}
 }

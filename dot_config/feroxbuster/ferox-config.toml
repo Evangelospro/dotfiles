@@ -10,13 +10,13 @@
 wordlist = "/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt"
 # status_codes = [200, 500]
 # filter_status = [301]
-threads = 2
+threads = 4
 # timeout = 5
 # proxy = "http://127.0.0.1:9000"
 # replay_proxy = "http://127.0.0.1:8081"
 # replay_codes = [200, 302]
 verbosity = 1
-parallel = 8
+# parallel = 8
 # scan_limit = 6
 # rate_limit = 250
 # quiet = true

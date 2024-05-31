@@ -5,7 +5,5 @@ alias penelope="penelope --configfile $HOME/.config/penelope/penelope.conf"
 alias cme='crackmapexec'
 ## Stego
 alias stego-toolkit='docker run -it --rm -v $(pwd)/data:/data dominicbreuker/stego-toolkit /bin/bash'
-## Networking
-alias pcapng-to-pcap="$HackingSetupScripts/pcapng-to-pcap"
-## General
-alias cerbrutus="python3 ~/.local/bin/cerbrutus/cerbrutus.py"
+## Mobile
+alias blutter='docker run -it --rm -v $(pwd):/workdir worawit/blutter'

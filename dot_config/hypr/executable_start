@@ -1,4 +1,8 @@
 #!/usr/bin/env zsh
 set -euo pipefail
 
-/usr/local/bin/hyprland "$@"
+if systemctl --user is-active --quiet hyprland-session.target; then
+    systemctl --user stop hyprland-session.target
+fi
+systemctl --user start hyprland-session.target
+dbus-run-session /usr/local/bin/hyprland "$@"

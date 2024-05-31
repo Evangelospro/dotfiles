@@ -1,7 +1,7 @@
 [managers.system]
 items = [
-    "python-inquirerpy",
     "waydroid",
+    "waydroid-script-git",
     "jadx-gui-desktop",
     "python-frida",
     "python-frida-tools",
@@ -11,6 +11,7 @@ items = [
 [managers.pipx]
 items = [
     "objection",
+    "reflutter",
 ]
 
 [managers.systemd-system]

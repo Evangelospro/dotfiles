@@ -11,3 +11,4 @@ hook_name = "system-packages"
 
 [config]
 many_args = true
+arg_sep = " "
