@@ -73,7 +73,7 @@ fi
 zinit wait as"null" lucid from"gh-r" for \
     atload"alias ls='lsd -hAFlt --group-dirs first --color=always'; alias la='lsd -laFh'; alias tree='lsd -haFlt --group-dirs first --tree'" sbin"**/lsd" lsd-rs/lsd \
     atload"alias cat='bat -p --wrap character'" cp"**/bat.1 -> $ZPFX/share/man/man1" mv"**/autocomplete/bat.zsh -> _bat" completions sbin"**/bat" @sharkdp/bat \
-    cp"**/fd.1 -> $ZPFX/share/man/man1" completions sbin"**/fd" @sharkdp/fd \
+    cp"**/fd.1 -> $ZPFX/share/man/man1" atload"alias find='fd'" completions sbin"**/fd" @sharkdp/fd \
     cp"**/hyperfine.1 -> $ZPFX/share/man/man1" completions sbin"**/hyperfine" @sharkdp/hyperfine \
     cp"**/doc/rg.1 -> $ZPFX/share/man/man1" sbin"**/rg" BurntSushi/ripgrep \
     atload"alias top=btm" completions sbin"**/btm" ClementTsang/bottom \

@@ -13,4 +13,5 @@ imports = [
     "hacking/wordlists",
     "hacking/stego",
     "hacking/mobile",
+    "hacking/hardware",
 ]

@@ -20,3 +20,4 @@ alias adb="HOME=$XDG_DATA_HOME/android adb"
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
+alias xxd="hexxy --upper -td"

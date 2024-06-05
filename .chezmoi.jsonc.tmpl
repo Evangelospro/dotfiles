@@ -87,7 +87,7 @@
                 "emoji": {"description": "Open the emoji picker", "key": "{{$SHIFT_MOD}}{{$SEP}}E", "command": {"linux":"emoji-menu","windows":""}}
             },
             "screenshot":{
-                "screenshot": {"description": "Take an interactive screenshot", "key": "{{$SEP}}Print", "command": {"linux":"flameshot gui","windows":"flameshot gui"}},
+                "screenshot": {"description": "Take an interactive screenshot", "key": "{{$SEP}}Print", "command": {"linux":"flameshot gui --raw | wl-copy","windows":"flameshot gui"}},
                 "ocr": {"description": "Perform OCR on a screen selection", "key": "{{$MOD}}{{$SEP}}O", "command": {"linux":"wl-ocr","windows":""}},
             },
             "applications":{

@@ -75,14 +75,14 @@ function mkcd(){
 }
 
 # Use the faster fcp version (no progress bar though...)
-function cp() {
-    fcp "$@" & progress -mp $!
-}
-
-# Enable progress bar
-function mv() {
-    mv "$@" & progress -mp $!
-}
+# function cp() {
+#     fcp "$@" & progress -mp $!
+# }
+#
+# # Enable progress bar
+# function mv() {
+#     mv "$@" & progress -mp $!
+# }
 
 
 # Move latest Download to current directory

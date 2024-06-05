@@ -6,8 +6,9 @@ items = [
     "rz-ghidra",
     "rz-cutter",
     "dotnet-runtime-6.0",
+    "avaloniailspy",
     "jd-gui-bin",
-    "recaf-bin"
+    "recaf-bin",
 ]
 
 [managers.pypy]

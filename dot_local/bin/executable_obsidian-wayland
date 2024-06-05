@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 # NOT MATURE YET
-obsidian -enable-features=UseOzonePlatform -ozone-platform=wayland "$@"
+obsidian -enable-features=UseOzonePlatform -ozone-platform=wayland --disable-gpu "$@"

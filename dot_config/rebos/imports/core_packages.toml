@@ -71,7 +71,7 @@ items = [
     "preload",
     "base-devel",
     "appmenu-gtk-module",
-    "tinyxxd",
+    "hexxy-git",
     "parallel",
     "xdg-user-dirs",
     "rsync",
