@@ -85,26 +85,55 @@
 #     url = "https://github.com/ticarpi/jwt_tool"
 #     branch = "master"
 #     refreshPeriod = "500h"
-
+#
 # ## Mobile
 # ["HACKING/Tools/Mobile/rootAVD"]
 #     type = "git-repo"
 #     url = "https://gitlab.com/newbit/rootAVD"
 #     branch = "master"
 #     refreshPeriod = "500h"
-
+#
 # ["HACKING/Tools/Mobile/waydroid_script"]
 #     type = "git-repo"
 #     url = "https://github.com/casualsnek/waydroid_script"
 #     branch = "main"
 #     refreshPeriod = "500h"
-
+#
 # ## PWN
 # ["HACKING/Tools/PWN/libc-database"]
-# type = "git-repo"
+#     type = "git-repo"
 #     url = "https://github.com/niklasb/libc-database"
 #     branch = "master"
 #     refreshPeriod = "250h"
+#
+# ## Privesc
+# ["HACKING/Tools/Privesc/linpeas.sh"]
+#     type = "file"
+#     url = '{{ gitHubLatestRelease "peass-ng/PEASS-ng" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+#     branch = "master"
+#     refreshPeriod = "250h"
+#     executable = true
+#
+# ["HACKING/Tools/Privesc/winpeas.bat"]
+#     type = "file"
+#     url = '{{ gitHubLatestRelease "peass-ng/PEASS-ng" | toJson | fromJson | jq ".assets[9].browser_download_url" | first}}'
+#     branch = "master"
+#     refreshPeriod = "250h"
+#     executable = true
+#
+# ["HACKING/Tools/Privesc/linux-exploit-suggester-2.pl"]
+#     type = "file"
+#     url = "https://raw.githubusercontent.com/jondonas/linux-exploit-suggester-2/master/linux-exploit-suggester-2.pl"
+#     branch = "main"
+#     refreshPeriod = "250h"
+#     executable = true
+#
+# ["HACKING/Tools/Privesc/gtfonow.py"]
+#     type = "file"
+#     url = '{{ gitHubLatestRelease "Frissi0n/GTFONow" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+#     branch = "main"
+#     refreshPeriod = "250h"
+#     executable = true
 
 ## Reverse
 [".local/bin/capa"]
@@ -132,6 +161,16 @@
     stripComponents = 1
     refreshPeriod = "1000h"
 
+## Crypto
+[".local/bin/ares"]
+    type = "archive-file"
+    executable = true
+    url = '{{ gitHubLatestRelease "bee-san/Ares" | toJson | fromJson | jq ".assets[4].browser_download_url" | first}}'
+    exact = true
+    stripComponents = 1
+    path = "ares"
+    refreshPeriod = "250h"
+
 {{- end }}
 
 {{- if (and .isWindows .isPersonal) }}
@@ -139,6 +178,6 @@
     type = "file"
     url = "https://raw.githubusercontent.com/iknothing/galaxybook_mask_but_better/main/samsungnotes-betterv2.bat"
     executable = true
-    refreshPeriod = "168h"
+    refreshPeriod = "250h"
 
 {{- end }}

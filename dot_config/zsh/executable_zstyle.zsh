@@ -11,7 +11,7 @@ zstyle ':completion:*' cache-path ~/.cache/zsh
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' rehash true
 
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu no
 
 
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}

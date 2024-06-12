@@ -32,15 +32,11 @@ function chrome() {
 }
 
 function e() {
-    local target_file="$1"
-    if [[ -z "$target_file" ]]; then
-        # echo "No file specified opening last session"
-        $EDITOR
-    elif [[ -e "$target_file" || -w "$(dirname "$target_file")" ]]; then
-        $EDITOR "$target_file"
-    else
-        sudoedit "$target_file" &
-    fi
+    $EDITOR "$@"
+}
+
+function e.() {
+    e .
 }
 
 # sshp username password host extr_args

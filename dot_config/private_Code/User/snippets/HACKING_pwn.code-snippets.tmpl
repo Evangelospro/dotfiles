@@ -30,7 +30,7 @@
             "    return ssh(user=user, host=host, port=port, password=password)",
             "",
             "def pwn_gdb():",
-            "    context.terminal = ['kitty', '-e']",
+            "    context.terminal = ['{{.applications.terminal.linux.command}}', '-e']",
             "    gdbscript = open(os.path.join(os.getenv('XDG_CONFIG_HOME', '{{.chezmoi.homeDir}}/.config'), 'gdb/init')).read()",
             "    gdbscript += '''",
             "    init-pwndbg",

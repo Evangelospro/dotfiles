@@ -1,7 +1,7 @@
 enable_selector = true
 selector = "rofi -dmenu -theme ~/.config/rofi/colors/dracula.rasi -p 'Open With: '"
-terminal_emulator = "warp-terminal"
-term_exec_args = ''
+terminal_emulator = "$TERMINAL"
+term_exec_args = '-e'
 
 # [[handlers]]
 # exec = "freetube %u" # Uses desktop entry field codes

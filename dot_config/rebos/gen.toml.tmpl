@@ -37,6 +37,7 @@ imports = [
 
 [managers.systemd-system]
 items = [
+    "ntpdate", # idk why arch doesn't have this by default
     "docker",
     "plocate-updatedb.timer",
     {{- if .isLaptop }}

@@ -1,5 +1,6 @@
 [managers.system]
 items = [
+    "ntp", # idk why arch doesn't have this by default
     "intel-ucode",
     "amd-ucode",
     "mesa-utils",

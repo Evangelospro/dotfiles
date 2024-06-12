@@ -57,6 +57,18 @@
         "username": "evangelospro",
         "fullname": "Evangelos Lioudakis",
         "email": "elioudakis123@gmail.com",
+        "applications": {
+            "terminal": {"linux":{"name":"wezterm", "command":"wezterm", "class":"org.wezfurlong.wezterm"}},
+            "editor": {"linux":{"name":"code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}, "windows":{"name":"code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}},
+            "browser": {"linux":{"name":"thorium-browser", "command":"thorium-browser", "class":"thorium-browser"}, "windows":{"name":"thorium-browser", "command":"thorium-browser", "class":"thorium-browser"}},
+            "filemanager": {"linux":{"name":"nemo", "command":"nemo", "class":"nemo"}, "windows":{"name":"explorer", "command":"explorer.exe", "class":"explorer"}},
+            "imageviewer": {"linux":{"name":"imv", "command":"imv", "class":"imv"}, "windows":{"name":"imv", "command":"imv", "class":"imv"}},
+            "videoplayer": {"linux":{"name":"vlc", "command":"vlc", "class":"vlc"}, "windows":{"name":"vlc", "command":"vlc", "class":"vlc"}},
+            "musicplayer": {"linux":{"name":"spotify", "command":"spotify", "class":"spotify"}, "windows":{"name":"spotify", "command":"spotify", "class":"spotify"}},
+            "lockscreen": {"linux":{"name":"swaylock", "command":"swaylock", "class":"swaylock"}, "windows":{}},
+            "launcher": {"linux":{"name":"anyrun", "command":"anyrun", "class":"anyrun"}, "windows":{}},
+            "clipboard-manager": {"linux":{"name":"clipman", "command":"clipman", "class":"clipman"}, "windows":{}},
+        },
         "keybindings": {
             "wm":{
                 "movewindows": {
@@ -91,19 +103,19 @@
                 "ocr": {"description": "Perform OCR on a screen selection", "key": "{{$MOD}}{{$SEP}}O", "command": {"linux":"wl-ocr","windows":""}},
             },
             "applications":{
-                "browser" : {"description": "Launch browser", "key": "{{$MOD}}{{$SEP}}B", "command": {"linux":"raise --launch thorium-browser --class thorium-browser","windows":""}},
+                "browser" : {"description": "Launch browser", "key": "{{$MOD}}{{$SEP}}B", "command": {"linux":"raise --launch {{.applications.browser.linux.command}} --class {{.applications.browser.linux.class}}","windows":""}},
                 "browser_new" : {"description": "Launch (new) browser", "key": "{{$SHIFT_MOD}}{{$SEP}}B", "command": {"linux":"thorium-browser","windows":""}},
 
                 "burp" : {"description": "Launch  Burp", "key": "{{$MOD}}{{$SEP}}X", "command": {"linux":"raise --launch burp --class burp-StartBurp","windows":"burpsuite"}},
 
-                "terminal" : {"description": "Launch terminal", "key": "{{$MOD}}{{$SEP}}T", "command": {"linux":"raise --launch $TERMINAL --class dev.warp.Warp","windows":"wt"}},
-                "terminal_new" : {"description": "Launch a new terminal", "key": "{{$SHIFT_MOD}}{{$SEP}}T", "command": {"linux":"$TERMINAL","windows":"wt"}},
+                "terminal" : {"description": "Launch terminal", "key": "{{$MOD}}{{$SEP}}T", "command": {"linux":"raise --launch {{.applications.terminal.linux.command}} --class {{.applications.terminal.linux.class}}","windows":"wt"}},
+                "terminal_new" : {"description": "Launch a new terminal", "key": "{{$SHIFT_MOD}}{{$SEP}}T", "command": {"linux":"{{.applications.terminal.linux.command}} ","windows":"wt"}},
 
-                "filemanager" : {"description": "Launch file manager", "key": "{{$MOD}}{{$SEP}}E", "command": {"linux":"raise --launch nemo --class nemo","windows":"explorer.exe"}},
-                "filemanager_new" : {"description": "Launch (new) file manager", "key": "{{$SHIFT_MOD}}{{$SEP}}E", "command": {"linux":"nemo","windows":""}},
+                "filemanager" : {"description": "Launch file manager", "key": "{{$MOD}}{{$SEP}}E", "command": {"linux":"raise --launch {{.applications.filemanager.linux.command}}  --class {{.applications.filemanager.linux.class}} ","windows":"explorer.exe"}},
+                "filemanager_new" : {"description": "Launch (new) file manager", "key": "{{$SHIFT_MOD}}{{$SEP}}E", "command": {"linux":"{{.applications.filemanager.linux.command}}","windows":""}},
 
-                "editor" : {"description": "Launch editor", "key": "{{$MOD}}{{$SEP}}C", "command": {"linux":"raise --launch $EDITOR --class code-insiders-url-handler","windows":"code.exe"}},
-                "editor_new" : {"description": "Launch (new) editor", "key": "{{$SHIFT_MOD}}{{$SEP}}C", "command": {"linux":"$EDITOR","windows":""}},
+                "editor" : {"description": "Launch editor", "key": "{{$MOD}}{{$SEP}}C", "command": {"linux":"raise --launch {{.applications.editor.linux.command}}  --class {{.applications.editor.linux.class}} ","windows":"code.exe"}},
+                "editor_new" : {"description": "Launch (new) editor", "key": "{{$SHIFT_MOD}}{{$SEP}}C", "command": {"linux":"{{.applications.editor.linux.command}}","windows":""}},
 
                 "notes" : {"description": "Launch (new) editor", "key": "{{$MOD}}{{$SEP}}N", "command": {"linux":"raise --launch obsidian --class obsidian","windows":""}},
             }

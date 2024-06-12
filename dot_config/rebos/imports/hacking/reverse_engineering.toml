@@ -6,7 +6,7 @@ items = [
     "rz-ghidra",
     "rz-cutter",
     "dotnet-runtime-6.0",
-    "avaloniailspy",
+    # "avaloniailspy",
     "jd-gui-bin",
     "recaf-bin",
 ]

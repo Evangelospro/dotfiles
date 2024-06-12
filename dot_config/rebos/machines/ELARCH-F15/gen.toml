@@ -11,6 +11,7 @@ imports = [
 items = [
     "seadrive-gui",
     "ocrmypdf",
+    "github-copilot-cli",
 ]
 
 [managers.systemd-user]

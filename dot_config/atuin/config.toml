@@ -1,17 +1,17 @@
 ## where to store your database, default is your system data directory
 ## linux/mac: ~/.local/share/atuin/history.db
 ## windows: %USERPROFILE%/.local/share/atuin/history.db
-# db_path = "~/.history.db"
+db_path = "~/.local/share/atuin/history.db"
 
 ## where to store your encryption key, default is your system data directory
 ## linux/mac: ~/.local/share/atuin/key
 ## windows: %USERPROFILE%/.local/share/atuin/key
-# key_path = "~/.key"
+key_path = "~/.local/share/atuin/key"
 
 ## where to store your auth session token, default is your system data directory
 ## linux/mac: ~/.local/share/atuin/session
 ## windows: %USERPROFILE%/.local/share/atuin/session
-# session_path = "~/.session"
+session_path = "~/.local/share/atuin/session"
 
 ## date format used, either "us" or "uk"
 # dialect = "us"
@@ -32,7 +32,7 @@ sync_address = "https://api.atuin.sh"
 
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy, skim
-# search_mode = "fuzzy"
+search_mode = "fuzzy"
 
 ## which filter mode to use
 ## possible values: global, host, session, directory
@@ -127,15 +127,16 @@ enter_accept = false
 
 #[stats]
 # Set commands where we should consider the subcommand for statistics. Eg, kubectl get vs just kubectl
-#common_subcommands = [
-#  "cargo",
-#  "go",
-#  "git",
-#  "npm",
-#  "yarn",
-#  "pnpm",
-#  "kubectl",
-#]
+common_subcommands = [
+  "cargo",
+  "go",
+  "git",
+  "npm",
+  "yarn",
+  "pnpm",
+  "kubectl",
+  "docker",
+]
 #
 # Set commands that should be totally stripped and ignored from stats
 common_prefix = ["sudo"]
