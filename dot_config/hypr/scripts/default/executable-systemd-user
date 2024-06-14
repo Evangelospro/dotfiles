@@ -1,4 +1,0 @@
-#!/bin/bash
-
-/usr/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-/usr/bin/dbus-update-activation-environment --all

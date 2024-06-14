@@ -7,3 +7,4 @@ fi
 alias wpscan='wpscan -e ap,t,u --plugins-detection aggressive'
 alias jwt-tool="python3 $HACKING_TOOLS/Web/jwt_tool/jwt_tool.py"
 alias webserver='updog -p 8000'
+alias ftpup='sudo python -m pyftpdlib -p 21'

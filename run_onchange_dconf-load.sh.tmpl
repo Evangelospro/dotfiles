@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# everything.conf hash: {{ include "dot_config/private_dconf/user.d/everything.conf.tmpl" | sha256sum }}
+chezmoi-helpers-dconf apply ~/.config/dconf/user.d/everything.conf
+echo "Dconf settings reload complete."

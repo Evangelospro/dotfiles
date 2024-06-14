@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-{{ if and (eq .osid "linux-arch") (not .ephemeral) -}}
+{{ if and (eq .osID "linux-arch") (not .isHeadless) -}}
 if ! pacman -Qs rebos-git >/dev/null 2>&1; then
     # use ~/.local/share/chezmoi/confs/etc/pacman.conf
     paru -S --noconfirm rebos-git --config ~/.local/share/chezmoi/confs/etc/pacman.conf

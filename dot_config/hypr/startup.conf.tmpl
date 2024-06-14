@@ -5,7 +5,6 @@ exec=$HOME/.config/hypr/scripts/default/fix-xdg-portals
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
 # SIGNAL SYSTEMD SERVICES
-exec=hyprland-systemd
 exec=/usr/bin/systemctl --user start blueman-applet
 exec=/usr/bin/systemctl --user start nm-applet
 exec=/usr/bin/systemctl --user start usbguard-applet

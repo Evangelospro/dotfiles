@@ -1,0 +1,86 @@
+#!/bin/bash
+
+set -euo pipefail
+
+BASENAME=$(basename "$0")
+KEYFILE_TEMPLATE=$(chezmoi source-path)/dconf_overrides.keyfile.tmpl
+DCONF_PROFILE_DIR=$(systemd-path user-configuration)/dconf
+
+if [ $# -lt 1 ]; then
+	echo "usage: $BASENAME <command> [<args>]"
+	echo
+	echo "command must be one of"
+	echo "  dump    Dumps dconf keyfile with all custom overrides"
+	echo "  diff    Shows the changes that would occur if keyfile is applied"
+	echo "  apply   Applies keyfile to the default dconf user db"
+	echo
+	echo "SYNOPSIS"
+	echo "  $BASENAME dump"
+	echo "  $BASENAME diff [keyfile]"
+	echo "  $BASENAME apply [keyfile]"
+	echo
+	echo "DESCRIPTION"
+	echo "  The diff and apply commands accept an optional keyfile argument. When omitted,"
+	echo "  the operations implicitly assume a keyfile whose content is equivalent to the"
+	echo "  output of the dump command."
+
+	exit 0
+fi
+
+dump() {
+	chezmoi execute-template < "$KEYFILE_TEMPLATE"
+}
+
+diff() {
+	local keyfile="${1:-}"
+	local tmp_profile=$(mktemp)
+	echo "user-db:tmpdb" > "$tmp_profile"
+
+	trap "rm -f -- '${tmp_profile}' '${DCONF_PROFILE_DIR}/tmpdb'" EXIT
+
+	# Mirror user database to a temporary database
+	env DCONF_PROFILE="$tmp_profile" dconf load / < <(dconf dump /)
+
+	# Apply keyfile to temporary database
+	if [ -z "$keyfile" ]; then
+		env DCONF_PROFILE="$tmp_profile" dconf load / < <(dump)
+	elif [ -f "$keyfile" ]; then
+		env DCONF_PROFILE="$tmp_profile" dconf load / < "$keyfile"
+	else
+		echo "Keyfile not found: $keyfile"
+		exit 1
+	fi
+
+	git diff --no-index <(dconf dump /) <(env DCONF_PROFILE="$tmp_profile" dconf dump /)
+}
+
+apply() {
+	local keyfile="${1:-}"
+
+	if [ -z "$keyfile" ]; then
+		dconf load / < <(dump)
+        echo "Keyfile applied"
+	elif [ -f "$keyfile" ]; then
+		dconf load / < "$keyfile"
+        echo "Keyfile $keyfile applied"
+	else
+		echo "Keyfile not found: $keyfile"
+		exit 1
+	fi
+}
+
+case "$1" in
+	dump)
+		dump
+		;;
+	diff)
+		diff "${2:-}"
+		;;
+	apply)
+		apply "${2:-}"
+		;;
+	*)
+		echo "unknown command \"$1\""
+		exit 1
+		;;
+esac

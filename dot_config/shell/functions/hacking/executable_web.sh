@@ -1,5 +1,4 @@
 function enable-proxy-system() {
-    source $HOME/.config/burp/scripts/env.sh
     openssl x509 -inform der -in "$BURP_CERTIFICATE_DIR/cert.der" -out "$BURP_CERTIFICATE_DIR/cert.pem"
     export REQUESTS_CA_BUNDLE="$BURP_CERTIFICATE_DIR/cert.pem"
     export SSL_CERT_FILE="$BURP_CERTIFICATE_DIR/cert.pem"
