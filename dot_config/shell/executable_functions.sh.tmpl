@@ -251,6 +251,26 @@ function cd() {
     fi
 }
 
+function cat() {
+    # check if bat is installed
+    if command -v bat &> /dev/null; then
+        for file in $@; do
+            mimetype=$(file --mime-type -b "$file")
+            if [[ $mimetype != image/* ]]; then
+                /bin/cat "$file"
+            else
+                if command -v wezterm &> /dev/null; then
+                    wezterm imgcat "$file"
+                elif command -v kitty &> /dev/null; then
+                    kitty +kitten icat "$file"
+                fi
+            fi
+        done
+    else
+        /bin/cat "$@"
+    fi
+}
+
 # Time shell loading time takes shell and number of times to run
 function timeshell() {
     shell=${1-$SHELL}

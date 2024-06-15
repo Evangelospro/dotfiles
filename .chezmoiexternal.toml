@@ -35,6 +35,12 @@
 #    stripComponents = 0
 #    path = "gitstatusd-linux-x86_64"
 
+[".config/zsh/plugins/zsh-syntax-highlighting/dracula.sh"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
+    executable = true
+    refreshPeriod = "168h"
+
 [".config/hypr/hyprland-repo"]
     type = "git-repo"
     url = "https://github.com/hyprwm/hyprland"

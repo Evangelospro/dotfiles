@@ -25,14 +25,6 @@ local keys = {
                     Search = {CaseInSensitiveString = selection}
                 }, pane)
             end)
-    }, {
-        key = 'Backspace',
-        mods = 'CTRL',
-        action = action.SendKey {key = 'w', mods = 'CTRL'}
-    }, {
-        key = 'Delete',
-        mods = 'CTRL',
-        action = action.SendKey {key = 'd', mods = 'ALT'}
     }, {key = "n", mods = "CTRL|SHIFT", action = action.SpawnWindow}, {
         key = "w",
         mods = "CTRL",

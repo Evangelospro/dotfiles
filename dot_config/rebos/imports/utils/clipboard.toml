@@ -3,4 +3,5 @@ items = [
     "wl-clipboard",
     "cliphist",
     "wl-clip-persist-git",
+    "clipboard-sync",
 ]

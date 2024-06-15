@@ -2,14 +2,19 @@ source "$ZDOTDIR/binds/fzf-binds.zsh"
 
 # bindkey -e
 # CTRL + A
-# bindkey '^[[s' beginning-of-line
+bindkey '^[[s' beginning-of-line
 # CTRL + E
-# bindkey '^[[e' end-of-line
+bindkey '^[[e' end-of-line
 
-# CTRL + Delete
-# bindkey '^[[3;5~' delete-char
-# CTRL + Backspace
-# bindkey '^H' kill-word
+# delete key
+bindkey '^[[3~' delete-char
+# backspace key
+bindkey '^?' backward-delete-char
+
+# Ctrl+Delete: kill the word forward
+bindkey '^[[3;5~' kill-word
+# Ctrl+Backspace: kill the word backward
+bindkey "^H" backward-kill-word
 
 # CTRL + LEFT ARROW -> Move to the previous word
 bindkey '^[[1;5D' backward-word

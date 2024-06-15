@@ -5,7 +5,7 @@ if [[ "${SHELL_PROFILE}" == 1 ]]; then
     echo "Starting profiler"
     zmodload zsh/zprof
 else
-    source $XDG_CONFIG_HOME/shell/scripts/utils/clear
+    $XDG_CONFIG_HOME/shell/scripts/utils/clear
 fi
 
 # check message of the day
@@ -64,7 +64,6 @@ if [ "$TERM" = "linux" ]; then
     printf %b '\e]PE97e2ff'    # redefine 'bright-cyan'    as '#97e2ff'
     printf %b '\e]P7f8f8f2'    # redefine 'white'          as 'dracula-fg'
     printf %b '\e]PFffffff'    # redefine 'bright-white'   as '#ffffff'
-    clear
 fi
 
 # Generated for envman. Do not edit.
