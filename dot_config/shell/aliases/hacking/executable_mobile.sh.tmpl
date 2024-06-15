@@ -1,0 +1,10 @@
+APKLAB_DIR=~/.apklab
+if [ -f $APKLAB_DIR/first_run_completed ]; then
+    jadx_path=$(ls -d $APKLAB_DIR/jadx-*|head -n 1)
+    apktool=$(ls -d $APKLAB_DIR/apktool_*.jar|head -n 1)
+    uber_apk_signer=$(ls -d $APKLAB_DIR/uber-apk-signer-*.jar|head -n 1)
+    alias jadx="$jadx_path/bin/jadx"
+    alias jadx-gui="$jadx_path/bin/jadx-gui"
+    alias apktool="java -jar $apktool"
+    alias sign-apk="java -jar $uber_apk_signer --allowResign"
+fi

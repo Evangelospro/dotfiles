@@ -1,6 +1,5 @@
 [managers.system]
 items = [
     "xdg-ninja-git",
-    "handlr-regex",
     # "pistol-git",
 ]

@@ -1,4 +1,5 @@
 source $XDG_CONFIG_HOME/shell/wm_startup.sh
+zmodload zsh/complist
 
 # Start profiler if SHELL_PROFILE not empty
 if [[ "${SHELL_PROFILE}" == 1 ]]; then
@@ -80,7 +81,7 @@ select-word-style bash # ctrl+backspaces now deletes to previous / when working 
 source $XDG_CONFIG_HOME/shell/aliases.sh
 
 # Plugins (at the end of the file to overwrite "framework" set plugins)
-source "$ZDOTDIR/plugins.zsh"
+source $ZDOTDIR/plugins.zsh
 
 # Bindings (at the end of the file to overwrite "framework" set bindings)
 source $ZDOTDIR/binds.zsh

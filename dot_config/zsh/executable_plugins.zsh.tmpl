@@ -14,19 +14,37 @@ zinit load QuarticCat/zsh-smartcache
 # smartcache comp register-python-argcomplete pipx
 smartcache eval thefuck --alias
 smartcache eval direnv hook zsh
-smartcache eval atuin init zsh 2>&1 >/dev/null
-
-zinit ice wait lucid nocd
-zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
-
-zinit ice wait lucid nocd
-zinit light z-shell/zsh-zoxide
+smartcache eval atuin init zsh --disable-up-arrow --disable-ctrl-r 2>&1 >/dev/null
 
 # Plugins for annex speedups
 zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-bin-gem-node \
     NICHOLAS85/z-a-eval
+
+# Modern Unix commands (ON TOP so they are used later on)
+# See https://github.com/ibraheemdev/modern-unix
+zinit wait as"null" lucid from"gh-r" for \
+    atload"alias ls='lsd -hAFlt --group-dirs first --color=always'; alias la='lsd -laFh'; alias tree='lsd -haFlt --group-dirs first --tree'" sbin"**/lsd" lsd-rs/lsd \
+    cp"**/bat.1 -> $ZPFX/share/man/man1" mv"**/autocomplete/bat.zsh -> _bat" completions sbin"**/bat" @sharkdp/bat \
+    cp"**/fd.1 -> $ZPFX/share/man/man1" completions sbin"**/fd" @sharkdp/fd \
+    cp"**/hyperfine.1 -> $ZPFX/share/man/man1" completions sbin"**/hyperfine" @sharkdp/hyperfine \
+    cp"**/doc/rg.1 -> $ZPFX/share/man/man1" sbin"**/rg" BurntSushi/ripgrep \
+    atload"alias top=btm" completions sbin"**/btm" ClementTsang/bottom \
+    atload"alias help=tldr" mv"tealdeer* -> tldr" dl"https://github.com/dbrgn/tealdeer/releases/latest/download/completions_zsh -> _tldr;" completions sbin"tldr" dbrgn/tealdeer \
+    atload"alias du=dust" sbin"**/dust" bootandy/dust \
+    atload"alias diff=delta" completions sbin"**/delta" dandavison/delta
+
+
+# HIGHLIGHT useful after grep
+zinit ice pick"h.sh"
+zinit light paoloantinori/hhighlighter
+
+zinit ice wait lucid nocd
+zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
+
+zinit ice wait lucid nocd
+zinit light z-shell/zsh-zoxide
 
 zinit ice wait lucid depth=1 pick="async.zsh"
 zinit light mafredri/zsh-async
@@ -57,33 +75,10 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     {{ end -}}
 fi
 
-## FZF tab completion
-export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --files --hidden --follow --glob '!.git' || find ."
-export FZF_DEFAULT_OPTS=''
-zinit ice wait lucid depth"1" blockf
-zinit light Aloxaf/fzf-tab
-
 if [[ $(tput colors) == 256 ]]; then
     zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/p10k.zsh'
     zinit light romkatv/powerlevel10k
 fi
-
-# Modern Unix commands
-# See https://github.com/ibraheemdev/modern-unix
-zinit wait as"null" lucid from"gh-r" for \
-    atload"alias ls='lsd -hAFlt --group-dirs first --color=always'; alias la='lsd -laFh'; alias tree='lsd -haFlt --group-dirs first --tree'" sbin"**/lsd" lsd-rs/lsd \
-    cp"**/bat.1 -> $ZPFX/share/man/man1" mv"**/autocomplete/bat.zsh -> _bat" completions sbin"**/bat" @sharkdp/bat \
-    cp"**/fd.1 -> $ZPFX/share/man/man1" completions sbin"**/fd" @sharkdp/fd \
-    cp"**/hyperfine.1 -> $ZPFX/share/man/man1" completions sbin"**/hyperfine" @sharkdp/hyperfine \
-    cp"**/doc/rg.1 -> $ZPFX/share/man/man1" sbin"**/rg" BurntSushi/ripgrep \
-    atload"alias top=btm" completions sbin"**/btm" ClementTsang/bottom \
-    atload"alias help=tldr" mv"tealdeer* -> tldr" dl'https://github.com/dbrgn/tealdeer/releases/latest/download/completions_zsh -> _tldr;' completions sbin"tldr" dbrgn/tealdeer \
-    atload"alias du=dust" sbin"**/dust" bootandy/dust \
-    atload"alias diff=delta" completions sbin"**/delta" dandavison/delta
-
-# HIGHLIGHT useful after grep
-zinit ice pick"h.sh"
-zinit light paoloantinori/hhighlighter
 
 zinit wait'0b' lucid as"completion" blockf atpull'zinit creinstall -q .' \
     atload"source $ZDOTDIR/plugins/zsh-completions_atload.zsh"  \
@@ -94,6 +89,9 @@ zinit light loiccoyle/zsh-github-copilot
 zinit wait'0b' lucid \
     atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start" \
     light-mode for @zsh-users/zsh-autosuggestions
+
+zinit ice depth=1 lucid nocd
+zinit light marlonrichert/zsh-autocomplete
 
 # Syntax highlight must be the last one
 zinit ice depth=1 lucid nocd

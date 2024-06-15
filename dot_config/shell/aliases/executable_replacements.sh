@@ -10,7 +10,7 @@ alias dig='doggo'
 alias termbin='ncat termbin.com 9999|copy && paste'
 alias which-command='whence'
 alias hexdump='od -A x -t x1z -v'
-alias o='handlr open'
+alias o='xdg-open'
 alias md='glow'
 alias wget="wget -c --hsts-file=$HOME/.cache/wget-hsts"
 alias update-timezone='sudo tzupdate'

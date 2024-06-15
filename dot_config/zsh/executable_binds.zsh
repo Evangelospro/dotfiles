@@ -31,8 +31,8 @@ bindkey '^[[1;5C' forward-word
 bindkey '^r' atuin-search
 
 # bind to the up key, which depends on terminal mode
-bindkey '^[[A' atuin-up-search
-bindkey '^[OA' atuin-up-search
+# bindkey '^[[A' atuin-up-search
+# bindkey '^[OA' atuin-up-search
 
 # shift + tab - suggest
 bindkey '^[[Z' zsh_gh_copilot_suggest
