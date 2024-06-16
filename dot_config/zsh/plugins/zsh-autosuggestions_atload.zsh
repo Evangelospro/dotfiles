@@ -1,13 +1,12 @@
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
-# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(buffer-empty bracketed-paste accept-line push-line-or-edit)
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(buffer-empty bracketed-paste accept-line push-line-or-edit)
+ZSH_AUTOSUGGEST_STRATEGY=(history)
 # ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
 
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 
-bindkey "^Y" autosuggest-accept
-bindkey "^[[89;5u" autosuggest-accept
+# bindkey "^[[89;5u" autosuggest-accept
 #bindkey autosuggest-execute
 #bindkey autosuggest-clear
 #bindkey autosuggest-fetch
@@ -25,5 +24,6 @@ pasteinit() {
 pastefinish() {
 	zle -N self-insert $OLD_SELF_INSERT
 }
+
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish

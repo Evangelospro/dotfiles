@@ -1,5 +1,5 @@
 # Speed up completions
-zstyle ':completion:*' accept-exact '*(N)'
+#zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 zstyle ':completion:*' rehash true
@@ -26,7 +26,9 @@ zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
 
 zstyle ':autocomplete:*' recent-dirs zoxide
 zstyle ':autocomplete:*' fzf-completion yes
-
+zstyle ':autocomplete:*' insert-unambiguous yes
+zstyle ':autocomplete:complete*:*' insert-unambiguous yes
+zstyle ':autocomplete:*' widget-style menu-select
 
 # zstyle ':fzf-tab:*' continuous-trigger 'tab'
 # zstyle ':fzf-tab:complete:(cd|ls|cat|nano|vi|vim):*' fzf-preview 'lsd -1 $realpath'

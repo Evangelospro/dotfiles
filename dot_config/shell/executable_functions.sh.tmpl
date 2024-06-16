@@ -252,8 +252,9 @@ function cd() {
 }
 
 function cat() {
-    # check if bat is installed
-    if command -v bat &> /dev/null; then
+    if [ $# -eq 0 ]; then
+        /bin/cat
+    elif command -v bat &> /dev/null; then
         for file in $@; do
             mimetype=$(file --mime-type -b "$file")
             if [[ $mimetype != image/* ]]; then

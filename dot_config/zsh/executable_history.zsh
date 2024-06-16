@@ -1,0 +1,5 @@
+export HYPHEN_INSENSITIVE="true"
+export ENABLE_CORRECTION="true"
+export HISTFILE=$ZDOTDIR/zsh_history.zsh
+export SAVEHIST=10000000
+export HISTSIZE=50000

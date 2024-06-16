@@ -1,3 +1,6 @@
+# COMPLETIONS
+_comp_options+=(globdots)
+
 autoload -Uz compinit
 zcompdump_file="$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION"
 

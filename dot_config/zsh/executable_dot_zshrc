@@ -12,18 +12,7 @@ fi
 # check message of the day
 [ -f /etc/motd ] && /usr/bin/cat /etc/motd
 
-HYPHEN_INSENSITIVE="true"
-ENABLE_CORRECTION="true"
-
-export HISTFILE=$ZDOTDIR/zsh_history.zsh
-export SAVEHIST=10000000
-export HISTSIZE=50000
-
-# Setopts
-source $ZDOTDIR/options.zsh
-
-# Styling
-source $ZDOTDIR/zstyle.zsh
+source $ZDOTDIR/history.zsh
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of $ZSHrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -70,23 +59,29 @@ fi
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+# Setopts
+source $ZDOTDIR/options.zsh
+
+# Styling
+source $ZDOTDIR/zstyle.zsh
+
+# Plugins
+source $ZDOTDIR/plugins.zsh
+
+# Functions, Aliases, Bindings, Completions all should load after plugins in order to overwrite them
+
+# Functions
 source $XDG_CONFIG_HOME/shell/functions.sh
 
-fpath+=$ZDOTDIR/.zfunc
-
-autoload -U select-word-style
-select-word-style bash # ctrl+backspaces now deletes to previous / when working with paths
-
-# Aliases (at the end of the file to overwrite "framework" set aliases)
+# Aliases
 source $XDG_CONFIG_HOME/shell/aliases.sh
-
-# Plugins (at the end of the file to overwrite "framework" set plugins)
-source $ZDOTDIR/plugins.zsh
 
 # Bindings (at the end of the file to overwrite "framework" set bindings)
 source $ZDOTDIR/binds.zsh
 
-# COMPLETIONS
-_comp_options+=(globdots)
+fpath=(/usr/local/share/zsh-completion $ZDOTDIR/.zfunc $fpath)
+
+autoload -U select-word-style
+select-word-style bash # ctrl+backspaces now deletes to previous / when working with paths
 
 source $ZDOTDIR/post_load.zsh

@@ -1,6 +1,17 @@
 source "$ZDOTDIR/binds/fzf-binds.zsh"
 
 # bindkey -e
+
+# ZSH autocomplete
+bindkey              '^I'         menu-complete
+bindkey -M menuselect  '^[[D' .backward-char  '^[OD' .backward-char
+bindkey -M menuselect  '^[[C'  .forward-char  '^[OC'  .forward-char
+bindkey -M menuselect '^M' .accept-line
+
+# ZSH autosuggestions
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
 # CTRL + A
 bindkey '^[[s' beginning-of-line
 # CTRL + E
