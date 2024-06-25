@@ -1,9 +1,0 @@
-enable_selector = true
-selector = "rofi -dmenu -theme ~/.config/rofi/colors/dracula.rasi -p 'Open With: '"
-terminal_emulator = "$TERMINAL"
-term_exec_args = '-e'
-
-# [[handlers]]
-# exec = "freetube %u" # Uses desktop entry field codes
-# terminal = false # Set to true for terminal apps, false for GUI apps (optional; defaults to false)
-# regexes = ['(https://)?(www\.)?youtu(be\.com|\.be)/*.'] # Use single-quote literal strings

@@ -7,6 +7,7 @@
     executable = true
     refreshPeriod = "168h"
 
+# DRACULA THEME
 [".local/share/themes/Dracula"]
     type = "archive"
     url = "https://github.com/dracula/gtk/archive/master.tar.gz"
@@ -28,18 +29,23 @@
     stripComponents = 1
     path = "Dracula.conf"
 
+[".config/zsh/plugins/zsh-syntax-highlighting/dracula.sh"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
+    executable = true
+    refreshPeriod = "168h"
+
+[".local/bin/IDA/themes/dracula/theme.css"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/dracula/ida/master/theme.css"
+    refreshPeriod = "168h"
+
 # [".config/zsh/utils/gitstatus/gitstatusd-linux"]
 #    type = "archive-file"
 #    url = '{{ gitHubLatestRelease "romkatv/gitstatus" | toJson | fromJson | jq ".assets[2].browser_download_url" | first}}'
 #    refreshPeriod = "168h"
 #    stripComponents = 0
 #    path = "gitstatusd-linux-x86_64"
-
-[".config/zsh/plugins/zsh-syntax-highlighting/dracula.sh"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
-    executable = true
-    refreshPeriod = "168h"
 
 [".config/hypr/hyprland-repo"]
     type = "git-repo"
@@ -142,6 +148,31 @@
 #     executable = true
 
 ## Reverse
+### IDA
+[".local/bin/IDA/plugins/auto_re.py"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/a1ext/auto_re/master/auto_re.py"
+    executable = true
+    refreshPeriod = "168h"
+
+[".local/bin/IDA/plugins/jni_helper3.py"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/evilpan/jni_helper/master/ida/jni_helper3.py"
+    executable = true
+    refreshPeriod = "168h"
+
+[".local/bin/IDA/plugins/IDAMagicStrings.py"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/joxeankoret/idamagicstrings/master/IDAMagicStrings.py"
+    executable = true
+    refreshPeriod = "168h"
+
+[".local/bin/IDA/plugins/codatify.py"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/grayhatacademy/ida/master/plugins/codatify/codatify.py"
+    executable = true
+    refreshPeriod = "168h"
+
 [".local/bin/capa"]
     type = "archive-file"
     executable = true

@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-{{ if and (eq .osID "linux-arch") (not .isHeadless) -}}
-if ! pacman -Qs gh >/dev/null 2>&1; then
-    sudo pacman -Sy --noconfirm github-cli
-fi
-{{ end -}}

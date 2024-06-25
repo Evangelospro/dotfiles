@@ -13,28 +13,32 @@ function startRDP() {
 }
 
 # if the first parameter is start
-if [ "$1" == "start" ]; then
-    echo "Creating/starting container..."
-    (cd $HACKING_TOOLS/Reverse/docker-ida && docker compose up --build -d)
-    echo "Container created/started"
-    sleep 2
-    echo "Entering container..."
-    outputInfo
-    # wait until the container is running before starting rdesktop
-    while [ "$(docker inspect -f '{{.State.Running}}' docker-ida)" != "true" ]; do
-        sleep 1
-        echo "Waiting for container to start..."
-    done
-    startRDP
-elif [ "$1" == "stop" ]; then
-    if [ "$(docker ps -aq -f name=docker-ida)" ]; then
-        echo "Stopping container..."
-        (cd $HACKING_TOOLS/Reverse/docker-ida && docker compose down)
-        echo "Container stopped"
-    else
-        echo "Container does not exist, nothing to stop"
-    fi
-    pkill -9 rdesktop
-else
-    echo "Usage: ida start|stop"
-fi
+# if [ "$1" == "start" ]; then
+#     echo "Creating/starting container..."
+#     (cd $HACKING_TOOLS/Reverse/docker-ida && docker compose up --build -d)
+#     echo "Container created/started"
+#     sleep 2
+#     echo "Entering container..."
+#     outputInfo
+#     # wait until the container is running before starting rdesktop
+#     while [ "$(docker inspect -f '{{.State.Running}}' docker-ida)" != "true" ]; do
+#         sleep 1
+#         echo "Waiting for container to start..."
+#     done
+#     startRDP
+# elif [ "$1" == "stop" ]; then
+#     if [ "$(docker ps -aq -f name=docker-ida)" ]; then
+#         echo "Stopping container..."
+#         (cd $HACKING_TOOLS/Reverse/docker-ida && docker compose down)
+#         echo "Container stopped"
+#     else
+#         echo "Container does not exist, nothing to stop"
+#     fi
+#     pkill -9 rdesktop
+# else
+#     echo "Usage: ida start|stop"
+# fi
+
+
+# NEW
+(cd ~/.local/bin/IDA/Launcher/ && QT_QPA_PLATFORM="xcb" ~/.local/bin/IDA/Launcher/ida.py ~/.local/bin/IDA/ida64 | cat)

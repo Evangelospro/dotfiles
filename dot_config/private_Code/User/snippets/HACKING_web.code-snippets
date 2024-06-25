@@ -3,18 +3,22 @@
 		"scope": "python",
 		"prefix": "web temp",
 		"body": [
-			"import httpx as requests",
+			"import httpx",
 			"from requestrepo import Requestrepo",
-			"# client = Requestrepo(token='')"
+			"# client = Requestrepo(token='')",
+            "",
+            "s = httpx.Client()",
+            ""
 		]
 	},
     "flask sign cookie": {
 		"scope": "python",
 		"prefix": "flask sign cookie",
 		"body": [
-			"from flask_unsign import session as s",
+			"from flask_unsign import session as flask_session",
+            "flask_secret = 'secret'",
             "",
-            "cookie = s.sign({'username':'admin'}, 'secret')",
+            "cookie = flask_session.sign({'username':'admin'}, flask_secret)",
             "print(cookie)"
 		]
 	},
@@ -23,7 +27,9 @@
         "prefix": "flask lfi werkzeug debug pin",
         "body": [
             "from wconsole_extractor import WConsoleExtractor",
-            "import httpx as requests",
+            "import httpx",
+            "",
+            "s = httpx.Client()",
             "",
             "url = 'http://localhost:5000'",
             "",

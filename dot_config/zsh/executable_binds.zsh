@@ -39,7 +39,7 @@ bindkey '^[[1;5C' forward-word
 # use ctrl-n for navi cheatsheets
 [[ $TERM_PROGRAM != "WarpTerminal" ]] && bindkey '^n' navi_widget
 
-bindkey '^r' atuin-search
+bindkey '^R' atuin-search
 
 # bind to the up key, which depends on terminal mode
 # bindkey '^[[A' atuin-up-search

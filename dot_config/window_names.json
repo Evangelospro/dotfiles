@@ -134,5 +134,9 @@
     "valent": {
         "name": "Valent",
         "icon": "ca.andyholmes.Valent"
+    },
+    "IDA": {
+        "name": "IDA Pro",
+        "icon": "~/.local/share/icons/ida.svg"
     }
 }

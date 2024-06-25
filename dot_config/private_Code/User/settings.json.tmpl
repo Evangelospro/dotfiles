@@ -199,8 +199,6 @@
 		"editor.formatOnSave": false
 	},
 	"js/ts.implicitProjectConfig.checkJs": true,
-	// GIT SETTINGS
-	"github.copilot.inlineSuggest.enable": true,
 	"github.copilot.enable": {
 		"*": true,
 		"plaintext": true,
@@ -209,7 +207,7 @@
 		"yaml": true
 	},
 	"git.enableSmartCommit": true,
-    "git.allowForcePush": true,
+	"git.allowForcePush": true,
 	"git.autofetch": true,
 	"github.copilot.advanced": {},
 	"git.confirmSync": false,
@@ -220,16 +218,17 @@
 	"gitlens.hovers.currentLine.over": "line",
 	"gitlens.codeLens.enabled": false,
 	"gitlens.statusBar.enabled": true,
-    "gitlens.blame.highlight.enabled": false,
-    "gitlens.codeLens.authors.enabled": false,
-    "gitlens.codeLens.recentChange.enabled": false,
-    "gitlens.currentLine.scrollable": false,
+	"gitlens.blame.highlight.enabled": false,
+	"gitlens.codeLens.authors.enabled": false,
+	"gitlens.codeLens.recentChange.enabled": false,
+	"gitlens.currentLine.scrollable": false,
 	// FILE EXPLORER
-    "explorer.openEditors.visible": 0,
+	"explorer.openEditors.visible": 0,
 	"explorer.autoReveal": false,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmDelete": false,
 	"files.autoSave": "afterDelay",
+	// SNYK
 	// SNYK
     {{- if eq .chezmoi.os "linux" }}
 	"snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}/.local/share/snyk-ls/snyk-linux",
@@ -249,10 +248,10 @@
 	"security.workspace.trust.banner": "always",
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.untrustedFiles": "open",
-    // Disable telemetry
-    "telemetry.telemetryLevel": "off",
-    "redhat.telemetry.enabled": false,
-    "gitlens.telemetry.enabled": false,
+	// Disable telemetry
+	"telemetry.telemetryLevel": "off",
+	"redhat.telemetry.enabled": false,
+	"gitlens.telemetry.enabled": false,
 	// MISC / GENERAL
 	"update.showReleaseNotes": false,
 	"diffEditor.ignoreTrimWhitespace": false,
@@ -290,7 +289,7 @@
 	},
 	"vim.useSystemClipboard": true,
 	"vim.vimrc.enable": true,
-    "vim.vimrc.path": "{{ .chezmoi.homeDir }}/.config/vim/.vimrc",
+	"vim.vimrc.path": "{{ .chezmoi.homeDir }}/.config/vim/.vimrc",
 	"vim.shell": "/usr/bin/zsh",
 	"vva.trustedDomain": true,
 	"vim.handleKeys": {
@@ -337,5 +336,7 @@
 	"update.mode": "none",
 	"[properties]": {
 		"editor.defaultFormatter": "foxundermoon.shell-format"
-	}
+	},
+	"github.copilot.editor.enableAutoCompletions": true,
+	"go.toolsManagement.autoUpdate": true
 }

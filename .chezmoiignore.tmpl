@@ -3,6 +3,11 @@ PKGBUILDS
 
 **/*.src.ini
 
+{{- if (not .isHacking) }}
+.local/bin/ida
+.local/applications/ida.desktop
+{{ end }}
+
 {{- if ne .chezmoi.os "windows" }}
 **/*.lnk
 **/*.bat
@@ -110,11 +115,11 @@ docs/zsdoc/data
 **/.mypy_cache
 
 
-# isPersonal
-{{- if .isPersonal }}
+{{- if not .isPersonal }}
 Courses
+Documents
 HACKING
-Notes
+School
 .ssh/config
 .ssh/keys/eraspberry1
 .ssh/keys/portainer

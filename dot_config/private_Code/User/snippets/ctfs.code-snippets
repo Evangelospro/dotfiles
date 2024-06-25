@@ -1,0 +1,17 @@
+{
+	"web template": {
+		"scope": "python",
+		"prefix": "ctf helpers",
+		"body": [
+            "import random",
+            "import string",
+            "",
+			"def rand_str(k=10) -> str:",
+            "    return ''.join(random.choices(string.ascii_letters + string.digits, k=k))",
+            "",
+            "def rand_email() -> str:",
+            "    return f'{rand_str(10)}@{rand_str(5)}.com'",
+            "",
+		]
+	}
+}
