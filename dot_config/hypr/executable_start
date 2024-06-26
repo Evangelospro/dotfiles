@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 
 dbus-run-session /usr/local/bin/hyprland "$@"
-systemctl --user stop hyprland-session.target

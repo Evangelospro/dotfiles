@@ -24,7 +24,7 @@ items = [
     "xorg-xwayland",
     "libinput",
     "libliftoff",
-    "libdisplay-info-git",
+    "libdisplay-info",
     "cpio",
     "tomlplusplus",
     "xcur2png",

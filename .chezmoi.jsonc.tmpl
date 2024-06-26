@@ -90,7 +90,7 @@
                     "up": {"description": "Resize window to the top", "key": "$SHIFT_MOD{{$SEP}}W", "command": {"linux":"resizeactive, 0 -10","windows":""}},
                     "down": {"description": "Resize window to the bottom", "key": "{{$SHIFT_MOD}}{{$SEP}}S", "command": {"linux":"resizeactive, 0 10","windows":""}},
                 },
-                "exit": {"description": "Exit the window manager", "key": "{{$MOD}}{{$SEP}}M", "command": {"linux":"exit","windows":""}},
+                "exit": {"description": "Exit the window manager", "key": "{{$MOD}}{{$SEP}}M", "command": {"linux":"~/.config/hypr/stop","windows":""}},
                 "reload": {"description": "Reload the window manager", "key": "$SHIFT_MOD{{$SEP}}R", "command": {"linux":"hyprctl reload","windows":""}},
             },
             "utilities":{

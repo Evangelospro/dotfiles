@@ -1,6 +1,6 @@
 {
     "label": "lock",
-    "action": "swaylock",
+    "action": "{{.keybindings.utilities.lockscreen.command.linux }}",
     "text": "Lock",
     "keybind": "l"
 }
@@ -18,7 +18,7 @@
 }
 {
     "label": "logout",
-    "action": "hyprctl dispatch exit 0",
+    "action": "{{.keybindings.wm.exit.command.linux }}",
     "text": "Logout",
     "keybind": "e"
 }
