@@ -7,6 +7,7 @@
 ![](https://img.shields.io/github/repo-size/evangelospro/dotfiles?color=CAC992&label=SIZE&logo=googledrive&style=for-the-badge&logoColor=D9E0EE&labelColor=292324)
 
 # ELARCH<a name="top"></a>
+
 ## Showcase (may be outdated) <a name="showcase"></a>
 
 https://github.com/Evangelospro/dotfiles/assets/68608623/a00cad72-12a5-4858-8acd-fbfce8b6c3d2
@@ -18,119 +19,165 @@ https://github.com/Evangelospro/dotfiles/assets/68608623/a00cad72-12a5-4858-8acd
 2. [How to apply?](#applying)
 3. [Keybindings](#keybindings)
 4. [Linux Setup](#linux-setup)
-4. [Windows Setup](#windows-setup)
-4. [Hacking Setup](#hacking-setup)
+5. [Windows Setup](#windows-setup)
+6. [Hacking Setup](#hacking-setup)
 
-5. [Contributing](#contributing)
-6. [Sources / Inspiration](#sources-and-inspiration)
+7. [Contributing](#contributing)
+8. [Sources / Inspiration](#sources-and-inspiration)
 
 ## Breakdown <a name="breakdown"></a>
+
 There are a few main components to this project:
 
-- [chezmoi](https://www.chezmoi.io/) - Chezmoi takes cares of the dotfiles and the configuration of the system. It is a tool that helps you manage your personal configuration files across multiple machines.
-Chezmoi is needed to apply the dotfiles and this repo follows chezmois structure
+-   [chezmoi](https://www.chezmoi.io/) - Chezmoi takes cares of the dotfiles and the configuration of the system. It is a tool that helps you manage your personal configuration files across multiple machines.
+    Chezmoi is needed to apply the dotfiles and this repo follows chezmois structure
 
-- [rebos](https://gitlab.com/Oglo12/rebos) - Rebos (Re)(B)uild(Os) is a neat command line tool that essentially adds nix-like reproduction to arch-based systems. It is a tool that helps you manage your system and install packages.
-To see the full list of packages that are installed and managed by rebos, you can check the [packages](https://https://github.com/Evangelospro/dotfiles/tree/main/dot_config/rebos)
+-   [rebos](https://gitlab.com/Oglo12/rebos) - Rebos (Re)(B)uild(Os) is a neat command line tool that essentially adds nix-like reproduction to arch-based systems. It is a tool that helps you manage your system and install packages.
+    To see the full list of packages that are installed and managed by rebos, you can check the [packages](https://github.com/Evangelospro/dotfiles/tree/main/dot_config/rebos)
 
-## My dotfiles can be applied with the below oneliners. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them(using your GitHub username). <a name="applying"></a>
+## My dotfiles can be applied like below. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them (using your own GitHub username). <a name="applying"></a>
 
-Please before applying review and change the [config file] to your liking. E.g username, email, change personal to false, as it will install very personal configurations that you might not want, etc...
 ```bash
-export GITHUB_USERNAME=Evangelospro # Preferably used your forked repo
-curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/install.sh|bash
+export GITHUB_USERNAME=Evangelospro # Preferably used your forked repo (own username)
+git clone https://github.com/$GITHUB_USERNAME/dotfiles ~/.local/share/chezmoi
+cd ~/.local/share/chezmoi
+```
+
+### Basic configuration
+
+Open up your local[.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl) and edit the following fields:
+
+-   isPersonal: This is kind of a setting you have to change or else you will receive some configurations that I deemed too personal, if I deemed that, then they will probably install some personal packages or configurations that you might not want
+-   isHeadless: This is whether the machine is running headless(No GUI) or not(e.g. a server), this is used to determine whether to install GUI packages or not
+-   isLaptop: This is whether the machine is a laptop or not, this is used to determine whether to install laptop specific packages or not
+-   isHacking: Personally, I like to play a lot of [CTFs](https://evangelospro.com/posts/?tags=ctfs)(capture the flag competitions), so I have A LOT of hacking tools installed for all the occasions, if you are not into that, you can set this to false, or at least check the [hacking setup](#hacking-setup) section to see if you want to install those tools or not.
+-   isAsus: This is whether the machine has Asus hardware or not, this is used to determine whether to install Asus specific packages or not(e.g. asusctl, linux-g14 kernel...)
+
+#### Graphics (If hybrid graphics, set both to true)
+
+-   isNvidia: This is whether the machine has Nvidia hardware or not, this is used to determine whether to install Nvidia specific packages or not(e.g. nvidia drivers, cuda...)
+-   isAmd: This is whether the machine has AMD hardware or not, this is used to determine whether to install AMD specific packages or not(e.g. amdgpu drivers...)
+-   isIntel: This is whether the machine has Intel hardware or not, this is used to determine whether to install Intel specific packages or not(e.g. intel drivers...)
+
+```bash
+bash install.sh
 ```
 
 ## Keybindings
 
+#### Modifiers
+
+$MOD = SUPER
+
 ### Hyprland
 
-| Keybinding  | Action        |
-| ----------- | ------------- |
-| Windows + M | Exit Hyprland |
+| Keybinding       | Action                              |
+| ---------------- | ----------------------------------- |
+| $MOD + M         | Exit Hyprland                       |
+| $MOD + Shift + R | Reload the window manager(hyprland) |
 
 ### Launch / Reload Applications
 
-| Keybinding          | Action                                            |
-| ------------------- | ------------------------------------------------- |
-| Windows + Enter     | Launch Terminal                                   |
-| Windows + L         | Lock Screen(swaylock)                             |
-| Windows + Space     | Launch launcher(anyrun)                           |
-| Windows + V         | Open clipboard manager (wl-clipboard)             |
-| Windows + C         | Select color from screen (hyprpicker) and copy it |
-| Windows + E         | Open file manager(Nemo)                           |
-| Windows + R         | Resize window with slurp                          |
-| Windows + Shift + R | Reload the bar on top (waybar)                    |
+| Keybinding   | Action                                            |
+| ------------ | ------------------------------------------------- |
+| $MOD + T     | Launch Terminal                                   |
+| $MOD + L     | Lock Screen (swaylock)                            |
+| $MOD + Space | Launch launcher (anyrun)                          |
+| $MOD + V     | Open clipboard manager (wl-clipboard)             |
+| $MOD + C     | Select color from screen (hyprpicker) and copy it |
+| $MOD + E     | Open file manager (Nemo)                          |
+| $MOD + R     | Resize window with slurp                          |
 
 ### Close / Fullscreen / Kill Applications / Arrange monitors
 
-| Keybinding          | Action                                                |
-| ------------------- | ----------------------------------------------------- |
-| ALT + F4            | Close focused window                                  |
-| CTRL + SHIFT + ESC  | Kill window clicked on (xkill or windows taskmanager) |
-| Windows + F         | Toggle fullscreen on focused window                   |
-| Windows + Shift + F | Toggle floating on focused window                     |
-| Windows + P         | Arrange monitors (extend / duplicate)                 |
+| Keybinding         | Action                                                                   |
+| ------------------ | ------------------------------------------------------------------------ |
+| ALT + F4           | Close focused window                                                     |
+| CTRL + SHIFT + ESC | Kill window clicked on (xkill or windows taskmanager like functionality) |
+| $MOD + F           | Toggle fullscreen on focused window                                      |
+| $MOD + Shift + F   | Toggle floating on focused window                                        |
+| $MOD + P           | Arrange monitors (extend / duplicate)                                    |
 
 ### Screenshot / OCR
 
-| Keybinding  | Action                                     |
-| ----------- | ------------------------------------------ |
-| prtsc       | Take screenshot interactively (flameshot)  |
-| Windows + O | Copy text from screen with OCR (tesseract) |
+| Keybinding | Action                                     |
+| ---------- | ------------------------------------------ |
+| prtsc      | Take screenshot interactively (flameshot)  |
+| $MOD + O   | Copy text from screen with OCR (tesseract) |
 
 ### Move focus between windows in the current workspace
 
-| Keybinding           | Action                                       |
-| -------------------- | -------------------------------------------- |
-| Windows + AWSD | Move focus to the direction of the arrow key |
+| Keybinding  | Action                                       |
+| ----------- | -------------------------------------------- |
+| $MOD + AWSD | Move focus to the direction of the AWSD keys |
 
 ### Rearrange windows in the current workspace
 
-| Keybinding     | Action                                                |
-| -------------- | ----------------------------------------------------- |
-| Windows + Arrow keys | Move focused window to the direction of the AWSD keys |
+| Keybinding        | Action                                                 |
+| ----------------- | ------------------------------------------------------ |
+| $MOD + Arrow keys | Move focused window to the direction of the arrow keys |
 
 ### Move Windows Between Monitors
 
-| Keybinding                   | Action                                                               |
-| ---------------------------- | -------------------------------------------------------------------- |
-| Windows + SHIFT + Arrow keys | Move focused window to the monitor in the direction of the arrow key |
+| Keybinding                | Action                                                               |
+| ------------------------- | -------------------------------------------------------------------- |
+| $MOD + SHIFT + Arrow keys | Move focused window to the monitor in the direction of the arrow key |
 
 ### Move Windows Between Workspaces
 
-| Keybinding            | Action                                                       |
-| --------------------- | ------------------------------------------------------------ |
-| Windows + SHIFT + 1-9 | Move focused window to the workspace with the number pressed |
-| Windows + 1-9         | Move to the workspace with the number pressed                |
+| Keybinding         | Action                                                       |
+| ------------------ | ------------------------------------------------------------ |
+| $MOD + SHIFT + 1-9 | Move focused window to the workspace with the number pressed |
+| $MOD + 1-9         | Move to the workspace with the number pressed                |
 
 ### Cycle through workspaces
 
-| Keybinding            | Action                            |
-| --------------------- | --------------------------------- |
-| Windows + TAB         | Cycle through workspaces forward  |
-| Windows + SHIFT + TAB | Cycle through workspaces backward |
+| Keybinding         | Action                            |
+| ------------------ | --------------------------------- |
+| $MOD + TAB         | Cycle through workspaces forward  |
+| $MOD + SHIFT + TAB | Cycle through workspaces backward |
 
 ### Move window with mouse
 
-| Keybinding               | Action                 |
-| ------------------------ | ---------------------- |
-| Windows + Click and drag | Move window with mouse |
-
+| Keybinding            | Action                                                    |
+| --------------------- | --------------------------------------------------------- |
+| $MOD + Click and drag | Move window with mouse(you can even move across monitors) |
 
 ## Linux Setup
 
-### OS: [Arch Linux](https://archlinux.org/)
+### System:
 
-### Kernel: [Linux-zen](https://archlinux.org/packages/?name=linux-zen) or [Linux-g14](https://archlinux.org/packages/?name=linux-g14)
+#### OS: [Arch Linux](https://archlinux.org/)
 
-### Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
+#### Kernel: [Linux-zen](https://archlinux.org/packages/?name=linux-zen) or [Linux-g14](https://archlinux.org/packages/?name=linux-g14)
 
-### Window Manager: [Hyprland](https://wiki.hyprland.org)
+#### Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
+
+### GUI:
+
+#### Color Scheme: [Dracula](https://draculatheme.com)
+
+#### Window Manager: [Hyprland](https://wiki.hyprland.org)
+
+#### Application Launcher: [Anyrun](https://github.com/anyrun-org/anyrun)
+
+-   [configuration](dot_config/anyrun)
+
+#### Clipboard Managegment: [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
+
+-   [clipboard manager](dot_local/bin/executable_clip-menu)
+
+#### Color Picker: [Hyprpicker](https://wiki.hyprland.org)
+
+### Terminal and Shell:
 
 ### Terminal: [Warp](https://warp.dev)
 
 ### Shell [ZSH](https://wiki.archlinux.org/title/Zsh)
+
+#### Theme: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
+#### Font: [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
 #### Bindings: [binds.zsh](dot_config/zsh/executable_binds.zsh)
 
@@ -138,52 +185,55 @@ curl --silent https://raw.githubusercontent.com/$GITHUB_USERNAME/dotfiles/main/i
 
 #### Functions: [functions.zsh](dot_config/zsh/executable_functions.zsh)
 
-#### Plugin Manager: [Zinit](https://github.com/zdharma-continuum/zinit)
+#### Plugins:
 
-#### [Plugins config](dot_config/zsh/executable_plugins.zsh)
+##### [Plugins config](dot_config/zsh/executable_plugins.zsh.tmpl)
+##### Plugin Manager: [Zinit](https://github.com/zdharma-continuum/zinit)
 
-#### Theme: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-
-#### Font: [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
-
-#### Color Scheme: [Dracula](https://draculatheme.com)
+##### [Plugins: ](dot_config/zsh/executable_plugins.zsh)
+###### [ZSH smartcache](https://github.com/QuarticCat/zsh-smartcache)
+###### [ZSH autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+###### [ZSH syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ## Development Setup
 
 ### [Docker-rootless](https://docs.docker.com/engine/security/rootless)
 
 ### [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/)
-- [configuration](dot_config/private_Code%20-%20Insiders)
+
+-   [configuration](dot_config/private_Code%20-%20Insiders)
 
 ## Windows Setup
 
 On windows I use GlazeWM with the Win key remapped using [PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/install)
-```
+
+```powershell
 winget install Microsoft.PowerToys --source winget
 ```
+
 SO
 WIN -> ALT
 ALT -> WIN
 
-## Hacking Setup
+## Hacking Utilities and Setup <a name="hacking-setup"></a>
 
 ### Shell functions
 
-| Function              | Action                                                                  |
-| --------------------- | ----------------------------------------------------------------------- |
-| update-burp           | Update burp to the latest version                                       |
-| angr                  | Run angr in a docker container                                          |
-| extract-base64        | Extract base64 encoded strings from a file                              |
-| extract-urls          | Extract urls from a file                                                |
-| frida-init            | Initialize frida server on android device                               |
-| frida-kill            | Kill frida server on android device                                     |
-| pwnenv                | Create a pwn environment in a docker container                          |
-| pwnsetup              | Setup a pwn template in the current directory                           |
-| scan                  | Use rustscan to scan a host                                             |
-| curl                  | Normal curl but uses the burp proxy if it's running                     |
-| ferox-\*              | Feroxbust a host with a specific wordlist                               |
-| ffuf-\*               | Fuzz a host with a specific wordlist                                    |
-| getWordlist           | Return a wordlist of either dns or dir according to the argument passed |
+| Function       | Action                                                                  |
+| -------------- | ----------------------------------------------------------------------- |
+| update-burp    | Update burp to the latest version                                       |
+| angr           | Run angr in a docker container                                          |
+| extract-base64 | Extract base64 encoded strings from a file                              |
+| extract-urls   | Extract urls from a file                                                |
+| frida-init     | Initialize frida server on android device                               |
+| frida-kill     | Kill frida server on android device                                     |
+| pwnenv         | Create a pwn environment in a docker container                          |
+| pwnsetup       | Setup a pwn template in the current directory                           |
+| scan           | Use rustscan to scan a host                                             |
+| curl           | Normal curl but uses the burp proxy if it's running                     |
+| ferox-\*       | Feroxbust a host with a specific wordlist                               |
+| ffuf-\*        | Fuzz a host with a specific wordlist                                    |
+| getWordlist    | Return a wordlist of either dns or dir according to the argument passed |
 
 ### Burp
 
@@ -203,7 +253,7 @@ It can be started via the IDA [desktop file](dot_local/private_share/private_app
 
 ### Android Emulator
 
-A setup android emulator can be started from the launcher using the [android_emulator](dot_local/private_share/private_applications/android-emulator.desktop) desktop file
+An already setup android emulator can be started from the launcher using the [android_emulator](dot_local/private_share/private_applications/android-emulator.desktop) desktop file
 
 ## Contributing
 

@@ -4,7 +4,7 @@ if ! pacman -Qs chezmoi >/dev/null 2>&1; then
     paru -S --noconfirm chezmoi
 fi
 
-chezmoi init --apply Evangelospro
+chezmoi init && chezmoi apply
 
 rm -rf ~/.rebos-base
 rebos setup
