@@ -11,9 +11,9 @@
 ## Showcase (may be outdated) <a name="showcase"></a>
 
 https://github.com/Evangelospro/dotfiles/assets/68608623/a00cad72-12a5-4858-8acd-fbfce8b6c3d2
-![3.png](Pictures/showcase/3.png)
-![2.png](Pictures/showcase/2.png)
-![1.png](Pictures/showcase/1.png)
+![3.png](Pictures/showcase/covers/3.png)
+![2.png](Pictures/showcase/covers/2.png)
+![1.png](Pictures/showcase/covers/1.png)
 
 1. [Breakdown](#breakdown)
 2. [How to apply?](#applying)
@@ -165,7 +165,8 @@ $MOD = SUPER
 
 #### Clipboard Managegment: [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
 
--   [clipboard manager](dot_local/bin/executable_clip-menu)
+-   [clipboard manager](dot_local/bin/executable_clip-menu) - A dmenu based clipboard manager that uses wl-clipboard and fuzzy finding to paste from clipboard history
+    ![clipboard-manager.png](Pictures/showcase/utilities/clipboard-manager.png)
 
 #### Color Picker: [Hyprpicker](https://wiki.hyprland.org)
 
@@ -187,13 +188,37 @@ $MOD = SUPER
 
 #### Plugins:
 
-##### [Plugins config](dot_config/zsh/executable_plugins.zsh.tmpl)
 ##### Plugin Manager: [Zinit](https://github.com/zdharma-continuum/zinit)
 
-##### [Plugins: ](dot_config/zsh/executable_plugins.zsh)
-###### [ZSH smartcache](https://github.com/QuarticCat/zsh-smartcache)
-###### [ZSH autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-###### [ZSH syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+##### [Plugins config](dot_config/zsh/executable_plugins.zsh.tmpl)
+
+##### [Plugins:](dot_config/zsh/executable_plugins.zsh)
+
+###### [ZSH smartcache](https://github.com/QuarticCat/zsh-smartcache) - Caches the output of commands such as $(eval program init) to speed up shell startup
+
+###### [Thefuck](https://github.com/nvbn/thefuck) - a magnificent app, that corrects errors in previous console commands.
+
+###### [Direnv](https://direnv.net/) - It can load and unload environment variables depending on the current directory. (usually loads an adjacent .env from your local directory)
+
+###### [Atuin](https://atuin.sh/) - Stores shell history and allows you to search it with fuzzy finding and very quick shortcuts, significantly speeding up the proccess of you finding that one command that you typed a year ago.
+
+###### [Modern Unix commands](https://github.com/ibraheemdev/modern-unix) - Essentially replaces many well known unix commands and utilities with better or superior alternatives
+- [lsd](https://github.com/lsd-rs/lsd) - This project is a rewrite of GNU ls with lots of added features like colors, icons, tree-view, more formatting options etc...
+- [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings. With syntax highlighting and many more features while being a cat(1) drop in replacement
+- [format](https://github.com/eth-p/bat-extras) - A collection of additional utilities for bat(1) like prettyprinting / formatting with `format`
+- [rigprep](https://github.com/BurntSushi/ripgrep) - ripgrep recursively searches directories for a regex pattern while respecting your gitignore (aliased to `rg` and boosted by `batgrep` for syntax highlighting)
+- [fd](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to 'find'
+- [procs](https://github.com/dalance/procs) - A modern replacement for ps written in Rust
+- [hyperfine](https://github.com/sharkdp/hyperfine) - A command-line benchmarking tool.
+- [btm](https://github.com/ClementTsang/bottom) - A cross-platform graphical process/system monitor with a customizable interface and a multitude of features (aliased to `top`)
+- [tealdeer](https://github.com/dbrgn/tealdeer) - A collection of simplified, example based and community-driven man pages. (aliased to `tldr` or `help`)
+- [dust](https://github.com/bootandy/dust) - A more intuitive version of du written in Rust (aliased to `du`)
+- [delta](https://github.com/dandavison/delta) - A viewer for git and diff output (aliased to `diff`)
+
+
+###### [ZSH autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Suggests commands as you type based on history and completions
+
+###### [ZSH syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - Highlights commands as you type based on syntax
 
 ## Development Setup
 
