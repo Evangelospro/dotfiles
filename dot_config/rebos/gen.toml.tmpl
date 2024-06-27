@@ -40,6 +40,7 @@ items = [
     "ntpdate", # idk why arch doesn't have this by default
     "docker",
     "plocate-updatedb.timer",
+    "swayosd-libinput-backend",
     {{- if .isLaptop }}
     "NetworkManager",
     "bluetooth",
@@ -57,7 +58,7 @@ items = [
     "gnome-keyring-daemon",
     "battery_notifier",
     "polkit-gnome",
-    "swayosd",
+    # "swayosd",
     "swaync",
     "idle",
     "wl-clip-persist",
@@ -75,4 +76,5 @@ items = [
 [managers.groups]
 items = [
     "seat",
+    "video",
 ]

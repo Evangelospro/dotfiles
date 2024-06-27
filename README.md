@@ -203,18 +203,19 @@ $MOD = SUPER
 ###### [Atuin](https://atuin.sh/) - Stores shell history and allows you to search it with fuzzy finding and very quick shortcuts, significantly speeding up the proccess of you finding that one command that you typed a year ago.
 
 ###### [Modern Unix commands](https://github.com/ibraheemdev/modern-unix) - Essentially replaces many well known unix commands and utilities with better or superior alternatives
-- [lsd](https://github.com/lsd-rs/lsd) - This project is a rewrite of GNU ls with lots of added features like colors, icons, tree-view, more formatting options etc...
-- [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings. With syntax highlighting and many more features while being a cat(1) drop in replacement
-- [format](https://github.com/eth-p/bat-extras) - A collection of additional utilities for bat(1) like prettyprinting / formatting with `format`
-- [rigprep](https://github.com/BurntSushi/ripgrep) - ripgrep recursively searches directories for a regex pattern while respecting your gitignore (aliased to `rg` and boosted by `batgrep` for syntax highlighting)
-- [fd](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to 'find'
-- [procs](https://github.com/dalance/procs) - A modern replacement for ps written in Rust
-- [hyperfine](https://github.com/sharkdp/hyperfine) - A command-line benchmarking tool.
-- [btm](https://github.com/ClementTsang/bottom) - A cross-platform graphical process/system monitor with a customizable interface and a multitude of features (aliased to `top`)
-- [tealdeer](https://github.com/dbrgn/tealdeer) - A collection of simplified, example based and community-driven man pages. (aliased to `tldr` or `help`)
-- [dust](https://github.com/bootandy/dust) - A more intuitive version of du written in Rust (aliased to `du`)
-- [delta](https://github.com/dandavison/delta) - A viewer for git and diff output (aliased to `diff`)
 
+-   [lsd](https://github.com/lsd-rs/lsd) - This project is a rewrite of GNU ls with lots of added features like colors, icons, tree-view, more formatting options etc...
+-   [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings. With syntax highlighting and many more features while being a cat(1) drop in replacement
+-   [format](https://github.com/eth-p/bat-extras) - A collection of additional utilities for bat(1) like prettyprinting / formatting with `format`
+-   [rigprep](https://github.com/BurntSushi/ripgrep) - ripgrep recursively searches directories for a regex pattern while respecting your gitignore (aliased to `rg` and boosted by `batgrep` for syntax highlighting)
+-   [fd](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to 'find'
+-   [procs](https://github.com/dalance/procs) - A modern replacement for ps written in Rust
+-   [hyperfine](https://github.com/sharkdp/hyperfine) - A command-line benchmarking tool.
+-   [btm](https://github.com/ClementTsang/bottom) - A cross-platform graphical process/system monitor with a customizable interface and a multitude of features (aliased to `top`)
+-   [tealdeer](https://github.com/dbrgn/tealdeer) - A collection of simplified, example based and community-driven man pages. (aliased to `tldr` or `help`)
+-   [dust](https://github.com/bootandy/dust) - A more intuitive version of du written in Rust (aliased to `du`)
+-   [delta](https://github.com/dandavison/delta) - A viewer for git and diff output (aliased to `diff`)
+-   [highlighter](https://github.com/Ga0aG/hhighlighter) - Essentially it allows you to highlight output of commands in the terminal (e.g echo "evangelospro" | h "pro")
 
 ###### [ZSH autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Suggests commands as you type based on history and completions
 
