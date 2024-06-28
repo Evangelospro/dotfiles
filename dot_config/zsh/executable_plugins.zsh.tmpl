@@ -49,12 +49,8 @@ zinit light z-shell/zsh-zoxide
 zinit ice wait lucid depth=1 pick="async.zsh"
 zinit light mafredri/zsh-async
 
-# bitwarden auto export session
 zinit ice wait lucid nocd
-zinit light Game4Move78/zsh-bitwarden
-
-zinit ice wait lucid nocd
-zinit light jgogstad/passwordless-history
+zinit light jgogstad/zsh-mask
 
 # natively supported in warp
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
@@ -84,8 +80,6 @@ zinit wait'0b' lucid as"completion" blockf atpull'zinit creinstall -q .' \
     atload"source $ZDOTDIR/plugins/zsh-completions_atload.zsh"  \
     light-mode for @zsh-users/zsh-completions
 
-zinit light loiccoyle/zsh-github-copilot
-
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     zinit ice depth=1 lucid nocd
     zinit light marlonrichert/zsh-autocomplete
@@ -99,3 +93,12 @@ fi
 zinit ice depth=1 lucid nocd
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh
 zinit light @zsh-users/zsh-syntax-highlighting
+
+{{ if .isPersonal -}}
+# bitwarden auto export session
+zinit ice wait lucid nocd
+zinit light Game4Move78/zsh-bitwarden
+
+zinit ice wait lucid nocd
+zinit light loiccoyle/zsh-github-copilot
+{{ end -}}

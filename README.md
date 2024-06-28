@@ -35,7 +35,10 @@ There are a few main components to this project:
 -   [rebos](https://gitlab.com/Oglo12/rebos) - Rebos (Re)(B)uild(Os) is a neat command line tool that essentially adds nix-like reproduction to arch-based systems. It is a tool that helps you manage your system and install packages.
     To see the full list of packages that are installed and managed by rebos, you can check the [packages](https://github.com/Evangelospro/dotfiles/tree/main/dot_config/rebos)
 
-## My dotfiles can be applied like below. BUT `I highly recommend that you fork this repo` and edit the files to your liking before applying them (using your own GitHub username). <a name="applying"></a>
+## My dotfiles can be applied like below <a name="applying"></a>
+
+> [!WARNING]
+> I highly recommend that you fork this repo` and edit the files to your liking before applying them (using your own GitHub username)
 
 ```bash
 export GITHUB_USERNAME=Evangelospro # Preferably used your forked repo (own username)
@@ -45,7 +48,8 @@ cd ~/.local/share/chezmoi
 
 ### Basic configuration
 
-Open up your local[.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl) and edit the following fields:
+> [!IMPORTANT]
+> Open up your local[.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl) and edit the following fields:
 
 -   isPersonal: This is kind of a setting you have to change or else you will receive some configurations that I deemed too personal, if I deemed that, then they will probably install some personal packages or configurations that you might not want
 -   isHeadless: This is whether the machine is running headless(No GUI) or not(e.g. a server), this is used to determine whether to install GUI packages or not
@@ -157,11 +161,22 @@ $MOD = SUPER
 
 #### Color Scheme: [Dracula](https://draculatheme.com)
 
+#### Notification Center: [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter)
+-  [configuration](dot_config/swaync)
+![notification.png](Pictures/showcase/utilities/swaync/notification.png)
+![center.png](Pictures/showcase/utilities/swaync/center.png)
+
 #### Window Manager: [Hyprland](https://wiki.hyprland.org)
+
+#### Bar: [Waybar](https://github.com/Alexays/Waybar)
+
+-   [configuration](dot_config/waybar)
+    ![waybar.png](Pictures/showcase/gui/waybar.png)
 
 #### Application Launcher: [Anyrun](https://github.com/anyrun-org/anyrun)
 
 -   [configuration](dot_config/anyrun)
+    ![anyrun.png](Pictures/showcase/utilities/anyrun.png)
 
 #### Clipboard Managegment: [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
 
@@ -169,6 +184,10 @@ $MOD = SUPER
     ![clipboard-manager.png](Pictures/showcase/utilities/clipboard-manager.png)
 
 #### Color Picker: [Hyprpicker](https://wiki.hyprland.org)
+
+#### OSD: [swayosd](https://github.com/ErikReider/SwayOSD) - An on-screen display for capslock, numlock, volume, brightness and more
+
+![osd.png](Pictures/showcase/utilities/osd.png)!
 
 ### Terminal and Shell:
 
@@ -188,21 +207,45 @@ $MOD = SUPER
 
 #### Plugins:
 
-##### Plugin Manager: [Zinit](https://github.com/zdharma-continuum/zinit)
+##### [manager](https://github.com/zdharma-continuum/zinit)
 
-##### [Plugins config](dot_config/zsh/executable_plugins.zsh.tmpl)
+##### [config](dot_config/zsh/executable_plugins.zsh.tmpl)
 
-##### [Plugins:](dot_config/zsh/executable_plugins.zsh)
+###### [zsh-smartcache](https://github.com/QuarticCat/zsh-smartcache) - Caches the output of commands such as $(eval program init) to speed up shell startup
 
-###### [ZSH smartcache](https://github.com/QuarticCat/zsh-smartcache) - Caches the output of commands such as $(eval program init) to speed up shell startup
+###### [thefuck](https://github.com/nvbn/thefuck) - a magnificent app, that corrects errors in previous console commands.
 
-###### [Thefuck](https://github.com/nvbn/thefuck) - a magnificent app, that corrects errors in previous console commands.
+###### [direnv](https://direnv.net/) - It can load and unload environment variables depending on the current directory. (usually loads an adjacent .env from your local directory)
 
-###### [Direnv](https://direnv.net/) - It can load and unload environment variables depending on the current directory. (usually loads an adjacent .env from your local directory)
+###### [atuin](https://atuin.sh/) - Stores shell history and allows you to search it with fuzzy finding and very quick shortcuts, significantly speeding up the proccess of you finding that one command that you typed a year ago.
 
-###### [Atuin](https://atuin.sh/) - Stores shell history and allows you to search it with fuzzy finding and very quick shortcuts, significantly speeding up the proccess of you finding that one command that you typed a year ago.
+###### [highlighter](https://github.com/Ga0aG/hhighlighter) - Essentially it allows you to highlight output of commands in the terminal (e.g echo "evangelospro" | h "pro")
 
-###### [Modern Unix commands](https://github.com/ibraheemdev/modern-unix) - Essentially replaces many well known unix commands and utilities with better or superior alternatives
+###### [dirhistory](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/dirhistory/dirhistory.plugin.zsh) - Navigate directory history using ALT-LEFT and ALT-RIGHT
+
+###### [zoxide](https://github.com/z-shell/zsh-zoxide) - A smarter `cd` command that remember and adjusts to your habbits allowing you to navigate directories faster
+
+###### [zsh-mask](https://github.com/jgogstad/zsh-mask) - Masks secrets in your zsh history, so you don't accidentally leak them
+
+###### [zsh-autopair](https://github.com/hlissner/zsh-autopair) - A zsh plugin that automatically inserts closing brackets, parens, quotes, etc.
+
+###### [zsh-navi](https://github.com/icatalina/zsh-navi-plugin) - A zsh plugin for [navi](https://github.com/denisidoro/navi) - An interactive cheatsheet tool for the command-line
+
+###### [zsh-you-should-use](https://github.com/MichaelAquilina/zsh-you-should-use) - Simple zsh plugin that reminds you that you should use one of your existing aliases for a command you just typed.
+
+###### [zsh-auto-notify](https://github.com/MichaelAquilina/zsh-auto-notify) - ⏰ ZSH plugin that automatically sends out a notification when a long running task has completed.
+
+###### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Suggests commands as you type based on history and completions
+
+###### [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - Highlights commands as you type based on syntax
+
+###### [zsh-completions](https://github.com/zsh-users/zsh-completions) - Additional completion definitions for zsh
+
+###### [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete) - A fast, asynchronous autocomplete plugin for Zsh
+
+###### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like autosuggestions for zsh
+
+###### [modern-unix-commands](https://github.com/ibraheemdev/modern-unix) - Essentially replaces many well known unix commands and utilities with better or superior alternatives
 
 -   [lsd](https://github.com/lsd-rs/lsd) - This project is a rewrite of GNU ls with lots of added features like colors, icons, tree-view, more formatting options etc...
 -   [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings. With syntax highlighting and many more features while being a cat(1) drop in replacement
@@ -215,17 +258,16 @@ $MOD = SUPER
 -   [tealdeer](https://github.com/dbrgn/tealdeer) - A collection of simplified, example based and community-driven man pages. (aliased to `tldr` or `help`)
 -   [dust](https://github.com/bootandy/dust) - A more intuitive version of du written in Rust (aliased to `du`)
 -   [delta](https://github.com/dandavison/delta) - A viewer for git and diff output (aliased to `diff`)
--   [highlighter](https://github.com/Ga0aG/hhighlighter) - Essentially it allows you to highlight output of commands in the terminal (e.g echo "evangelospro" | h "pro")
 
-###### [ZSH autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Suggests commands as you type based on history and completions
+#### Theme: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
-###### [ZSH syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - Highlights commands as you type based on syntax
+-   [configuration](dot_config/zsh/executable_p10k.zsh)
 
 ## Development Setup
 
 ### [Docker-rootless](https://docs.docker.com/engine/security/rootless)
 
-### [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/)
+### [Visual-Studio-Code-Insiders](https://code.visualstudio.com/insiders)
 
 -   [configuration](dot_config/private_Code%20-%20Insiders)
 
@@ -271,11 +313,6 @@ Burp is setup to auto update with the update zsh function above. As I like to us
 
 -   [project-options.json](dot_config/Burp/project-options.json)
 -   [user-options.json](dot_config/Burp/user-options.json)
-
-### IDA [DockerWineIDA](https://github.com/NyaMisty/docker-wine-ida)
-
-IDA essentially runs in docker(running xfce and wine) and rdesktop auto connects
-It can be started via the IDA [desktop file](dot_local/private_share/private_applications/ida.desktop.tmpl) it can be launched from the launcher
 
 ### Android Emulator
 
