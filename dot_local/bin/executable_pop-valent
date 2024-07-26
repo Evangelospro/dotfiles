@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# check if valent is running, if not start it, else switch to togglespecialworkspace,backgroundappsvalent
+
+if pidofvalent;
+then
+    hyprctl dispatch togglespecialworkspace backgroundappsvalent
+else
+    /usr/bin/valent
+    hyprctl dispatch togglespecialworkspace backgroundappsvalent
+fi

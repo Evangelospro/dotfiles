@@ -4,5 +4,6 @@ items = [
     "python-pycryptodomex",
     "sagemath",
     "python-numpy",
-    "rsactftool-git"
+    "rsactftool-git",
+    "python-randcrack-git",
 ]

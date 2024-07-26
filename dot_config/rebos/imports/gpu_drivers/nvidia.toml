@@ -9,4 +9,5 @@ items = [
     "cuda",
     "cudnn",
     "cuda-tools",
+    "nvenc",
 ]

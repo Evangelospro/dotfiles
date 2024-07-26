@@ -3,6 +3,9 @@
         "http_history_display_filter":{
             "bambda":"return true;"
         },
+        "logger_capture_filter":{
+            "bambda":"return true;"
+        },
         "logger_display_filter":{
             "bambda":"return true;"
         },
@@ -50,6 +53,7 @@
             },
             "capture_enabled":true,
             "capture_memory_limit_mb":100,
+            "filter_mode":"SETTINGS",
             "limit_request_response_size":{
                 "capture_requests_up_to":"1MB",
                 "capture_responses_up_to":"1MB"
@@ -255,7 +259,8 @@
                 "location":"",
                 "poll_over_unencrypted_http":false,
                 "polling_location":"",
-                "type":"default"
+                "type":"default",
+                "use_user_config":true
             },
             "embedded_browser":{
                 "allow_running_without_sandbox":false,
@@ -571,6 +576,7 @@
             "suppress_burp_error_messages_in_browser":false,
             "unpack_gzip_deflate_in_requests":false,
             "unpack_gzip_deflate_in_responses":true,
+            "use_http1_keep_alive":true,
             "use_http_10_in_requests_to_server":false,
             "use_http_10_in_responses_to_client":false
         },
@@ -842,7 +848,9 @@
                 "term":""
             },
             "filter_mode":"SETTINGS"
-        }
+        },
+        "ws_match_replace_disable_out_of_scope":false,
+        "ws_match_replace_rules":[]
     },
     "repeater":{
         "allow_http2_alpn_override":false,

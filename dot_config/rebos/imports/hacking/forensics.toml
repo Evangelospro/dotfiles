@@ -6,7 +6,7 @@ items = [
     # "python2-volatility-git",
     "foremost",
     "python-oletools",
-    "powershell",
+    "powershell-bin",
     "binwalk",
 ]
 

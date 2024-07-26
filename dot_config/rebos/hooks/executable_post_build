@@ -20,9 +20,27 @@ xdg-user-dirs-update
 rebos api echo info "Copying system configurations (/etc, /usr, /var)"
 sudo cp -r ~/.local/share/chezmoi/confs/* /
 
+# Alias thorium-browser to /opt/google/chrome/chrome
+if [[ -f /opt/google/chrome/chrome ]]; then
+    sudo mkdir -p /opt/google/chrome/
+    sudo ln -nsf /usr/bin/thorium-browser /opt/google/chrome/chrome
+fi
+
 # Set java to latest java installed
 rebos api echo info "Setting java to the latest installed version"
 sudo archlinux-java set $(archlinux-java status |head -n 2|tail -n 1|cut -d ' ' -f 3)
+
+# Mobile stuff
+APKLAB_DIR=~/.apklab
+if [ -f $APKLAB_DIR/first_run_completed ]; then
+    jadx_path=$(\ls -d $APKLAB_DIR/jadx-*|head -n 1)
+    apktool=$(\ls -d $APKLAB_DIR/apktool_*.jar|head -n 1)
+    uber_apk_signer=$(\ls -d $APKLAB_DIR/uber-apk-signer-*.jar|head -n 1)
+    echo -ne "#\!/usr/bin/env bash\n$jadx_path/bin/jadx" > ~/.local/bin/jadx && chmod +x ~/.local/bin/jadx
+    echo -ne "#\!/usr/bin/env bash\n$jadx_path/bin/jadx-gui" > ~/.local/bin/jadx-gui && chmod +x ~/.local/bin/jadx-gui
+    echo -ne "#\!/usr/bin/env bash\njava -jar $apktool" > ~/.local/bin/apktool && chmod +x ~/.local/bin/apktool
+fi
+
 
 # UPDATE using the update binary in ~/.local/bin
 rebos api echo info "Updating all packages and installing any source-only packages"
@@ -31,7 +49,7 @@ rebos api echo info "Updating all packages and installing any source-only packag
 # fix rockyou location on archlinux
 if [[ ! -f /usr/share/wordlists/rockyou.txt && $(pacman -Qs seclists) == "" ]]; then
     sudo mkdir -p /usr/share/wordlists/
-    sudo ln -s /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt /usr/share/wordlists/rockyou.txt
+    sudo ln -nsf /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt /usr/share/wordlists/rockyou.txt
 fi
 
 # fix aur/viber wrong icon name

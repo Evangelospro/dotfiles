@@ -45,10 +45,14 @@ items = [
     "NetworkManager",
     "bluetooth",
     {{- end }}
+    "usbguard",
     {{- if .isNvidia }}
     # "nvidia-suspend",
     # "nvidia-hibernate",
     # "nvidia-resume",
+    {{- end }}
+    {{- if .isAsus }}
+    "asusd",
     {{- end }}
 ]
 
@@ -61,15 +65,16 @@ items = [
     # "swayosd",
     "swaync",
     "idle",
+    "wl-paste-text",
+    "wl-paste-images",
     "wl-clip-persist",
-    "wl-paste",
     "clipboard-sync",
     "battery_notifier",
     "waybar",
     "waybar-icons",
     "blueman-applet",
     "nm-applet",
-    "usbguard-applet",
+    "usbguard-notifier",
     "udiskie",
 ]
 

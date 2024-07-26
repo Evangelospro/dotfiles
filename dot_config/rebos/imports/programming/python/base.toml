@@ -6,4 +6,5 @@ items = [
     "mypy",
     "ruff",
     "python-termcolor",
+    "python-lsprotocol",
 ]

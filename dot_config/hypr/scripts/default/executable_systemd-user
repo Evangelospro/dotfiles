@@ -1,5 +1,12 @@
 #!/bin/bash
 
-/usr/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+/usr/bin/systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME
 /usr/bin/dbus-update-activation-environment --systemd --all
 systemctl --user start hyprland-session.target
+
+# SIGNAL SYSTEMD SERVICES
+/usr/bin/systemctl --user start blueman-applet
+/usr/bin/systemctl --user start nm-applet
+/usr/bin/systemctl --user start usbguard-applet
+/usr/bin/systemctl --user start udiskie
+/usr/bin/systemctl --user restart waybar-icons

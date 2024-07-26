@@ -1,7 +1,9 @@
 [managers.system]
 items = [
     "wl-clipboard",
+    "xclip",
     "cliphist",
     "wl-clip-persist-git",
-    "clipboard-sync",
+    # "clipboard-sync",
+    "clipnotify-git",
 ]

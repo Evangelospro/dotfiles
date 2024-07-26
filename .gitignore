@@ -15,3 +15,4 @@ iso/archiso/custom_repos/calamares_repo/packages/elarch-calamares/calamares
 
 PKGBUILDS/*
 !PKGBUILDS/*/PKGBUILD
+.local/share/snyk-ls/snyk-linux

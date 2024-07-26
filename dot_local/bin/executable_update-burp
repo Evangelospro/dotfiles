@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 current_burp_version=$(realpath $HOME/.config/burp/loader/burpsuite_pro.jar | grep -Po '(?<=/burpsuite_pro_v)[0-9]+\-[0-9]+\-[0-9]+')
 burp_releases_html=$(curl -s "https://portswigger.net/burp/releases")

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# check if rog-control-center is running, if not start it, else switch to togglespecialworkspace,backgroundappsrogcontrolcenter
+
+if pidof rog-control-center;
+then
+    hyprctl dispatch togglespecialworkspace backgroundappsrogcontrolcenter
+else
+    /usr/bin/rog-control-center
+    hyprctl dispatch togglespecialworkspace backgroundappsrogcontrolcenter
+fi

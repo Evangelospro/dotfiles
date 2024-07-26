@@ -1,20 +1,11 @@
 # BASICS
-exec-once=$HOME/.config/hypr/scripts/default/systemd-user
-exec=$HOME/.config/hypr/scripts/default/fix-xdg-portals
-# scale apps
-exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
-
-# SIGNAL SYSTEMD SERVICES
-exec=/usr/bin/systemctl --user start blueman-applet
-exec=/usr/bin/systemctl --user start nm-applet
-exec=/usr/bin/systemctl --user start usbguard-applet
-exec=/usr/bin/systemctl --user start udiskie
-exec=/usr/bin/systemctl --user restart waybar-icons
-
+exec-once=$HOME/.config/hypr/scripts/default/portals-and-systemd-user
 # Theming
 exec-once=/usr/bin/xsettingsd &
 exec=$HOME/.config/hypr/scripts/import-themes
 exec=/usr/bin/hyprpaper
+## scale apps
+exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
 # Hyprland plugins
 # exec=$HOME/.config/hypr/scripts/plugin-startup
@@ -27,7 +18,6 @@ exec=swayosd-server
 exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center | /usr/bin/rog-control-center
 {{- end }}
 
-# isPersonal stuff
 {{- if .isPersonal }}
 exec=[workspace special:backgroundappsvalent silent] pidof valent |  /usr/bin/valent # --gapplication-service
 exec=/usr/bin/systemctl --user restart seadrive

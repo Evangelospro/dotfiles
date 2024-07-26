@@ -1,5 +1,5 @@
 # python / pip / pipx
-alias p='ipython' #'python3'
+## if no arguments are passed, it will run ipython instead of python3
 alias pp='pypy3'
 alias pip='noglob pip'
 alias pipx='noglob pipx'

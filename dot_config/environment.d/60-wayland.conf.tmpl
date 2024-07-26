@@ -1,12 +1,8 @@
-# mainly for vms without gpu
-WLR_RENDERER_ALLOW_SOFTWARE=1
-WLR_DRM_NO_MODIFIERS=1
-
-# Log WLR errors and logs to the hyprland log. Recommended(but it litters the logs)
+# Log Aquamarine (AQ) errors and logs to the hyprland log. Recommended(but it litters the logs)
 {{- if eq .chezmoi.hostname "ELARCH-ISO" }}
-HYPRLAND_LOG_WLR=1
+HYPRLAND_TRACE=1
 {{- else }}
-HYPRLAND_LOG_WLR=0
+HYPRLAND_TRACE=0
 {{- end }}
 
 

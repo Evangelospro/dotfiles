@@ -1,4 +1,10 @@
+[managers.system]
+items = [
+    "trufflehog",
+]
+
 [managers.pipx]
 items = [
     "ghunt",
+    "git-dumper"
 ]

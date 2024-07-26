@@ -30,7 +30,8 @@ items = [
     "xcur2png",
     "hyprlang-git",
     "hyprutils-git",
-    "hyprwayland-scanner-git"
+    "hyprwayland-scanner-git",
+    "aquamarine-git",
 ]
 
 [managers.pip]

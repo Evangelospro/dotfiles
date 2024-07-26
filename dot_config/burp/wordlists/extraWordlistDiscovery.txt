@@ -1,7 +1,3 @@
 robots.txt
-.git
-.git/head
-.svn
-.svn/entries
 .htaccess
 webhook

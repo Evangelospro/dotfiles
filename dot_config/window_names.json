@@ -138,5 +138,9 @@
     "IDA": {
         "name": "IDA Pro",
         "icon": "~/.local/share/icons/ida.svg"
+    },
+    "Matplotlib": {
+        "name": "Matplotlib",
+        "icon": "python"
     }
 }

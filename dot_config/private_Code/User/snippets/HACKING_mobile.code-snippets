@@ -1,0 +1,31 @@
+{
+	"frida perform": {
+		"scope": "javascript",
+		"prefix": "frida perform",
+		"body": [
+			"Java.perform(function () {",
+            "",
+            "});"
+		]
+	},
+    "frida sslpinning universal bypass": {
+        "scope": "javascript",
+        "prefix": "frida sslpinning universal bypass",
+        "body": [
+            "Java.perform(function () {",
+            "",
+            "    let PlatformClass = Java.use('com.android.org.conscrypt.Platform')",
+            "    PlatformClass.checkServerTrusted.overload('javax.net.ssl.X509TrustManager', '[Ljava.security.cert.X509Certificate;', 'java.lang.String', 'com.android.org.conscrypt.ConscryptEngine').implementation = function () {",
+            "        // Just don't throw any exception",
+            "        console.log('Bypassing SSL pinning');",
+            "    }",
+            "",
+            "    let OkHttpClientBuilderClass = Java.use('okhttp3.OkHttpClient$Builder');",
+            "    OkHttpClientBuilderClass.certificatePinner.implementation = function () {",
+            "        console.log('Bypassing OkHttp3 sslpinning');",
+            "        return this; // essentially do nothing",
+            "    }",
+            "});"
+        ]
+    },
+}

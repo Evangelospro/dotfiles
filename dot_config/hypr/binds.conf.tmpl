@@ -27,9 +27,6 @@ bind={{.keybindings.screenshot.screenshot.key }},exec,{{.keybindings.screenshot.
 bind={{.keybindings.screenshot.ocr.key }},exec,{{.keybindings.screenshot.ocr.command.linux }}
 
 # Applications
-{{- if .isAsus }}
-bind=,XF86Launch4,exec,asusctl led-mode -n
-{{- end }}
 bind={{ .keybindings.applications.browser.key }},exec,{{ .keybindings.applications.browser.command.linux }}
 bind=SHIFT_{{ .keybindings.applications.browser.key }},exec,{{ .keybindings.applications.browser.command.linux }}
 
@@ -56,7 +53,7 @@ bind=$MOD_SHIFT,F,togglefloating
 bind=,XF86RFKill,exec,rfkill
 binde=,XF86AudioRaiseVolume,exec,swayosd-client --output-volume raise --max-volume 150
 binde=,XF86AudioLowerVolume,exec,swayosd-client --output-volume lower --max-volume 150
-bind=,XF86AudioMute,exec,volumectl toggle-mute
+bind=,XF86AudioMute,exec,swayosd-client --output-volume mute-toggle
 bind=,XF86AudioPlay,exec,playerctl play-pause
 bind=,XF86AudioNext,exec,playerctl next
 bind=,XF86AudioPrev,exec,playerctl previous
@@ -65,10 +62,15 @@ binde=,XF86MonBrightnessDown,exec, swayosd-client --brightness lower
 
 # Scratchpads
 # Valent (KDEConnect) special scratchpad workspace
-bind=$MOD,K,togglespecialworkspace,backgroundappsvalent
+bind=$MOD,K,exec,pop-valent
 {{- if .isAsus }}
 # Rog Control Center special scratchpad workspace
-bind=,XF86Launch3,togglespecialworkspace,backgroundappsrogcontrolcenter
+bind=,XF86Launch3,exec,pop-rog-control-center
+{{- end }}
+
+{{- if .isAsus }}
+# Asus keyboard backlight
+bind=,XF86Launch4,exec,asusctl led-mode -n
 {{- end }}
 
 # Rearrange windows in the current workspace

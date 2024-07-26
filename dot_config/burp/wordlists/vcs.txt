@@ -1,0 +1,6 @@
+.git
+.git/head
+.svn
+.svn/entries
+.bzr
+.bzr/README

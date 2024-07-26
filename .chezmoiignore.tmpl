@@ -121,7 +121,7 @@ Documents
 HACKING
 School
 .ssh/config
-.ssh/keys/eraspberry1
+.ssh/keys/pwncollege
 .ssh/keys/portainer
 .ssh/keys/eserver-local
 .ssh/keys/ftc
@@ -132,8 +132,8 @@ School
 {{- if stat (joinPath .chezmoi.homeDir ".ssh/config") }}
 .ssh/config
 {{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/eraspberry1") }}
-.ssh/keys/eraspberry1
+{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/pwncollege") }}
+.ssh/keys/pwncollege
 {{- end }}
 {{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/portainer") }}
 .ssh/keys/portainer
@@ -143,9 +143,6 @@ School
 {{- end }}
 {{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/ftc") }}
 .ssh/keys/ftc
-{{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/elarch-builder") }}
-.ssh/keys/elarch-builder
 {{- end }}
 {{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/ecsc") }}
 .ssh/keys/ecsc

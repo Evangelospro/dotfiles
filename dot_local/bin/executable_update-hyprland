@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+# set -e
 
 force_upgrade=false
 
@@ -14,11 +14,6 @@ while getopts ":f" opt; do
         ;;
     esac
 done
-
-function cleanup() {
-    echo "Removing old wlroots"
-    sudo rm -rf /usr/local/lib/libwlroots* /usr/lib/libwlroots* /usr/lib64/libwlroots*
-}
 
 function build-auto() {
     # use paru without cache to update dependencies
@@ -69,7 +64,6 @@ if [[ $latest_hyprland_version == $current_hyprland_version && $force_upgrade ==
     exit 0
 # versions are different
 elif [[ ! -e /tmp/hyprland_already_upgraded ]]; then
-    # cleanup
     build-manual
 # already upgraded in this session and force_upgrade is false
 elif [[ -e /tmp/hyprland_already_upgraded && $force_upgrade == false ]]; then
@@ -78,6 +72,5 @@ elif [[ -e /tmp/hyprland_already_upgraded && $force_upgrade == false ]]; then
 # already upgraded in this session and force_upgrade is true
 elif [[ $force_upgrade == true ]]; then
     echo "Forcing upgrade"
-    # cleanup
     build-manual
 fi

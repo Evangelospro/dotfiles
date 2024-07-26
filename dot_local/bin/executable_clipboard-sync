@@ -1,0 +1,15 @@
+#!/bin/bash
+
+while clipnotify; do
+    xclip_output="$(xclip -o -selection clipboard 2>/dev/null)"
+    wlcopy_output="$(wl-paste 2>/dev/null)"
+    if [[ -n "$xclip_output" && "$xclip_output" != "$wlcopy_output" ]]; then
+        echo "Xclip output: $xclip_output"
+        printf "%s" "$xclip_output" | wl-copy
+    fi
+    if [[ -n "$wlcopy_output" && "$wl-wlcopy_output" != "$xclip_output" ]]; then
+        wl-paste | xclip -i
+    fi
+done
+
+# wl-paste -t text -w sh -c 'v=$(cat); cmp -s <(xclip -o) <<< "$v" || xclip <<< "$v"'

@@ -10,8 +10,13 @@ items = [
 
 [managers.pipx]
 items = [
-    "objection",
+    # "objection",
     "reflutter",
+]
+
+[managers.pip]
+items = [
+    "objection",
 ]
 
 [managers.systemd-system]

@@ -45,9 +45,6 @@
 	"editor.acceptSuggestionOnEnter": "smart",
 	"editor.autoClosingBrackets": "always",
 	"editor.bracketPairColorization.enabled": true,
-	"editor.codeActionsOnSave": {
-		"source.organizeImports": "explicit"
-	},
 	"editor.cursorBlinking": "solid",
 	"editor.cursorSmoothCaretAnimation": "on",
 	"editor.cursorStyle": "line",
@@ -128,7 +125,7 @@
 		"editor.tabSize": 4,
 		"editor.semanticHighlighting.enabled": false,
 		"editor.formatOnType": true,
-		"editor.defaultFormatter": "ms-python.black-formatter"
+		"editor.defaultFormatter": "charliermarsh.ruff"
 	},
 	"python.analysis.completeFunctionParens": true,
 	"python.analysis.typeCheckingMode": "off",
@@ -150,7 +147,7 @@
 		".vscode/*.py",
 		"**/site-packages/**/*.py"
 	],
-	"java.server.launchMode": "LightWeight",
+	"java.server.launchMode": "Standard",
 	"[html]": {
 		"editor.tabSize": 4
 	},
@@ -231,9 +228,11 @@
 	// SNYK
 	// SNYK
     {{- if eq .chezmoi.os "linux" }}
-	"snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}/.local/share/snyk-ls/snyk-linux",
+	"snyk.advanced.cliPath": "{{.chezmoi.homeDir}}/.local/share/snyk/snyk-cli-linux",
+    "snyk.advanced.languageServerPath": "{{.chezmoi.homeDir}}/.local/share/snyk/snyk-ls-linux",
     {{- else if eq .chezmoi.os "windows" }}
-    "snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk-ls\\snyk-win.exe",
+    "snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-cli-win.exe",
+    "snyk.advanced.languageServerPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-ls-win.exe",
     {{- end }}
 	"snyk.trustedFolders": ["{{ .chezmoi.homeDir }}/"],
 	"snyk.yesWelcomeNotification": false,
@@ -279,10 +278,12 @@
 	// REMOTE SSH
 	"remote.SSH.useLocalServer": false,
 	"remote.SSH.remotePlatform": {
-		"ewebsite": "linux",
+        "ewebsite": "linux",
 		"ecsc": "linux",
 		"ftc13906.com": "linux",
-		"portainer": "linux"
+		"portainer": "linux",
+        "ecsc-infra": "linux",
+        "c2": "linux"
 	},
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -329,7 +330,7 @@
 		"backspace",
 		"delete"
 	],
-	"vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
+	"vscode-neovim.neovimInitVimPaths.linux": "{{.chezmoi.homeDir}}/.config/nvim/init.vim",
 	"workbench.editor.tabActionLocation": "right",
 	"breadcrumbs.enabled": false,
 	"editor.stickyScroll.enabled": false,
@@ -338,5 +339,20 @@
 		"editor.defaultFormatter": "foxundermoon.shell-format"
 	},
 	"github.copilot.editor.enableAutoCompletions": true,
-	"go.toolsManagement.autoUpdate": true
+	"go.toolsManagement.autoUpdate": true,
+	"explorer.fileNesting.patterns": {
+		"*.ts": "${capture}.js",
+		"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+		"*.jsx": "${capture}.js",
+		"*.tsx": "${capture}.ts",
+		"tsconfig.json": "tsconfig.*.json",
+		"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+		"*.sqlite": "${capture}.${extname}-*",
+		"*.db": "${capture}.${extname}-*",
+		"*.sqlite3": "${capture}.${extname}-*",
+		"*.db3": "${capture}.${extname}-*",
+		"*.sdb": "${capture}.${extname}-*",
+		"*.s3db": "${capture}.${extname}-*"
+	},
+	"explorer.confirmPasteNative": false
 }

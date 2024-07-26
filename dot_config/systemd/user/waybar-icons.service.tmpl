@@ -1,11 +1,11 @@
 [Unit]
 Description=Icons for workspaces displayed by waybar
-After=graphical-session.target waybar.service
+After=graphical-session.target
 Wants=waybar.service
 
 [Service]
 Type=simple
-ExecStart={{.chezmoi.homeDir}}/.config/waybar/scripts/workspaces.py debug
+ExecStart=%h/.config/waybar/scripts/workspaces.py debug
 ExecReload=/bin/kill -SIGUSR2 $MAINPID
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
