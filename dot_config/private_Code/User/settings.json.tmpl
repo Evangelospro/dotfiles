@@ -5,9 +5,9 @@
 	"zenMode.hideLineNumbers": false,
 	{{- if eq .chezmoi.os "linux" }}
 	"window.zoomLevel": 2,
-    {{- else }}
-    "window.zoomLevel": 1,
-    {{- end }}
+	{{- else }}
+	"window.zoomLevel": 1,
+	{{- end }}
 	"window.commandCenter": false,
 	"window.newWindowDimensions": "maximized",
 	"window.restoreWindows": "one",
@@ -104,7 +104,7 @@
 	"terminal.integrated.cursorBlinking": true,
 	"terminal.integrated.customGlyphs": true,
 	"terminal.integrated.cursorStyle": "block",
-	"terminal.integrated.enableMultiLinePasteWarning": false,
+	"terminal.integrated.enableMultiLinePasteWarning": "never",
 	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.gpuAcceleration": "auto",
 	"terminal.integrated.scrollback": 200000,
@@ -226,14 +226,13 @@
 	"explorer.confirmDelete": false,
 	"files.autoSave": "afterDelay",
 	// SNYK
-	// SNYK
-    {{- if eq .chezmoi.os "linux" }}
+	{{- if eq .chezmoi.os "linux" }}
 	"snyk.advanced.cliPath": "{{.chezmoi.homeDir}}/.local/share/snyk/snyk-cli-linux",
-    "snyk.advanced.languageServerPath": "{{.chezmoi.homeDir}}/.local/share/snyk/snyk-ls-linux",
-    {{- else if eq .chezmoi.os "windows" }}
-    "snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-cli-win.exe",
-    "snyk.advanced.languageServerPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-ls-win.exe",
-    {{- end }}
+	"snyk.advanced.languageServerPath": "{{.chezmoi.homeDir}}/.local/share/snyk/snyk-ls-linux",
+	{{- else if eq .chezmoi.os "windows" }}
+	"snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-cli-win.exe",
+	"snyk.advanced.languageServerPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-ls-win.exe",
+	{{- end }}
 	"snyk.trustedFolders": ["{{ .chezmoi.homeDir }}/"],
 	"snyk.yesWelcomeNotification": false,
 	// EXTENSIONS
@@ -263,6 +262,12 @@
 	"files.restoreUndoStack": true,
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
+	"files.associations": {
+		"*.code-snippets.tmpl": "snippets",
+		"*.json.tmpl": "json",
+		"*.jsonc.tmpl": "jsonc",
+		"settings.json.tmpl": "jsonc"
+	},
 	"grammarly.files.include": ["**/*.md", "**/*.txt", "**/*.tex"],
 	"[shellscript]": {
 		"editor.defaultFormatter": "foxundermoon.shell-format"
@@ -272,18 +277,15 @@
 	},
 	"jupyter.askForKernelRestart": false,
 	"liveshare.notebooks.allowGuestExecuteCells": true,
-	"[yuck]": {
-		"editor.defaultFormatter": "eww-yuck.yuck"
-	},
 	// REMOTE SSH
 	"remote.SSH.useLocalServer": false,
 	"remote.SSH.remotePlatform": {
-        "ewebsite": "linux",
+		"ewebsite": "linux",
 		"ecsc": "linux",
 		"ftc13906.com": "linux",
 		"portainer": "linux",
-        "ecsc-infra": "linux",
-        "c2": "linux"
+		"ecsc-infra": "linux",
+		"c2": "linux"
 	},
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"

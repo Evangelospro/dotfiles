@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
 systemctl --user stop hyprland-session.target
-hyprctl dispatch exit 0
+loginctl terminate-user evangelospro
+# hyprctl dispatch exit 0
