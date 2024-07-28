@@ -4,5 +4,5 @@ items = [
     "hashcat-utils",
     "john",
     "cewl-git",
-    "aur/bkcrack-bin",
+    "bkcrack-bin",
 ]

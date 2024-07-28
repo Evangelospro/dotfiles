@@ -5,6 +5,7 @@ items = [
     "intel-ucode",
     "amd-ucode",
     "mesa-utils",
+    "fwupd",
     "e2fsprogs",
     "efibootmgr",
     "linux",

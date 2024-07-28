@@ -1,5 +1,6 @@
 [managers.system]
 items = [
+    "pacman-static",
     "rate-mirrors-bin",
     "pacman-cleanup-hook"
 ]
