@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-    "bibata-cursor-theme-bin",
+    "bibata-cursor-git",
     "papirus-icon-theme-git",
     "grub-theme-cyberre",
     "kvantum",
