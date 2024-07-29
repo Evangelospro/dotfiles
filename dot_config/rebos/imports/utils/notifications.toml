@@ -1,5 +1,5 @@
 [managers.system]
 items = [
-    "swaync-git",
+    "swaync",
     "notify-send-py"
 ]

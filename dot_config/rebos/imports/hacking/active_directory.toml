@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-    "python-impacket-git",
+    "python-impacket",
     "ruby-evil-winrm",
     # "crackmapexec",
 ]

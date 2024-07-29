@@ -6,5 +6,6 @@ items = [
     "vulkan-intel",
     "power-profiles-daemon",
     "asusctl-git",
-    "rog-control-center"
+    # "asusctl",
+    #"rog-control-center"
 ]

@@ -173,9 +173,9 @@ $MOD = SUPER
 -   [configuration](dot_config/waybar)
     ![waybar.png](Pictures/showcase/gui/waybar.png)
 
-#### Application Launcher: [Anyrun](https://github.com/anyrun-org/anyrun)
+#### Application Launcher: [Walker](https://github.com/abenz1267/walker)
 
--   [configuration](dot_config/anyrun)
+-   [configuration](dot_config/walker)
     ![anyrun.png](Pictures/showcase/utilities/anyrun.png)
 
 #### Clipboard Managegment: [wl-clipboard](https://github.com/bugaevc/wl-clipboard)

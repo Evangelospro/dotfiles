@@ -28,6 +28,7 @@ items = [
     "cpio",
     "tomlplusplus",
     "xcur2png",
+    "hyprpicker-git",
     "hyprlang-git",
     "hyprutils-git",
     "hyprwayland-scanner-git",

@@ -4,7 +4,7 @@
 add = "paru --needed -S --mflags '--nocheck' --overwrite '*' --noconfirm #:?"
 remove = "paru -Rns #:?"
 sync = "paru --config /etc/pacman-base.conf -Syy"
-upgrade = "paru --config /etc/pacman-base.conf -Syu" # avoid using chaotic-aur (on upgrade) as some times they are slow to update packages
+upgrade = "paru --config /etc/pacman-base.conf -Su" # avoid using chaotic-aur (on upgrade) as some times they are slow to update packages
 
 plural_name = "system-packages"
 hook_name = "system-packages"
