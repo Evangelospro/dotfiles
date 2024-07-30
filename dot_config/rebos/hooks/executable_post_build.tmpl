@@ -30,6 +30,7 @@ fi
 rebos api echo info "Setting java to the latest installed version"
 sudo archlinux-java set $(archlinux-java status |head -n 2|tail -n 1|cut -d ' ' -f 3)
 
+{{- if .isHacking }}
 # Mobile stuff
 APKLAB_DIR=~/.apklab
 if [ -f $APKLAB_DIR/first_run_completed ]; then
@@ -40,17 +41,27 @@ if [ -f $APKLAB_DIR/first_run_completed ]; then
     echo -ne "#\!/usr/bin/env bash\n$jadx_path/bin/jadx-gui" > ~/.local/bin/jadx-gui && chmod +x ~/.local/bin/jadx-gui
     echo -ne "#\!/usr/bin/env bash\njava -jar $apktool" > ~/.local/bin/apktool && chmod +x ~/.local/bin/apktool
 fi
+{{- end }}
 
+{{- if .isPersonal }}
+# seadrive-daemon custom pkgbuild (fuse executable)
+if ! pacman -Qs seadrive-daemon-custom >/dev/null 2>&1; then
+    rebos api echo info "Installing custom seadrive-daemon"
+    (cd ~/.local/share/chezmoi/PKGBUILDS/seadrive-daemon && makepkg -fs --noconfirm && sudo pacman --overwrite '*' --noconfirm -U seadrive-daemon-*.pkg.tar)
+fi
+{{- end }}
 
-# UPDATE using the update binary in ~/.local/bin
+# update
 rebos api echo info "Updating all packages and installing any source-only packages"
 ~/.local/bin/update
 
+{{- if .isHacking }}
 # fix rockyou location on archlinux
 if [[ ! -f /usr/share/wordlists/rockyou.txt && $(pacman -Qs seclists) == "" ]]; then
     sudo mkdir -p /usr/share/wordlists/
     sudo ln -nsf /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt /usr/share/wordlists/rockyou.txt
 fi
+{{- end }}
 
 # fix aur/viber wrong icon name
 if [[ -f /usr/share/applications/viber.desktop ]]; then

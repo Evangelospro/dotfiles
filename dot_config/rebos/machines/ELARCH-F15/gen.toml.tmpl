@@ -3,18 +3,23 @@
 # --------------------- #
 
 imports = [
+    {{- if .isPersonal }}
     "applications/password_manager",
+    {{- end }}
     "programming/python/data_science",
 ]
 
 [managers.system]
 items = [
-    "seadrive-gui",
+    {{- if .isPersonal }}
     "ocrmypdf",
     "github-copilot-cli",
+    {{- end }}
 ]
 
 [managers.systemd-user]
 items = [
+    {{- if .isPersonal }}
     "seadrive",
+    {{- end }}
 ]

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-kernel_name="linux-g14"
+kernel_name="linux-zen" # change to your default desired kernel name
 linux_title=$(grep -i $kernel_name /boot/grub/grub.cfg | cut -d "'" -f 2)
 pkexec grub-reboot "$linux_title"
 systemctl reboot

@@ -1,1 +1,0 @@
---gtk-version=4 -> causes this bug https://gitlab.gnome.org/GNOME/gtk/-/issues/4907, hence 3 is used for now

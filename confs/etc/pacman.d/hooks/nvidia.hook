@@ -3,8 +3,9 @@ Operation=Install
 Operation=Upgrade
 Operation=Remove
 Type=Package
-Target=nvidia-dkms
-Target=linux-g14
+Target=nvidia-open-dkms
+# or nvidia-dkms (if your your graphics card is not supported)
+Target=linux-zen
 # Change the linux part above if a different kernel is used
 
 [Action]
