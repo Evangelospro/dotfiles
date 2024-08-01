@@ -10,10 +10,15 @@
 
 ## Showcase (may be outdated)
 
-https://github.com/Evangelospro/dotfiles/assets/68608623/a00cad72-12a5-4858-8acd-fbfce8b6c3d2
-![3.png](Pictures/showcase/covers/3.png)
-![2.png](Pictures/showcase/covers/2.png)
-![1.png](Pictures/showcase/covers/1.png)
+<details open align="center"> <summary>Hyprland</summary>
+<div align="center">
+<video src ="https://github.com/Evangelospro/dotfiles/assets/68608623/a00cad72-12a5-4858-8acd-fbfce8b6c3d2" width="320" height="200" controls preload></video>
+<img src ="https://github.com/Evangelospro/dotfiles/raw/main/Pictures/showcase/covers/3.png">
+<img src ="https://github.com/Evangelospro/dotfiles/raw/main/Pictures/showcase/covers/2.png">
+<img src ="https://github.com/Evangelospro/dotfiles/raw/main/Pictures/showcase/covers/1.png">
+</div>
+</details>
+<br clear="both"/>
 
 ## Breakdown
 
