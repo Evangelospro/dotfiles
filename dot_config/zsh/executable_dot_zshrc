@@ -1,4 +1,5 @@
 source $XDG_CONFIG_HOME/shell/wm_startup.sh
+
 zmodload zsh/complist
 
 # Start profiler if SHELL_PROFILE not empty

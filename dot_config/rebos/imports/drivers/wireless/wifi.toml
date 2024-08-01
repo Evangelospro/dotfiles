@@ -1,4 +1,2 @@
 [managers.system]
-items = [
-    "broadcom-wl-dkms",
-]
+items = []

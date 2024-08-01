@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if ! pacman -Qs chezmoi >/dev/null 2>&1; then
-    paru -S --noconfirm chezmoi
+    pacman -S --noconfirm chezmoi
 fi
 
 chezmoi init && chezmoi apply

@@ -3,10 +3,10 @@ Operation=Install
 Operation=Upgrade
 Operation=Remove
 Type=Package
-Target=nvidia-open-dkms
 # or nvidia-dkms (if your your graphics card is not supported)
-Target=linux-zen
-# Change the linux part above if a different kernel is used
+Target=nvidia-open-dkms
+# Change if a different kernel is used
+Target=linux-g14
 
 [Action]
 Description=Update NVIDIA module in initcpio

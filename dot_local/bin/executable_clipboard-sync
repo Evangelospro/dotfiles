@@ -3,11 +3,12 @@
 while clipnotify; do
     xclip_output="$(xclip -o -selection clipboard 2>/dev/null)"
     wlcopy_output="$(wl-paste 2>/dev/null)"
+    echo "xclip: $xclip_output , wlcopy: $wlcopy_output"
     if [[ -n "$xclip_output" && "$xclip_output" != "$wlcopy_output" ]]; then
-        echo "Xclip output: $xclip_output"
+        echo "placing xclip output in wlcopy"
         printf "%s" "$xclip_output" | copy
-    fi
-    if [[ -n "$wlcopy_output" && "$wl-wlcopy_output" != "$xclip_output" ]]; then
+    elif [[ -n "$wlcopy_output" && "$wlcopy_output" != "$xclip_output" ]]; then
+        echo "placing wlcopy output in xclip"
         echo $wlcopy_output | xclip -i
     fi
 done

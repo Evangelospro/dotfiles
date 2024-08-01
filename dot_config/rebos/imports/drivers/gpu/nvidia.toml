@@ -2,6 +2,7 @@
 items = [
     "nvidia-open-dkms", # or nvidia-dkms (if your your graphics card is not supported)
     "libva-nvidia-driver",
+    "libva-utils",
     "nvidia-utils",
     "lib32-nvidia-utils",
     "nvidia-settings",

@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-pkill -9 rofi || rofi -modi clipboard:$HOME/.config/rofi/configs/cliphist-rofi-img -show clipboard -show-icons
+wezterm start --always-new-process --class clipse -e clipse $PPID
+# pkill -9 rofi || rofi -modi clipboard:$HOME/.config/rofi/configs/cliphist-rofi-img -show clipboard -show-icons

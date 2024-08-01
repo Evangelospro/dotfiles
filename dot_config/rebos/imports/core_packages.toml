@@ -1,7 +1,8 @@
 [managers.system]
 items = [
-    "ntp", # idk why arch doesn't have this by default
+    "ntp", # network time (idk why arch doesn't have this by default...)
     "mkinitcpio-numlock", # enable numlock on boot
+    "grub-hook", # update grub on kernel update (idk why arch doesn't have this in the grub package itself...)
     "intel-ucode",
     "amd-ucode",
     "mesa-utils",

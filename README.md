@@ -6,26 +6,16 @@
 ![](https://img.shields.io/github/stars/evangelospro/dotfiles?style=for-the-badge&logo=andela&color=FFB686&logoColor=D9E0EE&labelColor=292324)
 ![](https://img.shields.io/github/repo-size/evangelospro/dotfiles?color=CAC992&label=SIZE&logo=googledrive&style=for-the-badge&logoColor=D9E0EE&labelColor=292324)
 
-# ELARCH<a name="top"></a>
+# ELARCH ((E)vangelos (L)ioudakis (ARCH))
 
-## Showcase (may be outdated) <a name="showcase"></a>
+## Showcase (may be outdated)
 
 https://github.com/Evangelospro/dotfiles/assets/68608623/a00cad72-12a5-4858-8acd-fbfce8b6c3d2
 ![3.png](Pictures/showcase/covers/3.png)
 ![2.png](Pictures/showcase/covers/2.png)
 ![1.png](Pictures/showcase/covers/1.png)
 
-1. [Breakdown](#breakdown)
-2. [How to apply?](#applying)
-3. [Keybindings](#keybindings)
-4. [Linux Setup](#linux-setup)
-5. [Windows Setup](#windows-setup)
-6. [Hacking Setup](#hacking-setup)
-
-7. [Contributing](#contributing)
-8. [Sources / Inspiration](#sources-and-inspiration)
-
-## Breakdown <a name="breakdown"></a>
+## Breakdown
 
 There are a few main components to this project:
 
@@ -35,33 +25,39 @@ There are a few main components to this project:
 -   [rebos](https://gitlab.com/Oglo12/rebos) - Rebos (Re)(B)uild(Os) is a neat command line tool that essentially adds nix-like reproduction to arch-based systems. It is a tool that helps you manage your system and install packages.
     To see the full list of packages that are installed and managed by rebos, you can check the [packages](https://github.com/Evangelospro/dotfiles/tree/main/dot_config/rebos)
 
-## My dotfiles can be applied like below <a name="applying"></a>
+## How to apply
 
 > [!WARNING]
-> I highly recommend that you fork this repo` and edit the files to your liking before applying them (using your own GitHub username)
+> I highly recommend that you [use it as template](https://github.com/evangelospro/dotfiles/generate) and edit the files to your liking before applying them (using your own GitHub username)
+
+### Cloning
 
 ```bash
-export GITHUB_USERNAME=Evangelospro # Preferably used your forked repo (own username)
+$GITHUB_USERNAME=Evangelospro # preferably change this to your own template and github username
 git clone https://github.com/$GITHUB_USERNAME/dotfiles ~/.local/share/chezmoi
-cd ~/.local/share/chezmoi
 ```
 
 ### Basic configuration
 
 > [!IMPORTANT]
-> Open up your local[.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl) and edit the following fields:
+> Open up your local[.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl) and edit all aplicable fields:
+
+> [!WARNING]
+> The below are a must to change, if you don't change them, you will probably not get what you want and have to spend a lot of time troubleshooting!
 
 -   isPersonal: This is kind of a setting you have to change or else you will receive some configurations that I deemed too personal, if I deemed that, then they will probably install some personal packages or configurations that you might not want
 -   isHeadless: This is whether the machine is running headless(No GUI) or not(e.g. a server), this is used to determine whether to install GUI packages or not
 -   isLaptop: This is whether the machine is a laptop or not, this is used to determine whether to install laptop specific packages or not
 -   isHacking: Personally, I like to play a lot of [CTFs](https://evangelospro.com/posts/?tags=ctfs)(capture the flag competitions), so I have A LOT of hacking tools installed for all the occasions, if you are not into that, you can set this to false, or at least check the [hacking setup](#hacking-setup) section to see if you want to install those tools or not.
--   isAsus: This is whether the machine has Asus hardware or not, this is used to determine whether to install Asus specific packages or not(e.g. asusctl, linux-g14 kernel...)
+-   isAsus: This is whether the machine has Asus hardware or not, this is used to determine whether to install Asus specific packages or not(e.g. asusctl, rog-control-center ...)
 
 #### Graphics (If hybrid graphics, set both to true)
 
 -   isNvidiaGPU: This is whether the machine has Nvidia hardware or not, this is used to determine whether to install Nvidia specific packages or not(e.g. nvidia drivers, cuda...)
 -   isAmdGPU: This is whether the machine has AMD gpu or not, this is used to determine whether to install AMD specific packages or not(e.g. amdgpu drivers...)
 -   isIntelGPU: This is whether the machine has Intel gpu or not, this is used to determine whether to install Intel specific packages or not(e.g. intel gpu drivers...)
+
+### Applying
 
 ```bash
 bash install.sh
@@ -87,7 +83,7 @@ $MOD = SUPER
 | $MOD + T     | Launch Terminal                                   |
 | $MOD + L     | Lock Screen (swaylock)                            |
 | $MOD + Space | Launch launcher (walker)                          |
-| $MOD + V     | Open clipboard manager (wl-clipboard)             |
+| $MOD + V     | Open clipboard manager (clipse)                   |
 | $MOD + C     | Select color from screen (hyprpicker) and copy it |
 | $MOD + E     | Open file manager (Nemo)                          |
 | $MOD + R     | Resize window with slurp                          |
@@ -153,7 +149,7 @@ $MOD = SUPER
 
 #### OS: [Arch Linux](https://archlinux.org/)
 
-#### Kernel: [Linux](https://archlinux.org/packages/?name=linux) and fallback to [Linux-lts](https://archlinux.org/packages/?name=linux-lts)
+#### Kernel: [Linux-g14](https://archlinux.org/packages/?name=linux-g14) and fallback to [Linux](https://archlinux.org/packages/?name=linux)
 
 #### Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
 
@@ -162,9 +158,10 @@ $MOD = SUPER
 #### Color Scheme: [Dracula](https://draculatheme.com)
 
 #### Notification Center: [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter)
--  [configuration](dot_config/swaync)
-![notification.png](Pictures/showcase/utilities/swaync/notification.png)
-![center.png](Pictures/showcase/utilities/swaync/center.png)
+
+-   [configuration](dot_config/swaync)
+    ![notification.png](Pictures/showcase/utilities/swaync/notification.png)
+    ![center.png](Pictures/showcase/utilities/swaync/center.png)
 
 #### Window Manager: [Hyprland](https://wiki.hyprland.org)
 
@@ -176,7 +173,7 @@ $MOD = SUPER
 #### Application Launcher: [Walker](https://github.com/abenz1267/walker)
 
 -   [configuration](dot_config/walker)
-    ![walker.png](Pictures/showcase/utilities/anyrun.png)
+    ![walker.png](Pictures/showcase/utilities/walker.png)
 
 #### Clipboard Managegment: [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
 
@@ -271,7 +268,7 @@ $MOD = SUPER
 
 -   [configuration](dot_config/private_Code%20-%20Insiders)
 
-## Windows Setup
+## Windows Setup (Mostly manual)
 
 On windows I use GlazeWM with the Win key remapped using [PowerToys](https://learn.microsoft.com/en-us/windows/powertoys/install)
 
@@ -283,7 +280,7 @@ SO
 WIN -> ALT
 ALT -> WIN
 
-## Hacking Utilities and Setup <a name="hacking-setup"></a>
+## Hacking Utilities and Setup
 
 ### Shell functions
 
@@ -337,7 +334,7 @@ An already setup android emulator can be started from the launcher using the [an
 
 [![Stars](https://starchart.cc/evangelospro/dotfiles.svg)](https://starchart.cc/evangelospro/dotfiles)
 
-## Thanks to these awesome projects and many more!!! <a name="sources-and-inspiration"></a>
+## Thanks to these awesome projects and many more!!!
 
 -   [Chezmoi](https://www.chezmoi.io/)
 -   [Rebos](https://gitlab.com/Oglo12/rebos)

@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/wl-paste --type image --watch cliphist store #Stores only image data
+ExecStart=/usr/bin/clipse --listen-shell
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 
