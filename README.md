@@ -33,19 +33,19 @@ There are a few main components to this project:
 ## How to apply
 
 > [!WARNING]
-> I highly recommend that you [use it as template](https://github.com/evangelospro/dotfiles/generate) and edit the files to your liking before applying them (using your own GitHub username)
+> I highly recommend that you [use it as template](https://github.com/evangelospro/dotfiles/generate) and edit the files to your liking before applying them (using your own GitHub username). Don't forget to come back here and star the project if you liked it!
 
 ### Cloning
 
 ```bash
-$GITHUB_USERNAME=Evangelospro # preferably change this to your own template and github username
+GITHUB_USERNAME=Evangelospro # preferably change this to your own template and github username
 git clone https://github.com/$GITHUB_USERNAME/dotfiles ~/.local/share/chezmoi
 ```
 
 ### Basic configuration
 
 > [!IMPORTANT]
-> Open up your local[.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl) and edit all aplicable fields:
+> Open up your local [.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl) and edit all aplicable fields:
 
 > [!WARNING]
 > The below are a must to change, if you don't change them, you will probably not get what you want and have to spend a lot of time troubleshooting!
