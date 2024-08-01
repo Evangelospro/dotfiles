@@ -1,12 +1,5 @@
 [managers.system]
 items = [
     "rofi-lbonn-wayland-git",
-    "anyrun-git",
-    # "anyrun-plugin-rink-git",
-    # "anyrun-plugin-applications-git",
-    # "anyrun-plugin-shell-git",
-    # "anyrun-plugin-symbols-git",
-    # "anyrun-plugin-websearch-git",
-    # "anyrun-plugin-dictionary-git",
-    # "ulauncher-it",
+    "walker-bin",
 ]

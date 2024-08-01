@@ -16,3 +16,4 @@ fi
 
 echo "Zooming from $current_zoom to $new_zoom"
 hyprctl keyword cursor:zoom_factor $new_zoom
+# hypr-zoom -easing=OutBack -easingOut=OutExpo -duration=100 -steps=10 -target=$new_zoom

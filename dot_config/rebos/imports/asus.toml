@@ -1,11 +1,8 @@
 [managers.system]
 items = [
-    # "linux-g14",
-    # "linux-g14-headers",
     "intel-compute-runtime",
     "vulkan-intel",
     "power-profiles-daemon",
-    "asusctl-git",
-    # "asusctl",
-    #"rog-control-center"
+    "asusctl",
+    "rog-control-center"
 ]

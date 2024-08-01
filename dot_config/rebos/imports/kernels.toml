@@ -1,0 +1,7 @@
+[managers.system]
+items = [
+    "linux",
+    "linux-headers",
+    "linux-lts"
+    # "linux-lts-headers", not installing so this is used as a backup when nvidia drivers fail (DKMS won't build without headers)
+]

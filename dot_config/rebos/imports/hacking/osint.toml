@@ -1,7 +1,5 @@
 [managers.system]
-items = [
-    "trufflehog",
-]
+items = []
 
 [managers.pipx]
 items = [

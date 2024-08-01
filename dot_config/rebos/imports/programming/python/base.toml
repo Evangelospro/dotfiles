@@ -7,4 +7,5 @@ items = [
     "ruff",
     "python-termcolor",
     "python-lsprotocol",
+    "python-mechanize",
 ]

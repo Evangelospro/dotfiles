@@ -7,7 +7,7 @@ imports = [
     "applications/note_taking",
     "applications/office",
     "applications/recording",
-    "applications/screenshoting",
+    "applications/screenshotting",
     "applications/terminal",
     "applications/video",
 ]

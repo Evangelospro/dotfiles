@@ -59,6 +59,7 @@ def generate():
         clients = instance.get_windows()
     except Exception as e:
         log_event(f"Failed to get clients with error {e}")
+        return
     for client in clients:
         try:
             # if client.workspace_id is negative then it is a special workspace
@@ -81,10 +82,12 @@ def generate():
             else:
                 log_event("Failed to get wm_class for below client")
                 log_event(client)
+                return
         except Exception as e:
             log_event(f"Failed to get applist classes for below client with error {e}")
             log_event(client)
             log_event(workspaces[client.monitor_id][client.workspace_id]["icons"])
+            return
 
     for monitor in MONITOR_MAP:
         log_event(f"Generating for monitor {monitor.id}")

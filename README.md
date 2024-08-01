@@ -59,9 +59,9 @@ cd ~/.local/share/chezmoi
 
 #### Graphics (If hybrid graphics, set both to true)
 
--   isNvidia: This is whether the machine has Nvidia hardware or not, this is used to determine whether to install Nvidia specific packages or not(e.g. nvidia drivers, cuda...)
--   isAmd: This is whether the machine has AMD hardware or not, this is used to determine whether to install AMD specific packages or not(e.g. amdgpu drivers...)
--   isIntel: This is whether the machine has Intel hardware or not, this is used to determine whether to install Intel specific packages or not(e.g. intel drivers...)
+-   isNvidiaGPU: This is whether the machine has Nvidia hardware or not, this is used to determine whether to install Nvidia specific packages or not(e.g. nvidia drivers, cuda...)
+-   isAmdGPU: This is whether the machine has AMD gpu or not, this is used to determine whether to install AMD specific packages or not(e.g. amdgpu drivers...)
+-   isIntelGPU: This is whether the machine has Intel gpu or not, this is used to determine whether to install Intel specific packages or not(e.g. intel gpu drivers...)
 
 ```bash
 bash install.sh
@@ -86,7 +86,7 @@ $MOD = SUPER
 | ------------ | ------------------------------------------------- |
 | $MOD + T     | Launch Terminal                                   |
 | $MOD + L     | Lock Screen (swaylock)                            |
-| $MOD + Space | Launch launcher (anyrun)                          |
+| $MOD + Space | Launch launcher (walker)                          |
 | $MOD + V     | Open clipboard manager (wl-clipboard)             |
 | $MOD + C     | Select color from screen (hyprpicker) and copy it |
 | $MOD + E     | Open file manager (Nemo)                          |
@@ -153,7 +153,7 @@ $MOD = SUPER
 
 #### OS: [Arch Linux](https://archlinux.org/)
 
-#### Kernel: [Linux-zen](https://archlinux.org/packages/?name=linux-zen) or [Linux-g14](https://archlinux.org/packages/?name=linux-g14)
+#### Kernel: [Linux](https://archlinux.org/packages/?name=linux) and fallback to [Linux-lts](https://archlinux.org/packages/?name=linux-lts)
 
 #### Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
 
@@ -176,7 +176,7 @@ $MOD = SUPER
 #### Application Launcher: [Walker](https://github.com/abenz1267/walker)
 
 -   [configuration](dot_config/walker)
-    ![anyrun.png](Pictures/showcase/utilities/anyrun.png)
+    ![walker.png](Pictures/showcase/utilities/anyrun.png)
 
 #### Clipboard Managegment: [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
 

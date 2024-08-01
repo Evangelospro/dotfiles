@@ -7,5 +7,6 @@ Wants=waybar.service
 ExecStart=/usr/bin/seadrive-gui
 Restart=on-failure
 
+
 [Install]
 WantedBy=default.target

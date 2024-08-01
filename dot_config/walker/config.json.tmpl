@@ -1,0 +1,116 @@
+{
+    "terminal": "{{.applications.terminal.linux.command}}",
+    "ignore_mouse": true,
+    "activation_mode": {
+        "disabled": true
+    },
+    "ui": {
+        "icons": {
+            "hide": false,
+            "size": 34,
+            "size_single_module": 32,
+            "image_size": 150
+        },
+        "fullscreen": true,
+        "anchors": {
+            "top": true
+        },
+        "margins": {
+            "top": 400
+        }
+    },
+    "list": {
+        "margin_top": 0,
+        "always_show": false,
+        "max_entries": 25,
+        "scrollbar_policy": "external"
+    },
+    "search": {
+        "icons": false,
+        "history": false,
+        "force_keyboard_focus": true,
+        "spinner": true
+    },
+    "builtins": {
+        "custom_commands": {
+            "commands": [
+                {
+                    "name": "Color Picker",
+                    "cmd": "color-picker"
+                },
+                {
+                    "name": "Toggle Floating Window",
+                    "cmd": "hyprctl dispatch togglefloating active"
+                }
+            ]
+        },
+        "applications": {
+            "cache": true,
+            "actions": true
+        },
+        "clipboard": {
+            "max_entries": 50,
+            "image_height": 100
+        },
+        "commands": {
+            "switcher_only": true
+        },
+        "emojis": {
+            "switcher_only": true
+        },
+        "finder": {
+            "switcher_only": true
+        },
+        "hyprland": {
+            "context_aware_history": true
+        },
+        "runner": {
+            "shell_config": "{{.chezmoi.homeDir}}/.config/zsh/.zshrc",
+            "generic_entry": true,
+            "includes": [
+                "shutdown",
+                "reboot",
+                "vpn"
+            ]
+        },
+        "ssh": {
+            "switcher_only": true
+        },
+        "switcher": {
+            "prefix": "/"
+        },
+        "websearch": {}
+    },
+    "plugins": [
+        {
+            "name": "calc",
+            "prefix": "=",
+            "src": "NO_COLOR=\"true\" rink",
+            "cmd": "copy",
+            "matching": 1
+        },
+        {
+            "name": "power",
+            "placeholder": "Power",
+            "switcher_only": true,
+            "keep_sort": true,
+            "entries": [
+                {
+                    "label": "Shutdown",
+                    "icon": "system-shutdown",
+                    "exec": "shutdown now"
+                },
+                {
+                    "label": "Reboot",
+                    "icon": "system-reboot",
+                    "exec": "reboot"
+                },
+                {
+                    "label": "Lock Screen",
+                    "icon": "system-lock-screen",
+                    "exec": "lockscreen"
+                }
+            ]
+        }
+    ]
+}

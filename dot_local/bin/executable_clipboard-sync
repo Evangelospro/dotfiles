@@ -5,10 +5,10 @@ while clipnotify; do
     wlcopy_output="$(wl-paste 2>/dev/null)"
     if [[ -n "$xclip_output" && "$xclip_output" != "$wlcopy_output" ]]; then
         echo "Xclip output: $xclip_output"
-        printf "%s" "$xclip_output" | wl-copy
+        printf "%s" "$xclip_output" | copy
     fi
     if [[ -n "$wlcopy_output" && "$wl-wlcopy_output" != "$xclip_output" ]]; then
-        wl-paste | xclip -i
+        echo $wlcopy_output | xclip -i
     fi
 done
 

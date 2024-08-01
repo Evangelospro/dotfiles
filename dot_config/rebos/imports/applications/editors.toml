@@ -1,5 +1,6 @@
 [managers.system]
 items = [
     "imhex",
+    "hexxy-git",
     "visual-studio-code-insiders-bin",
 ]

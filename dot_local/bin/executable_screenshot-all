@@ -1,0 +1,35 @@
+#!/bin/bash
+
+ScreenshotsDir="$HOME/Pictures/Screenshots"
+# create directory if not exists
+mkdir -p "$ScreenshotsDir"
+screenshots=()
+
+# active workspaces
+current_workspace=$(hyprctl activeworkspace| grep '^workspace ID' | awk '{print $3}')
+workspace_ids=()
+while IFS= read -r line; do
+    id=$(echo "$line" | awk '{print $3}')
+    if [[ $id =~ ^[0-9]+$ ]]; then
+        workspace_ids+=("$id")
+    fi
+done < <(hyprctl workspaces | grep '^workspace ID' | sort -n)
+
+# take screenshots
+for id in "${workspace_ids[@]}"; do
+    hyprctl dispatch workspace "$id"
+    if [[ $id -ne $current_workspace ]]; then
+        sleep 1.5
+    fi
+    file="/tmp/$(date +'%s_grim.png')"
+    flameshot full -p "$file" && screenshots+=("$file")
+done
+# return to inital state to signify finish
+sleep 1
+hyprctl dispatch workspace "$current_workspace"
+
+# Reorder the screenshots array to append the first screenshot (0) as the last one (10)
+# screenshots=("${screenshots[@]:1}" "${screenshots[0]}")
+
+# merge screenshots
+convert -append ${screenshots[@]} $ScreenshotsDir/$(date +'%s_grim_result.jpg')

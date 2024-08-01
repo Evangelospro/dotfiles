@@ -118,7 +118,7 @@
     "custom/colorpicker": {
         "format": "",
         "tooltip": false,
-        "on-click": "hyprpicker | wl-copy"
+        "on-click": "color-picker"
     },
     "custom/notifications": {
         "tooltip": false,

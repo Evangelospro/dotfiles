@@ -1,0 +1,14 @@
+[Unit]
+Description=Notify user of battery status
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/battery-notifier
+ExecStop=/bin/kill -2 $MAINPID
+Restart=on-failure
+
+
+[Install]
+WantedBy=graphical-session.target

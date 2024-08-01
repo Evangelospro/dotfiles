@@ -21,15 +21,16 @@ imports = [
     {{- if .isAsus }}
     "asus",
     {{- end }}
-    {{- if .isIntel }}
-    "gpu_drivers/intel",
+    {{- if .isIntelGPU }}
+    "drivers/gpu/intel",
     {{- end }}
-    {{- if .isAmd }}
-    "gpu_drivers/amd",
+    {{- if .isAmdGPU }}
+    "drivers/gpu/amd",
     {{- end }}
-    {{- if .isNvidia }}
-    "gpu_drivers/nvidia",
+    {{- if .isNvidiaGPU }}
+    "drivers/gpu/nvidia",
     {{- end }}
+    "drivers/wireless/wifi",
     {{- if .isHacking }}
     "hacking",
     {{- end }}
@@ -47,13 +48,16 @@ items = [
     "bluetooth",
     {{- end }}
     "usbguard",
-    {{- if .isNvidia }}
+    {{- if .isNvidiaGPU }}
     # "nvidia-suspend",
     # "nvidia-hibernate",
     # "nvidia-resume",
     {{- end }}
     {{- if .isAsus }}
+    "power-profiles-daemon",
     "asusd",
+    "supergfxd",
+    "switcheroo-control",
     {{- end }}
 ]
 
@@ -61,7 +65,7 @@ items = [
 items = [
     "docker",
     "gnome-keyring-daemon",
-    "battery_notifier",
+    "battery-notifier",
     "polkit-gnome",
     # "swayosd",
     "swaync",
@@ -70,7 +74,6 @@ items = [
     "wl-paste-images",
     "wl-clip-persist",
     "clipboard-sync",
-    "battery_notifier",
     "waybar",
     "waybar-icons",
     "blueman-applet",

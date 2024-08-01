@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-grim -g "$(slurp)" -t ppm - | tesseract - - | wl-copy && notify-send "$(wl-paste)"
+grim -g "$(slurp)" -t ppm - | tesseract - - | copy && notify-send "$(wl-paste)"

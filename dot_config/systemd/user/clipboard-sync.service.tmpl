@@ -8,8 +8,7 @@ Type=simple
 ExecStart=%h/.local/bin/clipboard-sync
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
-RestartSec=1
-TimeoutStopSec=10
+
 
 [Install]
 WantedBy=graphical-session.target

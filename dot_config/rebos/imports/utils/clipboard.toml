@@ -3,7 +3,6 @@ items = [
     "wl-clipboard",
     "xclip",
     "cliphist",
-    "wl-clip-persist-git",
     # "clipboard-sync",
     "clipnotify-git",
 ]

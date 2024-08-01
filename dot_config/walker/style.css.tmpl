@@ -1,0 +1,121 @@
+@import url("{{ .chezmoi.homeDir }}/.config/themes/dracula.css");
+
+#window {
+    background: @transparent;
+    font-size: 20px;
+    color: @foreground;
+}
+
+#box {
+    background: transparent;
+}
+
+#password,
+#searchwrapper {
+    background: @background;
+    border: 4px solid @background;
+    border-bottom: none;
+    padding: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#password {
+    outline: none;
+    outline-width: 0px;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+#search,
+#typeahead {
+    background: none;
+    border-radius: 0;
+    outline: none;
+    outline-width: 0px;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+}
+
+#typeahead {
+    color: @cyan;
+    background: @background;
+}
+
+#search placeholder {
+    color: @grey;
+    opacity: 0.5;
+}
+
+#list {
+    background: @background;
+    border: 4px solid @background;
+    border-top: none;
+}
+
+#list > *:focus,
+#list > *:hover {
+}
+
+row {
+    padding: 0;
+}
+
+.activatable:focus,
+.activatable:hover {
+    box-shadow: none;
+}
+
+row:selected {
+    background: @grey;
+}
+
+.item {
+    padding: 8px;
+}
+
+.image {
+    padding-right: 8px;
+}
+
+.image.standalone {
+    padding-right: 0px;
+}
+
+.icon {
+    padding-right: 8px;
+}
+
+.textwrapper {
+    /* background: green; */
+}
+
+.label {
+    /* background: pink; */
+}
+
+.activation .textwrapper,
+.activation .icon {
+    opacity: 0.5;
+}
+
+.activationlabel {
+    color: @cyan;
+    opacity: 0.5;
+}
+
+.activation .activationlabel {
+    font-weight: bold;
+    opacity: 1;
+}
+
+.sub {
+    /* background: orange; */
+    font-size: 16px;
+    color: @grey;
+}
+
+#window.forceterminal .activationlabel {
+    color: @red;
+}
