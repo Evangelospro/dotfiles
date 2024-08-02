@@ -23,3 +23,10 @@ items = [
     "seadrive",
     {{- end }}
 ]
+
+[managers.pip]
+items = [
+    {{- if .isPersonal }}
+    "git+https://gitlab.com/evangelospro/seafile-nautilus.git",
+    {{- end }}
+]

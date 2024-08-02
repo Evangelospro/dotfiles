@@ -4,8 +4,6 @@
 matches:
     # - trigger: ":espanso"
     #   replace: "Hi there!"
-    - trigger: ":mail"
-      replace: "elioudakis123@gmail.com"
     - trigger: ":date"
       replace: "{{date}}"
       vars:
@@ -21,7 +19,7 @@ matches:
             params:
                 cmd: echo "I am your shell. What can I do for you today?"
     - trigger: "::P"
-      replace: "#!/usr/bin/python3"
+      replace: "#!/usr/bin/env python3"
     - trigger: "::B"
       replace: "#!/usr/bin/env bash"
     - trigger: stabilizeshell

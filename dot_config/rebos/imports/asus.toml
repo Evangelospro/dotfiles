@@ -4,7 +4,7 @@ items = [
     "vulkan-intel",
     "power-profiles-daemon",
     "asusctl",
-    "rog-control-center"
+    "rog-control-center",
     "linux-g14",
     "linux-g14-headers",
 ]

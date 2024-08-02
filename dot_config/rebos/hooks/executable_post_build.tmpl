@@ -16,10 +16,6 @@ fi
 rebos api echo info "Creating XDG user directories"
 xdg-user-dirs-update
 
-# COPY SYSTEM CONFIGURATIONS
-rebos api echo info "Copying system configurations (/etc, /usr, /var)"
-sudo cp -r ~/.local/share/chezmoi/confs/* /
-
 # Alias thorium-browser to /opt/google/chrome/chrome
 if [[ -f /opt/google/chrome/chrome ]]; then
     sudo mkdir -p /opt/google/chrome/

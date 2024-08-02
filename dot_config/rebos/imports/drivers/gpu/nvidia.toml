@@ -1,6 +1,7 @@
 [managers.system]
 items = [
-    "nvidia-open-dkms", # or nvidia-dkms (if your your graphics card is not supported)
+    # use either nvidia-open-dkms or nvidia-dkms (if your your graphics card is not supported)
+    "nvidia-dkms",
     "libva-nvidia-driver",
     "libva-utils",
     "nvidia-utils",
