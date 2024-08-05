@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-if pacman -Qs virt-manager >/dev/null 2>&1; then
+if paru -Qs virt-manager >/dev/null 2>&1; then
     rebos api echo info "Setting up libvirt"
     sudo usermod -aG libvirt $USER
     sudo usermod -aG kvm $USER
@@ -40,11 +40,23 @@ fi
 {{- end }}
 
 {{- if .isPersonal }}
-# seadrive-daemon custom pkgbuild (fuse executable)
-if ! pacman -Qs seadrive-daemon-custom >/dev/null 2>&1; then
-    rebos api echo info "Installing custom seadrive-daemon"
-    (cd ~/.local/share/chezmoi/PKGBUILDS/seadrive-daemon && makepkg -fs --noconfirm && sudo pacman --overwrite '*' --noconfirm -U seadrive-daemon-*.pkg.tar)
-fi
+PKGBUILDS_DIR=$HOME/.local/share/chezmoi/PKGBUILDS/
+for pkg_dir in $(ls $PKGBUILDS_DIR); do
+    pkg_name=$(grep -m1 "pkgname=" $PKGBUILDS_DIR/$pkg_dir/PKGBUILD | cut -d'=' -f2)
+    if ! paru -Q $pkg_name >/dev/null 2>&1; then
+        rebos api echo info "Installing $pkg_name"
+        (cd $PKGBUILDS_DIR/$pkg_dir && makepkg -fs --noconfirm && paru --overwrite '*' --noconfirm -U $pkg_name-*.pkg.tar)
+    else
+        pkg_version=$(grep -m1 "pkgver=" $PKGBUILDS_DIR/$pkg_dir/PKGBUILD | cut -d'=' -f2)
+        installed_version=$(paru -Q $pkg_name | cut -d' ' -f2)
+        if [[ $installed_version != $pkg_version* ]]; then
+            rebos api echo info "Updating $pkg_name from $installed_version to $pkg_version"
+            (cd $PKGBUILDS_DIR/$pkg_dir && makepkg -fs --noconfirm && paru --overwrite '*' --noconfirm -U $pkg_name-*.pkg.tar)
+        else
+            rebos api echo info "$pkg_name is already up to date"
+        fi
+    fi
+done
 {{- end }}
 
 # update
@@ -53,7 +65,7 @@ rebos api echo info "Updating all packages and installing any source-only packag
 
 {{- if .isHacking }}
 # fix rockyou location on archlinux
-if [[ ! -f /usr/share/wordlists/rockyou.txt && $(pacman -Qs seclists) == "" ]]; then
+if [[ ! -f /usr/share/wordlists/rockyou.txt && $(paru -Qs seclists) == "" ]]; then
     sudo mkdir -p /usr/share/wordlists/
     sudo ln -nsf /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt /usr/share/wordlists/rockyou.txt
 fi
@@ -69,7 +81,7 @@ fi
 if [[ $SHELL == "/bin/zsh" ]]; then
     rebos api echo info "zsh is already the default shell not changing"
 else
-    if ! pacman -Qs zsh >/dev/null 2>&1; then
+    if ! paru -Qs zsh >/dev/null 2>&1; then
         rebos api echo error "zsh is not installed..."
     else
         rebos api echo info "Changing shell to zsh"

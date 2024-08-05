@@ -2,7 +2,6 @@
 
 add = "pip install --break-system #:?"
 remove = "pip uninstall --break-system #:?"
-upgrade = "pip install --break-system -U #:?"
 
 plural_name = "pip"
 hook_name = "pip"
