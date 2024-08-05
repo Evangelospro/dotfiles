@@ -1,6 +1,5 @@
 [managers.system]
 items = [
-    "usbguard",
     "qdirstat",
     "gparted",
     "czkawka-gui",

@@ -51,14 +51,14 @@ bind=$MOD_SHIFT,F,togglefloating
 
 # Function keys
 bind=,XF86RFKill,exec,rfkill
-binde=,XF86AudioRaiseVolume,exec,swayosd-client --output-volume raise --max-volume 150
-binde=,XF86AudioLowerVolume,exec,swayosd-client --output-volume lower --max-volume 150
-bind=,XF86AudioMute,exec,swayosd-client --output-volume mute-toggle
+binde=,XF86AudioRaiseVolume,exec,volumectl -b up
+binde=,XF86AudioLowerVolume,exec,volumectl -b down
+bind=,XF86AudioMute,exec,volumectl toggle-mute
 bind=,XF86AudioPlay,exec,playerctl play-pause
 bind=,XF86AudioNext,exec,playerctl next
 bind=,XF86AudioPrev,exec,playerctl previous
-binde=,XF86MonBrightnessUp,exec,swayosd-client --brightness raise
-binde=,XF86MonBrightnessDown,exec, swayosd-client --brightness lower
+binde=,XF86MonBrightnessUp,exec,lightctl up
+binde=,XF86MonBrightnessDown,exec,lightctl down
 
 # Scratchpads
 # Valent (KDEConnect) special scratchpad workspace

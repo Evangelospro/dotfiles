@@ -5,8 +5,7 @@
 systemctl --user start hyprland-session.target
 
 # SIGNAL SYSTEMD SERVICES
-/usr/bin/systemctl --user start blueman-applet
-/usr/bin/systemctl --user start nm-applet
-/usr/bin/systemctl --user start usbguard-applet
-/usr/bin/systemctl --user start udiskie
-/usr/bin/systemctl --user restart waybar-icons
+# /usr/bin/systemctl --user start blueman-applet
+# /usr/bin/systemctl --user start nm-applet
+# /usr/bin/systemctl --user start udiskie
+# /usr/bin/systemctl --user restart waybar-icons

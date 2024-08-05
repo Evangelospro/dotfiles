@@ -3,7 +3,9 @@ items = [
     "audacity",
     "wireplumber",
     "pipewire",
+    "lib32-pipewire",
     "pipewire-pulse",
+    "pipewire-alsa",
     "pavucontrol",
     "pamixer"
 ]

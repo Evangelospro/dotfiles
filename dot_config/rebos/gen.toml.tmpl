@@ -41,13 +41,10 @@ items = [
     "ntpdate", # idk why arch doesn't have this by default
     "docker",
     "plocate-updatedb.timer",
-    "swayosd-libinput-backend",
-    "walker",
     {{- if .isLaptop }}
     "NetworkManager",
     "bluetooth",
     {{- end }}
-    "usbguard",
     {{- if .isNvidiaGPU }}
     # "nvidia-suspend",
     # "nvidia-hibernate",
@@ -63,23 +60,26 @@ items = [
 
 [managers.systemd-user]
 items = [
+    "wireplumber",
     "docker",
     "gnome-keyring-daemon",
     "battery-notifier",
     "polkit-gnome",
-    # "swayosd",
+    "walker",
     "swaync",
+    # "avizo",
     "idle",
-    "wl-paste-text",
-    "wl-paste-images",
-    "wl-clip-persist",
     "clipboard-sync",
     "waybar",
     "waybar-icons",
     "blueman-applet",
     "nm-applet",
-    "usbguard-notifier",
     "udiskie",
+]
+
+[managers.pypy]
+items = [
+    "pip", # just in case
 ]
 
 [managers.groups]

@@ -14,9 +14,14 @@ if ! pacman -Qs chaotic-keyring >/dev/null 2>&1; then
     sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 fi
 
-# Insall python-pip and pipx
+# Insall python-pip, pypy and pipx
 if ! pacman -Qs python-pip >/dev/null 2>&1; then
     sudo pacman -S --noconfirm python-pip
+fi
+
+if ! pacman -Qs pypy3 >/dev/null 2>&1; then
+    sudo pacman -S --noconfirm pypy3
+    pypy3 -m ensurepip
 fi
 
 if ! pacman -Qs pipx >/dev/null 2>&1; then

@@ -1,5 +1,6 @@
 # BASICS
 exec-once=$HOME/.config/hypr/scripts/default/portals-and-systemd-user
+
 # Theming
 exec-once=/usr/bin/xsettingsd &
 exec=$HOME/.config/hypr/scripts/import-themes
@@ -12,7 +13,7 @@ exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOB
 
 # Utilities & Background apps
 exec-once=pidof flameshot || /usr/bin/flameshot
-exec=swayosd-server
+exec=avizo-service
 
 {{- if .isAsus }}
 exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center | /usr/bin/rog-control-center

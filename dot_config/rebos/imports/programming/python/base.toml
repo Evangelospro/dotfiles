@@ -3,6 +3,7 @@ items = [
     "python3",
     "python-pip",
     "python-pipx",
+    "pypy3",
     "mypy",
     "ruff",
     "python-termcolor",

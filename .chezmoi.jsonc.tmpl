@@ -60,7 +60,7 @@
         "email": "elioudakis123@gmail.com",
         "applications": {
             "terminal": {"linux":{"name":"warp-terminal", "command":"warp-terminal", "class":"dev.warp.Warp"}},
-            "editor": {"linux":{"name":"code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}, "windows":{"name":"code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}},
+            "editor": {"linux":{"name":"visual-studio-code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}, "windows":{"name":"code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}},
             "browser": {"linux":{"name":"thorium-browser", "command":"thorium-browser", "class":"thorium-browser"}, "windows":{"name":"thorium-browser", "command":"thorium-browser", "class":"thorium-browser"}},
             "filemanager": {"linux":{"name":"nemo", "command":"nemo", "class":"nemo"}, "windows":{"name":"explorer", "command":"explorer.exe", "class":"explorer"}},
             "imageviewer": {"linux":{"name":"imv", "command":"imv", "class":"imv"}, "windows":{"name":"imv", "command":"imv", "class":"imv"}},
@@ -104,7 +104,7 @@
             },
             "applications":{
                 "browser" : {"description": "Launch browser", "key": "{{$MOD}}{{$SEP}}B", "command": {"linux":"raise --launch {{.applications.browser.linux.command}} --class {{.applications.browser.linux.class}}","windows":""}},
-                "browser_new" : {"description": "Launch (new) browser", "key": "{{$SHIFT_MOD}}{{$SEP}}B", "command": {"linux":"thorium-browser","windows":""}},
+                "browser_new" : {"description": "Launch (new) browser", "key": "{{$SHIFT_MOD}}{{$SEP}}B", "command": {"linux":"{{.applications.browser.linux.command}}","windows":""}},
 
                 "burp" : {"description": "Launch  Burp", "key": "{{$MOD}}{{$SEP}}X", "command": {"linux":"raise --launch burp --class burp-StartBurp","windows":"burpsuite"}},
 

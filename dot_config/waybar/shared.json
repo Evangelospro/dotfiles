@@ -22,7 +22,6 @@
             "activated": " ",
             "deactivated": " "
         }
-
     },
     "tray": {
         "icon-size": 22,
@@ -81,7 +80,7 @@
         "tooltip-format": "{device_alias}",
         "tooltip-format-connected": " {device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
-        "on-click": "blueman-manager",
+        "on-click": "blueman-manager"
     },
     "pulseaudio#output": {
         "format": "{icon} {volume}%",

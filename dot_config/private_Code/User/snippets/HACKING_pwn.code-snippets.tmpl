@@ -20,7 +20,7 @@
             "if os.path.exists(local_libc_path):",
             "    context.libc_database = '{{.chezmoi.homeDir}}/HACKING/Tools/pwn/libc-database'",
             "    templ_libc_path = '/tmp/libc.so.6'",
-            "    shutil.copy(local_libc_path', templ_libc_path)",
+            "    shutil.copy(local_libc_path, templ_libc_path)",
             "    context.libc = templ_libc_path",
             "    libc = context.libc",
             "",
@@ -75,7 +75,7 @@
             "            quit()",
             "        return remote(host, port)",
             "    elif args.S:",
-            "        if ':' in args.S:
+            "        if ':' in args.S:",
             "            host = args.S.split(':')[0]",
             "            port = args.S.split(':')[1]",
             "        elif not host or not port:",
@@ -92,7 +92,7 @@
             "padding = find_xip(cyclic(250), elf_bin.get_machine_arch())",
             "io = start()",
             "$0",
-            "#io.interactive()",
+            "#io.interactive()"
         ],
     }
 }

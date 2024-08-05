@@ -1,0 +1,14 @@
+[Unit]
+Description=Avizo Server Daemon
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/avizo-service
+ExecStop=/bin/kill -2 $MAINPID
+Restart=on-failure
+
+
+[Install]
+WantedBy=graphical-session.target

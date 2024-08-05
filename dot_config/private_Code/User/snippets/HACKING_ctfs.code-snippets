@@ -13,5 +13,18 @@
             "    return f'{rand_str(10)}@{rand_str(5)}.com'",
             "",
 		]
-	}
+	},
+    "hook": {
+        "scope": "python",
+        "prefix": "hook",
+        "body": [
+            "def hook(l=None):",
+            "    if l:",
+            "        locals().update(l)",
+            "    import IPython",
+            "    IPython.embed(banner1='', confirm_exit=False)",
+            "    exit(0)",
+            "",
+        ]
+    },
 }

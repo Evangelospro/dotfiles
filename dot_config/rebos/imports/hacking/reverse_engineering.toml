@@ -13,8 +13,8 @@ items = [
 
 [managers.pypy]
 items = [
-    "ipython",
-    "z3-solver",
-    "claripy",
-    "angr",
+    # "ipython",
+    # "z3-solver",
+    # "claripy",
+    # "angr",
 ]
