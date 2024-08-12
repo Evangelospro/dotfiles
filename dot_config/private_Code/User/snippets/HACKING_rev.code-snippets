@@ -1,7 +1,7 @@
 {
-	"angr template": {
+	"angr z3 template": {
 		"scope": "python",
-		"prefix": "angr temp",
+		"prefix": "angr z3 temp",
 		"body": [
 			"import angr",
 			"import claripy",

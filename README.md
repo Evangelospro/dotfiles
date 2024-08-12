@@ -303,7 +303,7 @@ ALT -> WIN
 | curl           | Normal curl but uses the burp proxy if it's running                     |
 | ferox-\*       | Feroxbust a host with a specific wordlist                               |
 | ffuf-\*        | Fuzz a host with a specific wordlist                                    |
-| getWordlist    | Return a wordlist of either dns or dir according to the argument passed |
+| get-wordlist   | Return a wordlist of either dns or dir according to the argument passed |
 
 ### Burp
 

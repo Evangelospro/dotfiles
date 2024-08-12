@@ -22,26 +22,6 @@ function disable-proxy-mobile() {
     $HOME/.config/burp/scripts/mobile-proxy.sh stop
 }
 
-extraWordlistDiscovery="$HOME/.config/burp/wordlists/extraWordlistDiscovery.txt"
-function getWordlist() {
-    defaultDirWordlist="/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt"
-    defaultDnsWordlist="/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt"
-    modifiedWordlistBaseName="/tmp/modifiedWordlist"
-    randomSuffix=$(date +%s | sha256sum | base64 | head -c 6)
-    if [[ $1 == "dir" ]]; then
-        modifiedWordlist="$modifiedWordlistBaseName-dir-$randomSuffix.txt"
-        /usr/bin/cp  $extraWordlistDiscovery $modifiedWordlist >/dev/null 2>&1
-        cat $defaultDirWordlist >> $modifiedWordlist
-        echo $modifiedWordlist
-    elif [[ $1 == "dns" ]]; then
-        modifiedWordlist="$modifiedWordlistBaseName-dns-$randomSuffix.txt"
-        /usr/bin/cp  $defaultDnsWordlist $modifiedWordlist >/dev/null  2>&1
-        echo $modifiedWordlist
-    else
-        echo "Usage: getWordlist <dir|dns>"
-    fi
-}
-
 function curl() {
     # check if the burp proxy is running and if so use it
     # see https://github.com/rs/curlie/issues/31, until this is fixed I need to use curl and not curlie...
@@ -66,7 +46,7 @@ ferox-dir() {
         wordlist=$2
         shift
     else
-        wordlist=$(getWordlist dir)
+        wordlist=$(get-wordlist dir)
     fi
     feroxbuster -u $url -w $wordlist "$@"
 }
@@ -79,7 +59,7 @@ ferox-ext() {
         wordlist=$2
         shift
     else
-        wordlist=$(getWordlist dir)
+        wordlist=$(get-wordlist dir)
     fi
     feroxbuster -u $url -w $wordlist -x $exts "$@"
 }
@@ -91,7 +71,7 @@ ffuf-dir() {
         wordlist=$2
         shift
     else
-        wordlist=$(getWordlist dir)
+        wordlist=$(get-wordlist dir)
     fi
     ffuf -c -u $url/FUZZ -w $wordlist "$@"
 }
@@ -103,7 +83,7 @@ ffuf-vhost() {
         wordlist=$2
         shift
     else
-        wordlist=$(getWordlist dns)
+        wordlist=$(get-wordlist dns)
     fi
     # remove the protocol http:// or https:// and any trailing slashes
     host=$(echo $url | sed 's/http[s]*:\/\///g' | sed 's/\/$//g')
@@ -119,7 +99,7 @@ ffuf-ext() {
         wordlist=$2
         shift
     else
-        wordlist=$(getWordlist dir)
+        wordlist=$(get-wordlist dir)
     fi
     ffuf -c -u $url/FUZZ -w $wordlist -e $exts "$@"
 }
