@@ -7,11 +7,11 @@ local keys = {
     {key = "t", mods = "CTRL", action = action {SpawnTab = "CurrentPaneDomain"}},
     {
         key = "LeftArrow",
-        mods = "ALT",
+        mods = "CTRL|SHIFT",
         action = action {ActivateTabRelative = -1}
     }, {
         key = "RightArrow",
-        mods = "ALT",
+        mods = "CTRL|SHIFT",
         action = action {ActivateTabRelative = 1}
     }, {key = "r", mods = "CTRL|SHIFT", action = action.ReloadConfiguration},
     -- CaseInSensitive search...

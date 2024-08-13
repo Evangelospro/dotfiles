@@ -54,8 +54,10 @@ zinit light jgogstad/zsh-mask
 
 # natively supported in warp
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    zinit ice wait lucid depth=1 pick="autopair.zsh" atload="autopair-init"
-    zinit light hlissner/zsh-autopair
+    # zinit ice wait lucid depth=1 pick="autopair.zsh"
+    # zinit light hlissner/zsh-autopair
+    zinit ice wait lucid nocd
+    zinit snippet $ZDOTDIR/plugins/autopair.zsh
 
     zinit ice wait lucid nocd
     zinit light icatalina/zsh-navi-plugin
@@ -81,8 +83,8 @@ zinit wait'0b' lucid as"completion" blockf atpull'zinit creinstall -q .' \
     light-mode for @zsh-users/zsh-completions
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    # zinit ice depth=1 lucid nocd
-    # zinit light marlonrichert/zsh-autocomplete
+    zinit ice depth=1 lucid nocd
+    zinit light marlonrichert/zsh-autocomplete
 
     zinit wait'0b' lucid \
     atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start" \
@@ -90,8 +92,8 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 fi
 
 # Syntax highlight must be the last one
-zinit ice depth=1 lucid nocd
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh
+zinit ice depth=1 lucid nocd
 zinit light @zsh-users/zsh-syntax-highlighting
 
 {{ if .isPersonal -}}

@@ -4,7 +4,6 @@ PKGBUILDS
 **/*.src.ini
 
 {{- if (not .isHacking) }}
-.local/bin/ida
 .local/applications/ida.desktop
 {{ end }}
 
@@ -28,7 +27,7 @@ symlink*
 # I anyways populate manually so don't litter $HOME
 dconf_overrides.keyfile
 Dockerfile
-confs/
+# confs/
 pyproject.toml
 README.md
 install.sh
@@ -116,6 +115,8 @@ docs/zsdoc/data
 
 
 {{- if not .isPersonal }}
+.local/share/applications/AtlasOS.desktop
+VMs
 Courses
 Documents
 HACKING

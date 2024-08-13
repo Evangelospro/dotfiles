@@ -59,15 +59,14 @@
         "fullname": "Evangelos Lioudakis",
         "email": "elioudakis123@gmail.com",
         "applications": {
-            "terminal": {"linux":{"name":"warp-terminal", "command":"warp-terminal", "class":"dev.warp.Warp"}},
+            // "terminal": {"linux":{"name":"warp-terminal", "command":"warp-terminal", "class":"dev.warp.Warp"}},
+            "terminal": {"linux":{"name":"Wezterm", "command":"wezterm", "class":"org.wezfurlong.wezterm", "desktop_name": "org.wezfurlong.wezterm"}},
             "editor": {"linux":{"name":"visual-studio-code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}, "windows":{"name":"code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}},
             "browser": {"linux":{"name":"thorium-browser", "command":"thorium-browser", "class":"thorium-browser"}, "windows":{"name":"thorium-browser", "command":"thorium-browser", "class":"thorium-browser"}},
             "filemanager": {"linux":{"name":"nemo", "command":"nemo", "class":"nemo"}, "windows":{"name":"explorer", "command":"explorer.exe", "class":"explorer"}},
             "imageviewer": {"linux":{"name":"imv", "command":"imv", "class":"imv"}, "windows":{"name":"imv", "command":"imv", "class":"imv"}},
             "videoplayer": {"linux":{"name":"vlc", "command":"vlc", "class":"vlc"}, "windows":{"name":"vlc", "command":"vlc", "class":"vlc"}},
             "musicplayer": {"linux":{"name":"spotube", "command":"spotube", "class":"spotube"}, "windows":{"name":"spotube", "command":"spotube", "class":"spotube"}},
-            "lockscreen": {"linux":{"name":"swaylock", "command":"swaylock", "class":"swaylock"}, "windows":{}},
-            "launcher": {"linux":{"name":"walker", "command":"walker", "class":"walker"}, "windows":{}},
         },
         "keybindings": {
             "wm":{
@@ -94,7 +93,7 @@
             },
             "utilities":{
                 "lockscreen": {"description": "Lock the screen", "key": "{{$MOD}}{{$SEP}}L", "command": {"linux":"lockscreen","windows":""}},
-                "launcher": {"description": "Open the launcher", "key": "{{$MOD}}{{$SEP}}SPACE", "command": {"linux":"launcher","windows":""}},
+                "launcher": {"description": "Open the launcher", "key": "{{$MOD}}{{$SEP}}SPACE", "command": {"linux":"walker","windows":""}},
                 "clipboard": {"description": "Open the clipboard manager", "key": "{{$MOD}}{{$SEP}}V", "command": {"linux":"clip-menu","windows":""}},
                 "emoji": {"description": "Open the emoji picker", "key": "{{$SHIFT_MOD}}{{$SEP}}E", "command": {"linux":"emoji-menu","windows":""}}
             },

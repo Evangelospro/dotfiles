@@ -1,27 +1,22 @@
 # COMPLETIONS
-_comp_options+=(globdots)
+# _comp_options+=(globdots)
 
-autoload -Uz compinit
 zcompdump_file="$XDG_CACHE_HOME/zsh/.zcompdump-$ZSH_VERSION"
-
+# autoload -Uz compinit
 # Check if zcompdump file exists and if it is older than a day
-if [ ! -s "$zcompdump_file" ] || [ "$(date +'%j')" != "$(date -d "@$(/usr/bin/stat -c '%Y' "$zcompdump_file")" '+%j')" ]; then
-    compinit -u -i -d "$zcompdump_file"
-else
-    compinit -C -d "$zcompdump_file"
-fi
+# if [ ! -s "$zcompdump_file" ] || [ "$(date +'%j')" != "$(date -d "@$(/usr/bin/stat -c '%Y' "$zcompdump_file")" '+%j')" ]; then
+#     compinit -u -i -d "$zcompdump_file"
+# else
+#     compinit -C -d "$zcompdump_file"
+# fi
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-autoload -U +X bashcompinit && bashcompinit # needed for pipx to load
-
-zinit cdreplay -q
-
 ## FZF tab completion
-#export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --files --hidden --follow --glob '!.git' || find ."
-#export FZF_DEFAULT_OPTS=''
-# zinit ice wait lucid nocd blockf #depth"1"
+# export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --files --hidden --follow --glob '!.git' || find ."
+# export FZF_DEFAULT_OPTS=''
+# zinit ice wait lucid nocd blockf depth"1"
 # zinit light Aloxaf/fzf-tab
 
 # end profiler check that it is not already running

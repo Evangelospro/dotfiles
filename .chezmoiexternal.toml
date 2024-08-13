@@ -27,7 +27,7 @@
     executable = true
     refreshPeriod = "168h"
 
-[".local/bin/IDA/themes/dracula/theme.css"]
+[".config/system/opt/idapro/themes/dracula/theme.css"]
     type = "file"
     url = "https://raw.githubusercontent.com/dracula/ida/master/theme.css"
     refreshPeriod = "168h"
@@ -154,25 +154,22 @@
 
 ## Reverse
 ### IDA
-[".local/bin/IDA/plugins/auto_re.py"]
+[".config/system/opt/idapro/plugins/auto_re.py"]
     type = "file"
     url = "https://raw.githubusercontent.com/a1ext/auto_re/master/auto_re.py"
     executable = true
     refreshPeriod = "168h"
-
-[".local/bin/IDA/plugins/jni_helper3.py"]
+[".config/system/opt/idapro/plugins/jni_helper3.py"]
     type = "file"
     url = "https://raw.githubusercontent.com/evilpan/jni_helper/master/ida/jni_helper3.py"
     executable = true
     refreshPeriod = "168h"
-
-[".local/bin/IDA/plugins/IDAMagicStrings.py"]
+[".config/system/opt/idapro/plugins/IDAMagicStrings.py"]
     type = "file"
     url = "https://raw.githubusercontent.com/joxeankoret/idamagicstrings/master/IDAMagicStrings.py"
     executable = true
     refreshPeriod = "168h"
-
-[".local/bin/IDA/plugins/codatify.py"]
+[".config/system/opt/idapro/plugins/codatify.py"]
     type = "file"
     url = "https://raw.githubusercontent.com/grayhatacademy/ida/master/plugins/codatify/codatify.py"
     executable = true

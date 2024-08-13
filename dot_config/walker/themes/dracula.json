@@ -3,11 +3,15 @@
         "fullscreen": true,
         "ignore_exclusive": true,
         "anchors": {
-            "top": true
+            "left": true,
+            "top": true,
+            "right": true,
+            "bottom": true
         },
         "window": {
             "name": "window",
-            "v_align": "start",
+            "v_align": "fill",
+            "h_align": "fill",
             "box": {
                 "margins": {
                     "top": 200

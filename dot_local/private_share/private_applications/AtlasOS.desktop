@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Exec=quickemu --vm AtlasOS.conf --display spice
+Path=/home/evangelospro/VMs
+Name=AtlasOS Windows
+Icon=qemu

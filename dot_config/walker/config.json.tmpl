@@ -1,25 +1,45 @@
 {
     "terminal": "{{.applications.terminal.linux.command}}",
-    "theme": "dracula",
-    "disabled": ["runner", "windows"],
     "ignore_mouse": true,
     "activation_mode": {
-        "disabled": true
-    },
-    "list": {
-        "margin_top": 0,
-        "always_show": false,
-        "max_entries": 25,
-        "scrollbar_policy": "external"
-    },
-    "search": {
-        "icons": false,
-        "history": false,
-        "force_keyboard_focus": true,
-        "spinner": true
+        "disabled": true,
+        "labels": "jkl;asdf"
     },
     "builtins": {
+        "applications": {
+            "prefer": true,
+            "actions": true,
+            "context_aware": true,
+            "name": "applications",
+            "placeholder": "Applications",
+            "prioritize_new": true,
+            "refresh": true,
+            "show_icon_when_single": true,
+            "show_sub_when_single": true
+        },
+        "calc": {
+            "icon": "accessories-calculator",
+            "min_chars": 4,
+            "name": "calc",
+            "placeholder": "Calculator"
+        },
+        "clipboard": {
+            "image_height": 300,
+            "max_entries": 10,
+            "name": "clipboard",
+            "placeholder": "Clipboard",
+            "switcher_only": true
+        },
+        "commands": {
+            "icon": "utilities-terminal",
+            "name": "commands",
+            "placeholder": "Commands",
+            "switcher_only": true
+        },
         "custom_commands": {
+            "icon": "utilities-terminal",
+            "name": "custom_commands",
+            "placeholder": "Custom Commands",
             "commands": [
                 {
                     "name": "Color Picker",
@@ -31,55 +51,86 @@
                 }
             ]
         },
-        "applications": {
-            "cache": true,
-            "actions": true
-        },
-        "clipboard": {
-            "max_entries": 50,
-            "image_height": 100
-        },
-        "commands": {
+        "dmenu": {
+            "name": "dmenu",
+            "placeholder": "Dmenu",
             "switcher_only": true
         },
         "emojis": {
-            "switcher_only": true
+            "history": true,
+            "name": "emojis",
+            "placeholder": "Emojis",
+            "switcher_only": true,
+            "typeahead": true
         },
         "finder": {
+            "concurrency": 8,
+            "icon": "folder",
+            "ignore_gitignore": true,
+            "name": "finder",
+            "placeholder": "Finder",
+            "refresh": true,
             "switcher_only": true
-        },
-        "hyprland": {
-            "context_aware_history": true
         },
         "runner": {
             "shell_config": "{{.chezmoi.homeDir}}/.config/zsh/.zshrc",
-            "generic_entry": true,
             "includes": [
                 "shutdown",
                 "reboot",
                 "vpn"
-            ]
+            ],
+            "generic_entry": false,
+            "history": true,
+            "icon": "utilities-terminal",
+            "name": "runner",
+            "placeholder": "Runner",
+            "refresh": true,
+            "typeahead": true
         },
         "ssh": {
-            "switcher_only": true
+            "history": true,
+            "icon": "preferences-system-network",
+            "name": "ssh",
+            "placeholder": "SSH",
+            "refresh": true
         },
         "switcher": {
+            "name": "switcher",
+            "placeholder": "Switcher",
             "prefix": "/"
         },
-        "websearch": {}
+        "websearch": {
+            "engines": [
+                "google"
+            ],
+            "icon": "applications-internet",
+            "name": "websearch",
+            "placeholder": "Websearch"
+        },
+        "windows": {
+            "icon": "view-restore",
+            "name": "windows",
+            "placeholder": "Windows"
+        },
+        "hyprland": {
+            "context_aware_history": true
+        }
+    },
+    "list": {
+        "max_entries": 50,
+        "show_initial_entries": true,
+        "single_click": true
+    },
+    "search": {
+        "delay": 0,
+        "force_keyboard_focus": true,
+        "history": true,
+        "placeholder": "Search..."
     },
     "plugins": [
         {
-            "name": "calc",
-            "prefix": "=",
-            "src": "NO_COLOR=\"true\" rink",
-            "cmd": "copy",
-            "matching": 1
-        },
-        {
             "name": "power",
             "placeholder": "Power",
-            "switcher_only": true,
             "keep_sort": true,
             "entries": [
                 {
@@ -99,5 +150,6 @@
                 }
             ]
         }
-    ]
+    ],
+    "theme": "dracula"
 }

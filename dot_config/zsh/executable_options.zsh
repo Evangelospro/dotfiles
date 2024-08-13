@@ -8,7 +8,7 @@ setopt share_history          # Share history between different instances of the
 setopt inc_append_history     # add commands to HISTFILE in order of execution
 setopt incappendhistorytime
 setopt appendhistory # Immediately append history instead of overwriting
-setopt autocd        # if only directory path is entered, cd there.
+# setopt autocd        # if only directory path is entered, cd there.
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus

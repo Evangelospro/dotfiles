@@ -15,3 +15,9 @@ if [[ $current_burp_version != $latest_burp_version ]]; then
 else
     echo "Burp Pro is already up to (date current version: $current_burp_version == latest version: $latest_burp_version)"
 fi
+# if more than 1 FOLDERS are in ~/.BurpSuite/burpbrowser
+browser_folders=$(\ls -l $HOME/.BurpSuite/burpbrowser | grep -c ^d)
+if [[ $browser_folders -gt 1 ]]; then
+    echo "Removing old Burp Browser folders (keeping the latest)"
+    echo $browser_folders | tail -n +2 | xargs -I {} rm -rf $HOME/.BurpSuite/burpbrowser/{}
+fi
