@@ -1,6 +1,6 @@
 [Unit]
 Description=Icons for workspaces displayed by waybar
-After=graphical-session.target
+After=graphical-session.target waybar.service
 Wants=waybar.service
 
 [Service]
@@ -13,4 +13,4 @@ RestartSec=3
 TimeoutStopSec=10
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target

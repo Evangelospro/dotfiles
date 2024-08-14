@@ -9,6 +9,5 @@ ExecStart=/usr/bin/clipse --listen-shell
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 
-
 [Install]
 WantedBy=graphical-session.target

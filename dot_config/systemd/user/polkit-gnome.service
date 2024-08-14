@@ -9,6 +9,5 @@ ExecStart=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 
-
 [Install]
 WantedBy=graphical-session.target

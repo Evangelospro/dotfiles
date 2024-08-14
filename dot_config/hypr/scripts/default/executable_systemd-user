@@ -2,7 +2,7 @@
 
 /usr/bin/systemctl --user import-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME
 /usr/bin/dbus-update-activation-environment --systemd --all
-systemctl --user start hyprland-session.target
+# systemctl --user start hyprland-session.target
 
 # SIGNAL SYSTEMD SERVICES
 # /usr/bin/systemctl --user start blueman-applet

@@ -1,6 +1,7 @@
 [Unit]
 Description=Network Manager Applet
-After=network.target graphical-session.target waybar.service
+After=graphical-session.target waybar.service
+PartOf=graphical-session.target
 Wants=waybar.service
 
 [Service]
@@ -9,6 +10,5 @@ ExecStart=/usr/bin/nm-applet --indicator
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 
-
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target

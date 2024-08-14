@@ -1,7 +1,8 @@
 [Unit]
 Description=A lightweight Wayland statusbar
 Documentation=man:waybar(1)
-After=graphical-session.target waybar-icons.service
+After=graphical-session.target
+PartOf=graphical-session.target
 
 [Service]
 Type=simple

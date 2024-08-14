@@ -1,12 +1,11 @@
 [Unit]
 Description=Seadrive Gui Client
 After=network.target graphical-session.target waybar.service
-Wants=waybar.service
 
 [Service]
+Type=simple
 ExecStart=/usr/bin/seadrive-gui
 Restart=on-failure
 
-
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target
