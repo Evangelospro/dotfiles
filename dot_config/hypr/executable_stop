@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-systemctl --user stop graphical-session.target
+systemctl --user stop hyprland-session.target
 loginctl terminate-session $XDG_SESSION_ID
 # hyprctl dispatch exit 0

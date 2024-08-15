@@ -11,6 +11,5 @@ ExecReload=/bin/kill -SIGUSR2 $MAINPID
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 
-
 [Install]
 WantedBy=graphical-session.target

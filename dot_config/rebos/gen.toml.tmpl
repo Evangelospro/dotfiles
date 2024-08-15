@@ -60,6 +60,7 @@ items = [
 
 [managers.systemd-user]
 items = [
+    "dbus-broker",
     "wireplumber",
     "docker",
     "gnome-keyring-daemon",
@@ -68,13 +69,16 @@ items = [
     "walker",
     "swaync",
     # "avizo",
-    "idle",
+    "hypridle",
     "clipboard-sync",
     "waybar",
     "waybar-icons",
     "blueman-applet",
     "nm-applet",
     "udiskie",
+    {{- if .isAsus }}
+    # "asusd-user",
+    {{- end }}
 ]
 
 [managers.pypy]

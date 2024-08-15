@@ -4,7 +4,7 @@ Operation=Upgrade
 Operation=Remove
 Type=Package
 # use either nvidia-open-dkms or nvidia-dkms (if your your graphics card is not supported)
-Target=nvidia-dkms
+Target=nvidia-beta-dkms
 # Change if a different kernel is used
 Target=linux-g14
 

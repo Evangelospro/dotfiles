@@ -1,16 +1,15 @@
 [managers.system]
 items = [
     # use either nvidia-open-dkms or nvidia-dkms (if your your graphics card is not supported)
-    "nvidia-dkms",
+    "nvidia-beta-dkms",
     "libva-nvidia-driver",
     "libva-utils",
-    "nvidia-utils",
-    "lib32-nvidia-utils",
+    "nvidia-utils-beta",
     "nvidia-settings",
     "opencl-nvidia",
     "cuda",
     "cudnn",
     "cuda-tools",
-    "nvenc",
+    # "nvenc",
     "switcheroo-control",
 ]

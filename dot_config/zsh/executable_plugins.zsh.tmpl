@@ -79,12 +79,12 @@ if [[ $(tput colors) == 256 ]]; then
 fi
 
 zinit wait'0b' lucid as"completion" blockf atpull'zinit creinstall -q .' \
-    atload"source $ZDOTDIR/plugins/zsh-completions_atload.zsh"  \
     light-mode for @zsh-users/zsh-completions
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     zinit ice depth=1 lucid nocd
-    zinit light marlonrichert/zsh-autocomplete
+    # zinit light marlonrichert/zsh-autocomplete
+    zinit light aaronkollasch/zsh-autocomplete
 
     zinit wait'0b' lucid \
     atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start" \
