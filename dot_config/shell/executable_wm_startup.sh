@@ -1,7 +1,7 @@
 if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-    if [ -x "$HOME/.config/hypr/start" ]; then
-        exec $HOME/.config/hypr/start
+    if [ -f "$HOME/.config/systemd/user/hyprland-session.service" ]; then
+        systemctl --user start --wait hyprland-session
     else
-        echo "Error: Hyprland start script not found."
+        echo "Error: Hyprland start service not found"
     fi
 fi

@@ -3,6 +3,7 @@ source "$ZDOTDIR/binds/fzf-binds.zsh"
 # bindkey -e
 
 # ZSH autocomplete
+bindkey '^I' insert-unambiguous-or-complete
 bindkey -M menuselect '^I' menu-complete
 bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 bindkey -M menuselect '^M' .accept-line

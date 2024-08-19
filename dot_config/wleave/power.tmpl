@@ -18,7 +18,7 @@
 }
 {
     "label": "logout",
-    "action": "{{.chezmoi.homeDir}}/.config/hypr/stop",
+    "action": "loginctl terminate-session $XDG_SESSION_ID",
     "text": "Logout",
     "keybind": "e"
 }

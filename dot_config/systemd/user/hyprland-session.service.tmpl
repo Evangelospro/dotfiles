@@ -1,0 +1,15 @@
+[Unit]
+Description=Hyprland - Tiling compositor with the looks
+Documentation=man:Hyprland(1)
+BindsTo=graphical-session.target
+Before=graphical-session.target
+Wants=graphical-session-pre.target
+After=graphical-session-pre.target
+Upholds=hyprpaper.service avizo.service battery-notifier.service polkit-gnome.service walker.service swaync.service flameshot.servie hypridle.service clipboard-sync.service waybar.service waybar-icons.service blueman-applet.service nm-applet.service udiskie.service {{ if .isPersonal }}seadrive.service{{- end }}
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/Hyprland
+ExecStop=/usr/bin/hyprctl dispatch exit
+Restart=on-failure
+Slice=session.slice
