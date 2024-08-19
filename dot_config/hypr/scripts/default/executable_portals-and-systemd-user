@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# $HOME/.config/hypr/scripts/default/fix-xdg-portals
-$HOME/.config/hypr/scripts/default/systemd-user

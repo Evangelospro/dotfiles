@@ -1,6 +1,6 @@
 # Compression
 alias compress="ouch compress"
-alias extract="ouch decompress"
+alias extract="unp"
 
 # OCRMyPDF
 alias ocrmypdf='ocrmypdf --invalidate-digital-signatures'

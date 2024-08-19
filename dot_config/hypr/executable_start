@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
+# systemctl --user start hyprland
+
 dbus-run-session /usr/local/bin/hyprland "$@"

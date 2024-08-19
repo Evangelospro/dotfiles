@@ -1,11 +1,11 @@
 [Unit]
-Description=Notify user of battery status
+Description=Set wallpaper using hyprpaper
 After=graphical-session.target
 PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=%h/.local/bin/battery-notifier
+ExecStart=/usr/bin/hyprpaper
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 

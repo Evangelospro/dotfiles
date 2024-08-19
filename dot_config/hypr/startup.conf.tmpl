@@ -1,10 +1,9 @@
 # BASICS
-exec-once=$HOME/.config/hypr/scripts/default/portals-and-systemd-user
+exec-once=/usr/bin/systemctl --user start hyprland-session.target
 
 # Theming
 exec-once=/usr/bin/xsettingsd &
 exec=$HOME/.config/hypr/scripts/import-themes
-exec=/usr/bin/hyprpaper
 ## scale apps
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
 
@@ -12,14 +11,12 @@ exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOB
 # exec=$HOME/.config/hypr/scripts/plugin-startup
 
 # Utilities & Background apps
-exec-once=pidof flameshot || /usr/bin/flameshot
 exec=avizo-service
 
 {{- if .isAsus }}
-exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center | /usr/bin/rog-control-center
+exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center || /usr/bin/rog-control-center
 {{- end }}
 
 {{- if .isPersonal }}
-exec=[workspace special:backgroundappsvalent silent] pidof valent |  /usr/bin/valent # --gapplication-service
-exec=/usr/bin/systemctl --user restart seadrive
+exec=[workspace special:backgroundappsvalent silent] pidof valent || /usr/bin/valent # --gapplication-service
 {{- end }}

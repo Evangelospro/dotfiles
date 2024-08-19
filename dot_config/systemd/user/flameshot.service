@@ -1,11 +1,11 @@
 [Unit]
-Description=Notify user of battery status
+Description=Start flameshot screenshot tool in the background
 After=graphical-session.target
 PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=%h/.local/bin/battery-notifier
+ExecStart=/usr/bin/flameshot
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 

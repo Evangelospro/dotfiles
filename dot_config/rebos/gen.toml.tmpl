@@ -51,7 +51,7 @@ items = [
     # "nvidia-resume",
     {{- end }}
     {{- if .isAsus }}
-    "power-profiles-daemon",
+    # "power-profiles-daemon",
     "asusd",
     "supergfxd",
     "switcheroo-control",
@@ -60,7 +60,7 @@ items = [
 
 [managers.systemd-user]
 items = [
-    "dbus-broker",
+    "hyprpaper",
     "wireplumber",
     "docker",
     "gnome-keyring-daemon",
@@ -68,7 +68,8 @@ items = [
     "polkit-gnome",
     "walker",
     "swaync",
-    # "avizo",
+    "avizo",
+    "flameshot",
     "hypridle",
     "clipboard-sync",
     "waybar",
@@ -78,6 +79,9 @@ items = [
     "udiskie",
     {{- if .isAsus }}
     # "asusd-user",
+    {{- end }}
+    {{- if .isPersonal }}
+    "seadrive",
     {{- end }}
 ]
 

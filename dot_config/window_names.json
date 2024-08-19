@@ -142,5 +142,9 @@
     "Matplotlib": {
         "name": "Matplotlib",
         "icon": "python"
+    },
+    "spicy":{
+        "name": "Spice",
+        "icon": "qemu"
     }
 }

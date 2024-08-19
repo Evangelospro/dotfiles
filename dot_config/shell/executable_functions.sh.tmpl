@@ -16,10 +16,9 @@ function source-all() {
     done
 }
 
-source-all "$XDG_CONFIG_HOME/shell/functions"
-
-
 source-safe() { if [ -f "$1" ]; then source "$1"; fi }
+
+source-all "$XDG_CONFIG_HOME/shell/functions"
 
 function set_tab_title() {
     name=$1
@@ -69,17 +68,6 @@ function mkcd(){
     mkdir -p $1
     cd $1
 }
-
-# Use the faster fcp version (no progress bar though...)
-# function cp() {
-#     fcp "$@" & progress -mp $!
-# }
-#
-# # Enable progress bar
-# function mv() {
-#     mv "$@" & progress -mp $!
-# }
-
 
 # Move latest Download to current directory
 function mvd() {

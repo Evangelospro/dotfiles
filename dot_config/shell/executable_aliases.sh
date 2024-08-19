@@ -1,5 +1,8 @@
 source-all "$XDG_CONFIG_HOME/shell/aliases"
 
+alias cp=fcp
+alias mv=fmv
+
 # Copy / Paste
 alias copydir='pwd | copy'
 

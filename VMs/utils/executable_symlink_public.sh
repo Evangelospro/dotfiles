@@ -6,6 +6,7 @@ echo "DST: ${DST}"
 if [ -d "${SRC}" ] && [ "$(ls -A ${SRC})" ]; then
     echo "SRC folder exists and is not empty (creating symlink)"
     # symlink to DST
+    rm -rf ${DST}
     ln -nsf ${SRC} ${DST}
 else
     echo "SRC folder does not exist or is empty"

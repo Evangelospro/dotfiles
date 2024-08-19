@@ -16,7 +16,7 @@ items = [
 
 [managers.pip]
 items = [
-    "requestrepo",
+    "git+https://github.com/adrgs/requestrepo-lib",
     "flask-unsign",
     "wconsole_extractor",
 ]

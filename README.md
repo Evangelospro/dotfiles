@@ -313,8 +313,8 @@ Burp is setup to auto update with the update zsh function above. As I like to us
 
 #### Config
 
--   [project-options.json](dot_config/Burp/project-options.json)
--   [user-options.json](dot_config/Burp/user-options.json)
+-   [project-options.json](dot_config/burp/config/project-options.json)
+-   [user-options.json](dot_config/burp/config/user-options.json)
 
 ### Android Emulator
 
