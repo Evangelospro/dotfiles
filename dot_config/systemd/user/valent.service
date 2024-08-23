@@ -1,0 +1,14 @@
+[Unit]
+Description=Start Valent in the background
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=dbus
+BusName=ca.andyholmes.Valent
+ExecStart=/usr/bin/valent --gapplication-service
+ExecStop=/bin/kill -2 $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

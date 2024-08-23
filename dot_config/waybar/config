@@ -115,7 +115,8 @@
         "position": "top", // Waybar position (top|bottom|left|right)
         "output": [
             "DP-1",
-            "DP-2"
+            "DP-2",
+            "HDMI-A-1"
         ],
         "include": [
             "$HOME/.config/waybar/shared.json"

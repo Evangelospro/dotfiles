@@ -11,6 +11,13 @@ bindkey -M menuselect '^M' .accept-line
 bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
 bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char
 
+# delete key
+bindkey '^[[3~' delete-char
+bindkey -M menuselect '^[[3~' delete-char
+# backspace key
+bindkey '^?' backward-delete-char
+bindkey -M menuselect '^?' backward-delete-char
+
 # CTRL + A
 bindkey '^A' beginning-of-line
 bindkey -M menuselect '^A' beginning-of-line
