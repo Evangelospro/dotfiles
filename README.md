@@ -239,7 +239,7 @@ $MOD = SUPER
 
 ###### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Suggests commands as you type based on history and completions
 
-###### [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) - Highlights commands as you type based on syntax
+###### [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting) - Highlights commands as you type based on syntax
 
 ###### [zsh-completions](https://github.com/zsh-users/zsh-completions) - Additional completion definitions for zsh
 

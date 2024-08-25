@@ -78,29 +78,25 @@ if [[ $(tput colors) == 256 ]]; then
     zinit light romkatv/powerlevel10k
 fi
 
-zinit wait'0b' lucid as"completion" blockf atpull'zinit creinstall -q .' \
-    light-mode for @zsh-users/zsh-completions
-
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
+    # zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
     # zinit light marlonrichert/zsh-autocomplete
-    zinit light aaronkollasch/zsh-autocomplete
+    # zinit light aaronkollasch/zsh-autocomplete
 
-    zinit wait'0b' lucid \
+    zinit wait lucid for \
+    atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+        z-shell/F-Sy-H \
+    blockf \
+        zsh-users/zsh-completions \
     atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start" \
-    light-mode for @zsh-users/zsh-autosuggestions
+        zsh-users/zsh-autosuggestions
+else
+    zinit ice wait lucid nocd atload'!source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh'
+    zi light z-shell/F-Sy-H
 fi
-
-# Syntax highlight must be the last one
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh
-zinit ice depth=1 lucid nocd
-zinit light @zsh-users/zsh-syntax-highlighting
 
 {{ if .isPersonal -}}
 # bitwarden auto export session
 zinit ice wait lucid nocd
 zinit light Game4Move78/zsh-bitwarden
-
-zinit ice wait lucid nocd
-zinit light loiccoyle/zsh-github-copilot
 {{ end -}}

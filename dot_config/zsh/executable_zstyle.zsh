@@ -3,12 +3,13 @@ zstyle ':completion:*' verbose yes
 zstyle ':completion:*' debug yes
 
 # Speed up completions
-#zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 zstyle ':completion:*' rehash true
 
-zstyle ':completion:*' menu select interactive
+# zstyle ':completion:*' menu select interactive
+zstyle ':completion:*' menu no
 
 zstyle ':completion:*' completer _expand_alias _extensions _complete _approximate
 zstyle ':completion:*:paths' path-completion yes
@@ -21,6 +22,7 @@ zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
 zstyle ':completion:complete:*:options' sort false
 zstyle ':completion:*' squeeze-slashes true
 
+zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
 zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
@@ -33,7 +35,10 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # zstyle ':autocomplete:complete*:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-select
 
-# zstyle ':fzf-tab:*' continuous-trigger 'tab'
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
+
+zstyle ':fzf-tab:*' continuous-trigger 'tab'
 # zstyle ':fzf-tab:complete:(cd|ls|cat|nano|vi|vim):*' fzf-preview 'lsd -1 $realpath'
 # zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
 # 	   fzf-preview 'echo ${(P)word}'
@@ -49,22 +54,22 @@ zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
         fi'
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 
-# # Preview `git` commands
-# zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
-# 	   'git diff $word | delta'
-# zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
-# 	   'git log --color=always $word'
-# zstyle ':fzf-tab:complete:git-help:*' fzf-preview \
-# 	   'git help $word | bat -plman --color=always'
-# zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
-# 	   'case "$group" in
-# 	"commit tag") git show --color=always $word ;;
-# 	*) git show --color=always $word | delta ;;
-# 	esac'
-# zstyle ':completion:*:git-checkout:*' sort false
-# zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
-# 	   'case "$group" in
-# 	"modified file") git diff $word | delta ;;
-# 	"recent commit object name") git show --color=always $word | delta ;;
-# 	*) git log --color=always $word ;;
-# 	esac'
+# Preview `git` commands
+zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
+	   'git diff $word | delta'
+zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
+	   'git log --color=always $word'
+zstyle ':fzf-tab:complete:git-help:*' fzf-preview \
+	   'git help $word | bat -plman --color=always'
+zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
+	   'case "$group" in
+	"commit tag") git show --color=always $word ;;
+	*) git show --color=always $word | delta ;;
+	esac'
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
+	   'case "$group" in
+	"modified file") git diff $word | delta ;;
+	"recent commit object name") git show --color=always $word | delta ;;
+	*) git log --color=always $word ;;
+	esac'

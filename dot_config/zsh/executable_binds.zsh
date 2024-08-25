@@ -3,41 +3,41 @@ source "$ZDOTDIR/binds/fzf-binds.zsh"
 # bindkey -e
 
 # ZSH autocomplete
-bindkey '^I' insert-unambiguous-or-complete
-bindkey -M menuselect '^I' menu-complete
-bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
-bindkey -M menuselect '^M' .accept-line
+# bindkey '^I' insert-unambiguous-or-complete
+# bindkey -M menuselect '^I' menu-complete
+# bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+# bindkey -M menuselect '^M' .accept-line
 ## Allow for normal editing keys in the select menu
-bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
-bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char
+# bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
+# bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char
 
 # delete key
 bindkey '^[[3~' delete-char
-bindkey -M menuselect '^[[3~' delete-char
+# bindkey -M menuselect '^[[3~' delete-char
 # backspace key
 bindkey '^?' backward-delete-char
-bindkey -M menuselect '^?' backward-delete-char
+# bindkey -M menuselect '^?' backward-delete-char
 
 # CTRL + A
 bindkey '^A' beginning-of-line
-bindkey -M menuselect '^A' beginning-of-line
+# bindkey -M menuselect '^A' beginning-of-line
 # CTRL + E
 bindkey '^E' end-of-line
-bindkey -M menuselect '^E' end-of-line
+# bindkey -M menuselect '^E' end-of-line
 
 # Ctrl+Delete: kill the word forward
 bindkey '^[[3;5~' kill-word
-bindkey -M menuselect '^[[3;5~' kill-word
+# bindkey -M menuselect '^[[3;5~' kill-word
 # Ctrl+Backspace: kill the word backward
 bindkey "^H" backward-kill-word
-bindkey -M menuselect "^H" backward-kill-word
+# bindkey -M menuselect "^H" backward-kill-word
 
 # CTRL + LEFT ARROW -> Move to the previous word
 bindkey '^[[1;5D' backward-word
-bindkey -M menuselect '^[[1;5D' backward-word
+# bindkey -M menuselect '^[[1;5D' backward-word
 # CTRL + RIGHT ARROW -> Move to the next word
 bindkey '^[[1;5C' forward-word
-bindkey -M menuselect '^[[1;5C' forward-word
+# bindkey -M menuselect '^[[1;5C' forward-word
 
 # bind ctrl + f to fzf zoxide fuzzy finder (send zi\n)
 zle -N zi
@@ -52,8 +52,3 @@ bindkey '^R' atuin-search
 # bind to the up key, which depends on terminal mode
 # bindkey '^[[A' atuin-up-search
 # bindkey '^[OA' atuin-up-search
-
-# shift + tab - suggest
-bindkey '^[[Z' zsh_gh_copilot_suggest
-# ctrl + / - explain
-bindkey '^_' zsh_gh_copilot_explain
