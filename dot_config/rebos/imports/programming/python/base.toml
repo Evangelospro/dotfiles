@@ -4,7 +4,6 @@ items = [
     "python-pip",
     "python-pipx",
     "pypy3",
-    "mypy",
     "ruff",
     "uv",
     "python-termcolor",

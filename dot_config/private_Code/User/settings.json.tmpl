@@ -12,7 +12,7 @@
 	"window.newWindowDimensions": "fullscreen",
 	"window.restoreWindows": "one",
 	"window.title": "${activeEditorShort}${separator}${rootName}",
-	"window.titleBarStyle": "custom", //MUST BE CUSTOM for wayland support to work
+	"window.titleBarStyle": "custom", // MUST BE CUSTOM for wayland support to work
 	"window.titleSeparator": " | ",
 	// WORKBENCH SETTINGS
 	"workbench.activityBar.location": "top",
@@ -227,10 +227,10 @@
 	"files.autoSave": "afterDelay",
 	// SNYK
 	{{- if eq .chezmoi.os "linux" }}
-	"snyk.advanced.cliPath": "{{.chezmoi.homeDir}}/.local/share/snyk/snyk-cli-linux",
+	"snyk.advanced.cliPath": "{{.chezmoi.homeDir}}/.local/share/snyk-ls/snyk-linux",
 	"snyk.advanced.languageServerPath": "{{.chezmoi.homeDir}}/.local/share/snyk/snyk-ls-linux",
 	{{- else if eq .chezmoi.os "windows" }}
-	"snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-cli-win.exe",
+	"snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk-ls\\snyk-win.exe",
 	"snyk.advanced.languageServerPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-ls-win.exe",
 	{{- end }}
 	"snyk.trustedFolders": ["{{ .chezmoi.homeDir }}/"],
@@ -252,7 +252,7 @@
 	"gitlens.telemetry.enabled": false,
 	// MISC / GENERAL
 	"update.showReleaseNotes": false,
-	"diffEditor.ignoreTrimWhitespace": false,
+	"diffEditor.ignoreTrimWhitespace": true,
 	"debug.onTaskErrors": "showErrors",
 	"debug.openDebug": "openOnDebugBreak",
 	// "eslint.enable": true,
@@ -356,5 +356,9 @@
 		"*.sdb": "${capture}.${extname}-*",
 		"*.s3db": "${capture}.${extname}-*"
 	},
-	"explorer.confirmPasteNative": false
+	"explorer.confirmPasteNative": false,
+	"[dotenv]": {
+		"editor.defaultFormatter": "foxundermoon.shell-format"
+	},
+	"snyk.folderConfigs": null
 }

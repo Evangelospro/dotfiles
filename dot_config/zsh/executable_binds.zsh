@@ -45,10 +45,11 @@ bindkey '^[f' zi
 bindkey '^f' fzf-file-widget
 
 # use ctrl-n for navi cheatsheets
-[[ $TERM_PROGRAM != "WarpTerminal" ]] && bindkey '^n' navi_widget
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+    bindkey '^n' navi_widget
+    bindkey '^R' atuin-search
 
-bindkey '^R' atuin-search
-
-# bind to the up key, which depends on terminal mode
-# bindkey '^[[A' atuin-up-search
-# bindkey '^[OA' atuin-up-search
+    # bind to the up key, which depends on terminal mode
+    bindkey '^[[A' atuin-up-search
+    bindkey '^[OA' atuin-up-search
+fi

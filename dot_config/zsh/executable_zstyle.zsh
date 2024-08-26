@@ -24,51 +24,50 @@ zstyle ':completion:*' squeeze-slashes true
 
 zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
 zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
 zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
 
 zstyle ':autocomplete:*' recent-dirs zoxide
 zstyle ':autocomplete:*' fzf-completion yes
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
-# zstyle ':autocomplete:*' insert-unambiguous yes
-# zstyle ':autocomplete:complete*:*' insert-unambiguous yes
+zstyle ':autocomplete:*' insert-unambiguous yes
+zstyle ':autocomplete:complete*:*' insert-unambiguous yes
 zstyle ':autocomplete:*' widget-style menu-select
 
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
-zstyle ':fzf-tab:*' continuous-trigger 'tab'
-# zstyle ':fzf-tab:complete:(cd|ls|cat|nano|vi|vim):*' fzf-preview 'lsd -1 $realpath'
-# zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
-# 	   fzf-preview 'echo ${(P)word}'
+zstyle ':fzf-tab:*' continuous-trigger ''
+zstyle ':fzf-tab:complete:(cd|ls|cat|nano|vi|vim):*' fzf-preview 'lsd -1 $realpath'
+zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' \
+	fzf-preview 'echo ${(P)word}'
 
 # Preview `kill` and `ps` commands
 zstyle ':completion:*:*:*:*:processes' command 'ps -u $USER -o pid,user,comm -w -w'
 zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
-       '[[ $group == "[process ID]" ]] &&
-        if [[ $OSTYPE == darwin* ]]; then
-           ps -p $word -o comm="" -w -w
-        elif [[ $OSTYPE == linux* ]]; then
-           ps --pid=$word -o cmd --no-headers -w -w
-        fi'
+        '[[ $group == "[process ID]" ]] &&
+            if [[ $OSTYPE == darwin* ]]; then
+            ps -p $word -o comm="" -w -w
+            elif [[ $OSTYPE == linux* ]]; then
+            ps --pid=$word -o cmd --no-headers -w -w
+            fi'
 zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
 
 # Preview `git` commands
 zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
-	   'git diff $word | delta'
+	'git diff $word | delta'
 zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
-	   'git log --color=always $word'
+	'git log --color=always $word'
 zstyle ':fzf-tab:complete:git-help:*' fzf-preview \
-	   'git help $word | bat -plman --color=always'
+	'git help $word | bat -plman --color=always'
 zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
-	   'case "$group" in
+	'case "$group" in
 	"commit tag") git show --color=always $word ;;
 	*) git show --color=always $word | delta ;;
 	esac'
 zstyle ':completion:*:git-checkout:*' sort false
 zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
-	   'case "$group" in
+	'case "$group" in
 	"modified file") git diff $word | delta ;;
 	"recent commit object name") git show --color=always $word | delta ;;
 	*) git log --color=always $word ;;

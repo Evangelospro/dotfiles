@@ -79,9 +79,9 @@ if [[ $(tput colors) == 256 ]]; then
 fi
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    # zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
+    zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
     # zinit light marlonrichert/zsh-autocomplete
-    # zinit light aaronkollasch/zsh-autocomplete
+    zinit light aaronkollasch/zsh-autocomplete
 
     zinit wait lucid for \
     atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \

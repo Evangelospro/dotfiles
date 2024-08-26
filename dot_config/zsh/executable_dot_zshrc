@@ -26,17 +26,15 @@ if [[ $(tput colors) == 256 ]]; then
 fi
 
 case ${TERM} in
-xterm* | rxvt* | Eterm* | aterm | kterm | terminator | gnome* | alacritty | st | konsole* | warp | linux)
+xterm* | rxvt* | Eterm* | aterm | kterm | terminator | gnome* | alacritty | st | konsole* | warp | screen*)
     PROMPT_COMMAND="set_tab_title '${USER}@$(hostname):${PWD/#$HOME/~}'"
     ;;
-screen*)
+linux)
+    source $XDG_CONFIG_HOME/shell/themes/tty.sh
     PROMPT_COMMAND="set_tab_title '${USER}@$(hostname):${PWD/#$HOME/~}'"
     ;;
 esac
 precmd_functions+=(${PROMPT_COMMAND})
-if [ "$TERM" = "linux" ]; then
-    source $XDG_CONFIG_HOME/shell/themes/tty.sh
-fi
 
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 

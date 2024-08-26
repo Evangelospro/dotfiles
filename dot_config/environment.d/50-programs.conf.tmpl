@@ -4,6 +4,6 @@ SUDO_EDITOR="{{.applications.editor.linux.command}} --wait"
 TERMINAL={{.applications.terminal.linux.command}}
 BROWSER={{.applications.browser.linux.command}}
 MANPAGER="/usr/bin/less -s -M +Gg"
-DIFFPROG=meld
+DIFFPROG={{.applications.editor.linux.command}} -d
 DOCKER_BUILDKIT=1
 VIMINIT="source $XDG_CONFIG_HOME/vim/.vimrc"

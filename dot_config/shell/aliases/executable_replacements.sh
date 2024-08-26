@@ -22,3 +22,5 @@ alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias xxd="hexxy --upper -td"
 alias rg="batgrep"
 alias format="prettybat"
+
+alias snyk="~/.local/share/snyk-ls/snyk-linux"

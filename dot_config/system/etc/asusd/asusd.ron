@@ -1,0 +1,18 @@
+(
+    charge_control_end_threshold: 85,
+    panel_od: false,
+    boot_sound: false,
+    mini_led_mode: false,
+    disable_nvidia_powerd_on_battery: true,
+    ac_command: "",
+    bat_command: "",
+    throttle_policy_linked_epp: false,
+    throttle_policy_on_battery: Balanced,
+    change_throttle_policy_on_battery: true,
+    throttle_policy_on_ac: Balanced,
+    change_throttle_policy_on_ac: true,
+    throttle_quiet_epp: Default,
+    throttle_balanced_epp: Default,
+    throttle_performance_epp: Default,
+    nv_temp_target: Some(75),
+)

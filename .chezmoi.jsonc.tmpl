@@ -1,12 +1,15 @@
 {
-{{- $isHeadless := false }}
-{{- $isPersonal := true }}
-{{- $isLaptop := true }}
-{{- $isHacking := true }}
-{{- $isAsus := true }}
-{{- $isNvidiaGPU := true }}
-{{- $isIntelGPU := true }}
-{{- $isAmdGPU := false }}
+{{- $isPersonal := promptBoolOnce . "isPersonal" "Is this laptop for use by Evangelos Lioudakis specifically?" -}}
+{{- $isLaptop := promptBoolOnce . "isLaptop" "Is this a laptop?" -}}
+{{- $isHeadless := false -}}
+{{- if not $isLaptop }}
+    {{- $isHeadless = promptBoolOnce . "isHeadless" "Is this a headless server?" -}}
+{{- end -}}
+{{- $isHacking := promptBoolOnce . "isHacking" "Is this computer going to be used for Hacking and CTFs?" -}}
+{{- $isAsus := promptBoolOnce . "isAsus" "Is this an Asus computer" -}}
+{{- $isNvidiaGPU := promptBoolOnce . "isNvidiaGPU" "Does this computer have an Nvidia GPU" -}}
+{{- $isIntelGPU := promptBoolOnce . "isIntelGPU" "Does this computer have an Intel GPU" -}}
+{{- $isAmdGPU := promptBoolOnce . "isAmdGPU" "Does this computer have an AMD GPU" -}}
 
 {{- $isWindows := eq .chezmoi.os "windows" }}
 {{- $isMac := eq .chezmoi.os "darwin" }}
@@ -16,31 +19,13 @@
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) }}
 {{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id }}
 {{- end }}
-{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "ubuntu" "vagrant" "vscode") }}
-{{-   $isHeadless = true }}
-{{- end }}
 
-{{- $MOD_HYPRLAND := "$MOD" }}
-{{- $SHIFT_MOD_HYPRLAND := "$SHIFT_MOD" }}
-{{- $SEP_HYPRLAND := "," }}
+{{- $MOD := "$MOD" }}
+{{- $SHIFT_MOD := "$SHIFT_MOD" }}
+{{- $SEP := "," }}
 
-{{- $MOD_GLAZE := "LWin" }}
-{{- $SHIFT_MOD_GLAZE := "LShiftKey+LWin" }}
-{{- $SEP_GLAZE := "+" }}
-
-{{- $MOD := "" }}
-{{- $SHIFT_MOD := "" }}
-{{- $SEP := "" }}
-
-{{- if $isWindows }}
-    {{- $MOD = $MOD_GLAZE }}
-    {{- $SHIFT_MOD = $SHIFT_MOD_GLAZE }}
-    {{- $SEP = $SEP_GLAZE }}
-{{- else if $isLinux }}
-    {{- $MOD = $MOD_HYPRLAND }}
-    {{- $SHIFT_MOD = $SHIFT_MOD_HYPRLAND }}
-    {{- $SEP = $SEP_HYPRLAND }}
-{{- end }}
+{{- $fullname := promptStringOnce . "fullname" "Full name" -}}
+{{- $email := promptStringOnce . "email" "Email address" -}}
 
     "data": {
         "isHeadless": {{ $isHeadless }},
@@ -54,10 +39,9 @@
         "isWindows": {{ $isWindows }},
         "isMac": {{ $isMac }},
         "isLinux": {{ $isLinux }},
-        "osID": "{{ $osID }}",
-        "username": "evangelospro",
-        "fullname": "Evangelos Lioudakis",
-        "email": "elioudakis123@gmail.com",
+        "osID": {{ $osID |quote }},
+        "fullname": {{ $fullname | quote }},
+        "email": {{ $email | quote }},
         "applications": {
             // "terminal": {"linux":{"name":"warp-terminal", "command":"warp-terminal", "class":"dev.warp.Warp"}},
             "terminal": {"linux":{"name":"Wezterm", "command":"wezterm", "class":"org.wezfurlong.wezterm", "desktop_name": "org.wezfurlong.wezterm"}},
@@ -105,7 +89,7 @@
                 "browser" : {"description": "Launch browser", "key": "{{$MOD}}{{$SEP}}B", "command": {"linux":"raise --launch {{.applications.browser.linux.command}} --class {{.applications.browser.linux.class}}","windows":""}},
                 "browser_new" : {"description": "Launch (new) browser", "key": "{{$SHIFT_MOD}}{{$SEP}}B", "command": {"linux":"{{.applications.browser.linux.command}}","windows":""}},
 
-                "burp" : {"description": "Launch  Burp", "key": "{{$MOD}}{{$SEP}}X", "command": {"linux":"raise --launch burp --class burp-StartBurp","windows":"burpsuite"}},
+                "burp" : {"description": "Launch Burp", "key": "{{$MOD}}{{$SEP}}X", "command": {"linux":"raise --launch burp --class burp-StartBurp","windows":"burpsuite"}},
 
                 "terminal" : {"description": "Launch terminal", "key": "{{$MOD}}{{$SEP}}T", "command": {"linux":"raise --launch {{.applications.terminal.linux.command}} --class {{.applications.terminal.linux.class}}","windows":"wt"}},
                 "terminal_new" : {"description": "Launch a new terminal", "key": "{{$SHIFT_MOD}}{{$SEP}}T", "command": {"linux":"{{.applications.terminal.linux.command}} ","windows":"wt"}},
@@ -116,11 +100,19 @@
                 "editor" : {"description": "Launch editor", "key": "{{$MOD}}{{$SEP}}C", "command": {"linux":"raise --launch {{.applications.editor.linux.command}}  --class {{.applications.editor.linux.class}} ","windows":"code.exe"}},
                 "editor_new" : {"description": "Launch (new) editor", "key": "{{$SHIFT_MOD}}{{$SEP}}C", "command": {"linux":"{{.applications.editor.linux.command}}","windows":""}},
 
-                "notes" : {"description": "Launch (new) editor", "key": "{{$MOD}}{{$SEP}}N", "command": {"linux":"raise --launch obsidian --class obsidian","windows":""}},
+                "notes" : {"description": "Launch Notes", "key": "{{$MOD}}{{$SEP}}N", "command": {"linux":"raise --launch obsidian --class obsidian","windows":""}},
             }
         }
     },
     "github": {
         "refreshPeriod": "12h"
+    },
+    "edit":{
+        "command": "{{.applications.editor.linux.command}}",
+        "args": ["--wait"]
+    },
+    "merge":{
+        "command": "{{.applications.editor.linux.command}}",
+        "args": ["-d"]
     }
 }
