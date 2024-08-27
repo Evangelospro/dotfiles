@@ -13,6 +13,8 @@ fi
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+zicdreplay -q
+
 ## FZF tab completion
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --files --hidden --follow --glob '!.git' || find ."
 export FZF_DEFAULT_OPTS='-i'

@@ -1,15 +1,13 @@
-source "$ZDOTDIR/binds/fzf-binds.zsh"
-
 # bindkey -e
 
 # ZSH autocomplete
-# bindkey '^I' insert-unambiguous-or-complete
-# bindkey -M menuselect '^I' menu-complete
-# bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
-# bindkey -M menuselect '^M' .accept-line
+bindkey '^I' insert-unambiguous-or-complete
+bindkey -M menuselect '^I' menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+bindkey -M menuselect '^M' .accept-line
 ## Allow for normal editing keys in the select menu
-# bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
-# bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char
+bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
+bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char
 
 # delete key
 bindkey '^[[3~' delete-char
@@ -20,29 +18,28 @@ bindkey '^?' backward-delete-char
 
 # CTRL + A
 bindkey '^A' beginning-of-line
-# bindkey -M menuselect '^A' beginning-of-line
+bindkey -M menuselect '^A' beginning-of-line
 # CTRL + E
 bindkey '^E' end-of-line
-# bindkey -M menuselect '^E' end-of-line
+bindkey -M menuselect '^E' end-of-line
 
 # Ctrl+Delete: kill the word forward
 bindkey '^[[3;5~' kill-word
-# bindkey -M menuselect '^[[3;5~' kill-word
+bindkey -M menuselect '^[[3;5~' kill-word
 # Ctrl+Backspace: kill the word backward
 bindkey "^H" backward-kill-word
-# bindkey -M menuselect "^H" backward-kill-word
+bindkey -M menuselect "^H" backward-kill-word
 
 # CTRL + LEFT ARROW -> Move to the previous word
 bindkey '^[[1;5D' backward-word
-# bindkey -M menuselect '^[[1;5D' backward-word
+bindkey -M menuselect '^[[1;5D' backward-word
 # CTRL + RIGHT ARROW -> Move to the next word
 bindkey '^[[1;5C' forward-word
-# bindkey -M menuselect '^[[1;5C' forward-word
+bindkey -M menuselect '^[[1;5C' forward-word
 
-# bind ctrl + f to fzf zoxide fuzzy finder (send zi\n)
+# bind ctrl + f to fzf
 zle -N zi
-bindkey '^[f' zi
-bindkey '^f' fzf-file-widget
+bindkey '^f' zi
 
 # use ctrl-n for navi cheatsheets
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
@@ -50,6 +47,6 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     bindkey '^R' atuin-search
 
     # bind to the up key, which depends on terminal mode
-    bindkey '^[[A' atuin-up-search
-    bindkey '^[OA' atuin-up-search
+    # bindkey '^[[A' atuin-up-search
+    # bindkey '^[OA' atuin-up-search
 fi
