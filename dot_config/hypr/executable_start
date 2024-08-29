@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+systemctl --user start --wait hyprland-session
+/usr/bin/loginctl terminate-session $XDG_SESSION_ID

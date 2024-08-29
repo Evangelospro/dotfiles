@@ -19,3 +19,6 @@ _ZO_DATA_DIR="$ZDOTDIR/zoxide"
 _ZO_RESOLVE_SYMLINKS=1
 
 export HISTFILE="$XDG_DATA_HOME/zsh/zsh_history.zsh"
+
+export ZSH_SMARTCACHE_DISABLE=false
+export ZSH_SMARTCACHE_DIR="$XDG_CACHE_HOME/zsh/smartcache"

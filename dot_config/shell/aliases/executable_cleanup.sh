@@ -6,3 +6,4 @@ alias clean-packages='sudo pacman -Rns $(pacman -Qtdq) && sudo /usr/bin/rm -rf /
 alias clean-font-cache="fc-cache -f -v"
 alias clean-seafile-cache="/usr/bin/rm -rf $HOME/.seadrive/data/file-cache"
 alias clear-trash="/usr/bin/rm -rf $HOME/.local/share/Trash/*"
+alias clean-dns="sudo /usr/bin/systemctl restart systemd-resolved"

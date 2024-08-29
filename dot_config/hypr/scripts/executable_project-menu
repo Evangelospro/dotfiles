@@ -1,25 +1,43 @@
 #!/usr/bin/env bash
+shopt -s extglob
 
-Define the options for the Rofi menu
-options=("Laptop Screen
-Extend Monitors
-Duplicate Monitors")
-choice=$(printf '%s
+monitors_file=$HOME/.config/hypr/monitors.conf
+common_path=$HOME/.config/hypr/monitors
 
-' "${options[@]}" | rofi -dmenu -i -p "Monitor configuration")
+# find the current mode by reading the symlink and replacing the common path and .conf
+current_mode=$(readlink $monitors_file | sed "s|$common_path/||;s|.conf$||")
+echo "Current mode: $current_mode"
+
+options=("Builtin" "Extend" "Duplicate")
+# append a (current) to the current mode (case insensitive)
+for i in "${!options[@]}"; do
+    echo "${options[$i],,} == ${current_mode,,}"
+    if [[ "${options[$i],,}" == "${current_mode,,}" ]]; then
+        options[$i]="${options[$i]} (current)"
+    fi
+done
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -p "Select a mode")
 
 # Run the appropriate script
 if [ -z "$choice" ]; then
+    echo "No choice made, exiting"
     exit 0
 fi
 case $choice in
-"Laptop Screen")
-    ln -nsf $HOME/.config/hypr/monitors/monitors_default.conf $HOME/.config/hypr/monitors.conf
+"Builtin"|"Builtin (current)")
+    ln -nsf $common_path/builtin.conf $monitors_file
     ;;
-"Extend Monitors")
-    ln -nsf $HOME/.config/hypr/monitors/monitors_extend.conf $HOME/.config/hypr/monitors.conf
+"Extend"|"Extend (current)")
+    hyprctl
+    ln -nsf $common_path/extend.conf $monitors_file
     ;;
-"Duplicate Monitors")
-    ln -nsf $HOME/.config/hypr/monitors/monitors_duplicate.conf $HOME/.config/hypr/monitors.conf
+"Duplicate"|"Duplicate (current)")
+    ln -nsf $common_path/duplicate.conf $monitors_file
+    ;;
+*)
+    echo "Invalid choice: $choice, exiting"
+    exit 1
     ;;
 esac
+
+hyprctl reload

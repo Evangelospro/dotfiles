@@ -1,14 +1,11 @@
+# Loading ZINIT
 [ ! -d $ZINIT[HOME_DIR] ] && mkdir -p "$(dirname $ZINIT[HOME_DIR])"
 [ ! -d $ZINIT[HOME_DIR]/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT[HOME_DIR]"
-
-# Loading ZINIT
 source "$ZINIT[HOME_DIR]/zinit.zsh"
 
 # Plugins for eval cache
-export ZSH_SMARTCACHE_DISABLE=false
-export ZSH_SMARTCACHE_DIR="$XDG_CACHE_HOME/zsh/smartcache"
-# QuarticCat/zsh-smartcache > mroth/evalcache
-zinit load QuarticCat/zsh-smartcache
+## QuarticCat/zsh-smartcache > mroth/evalcache
+zinit light QuarticCat/zsh-smartcache
 
 ## evaluting some useful commands and aliases
 # smartcache comp register-python-argcomplete pipx
@@ -24,7 +21,7 @@ zinit light-mode for \
 
 # Modern Unix commands (ON TOP so they are used later on)
 # See https://github.com/ibraheemdev/modern-unix
-zinit wait as"null" lucid from"gh-r" for \
+zinit wait"0" as"null" lucid from"gh-r" for \
     atload"alias ls='lsd -hAFlt --group-dirs first --color=always'; alias la='lsd -laFh'; alias tree='lsd -haFlt --group-dirs first --tree'" sbin"**/lsd" lsd-rs/lsd \
     cp"**/bat.1 -> $ZPFX/share/man/man1" mv"**/autocomplete/bat.zsh -> _bat" completions sbin"**/bat" @sharkdp/bat \
     cp"**/fd.1 -> $ZPFX/share/man/man1" completions sbin"**/fd" @sharkdp/fd \
@@ -40,35 +37,35 @@ zinit wait as"null" lucid from"gh-r" for \
 zinit ice pick"h.sh"
 zinit light Ga0aG/hhighlighter
 
-zinit ice wait lucid nocd
+zinit ice wait"0" lucid nocd
 zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
 
-zinit has'zoxide' wait lucid for \
-    z-shell/zsh-zoxide
+zinit ice wait"0" lucid nocd has'zoxide'
+zinit light z-shell/zsh-zoxide
 
-zinit ice wait lucid depth=1 pick="async.zsh"
+zinit ice wait"0" lucid depth=1 pick="async.zsh"
 zinit light mafredri/zsh-async
 
-zinit ice wait lucid nocd
+zinit ice wait"0" lucid nocd
 zinit light jgogstad/zsh-mask
 
 # natively supported in warp
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    # zinit ice wait lucid depth=1 pick="autopair.zsh"
+    # zinit ice wait"0" lucid depth=1 pick="autopair.zsh"
     # zinit light hlissner/zsh-autopair
-    zinit ice wait lucid nocd
+    zinit ice wait"0" lucid nocd
     zinit snippet $ZDOTDIR/plugins/autopair.zsh
 
-    zinit ice wait lucid nocd
+    zinit ice wait"0" lucid nocd
     zinit light icatalina/zsh-navi-plugin
 
     export YSU_IGNORED_ALIASES=(".." "l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
     export YSU_HARDCORE=0
-    zinit ice wait lucid nocd
+    zinit ice wait"0" lucid nocd
     zinit light MichaelAquilina/zsh-you-should-use
 
     {{ if (not .isHeadless) -}}
-    zinit ice wait lucid nocd
+    zinit ice wait"0" lucid nocd
     zinit light MichaelAquilina/zsh-auto-notify
     {{ end -}}
 fi
@@ -83,19 +80,17 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     # zinit light marlonrichert/zsh-autocomplete
     zinit light aaronkollasch/zsh-autocomplete
 
-    zinit wait lucid for \
-        z-shell/F-Sy-H \
-    blockf \
-        zsh-users/zsh-completions \
+    zinit wait"0" lucid for \
+    zsh-users/zsh-completions \
     atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start" \
-        zsh-users/zsh-autosuggestions
-else
-    zinit ice wait lucid nocd atload'!source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh'
-    zi light z-shell/F-Sy-H
+    zsh-users/zsh-autosuggestions
 fi
+
+zinit ice wait"0" lucid nocd atload'!source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh'
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 {{ if .isPersonal -}}
 # bitwarden auto export session
-zinit ice wait lucid nocd
+zinit ice wait"0" lucid nocd
 zinit light Game4Move78/zsh-bitwarden
 {{ end -}}

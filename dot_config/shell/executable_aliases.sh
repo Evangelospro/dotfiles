@@ -33,9 +33,6 @@ alias mount="sudo mount"
 # kdeconnect
 alias share="gapplication launch ca.andyholmes.Valent $@"
 
-# get fastest mirrors
-alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist; paru -Syyu'
-
 # alias chmod commands
 alias mx='chmod a+x'
 alias 644='chmod -R 644'

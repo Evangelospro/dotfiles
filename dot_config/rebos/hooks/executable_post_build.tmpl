@@ -77,7 +77,6 @@ if [[ -f /usr/share/applications/viber.desktop ]]; then
 fi
 
 # Change shell to zsh
-# check if zsh is installed and that it is not the users default shell
 if [[ $SHELL == "/bin/zsh" ]]; then
     rebos api echo info "zsh is already the default shell not changing"
 else
@@ -90,7 +89,6 @@ else
 fi
 
 # WM SPECIFIC CONFIGURATIONS
-# Hyprland check if ~/.config/hypr/monitors.conf doesn't exist
 if [[ ! -f ~/.config/hypr/monitors.conf ]]; then
     rebos api echo info "Setting up Hyprland monitors"
     cp ~/.config/hypr/monitors/monitors_default.conf ~/.config/hypr/monitors.conf
