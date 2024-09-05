@@ -233,7 +233,7 @@
 	"snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk-ls\\snyk-win.exe",
 	"snyk.advanced.languageServerPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-ls-win.exe",
 	{{- end }}
-	"snyk.trustedFolders": ["{{ .chezmoi.homeDir }}/"],
+	"snyk.trustedFolders": ["{{ .chezmoi.homeDir }}"],
 	"snyk.yesWelcomeNotification": false,
 	// EXTENSIONS
 	"settingsSync.ignoredExtensions": ["WakaTime.vscode-wakatime"],
@@ -281,26 +281,23 @@
 	"remote.SSH.useLocalServer": false,
 	"remote.SSH.remotePlatform": {
 		"ewebsite": "linux",
-		"ecsc": "linux",
 		"ftc13906.com": "linux",
 		"portainer": "linux",
-		"ecsc-infra": "linux",
 		"c2": "linux"
 	},
+    "remote.SSH.defaultExtensions": [
+        "charliermarsh.ruff",
+        "donjayamanne.python-extension-pack",
+        "walkme.python-extension-pack",
+        "esbenp.prettier-vscode",
+        "kevinrose.vsc-python-indent",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "oderwat.indent-rainbow",
+        "wayou.vscode-todo-highlight"
+    ],
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"vim.useSystemClipboard": true,
-	"vim.vimrc.enable": true,
-	"vim.vimrc.path": "{{ .chezmoi.homeDir }}/.config/vim/.vimrc",
-	"vim.shell": "/usr/bin/zsh",
-	"vva.trustedDomain": true,
-	"vim.handleKeys": {
-		"<C-a": false,
-		"<C-d>": true,
-		"<C-w>": false,
-		"<C-s>": false,
-		"<C-z>": false
 	},
 	"editor.defaultColorDecorators": true,
 	"workbench.preferredDarkColorTheme": "Sweet Dracula",

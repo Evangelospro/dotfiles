@@ -3,14 +3,17 @@ function enable-proxy-system() {
     export REQUESTS_CA_BUNDLE="$BURP_CERTIFICATE_DIR/cert.pem"
     export SSL_CERT_FILE="$BURP_CERTIFICATE_DIR/cert.pem"
     export HTTP_PROXY="http://$BURP_IP:$BURP_PORT"
+    export http_proxy="http://$BURP_IP:$BURP_PORT"
     export HTTPS_PROXY="http://$BURP_IP:$BURP_PORT"
+    export https_proxy="http://$BURP_IP:$BURP_PORT"
     echo "Proxy enabled"
 }
 
 function disable-proxy-system() {
     unset REQUESTS_CA_BUNDLE
-    unset HTTP_PROXY
-    unset HTTPS_PROXY
+    unset SSL_CERT_FILE
+    unset HTTP_PROXY http_proxy
+    unset HTTPS_PROXY https_proxy
     echo "Proxy disabled"
 }
 
@@ -22,13 +25,18 @@ function disable-proxy-mobile() {
     $HOME/.config/burp/scripts/mobile-proxy.sh stop
 }
 
+# check if it is piped then use curl not curlie
 function curl() {
     # check if the burp proxy is running and if so use it
     # see https://github.com/rs/curlie/issues/31, until this is fixed I need to use curl and not curlie...
-    if [[ $(ss -lnt | grep :$BURP_PORT) ]]; then
-        http_proxy="http://$BURP_IP:$BURP_PORT" https_proxy="http://$BURP_IP:$BURP_PORT" /usr/bin/curl -k "$@"
+    if [[ -n "$HTTP_PROXY" || -n "$HTTPS_PROXY" ]]; then
+        /usr/bin/curl -k "$@"
     else
-        curlie --pretty "$@"
+        if [ -t 1 ]; then
+            curlie --pretty "$@"
+        else
+            /usr/bin/curl -s "$@"
+        fi
     fi
 }
 

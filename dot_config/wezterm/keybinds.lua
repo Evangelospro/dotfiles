@@ -5,6 +5,10 @@ local keys = {
     {key = "c", mods = "CTRL|SHIFT", action = action {CopyTo = "Clipboard"}},
     {key = "v", mods = "CTRL|SHIFT", action = action {PasteFrom = "Clipboard"}},
     {key = "t", mods = "CTRL", action = action {SpawnTab = "CurrentPaneDomain"}},
+    { key = 'LeftArrow', mods = 'SHIFT', action = action.ActivatePaneDirection 'Left' },
+    { key = 'RightArrow', mods = 'SHIFT', action = action.ActivatePaneDirection 'Right' },
+    { key = 'UpArrow', mods = 'SHIFT', action = action.ActivatePaneDirection 'Up' },
+    { key = 'DownArrow', mods = 'SHIFT', action = action.ActivatePaneDirection 'Down' },
     {
         key = "LeftArrow",
         mods = "CTRL|SHIFT",

@@ -825,7 +825,12 @@
                     "enabled":true,
                     "host":"\\.googleusercontent\\.com$",
                     "protocol":"any"
-                }
+                },
+                {
+                    "enabled":true,
+                    "host":"\\.atuin\\.sh$",
+                    "protocol":"any"
+                },
             ]
         },
         "web_sockets_history_display_filter":{
