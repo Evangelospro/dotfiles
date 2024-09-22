@@ -10,7 +10,7 @@ items = [
     "binwalk",
 ]
 
-[managers.pipx]
+[managers.uvx]
 items = [
     "stringcheese",
 

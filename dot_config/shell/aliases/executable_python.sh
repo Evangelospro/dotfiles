@@ -1,8 +1,7 @@
-# python / pip / pipx
+# python / pip
 ## if no arguments are passed, it will run ipython instead of python3
 alias pp='pypy3'
 alias pip='noglob pip'
-alias pipx='noglob pipx'
 
 # pip
 alias pipi='pip install'

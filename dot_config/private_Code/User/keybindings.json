@@ -197,5 +197,10 @@
 		"key": "ctrl+backspace",
 		"command": "-workbench.action.terminal.sendSequence",
 		"when": "terminalFocus"
+	},
+	{
+		"key": "ctrl+l",
+		"command": "binocular.customCommands",
+		"args": "Lazygit"
 	}
 ]

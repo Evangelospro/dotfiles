@@ -2,7 +2,7 @@
 items = [
     "python3",
     "python-pip",
-    "python-pipx",
+    "uv",
     "pypy3",
     "ruff",
     "uv",

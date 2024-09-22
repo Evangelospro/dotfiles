@@ -1,4 +1,4 @@
-[managers.pipx]
+[managers.uvx]
 items = [
     "yt-dlp",
 ]

@@ -21,7 +21,7 @@ items = [
     "wconsole_extractor",
 ]
 
-[managers.pipx]
+[managers.uvx]
 items = [
     "updog",
     "scoutsuite",

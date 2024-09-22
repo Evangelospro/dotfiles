@@ -1,7 +1,7 @@
 [managers.system]
 items = []
 
-[managers.pipx]
+[managers.uvx]
 items = [
     "ghunt",
     "git-dumper"

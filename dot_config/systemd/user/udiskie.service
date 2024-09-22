@@ -2,12 +2,14 @@
 Description=Udiskie automount daemon
 Documentation=man:udiskie(1)
 After=graphical-session.target waybar.service
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/udiskie --smart-tray
+ExecStartPre=/bin/sleep 15
+ExecStart=/usr/bin/udiskie --no-automount --smart-tray
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 
 [Install]
-WantedBy=default.target
+WantedBy=graphical-session.target

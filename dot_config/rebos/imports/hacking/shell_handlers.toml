@@ -5,7 +5,7 @@ items = [
     "metasploit"
 ]
 
-[managers.pipx]
+[managers.uvx]
 items = [
     "shellcat",
 ]

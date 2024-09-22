@@ -8,7 +8,7 @@ items = [
     "android-backup-extractor",
 ]
 
-[managers.pipx]
+[managers.uvx]
 items = [
     # "objection",
     "reflutter",

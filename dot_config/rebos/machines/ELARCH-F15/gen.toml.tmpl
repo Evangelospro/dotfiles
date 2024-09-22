@@ -16,13 +16,16 @@ items = [
     {{- if .isPersonal }}
     "ocrmypdf",
     "github-copilot-cli",
+    "syncthing",
     {{- end }}
 ]
 
 [managers.systemd-user]
 items = [
     {{- if .isPersonal }}
+    "valent",
     "seadrive",
+    "syncthing",
     {{- end }}
 ]
 

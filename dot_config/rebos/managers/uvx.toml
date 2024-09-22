@@ -1,0 +1,11 @@
+# uvx
+
+add = "uv tool install #:?"
+remove = "uv tool uninstall #:?"
+
+plural_name = "uvx"
+hook_name = "uvx"
+
+[config]
+many_args = false
+arg_sep = " "

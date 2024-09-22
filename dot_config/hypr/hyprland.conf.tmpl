@@ -55,7 +55,7 @@ decoration {
     blur {
         new_optimizations = true
         ignore_opacity = true
-        enabled = no
+        enabled = true
         size = 10 # minimum 1
         passes = 2 # minimum 1, more passes = more resource intensive.
         # Your blur "amount" is blur_size * blur_passes, but high blur_size (over around 5-ish) will produce artifacts.
@@ -67,6 +67,9 @@ decoration {
 
 animations {
     enabled = true
+
+    first_launch_animation = no
+
     animation = border, 1, 2, default
     animation = fade, 1, 4, default
     animation = windows, 1, 3, default, popin 80%
