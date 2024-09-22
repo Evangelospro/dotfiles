@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-# `rbw` should be a 1 to 1 replacement for the `bw`
-rbw "$@"

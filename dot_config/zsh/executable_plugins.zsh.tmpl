@@ -18,20 +18,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node \
     NICHOLAS85/z-a-eval
 
-# Modern Unix commands (ON TOP so they are used later on)
-# See https://github.com/ibraheemdev/modern-unix
-zinit wait"0" as"null" lucid from"gh-r" for \
-    atload"alias ls='lsd -hAFlt --group-dirs first --color=always'; alias la='lsd -laFh'; alias tree='lsd -haFlt --group-dirs first --tree'" sbin"**/lsd" lsd-rs/lsd \
-    cp"**/bat.1 -> $ZPFX/share/man/man1" mv"**/autocomplete/bat.zsh -> _bat" completions sbin"**/bat" @sharkdp/bat \
-    cp"**/fd.1 -> $ZPFX/share/man/man1" completions sbin"**/fd" @sharkdp/fd \
-    cp"**/procs.1 -> $ZPFX/share/man/man1" completions sbin"**/procs" dalance/procs \
-    cp"**/hyperfine.1 -> $ZPFX/share/man/man1" completions sbin"**/hyperfine" @sharkdp/hyperfine \
-    atload"alias top=btm" completions sbin"**/btm" ClementTsang/bottom \
-    atload"alias help=tldr" mv"tealdeer* -> tldr" dl"https://github.com/dbrgn/tealdeer/releases/latest/download/completions_zsh -> _tldr;" completions sbin"tldr" dbrgn/tealdeer \
-    atload"alias du=dust" sbin"**/dust" bootandy/dust \
-    atload"alias diff=delta" completions sbin"**/delta" dandavison/delta
-
-
 # HIGHLIGHT useful after grep
 zinit ice pick"h.sh"
 zinit light Ga0aG/hhighlighter

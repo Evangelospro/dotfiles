@@ -1,11 +1,4 @@
-# --------------------- #
-#    Generation File    #
-# --------------------- #
-
 imports = [
-    {{- if .isPersonal }}
-    "applications/password_manager",
-    {{- end }}
     "programming/python/data_science",
     "virtualisation/qemu",
     "virtualisation/quickemu",
@@ -13,25 +6,20 @@ imports = [
 
 [managers.system]
 items = [
-    {{- if .isPersonal }}
     "ocrmypdf",
     "github-copilot-cli",
     "syncthing",
-    {{- end }}
 ]
 
 [managers.systemd-user]
 items = [
-    {{- if .isPersonal }}
     "valent",
     "seadrive",
     "syncthing",
-    {{- end }}
 ]
 
 [managers.pip]
 items = [
-    {{- if .isPersonal }}
     "git+https://gitlab.com/evangelospro/seafile-nautilus.git",
-    {{- end }}
+    "git+https://github.com/B00TK1D/sideqiq.git",
 ]

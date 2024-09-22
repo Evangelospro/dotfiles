@@ -34,6 +34,9 @@ imports = [
     {{- if .isHacking }}
     "hacking",
     {{- end }}
+    {{- if .isPersonal }}
+    "applications/password_manager",
+    {{- end }}
 ]
 
 [managers.systemd-system]
