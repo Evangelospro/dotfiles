@@ -169,7 +169,7 @@ function up () {
 }
 
 function rm(){
-    this_file_system=$(df -P $HOME | tail -1 | awk '{print $1}')
+    this_file_system=$(\df -P $HOME | tail -1 | awk '{print $1}')
     flags=()
     targets=()
     for arg in "$@"; do

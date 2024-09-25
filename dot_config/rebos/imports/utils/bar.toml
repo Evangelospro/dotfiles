@@ -4,7 +4,11 @@ items = [
     "dart-sass",
     "libevdev",
     "python-evdev",
-    "python-filetype"
+    "python-filetype",
+    "aylurs-gtk-shell",
+    "libgtop",
+    "python-gpustat",
+    "swww", # just for hyprbar to shut up for dependencies
 ]
 
 [managers.pip]

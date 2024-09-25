@@ -9,9 +9,6 @@ exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOB
 # Hyprland plugins
 # exec=$HOME/.config/hypr/scripts/plugin-startup
 
-# Utilities & Background apps
-exec=avizo-service
-
 {{- if .isAsus }}
 exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center || /usr/bin/rog-control-center
 {{- end }}

@@ -126,7 +126,7 @@ Pictures/Screenshots
 .ssh/keys/pwncollege
 .ssh/keys/portainer
 .ssh/keys/eserver-local
-.ssh/keys/ftc
+.ssh/keys/git
 .ssh/keys/ecsc
 .ssh/keys/c2
 {{- else }}
@@ -143,8 +143,8 @@ Pictures/Screenshots
 {{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/eserver-local") }}
 .ssh/keys/eserver-local
 {{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/ftc") }}
-.ssh/keys/ftc
+{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/git") }}
+.ssh/keys/git
 {{- end }}
 {{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/ecsc") }}
 .ssh/keys/ecsc

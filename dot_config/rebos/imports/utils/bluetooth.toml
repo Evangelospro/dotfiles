@@ -1,5 +1,7 @@
 [managers.system]
 items = [
     "blueman",
-    "gnome-bluetooth-3.0"
+    "gnome-bluetooth-3.0",
+    "bluez",
+    "bluez-utils"
 ]

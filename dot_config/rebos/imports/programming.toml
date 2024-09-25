@@ -3,5 +3,6 @@ imports = [
     "programming/python/base",
     "programming/go/base",
     "programming/java/base",
+    "programming/javascript/base",
     "programming/android/base",
 ]

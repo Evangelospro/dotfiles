@@ -1,0 +1,4 @@
+[managers.system]
+items = [
+    "bun-bin",
+]

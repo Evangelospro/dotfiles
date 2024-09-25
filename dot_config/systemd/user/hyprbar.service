@@ -1,11 +1,11 @@
 [Unit]
-Description=Network Manager Applet
-After=graphical-session.target hyprbar.service
+Description=Hyprbar a bar for Hyprland
+After=graphical-session.target
 PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/nm-applet --indicator
+ExecStart=/usr/bin/ags
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 
