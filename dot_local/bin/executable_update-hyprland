@@ -35,6 +35,11 @@ function clean-installs() {
 echo "This script will upgrade hyprland to the latest version from the git repository."
 # clean-installs
 
+# Hyprland
+if [[ ! -d $HOME/.config/hypr/hyprland-repo ]]; then
+    echo "Cloning hyprland repository"
+    git clone https://github.com/hyprwm/Hyprland $HOME/.config/hypr/hyprland-repo
+fi
 cd $HOME/.config/hypr/hyprland-repo
 
 # if git pull has changes then build and install git pull even if there are changes
@@ -55,3 +60,17 @@ if [[ $latest_hyprland_version == $current_hyprland_version ]]; then
 else
     build-manual $latest_hyprland_version
 fi
+
+# Plugins
+if [[ ! -d $HOME/.config/hypr/plugins/hyprspace ]]; then
+    mkdir -p $HOME/.config/hypr/plugins
+    echo "Cloning hyprspace repository"
+    git clone https://github.com/KZDKM/Hyprspace $HOME/.config/hypr/plugins/hyprspace
+fi
+cd $HOME/.config/hypr/plugins/hyprspace
+git fetch
+git pull
+
+
+echo "Building hyprspace"
+make all

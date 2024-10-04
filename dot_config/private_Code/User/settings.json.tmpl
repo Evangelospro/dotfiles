@@ -128,7 +128,7 @@
 		"editor.defaultFormatter": "charliermarsh.ruff"
 	},
 	"python.analysis.completeFunctionParens": true,
-	"python.analysis.typeCheckingMode": "off",
+	"python.analysis.typeCheckingMode": "basic",
 	"python.analysis.autoFormatStrings": true,
 	"python.analysis.autoImportCompletions": true,
 	"black-formatter.args": ["--line-length", "120"],
@@ -283,19 +283,21 @@
 		"ewebsite": "linux",
 		"ftc13906.com": "linux",
 		"portainer": "linux",
+		"prod.vulnbox.infra": "linux",
+		"vulnbox.infra": "linux",
 		"c2": "linux"
 	},
-    "remote.SSH.defaultExtensions": [
-        "charliermarsh.ruff",
-        "donjayamanne.python-extension-pack",
-        "walkme.python-extension-pack",
-        "esbenp.prettier-vscode",
-        "kevinrose.vsc-python-indent",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "oderwat.indent-rainbow",
-        "wayou.vscode-todo-highlight"
-    ],
+	"remote.SSH.defaultExtensions": [
+		"charliermarsh.ruff",
+		"donjayamanne.python-extension-pack",
+		"walkme.python-extension-pack",
+		"esbenp.prettier-vscode",
+		"kevinrose.vsc-python-indent",
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"oderwat.indent-rainbow",
+		"wayou.vscode-todo-highlight"
+	],
 	"[css]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
@@ -357,6 +359,13 @@
 	"[dotenv]": {
 		"editor.defaultFormatter": "foxundermoon.shell-format"
 	},
-	"snyk.folderConfigs": null,
-    "find-it-faster.general.useTerminalInEditor": true,
+	"[dockerfile]": {
+		"editor.defaultFormatter": "ms-azuretools.vscode-docker"
+	},
+	"snyk.folderConfigs": [
+		{
+			"folderPath": "",
+			"baseBranch": ""
+		}
+	]
 }
