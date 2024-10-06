@@ -54,4 +54,5 @@ def generate_icon_list(class_name, size):
 
 if __name__ == "__main__":
     icons = generate_icon_list(sys.argv[1], ICON_SIZE)
-    print("\n".join(icons))
+    print(icons[0])
+    # print("\n".join(icons))

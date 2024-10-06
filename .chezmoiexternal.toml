@@ -167,6 +167,11 @@
     url = "https://raw.githubusercontent.com/grayhatacademy/ida/master/plugins/codatify/codatify.py"
     executable = true
     refreshPeriod = "168h"
+[".config/system/opt/idapro/plugins/"]
+    type = "archive"
+    executable = true
+    url = '{{ gitHubLatestRelease "gaasedelen/patching" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+    refreshPeriod = "500h"
 
 [".local/bin/capa"]
     type = "archive-file"
