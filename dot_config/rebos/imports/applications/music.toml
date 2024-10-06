@@ -1,9 +1,5 @@
 [managers.system]
 items = [
-    # "spotify-launcher",
-    # "spicetify-cli",
-    # "spicetify-theme-dracula-git",
-    # "spotifywm-git",
     "spotube-bin",
     "playerctl",
 ]

@@ -2,13 +2,17 @@
 
 # set -e
 
+PREFIX=/usr
+
 function build-auto() {
     # use paru without cache to update dependencies
     paru -Syu --devel --needed --noconfirm --cleanafter hyprland-git
 }
 
 function build-manual() {
-    make all && sudo make install && echo $1 > /tmp/hyprland_version
+    # change the prefix
+    export PREFIX=$PREFIX
+    make all PREFIX=$PREFIX && sudo make install PREFIX=$PREFIX && sudo make installheaders && echo $1 > /tmp/hyprland_version
     echo "Adding wayland-session"
     sudo mkdir -p /usr/share/wayland-sessions
     sudo cp example/hyprland.desktop /usr/share/wayland-sessions
@@ -38,11 +42,10 @@ echo "This script will upgrade hyprland to the latest version from the git repos
 # Hyprland
 if [[ ! -d $HOME/.config/hypr/hyprland-repo ]]; then
     echo "Cloning hyprland repository"
-    git clone https://github.com/hyprwm/Hyprland $HOME/.config/hypr/hyprland-repo
+    git clone https://github.com/hyprwm/Hyprland $HOME/.config/hypr/hyprland-repo --recurse-submodules --depth=20
 fi
 cd $HOME/.config/hypr/hyprland-repo
 
-# if git pull has changes then build and install git pull even if there are changes
 git fetch
 git pull
 
@@ -56,7 +59,7 @@ fi
 echo "Latest hyprland version: $latest_hyprland_version"
 echo "Current hyprland version: $current_hyprland_version"
 if [[ $latest_hyprland_version == $current_hyprland_version ]]; then
-    echo "Already latest version, no need to upgrade."
+    echo "Hyprland already latest version, no need to upgrade."
 else
     build-manual $latest_hyprland_version
 fi
@@ -65,12 +68,30 @@ fi
 if [[ ! -d $HOME/.config/hypr/plugins/hyprspace ]]; then
     mkdir -p $HOME/.config/hypr/plugins
     echo "Cloning hyprspace repository"
-    git clone https://github.com/KZDKM/Hyprspace $HOME/.config/hypr/plugins/hyprspace
+    git clone https://github.com/KZDKM/Hyprspace $HOME/.config/hypr/plugins/Hyprspace
 fi
 cd $HOME/.config/hypr/plugins/hyprspace
 git fetch
-git pull
+updated=$(git pull)
+if [[ $updated == "Already up to date." ]]; then
+    echo "Hyprspace already latest version, no need to upgrade."
+else
+    echo "Building hyprspace"
+    make all
+fi
 
+if [[ ! -d $HOME/.config/hypr/plugins/hyprsplit ]]; then
+    mkdir -p $HOME/.config/hypr/plugins
+    echo "Cloning hyprsplit repository"
+    git clone https://github.com/shezdy/hyprsplit $HOME/.config/hypr/plugins/hyprsplit
+fi
+cd $HOME/.config/hypr/plugins/hyprsplit
+git fetch
 
-echo "Building hyprspace"
-make all
+updated=$(git pull)
+if [[ $updated == "Already up to date." ]]; then
+    echo "Hyrpsplit already latest version, no need to upgrade."
+else
+    echo "Building hyprsplit"
+    make all
+fi

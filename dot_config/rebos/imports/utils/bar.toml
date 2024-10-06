@@ -8,7 +8,7 @@ items = [
     "aylurs-gtk-shell",
     "libgtop",
     "python-gpustat",
-    "swww", # just for hyprbar to shut up for dependencies
+    "swww", # just for hyprpanel to shut up for dependencies
 ]
 
 [managers.pip]

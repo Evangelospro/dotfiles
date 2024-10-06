@@ -8,7 +8,7 @@ general {
 
 listener {
     timeout = 305                            # in seconds
-    on-timeout = playerctl pause; lockscreen
+    on-timeout = playerctl pause; {{.keybindings.utilities.lockscreen.command.linux }}
 }
 
 

@@ -1,6 +1,6 @@
 [Unit]
 Description=Network Manager Applet
-After=graphical-session.target hyprbar.service
+After=graphical-session.target hyprpanel.service
 PartOf=graphical-session.target
 
 [Service]

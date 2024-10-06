@@ -39,13 +39,6 @@
 #    stripComponents = 0
 #    path = "gitstatusd-linux-x86_64"
 
-[".config/hypr/hyprland-repo"]
-    type = "git-repo"
-    url = "https://github.com/hyprwm/hyprland"
-    branch = "main"
-    refreshPeriod = "6h"
-    clone.args = ["--recursive", "--depth=20"]
-
 [".local/bin/raise"]
     type = "archive-file"
     url = '{{ gitHubLatestRelease "knarkzel/raise" | toJson | fromJson | jq ".assets[2].browser_download_url" | first}}'

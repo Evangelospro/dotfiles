@@ -4,7 +4,7 @@ imports = [
 
 [managers.system]
 items = [
-    "hyprland-git", # will be installed from source via update-hyprland script
+    # "hyprland-git", # will be installed from source via update-hyprland script
     "xdg-desktop-portal-hyprland-git",
     "xdg-desktop-portal-gtk",
     "hypridle-git",

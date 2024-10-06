@@ -7,14 +7,21 @@ bind={{.keybindings.wm.exit.key }},exec,{{.keybindings.wm.exit.command.linux }}
 bind={{.keybindings.wm.reload.key }},exec,{{.keybindings.wm.reload.command.linux }}
 
 # Plugins
-# Hyprspace
-bind = $MOD, grave, overview:toggle
+## Hyprspace
+# bind = $MOD, grave, overview:toggle
+## Hyprswitch
+# bindr = $MOD, TAB, exec, hyprswitch gui --filter-current-monitor --sort-recent
+# bindr = $MOD_SHIFT, TAB, exec, hyprswitch gui --reverse --filter-current-monitor --sort-recent
+# if it somehow doesn't close on releasing $switch_release, escape can kill (doesnt switch)
+# bindrn = ,escape, exec, hyprswitch close --kill
+## Jatoolkit overview
+bind = $MOD, space, exec, ags -c ~/.config/ags/config.js -b jakoolkit -t overview
 
 # Utilities
 bind = $MOD , Z, exec, magnify +0.5
 bind = $MOD SHIFT, Z, exec, magnify 1.0
 bindl={{.keybindings.utilities.lockscreen.key}},exec,{{.keybindings.utilities.lockscreen.command.linux }}
-bind={{.keybindings.utilities.launcher.key}},exec,{{.keybindings.utilities.launcher.command.linux}}
+# bind={{.keybindings.utilities.launcher.key}},exec,{{.keybindings.utilities.launcher.command.linux}}
 bind=,XF86Search,exec,{{.keybindings.utilities.launcher.command.linux}}
 bind={{.keybindings.utilities.clipboard.key}},exec,{{.keybindings.utilities.clipboard.command.linux}}
 bind=$MOD,R,exec,dynamic-resize
@@ -108,4 +115,4 @@ bind=ALT,TAB,exec,hyprswitch --daemon --filter-current-monitor --sort-recent --s
 bindm=$MOD,mouse:272,movewindow
 
 # screen lock when the switch is turning off and then suspend
-bindl=,switch:on:Lid Switch,exec,lock-suspend
+bindl=,switch:on:Lid Switch,exec,{{.keybindings.utilities.lockscreen.command.linux }} & ;sleep 1; systemctl suspend

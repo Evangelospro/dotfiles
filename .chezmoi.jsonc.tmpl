@@ -76,9 +76,10 @@
                 "reload": {"description": "Reload the window manager", "key": "$SHIFT_MOD{{$SEP}}R", "command": {"linux":"hyprctl reload","windows":""}},
             },
             "utilities":{
-                "lockscreen": {"description": "Lock the screen", "key": "{{$MOD}}{{$SEP}}L", "command": {"linux":"lockscreen","windows":""}},
+                "lockscreen": {"description": "Lock the screen", "key": "{{$MOD}}{{$SEP}}L", "command": {"linux":"pidof swaylock || swaylock","windows":""}},
                 "launcher": {"description": "Open the launcher", "key": "{{$MOD}}{{$SEP}}SPACE", "command": {"linux":"walker","windows":""}},
                 "clipboard": {"description": "Open the clipboard manager", "key": "{{$MOD}}{{$SEP}}V", "command": {"linux":"clip-menu","windows":""}},
+                "colorpicker": {"description": "Open the colorpicker", "key": "{{$MOD}}{{$SEP}}C", "command": {"linux":"hyprpicker -c","windows":""}},
                 // "emoji": {"description": "Open the emoji picker", "key": "{{$SHIFT_MOD}}{{$SEP}}E", "command": {"linux":"emoji-menu","windows":""}}
             },
             "screenshot":{

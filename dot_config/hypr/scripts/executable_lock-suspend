@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-lockscreen &
-sleep 1
-systemctl suspend

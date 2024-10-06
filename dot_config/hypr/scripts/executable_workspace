@@ -13,15 +13,15 @@ fi
 
 # actual workspace number is as activeMonitorNumber * WORKSPACES_COUNT_PER_MONITOR + workspaceNumber
 action="$1"
-workspaceNumber="$2"
+initialWorkspaceNumber="$2"
 echo "activeMonitorNumber: $activeMonitorNumber"
-echo "workspaceNumber: $workspaceNumber"
+echo "workspaceNumber: $initialWorkspaceNumber"
 echo "action: $action"
-workspaceNumber=$((activeMonitorNumber * WORKSPACES_COUNT_PER_MONITOR + workspaceNumber))
+workspaceNumber=$((activeMonitorNumber * WORKSPACES_COUNT_PER_MONITOR + initialWorkspaceNumber))
 if [ "$action" == "movewindow" ]; then
     hyprctl dispatch movetoworkspace "$workspaceNumber"
-    exit 0
+    # hyprctl dispatch split:movetoworkspacesilent "$initialWorkspaceNumber"
 elif [ "$action" == "change" ]; then
     hyprctl dispatch workspace "$workspaceNumber"
-    exit 0
+    # hyprctl dispatch split:workspace "$initialWorkspaceNumber"
 fi

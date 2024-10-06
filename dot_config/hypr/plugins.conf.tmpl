@@ -1,3 +1,8 @@
+# Plugins
+# exec-once = hyprctl plugin load {{.chezmoi.homeDir}}/.config/hypr/plugins/hyprspace/Hyprspace.so
+# exec-once = hyprctl plugin load {{.chezmoi.homeDir}}/.config/hypr/plugins/hyprsplit/hyprsplit.so
+
+## config
 plugin {
     hyprexpo {
         columns = 3
@@ -17,7 +22,17 @@ plugin {
         workspaceActiveBorder = rgb(BD93F9)
         workspaceInactiveBorder = rgb(111111)
 
+        showNewWorkspace = false
+        showEmptyWorkspace = true
+
+        overrideGaps = true
+        gapsIn = 0
+        gapsOut = 0
         panelHeight = 250
         panelBorderWidth = 0
+    }
+    hyprsplit {
+        num_workspace = 10
+        persistent_workspaces = false
     }
 }
