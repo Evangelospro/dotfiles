@@ -193,7 +193,7 @@ $MOD = SUPER
 
 ### Terminal and Shell:
 
-### Terminal: [Warp](https://warp.dev)
+### Terminal: [Wezterm](https://wezfurlong.org/wezterm/index.html)
 
 ### Shell [ZSH](https://wiki.archlinux.org/title/Zsh)
 

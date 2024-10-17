@@ -56,7 +56,11 @@
         "icon": "xournalpp"
     },
     "org.kde.polkit-kde-authentication-agent-1": {
-        "name": "Polkit-KDE",
+        "name": "Polkit",
+        "icon": "password-manager"
+    },
+    "hyprpolkitagent": {
+        "name": "Polkit",
         "icon": "password-manager"
     },
     "blueman-manager": {

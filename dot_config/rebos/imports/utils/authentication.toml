@@ -2,7 +2,6 @@
 items = [
     "seahorse",
     "gnome-keyring",
-    "polkit-gnome",
-    "polkit-qt5",
+    "hyprpolkitagent-git",
     "kwallet-pam"
 ]
