@@ -27,6 +27,15 @@
 			""
 		]
 	},
+    "proxy env": {
+        "prefix": "proxy env",
+        "body": [
+            "HTTP_PROXY = 'http://172.17.0.1:9000'",
+            "HTTPS_PROXY = 'http://172.17.0.1:9000'",
+            "http_proxy = 'http://172.17.0.1:9000'",
+            "https_proxy = 'http://172.17.0.1:9000'",
+        ]
+    },
 	"pickle python": {
 		"scope": "python",
 		"prefix": "pickle python",
