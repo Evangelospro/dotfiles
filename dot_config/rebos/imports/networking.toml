@@ -1,0 +1,5 @@
+[managers.system]
+items = [
+    "bridge-utils",
+    "dnsmasq",
+]

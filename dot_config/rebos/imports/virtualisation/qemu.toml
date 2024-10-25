@@ -4,5 +4,5 @@ items = [
   "virt-manager",
   "virt-viewer",
   "dnsmasq",
-  "bridge-utils",
+  "qqx",
 ]
