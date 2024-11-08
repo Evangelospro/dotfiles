@@ -4,12 +4,20 @@
 		"prefix": "web temp",
 		"body": [
 			"import httpx",
-			"from requestrepo import Requestrepo",
+			"# from requestrepo import Requestrepo",
 			"# client = Requestrepo(token='')",
+            "",
+            "def get_http_request():",
+            "    while True:",
+            "        req = client.get_request()",
+            "        # print(req)",
+            "        # print(dir(req))",
+            "        if req.type == 'http':",
+            "            return req",
 			"",
 			"s = httpx.Client()",
 			"",
-			"url = '$1'"
+			"URL = '$1'"
 		]
 	},
 	"flask sign cookie": {

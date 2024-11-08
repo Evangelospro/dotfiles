@@ -167,7 +167,12 @@
     url = "https://raw.githubusercontent.com/grayhatacademy/ida/master/plugins/codatify/codatify.py"
     executable = true
     refreshPeriod = "168h"
-[".config/system/opt/idapro/plugins/"]
+[".config/system/opt/idapro/plugins/goresym.py"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/mandiant/GoReSym/refs/heads/master/IDAPython/goresym_rename.py"
+    executable = true
+    refreshPeriod = "168h"
+[".config/system/opt/idapro/plugins"]
     type = "archive"
     executable = true
     url = '{{ gitHubLatestRelease "gaasedelen/patching" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
