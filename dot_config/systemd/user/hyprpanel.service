@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/ags -c %h/.config/hyprpanel/config.js
+ExecStart=/usr/bin/agsv1 -c %h/.config/hyprpanel/config.js
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 

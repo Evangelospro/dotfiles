@@ -11,6 +11,6 @@ After=graphical-session-pre.target
 Type=notify
 ExecStart=/usr/bin/Hyprland
 ExecStop=/usr/bin/hyprctl dispatch exit
-ExecStopPost=/usr/bin/loginctl terminate-session $XDG_SESSION_ID
+ExecStopPost=/usr/bin/loginctl terminate-user ""
 Restart=never
 Slice=session.slice

@@ -16,4 +16,5 @@ items = [
     "wlr-layout-ui-git",
     "shikane",
     "hypr-zoom",
+    "uwsm".
 ]
