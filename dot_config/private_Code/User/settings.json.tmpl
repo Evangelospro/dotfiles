@@ -122,18 +122,21 @@
 	"prettier.useTabs": true,
 	// LANGUAGE SPECIFIC
 	"[python]": {
-		"editor.tabSize": 4,
-		"editor.semanticHighlighting.enabled": false,
-		"editor.formatOnType": true,
-		"editor.defaultFormatter": "charliermarsh.ruff"
-	},
+        "editor.formatOnSaveMode": "file",
+        "editor.formatOnType": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff",
+    },
     "python.REPL.enableREPLSmartSend": false,
 	"python.analysis.completeFunctionParens": true,
 	"python.analysis.typeCheckingMode": "basic",
 	"python.analysis.autoFormatStrings": true,
 	"python.analysis.autoImportCompletions": true,
-	"black-formatter.args": ["--line-length", "120"],
-	"python.languageServer": "Pylance",
+    "ruff.nativeServer": "on",
 	"python.analysis.exclude": [
 		".git",
 		"**/node_modules",
@@ -284,9 +287,9 @@
 		"ewebsite": "linux",
 		"ftc13906.com": "linux",
 		"portainer": "linux",
-		"prod.vulnbox.infra": "linux",
 		"vulnbox.infra": "linux",
-		"c2": "linux"
+		"c2": "linux",
+        "router.infra": "linux"
 	},
 	"remote.SSH.defaultExtensions": [
 		"charliermarsh.ruff",
