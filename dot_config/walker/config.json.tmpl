@@ -1,0 +1,167 @@
+{
+    "terminal": "{{.applications.terminal.linux.command}}",
+    "ignore_mouse": true,
+    "disabled": [
+        "calc"
+    ],
+    "activation_mode": {
+        "disabled": true,
+        "labels": "jkl;asdf"
+    },
+    "builtins": {
+        "applications": {
+            "weight": 100,
+            "prefer": true,
+            "context_aware": true,
+            "name": "applications",
+            "placeholder": "Applications",
+            "prioritize_new": true,
+            "refresh": true,
+            "show_icon_when_single": true,
+            "show_sub_when_single": true
+        },
+        "calc": {
+            "weight": 5,
+            "icon": "accessories-calculator",
+            "min_chars": 0,
+            "name": "calc",
+            "placeholder": "Calculator"
+        },
+        "clipboard": {
+            "weight": 5,
+            "image_height": 300,
+            "max_entries": 10,
+            "name": "clipboard",
+            "placeholder": "Clipboard",
+            "switcher_only": true
+        },
+        "commands": {
+            "weight": 40,
+            "icon": "utilities-terminal",
+            "name": "commands",
+            "placeholder": "Commands",
+            "switcher_only": true
+        },
+        "custom_commands": {
+            "weight": 5,
+            "icon": "utilities-terminal",
+            "name": "custom_commands",
+            "placeholder": "Custom Commands",
+            "commands": [
+                {
+                    "name": "Color Picker",
+                    "cmd": "color-picker"
+                },
+                {
+                    "name": "Toggle Floating Window",
+                    "cmd": "hyprctl dispatch togglefloating active"
+                }
+            ]
+        },
+        "dmenu": {
+            "name": "dmenu",
+            "placeholder": "Dmenu",
+            "switcher_only": true
+        },
+        "emojis": {
+            "history": true,
+            "name": "emojis",
+            "placeholder": "Emojis",
+            "switcher_only": true,
+            "typeahead": true
+        },
+        "finder": {
+            "concurrency": 8,
+            "icon": "folder",
+            "ignore_gitignore": true,
+            "name": "finder",
+            "placeholder": "Finder",
+            "refresh": true,
+            "switcher_only": true
+        },
+        "runner": {
+            "weight": 90,
+            "shell_config": "{{.chezmoi.homeDir}}/.config/zsh/.zshrc",
+            "includes": [
+                "shutdown",
+                "reboot",
+                "vpn"
+            ],
+            "generic_entry": false,
+            "history": true,
+            "icon": "utilities-terminal",
+            "name": "runner",
+            "placeholder": "Runner",
+            "refresh": true,
+            "typeahead": true
+        },
+        "ssh": {
+            "weight": 80,
+            "history": true,
+            "icon": "preferences-system-network",
+            "name": "ssh",
+            "placeholder": "SSH",
+            "refresh": true
+        },
+        "switcher": {
+            "name": "switcher",
+            "placeholder": "Switcher",
+            "prefix": "/"
+        },
+        "websearch": {
+            "weight": 70,
+            "engines": [
+                "google"
+            ],
+            "icon": "applications-internet",
+            "name": "websearch",
+            "placeholder": "Websearch"
+        },
+        "windows": {
+            "weight": 50,
+            "icon": "view-restore",
+            "name": "windows",
+            "placeholder": "Windows"
+        },
+        "hyprland": {
+            "weight": 5,
+            "context_aware_history": true
+        }
+    },
+    "list": {
+        "max_entries": 50,
+        "show_initial_entries": true,
+        "single_click": true
+    },
+    "search": {
+        "delay": 0,
+        "force_keyboard_focus": true,
+        "history": true,
+        "placeholder": "Search..."
+    },
+    "plugins": [
+        {
+            "name": "power",
+            "placeholder": "Power",
+            "keep_sort": true,
+            "entries": [
+                {
+                    "label": "Shutdown",
+                    "icon": "system-shutdown",
+                    "exec": "shutdown now"
+                },
+                {
+                    "label": "Reboot",
+                    "icon": "system-reboot",
+                    "exec": "reboot"
+                },
+                {
+                    "label": "Lock Screen",
+                    "icon": "system-lock-screen",
+                    "exec": "{{.utilities.lockscreen.linux.command }}"
+                }
+            ]
+        }
+    ],
+    "theme": "dracula"
+}

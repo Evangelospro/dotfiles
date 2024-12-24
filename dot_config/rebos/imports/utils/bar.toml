@@ -1,11 +1,11 @@
 [managers.system]
 items = [
-    "waybar",
+    "ags-hyprpanel-git",
     "dart-sass",
     "libevdev",
     "python-evdev",
     "python-filetype",
-    "aylurs-gtk-shell",
+    "aylurs-gtk-shell-git",
     "libgtop",
     "python-gpustat",
     "swww", # just for hyprpanel to shut up for dependencies

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 {{ if and (eq .osID "linux-arch") (not .isHeadless) -}}
-if ! pacman -Qs rebos-git >/dev/null 2>&1; then
-    paru -S --noconfirm rebos-git --config ~/.local/share/chezmoi/dot_config/system/etc/pacman.conf
+if ! pacman -Qs paru >/dev/null 2>&1; then
+    sudo pacman -S --needed base-devel --noconfirm
+    git clone https://aur.archlinux.org/paru.git /tmp/paru
+    cd /tmp/paru
+    makepkg -si --noconfirm
+    rm -rf /tmp/paru
 fi
 {{ end -}}
