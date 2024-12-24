@@ -1,20 +1,54 @@
-imports = [
-    "dependencies/hyprland",
-]
-
 [managers.system]
 items = [
-    # "hyprland-git", # will be installed from source via update-hyprland script
+    "ninja",
+    "gcc",
+    "cmake",
+    "meson",
+    "libxcb",
+    "xcb-proto",
+    "xcb-util",
+    "xcb-util-keysyms",
+    "libxfixes",
+    "libx11",
+    "libxcomposite",
+    "xorg-xinput",
+    "libxrender",
+    "pixman",
+    "wayland-protocols",
+    "cairo",
+    "pango",
+    "seatd",
+    "libxkbcommon",
+    "xcb-util-wm",
+    "xorg-xwayland",
+    "libinput",
+    "libliftoff",
+    "libdisplay-info",
+    "cpio",
+    "tomlplusplus",
+    "xcur2png",
     "xdg-desktop-portal-hyprland-git",
     "xdg-desktop-portal-gtk",
+    # "hyprland-git", # will be installed from source via update-hyprland script
     "hypridle-git",
     "hyprpicker-git",
     "hyprlock-git",
     "hyprpaper-git",
     "hyprcursor-git",
-    # "hyprswitch",
-    "wlr-layout-ui-git",
     "shikane",
     "hypr-zoom",
-    "uwsm".
+    "uwsm",
+    "aquamarine-git",
+    "hyprpicker-git",
+    "hyprlang-git",
+    "hyprutils-git",
+    "hyprwayland-scanner-git",
+    "hyprland-qtutils-git",
+    "hyprgraphics-git",
+]
+
+[managers.pip]
+items = [
+    # "hyprpy",
+    "git+https://github.com/evangelospro/hyprpy@fullscreen-patch",
 ]

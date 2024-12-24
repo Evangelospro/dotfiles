@@ -6,3 +6,8 @@ items = [
     "docker-compose",
     "fuse-overlayfs",
 ]
+
+[managers.systemd-system]
+items = [
+    "docker.socket", # avoid docker.service as that starts the daemon, while socket just listens until docker is needed on demand
+]

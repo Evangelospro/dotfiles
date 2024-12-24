@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Discord Canary
+Comment=Discord Canary
+GenericName=Internet Messenger
+Type=Application
+Exec=/usr/bin/discord-canary --ignore-gpu-blocklist --enable-features=UseOzonePlatform,VaapiVideoDecoder --ozone-platform=wayland --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy
+Icon=discord
+Categories=Network;InstantMessaging;
+StartupWMClass=discord-canary
+Keywords=discord;discord-canary;

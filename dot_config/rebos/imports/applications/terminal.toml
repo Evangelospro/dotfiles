@@ -1,4 +1,5 @@
 [managers.system]
 items = [
     "wezterm-git",
+    # "ghostty-git",
 ]

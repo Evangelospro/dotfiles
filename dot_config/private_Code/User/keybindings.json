@@ -202,5 +202,10 @@
 		"key": "ctrl+l",
 		"command": "binocular.customCommands",
 		"args": "Lazygit"
+	},
+	{
+		"key": "shift+alt+up",
+		"command": "-editor.action.insertCursorAbove",
+		"when": "editorTextFocus"
 	}
 ]
