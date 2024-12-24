@@ -1,5 +1,5 @@
 {
-{{- $isPersonal := promptBoolOnce . "isPersonal" "Is this laptop for use by Evangelos Lioudakis specifically?" -}}
+{{- $isPersonal := promptBoolOnce . "isPersonal" "Is this device for use by Evangelos Lioudakis specifically?" -}}
 {{- $isLaptop := promptBoolOnce . "isLaptop" "Is this a laptop?" -}}
 {{- $isHeadless := false -}}
 {{- if not $isLaptop }}
@@ -43,76 +43,191 @@
         "fullname": {{ $fullname | quote }},
         "email": {{ $email | quote }},
         "applications": {
-            // "terminal": {"linux":{"name":"warp-terminal", "command":"warp-terminal", "class":"dev.warp.Warp"}},
-            "terminal": {"linux":{"name":"Wezterm", "command":"wezterm", "class":"org.wezfurlong.wezterm", "desktop_name": "org.wezfurlong.wezterm"}},
-            "editor": {"linux":{"name":"visual-studio-code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}, "windows":{"name":"code-insiders", "command":"code-insiders", "class":"code-insiders-url-handler"}},
-            "browser": {"linux":{"name":"thorium-browser", "command":"thorium-browser", "class":"thorium-browser"}, "windows":{"name":"thorium-browser", "command":"thorium-browser", "class":"thorium-browser"}},
-            "filemanager": {"linux":{"name":"nemo", "command":"nemo", "class":"nemo"}, "windows":{"name":"explorer", "command":"explorer.exe", "class":"explorer"}},
-            "imageviewer": {"linux":{"name":"imv", "command":"imv", "class":"imv"}, "windows":{"name":"imv", "command":"imv", "class":"imv"}},
-            "videoplayer": {"linux":{"name":"vlc", "command":"vlc", "class":"vlc"}, "windows":{"name":"vlc", "command":"vlc", "class":"vlc"}},
-            "musicplayer": {"linux":{"name":"spotube", "command":"spotube", "class":"spotube"}, "windows":{"name":"spotube", "command":"spotube", "class":"spotube"}},
+            "terminal": {
+                "linux": {
+                    "name": "Wezterm",
+                    "command": "wezterm",
+                    "class": "org.wezfurlong.wezterm",
+                    "desktop_name": "org.wezfurlong.wezterm"
+                },
+                "keybinding": "{{$MOD}}{{$SEP}}T",
+                "keybinding_command": "raise --launch wezterm --class org.wezfurlong.wezterm",
+                "keybinding_new": "{{$SHIFT_MOD}}{{$SEP}}T",
+                "keybinding_new_command": "wezterm"
+            },
+            "editor": {
+                "linux": {
+                    "name": "visual-studio-code-insiders",
+                    "command": "code-insiders",
+                    "class": "code-insiders-url-handler"
+                },
+                "windows": {
+                    "name": "code-insiders",
+                    "command": "code-insiders",
+                    "class": "code-insiders-url-handler"
+                },
+                "keybinding": "{{$MOD}}{{$SEP}}C",
+                "keybinding_command": "raise --launch code-insiders --class code-insiders-url-handler",
+                "keybinding_new": "{{$SHIFT_MOD}}{{$SEP}}C",
+                "keybinding_new_command": "code-insiders"
+            },
+            "browser": {
+                "linux": {
+                    "name": "thorium-browser",
+                    "command": "thorium-browser",
+                    "class": "thorium-browser"
+                },
+                "windows": {
+                    "name": "thorium-browser",
+                    "command": "thorium-browser",
+                    "class": "thorium-browser"
+                },
+                "keybinding": "{{$MOD}}{{$SEP}}B",
+                "keybinding_command": "raise --launch thorium-browser --class thorium-browser",
+                "keybinding_new": "{{$SHIFT_MOD}}{{$SEP}}B",
+                "keybinding_new_command": "thorium-browser"
+            },
+            "filemanager": {
+                "linux": {
+                    "name": "nemo",
+                    "command": "nemo",
+                    "class": "nemo"
+                },
+                "windows": {
+                    "name": "explorer",
+                    "command": "explorer.exe",
+                    "class": "explorer"
+                },
+                "keybinding": "{{$MOD}}{{$SEP}}E",
+                "keybinding_command": "raise --launch nemo --class nemo",
+                "keybinding_new": "{{$SHIFT_MOD}}{{$SEP}}E",
+                "keybinding_new_command": "nemo"
+            },
+            "imageviewer": {
+                "linux": {
+                    "name": "imv",
+                    "command": "imv",
+                    "class": "imv"
+                },
+                "windows": {
+                    "name": "imv",
+                    "command": "imv",
+                    "class": "imv"
+                }
+            },
+            "videoplayer": {
+                "linux": {
+                    "name": "vlc",
+                    "command": "vlc",
+                    "class": "vlc"
+                },
+                "windows": {
+                    "name": "vlc",
+                    "command": "vlc",
+                    "class": "vlc"
+                }
+            },
+            "musicplayer": {
+                "linux": {
+                    "name": "spotube",
+                    "command": "spotube",
+                    "class": "spotube"
+                },
+                "windows": {
+                    "name": "spotube",
+                    "command": "spotube",
+                    "class": "spotube"
+                }
+            },
+            "notes": {
+                "keybinding": "{{$MOD}}{{$SEP}}N",
+                "keybinding_command": "raise --launch obsidian --class obsidian",
+                "linux": {
+                    "name": "obsidian",
+                    "command": "obsidian",
+                    "class": "obsidian"
+                },
+            },
+            "burp": {
+                "linux": {
+                    "name": "burp",
+                    "command": "burp",
+                    "class": "burp-StartBurp"
+                },
+                "keybinding": "{{$MOD}}{{$SEP}}X",
+                "keybinding_command": "raise --launch burp --class burp-StartBurp"
+            }
         },
-        "keybindings": {
-            "wm":{
-                "movewindows": {
-                    "left": {"description": "Move window to the left", "key": "{{$MOD}}{{$SEP}}left", "command": {"linux":"movewindow,l","windows":""}},
-                    "right": {"description": "Move window to the right", "key": "{{$MOD}}{{$SEP}}right", "command": {"linux":"movewindow,r","windows":""}},
-                    "up": {"description": "Move window upwards", "key": "{{$MOD}}{{$SEP}}up", "command": {"linux":"movewindow,t","windows":""}},
-                    "down": {"description": "Move window downwards", "key": "{{$MOD}}{{$SEP}}down", "command": {"linux":"movewindow,b","windows":""}},
-                },
-                "movefocus": {
-                    "left": {"description": "Move focus to the left", "key": "{{$MOD}}{{$SEP}}A", "command": {"linux":"movefocus,l","windows":""}},
-                    "right": {"description": "Move focus to the right", "key": "{{$MOD}}{{$SEP}}D", "command": {"linux":"movefocus,r","windows":""}},
-                    "up": {"description": "Move focus to the top", "key": "{{$MOD}}{{$SEP}}W", "command": {"linux":"movefocus,u","windows":""}},
-                    "down": {"description": "Move focus to the bottom", "key": "{{$MOD}}{{$SEP}}S", "command": {"linux":"movefocus,d","windows":""}},
-                },
-                "resize":{
-                    "left": {"description": "Resize window to the left", "key": "{{$SHIFT_MOD}}{{$SEP}}A", "command": {"linux":"resizeactive, -10 0","windows":""}},
-                    "right": {"description": "Resize window to the right", "key": "{{$SHIFT_MOD}}{{$SEP}}D", "command": {"linux":"resizeactive, 10 0","windows":""}},
-                    "up": {"description": "Resize window to the top", "key": "$SHIFT_MOD{{$SEP}}W", "command": {"linux":"resizeactive, 0 -10","windows":""}},
-                    "down": {"description": "Resize window to the bottom", "key": "{{$SHIFT_MOD}}{{$SEP}}S", "command": {"linux":"resizeactive, 0 10","windows":""}},
-                },
-                "exit": {"description": "Exit the window manager", "key": "{{$MOD}}{{$SEP}}M", "command": {"linux":"power-menu","windows":""}},
-                "reload": {"description": "Reload the window manager", "key": "$SHIFT_MOD{{$SEP}}R", "command": {"linux":"hyprctl reload","windows":""}},
+        "utilities": {
+            "lockscreen": {
+                "description": "Lock the screen",
+                "keybinding": "{{$MOD}}{{$SEP}}L",
+                "linux": {
+                    "name": "swaylock",
+                    "command": "pidof swaylock || swaylock",
+                    "class": "swaylock"
+                }
             },
-            "utilities":{
-                "lockscreen": {"description": "Lock the screen", "key": "{{$MOD}}{{$SEP}}L", "command": {"linux":"pidof swaylock || swaylock","windows":""}},
-                "launcher": {"description": "Open the launcher", "key": "{{$MOD}}{{$SEP}}SPACE", "command": {"linux":"walker","windows":""}},
-                "clipboard": {"description": "Open the clipboard manager", "key": "{{$MOD}}{{$SEP}}V", "command": {"linux":"clip-menu","windows":""}},
-                "colorpicker": {"description": "Open the colorpicker", "key": "{{$MOD}}{{$SEP}}C", "command": {"linux":"hyprpicker -c","windows":""}},
-                // "emoji": {"description": "Open the emoji picker", "key": "{{$SHIFT_MOD}}{{$SEP}}E", "command": {"linux":"emoji-menu","windows":""}}
+            "launcher": {
+                "description": "Open the launcher",
+                "keybinding": "{{$MOD}}{{$SEP}}SPACE",
+                "linux":{
+                    "name": "launcher",
+                    "command": "/usr/bin/ags -c ~/.config/ags/config.js -b jakoolkit -t overview",
+                    "class": "ags"
+                }
             },
-            "screenshot":{
-                "screenshot": {"description": "Take an interactive screenshot", "key": "{{$SEP}}Print", "command": {"linux":"flameshot gui --raw | copy","windows":"flameshot gui"}},
-                "ocr": {"description": "Perform OCR on a screen selection", "key": "{{$MOD}}{{$SEP}}O", "command": {"linux":"wl-ocr","windows":""}},
+            "clipboard": {
+                "description": "Open the clipboard manager",
+                "keybinding": "{{$MOD}}{{$SEP}}V",
+                "linux": {
+                    "name": "clip-menu",
+                    "command": "clip-menu",
+                    "class": "clip-menu"
+                }
             },
-            "applications":{
-                "browser" : {"description": "Launch browser", "key": "{{$MOD}}{{$SEP}}B", "command": {"linux":"raise --launch {{.applications.browser.linux.command}} --class {{.applications.browser.linux.class}}","windows":""}},
-                "browser_new" : {"description": "Launch (new) browser", "key": "{{$SHIFT_MOD}}{{$SEP}}B", "command": {"linux":"{{.applications.browser.linux.command}}","windows":""}},
-
-                "burp" : {"description": "Launch Burp", "key": "{{$MOD}}{{$SEP}}X", "command": {"linux":"raise --launch burp --class burp-StartBurp","windows":"burpsuite"}},
-
-                "terminal" : {"description": "Launch terminal", "key": "{{$MOD}}{{$SEP}}T", "command": {"linux":"raise --launch {{.applications.terminal.linux.command}} --class {{.applications.terminal.linux.class}}","windows":"wt"}},
-                "terminal_new" : {"description": "Launch a new terminal", "key": "{{$SHIFT_MOD}}{{$SEP}}T", "command": {"linux":"{{.applications.terminal.linux.command}} ","windows":"wt"}},
-
-                "filemanager" : {"description": "Launch file manager", "key": "{{$MOD}}{{$SEP}}E", "command": {"linux":"raise --launch {{.applications.filemanager.linux.command}}  --class {{.applications.filemanager.linux.class}} ","windows":"explorer.exe"}},
-                "filemanager_new" : {"description": "Launch (new) file manager", "key": "{{$SHIFT_MOD}}{{$SEP}}E", "command": {"linux":"{{.applications.filemanager.linux.command}}","windows":""}},
-
-                "editor" : {"description": "Launch editor", "key": "{{$MOD}}{{$SEP}}C", "command": {"linux":"raise --launch {{.applications.editor.linux.command}}  --class {{.applications.editor.linux.class}} ","windows":"code.exe"}},
-                "editor_new" : {"description": "Launch (new) editor", "key": "{{$SHIFT_MOD}}{{$SEP}}C", "command": {"linux":"{{.applications.editor.linux.command}}","windows":""}},
-
-                "notes" : {"description": "Launch Notes", "key": "{{$MOD}}{{$SEP}}N", "command": {"linux":"raise --launch obsidian --class obsidian","windows":""}},
+            "colorpicker": {
+                "description": "Open the colorpicker",
+                "keybinding": "{{$MOD}}{{$SEP}}C",
+                "linux": {
+                    "name": "colorpicker",
+                    "command": "colorpicker",
+                    "class": "colorpicker"
+                }
+            },
+            "screenshot": {
+                "description": "Take an interactive screenshot",
+                "keybinding": "{{$SEP}}Print",
+                "linux": {
+                    "name": "flameshot",
+                    "command": "flameshot gui --raw | copy",
+                    "class": "flameshot"
+                }
+            },
+            "ocr": {
+                "description": "Perform OCR on a screen selection",
+                "keybinding": "{{$MOD}}{{$SEP}}O",
+                "linux": {
+                    "name": "wl-ocr",
+                    "command": "wl-ocr",
+                    "class": "wl-ocr"
+                },
+                "windows": {
+                    "name": "wl-ocr",
+                    "command": "wl-ocr",
+                    "class": "wl-ocr"
+                }
             }
         }
     },
     "github": {
         "refreshPeriod": "12h"
     },
-    "edit":{
+    "edit": {
         "command": "{{.applications.editor.linux.command}}",
         "args": ["--wait"]
     },
-    "merge":{
+    "merge": {
         "command": "{{.applications.editor.linux.command}}",
         "args": ["-d"]
     }

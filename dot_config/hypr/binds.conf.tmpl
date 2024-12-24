@@ -3,8 +3,8 @@ $MOD = SUPER
 $SHIFT_MOD = $MOD_SHIFT
 
 # Exit / Reload
-bind={{.keybindings.wm.exit.key }},exec,{{.keybindings.wm.exit.command.linux }}
-bind={{.keybindings.wm.reload.key }},exec,{{.keybindings.wm.reload.command.linux }}
+bind=$MOD,M,exec,power-menu
+bind=$SHIFT_MOD,R,exec,hyprctl reload
 
 # Plugins
 ## Hyprspace
@@ -14,41 +14,39 @@ bind={{.keybindings.wm.reload.key }},exec,{{.keybindings.wm.reload.command.linux
 # bindr = $MOD_SHIFT, TAB, exec, hyprswitch gui --reverse --filter-current-monitor --sort-recent
 # if it somehow doesn't close on releasing $switch_release, escape can kill (doesnt switch)
 # bindrn = ,escape, exec, hyprswitch close --kill
-## Jatoolkit overview
-bind = $MOD, space, exec, /usr/bin/agsv1 -c ~/.config/ags/config.js -b jakoolkit -t overview
 
 # Utilities
 bind = $MOD , Z, exec, magnify +0.5
 bind = $MOD SHIFT, Z, exec, magnify 1.0
-bindl={{.keybindings.utilities.lockscreen.key}},exec,{{.keybindings.utilities.lockscreen.command.linux }}
-# bind={{.keybindings.utilities.launcher.key}},exec,{{.keybindings.utilities.launcher.command.linux}}
-bind=,XF86Search,exec,{{.keybindings.utilities.launcher.command.linux}}
-bind={{.keybindings.utilities.clipboard.key}},exec,{{.keybindings.utilities.clipboard.command.linux}}
+bindl={{.utilities.lockscreen.keybinding}},exec,{{.utilities.lockscreen.linux.command }}
+# bind={{.utilities.launcher.keybinding}},exec,{{.utilities.launcher.linux.command}}
+bind=,XF86Search,exec,{{.utilities.launcher.linux.command}}
+bind={{.utilities.clipboard.keybinding}},exec,{{.utilities.clipboard.linux.command}}
 bind=$MOD,R,exec,dynamic-resize
 bind=$MOD,P,exec,project-menu
 bind=$MOD_SHIFT,P,exec,/usr/bin/wlrlui
 
 # Screenshot / OCR
-bind={{.keybindings.screenshot.screenshot.key }},exec,{{.keybindings.screenshot.screenshot.command.linux }}
+bind={{.utilities.screenshot.keybinding }},exec,{{.utilities.screenshot.linux.command }}
 # Select area to perform OCR on
-bind={{.keybindings.screenshot.ocr.key }},exec,{{.keybindings.screenshot.ocr.command.linux }}
+bind={{.utilities.ocr.keybinding }},exec,{{.utilities.ocr.linux.command }}
 
 # Applications
-bind={{ .keybindings.applications.browser.key }},exec,{{ .keybindings.applications.browser.command.linux }}
-bind=SHIFT_{{ .keybindings.applications.browser_new.key }},exec,{{ .keybindings.applications.browser_new.command.linux }}
+bind={{ .applications.browser.keybinding }},exec,{{ .applications.browser.keybinding_command }}
+bind=SHIFT_{{ .applications.browser.keybinding_new }},exec,{{ .applications.browser.keybinding_command }}
 
-bind={{ .keybindings.applications.burp.key }},exec,{{ .keybindings.applications.burp.command.linux }}
+bind={{ .applications.burp.keybinding }},exec,{{ .applications.burp.keybinding_command}}
 
-bind={{ .keybindings.applications.terminal.key }},exec,{{ .keybindings.applications.terminal.command.linux }}
-bind={{ .keybindings.applications.terminal_new.key }},exec,{{ .keybindings.applications.terminal_new.command.linux }}
+bind={{ .applications.terminal.keybinding }},exec,{{ .applications.terminal.keybinding_command}}
+bind={{ .applications.terminal.keybinding_new }},exec,{{ .applications.terminal.keybinding_command}}
 
-bind={{.keybindings.applications.filemanager.key}},exec,{{.keybindings.applications.filemanager.command.linux}}
-bind={{.keybindings.applications.filemanager_new.key}},exec,{{.keybindings.applications.filemanager_new.command.linux}}
+bind={{.applications.filemanager.keybinding}},exec,{{.applications.filemanager.keybinding_command}}
+bind={{.applications.filemanager.keybinding_new}},exec,{{.applications.filemanager.keybinding_command}}
 
-bind={{.keybindings.applications.editor.key}},exec,{{.keybindings.applications.editor.command.linux}}
-bind={{.keybindings.applications.editor_new.key}},exec,{{.keybindings.applications.editor_new.command.linux}}
+bind={{.applications.editor.keybinding}},exec,{{.applications.editor.keybinding_command}}
+bind={{.applications.editor.keybinding_new}},exec,{{.applications.editor.keybinding_command}}
 
-bind={{.keybindings.applications.notes.key}},exec,{{.keybindings.applications.notes.command.linux}}
+bind={{.applications.notes.keybinding}},exec,{{.applications.notes.keybinding_command}}
 
 # Close / Fullscreen / Kill Applications
 bind=ALT_L,F4,killactive
@@ -81,9 +79,10 @@ bind=,XF86Launch4,exec,asusctl led-mode -n
 {{- end }}
 
 # Rearrange windows in the current workspace
-{{- range $entry, $map := .keybindings.wm.movewindows}}
-bind={{$map.key}},{{$map.command.linux}}
-{{- end }}
+bind=$MOD,down,movewindow,b
+bind=$MOD,left,movewindow,l
+bind=$MOD,right,movewindow,r
+bind=$MOD,up,movewindow,t
 
 # Move Windows Between Workspaces
 bind=$MOD,0,exec,workspace change 10
@@ -94,14 +93,16 @@ bind=$MOD_SHIFT,{{$i}},exec,workspace movewindow {{$i}}
 {{- end }}
 
 # Move focus between windows in the current workspace
-{{- range $entry, $map := .keybindings.wm.movefocus }}
-bind={{$map.key}},{{$map.command.linux}}
-{{- end }}
+bind=$MOD,S,movefocus,d
+bind=$MOD,A,movefocus,l
+bind=$MOD,D,movefocus,r
+bind=$MOD,W,movefocus,u
 
 # Resize windows in the current workspace
-{{- range $entry, $map := .keybindings.wm.resize }}
-binde={{$map.key}},{{$map.command.linux}}
-{{- end }}
+binde=$SHIFT_MOD,S,resizeactive, 0 10
+binde=$SHIFT_MOD,A,resizeactive, -10 0
+binde=$SHIFT_MOD,D,resizeactive, 10 0
+binde=$SHIFT_MOD,W,resizeactive, 0 -10
 
 # Move Windows Between Monitors
 bind=$MOD_SHIFT,left,movewindow, mon:l
@@ -115,4 +116,4 @@ bind=ALT,TAB,exec,hyprswitch --daemon --filter-current-monitor --sort-recent --s
 bindm=$MOD,mouse:272,movewindow
 
 # screen lock when the switch is turning off and then suspend
-bindl=,switch:on:Lid Switch,exec,{{.keybindings.utilities.lockscreen.command.linux }} & ;sleep 1; systemctl suspend
+bindl=,switch:on:Lid Switch,exec,{{.utilities.lockscreen.linux.command }} & ;sleep 1; systemctl suspend
