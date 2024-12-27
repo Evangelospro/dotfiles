@@ -250,22 +250,35 @@ function cd() {
 
 function cat() {
     if [ $# -eq 0 ]; then
-        /bin/cat
-    elif command -v bat &> /dev/null; then
+        /usr/bin/cat
+    else
         for file in $@; do
+            echo "Previewing $file"
             mimetype=$(file --mime-type -b "$file")
-            if [[ $mimetype != image/* ]]; then
-                /bin/cat "$file"
-            else
-                if command -v wezterm &> /dev/null; then
+            # allow all images and pdfs to be previewed with the kitty protocol check if it starts with image or pdf
+            if [[ $mimetype == image* || $mimetype == application/pdf ]]; then
+                if [[ $TERM_PROGRAM == "WezTerm" ]]; then
+                    echo "WezTerm preview"
                     wezterm imgcat "$file"
-                elif command -v kitty &> /dev/null; then
+                elif [[ $TERM_PROGRAM == "ghostty" ]]; then
+                    echo "Ghostty preview"
+                    kitten icat "$file"
+                elif [[ $TERM_PROGRAM == "kitty" ]]; then
+                    echo "Kitty preview"
                     kitty +kitten icat "$file"
+                else
+                    echo "File preview not supported in $TERM_PROGRAM"
+                fi
+            else
+                if command -v bat &> /dev/null; then
+                    echo "Bat preview"
+                    /usr/bin/bat "$file"
+                else
+                    echo "Cat preview"
+                    /usr/bin/cat "$file"
                 fi
             fi
         done
-    else
-        /bin/cat "$@"
     fi
 }
 

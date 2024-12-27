@@ -187,13 +187,9 @@ $MOD = SUPER
 
 #### Color Picker: [Hyprpicker](https://wiki.hyprland.org)
 
-#### OSD: [swayosd](https://github.com/ErikReider/SwayOSD) - An on-screen display for capslock, numlock, volume, brightness and more
-
-![osd.png](Pictures/showcase/utilities/osd.png)!
-
 ### Terminal and Shell:
 
-### Terminal: [Wezterm](https://wezfurlong.org/wezterm/index.html)
+### Terminal: [Ghostty](https://ghostty.org)
 
 ### Shell [ZSH](https://wiki.archlinux.org/title/Zsh)
 
