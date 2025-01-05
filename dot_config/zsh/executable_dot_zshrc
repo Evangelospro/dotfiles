@@ -63,4 +63,9 @@ fpath=($ZDOTDIR/.zfunc $fpath)
 autoload -U select-word-style
 select-word-style bash # ctrl+backspaces now deletes to previous / when working with paths
 
+
+if [[ $TERM_PROGRAM == "ghostty" ]]; then
+    source ${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration
+fi
+
 source $ZDOTDIR/post_load.zsh

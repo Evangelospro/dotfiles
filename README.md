@@ -107,7 +107,7 @@ $MOD = SUPER
 
 | Keybinding | Action                                     |
 | ---------- | ------------------------------------------ |
-| prtsc      | Take screenshot interactively (flameshot)  |
+| F12        | Take screenshot interactively (flameshot)  |
 | $MOD + O   | Copy text from screen with OCR (tesseract) |
 
 ### Move focus between windows in the current workspace

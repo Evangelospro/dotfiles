@@ -253,28 +253,28 @@ function cat() {
         /usr/bin/cat
     else
         for file in $@; do
-            echo "Previewing $file"
+            # echo "Previewing $file"
             mimetype=$(file --mime-type -b "$file")
             # allow all images and pdfs to be previewed with the kitty protocol check if it starts with image or pdf
             if [[ $mimetype == image* || $mimetype == application/pdf ]]; then
                 if [[ $TERM_PROGRAM == "WezTerm" ]]; then
-                    echo "WezTerm preview"
+                    # echo "WezTerm preview"
                     wezterm imgcat "$file"
                 elif [[ $TERM_PROGRAM == "ghostty" ]]; then
-                    echo "Ghostty preview"
+                    # echo "Ghostty preview"
                     kitten icat "$file"
                 elif [[ $TERM_PROGRAM == "kitty" ]]; then
-                    echo "Kitty preview"
+                    # echo "Kitty preview"
                     kitty +kitten icat "$file"
                 else
                     echo "File preview not supported in $TERM_PROGRAM"
                 fi
             else
                 if command -v bat &> /dev/null; then
-                    echo "Bat preview"
+                    # echo "Bat preview"
                     /usr/bin/bat "$file"
                 else
-                    echo "Cat preview"
+                    # echo "Cat preview"
                     /usr/bin/cat "$file"
                 fi
             fi
