@@ -11,7 +11,7 @@ window-properties=[680, 350, 0, 0]
 auto-power-on=@mb true
 
 [org/cinnamon/desktop/applications/terminal]
-exec='open-terminal-here'
+exec='{{ .applications.terminal.linux.command }}'
 
 [org/gnome/desktop/background]
 show-desktop-icons=false
