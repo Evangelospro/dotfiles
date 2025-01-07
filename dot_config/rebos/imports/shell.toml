@@ -1,6 +1,7 @@
 [managers.system]
 items = [
     "zsh",
+    "oh-my-posh-bin",
     "vivid",
     "direnv",
     "curl",

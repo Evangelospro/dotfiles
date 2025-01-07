@@ -53,8 +53,10 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 fi
 
 if [[ $(tput colors) == 256 ]]; then
-    zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/p10k.zsh'
-    zinit light romkatv/powerlevel10k
+    # zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/p10k.zsh'
+    # zinit light romkatv/powerlevel10k
+
+    eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.json)"
 fi
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then

@@ -193,7 +193,7 @@ $MOD = SUPER
 
 ### Shell [ZSH](https://wiki.archlinux.org/title/Zsh)
 
-#### Theme: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+#### Theme: [Oh My Posh](https://ohmyposh.dev/)
 
 #### Font: [FiraCode Nerd Font](https://www.nerdfonts.com/font-downloads)
 
@@ -256,10 +256,6 @@ $MOD = SUPER
 -   [tealdeer](https://github.com/dbrgn/tealdeer) - A collection of simplified, example based and community-driven man pages. (aliased to `tldr` or `help`)
 -   [dust](https://github.com/bootandy/dust) - A more intuitive version of du written in Rust (aliased to `du`)
 -   [delta](https://github.com/dandavison/delta) - A viewer for git and diff output (aliased to `diff`)
-
-#### Theme: [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-
--   [configuration](dot_config/zsh/executable_p10k.zsh)
 
 ## Development Setup
 

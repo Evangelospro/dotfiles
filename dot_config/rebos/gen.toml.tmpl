@@ -42,7 +42,7 @@ imports = [
 
 [managers.systemd-system]
 items = [
-    "ntpdate", # idk why arch doesn't have this by default
+    "ntpd", # idk why arch doesn't have this by default
     "plocate-updatedb.timer",
     {{- if .isLaptop }}
     "NetworkManager",

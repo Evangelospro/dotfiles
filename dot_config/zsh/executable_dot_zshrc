@@ -13,18 +13,6 @@ fi
 
 source $ZDOTDIR/history.zsh
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of $ZSHrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ $(tput colors) == 256 ]]; then
-    if [[ -r '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh' ]]; then
-        source '${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh'
-    fi
-
-    # To customize prompt, run `p10k configure` or edit $ZDOTDIR/p10k.zsh.
-    # [[ ! -f $ZDOTDIR/p10k.zsh ]] || source $ZDOTDIR/p10k.zsh
-fi
-
 case ${TERM} in
 xterm* | rxvt* | Eterm* | aterm | kterm | terminator | gnome* | alacritty | st | konsole* | warp | screen*)
     PROMPT_COMMAND="set_tab_title '${USER}@$(hostname):${PWD/#$HOME/~}'"
