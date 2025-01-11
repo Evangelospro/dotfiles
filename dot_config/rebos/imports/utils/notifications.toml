@@ -1,5 +1,4 @@
 [managers.system]
 items = [
-    "swaync",
     "notify-send-py"
 ]

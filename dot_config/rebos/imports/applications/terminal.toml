@@ -1,4 +1,6 @@
 [managers.system]
 items = [
-    "ghostty-git",
+    "ghostty",
+    "ghostty-terminfo",
+    "ghostty-shell-integration"
 ]
