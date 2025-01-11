@@ -42,13 +42,9 @@ GITHUB_USERNAME=Evangelospro # preferably change this to your own template and g
 git clone https://github.com/$GITHUB_USERNAME/dotfiles ~/.local/share/chezmoi
 ```
 
-### Basic configuration
+### Basic configuration (will be asked when applying)
 
-> [!IMPORTANT]
-> Open up your local [.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl) and edit all aplicable fields:
-
-> [!WARNING]
-> The below are a must to change, if you don't change them, you will probably not get what you want and have to spend a lot of time troubleshooting!
+> [.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl)
 
 -   isPersonal: This is kind of a setting you have to change or else you will receive some configurations that I deemed too personal, if I deemed that, then they will probably install some personal packages or configurations that you might not want
 -   isHeadless: This is whether the machine is running headless(No GUI) or not(e.g. a server), this is used to determine whether to install GUI packages or not
@@ -65,7 +61,9 @@ git clone https://github.com/$GITHUB_USERNAME/dotfiles ~/.local/share/chezmoi
 ### Applying
 
 ```bash
-bash install.sh
+chezmoi apply -v
+rebos gen commit init
+rebos gen current build
 ```
 
 ## Keybindings

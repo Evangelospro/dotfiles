@@ -10,8 +10,3 @@ items = [
     "python-gpustat",
     "swww", # just for hyprpanel to shut up for dependencies
 ]
-
-[managers.pip]
-items = [
-    "svgutils",
-]

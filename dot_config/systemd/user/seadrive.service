@@ -1,6 +1,6 @@
 [Unit]
 Description=Seadrive Gui Client
-After=network.target graphical-session.target waybar.service
+After=network.target graphical-session.target hyperpanel.service
 
 [Service]
 Type=simple
