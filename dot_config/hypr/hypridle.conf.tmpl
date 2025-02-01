@@ -1,25 +1,37 @@
 general {
-    lock_cmd = loginctl lock-session        # dbus/sysd lock command (loginctl lock-session)
+    lock_cmd = pidof {{.utilities.lockscreen.linux.command }} || {{.utilities.lockscreen.linux.command }}
     unlock_cmd = loginctl unlock-session   # same as above, but unlock
-    #before_sleep_cmd = notify-send "Zzz"    # command ran before sleep
-    #after_sleep_cmd = notify-send "Awake!"  # command ran after sleep
+    before_sleep_cmd = loginctl lock-session    # lock before suspend.
+    after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
     ignore_dbus_inhibit = false             # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
 }
 
 listener {
-    timeout = 305                            # in seconds
-    on-timeout = playerctl pause; {{.utilities.lockscreen.linux.command }}
+    timeout = 150
+    on-timeout = brightnessctl -s set 10000         # set monitor backlight to minimum, avoid 0 on OLED monitor.
+    on-resume = brightnessctl -r                 # monitor backlight restore.
+}
+
+# turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
+listener {
+    timeout = 150
+    on-timeout = asusctl --kbd-bright off # turn off keyboard backlight.
+    on-resume = asusctl --kbd-bright high        # turn on keyboard backlight.
+}
+
+listener {
+    timeout = 300
+    on-timeout = playerctl pause; loginctl lock-session
 }
 
 
 listener {
-    timeout = 450                            # in seconds
-    on-timeout = hyprctl dispatch dpms off
-    on-resume = hyprctl dispatch dpms on
+    timeout = 450
+    on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
+    on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
 }
 
-
 listener {
-    timeout = 800                            # in seconds
-    on-timeout = systemctl suspend
+    timeout = 1000
+    on-timeout = systemctl suspend                # suspend pc
 }
