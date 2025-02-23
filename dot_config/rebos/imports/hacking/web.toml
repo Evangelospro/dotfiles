@@ -12,7 +12,7 @@ items = [
     "python-httpx",
     "grpcurl-bin",
     "socat",
-    "dbgate-bin",
+    "subfinder-bin",
 ]
 
 [managers.pip]

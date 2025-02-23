@@ -51,7 +51,8 @@ keybind = ctrl+minus=decrease_font_size:1
 keybind = ctrl+shift+i=inspector:toggle
 keybind = ctrl+w=close_surface
 keybind = ctrl+t=new_tab
-keybind = ctrl+a=select_all
+keybind = ctrl+a=adjust_selection:home
+keybind = ctrl+e=adjust_selection:end
 keybind = ctrl+n=new_window
 keybind = page_down=scroll_page_down
 keybind = ctrl+end=scroll_to_bottom
