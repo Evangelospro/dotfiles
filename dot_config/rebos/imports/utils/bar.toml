@@ -9,4 +9,5 @@ items = [
     "libgtop",
     "python-gpustat",
     "swww", # just for hyprpanel to shut up for dependencies
+    "caffeine-ng",
 ]

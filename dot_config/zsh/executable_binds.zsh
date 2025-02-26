@@ -3,15 +3,15 @@
 # ZSH autocomplete
 bindkey '^I' insert-unambiguous-or-complete
 bindkey -M menuselect '^I' menu-complete
-bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+bindkey -M menuselect "${terminfo[kcbt]}" reverse-menu-complete
 bindkey -M menuselect '^M' .accept-line
 ## Allow for normal editing keys in the select menu
-bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
-bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char
+bindkey -M menuselect "${terminfo[kcub1]}" .backward-char
+bindkey -M menuselect "${terminfo[kcuf1]}" .forward-char
 
 # delete key
-bindkey '^[[3~' delete-char
-# bindkey -M menuselect '^[[3~' delete-char
+bindkey "${terminfo[kdch1]}" delete-char
+# bindkey -M menuselect "${terminfo[kdch1]}" delete-char
 # backspace key
 bindkey '^?' backward-delete-char
 # bindkey -M menuselect '^?' backward-delete-char
@@ -47,6 +47,6 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     bindkey '^R' atuin-search
 
     # bind to the up key, which depends on terminal mode
-    # bindkey '^[[A' atuin-up-search
+    # bindkey "${terminfo[kcuu1]}" atuin-up-search
     # bindkey '^[OA' atuin-up-search
 fi

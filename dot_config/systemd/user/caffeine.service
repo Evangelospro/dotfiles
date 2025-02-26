@@ -1,0 +1,14 @@
+[Unit]
+Description=idle inhibit daemon
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/caffeine
+ExecStop=/bin/kill -2 $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

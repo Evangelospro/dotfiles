@@ -49,6 +49,5 @@ items = [
 
 [managers.pip]
 items = [
-    # "hyprpy",
-    "git+https://github.com/evangelospro/hyprpy@fullscreen-patch",
+    "hyprpy",
 ]
