@@ -21,6 +21,9 @@ fi
 
 if ! pacman -Qs pypy3 >/dev/null 2>&1; then
     sudo pacman -S --noconfirm pypy3
+fi
+
+if ! pypy3 -m pip --version; then
     pypy3 -m ensurepip
 fi
 

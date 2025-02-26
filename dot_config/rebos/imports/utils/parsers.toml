@@ -2,5 +2,6 @@
 items = [
     "jnv",
     "jaq", # faster than jq
-    "ripgrep"
+    "ripgrep",
+    "ripgrep-all"
 ]
