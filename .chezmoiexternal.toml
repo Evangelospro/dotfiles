@@ -54,61 +54,10 @@
 
 {{- end }}
 
-{{- if (and .isPersonal .isLinux) }}
-# isPersonal
-[".local/bin/pc-bio-unlock"]
-    type = "file"
-    executable = true
-    url = "https://meis-apps.com/download?product=PCBioUnlock&platform=linux_x64"
-    stripComponents = 1
-    exact = true
-    refreshPeriod = "168h"
-
-[".local/bin/c"]
-    type = "archive-file"
-    url = '{{ gitHubLatestRelease "rettier/c" | toJson | fromJson | jq ".assets[1].browser_download_url" | first}}'
-    stripComponents = 1
-    executable = true
-    path = "c"
-    refreshPeriod = "250h"
-
-[".local/bin/adguardian"]
-    type = "file"
-    url = '{{ gitHubLatestRelease "Lissy93/AdGuardian-Term" | toJson | fromJson | jq ".assets[4].browser_download_url" | first}}'
-    stripComponents = 1
-    executable = true
-    refreshPeriod = "250h"
-
-{{- end }}
-
 {{- if (and .isHacking .isPersonal .isLinux) }}
 # Hacking tools
 ## Web
-[".config/burp/scripts/openvpn-server.sh"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh"
-    executable = true
-    refreshPeriod = "500h"
 
-# ["HACKING/Tools/Web/jwt_tool"]
-#     type = "git-repo"
-#     url = "https://github.com/ticarpi/jwt_tool"
-#     branch = "master"
-#     refreshPeriod = "500h"
-#
-# ## Mobile
-# ["HACKING/Tools/Mobile/rootAVD"]
-#     type = "git-repo"
-#     url = "https://gitlab.com/newbit/rootAVD"
-#     branch = "master"
-#     refreshPeriod = "500h"
-#
-# ["HACKING/Tools/Mobile/waydroid_script"]
-#     type = "git-repo"
-#     url = "https://github.com/casualsnek/waydroid_script"
-#     branch = "main"
-#     refreshPeriod = "500h"
-#
 # ## PWN
 # ["HACKING/Tools/pwn/libc-database"]
 #     type = "git-repo"
@@ -116,34 +65,6 @@
 #     branch = "master"
 #     refreshPeriod = "250h"
 #
-# ## Privesc
-# ["HACKING/Tools/Privesc/linpeas.sh"]
-#     type = "file"
-#     url = '{{ gitHubLatestRelease "peass-ng/PEASS-ng" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
-#     branch = "master"
-#     refreshPeriod = "250h"
-#     executable = true
-#
-# ["HACKING/Tools/Privesc/winpeas.bat"]
-#     type = "file"
-#     url = '{{ gitHubLatestRelease "peass-ng/PEASS-ng" | toJson | fromJson | jq ".assets[9].browser_download_url" | first}}'
-#     branch = "master"
-#     refreshPeriod = "250h"
-#     executable = true
-#
-# ["HACKING/Tools/Privesc/linux-exploit-suggester-2.pl"]
-#     type = "file"
-#     url = "https://raw.githubusercontent.com/jondonas/linux-exploit-suggester-2/master/linux-exploit-suggester-2.pl"
-#     branch = "main"
-#     refreshPeriod = "250h"
-#     executable = true
-#
-# ["HACKING/Tools/Privesc/gtfonow.py"]
-#     type = "file"
-#     url = '{{ gitHubLatestRelease "Frissi0n/GTFONow" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
-#     branch = "main"
-#     refreshPeriod = "250h"
-#     executable = true
 
 ## Reverse
 ### IDA
@@ -194,32 +115,15 @@
     stripComponents = 0
     path = "GoReSym"
 
-## Privesc
-[".local/bin/gtfobins"]
-    type = "file"
-    executable = true
-    url = '{{ gitHubLatestRelease "CristinaSolana/ggtfobins" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "1000h"
-
 ## Crypto
-[".local/bin/ares"]
-    type = "archive-file"
-    executable = true
-    url = '{{ gitHubLatestRelease "bee-san/Ares" | toJson | fromJson | jq ".assets[4].browser_download_url" | first}}'
-    exact = true
-    stripComponents = 1
-    path = "ares"
-    refreshPeriod = "250h"
-
-{{- end }}
-
-{{- if (and .isWindows .isPersonal) }}
-[".local/bin/samsungnotes-v2.bat"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/iknothing/galaxybook_mask_but_better/main/samsungnotes-betterv2.bat"
-    executable = true
-    refreshPeriod = "250h"
+## Ciphey (soon to be merged with ares)
+# [".local/bin/ciphey"]
+#     type = "archive-file"
+#     executable = true
+#     url = '{{ gitHubLatestRelease "bee-san/Ciphey" | toJson | fromJson | jq ".assets[4].browser_download_url" | first}}'
+#     exact = true
+#     stripComponents = 1
+#     path = "ciphey"
+#     refreshPeriod = "250h"
 
 {{- end }}

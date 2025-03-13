@@ -1,14 +1,14 @@
 [Unit]
-Description=idle inhibit daemon
-PartOf=graphical-session.target
+Description=Clipboard Sync Service between X11 and Wayland
 After=graphical-session.target
-ConditionEnvironment=WAYLAND_DISPLAY
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/caffeine
+ExecStart=%h/.local/bin/clip-sync
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
+
 
 [Install]
 WantedBy=graphical-session.target

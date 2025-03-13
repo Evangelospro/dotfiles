@@ -43,6 +43,7 @@ function ssh(){
         # wezterm ssh "$@"
         /usr/bin/ssh "$@"
     else
+        infocmp -x | /usr/bin/ssh "$@" -- tic -x -
         /usr/bin/ssh "$@"
     fi
 }

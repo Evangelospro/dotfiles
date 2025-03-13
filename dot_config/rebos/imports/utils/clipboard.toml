@@ -4,6 +4,5 @@ items = [
     "xclip",
     "clipse-bin",
     "cliphist",
-    "clipnotify-git",
-    # "clipboard-sync",
+    "clipnotify",
 ]

@@ -8,6 +8,4 @@ items = [
     "aylurs-gtk-shell-git",
     "libgtop",
     "python-gpustat",
-    "swww", # just for hyprpanel to shut up for dependencies
-    "caffeine-ng",
 ]
