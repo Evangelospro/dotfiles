@@ -3,11 +3,11 @@
 	"zenMode.centerLayout": false,
 	"zenMode.hideStatusBar": false,
 	"zenMode.hideLineNumbers": false,
-	{{- if eq .chezmoi.os "linux" }}
+	//{{- if eq .chezmoi.os "linux" }}
 	"window.zoomLevel": 2,
-	{{- else }}
+	//{{- else }}
 	"window.zoomLevel": 1,
-	{{- end }}
+	//{{- end }}
 	"window.commandCenter": false,
 	"window.newWindowDimensions": "fullscreen",
 	"window.restoreWindows": "one",
@@ -122,21 +122,21 @@
 	"prettier.useTabs": true,
 	// LANGUAGE SPECIFIC
 	"[python]": {
-        "editor.formatOnSaveMode": "file",
-        "editor.formatOnType": false,
-        "editor.formatOnSave": true,
-        "editor.codeActionsOnSave": {
-            "source.fixAll": "explicit",
-            "source.organizeImports": "explicit"
-        },
-        "editor.defaultFormatter": "charliermarsh.ruff",
-    },
-    "python.REPL.enableREPLSmartSend": false,
+		"editor.formatOnSaveMode": "file",
+		"editor.formatOnType": false,
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll": "explicit",
+			"source.organizeImports": "explicit"
+		},
+		"editor.defaultFormatter": "charliermarsh.ruff"
+	},
+	"python.REPL.enableREPLSmartSend": false,
 	"python.analysis.completeFunctionParens": true,
 	"python.analysis.typeCheckingMode": "basic",
 	"python.analysis.autoFormatStrings": true,
 	"python.analysis.autoImportCompletions": true,
-    "ruff.nativeServer": "on",
+	"ruff.nativeServer": "on",
 	"python.analysis.exclude": [
 		".git",
 		"**/node_modules",
@@ -230,13 +230,13 @@
 	"explorer.confirmDelete": false,
 	"files.autoSave": "afterDelay",
 	// SNYK
-	{{- if eq .chezmoi.os "linux" }}
+	//{{- if eq .chezmoi.os "linux" }}
 	"snyk.advanced.cliPath": "{{.chezmoi.homeDir}}/.local/share/snyk-ls/snyk-linux",
 	"snyk.advanced.languageServerPath": "{{.chezmoi.homeDir}}/.local/share/snyk/snyk-ls-linux",
-	{{- else if eq .chezmoi.os "windows" }}
+	//{{- else if eq .chezmoi.os "windows" }}
 	"snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk-ls\\snyk-win.exe",
 	"snyk.advanced.languageServerPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-ls-win.exe",
-	{{- end }}
+	//{{- end }}
 	"snyk.trustedFolders": ["{{ .chezmoi.homeDir }}"],
 	"snyk.yesWelcomeNotification": false,
 	// EXTENSIONS
@@ -289,7 +289,7 @@
 		"portainer": "linux",
 		"vulnbox.infra": "linux",
 		"c2": "linux",
-        "router.infra": "linux"
+		"router.infra": "linux"
 	},
 	"remote.SSH.defaultExtensions": [
 		"charliermarsh.ruff",
@@ -366,10 +366,5 @@
 	"[dockerfile]": {
 		"editor.defaultFormatter": "ms-azuretools.vscode-docker"
 	},
-	"snyk.folderConfigs": [
-		{
-			"folderPath": "",
-			"baseBranch": ""
-		}
-	]
+	"window.confirmSaveUntitledWorkspace": false
 }
