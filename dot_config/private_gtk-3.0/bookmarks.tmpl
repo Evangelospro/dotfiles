@@ -1,14 +1,11 @@
 file://{{ .chezmoi.homeDir }}/Documents Documents
 file://{{ .chezmoi.homeDir }}/Downloads Downloads
-file://{{ .chezmoi.homeDir }}/Music Music
-file://{{ .chezmoi.homeDir }}/Pictures Pictures
-file://{{ .chezmoi.homeDir }}/Videos Videos
 {{- if .isPersonal }}
 file://{{ .chezmoi.homeDir }}/Notes Notes
+file://{{ .chezmoi.homeDir }}/Courses Courses
 file://{{ .chezmoi.homeDir }}/School School
 file://{{ .chezmoi.homeDir }}/HACKING HACKING
 file://{{ .chezmoi.homeDir }}/HACKING/Tools Tools
 file://{{ .chezmoi.homeDir }}/HACKING/CTFs CTFs
 file://{{ .chezmoi.homeDir }}/HACKING/CTFs/{{ now | date "2006" }} CTFs-{{ now | date "2006" }}
-file://{{ .chezmoi.homeDir }}/Courses Courses
 {{- end }}

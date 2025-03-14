@@ -1,5 +1,5 @@
 general {
-    lock_cmd = pidof {{.utilities.lockscreen.linux.command }} || {{.utilities.lockscreen.linux.command }}
+    lock_cmd = {{.utilities.lockscreen.linux.command }}
     unlock_cmd = loginctl unlock-session   # same as above, but unlock
     before_sleep_cmd = loginctl lock-session    # lock before suspend.
     after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
