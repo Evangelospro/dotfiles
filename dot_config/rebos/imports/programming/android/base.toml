@@ -5,5 +5,5 @@ items = [
     "android-sdk-cmdline-tools-latest",
     "android-sdk-platform-tools",
     "android-tools",
-    "android-studio"
+    # "android-studio"
 ]
