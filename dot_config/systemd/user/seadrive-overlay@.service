@@ -1,0 +1,12 @@
+[Unit]
+Description=Seadrive Symlink Overlay for %I
+After=network.target graphical-session.target hyprpanel.service seadrive.service
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/seadrive-overlay %i
+Restart=on-failure
+ExecStop=%h/.local/bin/seadrive-overlay-umount %i
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,10 +1,10 @@
 [Unit]
-Description=Seadrive Gui Client
-After=network.target graphical-session.target hyperpanel.service
+Description=Seadrive client
+After=network.target graphical-session.target hyprpanel.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/seadrive-gui
+ExecStart=/usr/bin/seadrive -f -d %h/.local/share/SeaDrive %h/SeaDrive -o allow_other -c "%h/.config/SeaDrive/Seafile Drive Client.conf"
 Restart=on-failure
 
 [Install]

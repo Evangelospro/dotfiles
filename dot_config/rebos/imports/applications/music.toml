@@ -1,5 +1,5 @@
 [managers.system]
 items = [
-    "spotube-bin",
+    "spotify",
     "playerctl",
 ]

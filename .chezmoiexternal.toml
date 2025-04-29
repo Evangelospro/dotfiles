@@ -127,3 +127,10 @@
 #     refreshPeriod = "250h"
 
 {{- end }}
+{{- if .isPersonal }}
+[".local/bin/fuse-symlink-overlay"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/cfalas/fuse-symlink/refs/heads/main/fuse_overlay.py"
+    executable = true
+    refreshPeriod = "168h"
+{{- end}}

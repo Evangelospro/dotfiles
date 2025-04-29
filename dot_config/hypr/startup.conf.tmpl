@@ -1,13 +1,11 @@
 # Theming
-exec-once=/usr/bin/xsettingsd &
+exec-once = /usr/bin/xsettingsd &
 exec=$HOME/.config/hypr/scripts/import-themes
 ## scale apps
 exec-once = xprop -root -f _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
-## borders
-# exec-once = $HOME/.config/hypr/scripts/smart-borders
 
-# Hyprland plugins
-# exec = $HOME/.config/hypr/scripts/plugin-startup
+# systemd
+exec-once = dbus-update-activation-environment --systemd --all
 
 {{- if .isAsus }}
 exec=[workspace special:backgroundappsrogcontrolcenter silent] pidof rog-control-center || /usr/bin/rog-control-center

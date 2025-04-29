@@ -39,26 +39,6 @@ if [ -f $APKLAB_DIR/first_run_completed ]; then
 fi
 {{- end }}
 
-{{- if .isPersonal }}
-PKGBUILDS_DIR=$HOME/.local/share/chezmoi/PKGBUILDS/
-for pkg_dir in $(ls $PKGBUILDS_DIR); do
-    pkg_name=$(grep -m1 "pkgname=" $PKGBUILDS_DIR/$pkg_dir/PKGBUILD | cut -d'=' -f2)
-    if ! paru -Q $pkg_name >/dev/null 2>&1; then
-        rebos api echo info "Installing $pkg_name"
-        (cd $PKGBUILDS_DIR/$pkg_dir && makepkg -fs --noconfirm && paru --overwrite '*' --noconfirm -U $pkg_name-*.pkg.tar)
-    else
-        pkg_version=$(grep -m1 "pkgver=" $PKGBUILDS_DIR/$pkg_dir/PKGBUILD | cut -d'=' -f2)
-        installed_version=$(paru -Q $pkg_name | cut -d' ' -f2)
-        if [[ $installed_version != $pkg_version* ]]; then
-            rebos api echo info "Updating $pkg_name from $installed_version to $pkg_version"
-            (cd $PKGBUILDS_DIR/$pkg_dir && makepkg -fs --noconfirm && paru --overwrite '*' --noconfirm -U $pkg_name-*.pkg.tar)
-        else
-            rebos api echo info "$pkg_name is already up to date"
-        fi
-    fi
-done
-{{- end }}
-
 # update
 rebos api echo info "Updating all packages and installing any source-only packages"
 ~/.local/bin/update
