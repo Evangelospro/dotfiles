@@ -50,7 +50,7 @@ LDFLAGS="-Wl,-O1 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now \
 LTOFLAGS="-flto=auto"
 RUSTFLAGS="-Cforce-frame-pointers=yes"
 #-- Make Flags: change this for DistCC/SMP systems
-MAKEFLAGS="-j{{- output "nproc" |trim -}}"
+MAKEFLAGS="-j$(nproc)"
 #-- Debugging flags
 DEBUG_CFLAGS="-g"
 DEBUG_CXXFLAGS="$DEBUG_CFLAGS"

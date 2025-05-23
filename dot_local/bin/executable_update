@@ -1,26 +1,16 @@
 #!/usr/bin/env zsh
 
-if command -v rebos &> /dev/null; then
+if command -v rebos &>/dev/null; then
     rebos managers upgrade --sync
-elif command -v paru &> /dev/null; then
+elif command -v paru &>/dev/null; then
     paru -Syu
-elif command -v yay &> /dev/null; then
+elif command -v yay &>/dev/null; then
     yay -Syu
-elif command -v pacman &> /dev/null; then
+elif command -v pacman &>/dev/null; then
     sudo pacman -Syu
 fi
 # navi-update
 if [ -d $HOME/.config/burp/loader ]; then
     update-burp
 fi
-if [ "$1" = "-f" ]; then
-    if command -v papirus-folders &> /dev/null; then
-        papirus-folders -Ru
-    fi
-    update-hyprland
-else
-    if command -v papirus-folders &> /dev/null; then
-        papirus-folders -Ru
-    fi
-    update-hyprland
-fi
+papirus-folders -Ru

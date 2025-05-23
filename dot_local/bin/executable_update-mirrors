@@ -1,6 +1,3 @@
 #!/usr/bin/env bash
 
 rate-mirrors --allow-root --disable-comments-in-file --protocol https arch | sudo tee /etc/pacman.d/mirrorlist
-if [ -f /etc/pacman.d/chaotic-mirrorlist ]; then
-    rate-mirrors --allow-root --disable-comments-in-file --protocol https chaotic-aur | sudo tee /etc/pacman.d/chaotic-mirrorlist
-fi

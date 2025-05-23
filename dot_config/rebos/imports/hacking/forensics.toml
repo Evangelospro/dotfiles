@@ -3,7 +3,6 @@ items = [
     "pycdc-git",
     "python-pyshark",
     "volatility3",
-    # "python2-volatility-git",
     "foremost",
     "python-oletools",
     "powershell-bin",
