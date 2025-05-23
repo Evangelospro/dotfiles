@@ -126,6 +126,13 @@
 #     path = "ciphey"
 #     refreshPeriod = "250h"
 
+## Cheatsheets
+[".local/share/navi/cheats/esp0xdeadbeef"]
+    type = "git-repo"
+    url = "https://github.com/esp0xdeadbeef/cheat.sheets"
+    branch = "main"
+    refreshPeriod = "250h"
+
 {{- end }}
 {{- if .isPersonal }}
 [".local/bin/fuse-symlink-overlay"]
