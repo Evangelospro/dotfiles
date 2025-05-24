@@ -40,7 +40,7 @@ fi
 {{- end }}
 
 # update
-rebos api echo info "Updating all packages and installing any source-only packages"
+rebos api echo info "Updating all packages"
 ~/.local/bin/update
 
 {{- if .isHacking }}
