@@ -25,7 +25,7 @@ function set_tab_title() {
     echo -ne "\033]0;$name\007"
 }
 
-function chrome() {
+function browser() {
     browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome|thorium" | head -n 1)
     $browser --enable-logging --v=1
 }

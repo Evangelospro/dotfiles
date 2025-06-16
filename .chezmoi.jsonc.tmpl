@@ -73,19 +73,19 @@
             },
             "browser": {
                 "linux": {
-                    "name": "thorium-browser",
-                    "command": "thorium-browser",
-                    "class": "thorium-browser"
+                    "name": "google-chrome",
+                    "command": "google-chrome-stable",
+                    "class": "chrome"
                 },
                 "windows": {
-                    "name": "thorium-browser",
-                    "command": "thorium-browser",
-                    "class": "thorium-browser"
+                    "name": "chrome",
+                    "command": "google-chrome-stable",
+                    "class": "chrome"
                 },
                 "keybinding": "{{$MOD}}{{$SEP}}B",
-                "keybinding_command": "raise --launch thorium-browser --class thorium-browser",
+                "keybinding_command": "raise --launch google-chrome-stable --class chrome",
                 "keybinding_new": "{{$SHIFT_MOD}}{{$SEP}}B",
-                "keybinding_new_command": "thorium-browser"
+                "keybinding_new_command": "google-chrome-stable"
             },
             "filemanager": {
                 "linux": {
@@ -175,6 +175,15 @@
                     "name": "launcher",
                     "command": "/usr/bin/walker",
                     "class": "ags"
+                }
+            },
+            "emojimenu": {
+                "description": "Open the emoji launcher",
+                "keybinding": "{{$MOD}}{{$SEP}}J",
+                "linux":{
+                    "name": "emoji",
+                    "command": "~/.local/bin/emoji-menu",
+                    "class": "emoji-menu"
                 }
             },
             "clipboard": {

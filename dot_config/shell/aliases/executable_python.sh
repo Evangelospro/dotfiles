@@ -1,7 +1,7 @@
 # python / pip
 
 ## UV
-alias venv='uv venv --relocatable --link-mode copy'
+alias venv='uv venv --relocatable --link-mode=copy'
 
 ## if no arguments are passed, it will run ipython instead of python3
 alias pp='pypy3'

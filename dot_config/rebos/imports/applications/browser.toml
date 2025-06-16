@@ -1,5 +1,4 @@
 [managers.system]
 items = [
-    "thorium-browser-bin",
-    # "google-chrome"
+    "google-chrome"
 ]

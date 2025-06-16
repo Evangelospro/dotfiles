@@ -16,12 +16,6 @@ fi
 rebos api echo info "Creating XDG user directories"
 xdg-user-dirs-update
 
-# Alias thorium-browser to /opt/google/chrome/chrome
-if [[ -f /opt/google/chrome/chrome ]]; then
-    sudo mkdir -p /opt/google/chrome/
-    sudo ln -nsf /usr/bin/thorium-browser /opt/google/chrome/chrome
-fi
-
 # Set java to latest java installed
 rebos api echo info "Setting java to the latest installed version"
 sudo archlinux-java set $(archlinux-java status |head -n 2|tail -n 1|cut -d ' ' -f 3)
