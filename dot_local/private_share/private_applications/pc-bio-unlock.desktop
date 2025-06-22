@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=PC Bio Unlock
-StartupWMClass=PC Bio Unlock
-Comment=PC Bio Unlock
-Exec=/usr/bin/java -jar ~/.local/bin/pc-bio-unlock.jar
-Icon=android-sdk
-Terminal=false
-Type=Application
-Categories=Development
