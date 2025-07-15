@@ -8,7 +8,6 @@ items = [
     "python-typing_extensions",
     "python-tabulate",
     "python-pwntools",
-    "python-pwnscripts",
     "ropper",
     "ropgadget",
 ]
