@@ -1,0 +1,56 @@
+(
+    name: "aura-default",
+    aura: (
+        effects: [
+            Breathe((
+                led: W,
+                start_colour1: (r: 255, g: 0, b: 20),
+                start_colour2: (r: 20, g: 255, b: 0),
+                speed: Low,
+            )),
+            Breathe((
+                led: A,
+                start_colour1: (r: 255, g: 0, b: 20),
+                start_colour2: (r: 20, g: 255, b: 0),
+                speed: Low,
+            )),
+            Breathe((
+                led: S,
+                start_colour1: (r: 255, g: 0, b: 20),
+                start_colour2: (r: 20, g: 255, b: 0),
+                speed: Low,
+            )),
+            Breathe((
+                led: D,
+                start_colour1: (r: 255, g: 0, b: 20),
+                start_colour2: (r: 20, g: 255, b: 0),
+                speed: Low,
+            )),
+            Breathe((
+                led: F,
+                start_colour1: (r: 255, g: 0, b: 0),
+                start_colour2: (r: 255, g: 0, b: 0),
+                speed: High,
+            )),
+            Static((
+                led: RCtrl,
+                colour: (r: 0, g: 0, b: 255),
+            )),
+            Static((
+                led: LCtrl,
+                colour: (r: 0, g: 0, b: 255),
+            )),
+            Static((
+                led: Esc,
+                colour: (r: 0, g: 0, b: 255),
+            )),
+            DoomFlicker((
+                led: N9,
+                start_colour: (r: 0, g: 0, b: 255),
+                max_percentage: 80,
+                min_percentage: 40,
+            )),
+        ],
+        zoned: false,
+    ),
+)

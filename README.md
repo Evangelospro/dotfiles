@@ -209,7 +209,7 @@ $MOD = SUPER
 
 ###### [zsh-smartcache](https://github.com/QuarticCat/zsh-smartcache) - Caches the output of commands such as $(eval program init) to speed up shell startup
 
-###### [thefuck](https://github.com/nvbn/thefuck) - a magnificent app, that corrects errors in previous console commands.
+###### [pay-respects](https://github.com/iffse/pay-respects) - a magnificent app, that corrects errors in previous console commands.
 
 ###### [direnv](https://direnv.net/) - It can load and unload environment variables depending on the current directory. (usually loads an adjacent .env from your local directory)
 
@@ -252,8 +252,9 @@ $MOD = SUPER
 -   [hyperfine](https://github.com/sharkdp/hyperfine) - A command-line benchmarking tool.
 -   [btm](https://github.com/ClementTsang/bottom) - A cross-platform graphical process/system monitor with a customizable interface and a multitude of features (aliased to `top`)
 -   [tealdeer](https://github.com/dbrgn/tealdeer) - A collection of simplified, example based and community-driven man pages. (aliased to `tldr` or `help`)
--   [dust](https://github.com/bootandy/dust) - A more intuitive version of du written in Rust (aliased to `du`)
+-   [duf](https://github.com/muesli/duf) - beter df
 -   [delta](https://github.com/dandavison/delta) - A viewer for git and diff output (aliased to `diff`)
+-   [unp](https://github.com/mitsuhiko/unp) - unpack things
 
 ## Development Setup
 

@@ -1,10 +1,10 @@
 [managers.system]
 items = [
-  "vesktop-bin",
-  "signal-desktop",
-  {{- if .isPersonal }}
-  "valent-git",
-  {{- end }}
-  "zoom",
-  "viber",
+    {{- if and .isPersonal (not .isHeadless) }}
+    "vesktop-bin",
+    "valent-git",
+    "zoom",
+    "viber",
+    {{- end }}
+    "localsend-bin",
 ]

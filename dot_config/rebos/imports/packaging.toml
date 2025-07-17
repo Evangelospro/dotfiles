@@ -1,6 +1,9 @@
 [managers.system]
 items = [
+    ## Arch specific start
     "pacman-static",
     "rate-mirrors-bin",
-    "pacman-cleanup-hook"
+    "pacman-cleanup-hook",
+    "reboot-arch-btw"
+    ## Arch specific end
 ]

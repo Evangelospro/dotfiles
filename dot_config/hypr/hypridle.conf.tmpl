@@ -15,8 +15,10 @@ listener {
 # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
 listener {
     timeout = 150
+    {{- if .isAsus }}
     on-timeout = asusctl --kbd-bright off # turn off keyboard backlight.
     on-resume = asusctl --kbd-bright high        # turn on keyboard backlight.
+    {{- end }}
 }
 
 listener {
