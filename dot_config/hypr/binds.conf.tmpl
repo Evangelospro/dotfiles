@@ -33,21 +33,21 @@ bind={{.utilities.screenshot.keybinding }},exec,{{.utilities.screenshot.linux.co
 bind={{.utilities.ocr.keybinding }},exec,{{.utilities.ocr.linux.command }}
 
 # Applications
-bind={{ .applications.browser.keybinding }},exec,{{ .applications.browser.keybinding_command }}
-bind=SHIFT_{{ .applications.browser.keybinding_new }},exec,{{ .applications.browser.keybinding_new_command }}
+bind={{ .applications.browser.keybinding }},exec, raise --launch {{ .applications.browser.linux.command }} --class {{ .applications.browser.linux.class }}
+bind=SHIFT_{{ .applications.browser.keybinding }},exec,{{ .applications.browser.linux.command }}
 
-bind={{ .applications.burp.keybinding }},exec,{{ .applications.burp.keybinding_command}}
+bind={{ .applications.burp.keybinding }},exec,raise --launch {{ .applications.burp.linux.command}} --class {{ .applications.burp.linux.class}}
 
-bind={{ .applications.terminal.keybinding }},exec,{{ .applications.terminal.keybinding_command}}
-bind={{ .applications.terminal.keybinding_new }},exec,{{ .applications.terminal.keybinding_new_command}}
+bind={{ .applications.terminal.keybinding }},exec,raise --launch {{ .applications.terminal.linux.command}} --class {{ .applications.terminal.linux.class}}
+bind=SHIFT_{{ .applications.terminal.keybinding }},exec,{{ .applications.terminal.linux.command}}
 
-bind={{.applications.filemanager.keybinding}},exec,{{.applications.filemanager.keybinding_command}}
-bind={{.applications.filemanager.keybinding_new}},exec,{{.applications.filemanager.keybinding_new_command}}
+bind={{.applications.filemanager.keybinding}},exec,raise --launch {{.applications.filemanager.linux.command}} --class {{.applications.filemanager.linux.class}}
+bind=SHIFT_{{.applications.filemanager.keybinding}},exec,{{.applications.filemanager.linux.command}}
 
-bind={{.applications.editor.keybinding}},exec,{{.applications.editor.keybinding_command}}
-bind={{.applications.editor.keybinding_new}},exec,{{.applications.editor.keybinding_new_command}}
+bind={{.applications.editor.keybinding}},exec,raise --launch {{.applications.editor.linux.command}} --class {{.applications.editor.linux.class}}
+bind=SHIFT_{{.applications.editor.keybinding}},exec,{{.applications.editor.linux.command}}
 
-bind={{.applications.notes.keybinding}},exec,{{.applications.notes.keybinding_command}}
+bind={{.applications.notes.keybinding}},exec,raise --launch {{.applications.notes.linux.command}} --class {{.applications.notes.linux.class}}
 
 # Close / Fullscreen / Kill Applications
 bind=ALT_L,F4,killactive

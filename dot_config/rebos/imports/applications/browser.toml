@@ -1,4 +1,5 @@
 [managers.system]
 items = [
-    "google-chrome"
+    # "google-chrome"
+    "brave-bin"
 ]

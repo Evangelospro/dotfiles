@@ -51,41 +51,32 @@
                     "desktop_name": "com.mitchellh.ghostty"
                 },
                 "keybinding": "{{$MOD}}{{$SEP}}T",
-                "keybinding_command": "raise --launch ghostty --class com.mitchellh.ghostty",
-                "keybinding_new": "{{$SHIFT_MOD}}{{$SEP}}T",
-                "keybinding_new_command": "ghostty"
             },
             "editor": {
                 "linux": {
                     "name": "visual-studio-code-insiders",
                     "command": "code-insiders",
-                    "class": "code-insiders-url-handler"
+                    "class": "code-insiders"
                 },
                 "windows": {
                     "name": "code-insiders",
                     "command": "code-insiders",
-                    "class": "code-insiders-url-handler"
+                    "class": "code-insiders"
                 },
                 "keybinding": "{{$MOD}}{{$SEP}}C",
-                "keybinding_command": "raise --launch code-insiders --class code-insiders-url-handler",
-                "keybinding_new": "{{$SHIFT_MOD}}{{$SEP}}C",
-                "keybinding_new_command": "code-insiders"
             },
             "browser": {
                 "linux": {
-                    "name": "google-chrome",
-                    "command": "google-chrome-stable",
-                    "class": "chrome"
+                    "name": "Browser",
+                    "command": "brave",
+                    "class": "browser"
                 },
                 "windows": {
-                    "name": "chrome",
-                    "command": "google-chrome-stable",
-                    "class": "chrome"
+                    "name": "Browser",
+                    "command": "brave",
+                    "class": "browser"
                 },
                 "keybinding": "{{$MOD}}{{$SEP}}B",
-                "keybinding_command": "raise --launch google-chrome-stable --class chrome",
-                "keybinding_new": "{{$SHIFT_MOD}}{{$SEP}}B",
-                "keybinding_new_command": "google-chrome-stable"
             },
             "filemanager": {
                 "linux": {
@@ -99,9 +90,6 @@
                     "class": "explorer"
                 },
                 "keybinding": "{{$MOD}}{{$SEP}}E",
-                "keybinding_command": "raise --launch nemo --class nemo",
-                "keybinding_new": "{{$SHIFT_MOD}}{{$SEP}}E",
-                "keybinding_new_command": "nemo"
             },
             "imageviewer": {
                 "linux": {
@@ -127,21 +115,8 @@
                     "class": "vlc"
                 }
             },
-            "musicplayer": {
-                "linux": {
-                    "name": "spotube",
-                    "command": "spotube",
-                    "class": "spotube"
-                },
-                "windows": {
-                    "name": "spotube",
-                    "command": "spotube",
-                    "class": "spotube"
-                }
-            },
             "notes": {
                 "keybinding": "{{$MOD}}{{$SEP}}N",
-                "keybinding_command": "raise --launch obsidian --class obsidian",
                 "linux": {
                     "name": "obsidian",
                     "command": "obsidian",
@@ -155,7 +130,6 @@
                     "class": "burp-StartBurp"
                 },
                 "keybinding": "{{$MOD}}{{$SEP}}X",
-                "keybinding_command": "raise --launch burp --class burp-StartBurp"
             }
         },
         "utilities": {
@@ -174,7 +148,7 @@
                 "linux":{
                     "name": "launcher",
                     "command": "/usr/bin/walker",
-                    "class": "ags"
+                    "class": "walker"
                 }
             },
             "emojimenu": {
@@ -190,9 +164,9 @@
                 "description": "Open the clipboard manager",
                 "keybinding": "{{$MOD}}{{$SEP}}V",
                 "linux": {
-                    "name": "clip-menu",
-                    "command": "clip-menu",
-                    "class": "clip-menu"
+                    "name": "clipmenu",
+                    "command": "/usr/bin/clipse-gui",
+                    "class": "clipmenu"
                 }
             },
             "colorpicker": {
@@ -209,7 +183,12 @@
                 "keybinding": "{{$SEP}}Print",
                 "linux": {
                     "name": "flameshot",
-                    "command": "flameshot gui --raw | copy",
+                    "command": "flameshot gui",
+                    "class": "flameshot"
+                },
+                "windows": {
+                    "name": "flameshot",
+                    "command": "flameshot gui",
                     "class": "flameshot"
                 }
             },
@@ -217,11 +196,6 @@
                 "description": "Perform OCR on a screen selection",
                 "keybinding": "{{$MOD}}{{$SEP}}O",
                 "linux": {
-                    "name": "wl-ocr",
-                    "command": "wl-ocr",
-                    "class": "wl-ocr"
-                },
-                "windows": {
                     "name": "wl-ocr",
                     "command": "wl-ocr",
                     "class": "wl-ocr"
