@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Android Emulator
-StartupWMClass=Android Emulator
-Comment=Android Emulator
-Exec=android-emulator
-Icon=android-sdk
-Terminal=false
-Type=Application
-Categories=Development

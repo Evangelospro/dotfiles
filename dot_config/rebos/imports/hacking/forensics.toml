@@ -2,7 +2,7 @@
 items = [
     "pycdc-git",
     "python-pyshark",
-    "volatility3",
+    "volatility3-git",
     "foremost",
     "python-oletools",
     "powershell-bin",

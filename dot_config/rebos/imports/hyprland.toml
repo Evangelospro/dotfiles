@@ -45,8 +45,3 @@ items = [
     "hyprland-qtutils-git",
     "hyprgraphics-git",
 ]
-
-[managers.pip]
-items = [
-    "hyprpy",
-]

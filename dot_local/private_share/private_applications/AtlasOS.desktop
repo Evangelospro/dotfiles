@@ -1,7 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Type=Application
-Terminal=false
-Exec%h/VMs/utils/start_atlas.sh
-Name=AtlasOS Windows
-Icon=qemu

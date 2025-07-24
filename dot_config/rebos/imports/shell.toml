@@ -23,7 +23,6 @@ items = [
     "lsd",
     "doggo-bin",
     "atuin",
-    "unzip",
     "glow",
     "tealdeer",
     "bottom",
@@ -38,4 +37,9 @@ items = [
     "duf",
     "cyme",
     "libtree-bin",
+]
+
+[managers.uvx]
+items = [
+    "ffmpeg-progress-yield"
 ]

@@ -2,6 +2,7 @@
 items = [
     "python-z3-solver",
     "ghidra",
+    "binaryninja-free",
     "cutter",
     "rz-ghidra",
     "rz-cutter",
@@ -9,12 +10,4 @@ items = [
     # "avaloniailspy",
     "jd-gui-bin",
     "recaf-bin",
-]
-
-[managers.pypy]
-items = [
-    # "ipython",
-    # "z3-solver",
-    # "claripy",
-    # "angr",
 ]

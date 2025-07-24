@@ -11,6 +11,5 @@ items = [
     "cudnn",
     "cuda-tools",
     # "nvenc",
-    "switcheroo-control",
     "egl-wayland",
 ]

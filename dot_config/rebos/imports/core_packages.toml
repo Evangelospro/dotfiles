@@ -21,6 +21,7 @@ items = [
     "parted",
     "zip",
     "unzip",
+    "7zip",
     "clang",
     "gcc",
     "alsa-utils",
