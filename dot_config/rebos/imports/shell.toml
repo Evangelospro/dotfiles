@@ -1,5 +1,7 @@
 [managers.system]
 items = [
+    "bash",
+    "bash-completion",
     "zsh",
     "oh-my-posh-bin",
     "vivid",
@@ -21,6 +23,7 @@ items = [
     "bat",
     "bat-extras",
     "lsd",
+    "dua-cli",
     "doggo-bin",
     "atuin",
     "glow",

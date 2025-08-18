@@ -5,4 +5,5 @@ imports = [
     "programming/java/base",
     "programming/javascript/base",
     "programming/android/base",
+    "programming/devops/base",
 ]

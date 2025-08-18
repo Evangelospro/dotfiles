@@ -1,4 +1,5 @@
 [managers.system]
 items = [
     "papirus-folders-git",
+    "dconf"
 ]

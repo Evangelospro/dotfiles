@@ -1,9 +1,11 @@
 [managers.system]
 items = [
+    "rebos-git",
     ## Arch specific start
     "pacman-static",
     "rate-mirrors-bin",
     "pacman-cleanup-hook",
-    "reboot-arch-btw"
+    "reboot-arch-btw",
+    "downgrade",
     ## Arch specific end
 ]

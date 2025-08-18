@@ -18,4 +18,5 @@ fi
 
 papirus-folders -Ru
 
+echo "Checking if a reboot is needed..."
 reboot-arch-btw

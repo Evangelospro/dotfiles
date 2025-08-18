@@ -1,7 +1,6 @@
 [managers.system]
 items = [
     "intel-compute-runtime",
-    "vulkan-intel",
     "power-profiles-daemon",
     "asusctl",
     "rog-control-center",

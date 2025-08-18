@@ -6,7 +6,6 @@ items = [
     "uv",
     "pypy3",
     "ruff",
-    "uv",
     "python-termcolor",
     "python-lsprotocol",
     "python-mechanize",

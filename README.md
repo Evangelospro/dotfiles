@@ -8,7 +8,7 @@
 
 # ELARCH ((E)vangelos (L)ioudakis (ARCH))
 
-## Showcase (may be outdated)
+## Showcase (OUTDATED)
 
 <details open align="center"> <summary>Hyprland</summary>
 <div align="center">

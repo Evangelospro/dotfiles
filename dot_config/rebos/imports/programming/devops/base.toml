@@ -1,0 +1,11 @@
+[managers.system]
+items = [
+    "ansible",
+    "ansible-bin",
+    "ansible-core",
+]
+
+[managers.pip]
+items = [
+    "mitogen",
+]

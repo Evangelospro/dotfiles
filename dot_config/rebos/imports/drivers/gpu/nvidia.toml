@@ -12,4 +12,5 @@ items = [
     "cuda-tools",
     # "nvenc",
     "egl-wayland",
+    "nvtop",
 ]

@@ -3,11 +3,11 @@ items = [
     "checksec",
     "gdb",
     "pwndbg",
-    "gef",
     "strace",
     "python-typing_extensions",
     "python-tabulate",
     "python-pwntools",
     "ropper",
     "ropgadget",
+    "one_gadget",
 ]
