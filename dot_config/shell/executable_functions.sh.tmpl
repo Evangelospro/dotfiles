@@ -41,10 +41,10 @@ function e.() {
 function ssh(){
     if [[ $TERM_PROGRAM == "WezTerm" ]]; then
         # wezterm ssh "$@"
-        /usr/bin/ssh "$@"
+        command ssh "$@"
     else
-        infocmp -x | /usr/bin/ssh "$@" -- tic -x -
-        /usr/bin/ssh "$@"
+        infocmp -x | command ssh "$@" -- tic -x -
+        command ssh "$@"
     fi
 }
 
@@ -71,7 +71,7 @@ function upload() {
         return 1
     fi
     full_path=$(realpath $1)
-    curl --silent -F"file=@$full_path" https://0x0.st
+    command curl --silent -F"file=@$full_path" https://0x0.st
 }
 
 function mkcd(){
@@ -92,7 +92,7 @@ function mvd() {
         if [[ $? == 0 && -n $fileName ]]; then
             # Check if file doesn't end with .crdownload ignore casing
             if [[ ${(L)fileName} != *.crdownload ]]; then
-                mv $HOME/Downloads/"$fileName" .
+                command mv $HOME/Downloads/"$fileName" .
             else
                 echo $fileName has not finished downloading
             fi
@@ -114,7 +114,7 @@ function mvs() {
         fileName=$(\ls -t $HOME/Pictures/Screenshots | head -n 1)
         # check that the command was completed successfully and has an output
         if [[ $? == 0 && -n $fileName ]]; then
-            mv $HOME/Pictures/Screenshots/"$fileName" .
+            command mv $HOME/Pictures/Screenshots/"$fileName" .
         else
             echo "No files in Screenshots"
             return 1
@@ -169,58 +169,6 @@ function up () {
     fi
 }
 
-function rm(){
-    this_file_system=$(\df -P $HOME | tail -1 | awk '{print $1}')
-    flags=()
-    targets=()
-    for arg in "$@"; do
-        if [[ $arg == -* ]]; then
-            flags+=("$arg")
-        else
-            targets+=("$arg")
-        fi
-    done
-    if [[ -z $targets ]]; then
-        echo "No targets specified"
-        return 1
-    fi
-    # echo "targets: ${targets[@]}"
-    # echo "flags: $flags"
-    for target in "${targets[@]}"; do
-        target_file_system=$(df -P $target 2>/dev/null | tail -1 | awk '{print $1}')
-        if [[ $target_file_system == $this_file_system ]]; then
-            trash-put $target
-        else
-            # if flags is empty, don't pass it to rm
-            if [[ -z $flags ]]; then
-                output=$(/usr/bin/rm $target 2>&1)
-                # echo $output
-                if [[ $? != 0 ]]; then
-                    if [[ $output == *".git/objects/pack': Directory not empty"* ]]; then
-                        echo "git repo detected, killing gitstatusd"
-                        pkill -9 gitstatusd-linu
-                        /usr/bin/rm $target
-                    else
-                        echo "Error: $output"
-                    fi
-                fi
-            else
-                flags="${flags[@]}"
-                output=$(/usr/bin/rm $flags $target 2>&1)
-                # echo $output
-                if [[ $? != 0 ]]; then
-                    if [[ $output == *".git/objects/pack': Directory not empty"* ]]; then
-                        echo "git repo detected, killing gitstatusd"
-                        pkill -9 gitstatusd-linu
-                        /usr/bin/rm $flags $target
-                    else
-                        echo "Error: $output"
-                    fi
-                fi
-            fi
-        fi
-    done
-}
 
 function restore() {
     trash-restore "$@"
@@ -251,7 +199,7 @@ function cd() {
 
 function cat() {
     if [ $# -eq 0 ]; then
-        /usr/bin/cat
+        command cat
     else
         for file in $@; do
             # echo "Previewing $file"
@@ -273,10 +221,10 @@ function cat() {
             else
                 if command -v bat &> /dev/null; then
                     # echo "Bat preview"
-                    /usr/bin/bat "$file"
+                    command bat "$file"
                 else
                     # echo "Cat preview"
-                    /usr/bin/cat "$file"
+                    command cat "$file"
                 fi
             fi
         done
