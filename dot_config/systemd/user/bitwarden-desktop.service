@@ -1,0 +1,13 @@
+[Unit]
+Description=Bitwarden Desktop
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bitwarden-desktop
+ExecStop=/bin/kill -2 $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

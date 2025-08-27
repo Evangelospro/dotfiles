@@ -124,38 +124,9 @@ HACKING
 School
 Pictures/Screenshots
 .ssh/config
-.ssh/keys/pwncollege
-.ssh/keys/portainer
-.ssh/keys/eserver-local
-.ssh/keys/git
-.ssh/keys/ecsc
-.ssh/keys/c2
-{{- else }}
-# Only create ssh keys if they don't exist
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/config") }}
-.ssh/config
-{{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/pwncollege") }}
-.ssh/keys/pwncollege
-{{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/portainer") }}
-.ssh/keys/portainer
-{{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/eserver-local") }}
-.ssh/keys/eserver-local
-{{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/git") }}
-.ssh/keys/git
-{{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/ecsc") }}
-.ssh/keys/ecsc
-{{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/keys/c2") }}
-.ssh/keys/c2
-{{- end }}
 {{- end }}
 
 
-{{- if .isAsus }}
+{{- if not .isAsus }}
 .config/rog
 {{- end}}

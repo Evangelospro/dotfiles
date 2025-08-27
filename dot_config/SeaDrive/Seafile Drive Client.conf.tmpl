@@ -1,0 +1,27 @@
+[General]
+client_name=ELARCH-F15
+
+[Settings]
+cacheCleanInterval=10
+cacheSizeLimit=10
+computerName=ELARCH-F15
+deleteConfirmThreshold=500
+disableVerifyCert=false
+kMigrateStatus=true
+maxDownloadRatio=0
+maxUploadRatio=0
+notifySync=false
+syncExtraTempFile=false
+
+[UsedServerAddresses]
+main=https://seafile.evangelospro.com
+
+[account]
+is_pro=true
+server=https://seafile.evangelospro.com
+token={{ (rbw "seafile-api-token").notes }}
+username={{.email}}
+
+[cache]
+clean_cache_interval=10
+size_limit=10GB
