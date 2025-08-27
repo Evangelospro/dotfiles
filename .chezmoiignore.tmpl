@@ -114,18 +114,22 @@ docs/zsdoc/data
 **/.mypy_cache
 
 
-{{- if not .isPersonal }}
+{{- if .isPersonal }}
 VMs
-.local/share/applications/AtlasOS.desktop
 Courses
 Backups
 Documents
 HACKING
 School
 Pictures/Screenshots
+{{- end }}
+# Only create if they don't exist
+{{- if stat (joinPath .chezmoi.homeDir ".ssh/config") }}
 .ssh/config
 {{- end }}
-
+{{- if stat (joinPath .chezmoi.homeDir ".config/SeaDrive/Seafile Drive Client.conf") }}
+.config/SeaDrive/Seafile Drive Client.conf
+{{- end }}
 
 {{- if not .isAsus }}
 .config/rog

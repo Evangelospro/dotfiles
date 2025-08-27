@@ -48,6 +48,9 @@ bindkey -M menuselect '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey -M menuselect '^[[1;5C' forward-word
 
+# up arrow reverse search
+bindkey '^[[A' atuin-up-search
+
 # bind ctrl + f to fzf
 zle -N zi
 bindkey '^f' zi
@@ -59,5 +62,4 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 
     # bind to the up key, which depends on terminal mode
     # bindkey "${terminfo[kcuu1]}" atuin-up-search
-    # bindkey '^[OA' atuin-up-search
 fi
