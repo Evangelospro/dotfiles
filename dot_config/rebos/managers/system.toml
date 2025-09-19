@@ -4,7 +4,7 @@
 add = "paru --needed -S --mflags '--nocheck' --overwrite '*' --noconfirm #:?"
 remove = "paru -Rns #:?"
 sync = "paru -Syy"
-upgrade = "paru -Su"
+upgrade = "paru -Su --devel"
 
 plural_name = "system-packages"
 hook_name = "system-packages"

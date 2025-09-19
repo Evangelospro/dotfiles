@@ -191,7 +191,7 @@ function cd() {
             if [ -z "$(echo $dirhistory_past | grep -o $git_base_dir)" ]; then
                 gitfetch
             fi
-        elif [ "$OLDPWD" != "$(basename "$git_base_dir")"]; then
+        elif [ "$OLDPWD" != "$(basename "$git_base_dir")" ]; then
                 gitfetch
         fi
     fi
