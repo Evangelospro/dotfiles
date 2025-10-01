@@ -62,5 +62,4 @@ focus-follows-mouse = true
 gtk-tabs-location = bottom
 window-inherit-working-directory = true
 working-directory = inherit
-gtk-adwaita = false
 window-decoration = false

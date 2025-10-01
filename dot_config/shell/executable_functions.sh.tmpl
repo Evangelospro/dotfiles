@@ -180,21 +180,24 @@ function gitfetch() {
     fi
 }
 
-# Adding onefetch to every cd you do with a .git dir
 function cd() {
-    __zoxide_z "$@"
-    if [ -d .git ]; then
-        git_base_dir=$(git rev-parse --show-toplevel)
-        # check if dirhistory(OMZP modified) is enabled
-        if [ -n "$dirhistory_past" ]; then
-            # check if this directory was not visited before in this session(does not exist in dirhistory_past)
-            if [ -z "$(echo $dirhistory_past | grep -o $git_base_dir)" ]; then
-                gitfetch
-            fi
-        elif [ "$OLDPWD" != "$(basename "$git_base_dir")" ]; then
-                gitfetch
-        fi
+    if command -v __zoxide_z &> /dev/null; then
+        __zoxide_z "$@"
+    else
+        builtin cd "$@"
     fi
+    # if [ -d .git ]; then
+    #     git_base_dir=$(git rev-parse --show-toplevel)
+    #     # check if dirhistory(OMZP modified) is enabled
+    #     if [ -n "$dirhistory_past" ]; then
+    #         # check if this directory was not visited before in this session(does not exist in dirhistory_past)
+    #         if [ -z "$(echo $dirhistory_past | grep -o $git_base_dir)" ]; then
+    #             gitfetch
+    #         fi
+    #     elif [ "$OLDPWD" != "$(basename "$git_base_dir")" ]; then
+    #         gitfetch
+    #     fi
+    # fi
 }
 
 function cat() {

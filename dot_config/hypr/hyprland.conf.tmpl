@@ -80,14 +80,8 @@ dwindle {
     preserve_split=1
 }
 
-gestures {
-    workspace_swipe=yes
-    workspace_swipe_fingers=3
-    workspace_swipe_distance=170
-    workspace_swipe_min_speed_to_force=15
-    workspace_swipe_forever=false # breaks split monitor workspaces plugin
-    workspace_swipe_use_r=true # makes the workspaces more minitor dependent (wont change monitor by workspace_swipe essentially)
-}
+gesture = 3, horizontal, workspace
+
 
 binds {
     focus_preferred_method=1 # find focus by longer shared edges
