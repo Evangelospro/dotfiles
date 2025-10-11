@@ -7,8 +7,6 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
-[safe]
-    directory = ~/.local/share/hyprload
 [init]
 	defaultbranch = main
 [filter "lfs"]
@@ -85,3 +83,5 @@
     colorMoved = default
 [http]
 	postBuffer = 5242880000
+[pull]
+    rebase = true

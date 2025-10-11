@@ -1,15 +1,24 @@
-function enable-proxy-system() {
-    openssl x509 -inform der -in "$BURP_CERTIFICATE_DIR/cert.der" -out "$BURP_CERTIFICATE_DIR/cert.pem"
-    export REQUESTS_CA_BUNDLE="$BURP_CERTIFICATE_DIR/cert.pem"
-    export SSL_CERT_FILE="$BURP_CERTIFICATE_DIR/cert.pem"
-    export HTTP_PROXY="http://$BURP_IP:$BURP_PORT"
-    export http_proxy="http://$BURP_IP:$BURP_PORT"
-    export HTTPS_PROXY="http://$BURP_IP:$BURP_PORT"
-    export https_proxy="http://$BURP_IP:$BURP_PORT"
-    echo "Proxy enabled"
+function enable-proxy() {
+    if [ -z "$BURP_IP"]; then
+        BURP_IP=$(command ip -4 addr show | awk '/inet / {print $2 " (" $NF ")"}' | fzf | awk '{print $1}' | cut -d/ -f1)
+        if [ -z "$BURP_IP" ]; then
+            echo "Could not determine local IP address."
+            return 1
+        fi
+    fi
+    BURP_PORT=9000
+    TARGET="$BURP_IP:$BURP_PORT"
+    export HTTP_PROXY="$TARGET"
+    export http_proxy="$TARGET"
+    export HTTPS_PROXY="$TARGET"
+    export https_proxy="$TARGET"
+    command curl --silent "$TARGET/cert" | openssl x509 -inform der -out /tmp/burp.pem
+    export SSL_CERT_FILE="/tmp/burp.pem"
+    export REQUESTS_CA_BUNDLE="$SSL_CERT_FILE"
+    echo "Proxying through $TARGET"
 }
 
-function disable-proxy-system() {
+function disable-proxy() {
     unset REQUESTS_CA_BUNDLE
     unset SSL_CERT_FILE
     unset HTTP_PROXY http_proxy
@@ -17,13 +26,6 @@ function disable-proxy-system() {
     echo "Proxy disabled"
 }
 
-function enable-proxy-mobile() {
-    $HOME/.config/burp/scripts/mobile-proxy.sh start
-}
-
-function disable-proxy-mobile() {
-    $HOME/.config/burp/scripts/mobile-proxy.sh stop
-}
 
 # check if it is piped then use curl not curlie
 function curl() {
