@@ -1,13 +1,11 @@
 function enable-proxy() {
-    if [ -z "$BURP_IP"]; then
-        BURP_IP=$(command ip -4 addr show | awk '/inet / {print $2 " (" $NF ")"}' | fzf | awk '{print $1}' | cut -d/ -f1)
-        if [ -z "$BURP_IP" ]; then
-            echo "Could not determine local IP address."
-            return 1
-        fi
+    BURP_IP=$(command ip -4 addr show | awk '/inet / {print $2 " (" $NF ")"}' | fzf | awk '{print $1}' | cut -d/ -f1)
+    if [ -z "$BURP_IP" ]; then
+        echo "Could not determine local IP address."
+        return 1
     fi
     BURP_PORT=9000
-    TARGET="$BURP_IP:$BURP_PORT"
+    TARGET="http://$BURP_IP:$BURP_PORT"
     export HTTP_PROXY="$TARGET"
     export http_proxy="$TARGET"
     export HTTPS_PROXY="$TARGET"

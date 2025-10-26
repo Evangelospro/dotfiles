@@ -1,6 +1,6 @@
 [managers.system]
 items = [
     # "spotify",
-    "youtube-music-bin",
+    "pear-desktop-bin",
     "playerctl",
 ]
