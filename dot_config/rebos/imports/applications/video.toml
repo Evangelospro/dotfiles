@@ -1,7 +1,6 @@
 [managers.system]
 items = [
-    "vlc",
-    "vlc-plugins-all",
+    "celluloid",
     "ffmpeg",
     "ffpb",
 ]
