@@ -212,9 +212,6 @@ function cat() {
                 if [[ $TERM_PROGRAM == "WezTerm" ]]; then
                     # echo "WezTerm preview"
                     wezterm imgcat "$file"
-                elif [[ $TERM_PROGRAM == "ghostty" ]]; then
-                    # echo "Ghostty preview"
-                    kitten icat "$file"
                 elif [[ $TERM_PROGRAM == "kitty" ]]; then
                     # echo "Kitty preview"
                     kitty +kitten icat "$file"

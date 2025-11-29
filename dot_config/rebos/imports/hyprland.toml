@@ -43,6 +43,6 @@ items = [
     "hyprlang-git",
     "hyprutils-git",
     "hyprwayland-scanner-git",
-    "hyprland-qtutils-git",
+    "hyprland-guiutils-git",
     "hyprgraphics-git",
 ]

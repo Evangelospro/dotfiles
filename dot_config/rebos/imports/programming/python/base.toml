@@ -3,7 +3,7 @@ items = [
     "python2-bin",
     "python3",
     "python-pip",
-    "uv",
+    "python-uv",
     "pypy3",
     "ruff",
     "python-termcolor",
