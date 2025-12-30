@@ -10,7 +10,6 @@ alias tree='lsd -haFlt --group-dirs first --tree'
 ## rm
 alias frm="/usr/bin/rm -rf"
 alias rmz="/usr/bin/rm *.zip"
-alias rm="trash-put"
 
 alias help="tldr"
 alias mkdir="mkdir -p"

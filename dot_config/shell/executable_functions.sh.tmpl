@@ -20,13 +20,22 @@ source-safe() { if [ -f "$1" ]; then source "$1"; fi }
 
 source-all "$XDG_CONFIG_HOME/shell/functions"
 
+function rm() {
+    # if on a fuse filesystem, fallback to /usr/bin/rm
+    if findmnt -T . -o FSTYPE -n | grep -q 'fuse.seadrive'; then
+        /usr/bin/rm "$@"
+        return
+    fi
+    trash-put "$@"
+}
+
 function set_tab_title() {
     name=$1
     echo -ne "\033]0;$name\007"
 }
 
 function browser() {
-    browser=$(\ls /usr/bin | grep -E "chromium|brave|google-chrome|thorium" | head -n 1)
+    browser=$(command ls /usr/bin | grep -E "chromium|brave|google-chrome|thorium" | head -n 1)
     $browser --enable-logging --v=1
 }
 
