@@ -75,4 +75,5 @@ items = [
     "parallel",
     "rsync",
     "sshpass",
+    "volumectl",
 ]
