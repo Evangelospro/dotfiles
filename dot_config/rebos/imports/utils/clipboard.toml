@@ -2,7 +2,7 @@
 items = [
     "wl-clipboard",
     "xclip",
-    "clipse-bin",
+    "clipse",
     "clipse-gui",
     "cliphist",
     "clipnotify",

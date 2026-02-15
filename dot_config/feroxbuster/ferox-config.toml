@@ -7,7 +7,7 @@
 #
 # Any setting used here can be overridden by the corresponding command line option/argument
 #
-wordlist = "/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt"
+wordlist = "/usr/share/seclists/Discovery/Web-Content/raft-medium-directories-lowercase.txt"
 # status_codes = [200, 500]
 # filter_status = [301]
 threads = 4

@@ -1,5 +1,5 @@
 [managers.system]
 items = [
     "npm",
-    "bun-bin",
+    "bun",
 ]

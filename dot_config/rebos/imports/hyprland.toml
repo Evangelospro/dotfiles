@@ -38,6 +38,7 @@ items = [
     "hyprpaper-git",
     "hyprcursor-git",
     "uwsm",
+    "libnewt",
     "aquamarine-git",
     "hyprpicker-git",
     "hyprlang-git",

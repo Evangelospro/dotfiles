@@ -2,7 +2,7 @@
 items = [
     "waydroid",
     "waydroid-script-git",
-    "jadx-gui-desktop",
+    "jadx",
     "python-frida",
     "python-frida-tools",
     "android-backup-extractor",
