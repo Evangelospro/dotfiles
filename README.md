@@ -178,10 +178,9 @@ $MOD = SUPER
 -   [configuration](dot_config/walker)
     ![walker.png](Pictures/showcase/utilities/walker.png)
 
-#### Clipboard Managegment: [wl-clipboard](https://github.com/bugaevc/wl-clipboard)
+#### Clipboard Managegment: [Clipse](https://github.com/savedra1/clipse)
 
--   [clipboard manager](dot_local/bin/executable_clip-menu) - A dmenu based clipboard manager that uses wl-clipboard and fuzzy finding to paste from clipboard history
-    ![clipboard-manager.png](Pictures/showcase/utilities/clipboard-manager.png)
+-   ![clipboard-manager.png](Pictures/showcase/utilities/clipboard-manager.png)
 
 #### Color Picker: [Hyprpicker](https://wiki.hyprland.org)
 

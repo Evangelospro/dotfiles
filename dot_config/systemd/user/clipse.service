@@ -4,10 +4,11 @@ After=graphical-session.target
 PartOf=graphical-session.target
 
 [Service]
-Type=simple
-ExecStart=/usr/bin/clipse --listen-shell
-ExecStop=/bin/kill -2 $MAINPID
+Type=forking
+ExecStart=/usr/bin/clipse -listen
+ExecStop=/usr/bin/clipse -kill
 Restart=on-failure
+Slice=background-graphical.slice
 
 [Install]
 WantedBy=graphical-session.target

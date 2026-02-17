@@ -8,6 +8,7 @@ Type=simple
 ExecStart=%h/.local/bin/battery-notifier
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
+Slice=background-graphical.slice
 
 [Install]
 WantedBy=graphical-session.target
