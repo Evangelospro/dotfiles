@@ -24,7 +24,7 @@ items = [
     "bat-extras",
     "lsd",
     "dua-cli",
-    "doggo-bin",
+    "doggo",
     "atuin",
     "glow",
     "tealdeer",
@@ -40,6 +40,7 @@ items = [
     "duf",
     "cyme",
     "libtree-bin",
+    "pipe-rename"
 ]
 
 [managers.uvx]

@@ -9,7 +9,7 @@ items = [
     "opencl-nvidia",
     "cuda",
     "cudnn",
-    "cuda-tools",
+    # "cuda-tools",
     # "nvenc",
     "egl-wayland",
     "nvtop",
