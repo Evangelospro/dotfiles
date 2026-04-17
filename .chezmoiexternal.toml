@@ -27,36 +27,17 @@
     executable = true
     refreshPeriod = "168h"
 
-[".config/system/opt/idapro/themes/dracula/theme.css"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/dracula/ida/master/theme.css"
-    refreshPeriod = "168h"
-
-# [".config/zsh/utils/gitstatus/gitstatusd-linux"]
-#    type = "archive-file"
-#    url = '{{ gitHubLatestRelease "romkatv/gitstatus" | toJson | fromJson | jq ".assets[2].browser_download_url" | first}}'
-#    refreshPeriod = "168h"
-#    stripComponents = 0
-#    path = "gitstatusd-linux-x86_64"
-
 [".local/bin/raise"]
     type = "archive-file"
-    url = '{{ gitHubLatestRelease "knarkzel/raise" | toJson | fromJson | jq ".assets[2].browser_download_url" | first}}'
+    url = '{{ gitHubLatestRelease "lambdachad/raise" | toJson | fromJson | jq ".assets[2].browser_download_url" | first}}'
     executable = true
     refreshPeriod = "168h"
     path = "raise"
 
-[".local/bin/fix-keys"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/arcolinux/arcolinux-system-config/master/usr/local/bin/arcolinux-fix-pacman-databases-and-keys"
-    executable = true
-    refreshPeriod = "500h"
-
 {{- end }}
 
-{{- if (and .isHacking .isPersonal .isLinux) }}
-# Hacking tools
-## Web
+{{- if (and .isHacking .isLinux) }}
+# HACKING
 
 # ## PWN
 # ["HACKING/Tools/pwn/libc-database"]
@@ -64,73 +45,11 @@
 #     url = "https://github.com/niklasb/libc-database"
 #     branch = "master"
 #     refreshPeriod = "250h"
-#
-
-## Reverse
-### IDA
-[".config/system/opt/idapro/plugins/auto_re.py"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/a1ext/auto_re/master/auto_re.py"
-    executable = true
-    refreshPeriod = "168h"
-[".config/system/opt/idapro/plugins/jni_helper3.py"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/evilpan/jni_helper/master/ida/jni_helper3.py"
-    executable = true
-    refreshPeriod = "168h"
-[".config/system/opt/idapro/plugins/IDAMagicStrings.py"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/joxeankoret/idamagicstrings/master/IDAMagicStrings.py"
-    executable = true
-    refreshPeriod = "168h"
-[".config/system/opt/idapro/plugins/codatify.py"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/grayhatacademy/ida/master/plugins/codatify/codatify.py"
-    executable = true
-    refreshPeriod = "168h"
-[".config/system/opt/idapro/plugins/goresym.py"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/mandiant/GoReSym/refs/heads/master/IDAPython/goresym_rename.py"
-    executable = true
-    refreshPeriod = "168h"
-[".config/system/opt/idapro/plugins"]
-    type = "archive"
-    executable = true
-    url = '{{ gitHubLatestRelease "gaasedelen/patching" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
-    refreshPeriod = "500h"
-
-[".local/bin/capa"]
-    type = "archive-file"
-    executable = true
-    url = '{{ gitHubLatestRelease "mandiant/capa" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
-    refreshPeriod = "500h"
-    stripComponents = 0
-    path = "capa"
-
-[".local/bin/goresym"]
-    type = "archive-file"
-    executable = true
-    url = '{{ gitHubLatestRelease "mandiant/GoReSym" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
-    refreshPeriod = "500h"
-    stripComponents = 0
-    path = "GoReSym"
-
-## Crypto
-## Ciphey (soon to be merged with ares)
-# [".local/bin/ciphey"]
-#     type = "archive-file"
-#     executable = true
-#     url = '{{ gitHubLatestRelease "bee-san/Ciphey" | toJson | fromJson | jq ".assets[4].browser_download_url" | first}}'
-#     exact = true
-#     stripComponents = 1
-#     path = "ciphey"
-#     refreshPeriod = "250h"
 
 ## Cheatsheets
 [".local/share/navi/cheats/esp0xdeadbeef"]
     type = "git-repo"
     url = "https://github.com/esp0xdeadbeef/cheat.sheets"
-    branch = "main"
     refreshPeriod = "250h"
 
 {{- end }}
