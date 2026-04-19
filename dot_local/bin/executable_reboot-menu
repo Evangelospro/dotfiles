@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-pidof wleave && pkill -9 wleave
-wleave -k -p layer-shell -l ~/.config/wleave/reboot -C ~/.config/wleave/reboot.css
