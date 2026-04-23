@@ -37,13 +37,16 @@ source $ZDOTDIR/plugins.zsh
 
 # Functions, Aliases, Bindings, Completions all should load after plugins in order to overwrite them
 
+# Bindings
+source $XDG_CONFIG_HOME/shell/binds.sh
+
 # Functions
 source $XDG_CONFIG_HOME/shell/functions.sh
 
 # Aliases
 source $XDG_CONFIG_HOME/shell/aliases.sh
 
-# Bindings (at the end of the file to overwrite "framework" set bindings)
+# ZSH Bindings (at the end of the file to overwrite "framework" set bindings)
 source $ZDOTDIR/binds.zsh
 
 fpath=($ZDOTDIR/.zfunc $fpath)
