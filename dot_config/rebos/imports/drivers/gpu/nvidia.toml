@@ -8,7 +8,7 @@ items = [
     "nvidia-settings",
     "opencl-nvidia",
     "cuda",
-    "cudnn",
+    # "cudnn",
     # "cuda-tools",
     # "nvenc",
     "egl-wayland",
