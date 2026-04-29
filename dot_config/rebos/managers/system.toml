@@ -2,9 +2,9 @@
 
 # skip tests not needed make it go Brrr
 add = "paru --needed -S --mflags '--nocheck' --overwrite '*' --noconfirm #:?"
-remove = "paru -Rns #:?"
+remove = "paru -Rns --noconfirm #:?"
 sync = "paru -Syy"
-upgrade = "paru -Su --devel"
+upgrade = "paru -Su --devel --noconfirm"
 
 plural_name = "system-packages"
 hook_name = "system-packages"
