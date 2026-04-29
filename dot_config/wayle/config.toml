@@ -1,0 +1,41 @@
+[general]
+font-sans = "FiraCode Nerd Font"
+font-mono = "FiraCode Nerd Font Mono"
+
+[[bar.layout]]
+monitor = "*"
+show = true
+left = [
+    "hyprland-workspaces",
+    "media",
+]
+center = [
+    "clock",
+    "window-title",
+    "cava",
+]
+right = [
+    "battery",
+    "keyboard-input",
+    "microphone",
+    "notifications",
+    "dashboard",
+]
+
+[styling.palette]
+bg = "#282a36"
+surface = "#343746"
+elevated = "#44475a"
+fg = "#f8f8f2"
+fg-muted = "#6272a4"
+primary = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
+green = "#50fa7b"
+blue = "#8be9fd"
+
+[modules.clock]
+dropdown-show-seconds = true
+
+[wallpaper]
+engine-enabled = false

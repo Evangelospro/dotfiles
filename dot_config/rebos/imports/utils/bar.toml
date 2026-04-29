@@ -1,6 +1,6 @@
 [managers.system]
 items = [
-    "ags-hyprpanel-git",
+    "wayle-bin",
     "dart-sass",
     "libevdev",
     "python-evdev",

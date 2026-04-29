@@ -1,11 +1,11 @@
 [Unit]
-Description=Hyprpanel a panel for Hyprland
+Description=Wayle a panel for Hyprland
 After=graphical-session.target
 PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/hyprpanel
+ExecStart=/usr/bin/wayle shell
 ExecStop=/bin/kill -2 $MAINPID
 Restart=on-failure
 Slice=background-graphical.slice
