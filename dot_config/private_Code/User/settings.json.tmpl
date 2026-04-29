@@ -31,12 +31,7 @@
 	"workbench.statusBar.visible": true,
 	"workbench.panel.defaultLocation": "bottom",
 	"workbench.editorAssociations": {
-		"*.ipynb": "jupyter-notebook"
-	},
-	"workbench.colorCustomizations": {
-		"[Sweet Dracula]": {
-			"editorGroupHeader.tabsBackground": "#161925"
-		}
+		"*.ipynb": "jupyter-notebook",
 	},
 	"workbench.reduceMotion": "on",
 	// EDITOR SETTINGS
@@ -91,7 +86,7 @@
 	"editor.quickSuggestions": {
 		"other": "on",
 		"comments": "on",
-		"strings": "on"
+		"strings": "on",
 	},
 	// TERMINAL
 	"terminal.external.linuxExec": "{{.applications.terminal.linux.command}}",
@@ -111,8 +106,8 @@
 	"terminal.integrated.tabs.enableAnimation": false,
 	"terminal.integrated.profiles.linux": {
 		"zsh": {
-			"path": "/usr/bin/zsh"
-		}
+			"path": "/usr/bin/zsh",
+		},
 	},
 	"terminal.integrated.shellIntegration.enabled": true,
 	// FORMATTING
@@ -125,9 +120,9 @@
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.fixAll": "explicit",
-			"source.organizeImports": "explicit"
+			"source.organizeImports": "explicit",
 		},
-		"editor.defaultFormatter": "charliermarsh.ruff"
+		"editor.defaultFormatter": "charliermarsh.ruff",
 	},
 	"python.REPL.enableREPLSmartSend": false,
 	"python.analysis.completeFunctionParens": true,
@@ -140,29 +135,29 @@
 		"**/node_modules",
 		"**/__pycache__",
 		".vscode/*.py",
-		"**/site-packages/**/*.py"
+		"**/site-packages/**/*.py",
 	],
 	"python.analysis.ignore": [
 		".git",
 		"**/node_modules",
 		"**/__pycache__",
 		".vscode/*.py",
-		"**/site-packages/**/*.py"
+		"**/site-packages/**/*.py",
 	],
 	"java.server.launchMode": "Standard",
 	"[html]": {
-		"editor.tabSize": 4
+		"editor.tabSize": 4,
 	},
 	"html.autoClosingTags": true,
 	"html.completion.attributeDefaultValue": "singlequotes",
 	"[dart]": {
 		"editor.suggestSelection": "first",
 		"editor.tabCompletion": "onlySnippets",
-		"editor.wordBasedSuggestions": "off"
+		"editor.wordBasedSuggestions": "off",
 	},
 	"[javascript]": {
 		"editor.tabSize": 4,
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 	},
 	"javascript.autoClosingTags": true,
 	"javascript.suggest.autoImports": true,
@@ -172,22 +167,22 @@
 	"javascript.validate.enable": false,
 	"[json]": {
 		"editor.tabSize": 4,
-		"editor.defaultFormatter": "vscode.json-language-features"
+		"editor.defaultFormatter": "vscode.json-language-features",
 	},
 	"json.maxItemsComputed": 100000,
 	"[markdown]": {
 		"editor.quickSuggestions": {
 			"other": "on",
 			"comments": "on",
-			"strings": "on"
-		}
+			"strings": "on",
+		},
 	},
 	"[scss]": {
 		"editor.tabSize": 4,
-		"editor.defaultFormatter": "vscode.css-language-features"
+		"editor.defaultFormatter": "vscode.css-language-features",
 	},
 	"[typescript]": {
-		"editor.tabSize": 4
+		"editor.tabSize": 4,
 	},
 	"typescript.autoClosingTags": true,
 	"typescript.suggest.autoImports": true,
@@ -195,7 +190,7 @@
 	"typescript.validate.enable": false,
 	"[typescriptreact]": {
 		"editor.tabSize": 4,
-		"editor.formatOnSave": false
+		"editor.formatOnSave": false,
 	},
 	"js/ts.implicitProjectConfig.checkJs": true,
 	"github.copilot.enable": {
@@ -203,12 +198,12 @@
 		"plaintext": true,
 		"markdown": true,
 		"scminput": false,
-		"yaml": true
+		"yaml": true,
 	},
+	"github.copilot.nextEditSuggestions.enabled": true,
 	"git.enableSmartCommit": true,
 	"git.allowForcePush": true,
 	"git.autofetch": true,
-	"github.copilot.advanced": {},
 	"git.confirmSync": false,
 	"git.confirmForcePush": false,
 	"git.openRepositoryInParentFolders": "always",
@@ -241,8 +236,9 @@
 	"settingsSync.ignoredExtensions": ["WakaTime.vscode-wakatime"],
 	// APKLAB
 	"apklab.apkSignerPath": "{{ .chezmoi.homeDir }}/.apklab/uber-apk-signer-1.3.0.jar",
-	"apklab.apktoolPath": "{{ .chezmoi.homeDir }}/.apklab/apktool_2.9.3.jar",
-	"apklab.jadxDirPath": "{{ .chezmoi.homeDir }}/.apklab/jadx-1.4.7",
+	"apklab.apktoolPath": "{{ .chezmoi.homeDir }}/.apklab/apktool_3.0.2.jar",
+	"apklab.jadxDirPath": "{{ .chezmoi.homeDir }}/.apklab/jadx-1.5.3",
+	"apklab.smaliLspPath": "{{ .chezmoi.homeDir }}/.apklab/smali-lsp-1.5.0.jar",
 	"apklab.initProjectDirAsGit": false,
 	// SECURITY
 	"security.workspace.trust.banner": "always",
@@ -268,26 +264,23 @@
 		"*.code-snippets.tmpl": "snippets",
 		"*.json.tmpl": "json",
 		"*.jsonc.tmpl": "jsonc",
-		"settings.json.tmpl": "jsonc"
+		"settings.json.tmpl": "jsonc",
 	},
 	"[shellscript]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format"
+		"editor.defaultFormatter": "foxundermoon.shell-format",
 	},
 	"[c]": {
-		"editor.defaultFormatter": "ms-vscode.cpptools"
+		"editor.defaultFormatter": "ms-vscode.cpptools",
 	},
 	"jupyter.askForKernelRestart": false,
 	"liveshare.notebooks.allowGuestExecuteCells": true,
 	// REMOTE SSH
 	"remote.SSH.useLocalServer": false,
 	"remote.SSH.remotePlatform": {
-		"ewebsite": "linux",
-		"ftc13906.com": "linux",
 		"eserver": "linux",
-		"eserver-linux": "linux",
 		"vulnbox.infra": "linux",
 		"c2": "linux",
-		"router.infra": "linux"
+		"router.infra": "linux",
 	},
 	"remote.SSH.defaultExtensions": [
 		"charliermarsh.ruff",
@@ -298,23 +291,22 @@
 		"ms-python.python",
 		"ms-python.vscode-pylance",
 		"oderwat.indent-rainbow",
-		"wayou.vscode-todo-highlight"
+		"wayou.vscode-todo-highlight",
 	],
 	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
 	},
 	"editor.defaultColorDecorators": "auto",
 	"workbench.preferredDarkColorTheme": "Sweet Dracula",
 	"workbench.editor.empty.hint": "hidden",
 	"extensions.experimental.affinity": {
-		"asvetliakov.vscode-neovim": 1
+		"asvetliakov.vscode-neovim": 1,
 	},
 	"workbench.editor.tabActionLocation": "right",
-	"breadcrumbs.enabled": false,
 	"editor.stickyScroll.enabled": false,
 	"update.mode": "none",
 	"[properties]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format"
+		"editor.defaultFormatter": "foxundermoon.shell-format",
 	},
 	"github.copilot.editor.enableAutoCompletions": true,
 	"go.toolsManagement.autoUpdate": true,
@@ -330,14 +322,15 @@
 		"*.sqlite3": "${capture}.${extname}-*",
 		"*.db3": "${capture}.${extname}-*",
 		"*.sdb": "${capture}.${extname}-*",
-		"*.s3db": "${capture}.${extname}-*"
+		"*.s3db": "${capture}.${extname}-*",
 	},
 	"explorer.confirmPasteNative": false,
 	"[dotenv]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format"
+		"editor.defaultFormatter": "foxundermoon.shell-format",
 	},
 	"[dockerfile]": {
-		"editor.defaultFormatter": "ms-azuretools.vscode-containers"
+		"editor.defaultFormatter": "ms-azuretools.vscode-containers",
 	},
-	"window.confirmSaveUntitledWorkspace": false
+	"window.confirmSaveUntitledWorkspace": false,
+	"weAudit.general.treeViewMode": "list",
 }
