@@ -1,5 +1,0 @@
-[managers.system]
-items = [
-    "xdg-desktop-portal-hyprland-git",
-    "xdg-desktop-portal-gtk",
-]

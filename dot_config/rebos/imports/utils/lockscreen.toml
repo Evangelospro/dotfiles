@@ -1,5 +1,4 @@
 [managers.system]
 items = [
-    "hyprlock-git",
     "swaylock-effects-git", # need -git as swaylock-effects is unmaintained
 ]

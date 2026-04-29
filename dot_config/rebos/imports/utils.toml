@@ -5,13 +5,11 @@ imports = [
     "utils/bluetooth",
     "utils/brightness",
     "utils/clipboard",
-    "utils/color_picker",
     "utils/disks",
     "utils/launchers",
     "utils/lockscreen",
     "utils/networking",
     "utils/notifications",
     "utils/parsers",
-    "utils/portals",
     "utils/theming",
 ]

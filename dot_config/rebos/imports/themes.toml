@@ -1,7 +1,7 @@
 [managers.system]
 items = [
     "bibata-cursor-git",
-    "papirus-icon-theme-git",
+    "papirus-icon-theme",
     "grub-theme-cyberre",
     "kvantum",
     "gtk4-layer-shell",

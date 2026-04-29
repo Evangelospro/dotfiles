@@ -5,7 +5,4 @@ items = [
     "libevdev",
     "python-evdev",
     "python-filetype",
-    "aylurs-gtk-shell-git",
-    "libgtop",
-    "python-gpustat",
 ]

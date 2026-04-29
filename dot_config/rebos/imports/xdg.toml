@@ -1,6 +1,5 @@
 [managers.system]
 items = [
-    "xdg-ninja-git",
+    "xdg-ninja",
     "xdg-user-dirs",
-    # "pistol-git",
 ]

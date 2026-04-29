@@ -2,6 +2,5 @@
 items = [
     "seahorse",
     "gnome-keyring",
-    "hyprpolkitagent-git",
     "kwallet-pam"
 ]
