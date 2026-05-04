@@ -63,8 +63,8 @@ bind=,XF86AudioMute,exec,volumectl toggle-mute
 bind=,XF86AudioPlay,exec,playerctl play-pause
 bind=,XF86AudioNext,exec,playerctl next
 bind=,XF86AudioPrev,exec,playerctl previous
-binde=,XF86MonBrightnessUp,exec,lightctl up
-binde=,XF86MonBrightnessDown,exec,lightctl down
+binde=,XF86MonBrightnessUp,exec,brightnessctl set +5%
+binde=,XF86MonBrightnessDown,exec,brightnessctl set 5%-
 
 # Scratchpads
 # Valent (KDEConnect) special scratchpad workspace
@@ -108,10 +108,6 @@ binde=$SHIFT_MOD,W,resizeactive, 0 -10
 # Move Windows Between Monitors
 bind=$MOD_SHIFT,left,movewindow, mon:l
 bind=$MOD_SHIFT,right,movewindow, mon:r
-
-# Cycle between workspaces and windows
-bind=ALT,TAB,exec,hyprswitch --daemon --filter-current-monitor --sort-recent --switch-ws-on-hover --hide-special-workspaces=true
-# bind=SHIFT_ALT,TAB,exec,hyprswitch --reverse --daemon --filter-current-monitor --sort-recent --switch-ws-on-hover --hide-special-workspaces=true
 
 # Move Windows with Mouse
 bindm=$MOD,mouse:272,movewindow

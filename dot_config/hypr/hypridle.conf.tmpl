@@ -1,21 +1,20 @@
 general {
     lock_cmd = {{.utilities.lockscreen.linux.command }}
-    unlock_cmd = loginctl unlock-session   # same as above, but unlock
-    before_sleep_cmd = {{.utilities.lockscreen.linux.command }}    # lock before suspend.
+    before_sleep_cmd = loginctl lock-session    # lock before suspend.
     after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.
     ignore_dbus_inhibit = false             # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
     ignore_systemd_inhibit = false          # whether to ignore systemd-inhibit --what=idle inhibitors
 }
 
 listener {
-    timeout = 150
-    on-timeout = brightnessctl -s set 10000         # set monitor backlight to minimum, avoid 0 on OLED monitor.
+    timeout = 150 # 2.5min
+    on-timeout = brightnessctl -s set %25         # set monitor backlight to minimum, avoid 0 on OLED monitor.
     on-resume = brightnessctl -r                 # monitor backlight restore.
 }
 
 # turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.
 listener {
-    timeout = 150
+    timeout = 150 # 2.5min
     {{- if .isAsus }}
     on-timeout = asusctl leds set off # turn off keyboard backlight.
     on-resume = asusctl leds set high        # turn on keyboard backlight.
@@ -23,18 +22,18 @@ listener {
 }
 
 listener {
-    timeout = 300
-    on-timeout = playerctl pause; {{.utilities.lockscreen.linux.command }}
+    timeout = 300 # 5min
+    on-timeout = playerctl pause; loginctl lock-session # pause media and lock session
 }
 
 
 listener {
-    timeout = 450
+    timeout = 480 # 8min
     on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed
     on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.
 }
 
 listener {
-    timeout = 1000
+    timeout = 900 # 15min
     on-timeout = systemctl suspend                # suspend pc
 }
