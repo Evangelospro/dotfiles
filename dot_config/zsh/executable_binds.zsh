@@ -2,9 +2,6 @@
 bindkey '^I' insert-unambiguous-or-complete
 bindkey -M menuselect '^I' menu-complete
 bindkey -M menuselect '^M' .accept-line
-## Allow for normal editing keys in the select menu
-bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char
-bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char
 
 # bind ctrl + f to fzf
 zle -N zi
