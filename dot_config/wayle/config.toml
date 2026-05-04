@@ -7,16 +7,17 @@ monitor = "*"
 show = true
 left = [
     "hyprland-workspaces",
-    "media",
+    "cava",
 ]
 center = [
     "clock",
     "window-title",
-    "cava",
 ]
 right = [
     "battery",
     "keyboard-input",
+    "network",
+    "bluetooth",
     "microphone",
     "notifications",
     "dashboard",
@@ -35,7 +36,11 @@ green = "#50fa7b"
 blue = "#8be9fd"
 
 [modules.clock]
+format = "%a %b %d %H:%M:%S"
 dropdown-show-seconds = true
+
+[modules.hyprland-workspaces]
+app-icons-show = true
 
 [wallpaper]
 engine-enabled = false
