@@ -7,7 +7,6 @@ imports = [
     "utils/clipboard",
     "utils/disks",
     "utils/launchers",
-    "utils/lockscreen",
     "utils/networking",
     "utils/notifications",
     "utils/parsers",

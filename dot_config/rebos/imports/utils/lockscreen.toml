@@ -1,4 +1,0 @@
-[managers.system]
-items = [
-    "swaylock-effects-git", # need -git as swaylock-effects is unmaintained
-]

@@ -24,11 +24,11 @@
 
 There are a few main components to this project:
 
--   [chezmoi](https://www.chezmoi.io/) - Chezmoi takes cares of the dotfiles and the configuration of the system. It is a tool that helps you manage your personal configuration files across multiple machines.
-    Chezmoi is needed to apply the dotfiles and this repo follows chezmois structure
+- [chezmoi](https://www.chezmoi.io/) - Chezmoi takes cares of the dotfiles and the configuration of the system. It is a tool that helps you manage your personal configuration files across multiple machines.
+  Chezmoi is needed to apply the dotfiles and this repo follows chezmois structure
 
--   [rebos](https://gitlab.com/Oglo12/rebos) - Rebos (Re)(B)uild(Os) is a neat command line tool that essentially adds nix-like reproduction to arch-based systems. It is a tool that helps you manage your system and install packages.
-    To see the full list of packages that are installed and managed by rebos, you can check the [packages](https://github.com/Evangelospro/dotfiles/tree/main/dot_config/rebos)
+- [rebos](https://gitlab.com/Oglo12/rebos) - Rebos (Re)(B)uild(Os) is a neat command line tool that essentially adds nix-like reproduction to arch-based systems. It is a tool that helps you manage your system and install packages.
+  To see the full list of packages that are installed and managed by rebos, you can check the [packages](https://github.com/Evangelospro/dotfiles/tree/main/dot_config/rebos)
 
 ## How to apply
 
@@ -46,17 +46,17 @@ git clone https://github.com/$GITHUB_USERNAME/dotfiles ~/.local/share/chezmoi
 
 > [.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl)
 
--   isPersonal: This is kind of a setting you have to change or else you will receive some configurations that I deemed too personal, if I deemed that, then they will probably install some personal packages or configurations that you might not want
--   isHeadless: This is whether the machine is running headless(No GUI) or not(e.g. a server), this is used to determine whether to install GUI packages or not
--   isLaptop: This is whether the machine is a laptop or not, this is used to determine whether to install laptop specific packages or not
--   isHacking: Personally, I like to play a lot of [CTFs](https://evangelospro.com/posts/?tags=ctfs)(capture the flag competitions), so I have A LOT of hacking tools installed for all the occasions, if you are not into that, you can set this to false, or at least check the [hacking setup](#hacking-setup) section to see if you want to install those tools or not.
--   isAsus: This is whether the machine has Asus hardware or not, this is used to determine whether to install Asus specific packages or not(e.g. asusctl, rog-control-center ...)
+- isPersonal: This is kind of a setting you have to change or else you will receive some configurations that I deemed too personal, if I deemed that, then they will probably install some personal packages or configurations that you might not want
+- isHeadless: This is whether the machine is running headless(No GUI) or not(e.g. a server), this is used to determine whether to install GUI packages or not
+- isLaptop: This is whether the machine is a laptop or not, this is used to determine whether to install laptop specific packages or not
+- isHacking: Personally, I like to play a lot of [CTFs](https://evangelospro.com/posts/?tags=ctfs)(capture the flag competitions), so I have A LOT of hacking tools installed for all the occasions, if you are not into that, you can set this to false, or at least check the [hacking setup](#hacking-setup) section to see if you want to install those tools or not.
+- isAsus: This is whether the machine has Asus hardware or not, this is used to determine whether to install Asus specific packages or not(e.g. [Asusctl](https://gitlab.com/asus-linux/asusctl/), rog-control-center ...)
 
 #### Graphics (If hybrid graphics, set both to true)
 
--   isNvidiaGPU: This is whether the machine has Nvidia hardware or not, this is used to determine whether to install Nvidia specific packages or not(e.g. nvidia drivers, cuda...)
--   isAmdGPU: This is whether the machine has AMD gpu or not, this is used to determine whether to install AMD specific packages or not(e.g. amdgpu drivers...)
--   isIntelGPU: This is whether the machine has Intel gpu or not, this is used to determine whether to install Intel specific packages or not(e.g. intel gpu drivers...)
+- isNvidiaGPU: This is whether the machine has Nvidia hardware or not, this is used to determine whether to install Nvidia specific packages or not(e.g. nvidia drivers, cuda...)
+- isAmdGPU: This is whether the machine has AMD gpu or not, this is used to determine whether to install AMD specific packages or not(e.g. amdgpu drivers...)
+- isIntelGPU: This is whether the machine has Intel gpu or not, this is used to determine whether to install Intel specific packages or not(e.g. intel gpu drivers...)
 
 ### Applying
 
@@ -81,15 +81,15 @@ $MOD = SUPER
 
 ### Launch / Reload Applications
 
-| Keybinding   | Action                                            |
-| ------------ | ------------------------------------------------- |
-| $MOD + T     | Launch Terminal                                   |
-| $MOD + L     | Lock Screen (swaylock)                            |
-| $MOD + Space | Launch launcher (walker)                          |
-| $MOD + V     | Open clipboard manager (clipse)                   |
-| $MOD + C     | Select color from screen (hyprpicker) and copy it |
-| $MOD + E     | Open file manager (Nemo)                          |
-| $MOD + R     | Resize window with slurp                          |
+| Keybinding   | Action                                                       |
+| ------------ | ------------------------------------------------------------ |
+| $MOD + T     | Launch Terminal                                              |
+| $MOD + L     | Lock Screen ([Hyprlock](https://github.com/hyprwm/hyprlock)) |
+| $MOD + Space | Launch launcher (walker)                                     |
+| $MOD + V     | Open clipboard manager (clipse)                              |
+| $MOD + C     | Select color from screen (hyprpicker) and copy it            |
+| $MOD + E     | Open file manager (Nemo)                                     |
+| $MOD + R     | Resize window with slurp                                     |
 
 ### Close / Fullscreen / Kill Applications / Arrange monitors
 
@@ -160,27 +160,20 @@ $MOD = SUPER
 
 #### Color Scheme: [Dracula](https://draculatheme.com)
 
-#### Notification Center: [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter)
-
--   [configuration](dot_config/swaync)
-    ![notification.png](Pictures/showcase/utilities/swaync/notification.png)
-    ![center.png](Pictures/showcase/utilities/swaync/center.png)
-
 #### Window Manager: [Hyprland](https://wiki.hyprland.org)
 
-#### Bar: [Waybar](https://github.com/Alexays/Waybar)
+#### Bar: [Wayle](https://github.com/wayle-rs/wayle)
 
--   [configuration](dot_config/waybar)
-    ![waybar.png](Pictures/showcase/gui/waybar.png)
+- [configuration](dot_config/wayle)
 
 #### Application Launcher: [Walker](https://github.com/abenz1267/walker)
 
--   [configuration](dot_config/walker)
-    ![walker.png](Pictures/showcase/utilities/walker.png)
+- [configuration](dot_config/walker)
+  ![walker.png](Pictures/showcase/utilities/walker.png)
 
 #### Clipboard Managegment: [Clipse](https://github.com/savedra1/clipse)
 
--   ![clipboard-manager.png](Pictures/showcase/utilities/clipboard-manager.png)
+- ![clipboard-manager.png](Pictures/showcase/utilities/clipboard-manager.png)
 
 #### Color Picker: [Hyprpicker](https://wiki.hyprland.org)
 
@@ -242,18 +235,18 @@ $MOD = SUPER
 
 ###### [modern-unix-commands](https://github.com/ibraheemdev/modern-unix) - Essentially replaces many well known unix commands and utilities with better or superior alternatives
 
--   [lsd](https://github.com/lsd-rs/lsd) - This project is a rewrite of GNU ls with lots of added features like colors, icons, tree-view, more formatting options etc...
--   [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings. With syntax highlighting and many more features while being a cat(1) drop in replacement
--   [format](https://github.com/eth-p/bat-extras) - A collection of additional utilities for bat(1) like prettyprinting / formatting with `format`
--   [rigprep](https://github.com/BurntSushi/ripgrep) - ripgrep recursively searches directories for a regex pattern while respecting your gitignore (aliased to `rg` and boosted by `batgrep` for syntax highlighting)
--   [fd](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to 'find'
--   [procs](https://github.com/dalance/procs) - A modern replacement for ps written in Rust
--   [hyperfine](https://github.com/sharkdp/hyperfine) - A command-line benchmarking tool.
--   [btm](https://github.com/ClementTsang/bottom) - A cross-platform graphical process/system monitor with a customizable interface and a multitude of features (aliased to `top`)
--   [tealdeer](https://github.com/dbrgn/tealdeer) - A collection of simplified, example based and community-driven man pages. (aliased to `tldr` or `help`)
--   [duf](https://github.com/muesli/duf) - beter df
--   [delta](https://github.com/dandavison/delta) - A viewer for git and diff output (aliased to `diff`)
--   [unp](https://github.com/mitsuhiko/unp) - unpack things
+- [lsd](https://github.com/lsd-rs/lsd) - This project is a rewrite of GNU ls with lots of added features like colors, icons, tree-view, more formatting options etc...
+- [bat](https://github.com/sharkdp/bat) - A cat(1) clone with wings. With syntax highlighting and many more features while being a cat(1) drop in replacement
+- [format](https://github.com/eth-p/bat-extras) - A collection of additional utilities for bat(1) like prettyprinting / formatting with `format`
+- [rigprep](https://github.com/BurntSushi/ripgrep) - ripgrep recursively searches directories for a regex pattern while respecting your gitignore (aliased to `rg` and boosted by `batgrep` for syntax highlighting)
+- [fd](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to 'find'
+- [procs](https://github.com/dalance/procs) - A modern replacement for ps written in Rust
+- [hyperfine](https://github.com/sharkdp/hyperfine) - A command-line benchmarking tool.
+- [btm](https://github.com/ClementTsang/bottom) - A cross-platform graphical process/system monitor with a customizable interface and a multitude of features (aliased to `top`)
+- [tealdeer](https://github.com/dbrgn/tealdeer) - A collection of simplified, example based and community-driven man pages. (aliased to `tldr` or `help`)
+- [duf](https://github.com/muesli/duf) - beter df
+- [delta](https://github.com/dandavison/delta) - A viewer for git and diff output (aliased to `diff`)
+- [unp](https://github.com/mitsuhiko/unp) - unpack things
 
 ## Development Setup
 
@@ -261,7 +254,7 @@ $MOD = SUPER
 
 ### [Visual-Studio-Code-Insiders](https://code.visualstudio.com/insiders)
 
--   [configuration](dot_config/private_Code%20-%20Insiders)
+- [configuration](dot_config/private_Code%20-%20Insiders)
 
 ## Windows Setup (Mostly manual)
 
@@ -303,8 +296,8 @@ Burp is setup to auto update with the update zsh function above. As I like to us
 
 #### Config
 
--   [project-options.json](dot_config/burp/config/project-options.json)
--   [user-options.json](dot_config/burp/config/user-options.json)
+- [project-options.json](dot_config/burp/config/project-options.json)
+- [user-options.json](dot_config/burp/config/user-options.json)
 
 ### Android Emulator
 
@@ -314,32 +307,23 @@ An already setup android emulator can be started from the launcher using the [an
 
 ### Bug Reports, Feature Requests and questions
 
--   Please use the [issue tracker](https://github.com/evangelospro/dotfiles/issues) to report any bugs, file feature requests or ask questions.
+- Please use the [issue tracker](https://github.com/evangelospro/dotfiles/issues) to report any bugs, file feature requests or ask questions.
 
 ### Pull Requests
 
--   Feel free to fork and contribute to this project. If you feel like you can add something to it or fix a bug, go for it.
--   If you want to contribute to the project, please open a pull request.
--   If you want to add a new feature, please create an issue first to discuss if it is a good idea or not.
--   If you want to fix a bug, please also create an issue first.
+- Feel free to fork and contribute to this project. If you feel like you can add something to it or fix a bug, go for it.
+- If you want to contribute to the project, please open a pull request.
+- If you want to add a new feature, please create an issue first to discuss if it is a good idea or not.
+- If you want to fix a bug, please also create an issue first.
 
 ## 🌟 Stars 🌟
 
--   _Consider leaving a star if you liked the project! Thanks!_
+- _Consider leaving a star if you liked the project! Thanks!_
 
 [![Stars](https://starchart.cc/evangelospro/dotfiles.svg)](https://starchart.cc/evangelospro/dotfiles)
 
 ## Thanks to these awesome projects and many more!!!
 
--   [Chezmoi](https://www.chezmoi.io/)
--   [Rebos](https://gitlab.com/Oglo12/rebos)
-
--   [Arch Linux](https://archlinux.org/)
--   [Hyprland](https://github.com/hyprwm/Hyprland)
--   [hypridle](https://github.com/hyprwm/hypridle)
--   [SwayNotificationCenter](https://github.com/ErikReider/SwayNotificationCenter)
--   [Waybar](https://github.com/alexays/waybar/)
--   [Lsd](https://github.com/lsd-rs/lsd)
--   [playerctl](https://github.com/altdesktop/playerctl/)
--   [Asusctl](https://gitlab.com/asus-linux/asusctl/)
--   [swaylock-effects](https://github.com/mortie/swaylock-effects/)
+- [Arch Linux](https://archlinux.org/)
+- [Chezmoi](https://www.chezmoi.io/)
+- [Rebos](https://gitlab.com/Oglo12/rebos)
