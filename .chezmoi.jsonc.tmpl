@@ -50,7 +50,7 @@
                     "class": "com.mitchellh.ghostty",
                     "desktop_name": "com.mitchellh.ghostty"
                 },
-                "keybinding": "{{$MOD}}{{$SEP}}T",
+                "keybinding": "MOD .. ' + T'",
             },
             "editor": {
                 "linux": {
@@ -63,7 +63,7 @@
                     "command": "code-insiders",
                     "class": "code-insiders"
                 },
-                "keybinding": "{{$MOD}}{{$SEP}}C",
+                "keybinding": "MOD .. ' + C'",
             },
             "browser": {
                 "linux": {
@@ -76,7 +76,7 @@
                     "command": "brave",
                     "class": "brave-browser"
                 },
-                "keybinding": "{{$MOD}}{{$SEP}}B",
+                "keybinding": "MOD .. ' + B'",
             },
             "filemanager": {
                 "linux": {
@@ -89,7 +89,7 @@
                     "command": "explorer.exe",
                     "class": "explorer"
                 },
-                "keybinding": "{{$MOD}}{{$SEP}}E",
+                "keybinding": "MOD .. ' + E'",
             },
             "imageviewer": {
                 "linux": {
@@ -111,7 +111,7 @@
                 }
             },
             "notes": {
-                "keybinding": "{{$MOD}}{{$SEP}}N",
+                "keybinding": "MOD .. ' + N'",
                 "linux": {
                     "name": "obsidian",
                     "command": "obsidian",
@@ -124,13 +124,13 @@
                     "command": "burp",
                     "class": "burp-StartBurp"
                 },
-                "keybinding": "{{$MOD}}{{$SEP}}X",
+                "keybinding": "MOD .. ' + X'",
             }
         },
         "utilities": {
             "lockscreen": {
                 "description": "Lock the screen",
-                "keybinding": "{{$MOD}}{{$SEP}}L",
+                "keybinding": "MOD .. ' + L'",
                 "linux": {
                     "name": "hyprlock",
                     "command": "pidof hyprlock || hyprlock",
@@ -139,7 +139,7 @@
             },
             "launcher": {
                 "description": "Open the launcher",
-                "keybinding": "{{$MOD}}{{$SEP}}SPACE",
+                "keybinding": "MOD .. ' + SPACE'",
                 "linux":{
                     "name": "launcher",
                     "command": "/usr/bin/walker",
@@ -148,7 +148,7 @@
             },
             "emojimenu": {
                 "description": "Open the emoji launcher",
-                "keybinding": "{{$MOD}}{{$SEP}}J",
+                "keybinding": "MOD .. ' + J'",
                 "linux":{
                     "name": "emoji",
                     "command": "~/.local/bin/emoji-menu",
@@ -157,7 +157,7 @@
             },
             "clipboard": {
                 "description": "Open the clipboard manager",
-                "keybinding": "{{$MOD}}{{$SEP}}V",
+                "keybinding": "MOD .. ' + V'",
                 "linux": {
                     "name": "clipmenu",
                     "command": "/usr/bin/clipse-gui",
@@ -166,7 +166,7 @@
             },
             "colorpicker": {
                 "description": "Open the colorpicker",
-                "keybinding": "{{$MOD}}{{$SEP}}C",
+                "keybinding": "MOD .. ' + C'",
                 "linux": {
                     "name": "colorpicker",
                     "command": "colorpicker",
@@ -175,7 +175,7 @@
             },
             "screenshot": {
                 "description": "Take an interactive screenshot",
-                "keybinding": "{{$SEP}}Print",
+                "keybinding": "'Print'",
                 "linux": {
                     "name": "flameshot",
                     "command": "flameshot gui",
@@ -189,7 +189,7 @@
             },
             "ocr": {
                 "description": "Perform OCR on a screen selection",
-                "keybinding": "{{$MOD}}{{$SEP}}O",
+                "keybinding": "MOD .. ' + O'",
                 "linux": {
                     "name": "wl-ocr",
                     "command": "wl-ocr",

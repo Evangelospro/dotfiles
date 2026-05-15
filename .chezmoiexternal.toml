@@ -34,6 +34,11 @@
     refreshPeriod = "168h"
     path = "raise"
 
+[".config/hypr/hyprsplit"]
+    type = "git-repo"
+    url = "https://github.com/shezdy/hyprsplit"
+    branch = "main"
+
 {{- end }}
 
 {{- if (and .isHacking .isLinux) }}

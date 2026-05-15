@@ -1,5 +1,0 @@
-**/.mypy_cache
-
-PKGBUILDS/*
-!PKGBUILDS/PKGBUILD
-.local/share/snyk-ls/snyk-linux
