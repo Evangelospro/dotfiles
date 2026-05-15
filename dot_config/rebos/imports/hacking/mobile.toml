@@ -6,6 +6,7 @@ items = [
     "python-frida",
     "python-frida-tools",
     "android-backup-extractor",
+    "scrcpy",
 ]
 
 [managers.uvx]

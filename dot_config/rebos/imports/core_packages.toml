@@ -11,6 +11,7 @@ items = [
     "fwupd-efi",
     "e2fsprogs",
     "efibootmgr",
+    "linux",
     "linux-atm",
     "linux-firmware",
     "linux-firmware-marvell",
