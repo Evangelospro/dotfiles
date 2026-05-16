@@ -3,6 +3,6 @@ items = []
 
 [managers.uvx]
 items = [
-    "ghunt",
+    # "ghunt",
     "git-dumper"
 ]

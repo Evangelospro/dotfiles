@@ -2,6 +2,7 @@
 items = [
     "pycdc-git",
     "python-pyshark",
+    "python-pypykatz",
     "volatility3-git",
     "foremost",
     "python-oletools",
@@ -11,11 +12,6 @@ items = [
 
 [managers.uvx]
 items = [
-    "stringcheese",
+    # "stringcheese",
 
-]
-
-[managers.pip]
-items = [
-    "git+https://github.com/Hedroed/png-parser",
 ]

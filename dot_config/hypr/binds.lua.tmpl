@@ -89,17 +89,17 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { rep
 
 -- Scratchpads TODO:FIX
 -- Valent (KDEConnect) special scratchpad workspace
-hl.bind(MOD .. " + K", function()
-    hl.exec_cmd("pidof valent || /usr/bin/valent", {workspace = "special:valent"})
-    hl.dsp.workspace.toggle_special("valent")
-end)
+-- hl.bind(MOD .. " + K", function()
+--     hl.exec_cmd("pidof valent || /usr/bin/valent", {workspace = "special:valent"})
+--     hl.dsp.workspace.toggle_special("valent")
+-- end)
 
 {{- if .isAsus }}
 -- Rog Control Center special scratchpad workspace
-hl.bind("XF86Launch3", function()
-    hl.exec_cmd("pidof rog-control-center || /usr/bin/rog-control-center", {workspace = "special:rog-control-center"})
-    hl.dsp.workspace.toggle_special("rog-control-center")
-end)
+-- hl.bind("XF86Launch3", function()
+--     hl.exec_cmd("pidof rog-control-center || /usr/bin/rog-control-center", {workspace = "special:rog-control-center"})
+--     hl.dsp.workspace.toggle_special("rog-control-center")
+-- end)
 
 
 -- Asus keyboard backlight
@@ -119,6 +119,30 @@ for i = 1, 9 do
     hl.bind("SUPER + " .. i, hs.dsp.focus({ workspace = i }))
     hl.bind("SUPER + SHIFT + " .. i, hs.dsp.window.move({ workspace = i, follow = true }))
 end
+
+local throttled = false
+local function throttled_dsp(dsp)
+    return function()
+        if throttled then return end
+        throttled = true
+        hl.dispatch(dsp)
+        hl.timer(
+            function()
+                throttled = false
+            end,
+            {
+                timeout = 200,
+                type = "oneshot",
+            }
+        )
+    end
+end
+
+local prevWs = hl.dsp.focus({ workspace = "r-1" })
+local nextWs = hl.dsp.focus({ workspace = "r+1" })
+
+hl.bind(MOD .. " + mouse_up", throttled_dsp(prevWs))
+hl.bind(MOD .. " + mouse_down", throttled_dsp(nextWs))
 
 -- Move focus between windows in the current workspace
 hl.bind(MOD .. " + S", hl.dsp.focus({ direction = "down" }))

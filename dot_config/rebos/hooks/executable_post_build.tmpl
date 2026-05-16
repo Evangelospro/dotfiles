@@ -61,9 +61,3 @@ else
         chsh -s /bin/zsh
     fi
 fi
-
-# WM SPECIFIC CONFIGURATIONS
-if [[ ! -f ~/.config/hypr/monitors.conf ]]; then
-    rebos api echo info "Setting up Hyprland monitors"
-    cp ~/.config/hypr/monitors/monitors_default.conf ~/.config/hypr/monitors.conf
-fi
