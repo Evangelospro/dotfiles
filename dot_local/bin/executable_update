@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+update-mirrors
 
 if command -v rebos &>/dev/null; then
     rebos managers upgrade --sync

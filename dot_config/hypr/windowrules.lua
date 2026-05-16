@@ -1,5 +1,6 @@
 -- General floating windows
-local float_classes = {"yad", "nm-connection-editor", "pavucontrol-qt", "xfce-polkit", "hyprpolkitagent", "kvantummanager", "qt5ct", "feh", "Viewnior", "Gpicview", "Gimp", "MPlayer", "qemu", "Qemu-system-x86_64", "mpv"}
+local float_classes = { "yad", "nm-connection-editor", "pavucontrol-qt", "xfce-polkit", "hyprpolkitagent",
+    "kvantummanager", "qt5ct", "feh", "Viewnior", "Gpicview", "Gimp", "MPlayer", "qemu", "Qemu-system-x86_64", "mpv" }
 for _, class in ipairs(float_classes) do
     hl.window_rule({ match = { class = class }, float = true, center = true })
 end
@@ -44,7 +45,14 @@ hl.window_rule({ match = { class = "Spotify" }, tile = true })
 hl.window_rule({ match = { class = "czkawka_gui", title = "^(Scanning)$" }, center = true, size = "30% 30%" })
 
 -- FlameShot
-hl.window_rule({ match = { class = "flameshot", title = "^(flameshot)$" }, float = true, monitor = 0, move = "0 0", size = "3280 1080" })
+hl.window_rule({
+    match = { class = "flameshot", title = "^(flameshot)$" },
+    float = true,
+    monitor = 0,
+    move = "0 0",
+    size =
+    "3280 1080"
+})
 
 -- Launchers
 hl.layer_rule({ match = { namespace = "walker" }, no_anim = true })
@@ -64,9 +72,6 @@ hl.window_rule({ match = { title = "^(.*is sharing (your screen|a window)\\.)$" 
 
 -- OnlyOffice
 hl.window_rule({ match = { class = "ONLYOFFICE Desktop Editors" }, tile = true })
-
--- Bitwarden auth float
-hl.window_rule({ match = { class = "chrome-.*-Default" }, float = true })
 
 -- Dont idleinhibit fullscreen
 hl.window_rule({ match = { fullscreen = true }, idle_inhibit = "fullscreen" })
@@ -92,3 +97,55 @@ hl.window_rule({ match = { class = "Matplotlib" }, float = true })
 
 -- Polkit force focus
 hl.window_rule({ match = { class = "hyprpolkitagent" }, stay_focused = true })
+
+-- Floating regex rules
+local rules = {
+    {
+        width = 30,
+        height = 54,
+        patterns = {
+            "%(Bitwarden.*Password Manager%) %- Bitwarden",
+            "^Bitwarden$",
+        }
+    },
+    {
+        width = 25,
+        height = 54,
+        patterns = {
+            "^Sign In %- Google Accounts %— ",
+        }
+    },
+    {
+        width = 25,
+        height = 54,
+        patterns = {
+            "^Extension: %(MetaMask%) %- MetaMask %— Firefox",
+        }
+    },
+}
+
+local function matches(title, rule)
+    for _, pattern in ipairs(rule.patterns) do
+        if title:match(pattern) then return true end
+    end
+    return false
+end
+
+hl.on("window.title", function(window)
+    local title = window.title or ""
+    for _, rule in ipairs(rules) do
+        if matches(title, rule) then
+            local monitor = hl.get_active_monitor()
+            if not monitor then return end
+
+            hl.dispatch(hl.dsp.window.float({ window = window, action = "on" }))
+            hl.dispatch(hl.dsp.window.center({ window = window, action = "on" }))
+            hl.dispatch(hl.dsp.window.resize({
+                window = window,
+                x = math.floor(monitor.width * rule.width / 100),
+                y = math.floor(monitor.height * rule.height / 100),
+            }))
+            return
+        end
+    end
+end)

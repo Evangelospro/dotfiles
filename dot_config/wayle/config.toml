@@ -41,6 +41,7 @@ dropdown-show-seconds = true
 
 [modules.hyprland-workspaces]
 app-icons-show = true
+show-special = false
 
 [wallpaper]
 engine-enabled = false
