@@ -16,17 +16,34 @@ background {
 
 input-field {
     monitor =
-    size = 200, 50
-    outline_thickness = 3
-    outer_color = rgb(151515)
-    inner_color = rgb(200, 200, 200)
-    font_color = rgb(10, 10, 10)
-    fade_on_empty = true
-    placeholder-text = <i>Input Password...</i> # Text rendered in the input box when it's empty.
 
-    position = 0, -20
-    halign = center
-    valign = center
+    size             = 380, 400
+    rounding         = -1
+    outline_thickness = 20
+
+    hide_input            = true
+    hide_input_base_color = rgba(98, 114, 164, 1.0)
+
+    inner_color      = rgba(30, 32, 48, 1.0)
+
+    outer_color      = rgba(36, 39, 58, 1.0)
+
+    check_color      = rgba(189, 147, 249, 1.0)
+
+    fail_color       = rgba(255, 85, 85, 1.0)
+
+    capslock_color   = rgba(241, 250, 140, 1.0)
+
+    font_family      = Noto Sans
+    font_color       = rgba(202, 211, 245, 1.0)
+
+    swap_font_color  = false
+
+    placeholder_text =
+
+    position = 0, 0
+    halign   = center
+    valign   = center
 }
 
 label {
@@ -36,9 +53,9 @@ label {
     font_size = 100
     font_family = Noto Sans
 
-    position = 0, 150
+    position = 0, 0
     halign = center
-    valign = center
+    valign = top
 }
 
 
@@ -49,7 +66,7 @@ label {
     font_size = 25
     font_family = Noto Sans
 
-    position = 0, 80
+    position = 0, 0
     halign = center
     valign = center
 }
