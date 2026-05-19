@@ -10,6 +10,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("dbus-update-activation-environment --systemd --all")
 
     {{- if .isAsus }}
-    hl.exec_cmd("pidof rog-control-center || /usr/bin/rog-control-center", {workspace = "special:rog-control-centersilent"})
+    hl.exec_cmd("pidof rog-control-center || /usr/bin/rog-control-center", {workspace = "special:rog-control-centersilent", pin = true})
     {{- end }}
 end)

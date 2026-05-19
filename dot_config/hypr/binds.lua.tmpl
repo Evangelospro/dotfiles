@@ -1,123 +1,120 @@
 MOD = "SUPER"
 
+-- Show binds
+hl.bind(MOD .. " + ESCAPE", hl.dsp.exec_cmd("~/.config/hypr/scripts/show_binds.sh"), {description = "Show bindings"})
+
 -- Exit / Reload
-hl.bind(MOD .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
+hl.bind(MOD .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"), {description = "Reload Hyprland"})
 
 -- Plugins
 -- hl.bind(MOD .. " + grave", hl.dsp.exec_cmd("overview:toggle"))
--- hl.bind(MOD .. " + TAB", hl.dsp.exec_cmd("hyprswitch gui --filter-current-monitor --sort-recent"))
--- hl.bind(MOD .. " + SHIFT + TAB", hl.dsp.exec_cmd("hyprswitch gui --reverse --filter-current-monitor --sort-recent"))
--- hl.bind("", "Escape", hl.dsp.exec_cmd("hyprswitch close --kill"))
 
 -- Utilities
 hl.bind(MOD .. " + Z", function()
     zoom_factor = hl.get_config("cursor.zoom_factor")
     hl.config({cursor = { zoom_factor = zoom_factor + 0.1 }})
-end)
+end, {description = "Increase cursor zoom"})
 hl.bind(MOD .. " + SHIFT + Z", function()
     zoom_factor = hl.get_config("cursor.zoom_factor")
     if zoom_factor > 1.0 then
         hl.config({cursor = { zoom_factor = zoom_factor - 0.1 }})
     end
-end)
-hl.bind({{.utilities.lockscreen.keybinding}}, hl.dsp.exec_cmd("{{.utilities.lockscreen.linux.command }}"), { locked = true })
-hl.bind({{.utilities.launcher.keybinding}}, hl.dsp.exec_cmd("{{.utilities.launcher.linux.command}}"))
-hl.bind("XF86Search", hl.dsp.exec_cmd("{{.utilities.launcher.linux.command}}"))
-hl.bind({{.utilities.clipboard.keybinding}}, hl.dsp.exec_cmd("{{.utilities.clipboard.linux.command}}"))
-hl.bind({{.utilities.emojimenu.keybinding}}, hl.dsp.exec_cmd("{{.utilities.emojimenu.linux.command}}"))
+end, {description = "Decrease cursor zoom"})
+hl.bind({{.utilities.lockscreen.keybinding}}, hl.dsp.exec_cmd("{{.utilities.lockscreen.linux.command }}"), { locked = true, description = "Lock screen" })
+hl.bind({{.utilities.launcher.keybinding}}, hl.dsp.exec_cmd("{{.utilities.launcher.linux.command}}"), {description = "Open application launcher"})
+hl.bind("XF86Search", hl.dsp.exec_cmd("{{.utilities.launcher.linux.command}}"), {description = "Open application launcher (search key)"})
+hl.bind({{.utilities.clipboard.keybinding}}, hl.dsp.exec_cmd("{{.utilities.clipboard.linux.command}}"), {description = "Open clipboard manager"})
+hl.bind({{.utilities.emojimenu.keybinding}}, hl.dsp.exec_cmd("{{.utilities.emojimenu.linux.command}}"), {description = "Open emoji menu"})
 
 -- TODO: Fix
 -- hl.bind(MOD .. " + R", hl.dsp.exec_cmd("dynamic-resize"))
 -- hl.bind(MOD .. " + P", hl.dsp.exec_cmd("project-menu"))
 
 -- Screenshot / OCR
-hl.bind({{.utilities.screenshot.keybinding }}, hl.dsp.exec_cmd("{{.utilities.screenshot.linux.command }}"))
+hl.bind({{.utilities.screenshot.keybinding }}, hl.dsp.exec_cmd("{{.utilities.screenshot.linux.command }}"), {description = "Take screenshot"})
 -- Select area to perform OCR on
-hl.bind({{.utilities.ocr.keybinding }}, hl.dsp.exec_cmd("{{.utilities.ocr.linux.command }}"))
+hl.bind({{.utilities.ocr.keybinding }}, hl.dsp.exec_cmd("{{.utilities.ocr.linux.command }}"), {description = "Perform OCR on selected area"})
 
 -- Applications
 hl.bind({{ .applications.browser.keybinding }}, function()
     hl.exec_cmd("pidof {{ .applications.browser.linux.command }} || {{ .applications.browser.linux.command }}")
     hl.dispatch(hl.dsp.focus({window="class:{{ .applications.browser.linux.class }}" }))
-end)
-hl.bind("SHIFT + " .. {{ .applications.browser.keybinding }}, hl.dsp.exec_cmd("{{ .applications.browser.linux.command }}"))
+end, {description = "Open/focus browser"})
+hl.bind("SHIFT + " .. {{ .applications.browser.keybinding }}, hl.dsp.exec_cmd("{{ .applications.browser.linux.command }}"), {description = "Open new browser window"})
 
 hl.bind({{ .applications.burp.keybinding }}, function()
     hl.exec_cmd("pidof {{ .applications.burp.linux.command }} || {{ .applications.burp.linux.command }}")
     hl.dispatch(hl.dsp.focus({window="class:{{ .applications.burp.linux.class }}" }))
-end)
+end, {description = "Open/focus Burp Suite"})
 
 hl.bind({{ .applications.terminal.keybinding }}, function()
     hl.exec_cmd("pidof {{ .applications.terminal.linux.command }} || {{ .applications.terminal.linux.command }}")
     hl.dispatch(hl.dsp.focus({window="class:{{ .applications.terminal.linux.class }}" }))
-end)
-hl.bind("SHIFT + " .. {{ .applications.terminal.keybinding }}, hl.dsp.exec_cmd("{{ .applications.terminal.linux.command}}"))
+end, {description = "Open/focus terminal"})
+hl.bind("SHIFT + " .. {{ .applications.terminal.keybinding }}, hl.dsp.exec_cmd("{{ .applications.terminal.linux.command}}"), {description = "Open new terminal window"})
 
 hl.bind({{.applications.filemanager.keybinding}}, function()
     hl.exec_cmd("pidof {{.applications.filemanager.linux.command}} || {{.applications.filemanager.linux.command}}")
     hl.dispatch(hl.dsp.focus({window="class:{{.applications.filemanager.linux.class}}" }))
-end)
-hl.bind("SHIFT + " .. {{.applications.filemanager.keybinding}}, hl.dsp.exec_cmd("{{.applications.filemanager.linux.command}}"))
+end, {description = "Open/focus file manager"})
+hl.bind("SHIFT + " .. {{.applications.filemanager.keybinding}}, hl.dsp.exec_cmd("{{.applications.filemanager.linux.command}}"), {description = "Open new file manager window"})
 
 hl.bind({{.applications.editor.keybinding}}, function()
     hl.exec_cmd("pidof {{.applications.editor.linux.command}} || {{.applications.editor.linux.command}}")
     hl.dispatch(hl.dsp.focus({window="class:{{.applications.editor.linux.class}}" }))
-end)
-hl.bind("SHIFT + " .. {{.applications.editor.keybinding}}, hl.dsp.exec_cmd("{{.applications.editor.linux.command}}"))
+end, {description = "Open/focus editor"})
+hl.bind("SHIFT + " .. {{.applications.editor.keybinding}}, hl.dsp.exec_cmd("{{.applications.editor.linux.command}}"), {description = "Open new editor window"})
 
 hl.bind({{.applications.notes.keybinding}}, function()
     hl.exec_cmd("pidof {{.applications.notes.linux.command}} || {{.applications.notes.linux.command}}")
     hl.dispatch(hl.dsp.focus({window="class:{{.applications.notes.linux.class}}" }))
-end)
+end, {description = "Open/focus notes application"})
 
 -- Close / Fullscreen / Kill Applications
-hl.bind("ALT + F4", hl.dsp.window.close())
-hl.bind("CTRL + SHIFT + ESCAPE", hl.dsp.exec_cmd("hyprctl kill")) -- xkill like functionality
-hl.bind(MOD .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
-hl.bind(MOD .. " + SHIFT + F", hl.dsp.window.float({ action = "toggle" }))
+hl.bind("ALT + F4", hl.dsp.window.close(), {description = "Close window"})
+hl.bind("CTRL + SHIFT + ESCAPE", hl.dsp.exec_cmd("hyprctl kill"), {description = "Kill window (xkill)", release = true})
+hl.bind(MOD .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }), {description = "Toggle fullscreen"})
+hl.bind(MOD .. " + SHIFT + F", hl.dsp.window.float({ action = "toggle" }), {description = "Toggle floating window"})
 
 -- Function keys
-hl.bind("XF86RFKill", hl.dsp.exec_cmd("rfkill"))
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("volumectl up"), { repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("volumectl down"), { repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("volumectl toggle-mute"))
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"))
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true })
+hl.bind("XF86RFKill", hl.dsp.exec_cmd("rfkill"), {description = "Toggle RF kill (Airplane mode)"})
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("volumectl up"), { repeating = true , locked=true, description = "Increase volume"})
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("volumectl down"), { repeating = true , locked=true, description = "Decrease volume"})
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("volumectl toggle-mute"), { locked=true, description = "Toggle mute"})
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true , locked=true, description = "Increase brightness"})
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true , locked=true, description = "Decrease brightness"})
 
 -- Scratchpads TODO:FIX
 -- Valent (KDEConnect) special scratchpad workspace
 hl.bind(MOD .. " + K", function()
     hl.exec_cmd("/usr/bin/valent", {workspace = "special:valentsilent"})
     hl.dispatch(hl.dsp.workspace.toggle_special("valentsilent"))
-end)
+end, {description = "Toggle Valent (KDEConnect)"})
 
 {{- if .isAsus }}
 -- Rog Control Center special scratchpad workspace
 hl.bind("XF86Launch3", function()
     hl.exec_cmd("pidof rog-control-center || /usr/bin/rog-control-center", {workspace = "special:rog-control-centersilent"})
     hl.dispatch(hl.dsp.workspace.toggle_special("rog-control-centersilent"))
-end)
+end, {description = "Toggle ROG Control Center"})
 
 
 -- Asus keyboard backlight
-hl.bind("XF86Launch4", hl.dsp.exec_cmd("asusctl leds next"))
+hl.bind("XF86Launch4", hl.dsp.exec_cmd("asusctl leds next"), {description = "Cycle keyboard backlight"})
 {{- end }}
 
 -- Rearrange windows in the current workspace
-hl.bind(MOD .. " + down", hl.dsp.window.move({ direction = "down" }))
-hl.bind(MOD .. " + left", hl.dsp.window.move({ direction = "left" }))
-hl.bind(MOD .. " + right", hl.dsp.window.move({ direction = "right" }))
-hl.bind(MOD .. " + up", hl.dsp.window.move({ direction = "up" }))
+hl.bind(MOD .. " + down", hl.dsp.window.move({ direction = "down" }), {description = "Move window down"})
+hl.bind(MOD .. " + left", hl.dsp.window.move({ direction = "left" }), {description = "Move window left"})
+hl.bind(MOD .. " + right", hl.dsp.window.move({ direction = "right" }), {description = "Move window right"})
+hl.bind(MOD .. " + up", hl.dsp.window.move({ direction = "up" }), {description = "Move window up"})
 
 -- Move Windows Between Workspaces
 local hs = require("hyprsplit")
 hs.config({ num_workspaces = 9 })
 for i = 1, 9 do
-    hl.bind("SUPER + " .. i, hs.dsp.focus({ workspace = i }))
-    hl.bind("SUPER + SHIFT + " .. i, hs.dsp.window.move({ workspace = i, follow = true }))
+    hl.bind("SUPER + " .. i, hs.dsp.focus({ workspace = i }), {description = "Switch to workspace " .. i})
+    hl.bind("SUPER + SHIFT + " .. i, hs.dsp.window.move({ workspace = i, follow = true }), {description = "Move window to workspace " .. i})
 end
 
 local throttled = false
@@ -141,28 +138,28 @@ end
 local prevWs = hl.dsp.focus({ workspace = "r-1" })
 local nextWs = hl.dsp.focus({ workspace = "r+1" })
 
-hl.bind(MOD .. " + mouse_up", throttled_dsp(prevWs))
-hl.bind(MOD .. " + mouse_down", throttled_dsp(nextWs))
+hl.bind(MOD .. " + mouse_up", throttled_dsp(prevWs), {description = "Switch to previous workspace"})
+hl.bind(MOD .. " + mouse_down", throttled_dsp(nextWs), {description = "Switch to next workspace"})
 
 -- Move focus between windows in the current workspace
-hl.bind(MOD .. " + S", hl.dsp.focus({ direction = "down" }))
-hl.bind(MOD .. " + A", hl.dsp.focus({ direction = "left" }))
-hl.bind(MOD .. " + D", hl.dsp.focus({ direction = "right" }))
-hl.bind(MOD .. " + W", hl.dsp.focus({ direction = "up" }))
+hl.bind(MOD .. " + S", hl.dsp.focus({ direction = "down" }), {description = "Focus window below"})
+hl.bind(MOD .. " + A", hl.dsp.focus({ direction = "left" }), {description = "Focus window to the left"})
+hl.bind(MOD .. " + D", hl.dsp.focus({ direction = "right" }), {description = "Focus window to the right"})
+hl.bind(MOD .. " + W", hl.dsp.focus({ direction = "up" }), {description = "Focus window above"})
 
 -- Resize windows in the current workspace
 local resize_amount = 10
-hl.bind(MOD .. " + SHIFT + S", hl.dsp.window.resize({x=resize_amount,y=resize_amount, relative=true}), { repeating = true })
-hl.bind(MOD .. " + SHIFT + A", hl.dsp.window.resize({x=-resize_amount,y=0, relative=true}), { repeating = true })
-hl.bind(MOD .. " + SHIFT + D", hl.dsp.window.resize({x=resize_amount,y=0, relative=true}), { repeating = true })
-hl.bind(MOD .. " + SHIFT + W", hl.dsp.window.resize({x=0,y=-resize_amount, relative=true}), { repeating = true })
+hl.bind(MOD .. " + SHIFT + S", hl.dsp.window.resize({x=resize_amount,y=resize_amount, relative=true}), { repeating = true, description = "Resize window (expand)"})
+hl.bind(MOD .. " + SHIFT + A", hl.dsp.window.resize({x=-resize_amount,y=0, relative=true}), { repeating = true, description = "Resize window (shrink left)"})
+hl.bind(MOD .. " + SHIFT + D", hl.dsp.window.resize({x=resize_amount,y=0, relative=true}), { repeating = true, description = "Resize window (expand right)"})
+hl.bind(MOD .. " + SHIFT + W", hl.dsp.window.resize({x=0,y=-resize_amount, relative=true}), { repeating = true, description = "Resize window (shrink top)"})
 
 -- Move Windows Between Monitors
-hl.bind(MOD .. " + SHIFT + left", hl.dsp.window.move({ monitor = "l" }))
-hl.bind(MOD .. " + SHIFT + right", hl.dsp.window.move({ monitor = "r" }))
+hl.bind(MOD .. " + SHIFT + left", hl.dsp.window.move({ monitor = "l" }), {description = "Move window to left monitor"})
+hl.bind(MOD .. " + SHIFT + right", hl.dsp.window.move({ monitor = "r" }), {description = "Move window to right monitor"})
 
 -- Move Windows with Mouse
-hl.bind(MOD .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(MOD .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Drag window with mouse"})
 
 -- Screen lock when the switch is turning off and then suspend
-hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("{{.utilities.lockscreen.linux.command }} & ;sleep 1; systemctl suspend"), { locked = true })
+hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("{{.utilities.lockscreen.linux.command }} & ;sleep 1; systemctl suspend"), { locked = true, description = "Lock and suspend on lid close" })

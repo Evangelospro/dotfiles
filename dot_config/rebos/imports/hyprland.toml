@@ -47,4 +47,5 @@ items = [
     "hyprgraphics",
     "hyprpolkitagent",
     "hyprtoolkit",
+    "lua-inspect", # for debugging
 ]

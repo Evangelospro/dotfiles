@@ -1,3 +1,13 @@
+general {
+    grace = 0,
+    fail_timeout = 1000,
+
+}
+
+animations {
+    enabled = false
+}
+
 background {
     monitor =
     path = {{ .chezmoi.homeDir }}/Pictures/backgrounds/austronaut-dark.png
@@ -42,4 +52,16 @@ label {
     position = 0, 80
     halign = center
     valign = center
+}
+
+label {
+    monitor =
+    text = Layout: $LAYOUT
+    text_trim = false,
+    color = rgba(200, 200, 200, 1.0)
+    font_size = 25
+    font_family = Noto Sans
+
+    halign = right
+    valign = bottom
 }
