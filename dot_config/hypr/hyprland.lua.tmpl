@@ -1,5 +1,9 @@
--- inspect = require'inspect'
--- function log(...) print(inspect(...)) end
+package.path = "/usr/share/lua/" .. _VERSION:match('%d+.%d+') .."/?.lua;" .. package.path
+local inspect = require("inspect")
+function log(...)
+    -- debug:disable_logs = false, debug:enable_stdout_logs = true and use hyprctl rollinglog -f
+    print(inspect(...))
+end
 
 hl.config({
     debug = {
@@ -16,7 +20,6 @@ hl.config({
         -- 2 - Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window.
         -- 3 - Cursor focus will be completely separate from keyboard focus. Clicking on a window will not change keyboard focus.
         follow_mouse = 1,
-        sensitivity = 0,
         kb_layout = "us,gr",
         kb_options = "grp:alt_shift_toggle",
         sensitivity = 0.1,
@@ -103,7 +106,7 @@ hl.gesture({
     action = "workspace",
 })
 
-require("monitors") -- TODO: Integrate https://github.com/crmne/hyprmoncfg
+require("monitors") -- hyprmoncfg
 require("windowrules")
 require("startup")
 require("devices")
