@@ -26,10 +26,6 @@ hl.bind("XF86Search", hl.dsp.exec_cmd("{{.utilities.launcher.linux.command}}"), 
 hl.bind({{.utilities.clipboard.keybinding}}, hl.dsp.exec_cmd("{{.utilities.clipboard.linux.command}}"), {description = "Open clipboard manager"})
 hl.bind({{.utilities.emojimenu.keybinding}}, hl.dsp.exec_cmd("{{.utilities.emojimenu.linux.command}}"), {description = "Open emoji menu"})
 
--- TODO: Fix
--- hl.bind(MOD .. " + R", hl.dsp.exec_cmd("dynamic-resize"))
--- hl.bind(MOD .. " + P", hl.dsp.exec_cmd("project-menu"))
-
 -- Screenshot / OCR
 hl.bind({{.utilities.screenshot.keybinding }}, hl.dsp.exec_cmd("{{.utilities.screenshot.linux.command }}"), {description = "Take screenshot"})
 -- Select area to perform OCR on
@@ -84,7 +80,6 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("volumectl toggle-mute"), { locked=true
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true , locked=true, description = "Increase brightness"})
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true , locked=true, description = "Decrease brightness"})
 
--- Scratchpads TODO:FIX
 -- Valent (KDEConnect) special scratchpad workspace
 hl.bind(MOD .. " + K", function()
     hl.exec_cmd("/usr/bin/valent", {workspace = "special:valentsilent"})

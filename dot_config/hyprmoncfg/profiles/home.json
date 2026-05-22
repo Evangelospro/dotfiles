@@ -1,7 +1,7 @@
 {
-  "name": "Laptop",
-  "created_at": "2026-05-22T12:20:53.600532306Z",
-  "updated_at": "2026-05-22T12:41:44.625559201Z",
+  "name": "Home",
+  "created_at": "2026-05-22T12:33:46.917501974Z",
+  "updated_at": "2026-05-22T12:38:25.928507023Z",
   "outputs": [
     {
       "key": "najing cec panda fpd technology co. ltd|0x004d",
@@ -33,7 +33,7 @@
       "make": "XMD",
       "model": "Mi TV",
       "serial": "0x00000001",
-      "enabled": false,
+      "enabled": true,
       "mode": "1360x768@60.02Hz",
       "width": 1360,
       "height": 768,
@@ -54,7 +54,7 @@
   "workspaces": {
     "enabled": true,
     "strategy": "sequential",
-    "max_workspaces": 9,
+    "max_workspaces": 18,
     "group_size": 9,
     "monitor_order": [
       "najing cec panda fpd technology co. ltd|0x004d",
@@ -110,48 +110,50 @@
       },
       {
         "workspace": "10",
-        "output_key": "najing cec panda fpd technology co. ltd|0x004d",
-        "output_name": "eDP-2"
+        "output_key": "xmd|mi tv|0x00000001",
+        "output_name": "DP-1",
+        "default": true,
+        "persistent": true
       },
       {
         "workspace": "11",
-        "output_key": "najing cec panda fpd technology co. ltd|0x004d",
-        "output_name": "eDP-2"
+        "output_key": "xmd|mi tv|0x00000001",
+        "output_name": "DP-1"
       },
       {
         "workspace": "12",
-        "output_key": "najing cec panda fpd technology co. ltd|0x004d",
-        "output_name": "eDP-2"
+        "output_key": "xmd|mi tv|0x00000001",
+        "output_name": "DP-1"
       },
       {
         "workspace": "13",
-        "output_key": "najing cec panda fpd technology co. ltd|0x004d",
-        "output_name": "eDP-2"
+        "output_key": "xmd|mi tv|0x00000001",
+        "output_name": "DP-1"
       },
       {
         "workspace": "14",
-        "output_key": "najing cec panda fpd technology co. ltd|0x004d",
-        "output_name": "eDP-2"
+        "output_key": "xmd|mi tv|0x00000001",
+        "output_name": "DP-1"
       },
       {
         "workspace": "15",
-        "output_key": "najing cec panda fpd technology co. ltd|0x004d",
-        "output_name": "eDP-2"
+        "output_key": "xmd|mi tv|0x00000001",
+        "output_name": "DP-1"
       },
       {
         "workspace": "16",
-        "output_key": "najing cec panda fpd technology co. ltd|0x004d",
-        "output_name": "eDP-2"
+        "output_key": "xmd|mi tv|0x00000001",
+        "output_name": "DP-1"
       },
       {
         "workspace": "17",
-        "output_key": "najing cec panda fpd technology co. ltd|0x004d",
-        "output_name": "eDP-2"
+        "output_key": "xmd|mi tv|0x00000001",
+        "output_name": "DP-1"
       },
       {
         "workspace": "18",
-        "output_key": "najing cec panda fpd technology co. ltd|0x004d",
-        "output_name": "eDP-2"
+        "output_key": "xmd|mi tv|0x00000001",
+        "output_name": "DP-1"
       }
     ]
   },
