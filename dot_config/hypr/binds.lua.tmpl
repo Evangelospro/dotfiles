@@ -80,17 +80,20 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("volumectl toggle-mute"), { locked=true
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true , locked=true, description = "Increase brightness"})
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true , locked=true, description = "Decrease brightness"})
 
+-- Project menu
+hl.bind(MOD .. " + P", hl.dsp.exec_cmd("pidof hyprmoncfg || {{.applications.terminal.linux.command}} -e hyprmoncfg --hypr-config ~/.config/hypr/hyprland.lua"), {description = "Toggle project menu"})
+
 -- Valent (KDEConnect) special scratchpad workspace
 hl.bind(MOD .. " + K", function()
-    hl.exec_cmd("/usr/bin/valent", {workspace = "special:valentsilent"})
-    hl.dispatch(hl.dsp.workspace.toggle_special("valentsilent"))
+    hl.exec_cmd("/usr/bin/valent", {workspace = "special:valent silent"})
+    hl.dispatch(hl.dsp.workspace.toggle_special("valent"))
 end, {description = "Toggle Valent (KDEConnect)"})
 
 {{- if .isAsus }}
 -- Rog Control Center special scratchpad workspace
 hl.bind("XF86Launch3", function()
-    hl.exec_cmd("pidof rog-control-center || /usr/bin/rog-control-center", {workspace = "special:rog-control-centersilent"})
-    hl.dispatch(hl.dsp.workspace.toggle_special("rog-control-centersilent"))
+    hl.exec_cmd("pidof rog-control-center || /usr/bin/rog-control-center", {workspace = "special:rog-control-center silent"})
+    hl.dispatch(hl.dsp.workspace.toggle_special("rog-control-center"))
 end, {description = "Toggle ROG Control Center"})
 
 
@@ -155,6 +158,3 @@ hl.bind(MOD .. " + SHIFT + right", hl.dsp.window.move({ monitor = "r" }), {descr
 
 -- Move Windows with Mouse
 hl.bind(MOD .. " + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Drag window with mouse"})
-
--- Screen lock when the switch is turning off and then suspend
-hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("{{.utilities.lockscreen.linux.command }} & ;sleep 1; systemctl suspend"), { locked = true, description = "Lock and suspend on lid close" })

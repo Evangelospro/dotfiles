@@ -132,9 +132,14 @@
                 "description": "Lock the screen",
                 "keybinding": "MOD .. ' + L'",
                 "linux": {
-                    "name": "hyprlock",
-                    "command": "pidof hyprlock || hyprlock",
-                    "class": "hyprlock"
+                    "command": "loginctl lock-session",
+                }
+            },
+            "logout": {
+                "description": "Log out",
+                "keybinding": "MOD .. ' + M'",
+                "linux": {
+                    "command": "uwsm stop",
                 }
             },
             "launcher": {

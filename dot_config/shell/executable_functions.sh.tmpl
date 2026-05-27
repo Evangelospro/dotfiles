@@ -34,11 +34,6 @@ function set_tab_title() {
     echo -ne "\033]0;$name\007"
 }
 
-function browser() {
-    browser=$(command ls /usr/bin | grep -E "chromium|brave|google-chrome|thorium" | head -n 1)
-    $browser --enable-logging --v=1
-}
-
 function e() {
     $EDITOR "$@"
 }
@@ -76,11 +71,15 @@ ff02::2 ip6-allrouters
 
 function upload() {
     if [[ -z $1 ]]; then
-        echo "No file specified for upload"
-        return 1
+        if [[ -t 0 ]]; then
+            echo "No file specified for upload"
+            return 1
+        fi
+        command curl --silent -F"file=@-" https://0x0.st|copy|paste
+    else
+        full_path=$(realpath $1)
+        command curl --silent -F"file=@$full_path" https://0x0.st|copy|paste
     fi
-    full_path=$(realpath $1)
-    command curl --silent -F"file=@$full_path" https://0x0.st
 }
 
 function mkcd(){

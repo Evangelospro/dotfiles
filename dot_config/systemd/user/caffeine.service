@@ -1,0 +1,15 @@
+[Unit]
+Description=Caffeine mode idle inhibitor
+Documentation=man:systemd-inhibit(1)
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/systemd-inhibit --what=idle:sleep "--who=Caffeine Mode" "--why=Manual idle and sleep inhibition" --mode=block /usr/bin/sleep infinity
+KillMode=control-group
+TimeoutStopSec=5
+Restart=no
+
+[Install]
+WantedBy=default.target
