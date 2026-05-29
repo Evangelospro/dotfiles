@@ -15,14 +15,17 @@ source $ZDOTDIR/history.zsh
 
 case ${TERM} in
 xterm* | rxvt* | Eterm* | aterm | kterm | terminator | gnome* | alacritty | st | konsole* | warp | screen*)
-    PROMPT_COMMAND="set_tab_title '${USER}@$(hostname):${PWD/#$HOME/~}'"
     ;;
 linux)
     source $XDG_CONFIG_HOME/shell/themes/tty.sh
-    PROMPT_COMMAND="set_tab_title '${USER}@$(hostname):${PWD/#$HOME/~}'"
     ;;
 esac
-precmd_functions+=(${PROMPT_COMMAND})
+
+function update_tab_title() {
+    set_tab_title "${USER}@$(hostname):${PWD/#$HOME/~}"
+}
+
+precmd_functions+=(update_tab_title)
 
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 

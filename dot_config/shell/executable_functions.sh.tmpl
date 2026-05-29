@@ -54,19 +54,12 @@ function ssh(){
 
 # sshp username password host extr_args
 function sshp() {
-    echo "Using sshpass to ssh into $3 as $1 with password $2 and extra args ${@: 4}"
-    sshpass -p $2 ssh -o StrictHostKeyChecking=no $1@$3 ${@: 4};
+    echo "Using sshpass to ssh into $3 as $1 with password $2 and extra args ${@:4}"
+    sshpass -p $2 ssh -o StrictHostKeyChecking=no $1@$3 "${@:4}";
 }
 
 function clear-hosts(){
-    echo -ne """# Static table lookup for hostnames.
-# See hosts(5) for details.
-127.0.0.1 localhost
-127.0.0.1 {{.chezmoi.hostname}}
-
-ff02::1 ip6-allnodes
-ff02::2 ip6-allrouters
-""" | sudo tee /etc/hosts
+    echo -ne $'# Static table lookup for hostnames.\n# See hosts(5) for details.\n127.0.0.1 localhost\n127.0.0.1 {{.chezmoi.hostname}}\n\nff02::1 ip6-allnodes\nff02::2 ip6-allrouters\n' | sudo tee /etc/hosts
 }
 
 function upload() {
