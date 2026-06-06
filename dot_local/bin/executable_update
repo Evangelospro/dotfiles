@@ -1,5 +1,38 @@
 #!/usr/bin/env zsh
-update-mirrors
+location_file="${XDG_CACHE_HOME:-$HOME/.cache}/update-mirrors.location"
+current_location="$(curl -fsS --max-time 5 https://ipinfo.io/geo | jq -r '.loc')"
+previous_location=""
+
+threshold=0.5 # degrees
+
+if [ -f "$location_file" ]; then
+    previous_location="$(cat "$location_file")"
+fi
+
+location_changed=0
+if [ -n "$current_location" ] && [ -n "$previous_location" ]; then
+    cur_lat="$(printf '%s' "$current_location" | cut -d, -f1)"
+    cur_lon="$(printf '%s' "$current_location" | cut -d, -f2)"
+    prev_lat="$(printf '%s' "$previous_location" | cut -d, -f1)"
+    prev_lon="$(printf '%s' "$previous_location" | cut -d, -f2)"
+
+    max_diff=$(awk -v a="$cur_lat" -v b="$prev_lat" -v c="$cur_lon" -v d="$prev_lon" 'BEGIN{la=a-b; if(la<0) la=-la; lo=c-d; if(lo<0) lo=-lo; print (la>lo?la:lo)}')
+
+    awk -v m="$max_diff" -v t="$threshold" 'BEGIN{if(m>t) exit 0; else exit 1}'
+    if [ $? -eq 0 ]; then
+        location_changed=1
+    fi
+elif [ -n "$current_location" ] && [ -z "$previous_location" ]; then
+    echo "Location difference: $max_diff degrees"
+    # no previous record -> treat as changed
+    location_changed=1
+fi
+
+if [ "$location_changed" -eq 1 ]; then
+    echo "Location changed significantly, updating mirrors..."
+    update-mirrors
+    echo "$current_location" > "$location_file"
+fi
 
 if command -v rebos &>/dev/null; then
     rebos managers upgrade --sync

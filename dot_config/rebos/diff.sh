@@ -67,9 +67,7 @@ get_installed_items() {
 			;;
 		uvx)
 			if command -v uvx >/dev/null 2>&1; then
-				# uvx doesn't have a built-in list command, check ~/.venv-cache or similar
-				# For now, return empty as uvx behavior varies
-				true
+				uvx 2>/dev/null| grep -E '^- ' | sed 's/^- //;s/ v[0-9].*$//' || true
 			else
 				true
 			fi
