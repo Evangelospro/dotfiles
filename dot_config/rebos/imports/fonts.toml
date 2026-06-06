@@ -1,10 +1,6 @@
 [managers.system]
 items = [
-    "noto-fonts",
-    "noto-fonts-emoji",
-    "noto-fonts-extra",
-    "noto-fonts-cjk",
-    "otf-font-awesome",
+    "ttf-firacode-nerd",
     "figlet-fonts-extra",
     "ttf-material-design-icons-extended",
     "tesseract",
