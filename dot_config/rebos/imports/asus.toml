@@ -3,7 +3,5 @@ items = [
     "intel-compute-runtime",
     "power-profiles-daemon",
     "asusctl",
-    "rog-control-center",
-    "linux-g14",
-    "linux-g14-headers",
+    "rog-control-center"
 ]

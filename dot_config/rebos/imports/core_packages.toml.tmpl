@@ -11,7 +11,12 @@ items = [
     "fwupd-efi",
     "e2fsprogs",
     "efibootmgr",
+    {{- if .isAsus }}
+    "linux-g14",
+    "linux-g14-headers",
+    {{- else }}
     "linux",
+    {{- end }}
     "linux-atm",
     "linux-firmware",
     "linux-firmware-marvell",
