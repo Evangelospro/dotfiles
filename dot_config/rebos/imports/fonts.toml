@@ -1,5 +1,9 @@
 [managers.system]
 items = [
+    # required for display of emojis in browsers
+    "noto-fonts",
+    "noto-fonts-emoji",
+
     "ttf-firacode-nerd",
     "figlet-fonts-extra",
     "ttf-material-design-icons-extended",

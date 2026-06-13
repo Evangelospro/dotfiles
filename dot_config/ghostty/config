@@ -28,10 +28,10 @@ palette = 13=#ff79c6
 palette = 14=#8be9fd
 palette = 15=#ffffff
 font-size = 15.5
-font-family = FiraCode Nerd Font
-font-family-bold = FiraCode Nerd Font Bold
-font-family-italic = FiraCode Nerd Font
-font-family-bold-italic = FiraCode Nerd Font
+font-family = FiraCode Nerd Font Mono
+font-family-bold = FiraCode Nerd Font Mono
+font-family-italic = FiraCode Nerd Font Mono
+font-family-bold-italic = FiraCode Nerd Font Mono
 keybind = ctrl+shift+physical:one=goto_tab:1
 keybind = ctrl+shift+physical:two=goto_tab:2
 keybind = ctrl+shift+physical:three=goto_tab:3
