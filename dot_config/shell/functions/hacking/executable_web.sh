@@ -11,6 +11,8 @@ function enable-proxy() {
     export HTTPS_PROXY="$TARGET"
     export https_proxy="$TARGET"
     command curl --silent "$TARGET/cert" | openssl x509 -inform der -out /tmp/burp.pem
+    # sudo cp /tmp/burp.pem /usr/share/ca-certificates/burp.pem
+    # sudo /usr/bin/update-ca-trust
     export SSL_CERT_FILE="/tmp/burp.pem"
     export REQUESTS_CA_BUNDLE="$SSL_CERT_FILE"
     echo "Proxying through $TARGET"
@@ -21,6 +23,8 @@ function disable-proxy() {
     unset SSL_CERT_FILE
     unset HTTP_PROXY http_proxy
     unset HTTPS_PROXY https_proxy
+    # sudo rm -f /usr/share/ca-certificates/burp.pem
+    # sudo /usr/bin/update-ca-trust
     echo "Proxy disabled"
 }
 

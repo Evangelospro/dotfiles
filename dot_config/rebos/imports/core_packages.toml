@@ -15,6 +15,7 @@ items = [
     "linux-atm",
     "linux-firmware",
     "linux-firmware-marvell",
+    "sof-firmware",
     "binder_linux-dkms",
     "lld",
     "llvm",

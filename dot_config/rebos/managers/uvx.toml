@@ -1,7 +1,7 @@
 # uvx
 
-add = "uv tool install #:?"
-remove = "uv tool uninstall #:?"
+add = "uvx install #:?"
+remove = "uvx uninstall #:?"
 
 plural_name = "uvx"
 hook_name = "uvx"

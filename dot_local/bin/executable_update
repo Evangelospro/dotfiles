@@ -23,13 +23,13 @@ if [ -n "$current_location" ] && [ -n "$previous_location" ]; then
         location_changed=1
     fi
 elif [ -n "$current_location" ] && [ -z "$previous_location" ]; then
-    echo "Location difference: $max_diff degrees"
     # no previous record -> treat as changed
     location_changed=1
 fi
 
 if [ "$location_changed" -eq 1 ]; then
-    echo "Location changed significantly, updating mirrors..."
+    echo "Location difference: $max_diff degrees"
+    echo "Updating mirrors..."
     update-mirrors
     echo "$current_location" > "$location_file"
 fi
