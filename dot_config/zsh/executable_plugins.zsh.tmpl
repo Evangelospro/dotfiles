@@ -25,9 +25,6 @@ zinit light Ga0aG/hhighlighter
 # zinit ice wait"0" lucid nocd
 # zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
 
-zinit ice wait"0" lucid depth=1 pick="async.zsh"
-zinit light mafredri/zsh-async
-
 zinit ice wait"0" lucid nocd
 zinit light jgogstad/zsh-mask
 
@@ -56,16 +53,13 @@ if [[ $(tput colors) == 256 ]]; then
     eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.json)"
 fi
 
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
-    # zinit light marlonrichert/zsh-autocomplete
-    zinit light aaronkollasch/zsh-autocomplete
+zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
+zinit light marlonrichert/zsh-autocomplete
 
-    zinit wait"0" lucid for \
-    zsh-users/zsh-completions \
-    atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start" \
-    zsh-users/zsh-autosuggestions
-fi
+zinit wait"0" lucid for \
+zsh-users/zsh-completions \
+atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start" \
+zsh-users/zsh-autosuggestions
 
 zinit ice wait"0" lucid nocd atload'!source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh'
 zinit light zdharma-continuum/fast-syntax-highlighting

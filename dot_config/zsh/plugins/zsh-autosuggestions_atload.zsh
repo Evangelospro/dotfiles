@@ -1,19 +1,3 @@
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
-
-ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(buffer-empty bracketed-paste accept-line push-line-or-edit)
-ZSH_AUTOSUGGEST_STRATEGY=(history)
-# ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd completion)
-
-ZSH_AUTOSUGGEST_USE_ASYNC=true
-
-# bindkey "^[[89;5u" autosuggest-accept
-#bindkey autosuggest-execute
-#bindkey autosuggest-clear
-#bindkey autosuggest-fetch
-#bindkey autosuggest-disable
-#bindkey autosuggest-enable
-#bindkey autosuggest-toggle
-
 # This speeds up pasting w/ autosuggest. Disable zsh-autocompletion on paste
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238#issuecomment-389324292
 pasteinit() {

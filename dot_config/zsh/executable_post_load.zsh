@@ -8,8 +8,6 @@ autoload -Uz _zinit
 zicompinit
 zicdreplay -q # cache completions for faster startup
 
-# zinit ice wait"0" lucid nocd has'zoxide'
-# zinit light z-shell/zsh-zoxide
 smartcache eval zoxide init zsh
 
 # end profiler check that it is not already running
