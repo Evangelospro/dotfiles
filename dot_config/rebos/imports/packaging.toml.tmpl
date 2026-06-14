@@ -1,11 +1,13 @@
 [managers.system]
 items = [
     "rebos-git",
-    ## Arch specific start
+    {{- if eq .osID "linux-arch" }}
     "pacman-static",
     "rate-mirrors-bin",
+    "downgrade",
+    # hooks
     "pacman-cleanup-hook",
     "reboot-arch-btw",
-    "downgrade",
-    ## Arch specific end
+    "kernel-modules-hook",
+    {{- end }}
 ]

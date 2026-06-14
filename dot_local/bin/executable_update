@@ -10,6 +10,7 @@ if [ -f "$location_file" ]; then
 fi
 
 location_changed=0
+max_diff=0
 if [ -n "$current_location" ] && [ -n "$previous_location" ]; then
     cur_lat="$(printf '%s' "$current_location" | cut -d, -f1)"
     cur_lon="$(printf '%s' "$current_location" | cut -d, -f2)"
