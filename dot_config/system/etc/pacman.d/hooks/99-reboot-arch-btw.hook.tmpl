@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Check whether a reboot is required
+Depends = reboot-arch-btw
+When = PostTransaction
+Exec = /usr/bin/sudo -u $USER DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus /usr/bin/reboot-arch-btw

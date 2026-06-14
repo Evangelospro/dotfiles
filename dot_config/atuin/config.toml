@@ -17,10 +17,10 @@ session_path = "~/.local/share/atuin/session"
 # dialect = "us"
 
 ## enable or disable automatic sync
-auto_sync = true
+auto_sync = false
 
 ## enable or disable automatic update checks
-update_check = true
+update_check = false
 
 ## address of the sync server
 sync_address = "https://api.atuin.sh"
