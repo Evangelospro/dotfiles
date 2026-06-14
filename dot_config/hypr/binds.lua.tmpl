@@ -2,6 +2,7 @@ MOD = "SUPER"
 
 -- scripts
 require("scripts.dvd")
+require("scripts.raise")
 
 
 -- Show binds
@@ -37,37 +38,31 @@ hl.bind({{.utilities.ocr.keybinding }}, hl.dsp.exec_cmd("{{.utilities.ocr.linux.
 
 -- Applications
 hl.bind({{ .applications.browser.keybinding }}, function()
-    hl.exec_cmd("pidof {{ .applications.browser.linux.command }} || {{ .applications.browser.linux.command }}")
-    hl.dispatch(hl.dsp.focus({window="class:{{ .applications.browser.linux.class }}" }))
+    raise_or_launch("{{ .applications.browser.linux.class }}", "{{ .applications.browser.linux.command }}")
 end, {description = "Open/focus browser"})
 hl.bind("SHIFT + " .. {{ .applications.browser.keybinding }}, hl.dsp.exec_cmd("{{ .applications.browser.linux.command }}"), {description = "Open new browser window"})
 
 hl.bind({{ .applications.burp.keybinding }}, function()
-    hl.exec_cmd("pidof {{ .applications.burp.linux.command }} || {{ .applications.burp.linux.command }}")
-    hl.dispatch(hl.dsp.focus({window="class:{{ .applications.burp.linux.class }}" }))
+    raise_or_launch("{{ .applications.burp.linux.class }}", "{{ .applications.burp.linux.command }}")
 end, {description = "Open/focus Burp Suite"})
 
 hl.bind({{ .applications.terminal.keybinding }}, function()
-    hl.exec_cmd("pidof {{ .applications.terminal.linux.command }} || {{ .applications.terminal.linux.command }}")
-    hl.dispatch(hl.dsp.focus({window="class:{{ .applications.terminal.linux.class }}" }))
+    raise_or_launch("{{ .applications.terminal.linux.class }}", "{{ .applications.terminal.linux.command }}")
 end, {description = "Open/focus terminal"})
 hl.bind("SHIFT + " .. {{ .applications.terminal.keybinding }}, hl.dsp.exec_cmd("{{ .applications.terminal.linux.command}}"), {description = "Open new terminal window"})
 
 hl.bind({{.applications.filemanager.keybinding}}, function()
-    hl.exec_cmd("pidof {{.applications.filemanager.linux.command}} || {{.applications.filemanager.linux.command}}")
-    hl.dispatch(hl.dsp.focus({window="class:{{.applications.filemanager.linux.class}}" }))
+    raise_or_launch("{{.applications.filemanager.linux.class}}", "{{.applications.filemanager.linux.command}}")
 end, {description = "Open/focus file manager"})
 hl.bind("SHIFT + " .. {{.applications.filemanager.keybinding}}, hl.dsp.exec_cmd("{{.applications.filemanager.linux.command}}"), {description = "Open new file manager window"})
 
 hl.bind({{.applications.editor.keybinding}}, function()
-    hl.exec_cmd("pidof {{.applications.editor.linux.command}} || {{.applications.editor.linux.command}}")
-    hl.dispatch(hl.dsp.focus({window="class:{{.applications.editor.linux.class}}" }))
+    raise_or_launch("{{.applications.editor.linux.class}}", "{{.applications.editor.linux.command}}")
 end, {description = "Open/focus editor"})
 hl.bind("SHIFT + " .. {{.applications.editor.keybinding}}, hl.dsp.exec_cmd("{{.applications.editor.linux.command}}"), {description = "Open new editor window"})
 
 hl.bind({{.applications.notes.keybinding}}, function()
-    hl.exec_cmd("pidof {{.applications.notes.linux.command}} || {{.applications.notes.linux.command}}")
-    hl.dispatch(hl.dsp.focus({window="class:{{.applications.notes.linux.class}}" }))
+    raise_or_launch("{{.applications.notes.linux.class}}", "{{.applications.notes.linux.command}}")
 end, {description = "Open/focus notes application"})
 
 -- Close / Fullscreen / Kill Applications

@@ -27,13 +27,6 @@
     executable = true
     refreshPeriod = "168h"
 
-[".local/bin/raise"]
-    type = "archive-file"
-    url = '{{ gitHubLatestRelease "lambdachad/raise" | toJson | fromJson | jq ".assets[2].browser_download_url" | first}}'
-    executable = true
-    refreshPeriod = "168h"
-    path = "raise"
-
 [".config/hypr/hyprsplit"]
     type = "git-repo"
     url = "https://github.com/shezdy/hyprsplit"
