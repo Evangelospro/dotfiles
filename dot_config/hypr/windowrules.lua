@@ -75,10 +75,8 @@ hl.window_rule({ match = { class = "ghidra-Ghidra", title = "^(CodeBrowser.*)$" 
 hl.window_rule({ match = { class = "qemu-system-x86_64" }, tile = true })
 hl.window_rule({ match = { class = "Spotify" }, tile = true })
 
--- czkawka
-hl.window_rule({ match = { class = "czkawka_gui", title = "^(Scanning)$" }, center = true, size = "30% 30%" })
-
-hl.window_rule({ match = { class = "flameshot", title = "^(flameshot)$" }, float = true, move = "0 0", pin = true, fullscreen_state = 2 })
+-- Flameshot
+hl.window_rule({ match = { class = "flameshot", title = "^(flameshot)$" }, float = true, size = "30% 30%", pin = true, fullscreen_state = 2 })
 
 -- Launchers
 hl.layer_rule({ match = { namespace = "walker" }, no_anim = true })
@@ -97,9 +95,6 @@ hl.window_rule({ match = { title = "^(Chromium — Sharing Indicator)$" }, move 
 hl.window_rule({ match = { title = "^(.*is sharing (your screen|a window)\\.)$" }, float = true, move = "100% 20%" })
 -- -- xwaylandvideobridge
 hl.window_rule({ match = { class = "xwaylandvideobridge" }, no_anim = true, no_initial_focus = true, max_size = "1 1", no_blur = true })
-
--- OnlyOffice
-hl.window_rule({ match = { class = "ONLYOFFICE Desktop Editors" }, tile = true })
 
 -- Dont idleinhibit fullscreen
 hl.window_rule({ match = { fullscreen = true }, idle_inhibit = "fullscreen" })
@@ -131,13 +126,6 @@ local rules = {
         height = 54,
         patterns = {
             "^Sign In %- Google Accounts %— ",
-        }
-    },
-    {
-        width = 25,
-        height = 54,
-        patterns = {
-            "^Extension: %(MetaMask%) %- MetaMask %— Firefox",
         }
     },
 }

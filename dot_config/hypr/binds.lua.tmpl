@@ -32,7 +32,10 @@ hl.bind({{.utilities.clipboard.keybinding}}, hl.dsp.exec_cmd("{{.utilities.clipb
 hl.bind({{.utilities.emojimenu.keybinding}}, hl.dsp.exec_cmd("{{.utilities.emojimenu.linux.command}}"), {description = "Open emoji menu"})
 
 -- Screenshot / OCR
-hl.bind({{.utilities.screenshot.keybinding }}, hl.dsp.exec_cmd("{{.utilities.screenshot.linux.command }}"), {description = "Take screenshot"})
+hl.bind('Print', function()
+    hl.dispatch(hl.dsp.cursor.move({ x = 0, y = 0}))
+    hl.dispatch(hl.dsp.exec_cmd("{{.utilities.screenshot.linux.command }}"))
+end, {description = "Take a screenshot"})
 -- Select area to perform OCR on
 hl.bind({{.utilities.ocr.keybinding }}, hl.dsp.exec_cmd("{{.utilities.ocr.linux.command }}"), {description = "Perform OCR on selected area"})
 

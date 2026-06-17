@@ -9,18 +9,6 @@ alias pls='please'
 # Grub
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
-# Restart stuff
-alias restart-gnome="killall -3 gnome-shell"
-alias restart-kde="killall -3 plasmashell"
-alias restart-seadrive="systemctl --user restart seadrive"
-
-# Listing
-# alias tree='tree -a -I .git --dirsfirst'
-# alias ls='lsd -hAFlt --group-dirs first --color=always'
-# alias l='lsd -hAFlt --group-dirs first --color=always'
-# alias lst='lsd -hAFlt --tree --group-dirs first --color=always'
-# alias tree='lsd -hAFlt --tree --group-dirs first --color=always'
-
 # Always need sudo, don't even bother
 alias shutdown="systemctl poweroff"
 alias reboot="systemctl reboot"
