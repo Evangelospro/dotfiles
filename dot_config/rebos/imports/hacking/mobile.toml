@@ -1,7 +1,7 @@
 [managers.system]
 items = [
-    "waydroid",
-    "waydroid-script-git",
+    # "waydroid",
+    # "waydroid-script-git",
     "jadx",
     "python-frida",
     "python-frida-tools",
@@ -22,5 +22,5 @@ items = [
 
 [managers.systemd-system]
 items = [
-    "waydroid-container",
+    # "waydroid-container",
 ]

@@ -1,7 +1,6 @@
 [managers.system]
 items = [
     "android-udev",
-    "android-emulator",
     "android-sdk-cmdline-tools-latest",
     "android-sdk-build-tools",
     "android-sdk-platform-tools",
