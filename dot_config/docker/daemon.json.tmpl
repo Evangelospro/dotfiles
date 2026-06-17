@@ -1,0 +1,11 @@
+{
+    "runtimes": {
+        {{- if .isNvidiaGPU }}
+        "nvidia": {
+            "args": [],
+            "path": "nvidia-container-runtime"
+        }
+        {{- end }}
+    },
+    "storage-driver": "overlay2"
+}

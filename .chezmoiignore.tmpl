@@ -134,3 +134,10 @@ Pictures/Screenshots
 {{- if not .isAsus }}
 .config/rog
 {{- end}}
+
+{{- if not .isNvidiaGPU }}
+.config/system/etc/nvidia*
+.config/system/etc/pacman.d/hooks/nvidia*
+.config/system/etc/modprobe.d/nvidia*
+.config/environment.d/*nvidia*
+{{- end}}

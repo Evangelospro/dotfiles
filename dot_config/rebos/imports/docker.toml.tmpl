@@ -3,6 +3,9 @@ items = [
     "docker",
     "docker-buildx",
     "docker-rootless-extras",
+    {{- if .isNvidiaGPU }}
+    "nvidia-container-toolkit"
+    {{- end }}
     "docker-compose",
     "fuse-overlayfs",
 ]

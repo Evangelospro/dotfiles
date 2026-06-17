@@ -26,7 +26,9 @@ alias update-timezone='sudo tzupdate'
 alias perms="stat --format '%a'"
 alias ffmpeg="ffpb"
 alias adb="HOME=$XDG_DATA_HOME/android adb"
+{{- if .isNvidiaGPU }}
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
+{{- end }}
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 alias xxd="hexxy --upper -td"
 alias format="prettybat"
