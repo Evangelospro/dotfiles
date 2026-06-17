@@ -2,6 +2,6 @@
 items = [
     "qdirstat",
     "gparted",
-    "czkawka-gui",
+    "krokiet-bin",
     "udiskie",
 ]
