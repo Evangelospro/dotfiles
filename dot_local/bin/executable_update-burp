@@ -2,7 +2,7 @@
 set -e
 
 current_burp_version=$(realpath $HOME/.config/burp/loader/burpsuite_pro.jar | grep -Po '(?<=/burpsuite_pro_v)[0-9]+\.[0-9]+\.[0-9]+')
-burp_releases_html=$(curl -s "https://portswigger.net/burp/releases")
+burp_releases_html=$(curl -s "https://portswigger.net/burp/downloads")
 latest_burp_version=$(echo $burp_releases_html | grep -Po '(?<=/burp/releases/professional-community-)[0-9]+\-[0-9]+\-[0-9]+' | sort -r |head -n 1 | sed 's/-/./g')
 echo "Current Burp Pro version: $current_burp_version"
 echo "Latest Burp Pro version: $latest_burp_version"
