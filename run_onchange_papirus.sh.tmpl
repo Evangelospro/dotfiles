@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# Papirus config hash: {{ include "/var/lib/papirus-folders/keep" | sha256sum }}
+/usr/bin/papirus-folders -R
+echo "Papirus settings applied."
