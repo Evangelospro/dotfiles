@@ -12,6 +12,5 @@ items = [
 
 [managers.uvx]
 items = [
-    # "stringcheese",
-
+    # "stringcheese"
 ]

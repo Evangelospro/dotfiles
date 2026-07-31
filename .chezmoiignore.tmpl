@@ -124,12 +124,12 @@ School
 Pictures/Screenshots
 {{- end }}
 # Only create if they don't exist
-{{- if stat (joinPath .chezmoi.homeDir ".ssh/config") }}
+{{- if or (stat (joinPath .chezmoi.homeDir ".ssh/config")) (not .isPersonal) }}
 .ssh/config
 {{- end }}
-{{- if stat (joinPath .chezmoi.homeDir ".config/SeaDrive/Seafile Drive Client.conf") }}
-.config/SeaDrive/Seafile Drive Client.conf
-{{- end }}
+{{- if or (stat (joinPath .chezmoi.homeDir ".config/SeaDrive")) (not .isPersonal) }}
+.config/SeaDrive
+# {{- end }}
 
 {{- if not .isAsus }}
 .config/rog
