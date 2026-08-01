@@ -32,7 +32,12 @@
     url = "https://github.com/shezdy/hyprsplit"
     branch = "main"
 
-{{- end }}
+# TODO: Currently unmaintained on aur
+[".local/bin/seadrive"]
+    type = "file"
+    url = '{{ gitHubLatestRelease "haiwen/seadrive-fuse" | toJson | fromJson | jq ".assets[0].browser_download_url" | first}}'
+    executable = true
+    refreshPeriod = "168h"
 
 {{- if (and .isHacking .isLinux) }}
 # HACKING
@@ -50,4 +55,5 @@
     url = "https://github.com/esp0xdeadbeef/cheat.sheets"
     refreshPeriod = "250h"
 
+{{- end }}
 {{- end }}

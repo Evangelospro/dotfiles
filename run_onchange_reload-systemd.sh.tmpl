@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# hash of all systemd unit files: {{ range (glob (joinPath .chezmoi.sourceDir ".config/systemd/**")) }}{{ include . | sha256sum }}{{ end }}
+
+systemctl --user daemon-reload
+echo "Systemd reloaded."
