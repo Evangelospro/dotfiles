@@ -24,13 +24,14 @@ symlink*
 symlink*
 {{ end }}
 
-# I anyways populate manually so don't litter $HOME
+# Don't litter $HOME
+Pictures
+!Pictures/Screenshots
 dconf_overrides.keyfile
 Dockerfile
 # confs/
 pyproject.toml
 README.md
-install.sh
 *requirements.txt
 docs
 .chezmoiscripts/*/**
@@ -123,14 +124,14 @@ HACKING
 School
 Notes
 Pictures/Screenshots
-{{- end }}
 # Only create if they don't exist
-{{- if or (stat (joinPath .chezmoi.homeDir ".ssh/config")) (not .isPersonal) }}
+{{- if stat (joinPath .chezmoi.homeDir ".ssh/config") }}
 .ssh/config
 {{- end }}
-{{- if or (stat (joinPath .chezmoi.homeDir ".config/SeaDrive")) (not .isPersonal) }}
+{{- if stat (joinPath .chezmoi.homeDir ".config/SeaDrive") }}
 .config/SeaDrive
-# {{- end }}
+{{- end }}
+{{- end }}
 
 {{- if not .isAsus }}
 .config/rog

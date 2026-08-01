@@ -1,6 +1,5 @@
 [managers.system]
 items = [
-    "rofi",
     "elephant-bin",
     "elephant-calc-bin",
     "elephant-clipboard-bin",
@@ -8,10 +7,11 @@ items = [
     "elephant-files-bin",
     "elephant-menus-bin",
     "elephant-providerlist-bin",
-    "elephant-runner-bin",
     "elephant-symbols-bin",
     "elephant-unicode-bin",
     "elephant-websearch-bin",
-    "elephant-windows-bin",
+    {{- if .isPersonal }}
+    "elephant-bitwarden-bin",
+    {{- end }}
     "walker-bin",
 ]

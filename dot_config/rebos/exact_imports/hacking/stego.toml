@@ -1,7 +1,7 @@
 [managers.system]
 items = [
     "stegsolve",
-    "steghide",
+    # "steghide", TODO: Check https://aur.archlinux.org/packages/steghide for when libjpeg -> libjpeg.so
     "stegseek",
     "perl-image-exiftool",
     "sonic-visualiser",

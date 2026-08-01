@@ -1,0 +1,5 @@
+if [[ -z $WAYLAND_DISPLAY ]]; then
+    xclip -selection clipboard -o
+else
+    wl-paste
+fi

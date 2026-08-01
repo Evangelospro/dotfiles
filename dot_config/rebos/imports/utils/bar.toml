@@ -1,8 +1,0 @@
-[managers.system]
-items = [
-    "wayle-bin",
-    "dart-sass",
-    "libevdev",
-    "python-evdev",
-    "python-filetype",
-]
