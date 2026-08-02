@@ -14,3 +14,11 @@ items = [
     "egl-wayland",
     "nvtop",
 ]
+
+
+[managers.systemd-system]
+items = [
+    # "nvidia-suspend",
+    # "nvidia-hibernate",
+    # "nvidia-resume",
+]

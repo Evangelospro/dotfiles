@@ -5,3 +5,8 @@ items = [
     "krokiet-bin",
     "udiskie",
 ]
+
+[managers.systemd-user]
+items = [
+    "udiskie",
+]

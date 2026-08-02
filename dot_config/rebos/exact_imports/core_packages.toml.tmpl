@@ -87,3 +87,11 @@ items = [
     "timeshift-autosnap",
     "grub-btrfs",
 ]
+
+[managers.systemd-system]
+items = [
+    "ntpd", # idk why arch doesn't have this by default
+    "plocate-updatedb.timer",
+    "grub-btrfsd",
+    "bluetooth",
+]

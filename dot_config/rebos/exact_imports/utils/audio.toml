@@ -9,3 +9,8 @@ items = [
     "pavucontrol",
     "pamixer"
 ]
+
+[managers.systemd-user]
+items = [
+    "wireplumber",
+]

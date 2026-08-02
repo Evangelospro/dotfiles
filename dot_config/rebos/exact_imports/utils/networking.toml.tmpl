@@ -1,0 +1,11 @@
+[managers.system]
+items = [
+    "networkmanager",
+]
+
+[managers.systemd-system]
+items = [
+    {{- if .isLaptop }}
+    "NetworkManager",
+    {{- end }}
+]

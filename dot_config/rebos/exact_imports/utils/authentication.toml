@@ -4,3 +4,8 @@ items = [
     "gnome-keyring",
     "kwallet-pam"
 ]
+
+[managers.systemd-user]
+items = [
+    "gnome-keyring-daemon",
+]

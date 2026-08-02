@@ -4,3 +4,8 @@ items = [
     "slurp",
     "flameshot",
 ]
+
+[managers.systemd-user]
+items = [
+    "flameshot",
+]
