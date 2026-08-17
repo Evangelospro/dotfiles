@@ -12,4 +12,7 @@ hl.on("hyprland.start", function()
     {{- if .isAsus }}
     hl.exec_cmd("pidof rog-control-center || /usr/bin/rog-control-center", {workspace = "special:rog-control-center silent", pin = true})
     {{- end }}
+
+    -- Plugins
+    hl.exec_cmd("hyprpm reload")
 end)

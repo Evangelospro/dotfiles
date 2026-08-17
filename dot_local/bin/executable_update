@@ -45,6 +45,9 @@ elif command -v pacman &>/dev/null; then
     sudo pacman -Syu
 fi
 
+/usr/bin/hyprpm update
+
+
 if [ -d $HOME/.config/burp/loader ]; then
     update-burp
 fi
