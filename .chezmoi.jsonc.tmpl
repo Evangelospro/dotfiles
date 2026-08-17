@@ -157,8 +157,8 @@
                 "keybinding": "MOD .. ' + SPACE'",
                 "linux":{
                     "name": "launcher",
-                    "command": "/usr/bin/walker",
-                    "class": "walker"
+                    "command": "/usr/bin/vicinae toggle",
+                    "class": "vicinae"
                 }
             },
             "symbols_menu": {
@@ -166,17 +166,26 @@
                 "keybinding": "MOD .. ' + J'",
                 "linux":{
                     "name": "symbols",
-                    "command": "/usr/bin/walker -m symbols",
+                    "command": "/usr/bin/vicinae vicinae://launch/core/search-emojis?toggle=true",
                     "class": "symbols_menu"
+                }
+            },
+            "binds_menu": {
+                "description": "Open the binds menu",
+                "keybinding": "MOD .. ' + ESCAPE'",
+                "linux":{
+                    "name": "shortcuts",
+                    "command": "/usr/bin/vicinae vicinae://launch/@sovereign/store.vicinae.hypr-keybinds/hyprland-keybinds?toggle=true",
+                    "class": "binds_menu"
                 }
             },
             "clipboard": {
                 "description": "Open the clipboard manager",
                 "keybinding": "MOD .. ' + V'",
                 "linux": {
-                    "name": "clipmenu",
-                    "command": "/usr/bin/walker -m clipboard",
-                    "class": "clipmenu"
+                    "name": "clipboard menu",
+                    "command": "/usr/bin/vicinae vicinae://launch/clipboard/history?toggle=true",
+                    "class": "clipboard_menu"
                 }
             },
             "screenshot": {
@@ -207,7 +216,7 @@
                 "keybinding": "MOD .. ' + P'",
                 "linux": {
                     "name": "password_manager",
-                    "command": "/usr/bin/walker -m bitwarden",
+                    "command": "/usr/bin/vicinae vicinae://launch/@bl4zee1g/store.vicinae.bitwarden/browse-vault?toggle=true",
                     "class": "password_manager"
                 }
             },
