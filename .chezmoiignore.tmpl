@@ -127,6 +127,8 @@ Pictures/Screenshots
 
 .config/rbw
 .config/systemd/user/seadrive.service
+.ssh/config
+.config/SeaDrive
 {{- else }}
 # Only create if they don't exist
 {{- if stat (joinPath .chezmoi.homeDir ".ssh/config") }}

@@ -86,6 +86,9 @@ items = [
     "timeshift",
     "timeshift-autosnap",
     "grub-btrfs",
+    {{- if .isLaptop }}
+    "power-profiles-daemon",
+    {{- end }}
 ]
 
 [managers.systemd-system]
