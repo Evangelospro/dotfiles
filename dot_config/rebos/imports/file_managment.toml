@@ -1,6 +1,7 @@
 [managers.system]
 items = [
     "nemo",
+    "nemo-share",
     "nemo-fileroller",
     "nemo-compare",
     "nemo-preview",
@@ -11,5 +12,7 @@ items = [
     "fd",
     "unp", # extraction
     "ouch", # compression
+    "gvfs",
+    "gvfs-smb",
     "gvfs-mtp",
 ]
