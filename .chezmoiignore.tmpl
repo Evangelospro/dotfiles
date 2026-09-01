@@ -124,6 +124,9 @@ HACKING
 School
 Notes
 Pictures/Screenshots
+
+.config/rbw
+{{- else }}
 # Only create if they don't exist
 {{- if stat (joinPath .chezmoi.homeDir ".ssh/config") }}
 .ssh/config
@@ -131,6 +134,7 @@ Pictures/Screenshots
 {{- if stat (joinPath .chezmoi.homeDir ".config/SeaDrive") }}
 .config/SeaDrive
 {{- end }}
+
 {{- end }}
 
 {{- if not .isAsus }}
