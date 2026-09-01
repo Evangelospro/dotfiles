@@ -44,6 +44,8 @@
         "email": {{ $email | quote }},
         "applications": {
             "terminal": {
+                "description": "Open the terminal",
+                "new_window": true,
                 "linux": {
                     "name": "Ghostty",
                     "command": "ghostty",
@@ -53,6 +55,8 @@
                 "keybinding": "MOD .. ' + T'",
             },
             "editor": {
+                "description": "Open the code editor",
+                "new_window": true,
                 "linux": {
                     "name": "code-insiders",
                     "command": "code-insiders",
@@ -66,6 +70,8 @@
                 "keybinding": "MOD .. ' + C'",
             },
             "browser": {
+                "description": "Open the web browser",
+                "new_window": true,
                 "linux": {
                     "name": "brave-browser",
                     "command": "brave",
@@ -79,6 +85,8 @@
                 "keybinding": "MOD .. ' + B'",
             },
             "filemanager": {
+                "description": "Open the file manager",
+                "new_window": true,
                 "linux": {
                     "name": "nemo",
                     "command": "nemo",
@@ -91,7 +99,7 @@
                 },
                 "keybinding": "MOD .. ' + E'",
             },
-            "imageviewer": {
+            "image_viewer": {
                 "linux": {
                     "name": "qimgv",
                     "command": "qimgv",
@@ -111,6 +119,7 @@
                 }
             },
             "notes": {
+                "description": "Open the notes app",
                 "keybinding": "MOD .. ' + N'",
                 "linux": {
                     "name": "obsidian",
@@ -119,6 +128,7 @@
                 },
             },
             "burp": {
+                "description": "Open Burp Suite",
                 "linux": {
                     "name": "burp",
                     "command": "burp",
@@ -151,13 +161,13 @@
                     "class": "walker"
                 }
             },
-            "emojimenu": {
-                "description": "Open the emoji launcher",
+            "symbols_menu": {
+                "description": "Open the symbol launcher",
                 "keybinding": "MOD .. ' + J'",
                 "linux":{
-                    "name": "emoji",
-                    "command": "~/.local/bin/emoji-menu",
-                    "class": "emoji-menu"
+                    "name": "symbols",
+                    "command": "/usr/bin/walker -m symbols",
+                    "class": "symbols_menu"
                 }
             },
             "clipboard": {
@@ -165,17 +175,8 @@
                 "keybinding": "MOD .. ' + V'",
                 "linux": {
                     "name": "clipmenu",
-                    "command": "/usr/bin/clipse-gui",
+                    "command": "/usr/bin/walker -m clipboard",
                     "class": "clipmenu"
-                }
-            },
-            "colorpicker": {
-                "description": "Open the colorpicker",
-                "keybinding": "MOD .. ' + C'",
-                "linux": {
-                    "name": "colorpicker",
-                    "command": "colorpicker",
-                    "class": "colorpicker"
                 }
             },
             "screenshot": {
@@ -197,10 +198,19 @@
                 "keybinding": "MOD .. ' + O'",
                 "linux": {
                     "name": "wl-ocr",
-                    "command": "wl-ocr",
+                    "command": "hyprctl dispatch 'hl.dsp.cursor.move({ x = 0, y = 0})' && wl-ocr",
                     "class": "wl-ocr"
                 }
-            }
+            },
+            "password_manager": {
+                "description": "Open the password manager",
+                "keybinding": "MOD .. ' + P'",
+                "linux": {
+                    "name": "password_manager",
+                    "command": "/usr/bin/walker -m bitwarden",
+                    "class": "password_manager"
+                }
+            },
         }
     },
     "github": {

@@ -25,48 +25,24 @@ hl.bind(MOD .. " + SHIFT + Z", function()
         hl.config({cursor = { zoom_factor = zoom_factor - 0.1 }})
     end
 end, {description = "Decrease cursor zoom"})
-hl.bind({{.utilities.lockscreen.keybinding}}, hl.dsp.exec_cmd("{{.utilities.lockscreen.linux.command }}"), { locked = true, description = "Lock screen" })
-hl.bind({{.utilities.launcher.keybinding}}, hl.dsp.exec_cmd("{{.utilities.launcher.linux.command}}"), {description = "Open application launcher"})
-hl.bind("XF86Search", hl.dsp.exec_cmd("{{.utilities.launcher.linux.command}}"), {description = "Open application launcher (search key)"})
-hl.bind({{.utilities.clipboard.keybinding}}, hl.dsp.exec_cmd("{{.utilities.clipboard.linux.command}}"), {description = "Open clipboard manager"})
-hl.bind({{.utilities.emojimenu.keybinding}}, hl.dsp.exec_cmd("{{.utilities.emojimenu.linux.command}}"), {description = "Open emoji menu"})
 
--- Screenshot / OCR
-hl.bind('Print', function()
-    hl.dispatch(hl.dsp.cursor.move({ x = 0, y = 0}))
-    hl.dispatch(hl.dsp.exec_cmd("{{.utilities.screenshot.linux.command }}"))
-end, {description = "Take a screenshot"})
--- Select area to perform OCR on
-hl.bind({{.utilities.ocr.keybinding }}, hl.dsp.exec_cmd("{{.utilities.ocr.linux.command }}"), {description = "Perform OCR on selected area"})
+{{- range $name, $utility := .utilities }}
+{{- if and (hasKey $utility "keybinding") $utility.keybinding }}
+hl.bind({{ $utility.keybinding }}, hl.dsp.exec_cmd("{{ $utility.linux.command }}"), { {{- if eq $name "lockscreen" }} locked = true, {{- end }} description = {{ $utility.description | quote }} })
+{{- end }}
+{{- end }}
 
 -- Applications
-hl.bind({{ .applications.browser.keybinding }}, function()
-    raise_or_launch("{{ .applications.browser.linux.class }}", "{{ .applications.browser.linux.command }}")
-end, {description = "Open/focus browser"})
-hl.bind("SHIFT + " .. {{ .applications.browser.keybinding }}, hl.dsp.exec_cmd("{{ .applications.browser.linux.command }}"), {description = "Open new browser window"})
-
-hl.bind({{ .applications.burp.keybinding }}, function()
-    raise_or_launch("{{ .applications.burp.linux.class }}", "{{ .applications.burp.linux.command }}")
-end, {description = "Open/focus Burp Suite"})
-
-hl.bind({{ .applications.terminal.keybinding }}, function()
-    raise_or_launch("{{ .applications.terminal.linux.class }}", "{{ .applications.terminal.linux.command }}")
-end, {description = "Open/focus terminal"})
-hl.bind("SHIFT + " .. {{ .applications.terminal.keybinding }}, hl.dsp.exec_cmd("{{ .applications.terminal.linux.command}}"), {description = "Open new terminal window"})
-
-hl.bind({{.applications.filemanager.keybinding}}, function()
-    raise_or_launch("{{.applications.filemanager.linux.class}}", "{{.applications.filemanager.linux.command}}")
-end, {description = "Open/focus file manager"})
-hl.bind("SHIFT + " .. {{.applications.filemanager.keybinding}}, hl.dsp.exec_cmd("{{.applications.filemanager.linux.command}}"), {description = "Open new file manager window"})
-
-hl.bind({{.applications.editor.keybinding}}, function()
-    raise_or_launch("{{.applications.editor.linux.class}}", "{{.applications.editor.linux.command}}")
-end, {description = "Open/focus editor"})
-hl.bind("SHIFT + " .. {{.applications.editor.keybinding}}, hl.dsp.exec_cmd("{{.applications.editor.linux.command}}"), {description = "Open new editor window"})
-
-hl.bind({{.applications.notes.keybinding}}, function()
-    raise_or_launch("{{.applications.notes.linux.class}}", "{{.applications.notes.linux.command}}")
-end, {description = "Open/focus notes application"})
+{{- range $name, $app := .applications }}
+{{- if and (hasKey $app "keybinding") $app.keybinding }}
+hl.bind({{ $app.keybinding }}, function()
+    raise_or_launch("{{ $app.linux.class }}", "{{ $app.linux.command }}")
+end, {description = {{ $app.description | quote }}})
+{{- if hasKey $app "new_window" }}
+hl.bind("SHIFT + " .. {{ $app.keybinding }}, hl.dsp.exec_cmd("{{ $app.linux.command }}"), {description = {{ printf "Open new %s window" $name | quote }}})
+{{- end }}
+{{- end }}
+{{- end }}
 
 -- Close / Fullscreen / Kill Applications
 hl.bind("ALT + F4", hl.dsp.window.close(), {description = "Close window"})
@@ -81,9 +57,6 @@ hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("volumectl down"), { repeating =
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("volumectl toggle-mute"), { locked=true, description = "Toggle mute"})
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true , locked=true, description = "Increase brightness"})
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true , locked=true, description = "Decrease brightness"})
-
--- Project menu
-hl.bind(MOD .. " + P", hl.dsp.exec_cmd("pidof hyprmoncfg || {{.applications.terminal.linux.command}} -e hyprmoncfg --hypr-config ~/.config/hypr/hyprland.lua"), {description = "Toggle project menu"})
 
 -- Valent (KDEConnect) special scratchpad workspace
 hl.bind(MOD .. " + K", function()

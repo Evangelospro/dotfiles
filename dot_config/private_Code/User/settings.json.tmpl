@@ -235,11 +235,11 @@
 	// EXTENSIONS
 	"settingsSync.ignoredExtensions": ["WakaTime.vscode-wakatime"],
 	// APKLAB
-	"apklab.apkSignerPath": "{{ .chezmoi.homeDir }}/.apklab/uber-apk-signer-1.3.0.jar",
-	"apklab.apktoolPath": "{{ .chezmoi.homeDir }}/.apklab/apktool_3.0.2.jar",
-	"apklab.jadxDirPath": "{{ .chezmoi.homeDir }}/.apklab/jadx-1.5.3",
-	"apklab.smaliLspPath": "{{ .chezmoi.homeDir }}/.apklab/smali-lsp-1.5.0.jar",
-	"apklab.initProjectDirAsGit": false,
+    "apklab.apkSignerPath": "{{ (glob (printf "%s/.apklab/uber-apk-signer-*" .chezmoi.homeDir)) | last }}",
+    "apklab.apktoolPath": "{{ (glob (printf "%s/.apklab/apktool_*" .chezmoi.homeDir)) | last }}",
+    "apklab.jadxDirPath": "{{ (glob (printf "%s/.apklab/jadx-*" .chezmoi.homeDir)) | last }}",
+    "apklab.smaliLspPath": "{{ (glob (printf "%s/.apklab/smali-lsp-*" .chezmoi.homeDir)) | last }}",
+    "apklab.initProjectDirAsGit": false,
 	// SECURITY
 	"security.workspace.trust.banner": "always",
 	"security.workspace.trust.enabled": false,
@@ -254,7 +254,7 @@
 	"debug.onTaskErrors": "showErrors",
 	"debug.openDebug": "openOnDebugBreak",
 	// "eslint.enable": true,
-	"extensions.autoUpdate": true,
+	"extensions.autoUpdate": "on",
 	"extensions.ignoreRecommendations": true,
 	"files.insertFinalNewline": true,
 	"files.restoreUndoStack": true,

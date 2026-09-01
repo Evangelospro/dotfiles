@@ -7,4 +7,4 @@ Target = *
 Description = Check whether a reboot is required
 Depends = reboot-arch-btw
 When = PostTransaction
-Exec = /usr/bin/sudo -u $USER DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus /usr/bin/reboot-arch-btw
+Exec = /usr/bin/sh -c 'sudo -u "$(logname)" DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u $(logname))/bus" /usr/bin/reboot-arch-btw'

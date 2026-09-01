@@ -1,6 +1,5 @@
 [managers.system]
 items = [
     "xournalpp",
-    # "zathura",
-    "onlyoffice-bin",
+    "euro-office-lite-bin",
 ]
