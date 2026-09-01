@@ -1,0 +1,18 @@
+{{- if .isPersonal }}
+C_HOST=http://c.infra
+SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
+{{- end }}
+
+SSH_ASKPASS=/usr/lib/ssh/gnome-ssh-askpass4
+SSH_ASKPASS_REQUIRE=force
+SUDO_ASKPASS=/usr/lib/ssh/gnome-ssh-askpass4
+
+LESSHISTFILE=-
+
+ELECTRON_TRASH=trash-cli
+
+# Android
+ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL=5
+
+# pnpm / Corepack
+COREPACK_ENABLE_STRICT=0
