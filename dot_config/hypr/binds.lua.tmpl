@@ -8,10 +8,10 @@ require("scripts.raise")
 hl.bind(MOD .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"), {description = "Reload Hyprland"})
 
 -- Plugins
-hl.bind(MOD .. " + " .. MOD .. "_L", function()
-    hl.dispatch(hl.dsp.window.fullscreen({ action = "unset" })) -- exit fullscreen
-    hl.plugin.hyprexpo.expo("toggle")
-end, {description = "Overview", release = true})
+-- hl.bind(MOD .. " + " .. MOD .. "_L", function()
+--     hl.dispatch(hl.dsp.window.fullscreen({ action = "unset" })) -- exit fullscreen
+--     hl.plugin.hyprexpo.expo("toggle")
+-- end, {description = "Overview", release = true})
 
 
 -- Utilities

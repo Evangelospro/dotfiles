@@ -46,11 +46,11 @@ elif command -v pacman &>/dev/null; then
 fi
 
 /usr/bin/hyprpm update
-if ! /usr/bin/hyprpm list | grep -q hyprexpo; then
-    echo "hyprexpo not found, adding it..."
-    /usr/bin/hyprpm add https://github.com/sandwichfarm/hyprexpo
-    /usr/bin/hyprpm enable hyprexpo
-fi
+# if ! /usr/bin/hyprpm list | grep -q hyprexpo; then
+#     echo "hyprexpo not found, adding it..."
+#     /usr/bin/hyprpm add https://github.com/sandwichfarm/hyprexpo
+#     /usr/bin/hyprpm enable hyprexpo
+# fi
 
 if [ -d $HOME/.config/burp/loader ]; then
     update-burp

@@ -42,16 +42,6 @@ function e.() {
     e .
 }
 
-function ssh(){
-    if [[ $TERM_PROGRAM == "WezTerm" ]]; then
-        # wezterm ssh "$@"
-        command ssh "$@"
-    else
-        infocmp -x | command ssh "$@" -- tic -x -
-        command ssh "$@"
-    fi
-}
-
 # sshp username password host extr_args
 function sshp() {
     echo "Using sshpass to ssh into $3 as $1 with password $2 and extra args ${@:4}"
