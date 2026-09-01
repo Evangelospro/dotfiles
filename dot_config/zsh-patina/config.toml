@@ -1,2 +1,2 @@
 [highlighting]
-theme = "lavender"
+theme = "file:~/.config/zsh-patina/dracula.toml"

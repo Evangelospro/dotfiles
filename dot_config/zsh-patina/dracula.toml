@@ -1,0 +1,8 @@
+# Inherit from lavender theme
+[metadata]
+extends = "lavender"
+
+# Override dynamic path styling
+["dynamic.path"]
+foreground = "#00ff00"
+underline = false
