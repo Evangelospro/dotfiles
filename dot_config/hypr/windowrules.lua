@@ -80,6 +80,11 @@ hl.window_rule({ match = { class = "flameshot", title = "^(flameshot)$" }, float
 
 -- Launchers
 hl.layer_rule({ match = { namespace = "walker" }, no_anim = true })
+hl.layer_rule({
+    match = { namespace = "vicinae" },
+    name = "vicinae-no-animation",
+    no_anim = true,
+})
 
 -- Clipboard manager (clipse)
 hl.window_rule({ match = { class = "clipse-gui" }, float = true, stay_focused = true })

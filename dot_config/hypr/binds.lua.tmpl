@@ -4,27 +4,27 @@ MOD = "SUPER"
 require("scripts.dvd")
 require("scripts.raise")
 
-
--- Show binds
-hl.bind(MOD .. " + ESCAPE", hl.dsp.exec_cmd("~/.config/hypr/scripts/show_binds.sh"), {description = "Show bindings"})
-
 -- Exit / Reload
 hl.bind(MOD .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"), {description = "Reload Hyprland"})
 
 -- Plugins
--- hl.bind(MOD .. " + grave", hl.dsp.exec_cmd("overview:toggle"))
+hl.bind(MOD .. " + " .. MOD .. "_L", function()
+    hl.dispatch(hl.dsp.window.fullscreen({ action = "unset" })) -- exit fullscreen
+    hl.plugin.hyprexpo.expo("toggle")
+end, {description = "Overview", release = true})
+
 
 -- Utilities
 hl.bind(MOD .. " + Z", function()
     zoom_factor = hl.get_config("cursor.zoom_factor")
     hl.config({cursor = { zoom_factor = zoom_factor + 0.1 }})
-end, {description = "Increase cursor zoom"})
+end, {description = "Increase cursor zoom", repeating = true})
 hl.bind(MOD .. " + SHIFT + Z", function()
     zoom_factor = hl.get_config("cursor.zoom_factor")
     if zoom_factor > 1.0 then
         hl.config({cursor = { zoom_factor = zoom_factor - 0.1 }})
     end
-end, {description = "Decrease cursor zoom"})
+end, {description = "Decrease cursor zoom", repeating = true})
 
 {{- range $name, $utility := .utilities }}
 {{- if and (hasKey $utility "keybinding") $utility.keybinding }}

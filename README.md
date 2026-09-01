@@ -168,10 +168,9 @@ $MOD = SUPER
 
 - [configuration](dot_config/wayle)
 
-#### Application Launcher: [Walker](https://github.com/abenz1267/walker)
+#### Application Launcher: [Vicinae](https://github.com/vicinaehq/vicinae)
 
-- [configuration](dot_config/walker)
-  ![walker.png](Pictures/showcase/utilities/walker.png)
+- [configuration](dot_config/vicinae)
 
 #### Clipboard Managegment: [Clipse](https://github.com/savedra1/clipse)
 
