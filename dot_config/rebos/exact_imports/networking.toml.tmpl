@@ -1,0 +1,12 @@
+[managers.system]
+items = [
+    "bridge-utils",
+    "dnsmasq",
+]
+
+[managers.systemd-system]
+items = [
+    {{- if .isLaptop }}
+    "iwd",
+    {{- end }}
+]
