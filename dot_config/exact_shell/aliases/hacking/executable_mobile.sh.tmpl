@@ -1,5 +1,0 @@
-APKLAB_DIR=~/.apklab
-if [ -f $APKLAB_DIR/first_run_completed ]; then
-    uber_apk_signer=$(ls -d $APKLAB_DIR/uber-apk-signer-*.jar|head -n 1)
-    alias sign-apk="java -jar $uber_apk_signer --allowResign"
-fi
