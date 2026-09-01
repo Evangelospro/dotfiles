@@ -14,7 +14,6 @@ PKGBUILDS
 **/*.ps1
 Documents
 AppData
-.glaze-wm
 
 {{- else if and ( ne .chezmoi.os "linux" ) ( ne .chezmoi.os "darwin" )}}
 **/*.sh
@@ -41,12 +40,6 @@ docs
 # powertoys logs and versions
 **/*Logs*
 **/*_version.txt
-
-# notes
-*.notes
-
-# Monitor arrangement
-.config/hypr/monitors.conf
 
 # VSCODE workspace
 .vscode/*
@@ -96,11 +89,8 @@ docs/zsdoc/data
 .keep
 **/*.log
 
-# ohmyzsh/ohmyzsh/plugins/per-directory-history plugin's files
-# (when set-up to store the history in the local directory)
+# Zsh
 .directory_history
-
-.config/zsh/antigen/
 .config/zsh/cache/
 .config/zsh/.zinit/**
 .config/zsh/zoxide/**
@@ -114,7 +104,6 @@ docs/zsdoc/data
 
 # Mypy
 **/.mypy_cache
-
 
 {{- if not .isPersonal }}
 VMs
@@ -131,6 +120,7 @@ Pictures/Screenshots
 .ssh/config
 .config/SeaDrive
 {{- else }}
+
 # Only create if they don't exist
 {{- if stat (joinPath .chezmoi.homeDir ".ssh/config") }}
 .ssh/config
