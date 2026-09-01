@@ -22,15 +22,14 @@ imports = [
     "asus",
     {{- end }}
     {{- if .isIntelGPU }}
-    "drivers/gpu/intel",
+    "gpu/intel",
     {{- end }}
     {{- if .isAmdGPU }}
-    "drivers/gpu/amd",
+    "gpu/amd",
     {{- end }}
     {{- if .isNvidiaGPU }}
-    "drivers/gpu/nvidia",
+    "gpu/nvidia",
     {{- end }}
-    "drivers/wireless/wifi",
     {{- if .isHacking }}
     "hacking",
     {{- end }}

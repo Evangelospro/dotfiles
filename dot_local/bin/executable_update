@@ -45,6 +45,7 @@ elif command -v pacman &>/dev/null; then
     sudo pacman -Syu
 fi
 
+source "$XDG_CONFIG_HOME/zsh/.zinit/zinit.zsh"
 zinit self-update
 zinit update --all
 
@@ -58,3 +59,6 @@ zinit update --all
 if [ -d $HOME/.config/burp/loader ]; then
     update-burp
 fi
+
+
+/usr/bin/reboot-arch-btw

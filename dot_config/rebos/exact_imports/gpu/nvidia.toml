@@ -13,6 +13,7 @@ items = [
     # "nvenc",
     "egl-wayland",
     "nvtop",
+    "cardwire",
 ]
 
 
@@ -21,4 +22,5 @@ items = [
     # "nvidia-suspend",
     # "nvidia-hibernate",
     # "nvidia-resume",
+    cardwired,
 ]

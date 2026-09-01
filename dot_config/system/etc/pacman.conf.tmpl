@@ -82,8 +82,7 @@ Include = /etc/pacman.d/mirrorlist
 Include = /etc/pacman.d/mirrorlist
 
 {{- if .isAsus}}
-# https://asus-linux.org/guides/arch-guide/
-[g14]
-Server = https://arch.asus-linux.org
+[ogc]
+Server = https://pacman.opengamingcollective.org
 SigLevel = Never
 {{- end}}

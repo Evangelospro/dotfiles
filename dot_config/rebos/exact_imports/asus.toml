@@ -9,5 +9,4 @@ items = [
 items = [
     # "power-profiles-daemon",
     "asusd",
-    "supergfxd",
 ]
