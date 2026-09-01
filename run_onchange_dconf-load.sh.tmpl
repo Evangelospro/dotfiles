@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+
 # Dconf config hash: {{ include "dot_config/private_dconf/user.d/everything.conf.tmpl" | sha256sum }}
 bash ~/.local/share/chezmoi/dot_local/bin/executable_chezmoi-helpers-dconf apply ~/.config/dconf/user.d/everything.conf
 echo "Dconf settings reload complete."
