@@ -4,7 +4,8 @@ PKGBUILDS
 **/*.src.ini
 
 {{- if (not .isHacking) }}
-.local/applications/ida.desktop
+.local/share/applications/ida-*.desktop
+.local/share/applications/burp.desktop
 {{ end }}
 
 {{- if ne .chezmoi.os "windows" }}
