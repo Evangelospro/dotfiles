@@ -1,2 +1,6 @@
 {{- /* chezmoi:modify-template */ -}}
+{{- if stat (joinPath .chezmoi.homeDir ".config/discord/settings.json") -}}
 {{- fromJson .chezmoi.stdin | setValueAtPath "SKIP_HOST_UPDATE" true | toPrettyJson }}
+{{- else -}}
+{{- .chezmoi.stdin -}}
+{{- end -}}

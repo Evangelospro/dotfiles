@@ -3,5 +3,4 @@ items = [
     "git",
     "git-lfs",
     "github-cli",
-    "lazygit"
 ]

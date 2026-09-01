@@ -1,7 +1,6 @@
 imports = [
     "core_packages",
     "networking",
-    "applications",
     "programming",
     "toolkits",
     "utils",
@@ -10,7 +9,6 @@ imports = [
     "file_managment",
     "fonts",
     "git",
-    "hyprland",
     "packaging",
     "rdp",
     "shell",
@@ -18,6 +16,13 @@ imports = [
     "vpns",
     "xdg",
     "downloaders",
+    {{- if .isPersonal }}
+    "applications/password_manager",
+    {{- end }}
+    {{- if not .isHeadless }}
+    "hyprland",
+    "applications",
+    {{- end }}
     {{- if .isAsus }}
     "asus",
     {{- end }}
@@ -32,9 +37,6 @@ imports = [
     {{- end }}
     {{- if .isHacking }}
     "hacking",
-    {{- end }}
-    {{- if .isPersonal }}
-    "applications/password_manager",
     {{- end }}
 ]
 
