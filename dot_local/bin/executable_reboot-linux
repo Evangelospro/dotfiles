@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 kernel_name="linux" # change to your default desired kernel name
 linux_title=$(grep -i $kernel_name /boot/grub/grub.cfg | cut -d "'" -f 2)
 pkexec grub-reboot "$linux_title"

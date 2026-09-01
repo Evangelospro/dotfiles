@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 if ! pacman -Qs chezmoi >/dev/null 2>&1; then
     sudo pacman -S --noconfirm chezmoi

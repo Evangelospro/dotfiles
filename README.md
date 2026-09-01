@@ -35,13 +35,6 @@ There are a few main components to this project:
 > [!WARNING]
 > I highly recommend that you [use it as template](https://github.com/evangelospro/dotfiles/generate) and edit the files to your liking before applying them (using your own GitHub username). Don't forget to come back here and star the project if you liked it!
 
-### Cloning
-
-```bash
-GITHUB_USERNAME=Evangelospro # preferably change this to your own template and github username
-git clone https://github.com/$GITHUB_USERNAME/dotfiles ~/.local/share/chezmoi
-```
-
 ### Basic configuration (will be asked when applying)
 
 > [.chezmoi.jsonc.tmpl](.chezmoi.jsonc.tmpl)
@@ -61,9 +54,18 @@ git clone https://github.com/$GITHUB_USERNAME/dotfiles ~/.local/share/chezmoi
 ### Applying
 
 ```bash
+sudo pacman -S chezmoi
+GITHUB_USERNAME=Evangelospro # Change this to your own github username with the forked template
+git clone https://github.com/$GITHUB_USERNAME/dotfiles ~/.local/share/chezmoi
+chezmoi init
 chezmoi apply -v
+
+rebos setup
+rebos config init
 rebos gen commit init
 rebos gen current build
+
+hyprmoncfg
 ```
 
 ## Keybindings

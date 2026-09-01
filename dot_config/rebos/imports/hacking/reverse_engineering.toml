@@ -9,5 +9,5 @@ items = [
     "dotnet-runtime-6.0",
     # "avaloniailspy",
     "jd-gui-bin",
-    "recaf-bin",
+    # "recaf-bin",
 ]
