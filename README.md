@@ -65,7 +65,7 @@ rebos config init
 rebos gen commit init
 rebos gen current build
 
-hyprmoncfg
+nwg-displays
 ```
 
 ## Keybindings
@@ -224,15 +224,9 @@ $MOD = SUPER
 
 ###### [zsh-auto-notify](https://github.com/MichaelAquilina/zsh-auto-notify) - ⏰ ZSH plugin that automatically sends out a notification when a long running task has completed.
 
-###### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Suggests commands as you type based on history and completions
-
-###### [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting) - Highlights commands as you type based on syntax
-
 ###### [zsh-completions](https://github.com/zsh-users/zsh-completions) - Additional completion definitions for zsh
 
 ###### [zsh-autocomplete](https://github.com/marlonrichert/zsh-autocomplete) - A fast, asynchronous autocomplete plugin for Zsh
-
-###### [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like autosuggestions for zsh
 
 ###### [modern-unix-commands](https://github.com/ibraheemdev/modern-unix) - Essentially replaces many well known unix commands and utilities with better or superior alternatives
 

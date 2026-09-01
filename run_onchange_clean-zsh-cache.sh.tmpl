@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# zsh config hash: {{ range (glob (joinPath .chezmoi.sourceDir "dot_config/zsh/**")) }}{{ if not (stat .).isDir }}{{ include . | sha256sum }}{{ end }}{{ end }}
+
+rm -rf "${XDG_CACHE_HOME:-$HOME/.cache}/zsh" "${XDG_CACHE_HOME:-$HOME/.cache}/zinit"
+rm -f "$HOME/.config/zsh"/.zcompdump*
+
+echo "zsh cache cleared."

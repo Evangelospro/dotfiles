@@ -47,7 +47,7 @@ items = [
     "hyprgraphics",
     "hyprpolkitagent",
     "hyprtoolkit",
-    "hyprmoncfg",
+    "nwg-displays",
     "lua-inspect", # for debugging
 ]
 
@@ -56,5 +56,4 @@ items = [
     "hyprpaper",
     "hyprpolkitagent",
     "hypridle",
-    "hyprmoncfgd",
 ]

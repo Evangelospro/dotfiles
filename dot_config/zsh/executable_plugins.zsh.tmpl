@@ -62,11 +62,12 @@ _comp_options+=(globdots)
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-zicompinit
-zicdreplay -q # cache completions for faster startup
-
 zinit ice depth=1 lucid atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
 zinit light marlonrichert/zsh-autocomplete
+
+# compinit must run after zsh-autocomplete
+zicompinit
+zicdreplay -q # cache completions for faster startup
 
 zinit ice wait"0" lucid nocd
 zinit light UtsavMandal2022/zsh-sage
