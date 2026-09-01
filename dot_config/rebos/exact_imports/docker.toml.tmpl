@@ -14,3 +14,8 @@ items = [
 items = [
     "docker.socket", # avoid docker.service as that starts the daemon, while socket just listens until docker is needed on demand
 ]
+
+[managers.systemd-user]
+items = [
+    "docker",
+]

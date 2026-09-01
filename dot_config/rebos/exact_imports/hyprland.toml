@@ -50,3 +50,11 @@ items = [
     "hyprmoncfg",
     "lua-inspect", # for debugging
 ]
+
+[managers.systemd-user]
+items = [
+    "hyprpaper",
+    "hyprpolkitagent",
+    "hypridle",
+    "hyprmoncfgd",
+]

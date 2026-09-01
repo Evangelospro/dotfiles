@@ -42,13 +42,6 @@
 {{- if (and .isHacking .isLinux) }}
 # HACKING
 
-# ## PWN
-# ["HACKING/Tools/pwn/libc-database"]
-#     type = "git-repo"
-#     url = "https://github.com/niklasb/libc-database"
-#     branch = "master"
-#     refreshPeriod = "250h"
-
 ## Cheatsheets
 [".local/share/navi/cheats/esp0xdeadbeef"]
     type = "git-repo"

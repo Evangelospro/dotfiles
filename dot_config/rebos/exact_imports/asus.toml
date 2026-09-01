@@ -5,3 +5,10 @@ items = [
     "asusctl",
     "rog-control-center"
 ]
+
+[managers.systemd-system]
+items = [
+    # "power-profiles-daemon",
+    "asusd",
+    "supergfxd",
+]

@@ -235,11 +235,11 @@
 	// EXTENSIONS
 	"settingsSync.ignoredExtensions": ["WakaTime.vscode-wakatime"],
 	// APKLAB
-    "apklab.apkSignerPath": "{{ (glob (printf "%s/.apklab/uber-apk-signer-*" .chezmoi.homeDir)) | last }}",
-    "apklab.apktoolPath": "{{ (glob (printf "%s/.apklab/apktool_*" .chezmoi.homeDir)) | last }}",
-    "apklab.jadxDirPath": "{{ (glob (printf "%s/.apklab/jadx-*" .chezmoi.homeDir)) | last }}",
-    "apklab.smaliLspPath": "{{ (glob (printf "%s/.apklab/smali-lsp-*" .chezmoi.homeDir)) | last }}",
-    "apklab.initProjectDirAsGit": false,
+	"apklab.apkSignerPath": "{{ (glob (printf "%s/.apklab/uber-apk-signer-*.jar" .chezmoi.homeDir)) | last }}",
+	"apklab.apktoolPath": "/usr/bin/apktool",
+	"apklab.jadxDirPath": "{{ (glob (printf "%s/.apklab/jadx-*" .chezmoi.homeDir)) | first }}",
+	"apklab.smaliLspPath": "{{ (glob (printf "%s/.apklab/smali-lsp-*.jar" .chezmoi.homeDir)) | last }}",
+	"apklab.initProjectDirAsGit": false,
 	// SECURITY
 	"security.workspace.trust.banner": "always",
 	"security.workspace.trust.enabled": false,

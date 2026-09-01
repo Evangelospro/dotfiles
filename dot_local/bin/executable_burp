@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-/usr/bin/java --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$HOME/.config/burp/loader/loader.jar -noverify -jar $HOME/.config/burp/loader/burpsuite_pro.jar
+# TODO: Figure out a better way rather than hardcoding the currently working java binary
+/usr/lib/jvm/java-21-openjdk/bin/java --add-opens=java.desktop/javax.swing=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED --add-opens=java.base/jdk.internal.org.objectweb.asm.Opcodes=ALL-UNNAMED -javaagent:$HOME/.config/burp/loader/loader.jar -noverify -jar $HOME/.config/burp/loader/burpsuite_pro.jar

@@ -3,6 +3,7 @@ items = [
     # "waydroid",
     # "waydroid-script-git",
     "jadx",
+    "android-apktool-bin",
     "python-frida",
     "python-frida-tools",
     "android-backup-extractor",

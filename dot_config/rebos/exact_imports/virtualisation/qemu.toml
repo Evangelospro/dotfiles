@@ -3,6 +3,17 @@ items = [
   "qemu-full",
   "virt-manager",
   "virt-viewer",
-  "dnsmasq",
   "qqx",
+]
+
+
+[managers.systemd-system]
+items = [
+    "libvirtd"
+]
+
+[managers.groups]
+items = [
+    "libvirt",
+    "kvm"
 ]

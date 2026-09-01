@@ -1,5 +1,0 @@
-[managers.system]
-items = [
-    "networkmanager",
-    "network-manager-applet"
-]

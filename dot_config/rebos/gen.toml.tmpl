@@ -39,43 +39,6 @@ imports = [
     {{- end }}
 ]
 
-[managers.systemd-system]
-items = [
-    "ntpd", # idk why arch doesn't have this by default
-    "plocate-updatedb.timer",
-    "grub-btrfsd",
-    {{- if .isLaptop }}
-    "NetworkManager",
-    "bluetooth",
-    {{- end }}
-    {{- if .isNvidiaGPU }}
-    # "nvidia-suspend",
-    # "nvidia-hibernate",
-    # "nvidia-resume",
-    {{- end }}
-    {{- if .isAsus }}
-    # "power-profiles-daemon",
-    "asusd",
-    "supergfxd",
-    {{- end }}
-]
-
-[managers.systemd-user]
-items = [
-    "hyprpaper",
-    "wireplumber",
-    "docker",
-    "gnome-keyring-daemon",
-    "elephant",
-    "walker",
-    "flameshot",
-    "hypridle",
-    "wayle",
-    "hyprpolkitagent",
-    "udiskie",
-    "hyprmoncfgd",
-]
-
 [managers.pypy]
 items = [
     "pip", # just in case

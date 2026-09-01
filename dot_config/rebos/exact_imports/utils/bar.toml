@@ -2,3 +2,8 @@
 items = [
     "wayle-bin",
 ]
+
+[managers.systemd-user]
+items = [
+    "wayle",
+]
