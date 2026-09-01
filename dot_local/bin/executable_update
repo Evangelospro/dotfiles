@@ -45,6 +45,9 @@ elif command -v pacman &>/dev/null; then
     sudo pacman -Syu
 fi
 
+zinit self-update
+zinit update --all
+
 /usr/bin/hyprpm update
 # if ! /usr/bin/hyprpm list | grep -q hyprexpo; then
 #     echo "hyprexpo not found, adding it..."

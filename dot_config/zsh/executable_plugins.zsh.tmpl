@@ -53,17 +53,15 @@ if [[ $(tput colors) == 256 ]]; then
     eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.json)"
 fi
 
-zinit ice depth=1 lucid nocd atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
+zinit ice "0" lucid nocd
+zinit light zsh-users/zsh-completions
+
+
+zinit ice depth=1 lucid atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
 zinit light marlonrichert/zsh-autocomplete
 
-zinit wait"0" lucid for \
-zsh-users/zsh-completions \
-atload"source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start" \
-zsh-users/zsh-autosuggestions
+zinit ice wait"0" lucid atload'source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
 
-zinit ice wait"0" lucid nocd atload'!source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh'
+zinit ice wait"0" lucid atload'!source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh'
 zinit light zdharma-continuum/fast-syntax-highlighting
-
-{{ if .isPersonal -}}
-zinit ice wait"0" lucid nocd
-{{ end -}}
