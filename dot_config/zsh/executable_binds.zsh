@@ -1,5 +1,6 @@
 # ZSH autocomplete
-bindkey '^I' insert-unambiguous-or-complete
+bindkey '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '^I' menu-complete
 bindkey -M menuselect '^M' .accept-line
 

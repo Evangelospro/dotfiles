@@ -51,7 +51,7 @@ function push_future() {
   if [[ $#dirhistory_future -ge $DIRHISTORY_SIZE ]]; then
     shift dirhistory_future
   fi
-  if [[ $#dirhistory_future -eq 0 || $dirhistory_futuret[$#dirhistory_future] != "$1" ]]; then
+  if [[ $#dirhistory_future -eq 0 || $dirhistory_future[$#dirhistory_future] != "$1" ]]; then
     dirhistory_future+=($1)
   fi
 }
@@ -173,53 +173,4 @@ function dirhistory_down() {
   cd "$(find . -mindepth 1 -maxdepth 1 -type d | sort -n | head -n 1)" || return 1
 }
 
-
-# Bind keys to hierarchy navigation
-function dirhistory_zle_dirhistory_up() {
-  zle .kill-buffer   # Erase current line in buffer
-  dirhistory_up
-  zle .accept-line
-}
-
-function dirhistory_zle_dirhistory_down() {
-  zle .kill-buffer   # Erase current line in buffer
-  dirhistory_down
-  zle .accept-line
-}
-
-zle -N dirhistory_zle_dirhistory_up
-zle -N dirhistory_zle_dirhistory_down
-
-for keymap in emacs vicmd viins; do
-  # dirhistory_up
-  bindkey -M $keymap "\e[3A" dirhistory_zle_dirhistory_up    # xterm in normal mode
-  bindkey -M $keymap "\e[1;3A" dirhistory_zle_dirhistory_up  # xterm in normal mode
-  bindkey -M $keymap "\e\e[A" dirhistory_zle_dirhistory_up   # Putty
-  bindkey -M $keymap "\eO3A" dirhistory_zle_dirhistory_up    # GNU screen
-
-  case "$TERM_PROGRAM" in
-  Apple_Terminal) bindkey -M $keymap "^[[A" dirhistory_zle_dirhistory_up ;;  # Terminal.app
-  iTerm.app) bindkey -M $keymap "^[^[[A" dirhistory_zle_dirhistory_up ;;     # iTerm2
-  esac
-
-  if (( ${+terminfo[kcuu1]} )); then
-    bindkey -M $keymap "^[${terminfo[kcuu1]}" dirhistory_zle_dirhistory_up # urxvt
-  fi
-
-  # dirhistory_down
-  bindkey -M $keymap "\e[3B" dirhistory_zle_dirhistory_down    # xterm in normal mode
-  bindkey -M $keymap "\e[1;3B" dirhistory_zle_dirhistory_down  # xterm in normal mode
-  bindkey -M $keymap "\e\e[B" dirhistory_zle_dirhistory_down   # Putty
-  bindkey -M $keymap "\eO3B" dirhistory_zle_dirhistory_down    # GNU screen
-
-  case "$TERM_PROGRAM" in
-  Apple_Terminal) bindkey -M $keymap "^[[B" dirhistory_zle_dirhistory_down ;;  # Terminal.app
-  iTerm.app) bindkey -M $keymap "^[^[[B" dirhistory_zle_dirhistory_down ;;     # iTerm2
-  esac
-
-  if (( ${+terminfo[kcud1]} )); then
-    bindkey -M $keymap "^[${terminfo[kcud1]}" dirhistory_zle_dirhistory_down # urxvt
-  fi
-done
-
-unset keymap
+# Not binding Alt+Up/Down: those keys are already used by zsh-autocomplete

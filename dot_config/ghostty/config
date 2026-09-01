@@ -1,7 +1,8 @@
 command = /usr/bin/zsh
 clipboard-read = allow
 clipboard-write = allow
-copy-on-select = false
+copy-on-select = true
+clipboard-trim-trailing-spaces = true
 clipboard-paste-protection = false
 window-new-tab-position = end
 theme = Dracula

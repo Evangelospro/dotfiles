@@ -1,25 +1,11 @@
 source $XDG_CONFIG_HOME/shell/wm_startup.sh
 
-# Start profiler if SHELL_PROFILE not empty
-if [[ "${SHELL_PROFILE}" == 1 ]]; then
-    echo "Starting profiler"
-    zmodload zsh/zprof
-else
-    $XDG_CONFIG_HOME/shell/scripts/utils/clear
-fi
-
 # check message of the day
 [ -f /etc/motd ] && /usr/bin/cat /etc/motd
 
-source $ZDOTDIR/history.zsh
-
-case ${TERM} in
-xterm* | rxvt* | Eterm* | aterm | kterm | terminator | gnome* | alacritty | st | konsole* | warp | screen*)
-    ;;
-linux)
+if [[ $TERM == "linux" ]]; then
     source $XDG_CONFIG_HOME/shell/themes/tty.sh
-    ;;
-esac
+fi
 
 function update_tab_title() {
     set_tab_title "${USER}@$(hostname):${PWD/#$HOME/~}"
@@ -28,6 +14,16 @@ function update_tab_title() {
 precmd_functions+=(update_tab_title)
 
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# Start profiler if SHELL_PROFILE not empty
+if [[ "${SHELL_PROFILE}" == 1 ]]; then
+    echo "Starting profiler"
+    zmodload zsh/zprof
+else
+    $XDG_CONFIG_HOME/shell/scripts/utils/clear
+fi
+
+source $ZDOTDIR/history.zsh
 
 # Setopts
 source $ZDOTDIR/options.zsh
@@ -52,14 +48,11 @@ source $XDG_CONFIG_HOME/shell/aliases.sh
 # ZSH Bindings (at the end of the file to overwrite "framework" set bindings)
 source $ZDOTDIR/binds.zsh
 
-fpath=($ZDOTDIR/.zfunc $fpath)
-
 autoload -U select-word-style
 select-word-style bash # ctrl+backspaces now deletes to previous / when working with paths
 
 
-if [[ $TERM_PROGRAM == "ghostty" ]]; then
-    source ${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration
-fi
+[[ $TERM_PROGRAM == "ghostty" ]] && source ${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && source "$(code --locate-shell-integration-path zsh)"
 
 source $ZDOTDIR/post_load.zsh

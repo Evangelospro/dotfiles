@@ -1,7 +1,7 @@
 export HYPHEN_INSENSITIVE="true"
 export ENABLE_CORRECTION="true"
 export HISTFILE=$ZDOTDIR/.zsh_history.zsh
-export SAVEHIST=10000000
+export SAVEHIST=100000
 export HISTSIZE=50000
 export HISTORY_IGNORE="" # ignore completely empty commands
 

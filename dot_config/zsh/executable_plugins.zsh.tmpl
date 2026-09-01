@@ -7,23 +7,19 @@ source "$ZINIT[HOME_DIR]/zinit.zsh"
 ## QuarticCat/zsh-smartcache > mroth/evalcache
 zinit light QuarticCat/zsh-smartcache
 
-## evaluting some useful commands and aliases
 eval "$(pay-respects zsh --alias)"
 # smartcache eval direnv hook zsh
+smartcache eval zoxide init zsh
 smartcache eval atuin init zsh --disable-up-arrow --disable-ctrl-r 2>&1 >/dev/null
 
 # Plugins for annex speedups
 zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    NICHOLAS85/z-a-eval
+    zdharma-continuum/zinit-annex-bin-gem-node
 
 # HIGHLIGHT useful after grep
-zinit ice pick"h.sh"
+zinit ice lucid pick"h.sh"
 zinit light Ga0aG/hhighlighter
-
-# zinit ice wait"0" lucid nocd
-# zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
 
 zinit ice wait"0" lucid nocd
 zinit light jgogstad/zsh-mask
@@ -49,6 +45,9 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     {{ end -}}
 fi
 
+zinit ice wait"0" lucid nocd
+zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
+
 if [[ $(tput colors) == 256 ]]; then
     eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.json)"
 fi
@@ -56,12 +55,21 @@ fi
 zinit ice "0" lucid nocd
 zinit light zsh-users/zsh-completions
 
+# COMPLETIONS
+_comp_options+=(globdots)
+
+# zinit command completion
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+zicompinit
+zicdreplay -q # cache completions for faster startup
 
 zinit ice depth=1 lucid atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
 zinit light marlonrichert/zsh-autocomplete
 
-zinit ice wait"0" lucid atload'source $ZDOTDIR/plugins/zsh-autosuggestions_atload.zsh && _zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
+zinit ice wait"0" lucid nocd
+zinit light UtsavMandal2022/zsh-sage
 
-zinit ice wait"0" lucid atload'!source $ZDOTDIR/plugins/zsh-syntax-highlighting/dracula.sh'
-zinit light zdharma-continuum/fast-syntax-highlighting
+zinit ice wait"0" lucid nocd as"program" from"gh-r" pick"zsh-patina-*/zsh-patina" atload'eval "$(zsh-patina activate)" && eval "$(zsh-patina completion)"'
+zinit light michel-kraemer/zsh-patina

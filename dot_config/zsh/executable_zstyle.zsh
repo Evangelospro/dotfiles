@@ -8,8 +8,7 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 zstyle ':completion:*' rehash true
 
-# zstyle ':completion:*' menu select interactive
-zstyle ':completion:*' menu no
+zstyle ':completion:*' menu select interactive
 
 # Insert common substring first
 ## all Tab widgets
@@ -49,3 +48,6 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # docker
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+autoload -U select-word-style
+select-word-style bash # ctrl+backspaces now deletes to previous / when working with paths
