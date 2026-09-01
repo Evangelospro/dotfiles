@@ -1,26 +1,47 @@
+#!/usr/bin/env python3
+
+import json
+import json5
+import sys
+
+
+def merge(target: dict, source: dict) -> None:
+	for key, value in source.items():
+		if (
+			isinstance(value, dict)
+			and isinstance(target.get(key), dict)
+		):
+			merge(target[key], value)
+		else:
+			target[key] = value
+
+
+def main() -> None:
+	existing_text = sys.stdin.read()
+
+	managed_text = r'''
 {
 	// ZEN MODE
 	"zenMode.centerLayout": false,
 	"zenMode.hideStatusBar": false,
 	"zenMode.hideLineNumbers": false,
-	//{{- if eq .chezmoi.os "linux" }}
-	"window.zoomLevel": 2,
-	//{{- else }}
-	"window.zoomLevel": 1,
-	//{{- end }}
+
+	// WINDOW SETTINGS
+	"window.zoomLevel": {{- if eq .chezmoi.os "linux" }}2{{- else }}1{{- end }},
 	"window.commandCenter": false,
 	"window.newWindowDimensions": "fullscreen",
 	"window.restoreWindows": "one",
 	"window.title": "${activeEditorShort}${separator}${rootName}",
-	"window.titleBarStyle": "custom", // MUST BE CUSTOM for wayland support to work
+	"window.titleBarStyle": "custom",
 	"window.titleSeparator": " | ",
+
 	// WORKBENCH SETTINGS
 	"workbench.activityBar.location": "top",
 	"workbench.editor.enablePreviewFromQuickOpen": false,
 	"workbench.editor.highlightModifiedTabs": true,
 	"workbench.editor.restoreViewState": true,
 	"workbench.editor.sharedViewState": false,
-    "workbench.secondarySideBar.defaultVisibility": "hidden",
+	"workbench.secondarySideBar.defaultVisibility": "hidden",
 	"workbench.editor.showTabs": "multiple",
 	"workbench.editor.tabSizing": "shrink",
 	"workbench.editor.enablePreview": false,
@@ -32,9 +53,10 @@
 	"workbench.statusBar.visible": true,
 	"workbench.panel.defaultLocation": "bottom",
 	"workbench.editorAssociations": {
-		"*.ipynb": "jupyter-notebook",
+		"*.ipynb": "jupyter-notebook"
 	},
 	"workbench.reduceMotion": "on",
+
 	// EDITOR SETTINGS
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.acceptSuggestionOnEnter": "smart",
@@ -48,7 +70,7 @@
 	"editor.fontFamily": "FiraCode Nerd Font",
 	"editor.fontLigatures": true,
 	"editor.fontSize": 15,
-	"editor.insertSpaces": true, // not sure
+	"editor.insertSpaces": true,
 	"editor.indentSize": "tabSize",
 	"editor.inlineSuggest.enabled": true,
 	"editor.minimap.enabled": false,
@@ -80,15 +102,16 @@
 	"editor.suggest.insertMode": "replace",
 	"editor.suggest.preview": true,
 	"editor.suggest.snippetsPreventQuickSuggestions": false,
-	"editor.tabCompletion": "on",
+	"editor.suggest.tabCompletion": "on",
 	"editor.tabSize": 4,
 	"editor.wordBasedSuggestions": "matchingDocuments",
 	"editor.wordWrap": "on",
 	"editor.quickSuggestions": {
 		"other": "on",
 		"comments": "on",
-		"strings": "on",
+		"strings": "on"
 	},
+
 	// TERMINAL
 	"terminal.external.linuxExec": "{{.applications.terminal.linux.command}}",
 	"terminal.explorerKind": "both",
@@ -107,13 +130,15 @@
 	"terminal.integrated.tabs.enableAnimation": false,
 	"terminal.integrated.profiles.linux": {
 		"zsh": {
-			"path": "/usr/bin/zsh",
-		},
+			"path": "/usr/bin/zsh"
+		}
 	},
 	"terminal.integrated.shellIntegration.enabled": true,
+
 	// FORMATTING
 	"prettier.tabWidth": 4,
 	"prettier.useTabs": true,
+
 	// LANGUAGE SPECIFIC
 	"[python]": {
 		"editor.formatOnSaveMode": "file",
@@ -121,44 +146,51 @@
 		"editor.formatOnSave": true,
 		"editor.codeActionsOnSave": {
 			"source.fixAll": "explicit",
-			"source.organizeImports": "explicit",
+			"source.organizeImports": "explicit"
 		},
-		"editor.defaultFormatter": "charliermarsh.ruff",
+		"editor.defaultFormatter": "charliermarsh.ruff"
 	},
+
 	"python.REPL.enableREPLSmartSend": false,
 	"python.analysis.completeFunctionParens": true,
 	"python.analysis.typeCheckingMode": "basic",
 	"python.analysis.autoFormatStrings": true,
 	"python.analysis.autoImportCompletions": true,
 	"ruff.nativeServer": "on",
+
 	"python.analysis.exclude": [
 		".git",
 		"**/node_modules",
 		"**/__pycache__",
 		".vscode/*.py",
-		"**/site-packages/**/*.py",
+		"**/site-packages/**/*.py"
 	],
+
 	"python.analysis.ignore": [
 		".git",
 		"**/node_modules",
 		"**/__pycache__",
 		".vscode/*.py",
-		"**/site-packages/**/*.py",
+		"**/site-packages/**/*.py"
 	],
+
 	"java.server.launchMode": "Standard",
+
 	"[html]": {
-		"editor.tabSize": 4,
+		"editor.tabSize": 4
 	},
 	"html.autoClosingTags": true,
 	"html.completion.attributeDefaultValue": "singlequotes",
+
 	"[dart]": {
 		"editor.suggestSelection": "first",
 		"editor.tabCompletion": "onlySnippets",
-		"editor.wordBasedSuggestions": "off",
+		"editor.wordBasedSuggestions": "off"
 	},
+
 	"[javascript]": {
 		"editor.tabSize": 4,
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"javascript.autoClosingTags": true,
 	"javascript.suggest.autoImports": true,
@@ -166,49 +198,59 @@
 	"javascript.suggest.enabled": true,
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"javascript.validate.enable": false,
+
 	"[json]": {
 		"editor.tabSize": 4,
-		"editor.defaultFormatter": "vscode.json-language-features",
+		"editor.defaultFormatter": "vscode.json-language-features"
 	},
 	"json.maxItemsComputed": 100000,
+
 	"[markdown]": {
 		"editor.quickSuggestions": {
 			"other": "on",
 			"comments": "on",
-			"strings": "on",
-		},
+			"strings": "on"
+		}
 	},
+
 	"[scss]": {
 		"editor.tabSize": 4,
-		"editor.defaultFormatter": "vscode.css-language-features",
+		"editor.defaultFormatter": "vscode.css-language-features"
 	},
+
 	"[typescript]": {
-		"editor.tabSize": 4,
+		"editor.tabSize": 4
 	},
 	"typescript.autoClosingTags": true,
 	"typescript.suggest.autoImports": true,
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"typescript.validate.enable": false,
+
 	"[typescriptreact]": {
 		"editor.tabSize": 4,
-		"editor.formatOnSave": false,
+		"editor.formatOnSave": false
 	},
+
 	"js/ts.implicitProjectConfig.checkJs": true,
+
 	"github.copilot.enable": {
 		"*": true,
 		"plaintext": true,
 		"markdown": true,
 		"scminput": false,
-		"yaml": true,
+		"yaml": true
 	},
 	"github.copilot.nextEditSuggestions.enabled": true,
+
+	// GIT
 	"git.enableSmartCommit": true,
 	"git.allowForcePush": true,
 	"git.autofetch": true,
 	"git.confirmSync": false,
 	"git.confirmForcePush": false,
 	"git.openRepositoryInParentFolders": "always",
-	// Gitlens
+
+	// GitLens
 	"gitlens.currentLine.enabled": true,
 	"gitlens.hovers.currentLine.over": "line",
 	"gitlens.codeLens.enabled": false,
@@ -217,74 +259,68 @@
 	"gitlens.codeLens.authors.enabled": false,
 	"gitlens.codeLens.recentChange.enabled": false,
 	"gitlens.currentLine.scrollable": false,
+
 	// FILE EXPLORER
 	"explorer.openEditors.visible": 0,
 	"explorer.autoReveal": false,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmDelete": false,
 	"files.autoSave": "afterDelay",
+
 	// SNYK
-	//{{- if eq .chezmoi.os "linux" }}
-	"snyk.advanced.cliPath": "{{.chezmoi.homeDir}}/.local/share/snyk-ls/snyk-linux",
-	"snyk.advanced.languageServerPath": "{{.chezmoi.homeDir}}/.local/share/snyk/snyk-ls-linux",
-	//{{- else if eq .chezmoi.os "windows" }}
-	"snyk.advanced.cliPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk-ls\\snyk-win.exe",
-	"snyk.advanced.languageServerPath": "{{ .chezmoi.homeDir }}\\AppData\\Local\\snyk\\snyk-ls-win.exe",
-	//{{- end }}
-	"snyk.trustedFolders": ["{{ .chezmoi.homeDir }}"],
 	"snyk.yesWelcomeNotification": false,
-	// EXTENSIONS
-	"settingsSync.ignoredExtensions": ["WakaTime.vscode-wakatime"],
+
+	{{- if .isHacking }}
 	// APKLAB
 	"apklab.apkSignerPath": "{{ (glob (printf "%s/.apklab/uber-apk-signer-*.jar" .chezmoi.homeDir)) | last }}",
 	"apklab.apktoolPath": "/usr/bin/apktool",
 	"apklab.jadxDirPath": "{{ (glob (printf "%s/.apklab/jadx-*" .chezmoi.homeDir)) | first }}",
 	"apklab.smaliLspPath": "{{ (glob (printf "%s/.apklab/smali-lsp-*.jar" .chezmoi.homeDir)) | last }}",
 	"apklab.initProjectDirAsGit": false,
+	{{- end }}
+
 	// SECURITY
 	"security.workspace.trust.banner": "always",
 	"security.workspace.trust.enabled": false,
 	"security.workspace.trust.untrustedFiles": "open",
+
 	// Disable telemetry
 	"telemetry.telemetryLevel": "off",
 	"redhat.telemetry.enabled": false,
 	"gitlens.telemetry.enabled": false,
+
 	// MISC / GENERAL
 	"update.showReleaseNotes": false,
 	"diffEditor.ignoreTrimWhitespace": true,
 	"debug.onTaskErrors": "showErrors",
 	"debug.openDebug": "openOnDebugBreak",
-	// "eslint.enable": true,
 	"extensions.autoUpdate": "on",
 	"extensions.ignoreRecommendations": true,
 	"files.insertFinalNewline": true,
 	"files.restoreUndoStack": true,
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
+
 	"files.associations": {
-		"*.code-snippets.tmpl": "snippets",
-		"*.json.tmpl": "json",
-		"*.jsonc.tmpl": "jsonc",
-		"settings.json.tmpl": "jsonc",
+		"*.tmpl": "helm"
 	},
+
 	"[shellscript]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format",
+		"editor.defaultFormatter": "foxundermoon.shell-format"
 	},
+
 	"[c]": {
-		"editor.defaultFormatter": "ms-vscode.cpptools",
+		"editor.defaultFormatter": "ms-vscode.cpptools"
 	},
+
 	"jupyter.askForKernelRestart": false,
 	"liveshare.notebooks.allowGuestExecuteCells": true,
+
 	// REMOTE SSH
 	"remote.SSH.useLocalServer": false,
-	"remote.SSH.remotePlatform": {
-		"eserver": "linux",
-		"vulnbox.infra": "linux",
-		"c2": "linux",
-		"router.infra": "linux",
-	},
 	"remote.SSH.defaultExtensions": [
 		"charliermarsh.ruff",
+		"astral-sh.ty",
 		"donjayamanne.python-extension-pack",
 		"walkme.python-extension-pack",
 		"esbenp.prettier-vscode",
@@ -292,25 +328,32 @@
 		"ms-python.python",
 		"ms-python.vscode-pylance",
 		"oderwat.indent-rainbow",
-		"wayou.vscode-todo-highlight",
+		"wayou.vscode-todo-highlight"
 	],
+
 	"[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+
 	"editor.defaultColorDecorators": "auto",
 	"workbench.preferredDarkColorTheme": "Sweet Dracula",
 	"workbench.editor.empty.hint": "hidden",
+
 	"extensions.experimental.affinity": {
-		"asvetliakov.vscode-neovim": 1,
+		"asvetliakov.vscode-neovim": 1
 	},
+
 	"workbench.editor.tabActionLocation": "right",
 	"editor.stickyScroll.enabled": false,
 	"update.mode": "none",
+
 	"[properties]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format",
+		"editor.defaultFormatter": "foxundermoon.shell-format"
 	},
+
 	"github.copilot.editor.enableAutoCompletions": true,
 	"go.toolsManagement.autoUpdate": true,
+
 	"explorer.fileNesting.patterns": {
 		"*.ts": "${capture}.js",
 		"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
@@ -323,15 +366,58 @@
 		"*.sqlite3": "${capture}.${extname}-*",
 		"*.db3": "${capture}.${extname}-*",
 		"*.sdb": "${capture}.${extname}-*",
-		"*.s3db": "${capture}.${extname}-*",
+		"*.s3db": "${capture}.${extname}-*"
 	},
+
 	"explorer.confirmPasteNative": false,
+
 	"[dotenv]": {
-		"editor.defaultFormatter": "foxundermoon.shell-format",
+		"editor.defaultFormatter": "foxundermoon.shell-format"
 	},
+
 	"[dockerfile]": {
-		"editor.defaultFormatter": "ms-azuretools.vscode-containers",
+		"editor.defaultFormatter": "ms-azuretools.vscode-containers"
 	},
+
 	"window.confirmSaveUntitledWorkspace": false,
-	"weAudit.general.treeViewMode": "list",
+	"weAudit.general.treeViewMode": "list"
 }
+'''
+
+	try:
+		existing = json5.loads(existing_text) if existing_text.strip() else {}
+		managed = json5.loads(managed_text)
+	except Exception as exc:
+		print(
+			f"chezmoi: failed to parse VS Code settings.json: {exc}",
+			file=sys.stderr,
+		)
+		sys.exit(1)
+
+	if not isinstance(existing, dict):
+		print(
+			"chezmoi: existing VS Code settings.json must contain an object",
+			file=sys.stderr,
+		)
+		sys.exit(1)
+
+	if not isinstance(managed, dict):
+		print(
+			"chezmoi: managed VS Code settings must contain an object",
+			file=sys.stderr,
+		)
+		sys.exit(1)
+
+	merge(existing, managed)
+
+	print(
+		json.dumps(
+			existing,
+			indent="\t",
+			ensure_ascii=False,
+		)
+	)
+
+
+if __name__ == "__main__":
+	main()

@@ -2,7 +2,7 @@
 
 # skip tests not needed make it go Brrr
 add = "paru --needed -S --mflags '--nocheck' --overwrite '*' --noconfirm #:?"
-remove = "paru -Rns #:?"
+remove = "paru -Rns $(pacman -Qq #:? 2>/dev/null)"
 sync = "paru -Syy"
 upgrade = "paru -Su --devel"
 

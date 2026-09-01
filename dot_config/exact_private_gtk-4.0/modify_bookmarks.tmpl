@@ -1,3 +1,15 @@
+#!/bin/sh
+
+set -eu
+
+existing="$(mktemp)"
+managed="$(mktemp)"
+
+trap 'rm -f "$existing" "$managed"' EXIT
+
+cat > "$existing"
+
+cat > "$managed" <<'EOF'
 file://{{ .chezmoi.homeDir }}/Documents Documents
 file://{{ .chezmoi.homeDir }}/Downloads Downloads
 {{- if .isPersonal }}
@@ -9,3 +21,14 @@ file://{{ .chezmoi.homeDir }}/HACKING HACKING
 file://{{ .chezmoi.homeDir }}/HACKING/CTFs CTFs
 file://{{ .chezmoi.homeDir }}/HACKING/CTFs/{{ now | date "2006" }} CTFs-{{ now | date "2006" }}
 {{- end }}
+EOF
+
+cat "$existing"
+
+while IFS= read -r bookmark; do
+	[ -n "$bookmark" ] || continue
+
+	if ! grep -Fqx "$bookmark" "$existing"; then
+		printf '%s\n' "$bookmark"
+	fi
+done < "$managed"
