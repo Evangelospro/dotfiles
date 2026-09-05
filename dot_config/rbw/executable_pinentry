@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+# 1. Handle the version flag check
+if [[ "$1" == "--version" ]]; then
+    echo "pinentry-gnome-secrets 1.0"
+    exit 0
+fi
+
+# 2. Protocol Handshake: Pinentry MUST say OK immediately on startup
+echo "OK"
+
+# 3. Process incoming instructions from rbw
+while read -r line; do
+    cmd=$(echo "$line" | tr '[:upper:]' '[:lower:]')
+
+    if [[ "$cmd" =~ ^getpin ]]; then
+        PASSWORD=$(secret-tool lookup service rbw-vault password master)
+
+        if [ -z "$PASSWORD" ]; then
+            USER_INPUT=$(/usr/lib/ssh/gnome-ssh-askpass4 "Enter your Bitwarden Master Password: ")
+
+            if [ -z "$USER_INPUT" ]; then
+                echo "ERR 83886179 Operation cancelled <Custom>"
+                exit 1
+            fi
+
+            echo -n "$USER_INPUT" | secret-tool store --label="Bitwarden Master Password" service rbw-vault password master
+            PASSWORD="$USER_INPUT"
+        fi
+
+        # Pass the password back using the mandatory "D " prefix
+        echo "D $PASSWORD"
+        echo "OK"
+    elif [[ "$cmd" =~ ^bye ]]; then
+        echo "OK"
+        exit 0
+    else
+        # Acknowledge all other setup commands (SETDESC, OPTIONS, etc.)
+        echo "OK"
+    fi
+done

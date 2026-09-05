@@ -1,0 +1,15 @@
+#!/bin/sh
+set -eu
+
+FILE="/boot/limine.conf"
+
+if [ ! -f "$FILE" ]; then
+    echo "limine.conf not found, skipping" >&2
+    exit 0
+fi
+
+if grep -qE '^remember_last_entry:' "$FILE"; then
+    sudo sed -i -E 's/^remember_last_entry:.*/remember_last_entry: yes/' "$FILE"
+else
+    printf '%s\n' 'remember_last_entry: yes' | sudo tee -a "$FILE" >/dev/null
+fi

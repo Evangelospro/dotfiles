@@ -3,7 +3,6 @@ items = [
     "ntpsec", # network time (idk why arch doesn't have this by default...)
     "tzupdate", # update timezones based on geoip
     "mkinitcpio-numlock", # enable numlock on boot
-    "grub-hook", # update grub on kernel update (idk why arch doesn't have this in the grub package itself...)
     "intel-ucode",
     "amd-ucode",
     "mesa-utils",
@@ -73,7 +72,6 @@ items = [
     "lsscsi",
     "lvm2",
     "man-db",
-    "os-prober",
     "inetutils",
     "preload",
     "base-devel",
@@ -83,11 +81,13 @@ items = [
     "sshpass",
     "gnome-ssh-askpass4-git",
     "volumectl",
+    "limine",
+    "limine-mkinitcpio-hook",
     # BTRFS
     "btrfs-progs",
-    "timeshift",
-    "timeshift-autosnap",
-    "grub-btrfs",
+    "btrfs-assistant",
+    "limine-snapper-sync",
+    "snap-pac",
     {{- if .isLaptop }}
     "power-profiles-daemon",
     {{- end }}
@@ -97,6 +97,6 @@ items = [
 items = [
     "ntpd", # idk why arch doesn't have this by default
     "plocate-updatedb.timer",
-    "grub-btrfsd",
+    "limine-snapper-sync",
     "bluetooth",
 ]

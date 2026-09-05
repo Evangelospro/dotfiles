@@ -1,11 +1,10 @@
 # pip
 
 add = "pip install --break-system #:?"
-remove = "pip uninstall --break-system #:?"
+remove = "if pip show #:? >/dev/null 2>&1; then pip uninstall -y #:?; fi"
 
 plural_name = "pip"
 hook_name = "pip"
 
 [config]
-many_args = true
-arg_sep = " "
+many_args = false

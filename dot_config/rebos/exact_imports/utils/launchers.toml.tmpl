@@ -1,23 +1,9 @@
 [managers.system]
 items = [
-    "elephant-bin",
-    "elephant-calc-bin",
-    "elephant-clipboard-bin",
-    "elephant-desktopapplications-bin",
-    "elephant-files-bin",
-    "elephant-menus-bin",
-    "elephant-providerlist-bin",
-    "elephant-symbols-bin",
-    "elephant-unicode-bin",
-    "elephant-websearch-bin",
-    {{- if .isPersonal }}
-    "elephant-bitwarden-bin",
-    {{- end }}
     "vicinae-bin",
 ]
 
 [managers.systemd-user]
 items = [
     "vicinae",
-    "elephant",
 ]

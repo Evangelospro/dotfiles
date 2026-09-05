@@ -2,11 +2,10 @@
 
 sync = "systemctl --user daemon-reload"
 add = "systemctl --user enable --now #:?"
-remove = "systemctl --user disable --now #:?"
+remove = "if [[ $(systemctl --user is-enabled #:? 2>/dev/null) == enabled ]]; then systemctl --user disable #:?; fi"
 
 plural_name = "systemd-user"
 hook_name = "systemd-user"
 
 [config]
-many_args = true
-arg_sep = " "
+many_args = false

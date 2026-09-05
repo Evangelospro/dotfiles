@@ -9,9 +9,10 @@ alias pls='please'
 # Grub
 alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
-# Always need sudo, don't even bother
 alias shutdown="systemctl poweroff"
 alias reboot="systemctl reboot"
+
+# Always need sudo, don't even bother
 alias umount="sudo umount"
 alias mount="sudo mount"
 

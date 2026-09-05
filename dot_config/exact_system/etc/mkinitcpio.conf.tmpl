@@ -19,7 +19,7 @@ BINARIES="setfont"
 # FILES
 # This setting is similar to BINARIES above, however, files are added
 # as-is and are not parsed in any way.  This is useful for config files.
-FILES=""
+FILES=()
 
 # HOOKS
 # This is the most important setting in this file.  The HOOKS control the
@@ -52,7 +52,7 @@ FILES=""
 #
 ##   NOTE: If you have /usr on a separate partition, you MUST include the
 #    usr, fsck and shutdown hooks.
-HOOKS="base udev autodetect microcode modconf block keyboard keymap consolefont numlock filesystems fsck"
+HOOKS=(base udev autodetect microcode modconf block keyboard keymap consolefont numlock filesystems fsck btrfs-overlay)
 
 # COMPRESSION
 # Use this to compress the initramfs image. By default, gzip compression

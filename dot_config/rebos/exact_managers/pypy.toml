@@ -1,11 +1,10 @@
 # pypy
 
 add = "pypy3 -m pip install #:?"
-remove = "pypy3 -m pip uninstall #:?"
+remove = "if pypy3 -m pip show #:? >/dev/null 2>&1; then pypy3 -m pip uninstall -y #:?; fi"
 
 plural_name = "pypy"
 hook_name = "pypy"
 
 [config]
-many_args = true
-arg_sep = " "
+many_args = false
