@@ -4,8 +4,8 @@ items = [
     # "waydroid-script-git",
     "jadx",
     "android-apktool-bin",
-    "python-frida",
-    "python-frida-tools",
+    "python-frida-bin",
+    # "python-frida-tools",
     "android-backup-extractor",
     "scrcpy",
 ]
