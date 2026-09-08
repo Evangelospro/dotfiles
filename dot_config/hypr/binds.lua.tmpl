@@ -58,11 +58,13 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("volumectl toggle-mute"), { locked=true
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true , locked=true, description = "Increase brightness"})
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true , locked=true, description = "Decrease brightness"})
 
+{{- if and .isPersonal (not .isHeadless) }}
 -- Valent (KDEConnect) special scratchpad workspace
 hl.bind(MOD .. " + K", function()
     hl.exec_cmd("/usr/bin/valent", {workspace = "special:valent silent"})
     hl.dispatch(hl.dsp.workspace.toggle_special("valent"))
 end, {description = "Toggle Valent (KDEConnect)"})
+{{- end }}
 
 {{- if .isAsus }}
 -- Rog Control Center special scratchpad workspace
