@@ -1,0 +1,14 @@
+[managers.system]
+items = [
+    "cups",
+    "cups-filters",
+    "ghostscript",
+    "foomatic-db-engine",
+    "foomatic-db-nonfree-ppds",
+    "foomatic-db-ppds"
+]
+
+[managers.systemd-system]
+items = [
+    "cups",
+]
