@@ -41,10 +41,10 @@ NUMBER_LIMIT_IMPORTANT="10"
 
 
 # create hourly snapshots
-TIMELINE_CREATE="yes"
+TIMELINE_CREATE="no"
 
 # cleanup hourly snapshots after some time
-TIMELINE_CLEANUP="yes"
+TIMELINE_CLEANUP="no"
 
 # limits for timeline cleanup
 TIMELINE_MIN_AGE="3600"
@@ -61,4 +61,3 @@ EMPTY_PRE_POST_CLEANUP="yes"
 
 # limits for empty pre-post-pair cleanup
 EMPTY_PRE_POST_MIN_AGE="3600"
-
