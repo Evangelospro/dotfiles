@@ -18,18 +18,9 @@ zstyle ':autocomplete:*history*:*' insert-unambiguous yes
 ## ^S
 zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 
-zstyle ':autocomplete:*' recent-dirs zoxide
-zstyle ':autocomplete:*' fzf-completion yes
-zstyle ':autocomplete:*' widget-style menu-select
 zstyle ':autocomplete:*' add-space '' # never add space after completion
 
-zstyle -e ':completion:*' completer '
-	if [[ $_last_try != "$HISTNO$BUFFER$CURSOR" ]]; then
-		_last_try="$HISTNO$BUFFER$CURSOR"
-		reply=(_extensions _complete _prefix)
-	else
-		reply=(_ignored _correct _approximate)
-	fi'
+zstyle ':completion:*' completer _extensions _complete _prefix _ignored _correct _approximate
 zstyle ':completion:*:paths' path-completion yes
 zstyle ':completion:*:matches' group 'yes'
 zstyle ':completion:*' group-name ''
@@ -48,6 +39,3 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # docker
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
-
-autoload -U select-word-style
-select-word-style bash # ctrl+backspaces now deletes to previous / when working with paths

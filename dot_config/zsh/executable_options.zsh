@@ -9,3 +9,4 @@ setopt interactive_comments
 setopt extended_glob
 setopt long_list_jobs
 setopt null_glob
+setopt promptsubst

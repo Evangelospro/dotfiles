@@ -40,7 +40,8 @@ items = [
     "duf",
     "cyme",
     "libtree-bin",
-    "pipe-rename"
+    "pipe-rename",
+    "git-delta",
 ]
 
 [managers.uvx]

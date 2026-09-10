@@ -64,3 +64,4 @@ gtk-tabs-location = bottom
 window-inherit-working-directory = true
 working-directory = inherit
 window-decoration = false
+shell-integration = ssh-env,ssh-terminfo,sudo

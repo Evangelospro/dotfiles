@@ -5,11 +5,13 @@ source "$ZINIT[HOME_DIR]/zinit.zsh"
 
 # Plugins for eval cache
 ## QuarticCat/zsh-smartcache > mroth/evalcache
+zinit ice depth=1 lucid nocd
 zinit light QuarticCat/zsh-smartcache
 
 eval "$(pay-respects zsh --alias)"
 # smartcache eval direnv hook zsh
-smartcache eval zoxide init zsh
+
+eval "$(zoxide init zsh)" # loaded synchronously so that zsh-autocomplete picks it up
 smartcache eval atuin init zsh --disable-up-arrow --disable-ctrl-r 2>&1 >/dev/null
 
 # Plugins for annex speedups
@@ -18,59 +20,53 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node
 
 # HIGHLIGHT useful after grep
-zinit ice lucid pick"h.sh"
+zinit ice depth=1 wait"0" lucid nocd pick"h.sh"
 zinit light Ga0aG/hhighlighter
 
-zinit ice wait"0" lucid nocd
+zinit ice depth=1 wait"0" lucid nocd
 zinit light jgogstad/zsh-mask
 
 # natively supported in warp
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-    # zinit ice wait"0" lucid depth=1 pick="autopair.zsh"
+    # zinit ice depth=1 wait"0" lucid nocd pick="autopair.zsh"
     # zinit light hlissner/zsh-autopair
-    zinit ice wait"0" lucid nocd
+    zinit ice depth=1 wait"0" lucid nocd
     zinit snippet $ZDOTDIR/plugins/autopair.zsh
 
-    zinit ice wait"0" lucid nocd
+    zinit ice depth=1 wait"0" lucid nocd
     zinit light icatalina/zsh-navi-plugin
 
-    export YSU_IGNORED_ALIASES=(".." "l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
+    export YSU_IGNORED_ALIASES=(".." "e" "e." "l" "s" "ls" "ll" "cd.." "pdw" "sudo" "fd" "locate")
     export YSU_HARDCORE=0
-    zinit ice wait"0" lucid nocd
+    zinit ice depth=1 wait"0" lucid nocd
     zinit light MichaelAquilina/zsh-you-should-use
 
     {{ if (not .isHeadless) -}}
-    zinit ice wait"0" lucid nocd
+    zinit ice depth=1 wait"0" lucid nocd
     zinit light MichaelAquilina/zsh-auto-notify
     {{ end -}}
 fi
 
-zinit ice wait"0" lucid nocd
+zinit ice depth=1 wait"0" lucid nocd
 zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
 
 if [[ $(tput colors) == 256 ]]; then
     eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.json)"
 fi
 
-zinit ice "0" lucid nocd
+_comp_options+=(globdots) # show hidden files/directories asw
+zinit ice depth=1 wait"0" lucid nocd
 zinit light zsh-users/zsh-completions
 
-# COMPLETIONS
-_comp_options+=(globdots)
+# Load zsh-patina before zsh-autocomplete to prevent autocomplete's
+# Completion registration is skipped if compdef isn't available yet;
+# zsh-autocomplete will handle compinit.
+zinit ice depth=1 wait"0" lucid nocd as"program" from"gh-r" pick"zsh-patina-*/zsh-patina" atload'eval "$(zsh-patina activate)" && (( $+functions[compdef] )) && eval "$(zsh-patina completion)"'
+zinit light michel-kraemer/zsh-patina
 
-# zinit command completion
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-zinit ice depth=1 lucid atload'!source $ZDOTDIR/plugins/zsh-autocomplete_atload.zsh'
+# zsh-autocomplete must come after zoxide so no wait"0"
+zinit ice depth=1 lucid nocd
 zinit light marlonrichert/zsh-autocomplete
 
-# compinit must run after zsh-autocomplete
-zicompinit
-zicdreplay -q # cache completions for faster startup
-
-zinit ice wait"0" lucid nocd
+zinit ice depth=1 wait"0" lucid nocd
 zinit light UtsavMandal2022/zsh-sage
-
-zinit ice wait"0" lucid nocd as"program" from"gh-r" pick"zsh-patina-*/zsh-patina" atload'eval "$(zsh-patina activate)" && eval "$(zsh-patina completion)"'
-zinit light michel-kraemer/zsh-patina

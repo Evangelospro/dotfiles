@@ -8,7 +8,7 @@ set +a
 
 /usr/bin/dbus-update-activation-environment --all
 
-# skip_global_compinit=1
+export skip_global_compinit=1
 
 export LS_COLORS=$(vivid generate dracula)
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --files --hidden --follow --glob '!.git' || find ."

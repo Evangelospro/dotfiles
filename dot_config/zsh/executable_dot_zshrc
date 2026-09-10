@@ -25,16 +25,16 @@ fi
 
 source $ZDOTDIR/history.zsh
 
-# Setopts
-source $ZDOTDIR/options.zsh
-
-# Styling
-source $ZDOTDIR/zstyle.zsh
-
 # Plugins
 source $ZDOTDIR/plugins.zsh
 
-# Functions, Aliases, Bindings, Completions all should load after plugins in order to overwrite them
+# Setopts
+source $ZDOTDIR/options.zsh
+
+# Styling, Functions, Aliases, Bindings, Completions all should load after plugins in order to overwrite them
+
+# Styling
+source $ZDOTDIR/zstyle.zsh
 
 # Bindings
 source $XDG_CONFIG_HOME/shell/binds.sh
@@ -47,10 +47,6 @@ source $XDG_CONFIG_HOME/shell/aliases.sh
 
 # ZSH Bindings (at the end of the file to overwrite "framework" set bindings)
 source $ZDOTDIR/binds.zsh
-
-autoload -U select-word-style
-select-word-style bash # ctrl+backspaces now deletes to previous / when working with paths
-
 
 [[ $TERM_PROGRAM == "ghostty" ]] && source ${GHOSTTY_RESOURCES_DIR}/shell-integration/zsh/ghostty-integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && source "$(code --locate-shell-integration-path zsh)"

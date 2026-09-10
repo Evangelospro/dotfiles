@@ -28,3 +28,7 @@ alias 777='chmod -R 777'
 
 # Hashing
 alias sha1='openssl sha1'
+
+# Editor
+alias e=$EDITOR
+alias e.=$EDITOR .

@@ -34,14 +34,6 @@ function set_tab_title() {
     echo -ne "\033]0;$name\007"
 }
 
-function e() {
-    $EDITOR "$@"
-}
-
-function e.() {
-    e .
-}
-
 # sshp username password host extr_args
 function sshp() {
     echo "Using sshpass to ssh into $3 as $1 with password $2 and extra args ${@:4}"
@@ -121,10 +113,6 @@ function wifi-pass() {
     sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | sed 's/\/etc\/NetworkManager\/system-connections\///g' | grep $1
 }
 
-function checkContainerRunning() {
-    docker container ls -q -f name="$1"
-}
-
 # colorized man pages
 function man() {
     env \
@@ -159,7 +147,6 @@ function up () {
         echo "Couldn't go up $limit dirs.";
     fi
 }
-
 
 function restore() {
     trash-restore "$@"

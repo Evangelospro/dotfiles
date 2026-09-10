@@ -4,7 +4,7 @@ bindkey "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '^I' menu-complete
 bindkey -M menuselect '^M' .accept-line
 
-# bind ctrl + f to fzf
+# ctrl + f to fzf
 zle -N zi
 bindkey '^f' zi
 

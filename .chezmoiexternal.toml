@@ -21,12 +21,6 @@
     stripComponents = 1
     path = "Dracula.conf"
 
-[".config/zsh/plugins/zsh-syntax-highlighting/dracula.sh"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/dracula/zsh-syntax-highlighting/master/zsh-syntax-highlighting.sh"
-    executable = true
-    refreshPeriod = "168h"
-
 [".config/hypr/hyprsplit"]
     type = "git-repo"
     url = "https://github.com/shezdy/hyprsplit"
