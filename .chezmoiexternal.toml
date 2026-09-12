@@ -29,6 +29,14 @@
 {{- if (and .isHacking .isLinux) }}
 # HACKING
 
+## Active Directory
+[".local/bin/kerbrute"]
+    type = "archive-file"
+    url = '{{ gitHubLatestRelease "0xZDH/kerbrute" | toJson | fromJson | jq ".assets[10].browser_download_url" | first}}'
+    path = "kerbrute"
+    refreshPeriod = "43200h"
+    executable = true
+
 ## Cheatsheets
 [".local/share/navi/cheats/esp0xdeadbeef"]
     type = "git-repo"

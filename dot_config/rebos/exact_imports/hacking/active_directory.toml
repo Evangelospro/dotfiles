@@ -1,7 +1,12 @@
 [managers.system]
 items = [
-    "netexec",
+]
+
+[managers.uvx]
+items = [
+    "git+https://github.com/Pennyw0rth/NetExec",
+    "git+https://github.com/cddmp/enum4linux-ng",
     "impacket",
     "bloodyad",
-    "python-certipy"
+    "certipy",
 ]
