@@ -8,4 +8,3 @@ hook_name = "uvx"
 
 [config]
 many_args = false
-arg_sep = " "

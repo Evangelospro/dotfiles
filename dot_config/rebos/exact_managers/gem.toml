@@ -2,6 +2,7 @@
 
 add = "gem install #:?"
 remove = "yes| gem uninstall #:?"
+upgrade = "gem update"
 
 plural_name = "gem"
 hook_name = "gem"

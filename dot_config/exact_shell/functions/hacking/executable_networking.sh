@@ -32,22 +32,3 @@ function vpn() {
     /usr/bin/cp "$VPNS_DIR/$vpn_filename" "/tmp/$vpn_filename"
     sudo openvpn --config "/tmp/$vpn_filename"
 }
-
-# Portscanning
-nmap-default() {
-    if [ $# -eq 0 ]; then
-        echo "[i] Usage $0 ip (options)"
-    else
-        [ ! -d "./nmap" ] && echo "[i] Creating $(pwd)/nmap..." && mkdir nmap
-        sudo nmap -sCV -T4 --min-rate 10000 "${@}" -v -oA nmap/tcp_default
-    fi
-}
-
-nmap-udp() {
-    if [ $# -eq 0 ]; then
-        echo "[i] Usage: $0 ip (options)"
-    else
-        [ ! -d "./nmap" ] && echo "[i] Creating $(pwd)/nmap..." && mkdir nmap
-        sudo nmap -sUCV -T4 --min-rate 10000 "${@}" -v -oA nmap/udp_default
-    fi
-}
