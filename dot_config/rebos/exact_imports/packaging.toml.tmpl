@@ -3,6 +3,7 @@ items = [
     "rebos-git",
     {{- if eq .osID "linux-arch" }}
     "pacman-static",
+    "pacman-contrib",
     "rate-mirrors-bin",
     "downgrade",
     # hooks
@@ -10,4 +11,10 @@ items = [
     "reboot-arch-btw",
     "kernel-modules-hook",
     {{- end }}
+]
+
+[managers.systemd-system]
+items = [
+    "paccache.timer",
+    "linux-modules-cleanup"
 ]
