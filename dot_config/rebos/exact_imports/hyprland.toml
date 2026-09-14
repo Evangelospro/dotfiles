@@ -30,6 +30,7 @@ items = [
     "xdg-desktop-portal-hyprland",
     "xdg-desktop-portal-gtk",
     "hyprland",
+    "hyprpm",
     "hypridle",
     "hyprland-protocols",
     "hyprland-qt-support",
