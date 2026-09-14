@@ -6,6 +6,7 @@ items = [
 items = [
     "git+https://github.com/Pennyw0rth/NetExec",
     "git+https://github.com/cddmp/enum4linux-ng",
+    "git+https://github.com/lgandx/Responder.git",
     "impacket",
     "bloodyad",
     "certipy",

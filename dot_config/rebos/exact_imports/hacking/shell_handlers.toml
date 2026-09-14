@@ -4,8 +4,3 @@ items = [
     "penelope-git",
     "metasploit"
 ]
-
-[managers.uvx]
-items = [
-    "shellcat",
-]

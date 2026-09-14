@@ -1,18 +1,14 @@
-# python / pip
-
-## UV
+# UV
 alias venv='uv venv --relocatable --link-mode=copy'
 
-## if no arguments are passed, it will run ipython instead of python3
-alias pp='pypy3'
+# python
 alias pip='noglob pip'
-
-# pip
 alias pipi='pip install'
 alias pipir='pip install -r'
 
 # pypy
-alias pyp='pypy3 -m pip'
+alias pp='pypy3'
+alias pypi='noglob pypy3 -m pip install'
 
 # Debugging
 alias pdb="python -m pdb"

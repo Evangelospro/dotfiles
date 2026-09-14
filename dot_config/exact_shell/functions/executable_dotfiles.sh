@@ -16,5 +16,5 @@ function recommit(){
         rebos gen commit "$(date +'%Y-%m-%d %H:%M:%S')"
         return
     fi
-    rebos gen commit $@
+    rebos gen commit "$@"
 }

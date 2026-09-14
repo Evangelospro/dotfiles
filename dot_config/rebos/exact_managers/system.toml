@@ -1,8 +1,8 @@
 # system
 
-# skip tests not needed make it go Brrr
+# skip tests, make it go Brrr
 add = "paru --needed -S --mflags '--nocheck' --overwrite '*' --noconfirm #:?"
-remove = "if pkgs=$(pacman -Qq #:? 2>/dev/null); then [ -n \"$pkgs\" ] && paru -Rns $pkgs; fi"
+remove = "if pkgs=$(paru -Qq #:? 2>/dev/null); then [ -n \"$pkgs\" ] && paru -Rns $pkgs; fi"
 sync = "paru -Syy"
 upgrade = "paru -Su --devel"
 
