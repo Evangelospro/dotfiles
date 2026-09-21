@@ -1,4 +1,5 @@
-[managers.uvx]
+[managers.system]
 items = [
     "yt-dlp",
+    "yt-dlp-ejs"
 ]

@@ -10,3 +10,6 @@ setopt extended_glob
 setopt long_list_jobs
 setopt null_glob
 setopt promptsubst
+
+autoload -U select-word-style
+select-word-style bash # ctrl+backspaces now deletes to previous / when working with paths
