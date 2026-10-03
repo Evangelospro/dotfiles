@@ -32,3 +32,6 @@ alias sha1='openssl sha1'
 # Editor
 alias e=$EDITOR
 alias e.=$EDITOR .
+
+# SSH
+alias sshpass='unset SSH_ASKPASS SSH_ASKPASS_REQUIRE; sshpass'

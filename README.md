@@ -172,10 +172,6 @@ $MOD = SUPER
 
 - [configuration](dot_config/vicinae)
 
-#### Clipboard Managegment: [Clipse](https://github.com/savedra1/clipse)
-
-- ![clipboard-manager.png](Pictures/showcase/utilities/clipboard-manager.png)
-
 #### Color Picker: [Hyprpicker](https://wiki.hyprland.org)
 
 ### Terminal and Shell:
