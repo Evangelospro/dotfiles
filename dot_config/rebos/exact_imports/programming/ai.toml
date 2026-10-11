@@ -1,0 +1,11 @@
+[managers.system]
+items = [
+    "claude-code",
+    "opencode2-bin"
+    "rtk",
+]
+
+[managers.uvx]
+items = [
+    "graphify",
+]

@@ -2,9 +2,5 @@
 items = [
     "ansible",
     "ansible-core",
-]
-
-[managers.pip]
-items = [
     "mitogen",
 ]
