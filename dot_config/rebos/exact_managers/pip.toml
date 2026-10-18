@@ -1,7 +1,7 @@
 # pip
 
-add = "pip install --break-system #:?"
-remove = "if pip show #:? >/dev/null 2>&1; then pip uninstall -y #:?; fi"
+add = "pip install --break-system-packages #:?"
+remove = "if pip show #:? >/dev/null 2>&1; then pip uninstall --break-system-packages -y #:?; fi"
 
 plural_name = "pip"
 hook_name = "pip"
