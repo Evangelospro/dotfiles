@@ -1,4 +1,5 @@
 #!/bin/sh
+# config hash: {{ include "/boot/limine.conf" | sha256sum }}
 set -eu
 
 FILE="/boot/limine.conf"
@@ -9,6 +10,7 @@ if [ ! -f "$FILE" ]; then
 fi
 
 if grep -qE '^remember_last_entry:' "$FILE"; then
+    echo "Updating limine.conf to set remember_last_entry to yes"
     sudo sed -i -E 's/^remember_last_entry:.*/remember_last_entry: yes/' "$FILE"
 else
     printf '%s\n' 'remember_last_entry: yes' | sudo tee -a "$FILE" >/dev/null
