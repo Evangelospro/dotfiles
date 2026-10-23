@@ -48,6 +48,7 @@ fi
 source "$XDG_CONFIG_HOME/zsh/.zinit/zinit.zsh"
 zinit self-update
 zinit update --parallel 40
+zinit cclear
 
 /usr/bin/hyprpm update
 # if ! /usr/bin/hyprpm list | grep -q hyprexpo; then

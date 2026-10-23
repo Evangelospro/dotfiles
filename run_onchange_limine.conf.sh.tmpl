@@ -9,7 +9,9 @@ if [ ! -f "$FILE" ]; then
     exit 0
 fi
 
-if grep -qE '^remember_last_entry:' "$FILE"; then
+if grep -qE '^remember_last_entry:[[:space:]]*yes[[:space:]]*$' "$FILE"; then
+    echo "remember_last_entry is already set to yes"
+elif grep -qE '^remember_last_entry:' "$FILE"; then
     echo "Updating limine.conf to set remember_last_entry to yes"
     sudo sed -i -E 's/^remember_last_entry:.*/remember_last_entry: yes/' "$FILE"
 else
