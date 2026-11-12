@@ -1,4 +1,4 @@
-[Default Applications]
+{{- define "mimes" }}
 application/bzip2=org.gnome.FileRoller.desktop;
 application/csv=Euro-Office-Lite.desktop;
 application/epub+zip=xreader.desktop;
@@ -7,12 +7,14 @@ application/gzip=org.gnome.FileRoller.desktop;
 application/illustrator=xreader.desktop;
 application/ipfix=org.wireshark.Wireshark.desktop;
 application/java-archive=java-java-jdk.desktop;java-java-openjdk.desktop;java-java21-openjdk.desktop;recaf.desktop;
+application/json=com.microsoft.VSCodeInsiders.desktop;
 application/mpeg4-iod={{.applications.videoplayer.linux.name}}.desktop;
 application/mpeg4-muxcodetable={{.applications.videoplayer.linux.name}}.desktop;
 application/msexcel=Euro-Office-Lite.desktop;
 application/mspowerpoint=Euro-Office-Lite.desktop;
 application/msword=Euro-Office-Lite.desktop;
 application/mxf={{.applications.videoplayer.linux.name}}.desktop;{{.applications.videoplayer.linux.name}}.desktop;
+application/octet-stream=com.microsoft.VSCodeInsiders.desktop;
 application/ogg=audacity.desktop;{{.applications.videoplayer.linux.name}}.desktop;sonic-visualiser.desktop;{{.applications.videoplayer.linux.name}}.desktop;
 application/oxps=xreader.desktop;
 application/pdf={{.applications.browser.linux.name}}.desktop;
@@ -42,6 +44,7 @@ application/vnd.apple.mpegurl={{.applications.videoplayer.linux.name}}.desktop;{
 application/vnd.comicbook+zip=xreader.desktop;
 application/vnd.comicbook-rar=xreader.desktop;
 application/vnd.debian.binary-package=org.gnome.FileRoller.desktop;
+application/vnd.jupyter=com.microsoft.VSCodeInsiders.desktop;
 application/vnd.ms-asf={{.applications.videoplayer.linux.name}}.desktop;{{.applications.videoplayer.linux.name}}.desktop;
 application/vnd.ms-cab-compressed=org.gnome.FileRoller.desktop;
 application/vnd.ms-excel=Euro-Office-Lite.desktop;
@@ -145,6 +148,7 @@ application/x-gzip=org.gnome.FileRoller.desktop;
 application/x-gzpdf=xreader.desktop;
 application/x-gzpostscript=org.gnome.FileRoller.desktop;xreader.desktop;
 application/x-iptrace=org.wireshark.Wireshark.desktop;
+application/x-ipynb+json=com.microsoft.VSCodeInsiders.desktop;
 application/x-ixia-vwr=org.wireshark.Wireshark.desktop;
 application/x-jar=java-java-jdk.desktop;java-java-openjdk.desktop;java-java21-openjdk.desktop;
 application/x-java-archive=java-java-jdk.desktop;java-java-openjdk.desktop;java-java21-openjdk.desktop;org.gnome.FileRoller.desktop;
@@ -230,17 +234,7 @@ application/x-zstd-compressed-tar=org.gnome.FileRoller.desktop;
 application/xhtml+xml={{.applications.browser.linux.name}}.desktop;
 application/xhtml_xml={{.applications.browser.linux.name}}.desktop;
 application/xml={{.applications.browser.linux.name}}.desktop;
-application/x-ipynb+json={{.applications.editor.linux.name}}.desktop;
-application/vnd.jupyter={{.applications.editor.linux.name}}.desktop;
-application/json={{.applications.editor.linux.name}}.desktop;
-text/x-ipynb+json={{.applications.editor.linux.name}}.desktop;
 application/xspf+xml={{.applications.videoplayer.linux.name}}.desktop;
-
-[Added Associations]
-application/json={{.applications.editor.linux.name}}.desktop;
-application/x-ipynb+json={{.applications.editor.linux.name}}.desktop;
-application/vnd.jupyter={{.applications.editor.linux.name}}.desktop;
-text/x-ipynb+json={{.applications.editor.linux.name}}.desktop;
 application/zip=org.gnome.FileRoller.desktop;
 application/zstd=org.gnome.FileRoller.desktop;
 audio/3gpp={{.applications.videoplayer.linux.name}}.desktop;{{.applications.videoplayer.linux.name}}.desktop;
@@ -354,27 +348,27 @@ image/x-portable-pixmap={{.applications.image_viewer.linux.name}}.desktop;
 image/x-tga={{.applications.image_viewer.linux.name}}.desktop;
 image/x-xbitmap={{.applications.image_viewer.linux.name}}.desktop;
 image/xpm={{.applications.image_viewer.linux.name}}.desktop;
-inode/directory={{.applications.filemanager.linux.name}}.desktop;qdirstat.desktop;{{.applications.editor.linux.name}}.desktop;
-inode/x-empty={{.applications.editor.linux.name}}.desktop;
+inode/directory={{.applications.filemanager.linux.name}}.desktop;qdirstat.desktop;com.microsoft.VSCodeInsiders.desktop;
 inode/mount-point=qdirstat.desktop;
+inode/x-empty=com.microsoft.VSCodeInsiders.desktop;
 misc/ultravox={{.applications.videoplayer.linux.name}}.desktop;
-application/octet-stream={{.applications.editor.linux.name}}.desktop;
-text/plain={{.applications.editor.linux.name}}.desktop;
-text/x-diff={{.applications.editor.linux.name}}.desktop;
-text/*={{.applications.editor.linux.name}}.desktop;
+text/*=com.microsoft.VSCodeInsiders.desktop;
 text/comma-separated-values=Euro-Office-Lite.desktop;
 text/csv=Euro-Office-Lite.desktop;
 text/docxf=Euro-Office-Lite.desktop;
 text/google-video-pointer={{.applications.videoplayer.linux.name}}.desktop;
 text/html={{.applications.browser.linux.name}}.desktop;
 text/oform=Euro-Office-Lite.desktop;
+text/plain=com.microsoft.VSCodeInsiders.desktop;
 text/rtf=Euro-Office-Lite.desktop;
 text/spreadsheet=Euro-Office-Lite.desktop;
 text/tab-separated-values=Euro-Office-Lite.desktop;
 text/vnd.trolltech.linguist=linguist.desktop;
 text/x-comma-separated-values=Euro-Office-Lite.desktop;
 text/x-csv=Euro-Office-Lite.desktop;
+text/x-diff=com.microsoft.VSCodeInsiders.desktop;
 text/x-google-video-pointer={{.applications.videoplayer.linux.name}}.desktop;
+text/x-ipynb+json=com.microsoft.VSCodeInsiders.desktop;
 text/xml={{.applications.browser.linux.name}}.desktop;
 video/3gp={{.applications.videoplayer.linux.name}}.desktop;{{.applications.videoplayer.linux.name}}.desktop;
 video/3gpp={{.applications.videoplayer.linux.name}}.desktop;{{.applications.videoplayer.linux.name}}.desktop;
@@ -433,6 +427,7 @@ x-content/video-svcd=brasero.desktop;{{.applications.videoplayer.linux.name}}.de
 x-content/video-vcd=brasero.desktop;{{.applications.videoplayer.linux.name}}.desktop;
 x-scheme-handler/callto=Zoom.desktop;
 x-scheme-handler/com.googleusercontent.apps.590402290962-2i0b7rqma8b9nmtfrcp7fa06g6cf7g74=org.gnome.evolution-data-server.OAuth2-handler.desktop;
+x-scheme-handler/discord=discord.desktop
 x-scheme-handler/eds-oauth2=org.gnome.evolution-data-server.OAuth2-handler.desktop;
 x-scheme-handler/ftp={{.applications.browser.linux.name}}.desktop;
 x-scheme-handler/geo=google-maps-geo-handler.desktop;openstreetmap-geo-handler.desktop;qwant-maps-geo-handler.desktop;wheelmap-geo-handler.desktop;
@@ -462,4 +457,9 @@ x-scheme-handler/warp=dev.warp.Warp.desktop;
 x-scheme-handler/zoommtg=Zoom.desktop;
 x-scheme-handler/zoomphonecall=Zoom.desktop;
 x-scheme-handler/zoomus=Zoom.desktop;
-x-scheme-handler/discord=discord.desktop
+{{- end }}
+[Default Applications]
+{{ template "mimes" . }}
+
+[Added Associations]
+{{ template "mimes" . }}
