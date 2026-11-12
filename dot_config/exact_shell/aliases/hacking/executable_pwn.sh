@@ -5,5 +5,5 @@ alias gef='gdb -q -ex init-gef "$@"'
 alias pwncompile="gcc -fno-stack-protector -z execstack -no-pie"
 
 # Pwntools
-alias cyclic="pwn cyclic $@"
-alias dis="pwn disasm $@"
+alias cyclic="pwn cyclic"
+alias dis="pwn disasm"

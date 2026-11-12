@@ -1,5 +1,8 @@
 source $XDG_CONFIG_HOME/shell/wm_startup.sh
 
+# lig execs into its own PTY shell, so it must come before anything slow or that work runs twice
+(( $+commands[lig] )) && eval "$(lig init zsh pre)"
+
 # check message of the day
 [ -f /etc/motd ] && /usr/bin/cat /etc/motd
 
@@ -13,7 +16,7 @@ fi
 if [[ "${SHELL_PROFILE}" == 1 ]]; then
     echo "Starting profiler"
     zmodload zsh/zprof
-else
+elif [[ -z "${SHELL_PROFILE}" ]]; then
     $XDG_CONFIG_HOME/shell/scripts/utils/clear
 fi
 

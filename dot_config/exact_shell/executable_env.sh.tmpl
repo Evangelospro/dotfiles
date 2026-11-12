@@ -1,16 +1,22 @@
-# Export all variables
-set -a
-# Call the systemd generator that reads all files in environment.d
-source /dev/fd/0 <<EOF
+# environment.d only needs loading once per session; child shells inherit it
+if [[ -z $_SHELL_ENV_LOADED ]]; then
+    export _SHELL_ENV_LOADED=1
+    # Export all variables
+    set -a
+    # Call the systemd generator that reads all files in environment.d
+    source /dev/fd/0 <<EOF
 $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
 EOF
-set +a
-
-/usr/bin/dbus-update-activation-environment --all
+    set +a
+fi
 
 export skip_global_compinit=1
 
-export LS_COLORS=$(vivid generate dracula)
+# vivid is a fork per shell, so keep its output in a file (delete it to regenerate)
+_ls_colors_cache="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/ls_colors"
+[[ -s $_ls_colors_cache ]] || { mkdir -p "${_ls_colors_cache:h}" && vivid generate dracula >| "$_ls_colors_cache" }
+export LS_COLORS=$(<"$_ls_colors_cache")
+unset _ls_colors_cache
 export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git || git ls-tree -r --name-only HEAD || rg --files --hidden --follow --glob '!.git' || find ."
 export FZF_DEFAULT_OPTS='-i'
 

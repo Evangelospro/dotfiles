@@ -6,9 +6,6 @@ alias copydir='pwd | copy'
 alias please='sudo $(fc -ln -1)'
 alias pls='please'
 
-# Grub
-alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-
 alias shutdown="systemctl poweroff"
 alias reboot="systemctl reboot"
 
@@ -17,7 +14,7 @@ alias umount="sudo umount"
 alias mount="sudo mount"
 
 # kdeconnect
-alias share="gapplication launch ca.andyholmes.Valent $@"
+alias share="gapplication launch ca.andyholmes.Valent"
 
 # alias chmod commands
 alias mx='chmod a+x'
@@ -31,7 +28,7 @@ alias sha1='openssl sha1'
 
 # Editor
 alias e=$EDITOR
-alias e.=$EDITOR .
+alias 'e.=$EDITOR .'
 
 # SSH
 alias sshpass='unset SSH_ASKPASS SSH_ASKPASS_REQUIRE; sshpass'

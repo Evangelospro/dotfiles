@@ -1,5 +1,5 @@
 function source-all() {
-    dir=$1
+    local dir=$1 file
     if [ -z "$dir" ]; then
         echo "No directory specified"
         return 1
@@ -22,7 +22,7 @@ source-all "$XDG_CONFIG_HOME/shell/functions"
 
 function rm() {
     # if on a fuse filesystem, fallback to /usr/bin/rm
-    if findmnt -T . -o FSTYPE -n | grep -q 'fuse.seadrive'; then
+    if [[ $(findmnt -T . -o FSTYPE -n) == fuse.seadrive ]]; then
         /usr/bin/rm "$@"
         return
     fi
@@ -36,7 +36,7 @@ function set_tab_title() {
 
 # sshp username password host extr_args
 function sshp() {
-    echo "Using sshpass to ssh into $3 as $1 with password $2 and extra args ${@:4}"
+    echo "Using sshpass to ssh into $3 as $1 and extra args ${@:4}"
     sshpass -p $2 ssh -o StrictHostKeyChecking=no $1@$3 "${@:4}";
 }
 
@@ -116,13 +116,13 @@ function wifi-pass() {
 # colorized man pages
 function man() {
     env \
-    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-    LESS_TERMCAP_md=$(printf "\e[1;35m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[4;36m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[3;34m") \
+    LESS_TERMCAP_mb=$'\e[1;31m' \
+    LESS_TERMCAP_md=$'\e[1;35m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[4;36m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[3;34m' \
     PAGER="${commands[less]:-$PAGER}" \
     _NROFF_U=1 \
     man "$@"
@@ -130,11 +130,11 @@ function man() {
 
 # navigation
 function up () {
-    local d=""
+    local d="" i
     local limit="$1"
 
-    # Default to limit of 1
-    if [ -z "$limit" ] || [ "$limit" -le 0 ]; then
+    # Default to limit of 1 (also for non-numeric input)
+    if [[ $limit != <-> ]] || [ "$limit" -le 0 ]; then
         limit=1
     fi
 
@@ -164,27 +164,18 @@ function cd() {
     else
         builtin cd "$@"
     fi
-    # if [ -d .git ]; then
-    #     git_base_dir=$(git rev-parse --show-toplevel)
-    #     # check if dirhistory(OMZP modified) is enabled
-    #     if [ -n "$dirhistory_past" ]; then
-    #         # check if this directory was not visited before in this session(does not exist in dirhistory_past)
-    #         if [ -z "$(echo $dirhistory_past | grep -o $git_base_dir)" ]; then
-    #             gitfetch
-    #         fi
-    #     elif [ "$OLDPWD" != "$(basename "$git_base_dir")" ]; then
-    #         gitfetch
-    #     fi
-    # fi
 }
 
 function cat() {
-    if [ $# -eq 0 ]; then
-        command cat
+    # options, pipes and redirects need the real cat
+    if [ $# -eq 0 ] || [[ ! -t 1 ]] || [[ " $* " == *" -"* ]]; then
+        command cat "$@"
     else
-        for file in $@; do
-            # echo "Previewing $file"
-            mimetype=$(file --mime-type -b "$file")
+        local file mimetype
+        for file in "$@"; do
+            # only ask `file` for names that could be an image/pdf; everything else goes straight to bat
+            mimetype=
+            [[ ${(L)file} == *.(png|jpg|jpeg|gif|webp|bmp|svg|tiff|avif|pdf) ]] && mimetype=$(file --mime-type -b "$file")
             # allow all images and pdfs to be previewed with the kitty protocol check if it starts with image or pdf
             if [[ $mimetype == image* || $mimetype == application/pdf ]]; then
                 if [[ $TERM_PROGRAM == "WezTerm" ]]; then

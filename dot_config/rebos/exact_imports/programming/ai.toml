@@ -1,7 +1,7 @@
 [managers.system]
 items = [
     "claude-code",
-    "opencode2-bin"
+    "opencode2-bin",
     "rtk",
-    "graphify",
+    "codegraph-bin"
 ]

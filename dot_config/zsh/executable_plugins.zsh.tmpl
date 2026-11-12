@@ -8,16 +8,11 @@ source "$ZINIT[HOME_DIR]/zinit.zsh"
 zinit ice depth=1 lucid nocd
 zinit light QuarticCat/zsh-smartcache
 
-eval "$(pay-respects zsh --alias)"
+eval "$(pay-respects zsh --alias)" # output depends on whether _PR_* are already exported, so smartcache keeps flip-flopping
 # smartcache eval direnv hook zsh
 
-eval "$(zoxide init zsh)" # loaded synchronously so that zsh-autocomplete picks it up
+smartcache eval zoxide init zsh
 smartcache eval atuin init zsh --disable-up-arrow --disable-ctrl-r 2>&1 >/dev/null
-
-# Plugins for annex speedups
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-bin-gem-node
 
 # HIGHLIGHT useful after grep
 zinit ice depth=1 wait"0" lucid nocd pick"h.sh"
@@ -50,23 +45,30 @@ fi
 zinit ice depth=1 wait"0" lucid nocd
 zinit snippet $ZDOTDIR/plugins/dirhistory.zsh
 
-if [[ $(tput colors) == 256 ]]; then
+# oh-my-posh init output changes every run and breaks under smartcache, so it stays a plain eval
+zmodload zsh/terminfo
+if (( ${terminfo[colors]:-0} >= 256 )); then
     eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/config.json)"
 fi
 
-_comp_options+=(globdots) # show hidden files/directories asw
 zinit ice depth=1 wait"0" lucid nocd
 zinit light zsh-users/zsh-completions
 
-# Load zsh-patina before zsh-autocomplete to prevent autocomplete's
-# Completion registration is skipped if compdef isn't available yet;
-# zsh-autocomplete will handle compinit.
+# zsh-patina's completion registration is skipped if compdef isn't available yet
 zinit ice depth=1 wait"0" lucid nocd as"program" from"gh-r" pick"zsh-patina-*/zsh-patina" atload'eval "$(zsh-patina activate)" && (( $+functions[compdef] )) && eval "$(zsh-patina completion)"'
 zinit light michel-kraemer/zsh-patina
 
-# zsh-autocomplete must come after zoxide so no wait"0"
-zinit ice depth=1 lucid nocd
-zinit light marlonrichert/zsh-autocomplete
+# zsh-autocomplete is gone (it conflicts with lig's popup), so compinit is ours.
+# -C skips the slow compaudit; the dump is only fully rebuilt once a day.
+autoload -Uz compinit
+setopt extended_glob # needed for the (#q) age check below (options.zsh sets it anyway)
+if [[ -n ${ZINIT[ZCOMPDUMP_PATH]}(#qN.mh+24) ]]; then
+    compinit -d "$ZINIT[ZCOMPDUMP_PATH]"
+else
+    compinit -C -d "$ZINIT[ZCOMPDUMP_PATH]"
+fi
+_comp_options+=(globdots) # show hidden files/directories (compinit resets it, so set it after)
+zmodload zsh/complist # provides the menuselect keymap used by binds
 
 zinit ice wait"0" lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
