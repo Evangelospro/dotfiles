@@ -7,6 +7,7 @@
 source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/env.sh"
 
 eval "$(atuin init bash)"
+unset HISTFILE  # history lives in atuin only
 
 [[ -z "$FUNCNEST" ]] && export FUNCNEST=100          # limits recursive functions, see 'man bash'
 source "${XDG_CONFIG_HOME}"/shell/binds.sh

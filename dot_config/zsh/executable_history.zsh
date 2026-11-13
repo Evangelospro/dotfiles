@@ -1,5 +1,6 @@
-export HISTFILE=$ZDOTDIR/.zsh_history.zsh
-export SAVEHIST=100000
+# History lives in atuin only: no HISTFILE, nothing saved to disk by zsh
+unset HISTFILE
+export SAVEHIST=0
 export HISTSIZE=50000
 
 # History command configuration
@@ -8,4 +9,3 @@ setopt hist_find_no_dups      # history search shows all matches without display
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
-setopt share_history          # Share history between different instances of the shell
