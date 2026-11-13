@@ -64,6 +64,7 @@ autoload -Uz compinit
 setopt extended_glob # needed for the (#q) age check below (options.zsh sets it anyway)
 if [[ -n ${ZINIT[ZCOMPDUMP_PATH]}(#qN.mh+24) ]]; then
     compinit -d "$ZINIT[ZCOMPDUMP_PATH]"
+    zcompile "$ZINIT[ZCOMPDUMP_PATH]" # recompile in step with the daily rebuild
 else
     compinit -C -d "$ZINIT[ZCOMPDUMP_PATH]"
 fi
