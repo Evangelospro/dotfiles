@@ -25,7 +25,7 @@ alias wget="wget -c --hsts-file=$HOME/.cache/wget-hsts"
 alias update-timezone='sudo tzupdate'
 alias perms="stat --format '%a'"
 alias ffmpeg="ffpb"
-alias adb="HOME=$XDG_DATA_HOME/android adb"
+alias adb='HOME="$XDG_DATA_HOME/android" adb'
 {{- if .isNvidiaGPU }}
 alias nvidia-settings='nvidia-settings --config="$XDG_CONFIG_HOME"/nvidia/settings'
 {{- end }}
