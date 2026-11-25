@@ -6,9 +6,6 @@ items = [
     "libva-utils",
     "nvidia-utils",
     "nvidia-settings",
-    {{- if not .isAsus}}
-    "optimus-manager-qt",
-    {{- end }}
     "opencl-nvidia",
     "cuda",
     # "cudnn",
@@ -25,8 +22,5 @@ items = [
     # "nvidia-suspend",
     # "nvidia-hibernate",
     # "nvidia-resume",
-    {{- if not .isAsus}}
-    "optimus-manager",
-    {{- end }}
     "cardwired",
 ]
