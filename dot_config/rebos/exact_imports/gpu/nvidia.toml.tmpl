@@ -19,8 +19,11 @@ items = [
 
 [managers.systemd-system]
 items = [
-    # "nvidia-suspend",
-    # "nvidia-hibernate",
-    # "nvidia-resume",
+    "nvidia-suspend",
+    "nvidia-hibernate",
+    "nvidia-resume",
+    {{- if not .isAsus}}
+    "optimus-manager",
+    {{- end }}
     "cardwired",
 ]

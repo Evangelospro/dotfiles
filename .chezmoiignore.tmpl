@@ -141,3 +141,21 @@ Pictures/Screenshots
 .config/system/etc/modules-load.d/nvidia*
 .config/environment.d/*nvidia*
 {{- end}}
+
+{{- if not .isNvidiaGPU }}
+.config/system/etc/cardwire
+{{- end }}
+
+{{- if not .isHybridGPU }}
+.config/system/etc/udev/rules.d/80-nvidia-pm.rules
+{{- end }}
+
+{{- if or (not .isLaptop) .isAsus }}
+# asusd handles AC/battery profiles on ASUS
+.config/system/etc/udev/rules.d/99-power-profile.rules
+.config/system/etc/NetworkManager/conf.d/wifi-powersave.conf
+{{- end }}
+
+{{- if not .isAsus }}
+.config/system/etc/asusd
+{{- end }}

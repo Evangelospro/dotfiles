@@ -4,15 +4,21 @@ items = [
     "tzupdate", # update timezones based on geoip
     "mkinitcpio-numlock", # enable numlock on boot
     "intel-ucode",
+    "zram-generator",
+    {{- if and .isLaptop .isIntelCPU }}
+    "thermald",
+    {{- end }}
+    {{- if not .isAsus }}
     "amd-ucode",
+    {{- end }}
     "mesa-utils",
     "fwupd",
     "fwupd-efi",
     "e2fsprogs",
     "efibootmgr",
     {{- if .isAsus }}
-    "linux-g14",
-    "linux-g14-headers",
+    "linux-ogc",
+    "linux-ogc-headers",
     {{- else }}
     "linux",
     "linux-headers",
@@ -73,7 +79,6 @@ items = [
     "lvm2",
     "man-db",
     "inetutils",
-    "preload",
     "base-devel",
     "appmenu-gtk-module",
     "parallel",
@@ -87,6 +92,7 @@ items = [
     "snapper",
     "snap-pac",
     "btrfs-progs",
+    "btrfsmaintenance",
     "btrfs-assistant",
     "limine-snapper-sync",
     "snap-pac",
@@ -101,5 +107,14 @@ items = [
     "plocate-updatedb.timer",
     "bluetooth",
     "limine-snapper-sync",
-    "snapper-cleanup.timer"
+    "snapper-cleanup.timer",
+    "btrfs-balance.timer",
+    "btrfs-scrub.timer",
+    "btrfsmaintenance-refresh.path",
+    {{- if and .isLaptop .isIntelCPU }}
+    "thermald",
+    {{- end }}
+    {{- if .isLaptop }}
+    "power-profiles-daemon",
+    {{- end }}
 ]

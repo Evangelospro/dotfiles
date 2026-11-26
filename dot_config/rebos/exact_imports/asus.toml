@@ -7,6 +7,6 @@ items = [
 
 [managers.systemd-system]
 items = [
-    # "power-profiles-daemon",
     "asusd",
 ]
+

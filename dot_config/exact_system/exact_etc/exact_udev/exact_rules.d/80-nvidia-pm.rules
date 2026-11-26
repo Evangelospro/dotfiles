@@ -1,0 +1,3 @@
+# dGPU runtime PM (as in asus-linux/nvidia-laptop-power-cfg): auto on bind, on again on unbind
+ACTION=="add|bind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000|0x030200|0x040300", ATTR{power/control}="auto"
+ACTION=="unbind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000|0x030200", ATTR{power/control}="on"

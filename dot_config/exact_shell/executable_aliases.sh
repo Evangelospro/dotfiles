@@ -13,9 +13,6 @@ alias reboot="systemctl reboot"
 alias umount="sudo umount"
 alias mount="sudo mount"
 
-# kdeconnect
-alias share="gapplication launch ca.andyholmes.Valent"
-
 # alias chmod commands
 alias mx='chmod a+x'
 alias 644='chmod -R 644'

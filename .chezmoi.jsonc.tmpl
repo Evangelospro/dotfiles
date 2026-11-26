@@ -11,6 +11,10 @@
 {{- $isIntelGPU := promptBoolOnce . "isIntelGPU" "Does this computer have an Intel GPU" -}}
 {{- $isAmdGPU := promptBoolOnce . "isAmdGPU" "Does this computer have an AMD GPU" -}}
 
+{{- /* auto-detected: CPU vendor, and laptop with Nvidia dGPU + another GPU (hybrid) */ -}}
+{{- $isIntelCPU := and (stat "/proc/cpuinfo") (contains "GenuineIntel" (include "/proc/cpuinfo")) -}}
+{{- $isHybridGPU := and $isLaptop $isNvidiaGPU (or $isIntelGPU $isAmdGPU) -}}
+
 {{- $isWindows := eq .chezmoi.os "windows" }}
 {{- $isMac := eq .chezmoi.os "darwin" }}
 {{- $isLinux := eq .chezmoi.os "linux" }}
@@ -36,6 +40,8 @@
         "isNvidiaGPU": {{ $isNvidiaGPU }},
         "isIntelGPU": {{ $isIntelGPU }},
         "isAmdGPU": {{ $isAmdGPU }},
+        "isIntelCPU": {{ $isIntelCPU }},
+        "isHybridGPU": {{ $isHybridGPU }},
         "isWindows": {{ $isWindows }},
         "isMac": {{ $isMac }},
         "isLinux": {{ $isLinux }},

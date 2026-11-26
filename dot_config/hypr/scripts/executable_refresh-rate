@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Laptop panel: lowest refresh rate on battery, highest on AC. Runs from hyprland.start.
+set -u
+apply() {
+    local online=0 f
+    for f in /sys/class/power_supply/*/online; do [ "$(cat "$f")" = 1 ] && online=1; done
+    hyprctl -j monitors | jq -c '.[] | select(.name|startswith("eDP"))' | while read -r m; do
+        read -r name w h x y scale < <(jq -r '[.name,.width,.height,.x,.y,.scale]|@tsv' <<<"$m")
+        # availableModes look like "1920x1080@144.00Hz"
+        rate=$(jq -r --arg r "${w}x${h}" --argjson ac "$online" \
+            '[.availableModes[]|select(startswith($r+"@"))|split("@")[1]|rtrimstr("Hz")|tonumber]|sort|(if $ac==1 then last else first end)' <<<"$m")
+        hyprctl eval "hl.monitor({output=\"$name\",mode=\"${w}x${h}@${rate}\",position=\"${x}x${y}\",scale=$scale})" >/dev/null
+    done
+}
+apply
+udevadm monitor --udev --subsystem-match=power_supply | while read -r _; do sleep 1; apply; done

@@ -1,0 +1,4 @@
+options nvidia-drm modeset=1 fbdev=1
+{{- if .isHybridGPU }}
+options nvidia NVreg_EnableS0ixPowerManagement=1 NVreg_DynamicPowerManagement=0x02 NVreg_PreserveVideoMemoryAllocations=1
+{{- end }}

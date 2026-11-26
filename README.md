@@ -154,8 +154,6 @@ $MOD = SUPER
 
 #### OS: [Arch Linux](https://archlinux.org/)
 
-#### Kernel: [Linux-g14](https://archlinux.org/packages/?name=linux-g14) and fallback to [Linux](https://archlinux.org/packages/?name=linux)
-
 #### Display Server: [Wayland](https://wiki.archlinux.org/title/Wayland)
 
 ### GUI:

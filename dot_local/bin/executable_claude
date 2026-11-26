@@ -1,0 +1,9 @@
+#!/bin/sh
+HOOK=~/.local/bin/no-agent-summary.js
+case " ${BUN_OPTIONS-} " in
+  *" --preload=$HOOK "*|*" --preload $HOOK "*) ;;
+  *) export BUN_OPTIONS="${BUN_OPTIONS:+$BUN_OPTIONS }--preload=$HOOK" ;;
+esac
+: "${CC_AGENT_SUMMARY_LOG:=${XDG_RUNTIME_DIR:-/tmp}/no-agent-summary.log}"
+export CC_AGENT_SUMMARY_LOG
+exec /usr/bin/claude "$@"

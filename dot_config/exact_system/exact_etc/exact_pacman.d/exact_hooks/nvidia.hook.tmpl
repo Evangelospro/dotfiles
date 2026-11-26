@@ -6,7 +6,7 @@ Type=Package
 # use either nvidia-open-dkms or nvidia-dkms (if your your graphics card is not supported)
 Target=nvidia-dkms
 # Change if a different kernel is used
-Target={{- if .isAsus }}linux-g14{{- else }}linux{{- end }}
+Target={{- if .isAsus }}linux-ogc{{- else }}linux{{- end }}
 
 [Action]
 Description=Update NVIDIA module in initcpio
